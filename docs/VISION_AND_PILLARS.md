@@ -16,9 +16,9 @@ Their training, qualifications, relationships, role, actions, successes, failure
 
 ## Pillar 2 — First-person, always
 
-raWWar is always first-person and fully VR.
+raWWar is always first-person and immersive.
 
-The player interacts with the world as a person standing inside it.
+The player interacts with the world as a person standing inside it. The game is not VR-only: AnyApp is the primary host, with MyVR as a future immersive manifestation.
 
 ## Pillar 3 — Do what you want
 
