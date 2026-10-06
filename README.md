@@ -2,7 +2,7 @@
 
 **raWWar is an Experience, not an application.**
 
-It is a fully first-person, fully VR war Experience in which the soldiers themselves are the stars.
+It is a first-person, immersive war Experience in which the soldiers themselves are the stars. The game is not defined by a particular display technology.
 
 A player may live the war as an individual soldier, grow into leadership, command an organization, participate cooperatively, fight other players, or enter a massively persistent universe whose history continues whether they are present or not.
 
@@ -66,10 +66,19 @@ Hosts do not define the game. The manifest describes what is required. MicroBund
 The authoritative design documentation lives under docs/.
 
 - Game Design Bible
+- Game Design Document
 - Vision and Pillars
 - Player Roles
 - Persistent Universes
 - Open Questions
+- Systems Design
+- Narrative Design
+- Art Direction
+- Audio Direction
+- UX and Interaction
+- Multiplayer Design
+- Technical Design
+- Production Plan
 
 These documents distinguish canon, candidate design, and experiments so implementation never silently becomes game design.
 
