@@ -18,7 +18,15 @@ What does each side believe it is protecting or achieving?
 
 ### 2. What is the player?
 
-When a player first enters raWWar, are they born into a faction, recruited, assigned, stranded, volunteering, choosing a side, or something else?
+The campaign opening establishes the player as a **Commander** already embedded in a faction headquarters, but the player's origin, prior history, faction identity, and path into command remain to be defined.
+
+How did the player become Commander?
+
+What faction do they represent?
+
+What relationship do they have with the Empress?
+
+What was happening immediately before the opening scene?
 
 ### 3. What makes a soldier matter?
 
@@ -28,15 +36,13 @@ What can make one soldier memorable?
 
 ### 4. What does death mean?
 
-Does the player die?
+Campaign death is an immediate loss of the current attempt. The player is not expected to survive every encounter, but the design expectation is that they **should not die**.
 
-What survives?
+What persists after a campaign loss?
 
-What is lost?
+What does a later checkpoint preserve?
 
-What can be inherited?
-
-How does replacement work?
+How do death and replacement differ between campaign, cooperative, and persistent modes?
 
 ### 5. What makes a universe end?
 
@@ -102,6 +108,12 @@ Which systems continue continuously, which are simulated at lower fidelity, and 
 
 ### 16. What is the first ten minutes?
 
-What happens when a brand-new player puts on the headset?
+The opening campaign sequence is now defined at a high level: moniker, lightning, Imperial palace and living square, observation-driven exterior persistence, transition into the faction headquarters, Imperial soldiers ordering the Commander to report to the Empress, faction offices and dogma available for exploration, and an early assassination lesson for failure to obey.
 
-The answer should demonstrate the philosophy of raWWar before explaining it.
+The opening should demonstrate the philosophy of raWWar before explaining it.
+
+What happens immediately after the player obeys and goes to the Empress?
+
+What is the first actual mission?
+
+What does the player know about the factions and the war at that point?
