@@ -233,7 +233,73 @@ The distinction must remain explicit:
 
 No implementation detail should silently become canon.
 
-## 18. Major unanswered areas
+
+## 18. Campaign opening — lightning, palace, and the first lesson
+
+The single-player campaign opens with the raWWar moniker.
+
+After the moniker, a flash of lightning overilluminates the scene and establishes the player's first physical location: looking through a massive window from approximately eighty floors above a vast, active square.
+
+Across the square stands an obscene Imperial palace. The square remains active despite rain and severe weather. The world outside the window is not a static background: while the player remains still and continues observing it, the exterior continues to exist and remain alive.
+
+The opening deliberately teaches the player that observation matters.
+
+The moment the player moves, attention returns to the interior. Loud science-fiction air-tight doors open, followed by the mechanical sound of two Imperial soldiers moving rapidly toward the player.
+
+The soldiers reach the player and deliver the order: the Empress wants the Commander immediately in her office.
+
+The player then begins to recognize that the location is the lobby of the faction headquarters. The major factions represent the balancing power opposing the Empress. Each major faction has an office or presence within the headquarters, accompanied by its own dogma, literature, recruiting materials, and other evidence of what that faction believes.
+
+The opening is intentionally navigable rather than explanatory. The player can walk to one door, investigate another faction's presence and dogma, and explore the headquarters as a physical place.
+
+But the game is also deliberately hard-learned.
+
+When the Imperial soldiers order the Commander to proceed immediately, the player has approximately five seconds to comply. If the player does not proceed, both soldiers raise their weapons. They then provide a three-second countdown and execute the player.
+
+There is enough warning to understand exactly what is happening, but not enough warning to make death feel like an arbitrary technical trap.
+
+The intended sequence is:
+
+1. Lightning.
+2. Imperial palace.
+3. Rain and living square.
+4. The player observes the exterior.
+5. Movement causes attention to return to the interior.
+6. Air-tight doors open loudly.
+7. Two Imperial soldiers approach at haste.
+8. They order the Commander to report immediately to the Empress.
+9. The player discovers the faction headquarters.
+10. The player can investigate faction offices and their dogma.
+11. Failure to obey the immediate order results in execution.
+
+This opening establishes several truths without a tutorial:
+
+- The world is physically present and continues to exist when observed.
+- The player is a person with a position and obligations inside the world.
+- Authority has consequences.
+- Factions have distinct beliefs and recruiting identities.
+- The player can explore, but exploration does not suspend danger.
+- raWWar expects the player to learn through consequence rather than repeated safety rails.
+
+## 19. Death is immediate loss
+
+Death is not a temporary inconvenience.
+
+In the single-player campaign, the player should not die. Death means the player has lost.
+
+The player can lose through assassination, defeat by invading forces, destruction during an assault on an enemy position, stepping on a landmine, or other lethal failures.
+
+The principle is intentionally severe:
+
+> **Do not die.**
+
+There should be no expectation that a death merely resets the player a few seconds backward and allows them to continue as though nothing happened.
+
+Later campaign progression can introduce checkpoints so that a player does not necessarily have to replay the entire opening sequence after every failure. Checkpoints are a convenience for campaign progression, not a weakening of the underlying rule that death is immediate loss of the current attempt.
+
+The opening assassination is therefore representative of the campaign's intended teaching style: the player receives enough information to recognize the danger, and then the world expects the player to act.
+
+## 20. Major unanswered areas
 
 The Bible is intentionally incomplete.
 
