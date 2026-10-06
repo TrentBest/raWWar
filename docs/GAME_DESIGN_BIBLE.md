@@ -6,7 +6,7 @@ Authority: creator statements are canon unless explicitly marked otherwise.
 
 ## 1. What raWWar is
 
-raWWar is a fully first-person, fully VR war Experience.
+raWWar is a fully first-person, immersive war Experience.
 
 It is not fundamentally a shooter with unrelated extra modes. It is a living war in which the player inhabits a role inside the war, and that role can be radically different from player to player.
 
@@ -16,7 +16,26 @@ The central design statement is:
 
 Commanders, researchers, mechanics, builders, pilots, operators, crew, scientists, and other roles exist because they are ways for players to participate in the same world.
 
-## 2. Modes of participation
+## 2. Platform and immersion model
+
+raWWar is **AnyApp first**.
+
+The primary runtime is a desktop AnyApp host. The Experience is designed and simulated so that the desktop runtime is the authoritative companion capable of performing the heavy processing required by the world.
+
+**MyVR comes next.** A VR client can connect to the AnyApp companion and receive the information required to present the immersive first-person view. The VR device performs the work that is more efficient or necessarily local to the headset, while substantial simulation and processing can remain on the desktop companion.
+
+This establishes a deliberate split:
+
+- **AnyApp** — primary Experience host and heavy-processing companion.
+- **MyVR** — immersive VR client and device-side presentation/runtime boundary.
+- **raWWar** — the Experience and game simulation, not a VR application itself.
+- **Renderer** — provides the rendering technology and platform-neutral rendering boundary used by the Experience.
+
+The architecture must not make VR a prerequisite for the game.
+
+The game itself, however, is always **FPS and immersive**. The player should experience the world from first-person presence whether that presentation is delivered to a desktop display or through a VR client.
+
+## 3. Modes of participation
 
 The current intended modes are:
 
@@ -30,7 +49,7 @@ The current intended modes are:
 
 These should eventually share the same underlying world model rather than becoming unrelated implementations.
 
-## 3. First-person rule
+## 4. First-person rule
 
 raWWar is always experienced from the first-person perspective.
 
@@ -38,7 +57,9 @@ The player is physically present in the world.
 
 Menus, management, recreation, research, construction, command, and combat should therefore be designed as diegetic activities wherever practical.
 
-## 4. Soldier life
+This is an **experience rule**, not a hardware rule: first-person immersion does not imply VR-only.
+
+## 5. Soldier life
 
 A soldier can qualify for equipment, accept missions, deploy with a squad, remain with their unit when no mission is available, enter downtime, train in barracks, participate in specialized squads, operate specialized vehicles and equipment, and pursue activities outside direct combat.
 
@@ -46,7 +67,7 @@ Downtime is not dead time.
 
 The intended world contains places such as an arcade and simulated air hockey so players can socialize and play games while remaining inside the world.
 
-## 5. Command life
+## 6. Command life
 
 Command is also first-person.
 
@@ -56,7 +77,7 @@ Command activities include overseeing forces, talking directly with researchers,
 
 A commander is not merely a detached strategy screen. The commander is a person inside the command organization.
 
-## 6. Military reviews and leadership
+## 7. Military reviews and leadership
 
 A commander may pay for military reviews.
 
@@ -66,7 +87,7 @@ A well-delivered speech may materially motivate troops and enable extraordinary 
 
 The exact mechanics of morale, speech quality, audience response, and leadership bonuses remain to be designed.
 
-## 7. Headquarters assault
+## 8. Headquarters assault
 
 One intended high-level command scenario is an assault on an enemy headquarters.
 
@@ -74,7 +95,7 @@ A commander who participates personally may infiltrate the enemy base, reach the
 
 The dramatic confrontation is intended to preserve player agency rather than resolve the moment through a cutscene.
 
-## 8. Organization and barracks
+## 9. Organization and barracks
 
 Soldiers train in barracks.
 
@@ -86,7 +107,7 @@ When multiple specialized squads are required, each squad has a distinct trainin
 
 This makes base design part of military organization. A commander is not merely placing decorative buildings; the base determines what the organization can train, maintain, and operate.
 
-## 9. Work is gameplay
+## 10. Work is gameplay
 
 raWWar intentionally allows players to choose useful work as gameplay.
 
@@ -110,7 +131,7 @@ A player can transport plates, deliver materials, qualify as a construction squa
 
 The construction process itself is gameplay.
 
-## 10. Air and space
+## 11. Air and space
 
 The war is not restricted to ground combat.
 
@@ -120,7 +141,7 @@ Space battles can involve massive fleets.
 
 The same first-person principle applies: the player inhabits a station, cockpit, bridge, command center, or other physical role rather than switching to an abstract strategic interface.
 
-## 11. The design consequence
+## 12. The design consequence
 
 The breadth of raWWar is intentional.
 
@@ -134,7 +155,7 @@ The deeper question is:
 
 The Experience should allow players to discover their own preferred form of participation.
 
-## 12. Design discipline
+## 13. Design discipline
 
 The distinction must remain explicit:
 
@@ -144,7 +165,7 @@ The distinction must remain explicit:
 
 No implementation detail should silently become canon.
 
-## 13. Major unanswered areas
+## 14. Major unanswered areas
 
 The Bible is intentionally incomplete.
 
