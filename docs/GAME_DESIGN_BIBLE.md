@@ -95,7 +95,20 @@ A commander who participates personally may infiltrate the enemy base, reach the
 
 The dramatic confrontation is intended to preserve player agency rather than resolve the moment through a cutscene.
 
-## 9. Organization and barracks
+## 9. Organization, staffing, and living military scale
+
+The military base is science-fiction military infrastructure, not a small collection of generic buildings.
+
+A base can contain aircraft, launch pads, ground crews, scientists, maintenance personnel, security, logistics personnel, and large numbers of trained soldiers. A facility may be physically present but operationally unavailable when it does not have enough qualified personnel to staff it.
+
+For example, an aircraft can require a flight crew plus a trained ground crew. A VTOL launch pad can require an eight-person crew per shift. If the organization cannot supply enough qualified people, the launch pad has inoperable periods rather than magically functioning anyway.
+
+The same principle applies throughout the military: **capacity is not the same thing as readiness**. Facilities, vehicles, squads, and formations become operational through people and qualifications.
+
+Barracks remain a foundational training structure. A barracks supports a squad of four, while advanced facilities and vehicles can require multiple specialized squads. The resulting staffing requirements are intended to create a living organization rather than an abstract unit-count economy.
+
+The intended visual scale is enormous. A commander looking across a major base may see hundreds of thousands of soldiers and staff moving with military precision, alongside hundreds of scientists and the personnel required to maintain the facility. From command, these can be represented as numbers, requisition goals, readiness targets, and staffing requirements. To the individual soldier, the same numbers represent jobs, advancement, training opportunities, and people they know.
+
 
 Soldiers train in barracks.
 
@@ -107,7 +120,22 @@ When multiple specialized squads are required, each squad has a distinct trainin
 
 This makes base design part of military organization. A commander is not merely placing decorative buildings; the base determines what the organization can train, maintain, and operate.
 
-## 10. Work is gameplay
+## 10. Qualification, identity, and progression
+
+Training is a primary pillar of raWWar.
+
+Soldiers are not generic interchangeable combat units. A soldier can train, qualify, earn ratings, gain rank, receive insignia, and accumulate visible recognition for what they have learned to do.
+
+The intended presentation includes a physical ribbon or other award displayed on the player's chest for each qualification or achievement, together with ratings and rank insignia. The player's history should therefore become visible on the body of the soldier.
+
+Qualifications are intended to open opportunities. A soldier may pursue different training paths depending on what they want to do, including specialist equipment, research, construction, piloting, command, intelligence, sabotage, or other military occupations.
+
+Some paths can require a change in status. For example, flight training may require conversion to officer status. Officer training can include an immersive simulation program that deliberately exposes the trainee to demanding situations, interrupts expectations, and tests their ability to cope with command pressure. These simulations are not necessarily intended to teach the final skill directly; they can be designed to shock, challenge, and reveal what the trainee is capable of, followed by recovery and a choice of what qualification to pursue next.
+
+The progression model is currently best described as **skill-tree-like qualification discovery**, rather than a finalized class system. The player can see or discover opportunities and decide what they want to chase.
+
+A meta control console may eventually let a player influence the kinds of situations they are seeking: a chaotic bloodbath, a prolonged invasion, a siege, a defensive action, or other scenario characteristics. This is an active design area, not yet a finalized rule.
+
 
 raWWar intentionally allows players to choose useful work as gameplay.
 
@@ -155,7 +183,47 @@ The deeper question is:
 
 The Experience should allow players to discover their own preferred form of participation.
 
-## 13. Design discipline
+## 13. Rules, procedures, and emergent military behavior
+
+Soldiers obey the rules established by their commander and military organization.
+
+Rules are therefore part of the commander's responsibility, not merely hard-coded assumptions. The organization can discover and formalize procedures in response to failures.
+
+For example, if a squad is run over by a tank while attempting to cross a roadway, command may establish a minimum marching formation of two squads. One squad can provide a road guard while the other passes safely, with personnel posted to stop traffic before the formation crosses. The rule becomes part of how soldiers behave thereafter.
+
+Marching groups can call cadences. Road guards, traffic control, formation requirements, staffing rules, and similar procedures should be capable of becoming observable behavior throughout the base.
+
+This is a major part of the intended **alive** quality: the world should exhibit organization, memory, procedure, and adaptation rather than merely animating individual characters.
+
+## 14. Intelligence, sabotage, and asymmetric participation
+
+The war includes intelligence work and asymmetric roles.
+
+Players can send spies and saboteurs, and can themselves become spies or saboteurs. These roles are intended to operate within the same qualification and organizational model as every other occupation.
+
+The exact intelligence model, concealment rules, identification, counterintelligence, and consequences remain open.
+
+## 15. Personal economy and exceptional equipment
+
+The in-world arcade can contain games of chance using raWWar digital currency rather than real-world gambling value.
+
+The currency can be used by soldiers to obtain personal equipment and customization beyond standard military issue, including armor, decals, vehicles, and potentially personally owned tanks.
+
+A personally owned vehicle can be customized from a chassis and available parts, allowing the player to trade resources for performance, capability, and expression.
+
+This is intended to create a personal layer inside the enormous military organization: the commander's requisition system sees force capacity, while the individual soldier also has personal goals, possessions, identity, and status.
+
+The exact economy, balance, ownership rules, and gambling implementation remain to be designed.
+
+## 16. The world should always be doing something
+
+A central presentation goal is that raWWar should remain alive wherever it is observed.
+
+The base should not become a static backdrop when the player looks away. Soldiers should be moving with purpose, aircraft and ground crews should execute procedures, scientists should conduct work, construction should progress, logistics should move materials, and organizations should respond to rules and events.
+
+This is not a promise that every visible entity must always be simulated at maximum detail. It is a design goal for the Experience: **wherever the player observes, there should be evidence of a living system.**
+
+## 17. Design discipline
 
 The distinction must remain explicit:
 
@@ -165,7 +233,7 @@ The distinction must remain explicit:
 
 No implementation detail should silently become canon.
 
-## 14. Major unanswered areas
+## 18. Major unanswered areas
 
 The Bible is intentionally incomplete.
 
