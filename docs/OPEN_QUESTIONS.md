@@ -117,3 +117,32 @@ What happens immediately after the player obeys and goes to the Empress?
 What is the first actual mission?
 
 What does the player know about the factions and the war at that point?
+
+
+### 17. What is the player equipment progression?
+
+What is the canonical entry-level exoskeleton?
+
+Which additions are military issue, earned, purchased, discovered, or persistent-universe exclusive?
+
+How much customization is available in campaign, cooperative campaign, and persistent play?
+
+How does equipment affect qualification, readiness, maintenance, power, and identity?
+
+### 18. How large is cooperative campaign?
+
+What scenarios support two players? What changes at 8, 32, 64, or approximately 128 players?
+
+Can cooperating players belong to different factions?
+
+How are objectives, information, command authority, and conflicting interests handled?
+
+### 19. What is the raWWar visual language?
+
+What makes a raWWar soldier, vehicle, facility, weapon, and faction recognizable as belonging to this universe?
+
+Which elements are modular, procedural, hand-authored, or generated?
+
+### 20. What is the content production pipeline?
+
+How are original soldiers, vehicles, environments, animation, audio, and effects authored, validated, versioned, and delivered to the Experience and Workshop Renderer?
