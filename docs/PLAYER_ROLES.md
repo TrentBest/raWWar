@@ -55,3 +55,22 @@ Players can command ships and fleets from inside the command structure of a vess
 Downtime supports social play and diegetic games such as arcade machines and simulated air hockey.
 
 The important design rule is that these roles should feel like occupations inside the world, not menu selections that teleport the player into isolated mini-games.
+
+## Additional roles and progression concepts
+
+### Intelligence / Sabotage
+
+Players can qualify as spies or saboteurs, and commanders can deploy them as part of military operations.
+
+### Ground crew
+
+Ground crew keep aircraft and other advanced systems operational. Staffing is a qualification problem: equipment can remain unavailable when enough qualified personnel are not present.
+
+### Staff and facility personnel
+
+Large bases contain the people required to operate facilities, maintain infrastructure, perform research, move resources, and enforce procedures. Their qualifications contribute to organizational readiness.
+
+### Qualifications as the common progression system
+
+Roles are not intended to form a fixed class list. Qualifications are the mechanism by which soldiers gain access to new occupations, equipment, facilities, and opportunities.
+
