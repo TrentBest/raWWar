@@ -76,7 +76,31 @@ How much can subordinates reinterpret orders?
 
 Is qualification a certification, a progression path, a permission system, or all three?
 
-### 10. What is the first ten minutes?
+### 10. How large is the living simulation?
+
+What population and simulation levels are authoritative? How are hundreds of thousands of visible soldiers represented while preserving individual identity and meaningful behavior?
+
+### 11. What is the qualification graph?
+
+Which qualifications exist? Which require other qualifications, rank, officer status, training facilities, or organizational need?
+
+### 12. How do rules evolve?
+
+Who can establish, modify, revoke, and enforce military procedures? Can organizations learn from failures and formalize new rules?
+
+### 13. What does readiness mean?
+
+How do staffing, training, fatigue, maintenance, supplies, and qualifications combine into operational readiness?
+
+### 14. What is the personal economy?
+
+What can soldiers own? What can they buy with raWWar digital currency? How are customized vehicles balanced against military equipment?
+
+### 15. How alive is the world when unobserved?
+
+Which systems continue continuously, which are simulated at lower fidelity, and which are abstracted until observation makes detail necessary?
+
+### 16. What is the first ten minutes?
 
 What happens when a brand-new player puts on the headset?
 
