@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620">
+  <rect width="1600" height="620" fill="#0b0d12"/>
+  <text x="800" y="55" text-anchor="middle" fill="#f4f4f4" font-family="Arial, sans-serif" font-size="34" font-weight="700">THE THIRTEEN — HIDDEN IMPERIAL ALIGNMENT</text>
+  <text x="800" y="88" text-anchor="middle" fill="#aeb5c2" font-family="Arial, sans-serif" font-size="18">The player sees thirteen doors. The galaxy sees thirteen political forces.</text>
+  <line x1="110" y1="310" x2="1490" y2="310" stroke="#8d95a3" stroke-width="4"/>
+  <text x="110" y="145" fill="#aeb5c2" font-family="Arial, sans-serif" font-size="18">MOST ALIGNED WITH EMPRESS</text>
+  <text x="1490" y="145" text-anchor="end" fill="#aeb5c2" font-family="Arial, sans-serif" font-size="18">OPENLY HOSTILE</text>
+  <text x="800" y="175" text-anchor="middle" fill="#aeb5c2" font-family="Arial, sans-serif" font-size="16">Alignment is hidden from the player.</text>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <g fill="#d9dce2" stroke="#0b0d12" stroke-width="5">
+      <circle cx="110" cy="310" r="38"/><circle cx="225" cy="310" r="38"/><circle cx="340" cy="310" r="38"/>
+      <circle cx="455" cy="310" r="38"/><circle cx="570" cy="310" r="38"/><circle cx="685" cy="310" r="38"/>
+      <circle cx="800" cy="310" r="42"/><circle cx="915" cy="310" r="38"/><circle cx="1030" cy="310" r="38"/>
+      <circle cx="1145" cy="310" r="38"/><circle cx="1260" cy="310" r="38"/><circle cx="1375" cy="310" r="38"/>
+      <circle cx="1490" cy="310" r="38"/>
+    </g>
+    <g fill="#0b0d12" font-size="22" font-weight="700">
+      <text x="110" y="318">1</text><text x="225" y="318">2</text><text x="340" y="318">3</text>
+      <text x="455" y="318">4</text><text x="570" y="318">5</text><text x="685" y="318">6</text>
+      <text x="800" y="318">7</text><text x="915" y="318">8</text><text x="1030" y="318">9</text>
+      <text x="1145" y="318">10</text><text x="1260" y="318">11</text><text x="1375" y="318">12</text>
+      <text x="1490" y="318">13</text>
+    </g>
+    <g fill="#f4f4f4" font-size="15">
+      <text x="110" y="385">Veyr</text><text x="225" y="385">Cael</text><text x="340" y="385">Oris</text>
+      <text x="455" y="385">Sere</text><text x="570" y="385">Avar</text><text x="685" y="385">Talan</text>
+      <text x="800" y="385">Merid</text><text x="915" y="385">Rhen</text><text x="1030" y="385">Solenne</text>
+      <text x="1145" y="385">Kharos</text><text x="1260" y="385">Nyr</text><text x="1375" y="385">Voss</text>
+      <text x="1490" y="385">Draven</text>
+    </g>
+  </g>
+  <rect x="65" y="455" width="1470" height="92" rx="16" fill="#141923" stroke="#303846"/>
+  <text x="800" y="493" text-anchor="middle" fill="#f4f4f4" font-family="Arial, sans-serif" font-size="21" font-weight="700">POLITICAL ALIGNMENT ≠ MORALITY</text>
+  <text x="800" y="523" text-anchor="middle" fill="#aeb5c2" font-family="Arial, sans-serif" font-size="16">A faction can cooperate with the Empress and still be admirable. Another can oppose her and still become monstrous.</text>
+</svg>
