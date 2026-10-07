@@ -35,6 +35,38 @@ The architecture must not make VR a prerequisite for the game.
 
 The game itself, however, is always **FPS and immersive**. The player should experience the world from first-person presence whether that presentation is delivered to a desktop display or through a VR client.
 
+
+## 2.1 Galactic universe
+
+The game universe is a **galaxy**.
+
+The Empire spans many star systems. raWWar is therefore one continuous war environment rather than a sequence of disconnected maps.
+
+The hierarchy of scale is:
+
+**galaxy → star systems → worlds → organizations → units → soldiers**
+
+The player can act personally while still changing conditions at the larger scales.
+
+## 2.2 Warp travel
+
+Warp drives exist, but they require **days to initialize and prepare for a jump**.
+
+This is intentional.
+
+Distance therefore remains meaningful. Fleets, reinforcements, logistics, information, and player decisions operate on a strategic timescale rather than allowing instantaneous movement between worlds.
+
+Warp preparation is itself part of the living world: ships, crews, engineering, navigation, protection, scheduling, and readiness all matter during the preparation period.
+
+The exact warp physics remain to be illuminated.
+
+## 2.3 The campaign is a continuous universe
+
+Campaign operations are not isolated maps.
+
+A world attacked by the player is a location in the continuing galactic war. Ownership, resources, defenders, faction relationships, Imperial demands, and consequences remain part of the universe after the operation.
+
+
 ## 3. Modes of participation
 
 The current intended modes are:
