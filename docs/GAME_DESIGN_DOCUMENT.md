@@ -2431,6 +2431,11 @@ Define whether this is:
 
 # 39. Living World Simulation
 
+![The living-world target](images/rawwar-living-world.svg)
+
+> **The world should never reveal itself to be fake when the player looks somewhere else.**
+
+
 The world must continue doing meaningful work.
 
 Examples:
