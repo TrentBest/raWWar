@@ -16,11 +16,27 @@ Experience Manifest
 The Experience owns its meaning. Hosts and renderers provide execution/presentation capabilities.
 
 ## Simulation
+
+FSM_API is the behavioral foundation for state-driven entities and interdependent procedures.
+
+The goal is to express behavior through data, relationships, requirements, providers, and FSMs rather than hard-coding an enormous bespoke implementation for every occupation.
+
+Gestures extend this model into physical motion. A Gesture is a sequence of poses plus a mathematical transition rule. Gesture FSMs can be supplied by the capability that owns a physical interaction, such as a vehicle or building MicroBundle.
 FSM_API is the behavioral foundation for state-driven entities and interdependent procedures.
 
 The goal is to express behavior through data, relationships, requirements, providers, and FSMs rather than hard-coding an enormous bespoke implementation for every occupation.
 
 ## Renderer
+
+The Workshop Renderer is its own technology and should remain platform/API independent.
+
+It is responsible for turning authoritative world state into an appropriate presentation, not for defining the world state.
+
+Observation-relative detail and event-horizon/LOD concepts belong in the rendering architecture without allowing visual detail to become simulation truth.
+
+The Renderer should be capable of presenting enormous populations without requiring a traditional CPU animation instance for every entity. Candidate GPU state representations can encode compact per-entity state and allow compute shaders to transform only the relevant channels.
+
+Gesture evaluation is therefore a natural Renderer workload: the authoritative FSM/state determines what should happen, while GPU-oriented computation determines how that state becomes large-scale visible motion.
 The Workshop Renderer is its own technology and should remain platform/API independent.
 
 It is responsible for turning authoritative world state into an appropriate presentation, not for defining the world state.
@@ -28,6 +44,12 @@ It is responsible for turning authoritative world state into an appropriate pres
 Observation-relative detail and event-horizon/LOD concepts belong in the rendering architecture without allowing visual detail to become simulation truth.
 
 ## Manifest and MicroBundles
+
+raWWar should remain manifest-driven.
+
+Capabilities should be independently composable where practical. MicroBundles should represent meaningful capability boundaries rather than arbitrary code packaging.
+
+This is especially important for physical interaction. A vehicle MicroBundle can own the vehicle's interaction points and Gesture Providers rather than requiring raWWar to contain vehicle-specific animation logic.
 raWWar should remain manifest-driven.
 
 Capabilities should be independently composable where practical. MicroBundles should represent meaningful capability boundaries rather than arbitrary code packaging.
@@ -54,6 +76,12 @@ The Experience will eventually require explicit schemas for:
 Persistent systems should be designed so state can be reconstructed or resumed without relying on a rendered scene as the source of truth.
 
 ## Performance
+
+Performance requirements should be derived from intended world scale and observation requirements.
+
+The technical design should distinguish simulation cost, persistence cost, network cost, and rendering cost.
+
+For soldier populations, the target is to keep authoritative state compact and move large amounts of repetitive visual computation into GPU-parallel work. Event horizons should reduce pose/Gesture fidelity as distance increases. The same world can therefore contain very large populations without treating every visible soldier as an equally expensive simulation object.
 Performance requirements should be derived from intended world scale and observation requirements.
 
 The technical design should distinguish simulation cost, persistence cost, network cost, and rendering cost.
