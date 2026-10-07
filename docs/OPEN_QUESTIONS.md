@@ -146,3 +146,5 @@ Which elements are modular, procedural, hand-authored, or generated?
 ### 20. What is the content production pipeline?
 
 How are original soldiers, vehicles, environments, animation, audio, and effects authored, validated, versioned, and delivered to the Experience and Workshop Renderer?
+
+21. How is the Gesture system authored, represented, evaluated, individualized, and integrated with the Renderer and MicroBundle Gesture Providers?
