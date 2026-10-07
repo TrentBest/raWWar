@@ -923,22 +923,6 @@ Customization may trade resources for:
 - expression;
 - maintenance burden.
 
-## 11.8 Mode-specific customization
-
-Persistent universes may permit substantially more customization than campaign or cooperative play.
-
-### Illumination Needed
-
-Define exactly what is:
-
-- military issue;
-- earned;
-- purchased;
-- discovered;
-- crafted;
-- faction-specific;
-- persistent-universe-only.
-
 ## 11.6 Technology quality is observable
 
 Technology quality should be visible through use.
@@ -976,6 +960,22 @@ A terminal operator might watch:
 - an operation requiring supervision.
 
 This gives observation technology gameplay meaning and creates a natural connection between equipment progression and Event Horizons.
+
+## 11.8 Mode-specific customization
+
+Persistent universes may permit substantially more customization than campaign or cooperative play.
+
+### Illumination Needed
+
+Define exactly what is:
+
+- military issue;
+- earned;
+- purchased;
+- discovered;
+- crafted;
+- faction-specific;
+- persistent-universe-only.
 ---
 
 # 12. Vehicles
