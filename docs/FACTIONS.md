@@ -38,7 +38,21 @@ The galaxy is therefore not a two-sided war.
 
 It is a constantly changing political ecosystem.
 
-## 2. Why thirteen?
+## 2. Historical origins
+
+The thirteen factions are historical products of the Empire rather than arbitrary teams. The Empire first unified worlds by solving real interstellar problems—trade, navigation, defense, infrastructure, law, and coordination—and later became increasingly centralized. The factions emerged from different responses to that centralization: stability, administration, production, knowledge, tradition, commerce, consent, frontier survival, civilian welfare, military independence, local sovereignty, revolution, and outright defiance.
+
+See [Empire History & Faction Origins](EMPIRE_HISTORY_AND_FACTION_ORIGINS.md) for the shared history that explains why these political forces exist.
+
+## 3. Dispositions
+
+Faction identity is now modeled through dispositions as well as capabilities. Initial dimensions include Imperial alignment, value of life, individual freedom, centralization, tradition, innovation, commerce, military orientation, civilian protection, risk tolerance, pragmatism, coercion tolerance, and collective duty.
+
+These are tendencies rather than morality scores. They influence what a faction is inclined to do when capability and circumstances permit it, and they can drift as history changes the faction.
+
+See [Faction Dispositions](FACTION_DISPOSITIONS.md) for the initial matrix and behavioral model.
+
+## 4. Why thirteen?
 
 Three major houses are sufficient for a dramatic triangle, but a galaxy-spanning war should not feel as though the number of meaningful powers was chosen because it was easier to implement.
 
