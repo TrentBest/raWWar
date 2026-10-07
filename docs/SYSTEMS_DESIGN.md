@@ -170,3 +170,118 @@ Persistent universes need an authoritative state model capable of surviving play
 
 ## Design discipline
 No system becomes canon merely because it was convenient to implement.
+
+
+## Training capacity and organizational bottlenecks
+
+Training capacity is a real resource in the organization.
+
+A standard barracks contains four VR training modules and can therefore train one four-person squad at a time. This makes barracks a production bottleneck for **human capability**, not merely a housing requirement.
+
+A larger vehicle or facility that requires multiple specialized squads must have a corresponding number of trained squads available. The requirement propagates recursively:
+
+```text
+Capability
+  → required crew
+    → required squads
+      → required qualifications
+        → required training
+          → required barracks capacity
+            → required construction / staffing
+```
+
+Construction participates in the same dependency graph. A building may require a qualified construction crew; an advanced building may require more advanced construction qualifications; those qualifications require training capacity.
+
+The organization therefore grows through physical infrastructure and human infrastructure together.
+
+## Diegetic management and decisions
+
+The management model should preserve the useful decision density of an RTS while removing the requirement that the player operate an abstract management screen.
+
+The authoritative state remains structured data. The presentation of that state can be physical.
+
+For example:
+
+- an advisor explains a research opportunity;
+- the administrator provides the current program state;
+- prerequisites and consequences are communicated;
+- a tablet presents the finite choices;
+- the player authorizes or rejects the proposal;
+- the resulting decision becomes authoritative state;
+- FSM procedures propagate the consequences through staffing, training, construction, research, and production.
+
+The tablet is a **diegetic control surface**, not a replacement for the underlying data model.
+
+This gives the Experience both things it needs:
+
+1. deterministic, machine-readable choices;
+2. first-person physical presence.
+
+## Research facility lifecycle
+
+A research facility is itself a capability network.
+
+Conceptually:
+
+```text
+Headquarters underground office
+        ↓
+Administrator / research management
+        ↓
+Research program
+        ↓
+Required personnel + qualifications
+        ↓
+Research facility
+        ↓
+Experiment / prototype
+        ↓
+Scheduled demonstration
+        ↓
+Commander observes
+        ↓
+Authorization / rejection
+        ↓
+Production opportunity
+        ↓
+Field deployment
+        ↓
+Field experience
+        ↓
+New research questions
+```
+
+The player should be able to physically visit the facility and observe the research operating.
+
+A facility that cannot be staffed or supported is not magically productive because it exists.
+
+## ProtocolAi and future conversational control
+
+A future conversational layer is a **Candidate**, not a current implementation requirement.
+
+The desired boundary is:
+
+```text
+Player behavior / intent
+        ↓
+ProtocolAi
+        ↓
+deterministic semantic representation
+        ↓
+available capabilities / legal choices
+        ↓
+FSM_COS / FSM procedures
+        ↓
+authoritative state
+```
+
+A future LLM may sit above this boundary as a language/reasoning interface, including for advisors or enemy leaders. It should not be the authority that invents game actions.
+
+ProtocolAi can provide the semantic bridge that allows a language model to understand what the player is doing or asking while restricting the resulting action to choices the Experience actually exposes.
+
+The long-term possibility of a Workshop-native LLM built on the same technology is explicitly deferred. It is **not required for the current raWWar architecture**.
+
+The deterministic rule is more important than the model:
+
+> **The model may interpret intent. The Experience decides what can actually happen.**
+
