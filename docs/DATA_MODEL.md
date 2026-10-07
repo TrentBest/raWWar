@@ -80,6 +80,25 @@ Candidate state includes:
 - current orders;
 - current interaction.
 
+Equipment state should preserve the distinction between what technology **is capable of** and what this particular item currently provides.
+
+Relevant derived equipment state may include:
+
+- research generation;
+- production quality;
+- condition;
+- power state;
+- sensor/camera quality;
+- communications quality;
+- comfort/ergonomics;
+- reliability;
+- maintenance state;
+- installed modifications;
+- ownership;
+- operating constraints.
+
+The same semantic equipment family can therefore produce materially different experiences depending on research, manufacture, configuration, and use.
+
 ## Relationships
 
 Relationships are first-class.
