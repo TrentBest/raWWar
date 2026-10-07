@@ -122,3 +122,12 @@ The exact publishing architecture remains open.
 This document is a presentation/design concept only.
 
 No WebPage implementation is implied by this document.
+
+
+## Experience Architecture
+
+Expose [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) as a dedicated deep dive showing what raWWar owns, what FSM_API/FSM_COS/MicroBundles/AnyApp/Renderer provide, what Event Horizons mean, and what the Experience deliberately does not reinvent.
+
+The public presentation should use architecture diagrams, responsibility tables, scale visualizations, and interactive examples rather than implementation prose alone.
+
+> **The game is the Experience. The machinery is the Workshop.**
