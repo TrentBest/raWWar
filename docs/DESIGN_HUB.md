@@ -32,6 +32,10 @@ The raWWar design hub should expose:
 - **Qualification Graph** — prerequisite paths, training tiers, instructor bottlenecks, and readiness.
 - **Crew Composition Matrix** — how vehicles, facilities, factories, and construction work consume qualified people.
 - **Industrial Dependency Graph** — materials, components, factories, production readiness, and fielding dependencies.
+- **Building Catalogue** — the first physical building families, lifecycle states, capabilities, crews, and dependencies.
+- **3D Base Planning** — drag-and-drop spatial planning, non-orthogonal placement, ghost/planned/construction/solid states, and construction procedures.
+- **Chassis & Vehicle Configuration** — chassis research, affixable modules, deterministic configurations, and production/crew dependencies.
+- **Deterministic Simulation & Research** — frames versus authoritative states, scheduled simulation checkpoints, and deterministic 0–100 research timing.
 - **Gameplay** — what the player actually does.
 - **Research** — scientific work and technology progression.
 - **Combat** — ground, air, and space warfare.
@@ -40,6 +44,7 @@ The raWWar design hub should expose:
 - **Characters** — commanders, soldiers, researchers, and other important people.
 - **Equipment** — exoskeletons, armor, weapons, tools, sensors, communications, modules.
 - **Vehicles** — ground, air, orbital, and space vehicles.
+- **Vehicle Configuration** — chassis capabilities, module interfaces, research-expanded configuration envelopes, and deterministic assembly.
 - **Training** — qualifications, certifications, progression, officer development.
 - **Economy** — pay, possessions, currency, ownership, recreation.
 - **Terrain & Maps** — world geography, terrain generation, tactical and strategic maps.
