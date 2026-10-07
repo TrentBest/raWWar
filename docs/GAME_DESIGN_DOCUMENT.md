@@ -2861,6 +2861,12 @@ The game is now being developed from a living catalogue of the physical capabili
 
 See [Capability Catalogue](CAPABILITY_CATALOGUE.md).
 
+The catalogue is now supported by three dependency views:
+
+- [Qualification Graph](QUALIFICATION_GRAPH.md) — turns qualification families into prerequisite and training paths.
+- [Crew Composition Matrix](CREW_COMPOSITION_MATRIX.md) — connects capabilities to the people and specialties required to operate them.
+- [Industrial Dependency Graph](INDUSTRIAL_DEPENDENCY_GRAPH.md) — connects research, materials, factories, production, logistics, and fielding.
+
 The catalogue establishes:
 
 - qualification families and chained training tiers;
@@ -2904,7 +2910,10 @@ Current companion documents include:
 - Gestures Design;
 - Data Model;
 - Renderer Integration;
-- Open Questions.
+- Open Questions;
+- Qualification Graph;
+- Crew Composition Matrix;
+- Industrial Dependency Graph.
 
 The intended lifecycle is:
 
