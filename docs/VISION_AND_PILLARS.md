@@ -69,3 +69,25 @@ raWWar is intended to be a flagship demonstration of the Workshop architecture.
 It should eventually demonstrate FSM-driven autonomous behavior, MicroBundle composition, manifest-driven Experiences, AnyApp hosting, WebApp distribution and manifestation, the Workshop Renderer, semantic intent and structural grammar where appropriate, scalable persistence, deterministic reconstruction, observation-relative detail, and the ability to build a complex world from independently composable capabilities.
 
 The game design comes first. The technology exists to make the design possible.
+
+
+## Pillar 9 — One galaxy, many consequences
+
+The game universe is a galaxy spanning many star systems.
+
+The player should never experience the campaign as a sequence of disposable maps. Each operation occurs inside a larger political, military, economic, and historical system.
+
+A player can matter at multiple scales:
+
+**soldier → unit → organization → faction → world → star system → Empire → galaxy**
+
+The game does not require the player to control all of those scales directly. It requires their actions to be capable of propagating upward.
+
+## Pillar 10 — Distance matters
+
+Warp drive exists, but a warp jump takes days to initialize and prepare.
+
+Distance is therefore a gameplay constraint.
+
+The time required to move forces and resources creates opportunities for planning, interception, logistics, intelligence, preparation, and consequence.
+
