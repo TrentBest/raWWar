@@ -13,7 +13,8 @@ System-specific documents expand the design without silently changing canon.
 ## Core design
 
 - [Game Design Bible](GAME_DESIGN_BIBLE.md) — authoritative living design.
-- [Game Design Document](GAME_DESIGN_DOCUMENT.md) — working production GDD.
+- [Game Design Document](GAME_DESIGN_DOCUMENT.md) — comprehensive living master GDD.
+- [Public Design Hub](DESIGN_HUB.md) — future WebPage presentation of the raWWar design.
 - [Vision and Pillars](VISION_AND_PILLARS.md) — north star and non-negotiable principles.
 - [Player Roles](PLAYER_ROLES.md) — occupations, roles, and qualification-driven participation.
 - [Persistent Universes](PERSISTENT_UNIVERSES.md) — long-term persistent-world vision.
