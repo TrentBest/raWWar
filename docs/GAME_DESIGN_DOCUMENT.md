@@ -839,11 +839,35 @@ We need to define:
 
 ## 11.1 Exoskeleton foundation
 
+![Technology progression: research, production, and use](images/rawwar-technology-progression.svg)
+
 The visual and mechanical foundation is an original science-fiction exoskeleton system.
 
-An entry-level exoskeleton can be expanded into increasingly advanced configurations.
+An entry-level exoskeleton is only the beginning. In essence, **everything can be upgraded**.
 
-## 11.2 Equipment categories
+The meaningful question is not simply whether a better component exists. It is:
+
+> **Who researched it, who can produce it, who can afford it, who can maintain it, and who actually gets to use it?**
+
+## 11.2 Research, production, and use are different progressions
+
+Technology does not become useful merely because somebody discovered it.
+
+raWWar deliberately separates three related but distinct progressions:
+
+1. **Research** — discovers, improves, validates, and demonstrates what technology can do.
+2. **Production** — determines whether that technology can actually be manufactured, at what quality, quantity, cost, and reliability.
+3. **Use** — determines who receives it, can operate it, can maintain it, can afford it, and experiences its benefits.
+
+A research breakthrough can therefore exist long before it is common equipment.
+
+A production breakthrough can make an existing technology cheaper, smaller, more reliable, more comfortable, or more available without changing the underlying scientific discovery.
+
+A soldier with expensive equipment can perform differently from a soldier carrying standard issue even when both are using the same technological generation.
+
+This is not a conventional vertical tech tree. It is a living relationship between **knowledge, industry, ownership, maintenance, and experience**.
+
+## 11.3 Equipment categories
 
 Potential dimensions include:
 
@@ -859,7 +883,7 @@ Potential dimensions include:
 - decorations;
 - personal modifications.
 
-## 11.3 Equipment as capability
+## 11.4 Equipment as capability
 
 Equipment should affect gameplay.
 
@@ -876,7 +900,7 @@ It may change:
 - survivability;
 - interaction options.
 
-## 11.4 Personal ownership
+## 11.5 Personal ownership
 
 Players may acquire equipment beyond military issue.
 
@@ -899,7 +923,7 @@ Customization may trade resources for:
 - expression;
 - maintenance burden.
 
-## 11.5 Mode-specific customization
+## 11.8 Mode-specific customization
 
 Persistent universes may permit substantially more customization than campaign or cooperative play.
 
@@ -915,6 +939,43 @@ Define exactly what is:
 - faction-specific;
 - persistent-universe-only.
 
+## 11.6 Technology quality is observable
+
+Technology quality should be visible through use.
+
+Two soldiers may stand beside one another and see the same battlefield differently because their equipment differs.
+
+The difference should not require a floating comparison screen. It can simply be true:
+
+- one camera resolves more detail;
+- one sensor sees farther;
+- one display provides better information;
+- one exoskeleton responds more naturally;
+- one communications package provides cleaner or more useful information;
+- one piece of equipment fails less often.
+
+This makes equipment an extension of the soldier's lived experience.
+
+## 11.7 Observation terminals and squad feeds
+
+Military bases and command spaces can contain terminals where a soldier or operator watches a squad through remote cameras and sensors.
+
+The feed is a manifestation of the underlying observation state.
+
+If the observing soldier has better cameras, sensors, displays, or communications available to them, **the quality of what they see on the feed improves**.
+
+The observer is not receiving an omniscient game camera. They are receiving information through an actual sensor and communications chain.
+
+A terminal operator might watch:
+
+- a squad moving through terrain;
+- a vehicle crew performing a procedure;
+- a remote installation;
+- a battle;
+- a patrol;
+- an operation requiring supervision.
+
+This gives observation technology gameplay meaning and creates a natural connection between equipment progression and Event Horizons.
 ---
 
 # 12. Vehicles
@@ -1188,9 +1249,63 @@ The system should provide subtle hints rather than turning the laboratory into a
 
 ## 15.2 Research pipeline
 
+Research is the process by which the organization discovers what is possible and makes it reliable enough to become technology.
+
 Candidate pipeline:
 
-**question → experiment → observation → result → validation → technology → demonstration → qualification → deployment**
+**question → experiment → observation → result → validation → technology → demonstration → production design → deployment → operational feedback → improvement**
+
+Research is therefore continuous.
+
+A deployed technology is not necessarily finished. Operational experience can reveal weaknesses, unexpected opportunities, manufacturing problems, maintenance burdens, comfort issues, sensor limitations, or entirely new research questions.
+
+### 15.3 Research improves technology; production improves availability
+
+Research and production are intentionally separate.
+
+Research can improve:
+
+- capability;
+- efficiency;
+- materials;
+- sensor quality;
+- processing;
+- power usage;
+- reliability;
+- ergonomics;
+- miniaturization;
+- range;
+- accuracy;
+- survivability.
+
+Production can improve:
+
+- manufacturing yield;
+- consistency;
+- cost;
+- throughput;
+- repairability;
+- maintainability;
+- supply;
+- component quality.
+
+Use then determines what those improvements mean to an individual soldier.
+
+A revolutionary prototype may be extraordinarily capable and nearly impossible to obtain.
+
+A mature production revision may be less spectacular but cheap enough to issue to thousands of soldiers.
+
+### 15.4 Technology never stops improving
+
+There should be no assumption that a technology reaches a final immutable tier.
+
+The organization can continue researching an already deployed technology.
+
+The practical progression can therefore look like:
+
+**Mk I → field experience → research → Mk II → production refinement → broader issue → field experience → Mk III ...**
+
+This is not necessarily a discrete tier system in the player's interface. It is a living technology history.
 
 ### Illumination Needed
 
@@ -1201,11 +1316,13 @@ Define:
 - experiment generation;
 - discovery;
 - failure;
-- technology trees;
-- validation;
+- technology validation;
+- production engineering;
+- manufacturing capacity;
 - military adoption;
 - civilian adoption;
-- sabotage/theft.
+- sabotage/theft;
+- how much of the improvement process is player-directed.
 
 ---
 
