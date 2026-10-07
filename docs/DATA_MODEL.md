@@ -199,3 +199,50 @@ The exact persistence format is intentionally not yet fixed.
 ## Design rule
 
 **Data describes the world. FSMs describe changing behavior. Gestures describe physical motion. The Renderer describes what the observer sees.**
+
+
+## Training capacity as data
+
+Training capacity should be represented explicitly rather than inferred from a generic building count.
+
+Relevant relationships include:
+
+- barracks → training modules;
+- training module → current training assignment;
+- squad → four-person membership;
+- squad → qualification requirements;
+- facility/vehicle → required crew composition;
+- crew role → qualification requirements;
+- qualification → training path;
+- training path → required capacity;
+- construction project → required construction crew;
+- advanced construction crew → prerequisite qualifications.
+
+This allows the simulation to answer questions such as:
+
+- Can this facility be staffed?
+- How many barracks are required?
+- Which squads are blocking readiness?
+- Which qualifications are missing?
+- Is a building complete but operationally useless?
+- What additional training capacity would unlock the next capability?
+
+## Decision and intent data
+
+Diegetic management does not eliminate structured decisions.
+
+The underlying data should represent:
+
+- available options;
+- prerequisites;
+- resource requirements;
+- consequences;
+- authority required;
+- current decision state;
+- accepted/rejected status;
+- resulting procedure.
+
+A tablet, advisor conversation, terminal, or other physical interaction is a presentation of that decision data.
+
+Future ProtocolAi integration should map semantic intent to these available choices rather than directly mutating authoritative state.
+
