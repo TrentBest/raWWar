@@ -1,35 +1,449 @@
 # raWWar — Game Design Document
 
-Status: Living production document.
+Status: Living master design document.
 
-## Purpose
-This is the working Game Design Document (GDD) for raWWar. It turns the Game Design Bible into a production-oriented description of the Experience: what the player does, what systems support it, what modes exist, and what still needs to be designed.
+> **The soldiers themselves are the stars of this game.**
 
-The GDD does not override the Game Design Bible. Where the two differ, the Bible is authoritative unless the creator explicitly changes the design.
+## 0. What this document is
 
-## Design authority
-- **Canon:** established creator decisions.
-- **Candidate:** proposed design awaiting confirmation.
-- **Experiment:** a prototype or test intended to discover whether an idea works.
-- **Open question:** intentionally unresolved.
+This is the comprehensive Game Design Document for **raWWar**, the flagship war Experience of The Singularity Workshop.
 
-## High concept
-raWWar is a first-person science-fiction war Experience in which being a person inside a living military organization is the game.
+This is deliberately not a short pitch, feature list, or conventional game-design summary.
 
-The soldier is the star. Combat is one occupation among many. Training, qualification, maintenance, research, construction, logistics, piloting, command, intelligence, recreation, and social life all belong to the same world.
+A real game design document must describe the game deeply enough that a reader can understand:
 
-## Core player loop
-The exact loop varies by role, but the common pattern is:
-1. Exist in the organization.
-2. Observe what is happening.
-3. Receive or discover opportunities, duties, orders, and needs.
-4. Qualify and prepare.
-5. Perform the work physically in the world.
-6. Experience consequences.
-7. Earn capability, identity, reputation, equipment, rank, or organizational change.
-8. Decide what to pursue next.
+- what the player experiences;
+- what exists in the world;
+- what players can do;
+- how soldiers, units, vehicles, facilities, factions, technologies, terrain, and organizations work;
+- how the different play modes relate to one another;
+- how progression works;
+- how combat works;
+- how research and construction work;
+- how the world remains alive;
+- how content is authored;
+- how the technology supports the design;
+- what is known;
+- what is not yet known;
+- and what questions must be answered before a system can become real.
 
-## Game modes
+The document is intentionally **alive**.
+
+A section that is incomplete is not a failure of documentation. It is an instrument for discovering what the creator has not yet articulated.
+
+When the document reaches a subject for which the creator's inner vision has not yet been expressed sufficiently, the document records an **Illumination Needed** marker instead of inventing an answer.
+
+The companion design documents currently contain deeper treatment of individual subjects. Those documents are working design laboratories. Their mature material should ultimately be incorporated into this master document.
+
+### Design authority
+
+The project uses four design states:
+
+- **Canon** — explicitly established by the creator.
+- **Candidate** — a proposed interpretation awaiting confirmation.
+- **Experiment** — something intentionally being tested.
+- **Illumination Needed** — the subject requires creator vision before it should be designed further.
+
+Implementation convenience must never silently become game design.
+
+---
+
+# 1. Executive Summary
+
+raWWar is a fully first-person, immersive science-fiction war Experience.
+
+It is not fundamentally a shooter with unrelated occupations attached to it.
+
+It is a living war in which the player inhabits a person inside an enormous military organization.
+
+A player may be a soldier, commander, pilot, mechanic, researcher, builder, intelligence operative, saboteur, crew member, scientist, logistics worker, or another role that emerges from the needs and opportunities of the organization.
+
+Combat is important.
+
+Combat is not the entire game.
+
+The deeper proposition is:
+
+> **Make being a person inside a war the game.**
+
+The player should not merely select a class and receive a collection of abilities. The player should discover what they want to do, train for it, qualify for it, acquire the necessary equipment, join the appropriate organization, perform the work, experience consequences, and develop a history.
+
+The world is enormous, but individuals matter.
+
+A commander sees staffing levels, readiness, research programs, facilities, formations, fleets, logistics, and strategic conditions.
+
+A soldier sees the same organization as people: friends, superiors, opportunities, equipment, missions, training, recreation, danger, responsibility, and a place in the machine.
+
+The technology of The Singularity Workshop is not merely an implementation detail underneath this design. raWWar is intended to demonstrate why that technology exists.
+
+---
+
+# 2. The Design Pillars
+
+## 2.1 Soldiers are the stars
+
+Every major system ultimately exists to make the people inside the war meaningful.
+
+Soldiers should have:
+
+- identity;
+- history;
+- qualifications;
+- rank;
+- relationships;
+- equipment;
+- responsibilities;
+- opportunities;
+- limitations;
+- personalities and variation;
+- physical presence;
+- consequences.
+
+A soldier should not feel like a texture wrapped around a health bar.
+
+## 2.2 The world is alive
+
+The world should always be doing something.
+
+Wherever the player looks, there should be evidence of an active system:
+
+- soldiers training;
+- formations moving;
+- aircraft being serviced;
+- scientists conducting experiments;
+- construction progressing;
+- materials moving;
+- command staff monitoring operations;
+- personnel eating, resting, talking, joking, complaining, repairing things, or simply living.
+
+Not every entity needs maximum simulation fidelity at every moment.
+
+The world must nevertheless preserve the impression—and eventually the underlying reality—of continuous life.
+
+## 2.3 Work is gameplay
+
+Repairing a vehicle is gameplay.
+
+Research is gameplay.
+
+Construction is gameplay.
+
+Flying is gameplay.
+
+Loading equipment is gameplay.
+
+Training is gameplay.
+
+Command is gameplay.
+
+Intelligence work is gameplay.
+
+Recreation is gameplay.
+
+The player should perform meaningful activities rather than repeatedly interacting with abstract menus that represent them.
+
+## 2.4 Qualification creates opportunity
+
+The player should not be given a fixed occupation tree and told what they are.
+
+The world should expose opportunities.
+
+Qualifications allow the player to pursue them.
+
+A qualification may provide:
+
+- permission;
+- knowledge;
+- access;
+- equipment compatibility;
+- organizational eligibility;
+- responsibility;
+- career opportunity.
+
+The exact qualification model remains an active design area.
+
+## 2.5 First-person presence is fundamental
+
+raWWar is always experienced from first person.
+
+The player is physically present in the world.
+
+Desktop presentation and VR presentation are different ways of receiving the same immersive world.
+
+VR is not the definition of raWWar.
+
+## 2.6 Consequences matter
+
+The world should respond to what the player does.
+
+Orders have consequences.
+
+Failure has consequences.
+
+Neglect has consequences.
+
+Qualification has consequences.
+
+Leadership has consequences.
+
+Death is loss.
+
+## 2.7 Technology should disappear into experience
+
+The player should experience a living world, not a demonstration of a rendering engine.
+
+The machinery underneath exists to make the experience possible.
+
+---
+
+# 3. What the Player Actually Is
+
+## 3.1 Player identity
+
+The player is a person inhabiting the world.
+
+The player is not a floating camera.
+
+The player has:
+
+- a physical body;
+- equipment;
+- qualifications;
+- rank/status;
+- relationships;
+- location;
+- responsibilities;
+- knowledge;
+- history;
+- consequences.
+
+## 3.2 Campaign identity
+
+The current campaign opening establishes the player as a **Commander**.
+
+The precise history that led to that command remains to be illuminated.
+
+### Illumination Needed — the player's history
+
+Questions to answer:
+
+- Who was the player before becoming Commander?
+- Why were they promoted?
+- What faction do they belong to?
+- What have they already accomplished?
+- What does the Empress know about them?
+- Why does the Empress want them immediately?
+- Who appointed them?
+- Who expected them to fail?
+
+## 3.3 Other modes
+
+Other play modes may establish different starting contexts.
+
+A persistent-universe character may develop from a much earlier point.
+
+A cooperative campaign may place multiple players into a shared historical situation.
+
+The exact identity model by mode remains to be fully designed.
+
+---
+
+# 4. The World
+
+## 4.1 The war
+
+raWWar requires a coherent conflict rather than an excuse for combat.
+
+The war must explain:
+
+- why the factions exist;
+- why the Empire exists;
+- why the Empress matters;
+- why the player is involved;
+- what is being fought over;
+- what happens if either side wins;
+- what ordinary people believe is happening;
+- what the truth actually is.
+
+### Illumination Needed — the war itself
+
+This is one of the largest remaining areas requiring creator vision.
+
+We need to illuminate:
+
+- the historical origin of the conflict;
+- the major factions;
+- the Imperial structure;
+- the Empress;
+- the opposing powers;
+- the geography of the conflict;
+- the technology that makes the conflict possible;
+- what each side wants;
+- what each side fears;
+- what victory means.
+
+## 4.2 Factions
+
+Major factions have distinct identities, beliefs, dogma, literature, recruiting material, leadership, organizational structures, and objectives.
+
+Factions should be visible through the physical world rather than merely through a faction-selection screen.
+
+The opening headquarters therefore contains faction offices or representations where the player can encounter their philosophies.
+
+### Illumination Needed — faction catalogue
+
+For each major faction:
+
+- name;
+- symbol;
+- colors/material language;
+- political philosophy;
+- military doctrine;
+- civilian relationship;
+- technology preferences;
+- organizational structure;
+- leadership;
+- allies;
+- enemies;
+- recruitment pitch;
+- internal contradictions;
+- victory condition.
+
+## 4.3 Geography
+
+The world should support military geography rather than being a collection of disconnected maps.
+
+Potential geographic concepts include:
+
+- cities;
+- military bases;
+- industrial regions;
+- research facilities;
+- spaceports;
+- orbital installations;
+- wilderness;
+- strategic corridors;
+- contested territory;
+- Imperial centers;
+- faction strongholds;
+- remote installations.
+
+### Illumination Needed — world geography
+
+We need the creator's vision for:
+
+- the overall planet/universe structure;
+- number and type of major regions;
+- scale;
+- climate;
+- population;
+- transportation;
+- strategic geography;
+- how locations relate to one another.
+
+---
+
+# 5. The Campaign Opening
+
+The opening is an intentional lesson rather than a conventional tutorial.
+
+## 5.1 Sequence
+
+1. The raWWar moniker appears.
+2. Lightning flashes.
+3. The scene becomes overilluminated.
+4. The player is looking through a massive window approximately eighty floors above a huge active square.
+5. Rain and weather continue.
+6. An obscene Imperial palace dominates the opposite side of the square.
+7. The exterior remains alive while the player observes it.
+8. The player moves.
+9. Loud airtight doors open.
+10. Two Imperial soldiers move rapidly toward the player.
+11. They announce that the Empress wants the Commander immediately.
+12. The player recognizes the faction headquarters.
+13. Faction offices can be explored.
+14. Dogma, literature, recruiting material, and physical evidence reveal competing beliefs.
+15. The Imperial soldiers expect immediate compliance.
+16. Failure to proceed results in execution.
+
+## 5.2 What the opening teaches
+
+Without a conventional tutorial, the opening establishes:
+
+- the world is physically present;
+- observation matters;
+- the player has obligations;
+- authority is real;
+- factions have beliefs;
+- exploration is possible;
+- exploration does not suspend danger;
+- the world expects the player to learn through consequence.
+
+## 5.3 Death in the opening
+
+The soldiers give approximately five seconds to comply.
+
+If the player refuses:
+
+- both soldiers raise their weapons;
+- a three-second countdown occurs;
+- the player is executed.
+
+The player is given enough information to understand the consequence.
+
+The lesson is not intended to be cheap.
+
+---
+
+# 6. Death, Failure, and Consequence
+
+## 6.1 Death
+
+Death is immediate loss of the current attempt.
+
+The intended rule is:
+
+> **Do not die.**
+
+Possible deaths include:
+
+- assassination;
+- enemy invasion;
+- combat failure;
+- death during an assault;
+- landmines;
+- vehicle destruction;
+- environmental hazards;
+- other lethal events.
+
+## 6.2 Checkpoints
+
+Campaign checkpoints may prevent unnecessary repetition.
+
+They do not change the meaning of death.
+
+## 6.3 Other modes
+
+Campaign, cooperative, competitive, and persistent modes may require different persistence consequences.
+
+### Illumination Needed — death across modes
+
+We need to define:
+
+- what survives a campaign loss;
+- what survives a cooperative failure;
+- whether a persistent-universe character can permanently die;
+- whether replacement characters inherit anything;
+- what happens to equipment;
+- what happens to organizations;
+- whether death creates historical consequences.
+
+---
+
+# 7. Modes of Play
+
+The intended modes are:
+
 1. Campaign — Soldier
 2. Campaign — Officer
 3. Campaign — Cooperative
@@ -38,24 +452,385 @@ The exact loop varies by role, but the common pattern is:
 6. Multiplayer — Persistent
 7. Massively Online — Fully Persistent Universes
 
-Cooperative campaign is intended to scale beyond conventional small-party multiplayer. A session may eventually support anything from two players to approximately 128 cooperating participants.
+## 7.1 Campaign — Soldier
 
-"Cooperative" does not necessarily mean every participant belongs to the same side. Players may participate in the same campaign while occupying different factions, objectives, or relationships.
+The player experiences the war primarily from the soldier level.
 
-## Player identity
-A player can begin in a campaign as a Commander as established by the current opening design, while other modes may establish different starting contexts.
+The player may:
 
-Long-term identity is expected to include role, qualifications, rank, awards, equipment, possessions, reputation, relationships, and history.
+- train;
+- qualify;
+- deploy;
+- march;
+- accept missions;
+- fight;
+- repair;
+- research;
+- construct;
+- pilot;
+- socialize;
+- recreate;
+- pursue specialized occupations.
 
-The exact persistence boundary between modes remains open.
+## 7.2 Campaign — Officer
 
-## Equipment and customization
-The visual and mechanical identity of raWWar will be developed around an original science-fiction military design language.
+The player experiences the organization from a command role while remaining physically present in the world.
 
-The foundational soldier concept is an exoskeleton-based military system. A relatively accessible entry-level exoskeleton can become the base for increasingly advanced additions and customizations.
+## 7.3 Campaign — Cooperative
 
-Candidate equipment dimensions include:
-- chassis/exoskeleton;
+The intended scale is approximately 2–128 players.
+
+Cooperation does not necessarily mean everyone belongs to the same faction.
+
+Players may have:
+
+- different factions;
+- different objectives;
+- different information;
+- different loyalties;
+- overlapping interests.
+
+### Illumination Needed — cooperative structure
+
+We need to define how:
+
+- shared objectives work;
+- command works;
+- faction conflicts work;
+- information is shared;
+- players can cooperate despite conflicting interests;
+- missions scale from 2 to 128 participants.
+
+## 7.4 Free For All
+
+A competitive mode where individual players or entities pursue their own objectives.
+
+### Illumination Needed
+
+Define the actual FFA structure, objectives, persistence, map size, and victory conditions.
+
+## 7.5 Team vs Team
+
+Team warfare should use the same underlying military systems rather than a disconnected arcade ruleset.
+
+### Illumination Needed
+
+Define:
+
+- team organization;
+- objectives;
+- victory;
+- respawn/death;
+- equipment;
+- command;
+- map structure.
+
+## 7.6 Persistent multiplayer
+
+A player can participate in a continuing world.
+
+## 7.7 Fully persistent universes
+
+Each persistent universe begins from the same premise but evolves independently.
+
+Players may join at any point.
+
+If a player loses, they may potentially return as a new faction or new participant.
+
+Each persistence is independent.
+
+Approximately 25% of raWWar revenue is a candidate commitment toward sustaining persistent universes once actual persistence/storage/usage costs are understood.
+
+### Pocket dimensions
+
+A candidate concept is that persistent universes may become effectively impossible to locate from outside their own context, creating rare possibilities for crossing between universes.
+
+This is a narrative/system concept and remains to be developed.
+
+---
+
+# 8. Soldier Design
+
+## 8.1 The soldier is the fundamental unit of experience
+
+A soldier is simultaneously:
+
+- a person;
+- a military participant;
+- a physical body;
+- an organizational member;
+- a qualification holder;
+- an equipment owner/operator;
+- an FSM participant;
+- a relationship node;
+- a renderer-visible entity.
+
+## 8.2 Soldier life
+
+A soldier can:
+
+- train;
+- qualify;
+- receive orders;
+- march;
+- deploy;
+- fight;
+- maintain equipment;
+- operate machinery;
+- conduct research;
+- build;
+- socialize;
+- eat;
+- sleep/rest;
+- play;
+- gamble with in-world currency;
+- pursue advancement;
+- form relationships;
+- change occupations.
+
+## 8.3 Squad structure
+
+A barracks supports a squad of four.
+
+Advanced facilities and vehicles can require multiple specialized squads.
+
+Each squad role therefore creates training, staffing, housing, qualification, and readiness requirements.
+
+## 8.4 Military precision
+
+Soldiers should behave according to actual organizational rules.
+
+They are not interchangeable animation actors.
+
+Examples include:
+
+- formations;
+- road guards;
+- marching cadence;
+- salute/attention procedures;
+- safety procedures;
+- staffing requirements;
+- launch procedures;
+- maintenance procedures;
+- command acknowledgements.
+
+---
+
+# 9. Command and Leadership
+
+## 9.1 Command is a physical occupation
+
+The commander exists inside the organization.
+
+The commander:
+
+- walks through headquarters;
+- talks to staff;
+- observes operations;
+- interacts with researchers;
+- requests demonstrations;
+- commissions reviews;
+- makes decisions;
+- visits facilities;
+- joins battles.
+
+## 9.2 Commander presence
+
+When the Commander enters a room:
+
+- soldiers announce **“Commander on deck”**;
+- personnel come to attention;
+- personnel salute where procedure permits.
+
+Critical work takes precedence.
+
+A throttleman with hands controlling a critical system should not abandon that task merely to salute.
+
+This is a systemic procedure, not a universal animation trigger.
+
+## 9.3 Command presence
+
+The physical presence of command should affect the organization.
+
+Potential influences include:
+
+- leadership reputation;
+- recent victories/losses;
+- treatment of personnel;
+- confidence;
+- speeches;
+- reviews;
+- operational success;
+- direct interaction;
+- visible command presence.
+
+The exact morale model remains to be designed.
+
+## 9.4 Military reviews
+
+A commander may pay for military reviews.
+
+Reviews can provide opportunities for:
+
+- speeches;
+- ceremonial presence;
+- troop motivation;
+- inspection;
+- leadership interaction.
+
+A well-delivered speech may motivate troops to accomplish extraordinary objectives.
+
+### Illumination Needed
+
+Define:
+
+- how a speech is delivered;
+- what determines quality;
+- how troops respond;
+- how morale changes;
+- how long effects last;
+- whether speeches can fail;
+- whether troops remember leadership behavior.
+
+## 9.5 Personal command participation
+
+A commander can join a battle personally.
+
+Potential benefits include:
+
+- morale;
+- bonuses;
+- direct decision-making;
+- bodyguards;
+- unique opportunities.
+
+The player remains in first person.
+
+## 9.6 Headquarters confrontation
+
+A major command scenario can involve:
+
+1. infiltrating an enemy base;
+2. reaching enemy headquarters;
+3. breaching defenses;
+4. clearing the area;
+5. reaching the blast doors separating the enemy commander;
+6. breaching them;
+7. fighting through close quarters;
+8. confronting the enemy commander;
+9. communicating directly;
+10. choosing execution, imprisonment, or release.
+
+The confrontation should preserve player agency rather than become a cutscene.
+
+---
+
+# 10. Training and Qualification
+
+Training is a primary pillar of raWWar.
+
+## 10.1 Qualification
+
+Qualifications can unlock:
+
+- occupations;
+- equipment;
+- facilities;
+- vehicles;
+- research;
+- construction;
+- command;
+- intelligence;
+- specialized duties.
+
+## 10.2 Physical representation
+
+The player's history should become visible.
+
+Potential physical indicators include:
+
+- rank insignia;
+- ribbons;
+- ratings;
+- equipment;
+- wear;
+- specialized tools;
+- uniform configuration.
+
+## 10.3 Qualification paths
+
+Potential paths include:
+
+- mechanics;
+- research;
+- construction;
+- piloting;
+- command;
+- intelligence;
+- sabotage;
+- specialized equipment;
+- vehicle operation;
+- weapons;
+- aerospace;
+- fleet operations.
+
+## 10.4 Officer training
+
+Some qualifications may require a status transition.
+
+Flight training may require officer status.
+
+Officer boot camp may use immersive simulation.
+
+The candidate experience is intentionally disruptive:
+
+- expose trainee to pressure;
+- place them in command;
+- create difficult situations;
+- challenge assumptions;
+- break the expected pattern;
+- allow recovery;
+- reveal what the trainee is suited for;
+- offer the next qualification path.
+
+## 10.5 Skill-tree-like discovery
+
+Progression is currently best understood as qualification discovery rather than fixed classes.
+
+The player sees opportunities and chooses what to pursue.
+
+### Illumination Needed — qualification graph
+
+We need to define:
+
+- qualification hierarchy;
+- prerequisites;
+- rank requirements;
+- training duration;
+- instructors;
+- facilities;
+- examinations;
+- failure;
+- renewal;
+- proficiency;
+- organizational demand;
+- whether qualifications decay.
+
+---
+
+# 11. Equipment and Customization
+
+## 11.1 Exoskeleton foundation
+
+The visual and mechanical foundation is an original science-fiction exoskeleton system.
+
+An entry-level exoskeleton can be expanded into increasingly advanced configurations.
+
+## 11.2 Equipment categories
+
+Potential dimensions include:
+
+- chassis;
 - armor;
 - power;
 - mobility;
@@ -67,80 +842,1772 @@ Candidate equipment dimensions include:
 - decorations;
 - personal modifications.
 
-Equipment should be meaningful rather than purely cosmetic. It may impose qualifications, maintenance, power, training, compatibility, readiness, or operational requirements.
+## 11.3 Equipment as capability
 
-Persistent-universe customization is a candidate area for substantially greater freedom than campaign/cooperative soldier play.
+Equipment should affect gameplay.
 
-## Gestures and embodied motion
+It may change:
 
-raWWar should not treat soldiers as identical animated meshes. Their physical motion is generated from shared ideal procedures and individualized execution.
+- qualifications;
+- power consumption;
+- maintenance;
+- weight;
+- mobility;
+- readiness;
+- compatibility;
+- operational role;
+- survivability;
+- interaction options.
 
-A **Gesture** is a motion flipbook: a sequence of poses plus the mathematical rule describing how to progress from one pose toward the next. The ideal Gesture defines what the action is; the individual soldier's seed, statistics, state, and circumstances create that soldier's fuzzy realization of the action.
+## 11.4 Personal ownership
 
-This allows ten thousand soldiers to perform the same march, maintenance task, boarding procedure, or formation movement without producing ten thousand mechanically synchronized copies. Small bounded differences can include speed, lateral offset, stride timing, head direction, reaction timing, posture, recovery, and occasional stumbles or corrections.
+Players may acquire equipment beyond military issue.
 
-Gestures are also how raWWar connects generic soldiers to specialized world objects. A building, vehicle, machine, or other capability can expose a **Gesture Provider**. A soldier can query for the procedure it needs — for example, entering a cockpit — move to the appropriate interaction point, and then have the provided FSM govern the physical procedure.
+Candidate possessions include:
 
-This means the soldier does not need hard-coded knowledge of every vehicle or building. The object that owns the physical interface provides the procedure.
+- armor;
+- decals;
+- vehicles;
+- specialized equipment;
+- personally owned tanks.
 
-## World life
-The world should always be doing something.
+Vehicles may use:
 
-Observed locations should provide evidence of living systems: soldiers training, formations moving, crews servicing vehicles, researchers working, logistics moving materials, construction progressing, command staff monitoring operations, and personnel talking about both important and completely mundane matters.
+**chassis + available parts → configured vehicle**
 
-Background conversations may reveal lore, rumors, jokes, complaints, relationships, and ordinary life. They do not all exist to explain the plot.
+Customization may trade resources for:
 
-## First-person rule
-The player is physically present in the world. Menus, management, research, construction, recreation, command, and combat should be diegetic wherever practical.
+- performance;
+- capability;
+- expression;
+- maintenance burden.
 
-This is an immersion rule, not a VR-only rule.
+## 11.5 Mode-specific customization
 
-## Campaign opening
-The campaign begins with the moniker, lightning, the approximately eighty-floor view across a massive rain-soaked square toward an obscene Imperial palace, observation of the living exterior, and the arrival of two Imperial soldiers ordering the Commander to report to the Empress.
+Persistent universes may permit substantially more customization than campaign or cooperative play.
 
-The opening teaches through consequence. Exploring the faction headquarters is possible, but refusing the immediate order results in execution after a short warning.
+### Illumination Needed
 
-The next sequence after obedience remains an open design question.
+Define exactly what is:
 
-## Death
-Death means immediate loss of the current attempt. The player should not treat death as an ordinary checkpoint reset.
+- military issue;
+- earned;
+- purchased;
+- discovered;
+- crafted;
+- faction-specific;
+- persistent-universe-only.
 
-Campaign checkpoints may reduce unnecessary repetition, but do not change the meaning of death.
+---
 
-## Progression
-Training and qualification are primary progression systems.
+# 12. Vehicles
 
-Qualifications open occupations, equipment, facilities, and responsibilities. Rank and status may gate some paths. Progression should be visible physically through insignia, ribbons, equipment, and behavior.
+Vehicles are capabilities, not merely meshes.
 
-The exact qualification graph remains to be designed.
+A vehicle can contain:
 
-## Scale
-The world is intended to support enormous military organizations, including potentially hundreds of thousands of personnel and hundreds of scientists and support staff.
+- crew requirements;
+- qualifications;
+- interaction points;
+- procedures;
+- maintenance;
+- fuel/power;
+- weapons;
+- sensors;
+- damage;
+- readiness;
+- Gesture Providers.
 
-Not every entity must run at maximum simulation fidelity at all times. The production problem is to preserve a convincing living system while using appropriate levels of simulation and observation-relative detail. The Renderer can progressively reduce pose detail, Gesture evaluation, and visual computation with distance through event horizons while retaining the properties that make the population look alive.
+## 12.1 Crew
 
-## Technology as game design
+Some vehicles require multiple qualified personnel.
 
-raWWar is intentionally designed around the Workshop architecture rather than treating that architecture as an implementation detail.
+A vehicle may therefore be physically present while remaining unavailable because the organization lacks the required people.
 
-- **FSM_API** supplies the state-machine behavior that lets individual entities follow complex, interdependent procedures.
-- **FSM_COS** composes the capabilities required by an Experience without becoming the game itself.
-- **MicroBundles** allow buildings, vehicles, occupations, equipment, and other capabilities to expose their own meaningful services, including Gesture Providers.
-- **AnyApp** is the primary host and heavy-processing manifestation of the Experience. It can host the same manifest without defining the game.
-- **The Workshop Renderer** converts authoritative state into an observation-relative presentation. Event horizons allow computation to be concentrated where the player can actually perceive detail.
-- **GPU compute** can operate on compact state data across large populations rather than requiring a conventional CPU animation object for every soldier.
+## 12.2 Aircraft and VTOL
 
-The intended result is a game in which enormous numbers of soldiers can remain individually plausible because the data and relationships describe what they need to do, while FSMs and the Renderer determine how that behavior becomes visible.
+Aircraft may require:
 
-The technology is therefore not merely supporting raWWar. The game is a demonstration of why the technology exists.
+- pilots;
+- ground crews;
+- launch-pad crews;
+- maintenance;
+- logistics;
+- weapons personnel.
 
-## Design questions
-The GDD is intentionally incomplete. Unresolved subjects are tracked in OPEN_QUESTIONS.md and future system-specific documents.
+A launch pad may require an eight-person crew per shift.
 
-## Non-goals
-- A conventional class-based shooter.
-- A VR-only game definition.
-- Static NPC decoration.
-- A collection of disconnected mini-games.
-- Hard-coded behavior for every occupation.
-- Treating rendering technology as the definition of the Experience.
+Insufficient staffing creates inoperable periods.
+
+## 12.3 Spacecraft
+
+Spacecraft can expose:
+
+- helm;
+- weapons;
+- engineering;
+- tactical displays;
+- command;
+- communications;
+- research;
+- flight control.
+
+## 12.4 Vehicle interaction
+
+The vehicle's MicroBundle can expose the physical procedures required to operate it.
+
+Example:
+
+**soldier → semantic request: “enter cockpit” → vehicle Gesture Provider → interaction point → Gesture FSM → physical entry**
+
+---
+
+# 13. Gestures and Physical Motion
+
+A Gesture is the physical procedure by which an intended action becomes movement.
+
+## 13.1 Ideal motion
+
+A Gesture is represented conceptually as:
+
+- poses;
+- pose relationships;
+- mathematical transition equations;
+- timing/progression;
+- anchors;
+- constraints.
+
+The ideal Gesture defines what the movement should accomplish.
+
+## 13.2 Fuzzy individual motion
+
+If ten thousand soldiers perform the same ideal movement identically, the population looks mechanically animated.
+
+Each soldier therefore uses stable identity information and current state to create bounded variation.
+
+Variation may include:
+
+- speed;
+- lateral offset;
+- timing;
+- stride;
+- head direction;
+- posture;
+- reaction;
+- recovery;
+- small stumbles;
+- correction;
+- attention.
+
+The purpose is not random chaos.
+
+The purpose is believable individuality.
+
+## 13.3 Gesture Providers
+
+The capability that owns the physical interaction provides the Gesture.
+
+A tank knows how a soldier enters its hatch.
+
+A building knows how a soldier enters its door.
+
+A machine knows how it is operated.
+
+The soldier queries semantically rather than containing hard-coded knowledge of every object.
+
+## 13.4 Movement versus Gesture
+
+Generic movement gets the soldier to the interaction point.
+
+The target capability supplies the domain-specific physical procedure.
+
+## 13.5 GPU realization
+
+Gesture evaluation is a natural GPU workload when large populations share the same mathematical structure.
+
+Compact state can identify:
+
+- current pose;
+- target pose;
+- progress;
+- variation seed;
+- event horizon;
+- relevant equipment/context.
+
+The exact representation is not yet a frozen API.
+
+## 13.6 Event horizons
+
+Near observation:
+
+- detailed pose;
+- equipment interaction;
+- head/attention;
+- fine movement;
+- high update frequency.
+
+Middle observation:
+
+- reduced pose complexity;
+- fewer secondary details;
+- coarser updates;
+- preserved identity and major motion.
+
+Far observation:
+
+- population-level motion;
+- cheaper pose;
+- reduced frequency;
+- silhouette and formation dominate.
+
+The transition must remain visually coherent.
+
+---
+
+# 14. Combat
+
+Combat is one occupation within the war, but it must be deep enough to support the Experience.
+
+## 14.1 Ground combat
+
+Ground combat can involve:
+
+- individual soldiers;
+- squads;
+- formations;
+- vehicles;
+- bases;
+- fortifications;
+- artillery;
+- air support;
+- logistics;
+- intelligence;
+- command.
+
+### Illumination Needed — combat model
+
+The creator's vision is needed for:
+
+- weapon model;
+- damage;
+- armor;
+- cover;
+- suppression;
+- wounds;
+- ammunition;
+- healing;
+- squad tactics;
+- command;
+- visibility;
+- stealth;
+- death;
+- battlefield scale.
+
+## 14.2 Air combat
+
+Players can qualify as:
+
+- fighter pilots;
+- bomber pilots;
+- weapons operators;
+- tactical operators;
+- other aviation roles.
+
+## 14.3 Space combat
+
+Space combat can involve massive fleets.
+
+Players may occupy:
+
+- fighter cockpits;
+- bomber stations;
+- weapons consoles;
+- tactical displays;
+- helm;
+- engineering;
+- command ships;
+- fleet command.
+
+### Illumination Needed — space warfare
+
+Define:
+
+- ship scale;
+- fleet scale;
+- propulsion;
+- weapons;
+- defenses;
+- tactical doctrine;
+- boarding;
+- command;
+- communications;
+- logistics;
+- strategic objectives.
+
+---
+
+# 15. Research
+
+Research is a physical occupation.
+
+A player can qualify for a research squad and perform laboratory work.
+
+## 15.1 Research interaction
+
+A conceptual research sequence can include:
+
+1. obtain material;
+2. handle a beaker;
+3. pour into another vessel;
+4. activate equipment;
+5. light a burner;
+6. place vessel over heat;
+7. observe;
+8. record findings;
+9. interpret results;
+10. continue or conclude.
+
+The system should provide subtle hints rather than turning the laboratory into a conventional menu.
+
+## 15.2 Research pipeline
+
+Candidate pipeline:
+
+**question → experiment → observation → result → validation → technology → demonstration → qualification → deployment**
+
+### Illumination Needed
+
+Define:
+
+- research disciplines;
+- scientific institutions;
+- experiment generation;
+- discovery;
+- failure;
+- technology trees;
+- validation;
+- military adoption;
+- civilian adoption;
+- sabotage/theft.
+
+---
+
+# 16. Construction
+
+Construction is gameplay.
+
+Buildings are constructed from physical components such as extruded preformed plates.
+
+A player can:
+
+- qualify as construction personnel;
+- receive materials;
+- transport materials;
+- place components;
+- follow construction directions;
+- operate equipment;
+- work as part of a construction squad.
+
+Construction should visibly progress in the world.
+
+### Illumination Needed
+
+Define:
+
+- building grammar;
+- structural systems;
+- construction machinery;
+- material production;
+- logistics;
+- damage/repair;
+- procedural building generation;
+- player-created structures.
+
+---
+
+# 17. Bases and Structures
+
+A military base is a functioning organization, not a collection of decorative buildings.
+
+## 17.1 Base systems
+
+A base may contain:
+
+- barracks;
+- command centers;
+- launch pads;
+- aircraft;
+- vehicle maintenance;
+- research facilities;
+- logistics;
+- security;
+- training;
+- construction;
+- recreation;
+- communications;
+- medical facilities;
+- power;
+- storage;
+- transportation.
+
+## 17.2 Capacity versus readiness
+
+A facility can exist without being operational.
+
+Operational status depends on:
+
+- staffing;
+- qualification;
+- maintenance;
+- supplies;
+- power;
+- equipment;
+- schedules;
+- procedures.
+
+> **Capacity is not the same thing as readiness.**
+
+## 17.3 Living base
+
+The base should visibly reveal its organizational state.
+
+If staffing is low:
+
+- equipment waits;
+- launches are delayed;
+- schedules change;
+- personnel become overextended.
+
+If staffing is healthy:
+
+- procedures run;
+- crews move;
+- vehicles launch;
+- maintenance occurs;
+- training proceeds.
+
+---
+
+# 18. Organizations and Military Procedure
+
+The world is governed by rules.
+
+## 18.1 Rules
+
+Soldiers obey rules established by their organization and commander.
+
+Rules can govern:
+
+- formations;
+- traffic;
+- safety;
+- staffing;
+- saluting;
+- movement;
+- launch procedures;
+- maintenance;
+- command;
+- access;
+- equipment.
+
+## 18.2 Learning procedures
+
+Organizations may discover new procedures from failure.
+
+Example:
+
+A squad is run over by a tank while crossing a roadway.
+
+The organization responds by establishing:
+
+- a minimum marching formation;
+- road guards;
+- traffic control;
+- safe crossing procedure.
+
+The resulting rule becomes visible behavior.
+
+## 18.3 Emergent organization
+
+The objective is not merely to animate military behavior.
+
+The world should exhibit:
+
+- memory;
+- procedure;
+- adaptation;
+- hierarchy;
+- responsibility;
+- organizational consequences.
+
+---
+
+# 19. Intelligence and Sabotage
+
+Players can:
+
+- send spies;
+- send saboteurs;
+- become spies;
+- become saboteurs;
+- investigate;
+- infiltrate;
+- deceive;
+- discover information;
+- interfere with enemy operations.
+
+These roles use the same qualification and organizational model as other occupations.
+
+### Illumination Needed
+
+Define:
+
+- concealment;
+- identity;
+- false identities;
+- intelligence collection;
+- counterintelligence;
+- detection;
+- interrogation;
+- sabotage;
+- consequences;
+- information reliability.
+
+---
+
+# 20. Economy and Personal Life
+
+## 20.1 raWWar digital currency
+
+The in-world economy uses raWWar digital currency.
+
+The arcade can use it for games of chance.
+
+This is an in-world economy, not real-money gambling.
+
+## 20.2 Personal economy
+
+Soldiers can pursue:
+
+- possessions;
+- equipment;
+- vehicles;
+- customization;
+- status;
+- recreation.
+
+The personal economy exists inside the military economy.
+
+## 20.3 Arcade and recreation
+
+The arcade can contain:
+
+- gambling games;
+- air hockey;
+- other games;
+- social activities.
+
+Downtime should remain part of the world.
+
+### Illumination Needed
+
+Define:
+
+- income;
+- pay;
+- prices;
+- ownership;
+- scarcity;
+- trading;
+- gambling mechanics;
+- economic progression;
+- consequences of wealth.
+
+---
+
+# 21. Terrain and Map Generation
+
+Terrain is not merely a visual surface.
+
+Terrain determines:
+
+- movement;
+- visibility;
+- cover;
+- logistics;
+- construction;
+- settlement;
+- agriculture/resources if applicable;
+- military strategy;
+- transportation;
+- weather;
+- environmental hazards;
+- battlefield shape.
+
+## 21.1 Map types
+
+Potential environments include:
+
+- cities;
+- military bases;
+- wilderness;
+- industrial areas;
+- deserts;
+- forests;
+- mountains;
+- coastlines;
+- orbital environments;
+- space.
+
+### Illumination Needed — terrain vision
+
+We need to define:
+
+- procedural versus authored terrain;
+- planet scale;
+- biome system;
+- erosion;
+- rivers;
+- roads;
+- infrastructure;
+- strategic generation;
+- destructibility;
+- map persistence;
+- player modification.
+
+## 21.2 Terrain generation
+
+The eventual system should distinguish:
+
+- world generation;
+- strategic map generation;
+- tactical map generation;
+- local detail;
+- procedural structures;
+- authored landmarks.
+
+---
+
+# 22. Weather and Environment
+
+Weather is part of the world, not merely a screen effect.
+
+The opening establishes:
+
+- rain;
+- lightning;
+- changing illumination;
+- atmospheric conditions.
+
+Environmental conditions can affect:
+
+- visibility;
+- movement;
+- equipment;
+- aircraft;
+- sensors;
+- combat;
+- logistics;
+- construction;
+- morale.
+
+### Illumination Needed
+
+Define the environmental simulation model and which weather phenomena materially affect gameplay.
+
+---
+
+# 23. Population Scale
+
+The intended world can contain:
+
+- hundreds of thousands of soldiers;
+- hundreds of scientists;
+- support personnel;
+- maintenance;
+- logistics;
+- grounds crews;
+- construction workers;
+- aircraft crews;
+- facility operators.
+
+## 23.1 Simulation does not equal maximum detail
+
+The architecture must distinguish:
+
+- authoritative world state;
+- behavioral state;
+- presentation state.
+
+A distant soldier does not need the same computation as a soldier standing in front of the player.
+
+## 23.2 Event horizons
+
+Observation determines presentation and computational detail.
+
+The system should spend effort where it produces meaningful player-visible consequences.
+
+## 23.3 Individuality at scale
+
+Even at enormous population counts, individual soldiers should be capable of stable identity and bounded variation.
+
+The population should not collapse into a collection of identical animated units.
+
+---
+
+# 24. Narrative and Storytelling
+
+Narrative exists through:
+
+- direct events;
+- dialogue;
+- faction material;
+- environmental evidence;
+- rumors;
+- mundane conversation;
+- military procedure;
+- consequences;
+- player decisions.
+
+## 24.1 Mundane life
+
+Background conversations may involve:
+
+- being stuck in a suite;
+- bathroom complaints;
+- eating;
+- equipment problems;
+- relationships;
+- jokes;
+- boredom;
+- promotions;
+- rumors.
+
+Not every conversation should explain the plot.
+
+The point is to make people feel like people.
+
+## 24.2 Environmental storytelling
+
+Buildings, uniforms, equipment, posters, faction offices, literature, damage, repairs, and procedures should reveal history.
+
+### Illumination Needed
+
+Define:
+
+- major story arc;
+- campaign acts;
+- major characters;
+- faction histories;
+- mysteries;
+- endings;
+- player agency;
+- branching consequences.
+
+---
+
+# 25. Social Systems
+
+The world contains relationships between people.
+
+Potential relationship dimensions include:
+
+- friendship;
+- trust;
+- loyalty;
+- command confidence;
+- rivalry;
+- mentorship;
+- romance if appropriate to the world;
+- reputation;
+- faction allegiance.
+
+### Illumination Needed
+
+Define which relationships are intended and how deeply they affect gameplay.
+
+---
+
+# 26. Audio
+
+Audio should reinforce physical presence.
+
+Important sound categories include:
+
+- machinery;
+- footsteps;
+- doors;
+- armor;
+- weapons;
+- aircraft;
+- vehicles;
+- weather;
+- command announcements;
+- cadences;
+- conversations;
+- alarms;
+- laboratory equipment;
+- construction.
+
+The environment should sound active even when the player is not directly interacting with it.
+
+### Illumination Needed
+
+Define the musical identity, faction audio language, combat audio philosophy, and ambient sound strategy.
+
+---
+
+# 27. Visual Direction
+
+The visual identity should be original.
+
+The broad emotional neighborhood includes:
+
+- technologically advanced exoskeleton warfare;
+- massive military infrastructure;
+- strong silhouettes;
+- heavy equipment;
+- individualized armor;
+- technological escalation;
+- extreme but coherent customization.
+
+External games and fiction may provide inspiration, but they are not design authorities.
+
+## 27.1 Soldiers
+
+Soldiers are the primary visual subject.
+
+The exoskeleton provides a modular foundation.
+
+A soldier's appearance should communicate:
+
+- rank;
+- qualifications;
+- equipment;
+- role;
+- history;
+- maintenance;
+- individuality.
+
+## 27.2 Vehicles
+
+Vehicles should share a coherent technological family with soldier equipment while retaining distinct roles.
+
+## 27.3 Infrastructure
+
+Infrastructure should communicate scale.
+
+A major base should look capable of supporting the organization it contains.
+
+---
+
+# 28. User Experience and Interaction
+
+The player should interact with the world rather than a collection of abstract screens.
+
+Interaction should expose:
+
+- what is possible;
+- what is required;
+- what is happening;
+- what the player needs to do next.
+
+The world can communicate through:
+
+- physical cues;
+- animation;
+- sound;
+- contextual prompts;
+- breathing controls;
+- equipment behavior;
+- personnel behavior.
+
+## 28.1 Shadow guidance
+
+An AI or human player can receive a shadow of the intended procedure.
+
+For example:
+
+- a button appears to breathe because it should be pressed;
+- a wheel subtly indicates that it should be turned;
+- a physical tool suggests the next step.
+
+This allows complex procedures without replacing first-person agency.
+
+---
+
+# 29. Player Guidance and Difficulty
+
+raWWar is intended to be a hard-learned game.
+
+The player should learn through:
+
+- observation;
+- consequence;
+- repetition;
+- contextual clues;
+- physical practice;
+- relationships;
+- organizational knowledge.
+
+The game should not explain every system before the player encounters it.
+
+The world itself is the teacher.
+
+---
+
+# 30. Multiplayer and Networking
+
+The same world model should support:
+
+- cooperative play;
+- competitive play;
+- persistent universes;
+- massive populations.
+
+## 30.1 Authority
+
+Authoritative state must be distinct from rendering state.
+
+## 30.2 Identity
+
+Stable identities support:
+
+- persistence;
+- deterministic variation;
+- equipment;
+- qualifications;
+- relationships;
+- reconstruction.
+
+## 30.3 Large-scale participation
+
+Large player counts require careful separation between:
+
+- authoritative simulation;
+- network state;
+- presentation;
+- local interaction.
+
+### Illumination Needed
+
+Define:
+
+- server topology;
+- authority model;
+- latency expectations;
+- ownership;
+- cheating prevention;
+- player migration;
+- persistence architecture;
+- synchronization boundaries.
+
+---
+
+# 31. Persistent Universes
+
+Each persistent universe begins from the same premise and evolves independently.
+
+Players can join at any point.
+
+A universe can develop its own:
+
+- factions;
+- wars;
+- economies;
+- technologies;
+- relationships;
+- bases;
+- territories;
+- history.
+
+## 31.1 Persistence
+
+Persistence may include:
+
+- character identity;
+- qualifications;
+- equipment;
+- possessions;
+- relationships;
+- organizational state;
+- territorial state;
+- technology;
+- historical events.
+
+### Illumination Needed
+
+Define:
+
+- universe lifecycle;
+- win/loss;
+- reset;
+- collapse;
+- peace;
+- migration;
+- death;
+- storage;
+- historical record;
+- economic sustainability.
+
+---
+
+# 32. Technology and Research Progression
+
+Technology should not appear magically.
+
+A technology should move through a meaningful pipeline.
+
+Candidate lifecycle:
+
+**idea → research → experiment → result → validation → demonstration → qualification → deployment → maintenance → improvement**
+
+Technology can affect:
+
+- equipment;
+- vehicles;
+- facilities;
+- weapons;
+- research;
+- construction;
+- logistics;
+- medicine;
+- communications.
+
+The exact technology ladder remains to be illuminated.
+
+---
+
+# 33. The Workshop Technology Model
+
+raWWar is designed around The Singularity Workshop architecture.
+
+## 33.1 FSM_API
+
+FSM_API supplies state-machine behavior.
+
+It enables entities to follow complex procedures with interdependent states.
+
+## 33.2 FSM_COS
+
+FSM_COS assembles capabilities required by the Experience.
+
+It is not the game itself.
+
+## 33.3 MicroBundles
+
+MicroBundles package meaningful capabilities.
+
+Potential MicroBundles can represent:
+
+- vehicles;
+- buildings;
+- occupations;
+- equipment;
+- research;
+- construction;
+- Gesture Providers;
+- other domain capabilities.
+
+## 33.4 AnyApp
+
+AnyApp is the primary host and heavy-processing manifestation.
+
+The Experience is defined by its manifest and capabilities, not by AnyApp itself.
+
+## 33.5 Renderer
+
+The Workshop Renderer turns authoritative state into observer-relative presentation.
+
+The Renderer is not the source of truth.
+
+## 33.6 GPU computation
+
+Large populations can use compact state representations and parallel computation.
+
+The GPU should perform repetitive mathematical work that is naturally parallel.
+
+## 33.7 Data, FSMs, Gestures, Rendering
+
+The intended separation is:
+
+**Data describes the world.**
+
+**FSMs describe changing behavior.**
+
+**Gestures describe physical motion.**
+
+**The Renderer describes what the observer sees.**
+
+---
+
+# 34. Authoritative Data Model
+
+The core conceptual separation is:
+
+1. **Meaning** — what exists and what it means.
+2. **Behavior** — what stateful procedure is occurring.
+3. **Presentation** — how that state appears to an observer.
+
+A soldier can therefore simultaneously be:
+
+- a semantic entity;
+- an FSM participant;
+- a compact GPU/rendering record.
+
+Presentation must never become the authoritative semantic state.
+
+## 34.1 Entity identity
+
+Stable identity supports:
+
+- persistence;
+- deterministic variation;
+- relationships;
+- equipment ownership;
+- qualifications;
+- networking;
+- reconstruction.
+
+## 34.2 State
+
+State can include:
+
+- location;
+- procedure;
+- FSM state;
+- task;
+- equipment;
+- qualifications;
+- readiness;
+- physical condition;
+- attention;
+- relationships;
+- orders;
+- interaction.
+
+## 34.3 Relationships
+
+Relationships are first-class data.
+
+A soldier may be related to:
+
+- squad;
+- commander;
+- vehicle;
+- facility;
+- family;
+- friend;
+- enemy;
+- organization;
+- research project.
+
+---
+
+# 35. Simulation
+
+Simulation should be driven by relationships and procedures rather than by an enormous collection of bespoke scripts.
+
+A soldier knows only what the soldier needs to know.
+
+Providers expose relevant information.
+
+The soldier can receive:
+
+- where they should be;
+- what they should be doing;
+- what procedure is available;
+- what requirements exist;
+- what interaction is expected.
+
+This creates a **shadow** of intended behavior.
+
+The soldier or human player then attempts to follow it.
+
+The same model can support AI and human participation.
+
+---
+
+# 36. Observation and Event Horizons
+
+The Renderer and simulation architecture must recognize that observers have finite attention.
+
+The world can maintain:
+
+- high detail near the observer;
+- medium detail at intermediate distance;
+- population-level behavior at extreme distance.
+
+This is not permission to freeze the world.
+
+It is a mechanism for spending computational effort where it matters.
+
+The goal is:
+
+> **Render what the observer needs to believe the world, not everything the world happens to contain.**
+
+---
+
+# 37. Content Authoring
+
+A major goal is to make the game producible rather than merely imaginable.
+
+Content must eventually include:
+
+- soldiers;
+- equipment;
+- vehicles;
+- buildings;
+- facilities;
+- terrain;
+- factions;
+- research;
+- technologies;
+- Gestures;
+- procedures;
+- audio;
+- narrative;
+- maps;
+- missions;
+- organizations.
+
+## 37.1 Soldier authoring
+
+Need standards for:
+
+- body;
+- exoskeleton;
+- equipment sockets;
+- materials;
+- identifiers;
+- variants;
+- qualifications;
+- visual indicators;
+- motion anchors.
+
+## 37.2 Vehicle authoring
+
+Need standards for:
+
+- chassis;
+- modules;
+- crew stations;
+- interaction points;
+- maintenance points;
+- Gesture Providers;
+- damage;
+- equipment;
+- identifiers.
+
+## 37.3 Gesture authoring
+
+Need standards for:
+
+- poses;
+- transitions;
+- equations;
+- anchors;
+- interaction volumes;
+- timing;
+- interruption;
+- equipment constraints;
+- variation bounds;
+- completion;
+- validation.
+
+---
+
+# 38. Mission and Scenario Design
+
+Missions should arise from the world rather than exist only as isolated scripted levels.
+
+Potential mission sources include:
+
+- military orders;
+- organizational needs;
+- emergencies;
+- enemy activity;
+- research requirements;
+- construction;
+- intelligence;
+- logistics;
+- personal goals;
+- faction objectives.
+
+## 38.1 Scenario control
+
+A candidate meta-control console could let the player influence desired scenario characteristics such as:
+
+- bloodbath;
+- prolonged invasion;
+- siege;
+- defense;
+- other operational conditions.
+
+This remains experimental.
+
+### Illumination Needed
+
+Define whether this is:
+
+- a game-master tool;
+- player matchmaking;
+- campaign scenario selection;
+- AI scenario generation;
+- persistent-universe influence.
+
+---
+
+# 39. Living World Simulation
+
+The world must continue doing meaningful work.
+
+Examples:
+
+### Launch pad
+
+A player should see:
+
+- crew arriving;
+- inspections;
+- equipment movement;
+- fueling;
+- checks;
+- safety procedures;
+- launch;
+- recovery.
+
+### Barracks
+
+A player should see:
+
+- training;
+- maintenance;
+- rest;
+- squad organization;
+- preparation;
+- personnel movement.
+
+### Science wing
+
+A player should see:
+
+- experiments;
+- notes;
+- equipment;
+- researchers;
+- failures;
+- discoveries.
+
+### Construction
+
+A player should see:
+
+- materials arrive;
+- crews organize;
+- components move;
+- structures grow.
+
+### Headquarters
+
+A player should see:
+
+- staff;
+- communications;
+- maps;
+- reports;
+- commanders;
+- soldiers entering and leaving;
+- decisions propagating outward.
+
+---
+
+# 40. Scale Strategy
+
+The game should support enormous populations without requiring every entity to receive maximum CPU and rendering cost.
+
+The system should exploit:
+
+- FSM scheduling;
+- compact state;
+- data-oriented representation;
+- GPU parallelism;
+- event horizons;
+- observation-relative detail;
+- procedural generation;
+- deterministic reconstruction.
+
+The architecture should make **complexity cheap where complexity is repetitive**.
+
+---
+
+# 41. Persistence and Reconstruction
+
+Persistent state must distinguish:
+
+- stable identity;
+- durable progression;
+- current world state;
+- equipment;
+- relationships;
+- history;
+- content version.
+
+A persistent universe must be reconstructable.
+
+The visual representation must never be the persistence source.
+
+---
+
+# 42. Production Plan
+
+The design should mature before large-scale implementation.
+
+Current conceptual milestones:
+
+### M0 — Design foundation
+
+- establish world;
+- establish player identity;
+- establish core rules;
+- establish design model.
+
+### M1 — First living slice
+
+- one soldier;
+- one environment;
+- one meaningful procedure;
+- FSM-driven behavior;
+- one reusable Gesture;
+- individualized motion;
+- Renderer presentation.
+
+### M2 — Occupational slice
+
+- multiple qualifications;
+- one meaningful occupation outside combat;
+- equipment interaction;
+- physical procedure.
+
+### M3 — Military organization slice
+
+- squads;
+- staffing;
+- readiness;
+- command;
+- procedures;
+- facility operation.
+
+### M4 — Cooperative slice
+
+- multi-player participation;
+- shared world;
+- differentiated roles;
+- command and information.
+
+### M5 — Persistent slice
+
+- durable identity;
+- persistent state;
+- world continuity;
+- reconstruction.
+
+### M6 — Large-scale world
+
+- enormous populations;
+- GPU-assisted presentation;
+- event horizons;
+- broad world systems.
+
+---
+
+# 43. Design Completion Criteria
+
+The game design is not complete merely because every heading contains words.
+
+A section is complete when:
+
+1. The creator's intended experience is articulated.
+2. The player-facing behavior is understandable.
+3. The underlying rules are sufficiently defined.
+4. Dependencies on other systems are known.
+5. Failure states are understood.
+6. Persistence implications are understood.
+7. Multiplayer implications are understood where applicable.
+8. Content-authoring implications are understood.
+9. Implementation can begin without inventing fundamental game rules.
+
+If the last condition is not true, the section remains an **Illumination Needed** area.
+
+---
+
+# 44. Current Illumination Map
+
+The following areas currently require substantial creator input before they should be treated as finished design.
+
+## World
+
+- war origin;
+- factions;
+- geography;
+- political structure;
+- history;
+- Imperial society;
+- technology history.
+
+## Player
+
+- Commander history;
+- faction identity;
+- starting knowledge;
+- campaign progression.
+
+## Combat
+
+- weapon behavior;
+- damage;
+- armor;
+- wounds;
+- squad tactics;
+- battlefield command;
+- air combat;
+- space combat.
+
+## Research
+
+- scientific disciplines;
+- discovery;
+- experimentation;
+- technology progression;
+- validation;
+- deployment.
+
+## Terrain
+
+- planet/world structure;
+- biomes;
+- procedural generation;
+- authored landmarks;
+- strategic geography;
+- destructibility.
+
+## Economy
+
+- pay;
+- prices;
+- ownership;
+- trade;
+- scarcity;
+- personal wealth;
+- gambling mechanics.
+
+## Multiplayer
+
+- authority;
+- networking;
+- cooperative structure;
+- competitive structure;
+- persistence infrastructure.
+
+## Narrative
+
+- campaign arc;
+- major characters;
+- faction histories;
+- mysteries;
+- endings.
+
+## Social systems
+
+- relationship depth;
+- friendship;
+- rivalry;
+- loyalty;
+- social progression.
+
+## Audio
+
+- musical identity;
+- faction sound;
+- ambient strategy;
+- combat sound.
+
+## Production
+
+- asset pipeline;
+- content validation;
+- procedural authoring;
+- Gesture authoring tools;
+- terrain authoring;
+- mission authoring.
+
+---
+
+# 45. Companion Design Documents
+
+The master GDD should not become an unreadable wall of implementation detail.
+
+Deep systems should therefore have their own working documents.
+
+Current companion documents include:
+
+- Game Design Bible;
+- Vision and Pillars;
+- Player Roles;
+- Persistent Universes;
+- Systems Design;
+- Narrative Design;
+- Art Direction;
+- Audio Direction;
+- UX and Interaction;
+- Multiplayer Design;
+- Technical Design;
+- Production Plan;
+- Gestures Design;
+- Data Model;
+- Renderer Integration;
+- Open Questions.
+
+The intended lifecycle is:
+
+**creator vision → working exploration → system design → validated design → master GDD**
+
+The master GDD becomes the coherent public statement of the game.
+
+---
+
+# 46. Public Design Experience
+
+The design document should eventually be presented as an experience rather than a static Markdown file.
+
+The raWWar area of the public Workshop should expose a nested design hub.
+
+Conceptually:
+
+**raWWar**
+- Summary
+- Design Document
+- Units
+- Structures
+- Gameplay
+- Research
+- Combat
+- Play Modes
+- Factions
+- Characters
+- Equipment
+- Vehicles
+- Training
+- Economy
+- Terrain & Maps
+- World
+- Narrative
+- Audio
+- Visual Design
+- Technology
+- Multiplayer
+- Persistent Universes
+- Development
+
+The **Design Document** is the comprehensive canonical reading path.
+
+The other tabs expose focused views into the same underlying design knowledge.
+
+They should not become contradictory duplicate documents.
+
+## 46.1 Summary
+
+A short, visually compelling explanation of raWWar.
+
+## 46.2 Units
+
+Soldiers, squads, formations, specialized personnel, and organizational structures.
+
+## 46.3 Structures
+
+Bases, buildings, facilities, launch pads, laboratories, barracks, command centers, and construction.
+
+## 46.4 Gameplay
+
+What players actually do.
+
+## 46.5 Research
+
+Scientific work and technology progression.
+
+## 46.6 Combat
+
+Ground, air, and space warfare.
+
+## 46.7 Play Modes
+
+Campaign, cooperative, competitive, persistent, and massively persistent play.
+
+## 46.8 Terrain & Maps
+
+World generation, terrain, geography, strategic maps, tactical maps, and local environments.
+
+## 46.9 Technology
+
+The Workshop architecture and the technology that enables the Experience.
+
+## 46.10 Development
+
+What is currently being built, what remains unknown, and how the design is progressing.
+
+---
+
+# 47. The Design Document as an Illumination Tool
+
+This is one of the most important functions of the document.
+
+When a section cannot be completed from existing creator statements, we do not fill it with generic game-design language.
+
+We stop.
+
+We identify exactly what is missing.
+
+We ask the creator to describe what they see.
+
+Then we translate that vision into:
+
+- rules;
+- systems;
+- data;
+- procedures;
+- relationships;
+- player experience;
+- content requirements;
+- implementation boundaries.
+
+This is how the inner sight becomes a buildable game.
+
+The document is therefore not merely documentation.
+
+It is part of the design process itself.
+
+---
+
+# 48. The Ultimate Design Principle
+
+raWWar should make the player feel that they have entered a world that was already alive, organized, dangerous, complicated, and full of people.
+
+The player should not be shown a simulation.
+
+The player should inhabit it.
+
+The organization should matter.
+
+The individual should matter.
+
+The equipment should matter.
+
+The qualification should matter.
+
+The decision should matter.
+
+The world should remember.
+
+And wherever the player looks:
+
+> **something should be happening.**
