@@ -93,3 +93,17 @@ AnyApp is the primary host target. Future manifestations can consume the same Ex
 
 ## Technical unknowns
 The exact schemas, serialization strategy, networking model, renderer contract, asset pipeline, simulation fidelity model, and persistence implementation remain under design.
+
+
+## Experience boundary
+
+raWWar is an Experience, not a monolithic application. The technical design must distinguish **Experience-owned meaning** from **Workshop-provided machinery**.
+
+- **raWWar:** world, soldiers, factions, combat, research, construction, missions, narrative, terrain, rules, and content.
+- **MicroBundles:** reusable capability boundaries.
+- **FSM_API:** behavioral primitives and state-machine execution.
+- **FSM_COS:** composition boundary.
+- **AnyApp:** host/manifestation.
+- **Renderer:** observer-relative presentation.
+
+When a new requirement appears, classify it first as Experience meaning, reusable Workshop capability, host/manifestation concern, or presentation concern. Only the first category automatically belongs in raWWar.
