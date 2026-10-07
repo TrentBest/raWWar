@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820">
+<rect width="1400" height="820" fill="#090b10"/>
+<text x="70" y="80" fill="#f5f5f5" font-family="Arial" font-size="46" font-weight="700">TECHNOLOGY NEVER STOPS</text>
+<text x="70" y="125" fill="#aab2bf" font-family="Arial" font-size="24">Research improves what can exist · Production determines what can be fielded · Use determines what the soldier experiences</text>
+<g font-family="Arial">
+<rect x="70" y="190" width="370" height="220" rx="22" fill="#121722" stroke="#65758b" stroke-width="3"/>
+<text x="105" y="240" fill="#fff" font-size="32" font-weight="700">RESEARCH</text>
+<text x="105" y="285" fill="#aab2bf" font-size="22">Discover · test · validate</text>
+<text x="105" y="325" fill="#d9dee6" font-size="21">Sensors</text><text x="105" y="357" fill="#d9dee6" font-size="21">Materials</text><text x="105" y="389" fill="#d9dee6" font-size="21">Power · mobility · computation</text>
+<path d="M440 300 H500" stroke="#d9dee6" stroke-width="5"/><path d="M490 290 L510 300 L490 310" fill="none" stroke="#d9dee6" stroke-width="5"/>
+<rect x="510" y="190" width="370" height="220" rx="22" fill="#121722" stroke="#65758b" stroke-width="3"/>
+<text x="545" y="240" fill="#fff" font-size="32" font-weight="700">PRODUCTION</text>
+<text x="545" y="285" fill="#aab2bf" font-size="22">Build · refine · supply</text>
+<text x="545" y="325" fill="#d9dee6" font-size="21">Yield · quality · cost</text><text x="545" y="357" fill="#d9dee6" font-size="21">Repairability · availability</text><text x="545" y="389" fill="#d9dee6" font-size="21">Prototype → issue</text>
+<path d="M880 300 H940" stroke="#d9dee6" stroke-width="5"/><path d="M930 290 L950 300 L930 310" fill="none" stroke="#d9dee6" stroke-width="5"/>
+<rect x="950" y="190" width="370" height="220" rx="22" fill="#121722" stroke="#65758b" stroke-width="3"/>
+<text x="985" y="240" fill="#fff" font-size="32" font-weight="700">USE</text>
+<text x="985" y="285" fill="#aab2bf" font-size="22">Own · operate · maintain</text>
+<text x="985" y="325" fill="#d9dee6" font-size="21">Comfort · performance</text><text x="985" y="357" fill="#d9dee6" font-size="21">Sensors · cameras · feeds</text><text x="985" y="389" fill="#d9dee6" font-size="21">Qualification · availability</text>
+<path d="M1135 420 V475" stroke="#d9dee6" stroke-width="5"/><path d="M1125 465 L1135 485 L1145 465" fill="none" stroke="#d9dee6" stroke-width="5"/>
+<rect x="700" y="500" width="620" height="230" rx="22" fill="#10151e" stroke="#8997aa" stroke-width="3"/>
+<text x="735" y="550" fill="#fff" font-size="30" font-weight="700">WHAT THE SOLDIER ACTUALLY SEES</text>
+<text x="735" y="595" fill="#d9dee6" font-size="21">Better exoskeleton → less burden / better response</text>
+<text x="735" y="630" fill="#d9dee6" font-size="21">Better cameras → more visual information</text>
+<text x="735" y="665" fill="#d9dee6" font-size="21">Better sensors → better detection / awareness</text>
+<text x="735" y="700" fill="#d9dee6" font-size="21">Better communications → better squad feed</text>
+<rect x="70" y="500" width="570" height="230" rx="22" fill="#10151e" stroke="#8997aa" stroke-width="3"/>
+<text x="105" y="550" fill="#fff" font-size="30" font-weight="700">TERMINAL: WATCHING A SQUAD</text>
+<rect x="105" y="580" width="500" height="115" rx="12" fill="#05070a" stroke="#596679" stroke-width="2"/>
+<circle cx="145" cy="615" r="7" fill="#d9dee6"/><circle cx="190" cy="650" r="7" fill="#d9dee6"/><circle cx="250" cy="625" r="7" fill="#d9dee6"/><circle cx="330" cy="660" r="7" fill="#d9dee6"/><circle cx="430" cy="620" r="7" fill="#d9dee6"/>
+<text x="120" y="685" fill="#9da7b5" font-size="17">The feed is not omniscient. It is an instrument.</text>
+</g>
+<text x="70" y="785" fill="#aab2bf" font-family="Arial" font-size="22">FIELD EXPERIENCE CREATES NEW QUESTIONS → RESEARCH → BETTER TECHNOLOGY → NEW FIELD EXPERIENCE</text>
+</svg>
