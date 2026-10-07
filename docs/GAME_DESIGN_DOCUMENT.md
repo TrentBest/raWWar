@@ -296,30 +296,113 @@ We need to illuminate:
 
 ## 4.2 Factions
 
-Major factions have distinct identities, beliefs, dogma, literature, recruiting material, leadership, organizational structures, and objectives.
+raWWar uses **thirteen major factions** rather than a three-house political triangle.
 
-Factions should be visible through the physical world rather than merely through a faction-selection screen.
+The galaxy is not divided into two balanced teams.
 
-The opening headquarters therefore contains faction offices or representations where the player can encounter their philosophies.
+All thirteen factions stand in opposition to the Empress's will in some meaningful way, but they do so at radically different levels of alignment.
 
-### Illumination Needed — faction catalogue
+Internally, the factions form a hidden spectrum:
 
-For each major faction:
+**1 — most aligned with the Empress → 7 — politically independent → 13 — openly hostile**
 
-- name;
-- symbol;
-- colors/material language;
-- political philosophy;
-- military doctrine;
-- civilian relationship;
-- technology preferences;
-- organizational structure;
-- leadership;
-- allies;
-- enemies;
-- recruitment pitch;
-- internal contradictions;
-- victory condition.
+The player is not shown this spectrum.
+
+The first faction-selection experience presents thirteen physical doors in that order. A player who immediately enters the first door may unknowingly choose the faction most willing to serve Imperial interests. A player who explores can discover the political spectrum through architecture, personnel, literature, recruitment material, military doctrine, history, and conversation.
+
+This is deliberately a discovery rather than a faction-selection stat screen.
+
+> **Political alignment is not morality.**
+
+Some factions may be admirable in one respect and monstrous in another. Some may cooperate with the Empress while genuinely improving the lives of their people. Some may oppose her while becoming tyrannical themselves.
+
+See [Faction Design](FACTIONS.md) for the working thirteen-faction catalogue, hidden alignment gradient, dynamic political graph, global simulation model, and faction-selection experience.
+
+### 4.2.1 The galaxy is not waiting for the player
+
+Factions continuously act without the player's involvement.
+
+They:
+
+- plot;
+- fight;
+- trade;
+- research;
+- build;
+- recruit;
+- sabotage;
+- negotiate;
+- betray;
+- lose battles;
+- win battles;
+- fracture;
+- recover.
+
+A conflict can begin and end in a region the player never visits.
+
+The player later encounters its consequences.
+
+> **The galaxy does not generate conflict because the player arrived. Conflict was already happening.**
+
+### 4.2.2 No victory ceremony
+
+There is no universal victory screen for conquering territory or winning a battle.
+
+A victory changes the authoritative world:
+
+- territory may change hands;
+- resources may become available;
+- personnel may be gained or lost;
+- political relationships may change;
+- research opportunities may open;
+- prestige may increase;
+- new enemies may emerge;
+- new responsibilities may appear.
+
+The player continues living in the changed world.
+
+> **There is no victory screen because the war did not stop.**
+
+### 4.2.3 Galactic simulation
+
+The galaxy must continue to tick everywhere.
+
+It should not, however, require identical processing frequency everywhere.
+
+The intended conceptual hierarchy is:
+
+**Galaxy field → global tick → regional/system activity → focused simulation**
+
+The entire galaxy receives continued simulation.
+
+Focus changes resolution and frequency.
+
+A remote battle does not freeze because the player is elsewhere.
+
+The global layer can maintain low-cost state such as:
+
+- faction relationships;
+- ownership;
+- major military movement;
+- resource production;
+- strategic logistics;
+- research progress;
+- diplomatic events;
+- battles;
+- population changes;
+- political events;
+- major discoveries and losses.
+
+Systems with meaningful activity can receive more frequent evaluation.
+
+Player-focused areas can resolve individual units, crews, vehicles, procedures, logistics, and local combat at high fidelity.
+
+The central rule is:
+
+> **Focus changes simulation resolution. It does not create simulation existence.**
+
+A GPU-friendly texture/field representation of broad galactic state is a promising architectural direction. It remains a Candidate implementation detail. The authoritative world is semantic data; the texture is a representation of that world, not the world itself.
+
 
 ## 4.3 Geography
 
