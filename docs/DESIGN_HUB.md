@@ -193,3 +193,7 @@ Expose [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) as a dedicated deep
 The public presentation should use architecture diagrams, responsibility tables, scale visualizations, and interactive examples rather than implementation prose alone.
 
 > **The game is the Experience. The machinery is the Workshop.**
+
+
+- [Faction Capability Matrix](FACTION_CAPABILITY_MATRIX.md) — faction-to-capability tendencies across vehicles, buildings, industry, logistics, research, and training.
+- [Warp Navigation & Skills](WARP_NAVIGATION_AND_SKILLS.md) — gravitational hazards, route planning, crew skill, individual soldiers, training, and experience progression.
