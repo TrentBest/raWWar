@@ -563,6 +563,11 @@ This is a narrative/system concept and remains to be developed.
 
 # 8. Soldier Design
 
+![A soldier's career](images/rawwar-soldier-progression.svg)
+
+> **A soldier is a career, not a class.**
+
+
 ## 8.1 The soldier is the fundamental unit of experience
 
 A soldier is simultaneously:
@@ -1238,6 +1243,9 @@ Define:
 ---
 
 # 17. Bases and Structures
+
+![A military base is a machine made of people](images/rawwar-base-cutaway.svg)
+
 
 A military base is a functioning organization, not a collection of decorative buildings.
 
@@ -2302,6 +2310,9 @@ The same model can support AI and human participation.
 ---
 
 # 36. Observation and Event Horizons
+
+![Event horizons](images/rawwar-event-horizons.svg)
+
 
 The Renderer and simulation architecture must recognize that observers have finite attention.
 
