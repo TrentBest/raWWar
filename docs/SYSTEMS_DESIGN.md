@@ -120,7 +120,34 @@ The final fidelity model remains an engineering/design question.
 ## Personal equipment
 Equipment should have state and relationships, not just appearance.
 
-Potential properties include condition, power, compatibility, qualification requirements, maintenance requirements, ownership, modifications, and operational capability.
+Equipment quality is part of gameplay, not merely cosmetic progression.
+
+Potential properties include:
+
+- condition;
+- research generation;
+- production quality;
+- power;
+- comfort/ergonomics;
+- sensor/camera quality;
+- communications quality;
+- compatibility;
+- qualification requirements;
+- maintenance requirements;
+- ownership;
+- modifications;
+- acquisition cost;
+- operating cost;
+- reliability;
+- operational capability.
+
+A useful systemic distinction is:
+
+**research defines what can be built → production defines what can be fielded → ownership/use defines what the individual experiences.**
+
+A more expensive exoskeleton can improve comfort and performance, while better cameras and sensors can improve the information presented to the operator.
+
+Observation equipment also affects remote squad feeds. A terminal operator sees through an actual sensor/communication/display chain rather than receiving an omniscient game camera.
 
 ## Economy
 Personal and organizational economies must eventually be defined separately.
