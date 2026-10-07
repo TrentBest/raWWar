@@ -1,8 +1,18 @@
 # raWWar — Game Design Document
 
-Status: Living master design document.
+![raWWar — The war is alive](images/rawwar-hero.svg)
 
 > **The soldiers themselves are the stars of this game.**
+
+**This document is supposed to make raWWar visible.**
+
+The text defines the rules and intent, but the reader should not have to imagine everything from paragraphs. Wherever the design can be shown more clearly than it can be explained, this document should show it.
+
+![A living military world](images/rawwar-living-world.svg)
+
+The target is not a collection of features. It is a world in which soldiers work, train, repair, research, command, socialize, march, fight, fail, recover, and develop histories while the larger military machine continues around them.
+
+> **Read the words for the rules. Look at the visuals for the intent.**
 
 ## 0. What this document is
 
