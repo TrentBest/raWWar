@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">raWWar Experience architecture</title><desc id="d">raWWar owns its world and meaning while Workshop technology provides reusable infrastructure through FSM API, MicroBundles, FSM COS, AnyApp and Renderer.</desc>
+<rect width="1600" height="900" fill="#0b1016"/>
+<text x="800" y="80" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="48" font-weight="700">BUILD THE WAR. DON'T REBUILD THE MACHINE.</text>
+<text x="800" y="118" text-anchor="middle" fill="#aebbc5" font-family="sans-serif" font-size="21">raWWar defines meaning. Workshop supplies the machinery that makes meaning behave.</text>
+<g font-family="sans-serif">
+ <rect x="90" y="190" width="650" height="560" rx="30" fill="#18212a" stroke="#d6b76b" stroke-width="3"/>
+ <text x="415" y="245" text-anchor="middle" fill="#d6b76b" font-size="34" font-weight="700">raWWar EXPERIENCE</text>
+ <g fill="#26343f" stroke="#71808b"><rect x="140" y="285" width="260" height="75" rx="12"/><rect x="430" y="285" width="260" height="75" rx="12"/><rect x="140" y="390" width="260" height="75" rx="12"/><rect x="430" y="390" width="260" height="75" rx="12"/><rect x="140" y="495" width="260" height="75" rx="12"/><rect x="430" y="495" width="260" height="75" rx="12"/><rect x="285" y="600" width="260" height="75" rx="12"/></g>
+ <g fill="#fff" font-size="21" text-anchor="middle"><text x="270" y="330">Soldiers &amp; Identity</text><text x="560" y="330">Factions &amp; War</text><text x="270" y="435">Combat &amp; Missions</text><text x="560" y="435">Research &amp; Technology</text><text x="270" y="540">World &amp; Terrain</text><text x="560" y="540">Organizations</text><text x="415" y="645">Narrative · Economy · Consequence</text></g>
+ <rect x="820" y="190" width="690" height="560" rx="30" fill="#141c24" stroke="#71808b" stroke-width="3"/>
+ <text x="1165" y="245" text-anchor="middle" fill="#fff" font-size="34" font-weight="700">WORKSHOP MACHINERY</text>
+ <g fill="#26343f" stroke="#71808b"><rect x="885" y="285" width="250" height="75" rx="12"/><rect x="1195" y="285" width="250" height="75" rx="12"/><rect x="885" y="390" width="250" height="75" rx="12"/><rect x="1195" y="390" width="250" height="75" rx="12"/><rect x="885" y="495" width="250" height="75" rx="12"/><rect x="1195" y="495" width="250" height="75" rx="12"/><rect x="1040" y="600" width="250" height="75" rx="12"/></g>
+ <g fill="#fff" font-size="21" text-anchor="middle"><text x="1010" y="330">FSM_API</text><text x="1320" y="330">MicroBundles</text><text x="1010" y="435">FSM_COS</text><text x="1320" y="435">FSM_UserIO</text><text x="1010" y="540">AnyApp / Hosts</text><text x="1320" y="540">Renderer / GPU</text><text x="1165" y="645">Persistence · Networking · Reconstruction</text></g>
+ <path d="M740 350H820 M740 450H820 M740 550H820 M740 650H820" stroke="#d6b76b" stroke-width="5"/><path d="M805 335L820 350L805 365 M805 435L820 450L805 465 M805 535L820 550L805 565 M805 635L820 650L805 665" fill="none" stroke="#d6b76b" stroke-width="5"/>
+</g>
+<text x="800" y="820" text-anchor="middle" fill="#d6b76b" font-family="sans-serif" font-size="25" letter-spacing="3">EVERY BOX WE DON'T HAVE TO REINVENT IS TIME WE CAN SPEND MAKING THE WORLD MATTER.</text>
+</svg>
