@@ -40,7 +40,11 @@ The raWWar design hub should expose:
 - **Research** — scientific work and technology progression.
 - **Combat** — ground, air, and space warfare.
 - **Play Modes** — campaign, cooperative, competitive, persistent, massively persistent.
-- **Factions** — political and military organizations.
+- **Factions** — thirteen political and military organizations, the hidden Imperial-alignment gradient, dynamic faction relationships, and the continuously active galactic simulation.
+
+![The thirteen factions](images/rawwar-faction-spectrum.svg)
+
+See [Faction Design](FACTIONS.md) for the working political catalogue and simulation model.
 - **Characters** — commanders, soldiers, researchers, and other important people.
 - **Equipment** — exoskeletons, armor, weapons, tools, sensors, communications, modules.
 - **Vehicles** — ground, air, orbital, and space vehicles.
