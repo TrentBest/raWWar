@@ -404,6 +404,18 @@ The central rule is:
 A GPU-friendly texture/field representation of broad galactic state is a promising architectural direction. It remains a Candidate implementation detail. The authoritative world is semantic data; the texture is a representation of that world, not the world itself.
 
 
+### Faction capability and sub-faction inheritance
+
+Major factions contain persistent sub-factions: worlds, colonies, moons, asteroids, habitats, industrial districts, and other local organizations. Major-faction doctrine establishes capability tendencies; local infrastructure, resources, research, acquisition, capture, and history determine what each sub-faction actually fields. See [Faction Capability Matrix](FACTION_CAPABILITY_MATRIX.md).
+
+### Warp navigation
+
+Warp travel is strategically slow because warp bubbles cannot safely form within or intersect stellar gravitational wells. Routes must flex around hazardous stars. Navigation-system capability and crew skill affect route planning and preparation; the exact physics and risk model remain candidate design. See [Warp Navigation & Skills](WARP_NAVIGATION_AND_SKILLS.md).
+
+### Individual skills and experience
+
+Soldiers are persistent skill-bearing individuals. Training establishes qualifications and controlled capability; meaningful real-world activity builds experience and can improve relevant skills. Skill, qualification, permission, and readiness remain distinct. The intended philosophy is GURPS-like in breadth, not a dependency on GURPS rules.
+
 ## 4.3 Geography
 
 The world should support military geography rather than being a collection of disconnected maps.
