@@ -704,3 +704,115 @@ The following should remain open rather than being invented:
 - whether new factions can emerge from splinter groups.
 
 These are design questions, not implementation excuses.
+
+
+## 12. Major factions contain sub-factions
+
+A major faction is not a single homogeneous organization.
+
+A **sub-faction** is a materially meaningful subdivision of a major faction. In the galaxy this can be:
+
+- a world;
+- colony;
+- moon;
+- asteroid settlement;
+- orbital habitat;
+- shipyard;
+- mining complex;
+- military district;
+- industrial consortium;
+- autonomous territory;
+- other persistent organization with its own leadership, resources, people, and capabilities.
+
+The hierarchy is therefore:
+
+```
+Galaxy
+  ↓
+Major Faction
+  ↓
+Sub-Faction
+  ↓
+Local organizations / facilities / units
+  ↓
+Individuals
+```
+
+A major faction provides doctrine, culture, strategic relationships, broad technology, and inherited capability.
+
+A sub-faction provides **local reality**.
+
+A world may be rich in resources but poor in military manufacturing. Another may contain the faction's best shipyard. A remote moon may have obsolete equipment but unusually experienced crews. An asteroid settlement may have almost no conventional infantry while possessing exceptional mining and materials-processing capability.
+
+### Inheritance is not duplication
+
+Sub-factions inherit capability tendencies from their parent faction, but they do not receive a magical copy of every faction asset.
+
+A capability should be traceable through:
+
+```
+Faction doctrine
+    ↓
+technology / knowledge
+    ↓
+local infrastructure
+    ↓
+local production / acquisition
+    ↓
+local personnel
+    ↓
+local qualifications
+    ↓
+actual capability
+```
+
+This means the simulation can answer:
+
+> Why does this world have this vehicle?
+
+rather than merely:
+
+> Does this faction have this vehicle?
+
+### Sub-faction divergence
+
+A sub-faction can differ from its parent through:
+
+- local resources;
+- geography;
+- population;
+- trade;
+- historical investment;
+- captured equipment;
+- local research;
+- local production;
+- smuggling;
+- Imperial patronage;
+- neighboring threats;
+- migration;
+- local doctrine;
+- accidents of history;
+- leadership decisions;
+- accumulated experience.
+
+A world can therefore become strategically important precisely because it possesses something its parent faction does not have elsewhere.
+
+### The faction matrix is a generator, not a warehouse
+
+The faction-to-capability matrix should establish **tendencies and provenance rules**, not enumerate every object that every faction may ever possess.
+
+The resulting question is:
+
+```
+What can this faction reasonably field?
+        ↓
+What can this sub-faction actually support?
+        ↓
+What has this location produced/acquired/captured?
+        ↓
+Who is qualified to use it?
+        ↓
+What is operational right now?
+```
+
+This prevents faction identity from becoming a cosmetic skin applied to identical armies.
