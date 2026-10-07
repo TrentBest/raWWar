@@ -51,3 +51,31 @@ Major narrative moments should preserve agency whenever practical. The headquart
 
 ## Narrative unknowns
 The war, factions, player history, broader setting, campaign arc, victory conditions, and major characters remain under active elicitation.
+
+
+## The Empress's demand
+
+Once the player has chosen their faction, the Empress receives the Commander.
+
+She does not wait for an answer.
+
+She tells the Commander that she wants a poorly defended but resource-rich world controlled by an enemy faction attacked, conquered, and brought into compliance with the tithe.
+
+The Commander can subsequently obey or disobey.
+
+The Empress's behavior is important: she assumes authority rather than negotiating for consent.
+
+If the player obeys, she rewards them and continues sending demands. The demands become progressively more egregious.
+
+This creates a narrative engine in which the player's relationship with Imperial authority is produced by action rather than selected from a morality menu.
+
+## A galaxy, not a level list
+
+The campaign does not move the player from one self-contained map to another.
+
+Each operation occurs inside the same galactic war.
+
+World ownership, resources, faction power, Imperial demands, military losses, relationships, and political consequences persist beyond the immediate operation.
+
+The story therefore emerges from what the player does to the universe.
+
