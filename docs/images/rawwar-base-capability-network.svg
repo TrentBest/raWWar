@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820">
+<rect width="1400" height="820" fill="#0b0f14"/>
+<text x="70" y="70" fill="#f2f5f7" font-family="Arial,sans-serif" font-size="38" font-weight="700">THE BASE IS A CAPABILITY NETWORK</text>
+<text x="70" y="108" fill="#aab4bd" font-family="Arial,sans-serif" font-size="20">RTS-style dependencies exist underneath — but the player experiences them physically.</text>
+
+<g font-family="Arial,sans-serif">
+  <rect x="70" y="165" width="260" height="135" rx="16" fill="#151d25" stroke="#71808d" stroke-width="2"/>
+  <text x="200" y="205" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">BARRACKS</text>
+  <text x="200" y="238" text-anchor="middle" fill="#c8d0d6" font-size="18">4 VR training modules</text>
+  <text x="200" y="270" text-anchor="middle" fill="#c8d0d6" font-size="18">1 squad at a time</text>
+
+  <rect x="410" y="165" width="260" height="135" rx="16" fill="#151d25" stroke="#71808d" stroke-width="2"/>
+  <text x="540" y="205" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">QUALIFIED SQUADS</text>
+  <text x="540" y="238" text-anchor="middle" fill="#c8d0d6" font-size="18">roles + qualifications</text>
+  <text x="540" y="270" text-anchor="middle" fill="#c8d0d6" font-size="18">readiness + availability</text>
+
+  <rect x="750" y="165" width="260" height="135" rx="16" fill="#151d25" stroke="#71808d" stroke-width="2"/>
+  <text x="880" y="205" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">CAPABILITY</text>
+  <text x="880" y="238" text-anchor="middle" fill="#c8d0d6" font-size="18">vehicle / facility /</text>
+  <text x="880" y="270" text-anchor="middle" fill="#c8d0d6" font-size="18">construction crew</text>
+
+  <rect x="1090" y="165" width="240" height="135" rx="16" fill="#151d25" stroke="#71808d" stroke-width="2"/>
+  <text x="1210" y="205" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">READY</text>
+  <text x="1210" y="238" text-anchor="middle" fill="#c8d0d6" font-size="18">operational</text>
+  <text x="1210" y="270" text-anchor="middle" fill="#c8d0d6" font-size="18">not merely built</text>
+
+  <path d="M330 232 H410" stroke="#c8d0d6" stroke-width="4"/><path d="M670 232 H750" stroke="#c8d0d6" stroke-width="4"/><path d="M1010 232 H1090" stroke="#c8d0d6" stroke-width="4"/>
+  <path d="M398 224 l12 8 -12 8" fill="#c8d0d6"/><path d="M738 224 l12 8 -12 8" fill="#c8d0d6"/><path d="M1078 224 l12 8 -12 8" fill="#c8d0d6"/>
+
+  <text x="700" y="360" text-anchor="middle" fill="#f2f5f7" font-size="30" font-weight="700">RESEARCH IS PHYSICAL TOO</text>
+
+  <rect x="80" y="410" width="270" height="150" rx="16" fill="#121922" stroke="#71808d" stroke-width="2"/>
+  <text x="215" y="450" text-anchor="middle" fill="#fff" font-size="23" font-weight="700">HQ UNDERGROUND</text>
+  <text x="215" y="482" text-anchor="middle" fill="#c8d0d6" font-size="18">Administrator's office</text>
+  <text x="215" y="512" text-anchor="middle" fill="#c8d0d6" font-size="18">research discussion</text>
+  <text x="215" y="542" text-anchor="middle" fill="#c8d0d6" font-size="18">available choices</text>
+
+  <rect x="430" y="410" width="270" height="150" rx="16" fill="#121922" stroke="#71808d" stroke-width="2"/>
+  <text x="565" y="450" text-anchor="middle" fill="#fff" font-size="23" font-weight="700">ADVISOR</text>
+  <text x="565" y="482" text-anchor="middle" fill="#c8d0d6" font-size="18">explains consequences</text>
+  <text x="565" y="512" text-anchor="middle" fill="#c8d0d6" font-size="18">shows prerequisites</text>
+  <text x="565" y="542" text-anchor="middle" fill="#c8d0d6" font-size="18">hands over the decision</text>
+
+  <rect x="780" y="410" width="270" height="150" rx="16" fill="#121922" stroke="#71808d" stroke-width="2"/>
+  <text x="915" y="450" text-anchor="middle" fill="#fff" font-size="23" font-weight="700">TABLET</text>
+  <text x="915" y="482" text-anchor="middle" fill="#c8d0d6" font-size="18">finite legal choices</text>
+  <text x="915" y="512" text-anchor="middle" fill="#c8d0d6" font-size="18">AUTHORIZE</text>
+  <text x="915" y="542" text-anchor="middle" fill="#c8d0d6" font-size="18">or REJECT</text>
+
+  <rect x="1130" y="410" width="200" height="150" rx="16" fill="#121922" stroke="#71808d" stroke-width="2"/>
+  <text x="1230" y="450" text-anchor="middle" fill="#fff" font-size="23" font-weight="700">FACILITY</text>
+  <text x="1230" y="482" text-anchor="middle" fill="#c8d0d6" font-size="18">experiment</text>
+  <text x="1230" y="512" text-anchor="middle" fill="#c8d0d6" font-size="18">demonstration</text>
+  <text x="1230" y="542" text-anchor="middle" fill="#c8d0d6" font-size="18">visible result</text>
+
+  <path d="M350 485 H430" stroke="#c8d0d6" stroke-width="4"/><path d="M700 485 H780" stroke="#c8d0d6" stroke-width="4"/><path d="M1050 485 H1130" stroke="#c8d0d6" stroke-width="4"/>
+  <path d="M418 477 l12 8 -12 8" fill="#c8d0d6"/><path d="M768 477 l12 8 -12 8" fill="#c8d0d6"/><path d="M1118 477 l12 8 -12 8" fill="#c8d0d6"/>
+
+  <rect x="80" y="625" width="1250" height="105" rx="18" fill="#151d25" stroke="#71808d" stroke-width="2"/>
+  <text x="705" y="665" text-anchor="middle" fill="#fff" font-size="25" font-weight="700">THE UNDERLYING RULE</text>
+  <text x="705" y="701" text-anchor="middle" fill="#c8d0d6" font-size="21">The player never sees a “+1 barracks” button. They build a barracks, train a squad, staff the capability,</text>
+  <text x="705" y="728" text-anchor="middle" fill="#c8d0d6" font-size="21">visit the people involved, and authorize what happens next.</text>
+</g>
+</svg>
