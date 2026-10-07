@@ -12,6 +12,10 @@ The public presentation should allow a visitor to understand the game quickly, t
 
 ### raWWar
 
+![raWWar — the war is alive](images/rawwar-hero.svg)
+
+![One galaxy, one war](images/rawwar-galactic-war.svg)
+
 The raWWar landing experience introduces the game visually and establishes the core proposition:
 
 > **The soldiers themselves are the stars of this game.**
