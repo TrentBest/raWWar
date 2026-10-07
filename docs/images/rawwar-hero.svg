@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
+<title id="t">raWWar — The war is alive</title>
+<desc id="d">A first-person view from a high military headquarters across a rain-soaked imperial square toward a monumental palace, with soldiers in the foreground and lightning illuminating the city.</desc>
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#050811"/><stop offset=".58" stop-color="#101827"/><stop offset="1" stop-color="#263242"/></linearGradient>
+ <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#202a34"/><stop offset="1" stop-color="#080c12"/></linearGradient>
+ <linearGradient id="palace" x2="0" y2="1"><stop stop-color="#59616a"/><stop offset="1" stop-color="#1b222b"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
+ <pattern id="rain" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(12)"><line x1="3" y1="0" x2="3" y2="22" stroke="#b9d7e8" stroke-opacity=".18" stroke-width="2"/></pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#sky)"/>
+<path d="M0 250 L300 190 540 260 800 180 1050 245 1330 165 1600 220V520H0Z" fill="#0a1019"/>
+<g opacity=".6">
+ <rect x="70" y="315" width="120" height="205" fill="#111a24"/><rect x="220" y="280" width="95" height="240" fill="#121c26"/>
+ <rect x="1270" y="285" width="130" height="235" fill="#101923"/><rect x="1430" y="320" width="90" height="200" fill="#111a24"/>
+</g>
+<!-- palace -->
+<g>
+ <rect x="515" y="345" width="570" height="260" fill="url(#palace)" stroke="#87909a" stroke-opacity=".35" stroke-width="3"/>
+ <path d="M475 345 L800 205 1125 345Z" fill="#434c55"/>
+ <path d="M620 345 L800 255 980 345Z" fill="#737b83" opacity=".55"/>
+ <rect x="750" y="425" width="100" height="180" fill="#111820"/>
+ <g fill="#d9c68b" opacity=".8">
+  <rect x="575" y="400" width="28" height="55"/><rect x="635" y="400" width="28" height="55"/><rect x="695" y="400" width="28" height="55"/>
+  <rect x="877" y="400" width="28" height="55"/><rect x="937" y="400" width="28" height="55"/><rect x="997" y="400" width="28" height="55"/>
+ </g>
+ <path d="M560 605 H1040" stroke="#c5a45c" stroke-width="8" opacity=".65"/>
+ <text x="800" y="320" text-anchor="middle" fill="#d9c68b" font-family="sans-serif" font-size="28" letter-spacing="12">IMPERIAL PALACE</text>
+</g>
+<!-- square -->
+<path d="M280 900 L585 600 H1015 L1320 900Z" fill="url(#ground)"/>
+<path d="M410 900 L650 610 M1190 900 L950 610" stroke="#59636d" stroke-width="3" opacity=".45"/>
+<g fill="#a9bac6" opacity=".8">
+ <circle cx="650" cy="665" r="7"/><circle cx="710" cy="705" r="7"/><circle cx="890" cy="690" r="7"/><circle cx="950" cy="655" r="7"/>
+</g>
+<!-- lightning -->
+<path d="M1190 0 L1040 235 L1110 220 L1015 390 L1195 165 L1125 178Z" fill="#e9f5ff" opacity=".95" filter="url(#glow)"/>
+<path d="M1190 0 L1040 235 L1110 220 L1015 390 L1195 165 L1125 178Z" fill="#f4fbff" opacity=".9"/>
+<!-- foreground window / frame -->
+<path d="M0 0H1600V900H0Z" fill="none" stroke="#05070a" stroke-width="46"/>
+<path d="M70 70H1530V830H70Z" fill="none" stroke="#394550" stroke-width="10"/>
+<!-- soldiers -->
+<g transform="translate(150 570)">
+ <ellipse cx="90" cy="265" rx="85" ry="25" fill="#000" opacity=".5"/>
+ <path d="M45 265 L55 130 L72 80 L108 80 L130 130 L140 265Z" fill="#141b22" stroke="#77838d" stroke-width="3"/>
+ <path d="M70 80 L68 28 Q90 2 112 28 L110 80Z" fill="#252e37" stroke="#aab4bc" stroke-width="3"/>
+ <path d="M70 42 H110" stroke="#d0ad63" stroke-width="5"/>
+ <path d="M55 150 L10 205 M130 150 L175 195" stroke="#161d25" stroke-width="22"/>
+ <circle cx="10" cy="207" r="13" fill="#59646e"/><circle cx="175" cy="197" r="13" fill="#59646e"/>
+</g>
+<g transform="translate(1290 620) scale(.75)">
+ <ellipse cx="90" cy="265" rx="85" ry="25" fill="#000" opacity=".5"/>
+ <path d="M45 265 L55 130 L72 80 L108 80 L130 130 L140 265Z" fill="#141b22" stroke="#77838d" stroke-width="3"/>
+ <path d="M70 80 L68 28 Q90 2 112 28 L110 80Z" fill="#252e37" stroke="#aab4bc" stroke-width="3"/>
+ <path d="M70 42 H110" stroke="#d0ad63" stroke-width="5"/>
+</g>
+<rect width="1600" height="900" fill="url(#rain)"/>
+<rect x="90" y="710" width="520" height="105" rx="18" fill="#070b10" fill-opacity=".72" stroke="#9aa8b4" stroke-opacity=".25"/>
+<text x="125" y="765" fill="#f2f4f5" font-family="sans-serif" font-size="42" font-weight="700" letter-spacing="3">raWWar</text>
+<text x="125" y="800" fill="#b8c4cc" font-family="sans-serif" font-size="22">THE WORLD SHOULD NEVER LOOK DEAD.</text>
+</svg>
