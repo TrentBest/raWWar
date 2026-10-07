@@ -28,6 +28,7 @@ The raWWar design hub should expose:
 - **Design Document** — the comprehensive master GDD.
 - **Units** — soldiers, squads, formations, specialists, organizational roles.
 - **Structures** — bases, buildings, facilities, launch pads, laboratories, barracks, command centers.
+- **Capability Catalogue** — the growing catalogue of vehicles, structures, factories, crew compositions, qualifications, training tiers, and research dependencies.
 - **Gameplay** — what the player actually does.
 - **Research** — scientific work and technology progression.
 - **Combat** — ground, air, and space warfare.
@@ -66,7 +67,9 @@ For example:
 
 or:
 
-**Design Document → Vehicles → vehicle design → individual vehicle MicroBundle**
+**Design Document → Vehicles → Capability Catalogue → individual vehicle MicroBundle**
+
+The Capability Catalogue is deliberately a living design instrument. It defines families and dependencies before the project freezes thousands of individual content records.
 
 ## Design-gap behavior
 
@@ -126,7 +129,6 @@ The exact publishing architecture remains open.
 This document is a presentation/design concept only.
 
 No WebPage implementation is implied by this document.
-
 
 ## Experience Architecture
 
