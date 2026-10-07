@@ -29,6 +29,9 @@ The raWWar design hub should expose:
 - **Units** — soldiers, squads, formations, specialists, organizational roles.
 - **Structures** — bases, buildings, facilities, launch pads, laboratories, barracks, command centers.
 - **Capability Catalogue** — the growing catalogue of vehicles, structures, factories, crew compositions, qualifications, training tiers, and research dependencies.
+- **Qualification Graph** — prerequisite paths, training tiers, instructor bottlenecks, and readiness.
+- **Crew Composition Matrix** — how vehicles, facilities, factories, and construction work consume qualified people.
+- **Industrial Dependency Graph** — materials, components, factories, production readiness, and fielding dependencies.
 - **Gameplay** — what the player actually does.
 - **Research** — scientific work and technology progression.
 - **Combat** — ground, air, and space warfare.
