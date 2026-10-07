@@ -24,7 +24,7 @@ This document provides a production structure without pretending that implementa
 - equipment families
 - vehicle families
 - environments
-- animation
+- animation and Gesture authoring
 - effects
 - UI assets
 
@@ -39,6 +39,8 @@ This document provides a production structure without pretending that implementa
 
 ### Technology
 - FSM-driven simulation
+- Gesture system
+- GPU population-state processing
 - Experience manifest
 - MicroBundle composition
 - Workshop Renderer
@@ -65,7 +67,7 @@ Milestones should be capability-based rather than date-based until the design st
 Document the game, identify contradictions, and maintain the open-question queue.
 
 ### M1 — First living slice
-Demonstrate one soldier, one physical environment, one meaningful procedure, FSM-driven behavior, and Workshop Renderer presentation.
+Demonstrate one soldier, one physical environment, one meaningful procedure, FSM-driven behavior, at least one reusable Gesture, individualized motion, and Workshop Renderer presentation.
 
 ### M2 — Occupational slice
 Demonstrate multiple qualifications and at least two substantially different occupations sharing the same world.
