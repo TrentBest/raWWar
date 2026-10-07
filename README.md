@@ -16,6 +16,8 @@ It is:
 
 ---
 
+![One galaxy, one war](docs/images/rawwar-galactic-war.svg)
+
 ## See the intent first
 
 ![A living raWWar military installation](docs/images/rawwar-living-world.svg)
@@ -29,6 +31,18 @@ That is the target.
 Where the player looks, there should be evidence of systems, people, procedures, decisions, work, failure, recovery, and consequence.
 
 ---
+
+## One galaxy. Not a stack of maps
+
+The raWWar universe is a **galaxy**. The Empire spans many star systems, and the campaign is a continuous war rather than a sequence of disposable maps.
+
+Warp drives exist, but a jump takes **days to initialize and prepare**. Distance, logistics, reinforcement, and time therefore matter.
+
+After choosing a faction, the player is introduced to the Empress. She orders the player to take a poorly defended but resource-rich enemy world and uphold the tithe. She does not wait for an answer.
+
+The player can obey or disobey. Obedience earns rewards and increasingly egregious demands. Disobedience changes the player's relationship with Imperial authority. Either way, **the player's actions affect the Empire and the larger galaxy.**
+
+> **This is not “pick a sector and play a map.” This is living inside the war.**
 
 ## What kind of Experience is this?
 
@@ -47,6 +61,7 @@ These are not separate games.
 **They are different ways of inhabiting the same war.**
 
 ---
+![The Empress's first order](docs/images/rawwar-empress-order.svg)
 
 ## Why this repository is different
 
