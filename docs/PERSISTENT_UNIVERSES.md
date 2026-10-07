@@ -37,3 +37,50 @@ A candidate concept is the pocket dimension:
 - potentially allowing rare cross-universe interaction.
 
 This remains candidate design, not canon.
+
+
+## Galactic persistence
+
+A persistent universe is a galaxy, not merely a persistent server containing one battlefield.
+
+The Empire can span many star systems, and worlds can change ownership as the war develops.
+
+The persistent state therefore needs to represent relationships between:
+
+- star systems;
+- worlds;
+- factions;
+- Imperial authority;
+- resources;
+- fleets;
+- facilities;
+- organizations;
+- individual players and soldiers.
+
+A player entering an established universe should be entering a history already shaped by other players.
+
+## Warp-time persistence
+
+Warp drives require days of initialization and preparation.
+
+Persistent simulation must therefore be capable of representing long-running operations such as:
+
+- ships preparing for warp;
+- fleets waiting for readiness;
+- orders traveling through organizations;
+- worlds changing strategic condition;
+- resources being accumulated or depleted;
+- military operations unfolding while individual players are elsewhere.
+
+The universe should not need a player to remain physically present for time-dependent strategic consequences to exist.
+
+## Player actions can alter the Empire
+
+The player's actions are not isolated campaign outcomes.
+
+A successful conquest can alter ownership, resource access, faction strength, Imperial revenue, military readiness, and future opportunities.
+
+Refusing Imperial orders can likewise change political relationships and the player's standing.
+
+The persistent universe is therefore both the setting and the historical record of player decisions.
+
