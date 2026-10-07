@@ -246,3 +246,133 @@ A tablet, advisor conversation, terminal, or other physical interaction is a pre
 
 Future ProtocolAi integration should map semantic intent to these available choices rather than directly mutating authoritative state.
 
+
+
+## Faction, sub-faction, and capability provenance
+
+A faction is an organizational parent, not a complete inventory.
+
+The data model should represent capability provenance explicitly.
+
+Candidate hierarchy:
+
+```
+Galaxy
+  → MajorFaction
+    → SubFaction
+      → Organization
+        → Facility / Unit
+          → Individual
+```
+
+A capability instance should be able to answer where it came from and why it exists.
+
+Candidate provenance fields:
+
+- parent faction;
+- owning sub-faction;
+- originating technology;
+- production source;
+- acquisition source;
+- capture source;
+- transfer history;
+- local doctrine;
+- local specialization;
+- qualification requirements;
+- current crew;
+- current location;
+- operational state.
+
+The distinction is important:
+
+**Faction capability** = what the faction's doctrine, technology, and economy make plausible.
+
+**Sub-faction capability** = what a particular world/colony/moon/asteroid/etc. can actually support.
+
+**Capability instance** = the specific physical thing that exists here, with its own history and state.
+
+Two worlds belonging to the same House can therefore have radically different military realities.
+
+## Skills and individual progression
+
+Soldiers should be modeled as persistent individuals rather than anonymous interchangeable unit members.
+
+A soldier can have:
+
+- skills;
+- qualifications;
+- attributes;
+- experience history;
+- rank;
+- assignments;
+- equipment;
+- relationships;
+- injuries/condition;
+- certifications;
+- procedures learned;
+- combat experience.
+
+A useful skill model is **GURPS-like in spirit, not necessarily GURPS-compatible in implementation**.
+
+Skills should describe what an individual can actually do, while qualifications and organizational permissions determine what they are authorized to do.
+
+For example:
+
+```
+Skill
+  → demonstrated ability
+
+Qualification
+  → recognized/certified ability
+
+Permission
+  → organizational authority to exercise it
+
+Readiness
+  → ability to perform it now
+```
+
+Experience can improve a skill when the relevant activity provides meaningful practice.
+
+Examples:
+
+- firing a weapon can improve weapons-related skill;
+- surviving combat can improve combat-relevant judgment;
+- repairing vehicles can improve mechanical skill;
+- repeatedly navigating difficult routes can improve navigation;
+- successfully commanding under pressure can improve command-related skills;
+- defending against an enemy can build experience specific to that kind of threat.
+
+Experience should not be free background progression merely because time passed.
+
+The simulation should record **what the individual actually did**.
+
+## Skill progression is evidence-based
+
+A candidate progression chain is:
+
+```
+Skill
+  ↓
+attempt
+  ↓
+meaningful practice
+  ↓
+outcome
+  ↓
+experience evidence
+  ↓
+skill progression
+```
+
+Training can accelerate learning.
+
+Real operation can validate and deepen it.
+
+Combat can expose weaknesses that classroom or VR training cannot.
+
+This creates an important distinction:
+
+> **Training teaches a soldier how to perform. Experience teaches the soldier what happens when performance meets reality.**
+
+The exact mathematical progression curve remains intentionally open.
