@@ -26,6 +26,8 @@ A launch crew can be working while another squad trains, researchers run experim
 
 That is the target.
 
+![A military base is a machine made of people](docs/images/rawwar-base-cutaway.svg)
+
 **The world should always be doing something.**
 
 Where the player looks, there should be evidence of systems, people, procedures, decisions, work, failure, recovery, and consequence.
@@ -60,6 +62,10 @@ These are not separate games.
 
 **They are different ways of inhabiting the same war.**
 
+![A soldier's career](docs/images/rawwar-soldier-progression.svg)
+
+A raWWar soldier is not a class selected from a menu. Identity, qualification, responsibility, reputation, relationships, equipment, and history accumulate over time.
+
 ---
 ![The Empress's first order](docs/images/rawwar-empress-order.svg)
 
@@ -91,6 +97,8 @@ The Workshop provides reusable machinery so raWWar does **not** have to reinvent
 - hosting and manifestation through **AnyApp** and other hosts;
 - observer-relative presentation through the **Workshop Renderer**;
 - persistence, networking, reconstruction, and related infrastructure as those capabilities mature.
+
+![Event horizons](docs/images/rawwar-event-horizons.svg)
 
 **We want to spend our time making the world matter—not rebuilding the machinery underneath every world.**
 
@@ -146,6 +154,8 @@ That means:
 - Renderer captures;
 - interactive demonstrations;
 - technical deep dives for the machinery underneath.
+
+![Gestures turn procedures into visible physical action](docs/images/rawwar-gesture-sequence.svg)
 
 The repository is therefore being built toward a public **design experience**, not merely a stack of Markdown files.
 
