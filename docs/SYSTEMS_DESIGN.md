@@ -24,6 +24,31 @@ raWWar is expected to emerge from large amounts of interconnected data:
 
 FSM_API supplies behavior and state transitions. It should not be replaced by bespoke occupation-specific state machines scattered through the Experience.
 
+## Gestures
+
+Gestures provide the physical execution layer between an entity's intent and its visible motion.
+
+An ideal Gesture consists of poses and the mathematical transition between those poses. The same Gesture can be applied to a population, then individualized from each entity's stable seed, statistics, current state, and context.
+
+This creates coordinated but non-identical motion. Individualization should remain bounded and purposeful rather than becoming uncontrolled random noise.
+
+## Gesture Providers
+
+A world capability should own knowledge of its own physical interfaces. A vehicle MicroBundle can expose a Gesture Provider for entering a cockpit, climbing into a hatch, operating a console, or other vehicle-specific procedures.
+
+The soldier can therefore reason in terms of a need — such as "enter cockpit" — rather than knowing the implementation details of every vehicle.
+
+The general relationship is:
+
+1. Soldier or procedure identifies a need.
+2. Environment identifies a compatible interaction point.
+3. The target capability provides the appropriate Gesture/FSM.
+4. The soldier moves into the required starting position.
+5. FSM_API governs the physical procedure.
+6. Completion produces the next state.
+
+Walking to the interaction point remains generic movement; the domain-specific physical interaction belongs to the target capability.
+
 ## Individual agency
 An individual soldier should not need omniscient knowledge of the entire war.
 
@@ -76,6 +101,12 @@ The commander's physical presence can affect the organization through leadership
 
 Military responses should depend on current duty and criticality. For example, personnel performing safety-critical work should not be forced to interrupt that work merely to perform ceremonial behavior.
 
+## GPU population state
+
+The long-term Renderer can represent large populations using compact state textures. A candidate layout stores four independent 8-bit state values in each 32-bit pixel, allowing compute shaders to operate on only the channels required by a particular operation.
+
+This is a candidate implementation representation, not yet a frozen renderer contract. Its purpose is to make enormous populations tractable while keeping authoritative meaning outside the rendered pixels.
+
 ## Living-world simulation
 The simulation should distinguish:
 - high-detail observed behavior;
@@ -98,6 +129,14 @@ The arcade and personal customization can use raWWar digital currency. Persisten
 
 ## Rules and adaptation
 Military rules can become observable procedures. A failure may cause an organization to establish a new rule, provided the design eventually defines who has authority to create, modify, revoke, and enforce that rule.
+
+## Observation-relative computation
+
+Simulation fidelity and presentation fidelity should not be uniform across the entire world.
+
+Event horizons can determine how much Gesture detail, pose evaluation, and rendering computation is justified by what the player can observe. Nearby entities can receive richer individualized motion; distant populations can use cheaper representations while preserving the visual evidence of organized life.
+
+The optimization target is not "simulate everything equally." It is "preserve believable observed behavior at the appropriate cost."
 
 ## Persistence
 Persistent universes need an authoritative state model capable of surviving player absence and reconstructing appropriate detail without making rendering the source of truth.
