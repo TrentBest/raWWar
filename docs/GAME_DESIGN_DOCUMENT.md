@@ -260,6 +260,8 @@ The exact identity model by mode remains to be fully designed.
 
 # 4. The World
 
+![One galaxy, one war](images/rawwar-galactic-war.svg)
+
 ## 4.1 The war
 
 raWWar requires a coherent conflict rather than an excuse for combat.
