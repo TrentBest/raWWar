@@ -57,6 +57,50 @@ The raWWar design hub should expose:
 - **Persistent Universes** — long-lived worlds, identity, history, economics, universe lifecycle.
 - **Development** — current state, experiments, design gaps, milestones.
 
+## Content Laboratories
+
+The design is now being expanded into concrete content records rather than keeping every vehicle, structure, and soldier inside one catalogue.
+
+- Vehicles/ — individual vehicle concepts, configurations, logistics, crew survival, FPS/Commander symmetry, and science-fiction exploration.
+- Structures/ — keyed buildings, physical capabilities, re-keying, construction, staffing, and operational dependencies.
+- Soldiers/ — people, qualifications, careers, training, equipment, survival, and first-person roles.
+- [Content Authoring Laboratories](CONTENT_AUTHORING_LABORATORIES.md) — the working model for turning broad design into concrete records.
+- [Intent, Resources, and Logistics](INTENT_RESOURCES_AND_LOGISTICS.md) — intent-driven command, finite supplies, depletion, and organizational logistics.
+
+These folders are deliberately expansive design laboratories. They are where ideas can collide before mature material is promoted into authoritative Experience definitions.
+
+### One game, two perspectives
+
+raWWar is not an RTS with an FPS bolted onto it.
+
+The Commander and Soldier are looking at the **same authoritative world** from different positions.
+
+A Commander can intend:
+
+> Keep the forward missile batteries supplied.
+
+A soldier can be the person loading those missiles, flying the transport, maintaining the launcher, or firing it.
+
+A player can qualify to fly a starfighter and eventually pursue larger spacecraft and fleet command. Meanwhile the Commander can see those same pilots and ships as readiness, logistics, orders, losses, and strategic capability.
+
+### Intent over micro-accounting
+
+The player should express intent. The simulation performs the physical organization underneath that intent.
+
+Resources, ammunition, production, transport, training, maintenance, and staffing remain real. They do not magically appear. But the player should not have to micromanage every crate merely to make a higher-level order meaningful.
+
+When a required resource is depleted, a dependent process can wait or pause until the supply chain catches up.
+
+> **Tell the organization what you want. The organization figures out how to do it.**
+
+### Re-keyable infrastructure
+
+Many buildings are keyed to their intended capability: a processing plant to a resource, storage to an inventory family, barracks to a training program, factories to production families, and research facilities to research domains.
+
+Compatible structures can be re-keyed rather than demolished. The current Candidate rule is one-quarter of original construction time at twice the normal construction cost.
+
+This makes base building easier and more fluid while preserving meaningful configuration decisions.
+
 ## Relationship to the master GDD
 
 The master GDD is the comprehensive reading path.
