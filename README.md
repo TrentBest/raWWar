@@ -57,7 +57,7 @@ Workshop Renderer
     |
 first-person VR
 
-The Experience owns the meaning and requirements of raWWar.
+The Experience owns the meaning and requirements of raWWar. Visual state may be densely represented for GPU processing, but rendered pixels are never the authoritative semantic source of the world.
 
 Hosts do not define the game. The manifest describes what is required. MicroBundles provide independently composable capabilities. FSM_COS composes them. The manifestation supplies the appropriate observation, interaction, rendering, and local services.
 
@@ -72,6 +72,7 @@ The authoritative design documentation lives under docs/.
 - Persistent Universes
 - Open Questions
 - Systems Design
+- Gestures Design
 - Narrative Design
 - Art Direction
 - Audio Direction
