@@ -2855,6 +2855,32 @@ The following areas currently require substantial creator input before they shou
 
 ---
 
+# 44.1 Capability Catalogue
+
+The game is now being developed from a living catalogue of the physical capabilities the player can create, staff, qualify for, operate, maintain, and command.
+
+See [Capability Catalogue](CAPABILITY_CATALOGUE.md).
+
+The catalogue establishes:
+
+- qualification families and chained training tiers;
+- squad-sized training capacity through four-module barracks;
+- ground, atmospheric, orbital, and space vehicle families;
+- headquarters, training, logistics, defensive, aerospace, research, industrial, and support structures;
+- factories as staffed production capabilities rather than abstract build buttons;
+- factory crews as a separate qualification/staffing problem from vehicle crews;
+- construction crews and recursive construction qualifications;
+- research subjects represented on a 0–100 scale;
+- threshold-based research branches;
+- invasion logistics based on reconnaissance, staging, transport, air-defense risk, and battlefield deployment;
+- the living-base activity model.
+
+The catalogue deliberately defines **families and dependencies before thousands of named content records**.
+
+The governing principle is:
+
+> **A capability is not available merely because its building exists. The people, training, equipment, production, logistics, and procedures must exist to make it real.**
+
 # 45. Companion Design Documents
 
 The master GDD should not become an unreadable wall of implementation detail.
