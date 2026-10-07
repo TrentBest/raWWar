@@ -1941,6 +1941,267 @@ The intended separation is:
 
 ---
 
+# 33.5 The Experience Architecture — What raWWar Does Not Have to Reinvent
+
+raWWar is deliberately designed as an **Experience**, not as a monolithic game application.
+
+The game design therefore has two simultaneous responsibilities:
+
+1. define the war, people, world, rules, content, and experience;
+2. demonstrate how those things are expressed through the Workshop architecture.
+
+raWWar should not spend development effort rebuilding infrastructure that already belongs to the Workshop.
+
+## 33.5.1 Fundamental relationship
+
+```mermaid
+flowchart TD
+    A["raWWar Experience<br/>meaning, content, rules, world"] --> B["Experience Manifest"]
+    B --> C["MicroBundles<br/>capabilities"]
+    C --> D["FSM_COS<br/>composition boundary"]
+    D --> E["AnyApp<br/>host / manifestation"]
+    D --> F["WebApp / WebPage<br/>future manifestation"]
+    D --> G["MyVR<br/>future manifestation"]
+    D --> H["Distributed hosts<br/>future manifestations"]
+    D --> I["Workshop Renderer<br/>observation / presentation"]
+    J["FSM_API<br/>behavioral foundation"] --> C
+    J --> D
+```
+
+The arrows describe responsibility and composition, not a conventional application call stack.
+
+**raWWar owns the Experience. The Workshop owns the machinery that lets the Experience exist across manifestations.**
+
+## 33.5.2 What raWWar does not need to reinvent
+
+| Capability | Workshop responsibility | raWWar responsibility |
+|---|---|---|
+| State-machine behavior | FSM_API | Define states, transitions, rules, relationships |
+| Composition/orchestration | FSM_COS | Declare and configure required capabilities |
+| Capability packaging | MicroBundles | Define and configure raWWar capabilities |
+| Manifest/host lifecycle | Experience infrastructure / AnyApp | Describe the Experience requirements |
+| Rendering technology | Workshop Renderer | Define what must be observable |
+| GPU-scale presentation | Renderer | Define required visual behavior |
+| Gesture realization | Gesture/Renderer architecture | Define intended physical behavior |
+| User I/O plumbing | FSM_UserIO / host | Define semantic interactions |
+| Persistence foundations | Workshop/platform layer | Define what must persist |
+| Networking foundations | Workshop/platform layer | Define authoritative state and synchronization needs |
+| Cross-manifestation hosting | Workshop architecture | Keep Experience definition portable |
+
+The things raWWar **does** own are different:
+
+| raWWar owns | Meaning |
+|---|---|
+| World | Places, history, geography, weather, and physical context |
+| Soldiers | Identity, careers, qualifications, relationships, equipment |
+| Factions | Beliefs, organizations, doctrine, objectives |
+| Combat | The actual rules of war |
+| Training | Qualifications and opportunities |
+| Research | Discovery and technological progression |
+| Construction | What can be built and how it changes the world |
+| Missions | What players are asked to accomplish |
+| Narrative | What the war means |
+| Economy | What resources, ownership, and exchange mean |
+
+This is a **scope-control mechanism**.
+
+When a new requirement appears, the first question is:
+
+> **Is this raWWar content, or is this reusable Workshop infrastructure?**
+
+If it is infrastructure, raWWar should consume it rather than recreate it.
+
+## 33.5.3 Experience versus application
+
+A conventional game application often owns the application loop, entity management, state management, input, rendering, animation, persistence, networking, platform integration, and content.
+
+raWWar should not become that monolith.
+
+```mermaid
+flowchart LR
+    X["raWWar Experience"] --> M["Experience Manifest"]
+    M --> MB["MicroBundles"]
+    MB --> COS["FSM_COS"]
+    COS --> HOST["AnyApp / other host"]
+    COS --> R["Workshop Renderer"]
+
+    subgraph "raWWar owns"
+      W["World"]
+      S["Soldiers"]
+      F["Factions"]
+      C["Combat"]
+      T["Training"]
+      RE["Research"]
+      B["Bases"]
+      N["Narrative"]
+    end
+
+    subgraph "Workshop provides"
+      A["FSM behavior"]
+      O["Composition"]
+      H["Hosting"]
+      P["Presentation"]
+      U["User I/O"]
+      D["Persistence / networking foundations"]
+    end
+
+    W --> X
+    S --> X
+    F --> X
+    C --> X
+    T --> X
+    RE --> X
+    B --> X
+    N --> X
+    A --> MB
+    O --> COS
+    H --> HOST
+    P --> R
+    U --> COS
+    D --> COS
+```
+
+## 33.5.4 What FSM_COS means to the game design
+
+FSM_COS is an architectural **boundary of composition**, not a game-specific frame loop.
+
+raWWar describes:
+
+- what capabilities exist;
+- which capabilities are required;
+- how capabilities relate;
+- what configuration is supplied;
+- what state is authoritative;
+- what providers are available;
+- what manifestations are supported.
+
+FSM_COS provides the machinery for assembling those independent capabilities into a coherent Experience.
+
+### Example: aircraft launch
+
+The GDD describes:
+
+**aircraft + qualified crew + maintenance + launch procedure + weather + pad readiness → launch**
+
+It does not need to prescribe a bespoke raWWar aircraft launch manager.
+
+The behavior can emerge from:
+
+**data + providers + requirements + FSMs + relationships + procedures**
+
+That is the architectural pattern raWWar is intended to demonstrate.
+
+## 33.5.5 What AnyApp means to the game design
+
+AnyApp is a host/manifestation.
+
+The Experience should not become dependent on a particular desktop shell merely because AnyApp is the first practical host.
+
+```text
+raWWar Experience
+        ↓
+Experience Manifest
+        ↓
+FSM_COS composition
+        ↓
+AnyApp host
+        ↓
+Workshop Renderer
+        ↓
+player
+```
+
+A future WebApp, WebPage, MyVR client, or distributed manifestation should be able to consume the same Experience definition where its capabilities permit.
+
+The player receives a manifestation.
+
+**The Experience remains the Experience.**
+
+## 33.5.6 What the Renderer means to the game design
+
+The Renderer is not the simulation.
+
+Authoritative state flows toward presentation:
+
+```text
+World meaning
+    ↓
+authoritative data
+    ↓
+FSM behavior
+    ↓
+presentation projection
+    ↓
+Gesture / pose computation
+    ↓
+Renderer
+    ↓
+observer
+```
+
+This allows the GDD to describe enormous populations without assuming that every visible soldier requires a conventional CPU-side animation controller.
+
+## 33.5.7 Event horizons are design, not merely optimization
+
+The game design should specify what information matters at different observational distances.
+
+| Horizon | Player must perceive | System may reduce |
+|---|---|---|
+| Near | identity, equipment, gesture, attention, fine interaction | very little |
+| Middle | identity, role, major movement, formation, activity | pose detail, update frequency |
+| Far | population, direction, formation, activity, major events | individual motion detail |
+| Strategic | readiness, movement, ownership, logistics, events | physical presentation |
+
+This is not simply a performance trick.
+
+**Detail is not geometry.**
+
+Data, behavior, identity, relationships, and observable activity are also forms of detail.
+
+## 33.5.8 Scale becomes a design problem rather than an object-count problem
+
+The Experience may eventually describe hundreds of thousands of soldiers, hundreds of scientists, enormous bases, fleets, cities, and persistent populations.
+
+That does not mean every entity must always receive identical simulation, persistence, networking, or rendering cost.
+
+The architecture separates:
+
+**meaning → behavior → persistence → observation → presentation**
+
+rather than treating all five as one object.
+
+## 33.5.9 Design rule
+
+> **raWWar should spend its complexity on the war, not on rebuilding the machinery required to host a war.**
+
+When a requirement appears, ask:
+
+1. Is this something the player experiences?
+2. Is it authoritative game/world meaning?
+3. Is it a reusable Workshop capability?
+4. Is it a manifestation concern?
+5. Is it merely presentation?
+6. Is it already solved elsewhere in the Workshop?
+
+Only the first two categories automatically belong in raWWar.
+
+## 33.5.10 Why this belongs in a game design document
+
+Architecture belongs here because it changes what the Experience can be.
+
+It tells us what can be ambitious.
+
+It tells us where development effort should go.
+
+It tells us what the Experience must define precisely.
+
+It prevents the GDD from quietly turning into a specification for a conventional monolithic game engine.
+
+Most importantly:
+
+> **If the Workshop already gives us the machinery, what is the most extraordinary world we can build with it?**
+
+
 # 34. Authoritative Data Model
 
 The core conceptual separation is:
