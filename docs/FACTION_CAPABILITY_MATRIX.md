@@ -382,3 +382,134 @@ The galaxy can contain:
 That is far more interesting than thirteen identical technology trees painted thirteen different colors.
 
 > **The faction defines what is likely. History determines what actually happened.**
+
+
+## 13. The Dune problem — and why raWWar should not have it
+
+A useful test for this system is the classic science-fiction faction problem: one faction has an ornithopter, another has a trike, another has light infantry, another has a sonic tank, and the differences exist because the game designer needed different pieces for different sides.
+
+That can make a game fun, but it leaves the deeper question unanswered:
+
+> **Why does this society have this thing, while that society does not?**
+
+raWWar should be able to answer that question.
+
+An asymmetric capability should emerge from the same graph that generates the faction itself:
+
+```
+History
+  ↓
+Collective memory
+  ↓
+Disposition / values
+  ↓
+Doctrine
+  ↓
+Economic priorities
+  ↓
+Research priorities
+  ↓
+Industrial investment
+  ↓
+Buildings / infrastructure
+  ↓
+Technology / production
+  ↓
+Training / qualifications
+  ↓
+Vehicles / equipment
+  ↓
+Operational doctrine
+  ↓
+Observed behavior
+```
+
+Therefore, if two factions possess different vehicles, the difference should ideally be explainable without saying merely **"because faction A gets vehicle A."**
+
+One faction might develop an atmospheric aircraft family because its worlds invested heavily in aerospace engineering, its terrain rewards atmospheric mobility, its doctrine values rapid deployment, its economy can sustain the maintenance burden, and its training institutions produce the required pilots and ground crews.
+
+Another faction might possess the technology but deliberately reject it because its doctrine considers it too maintenance-intensive, its industrial base is optimized elsewhere, its officers distrust the tactical role, its terrain makes the capability less useful, or its culture considers the associated operational doctrine unacceptable.
+
+That distinction is critical:
+
+**"Cannot build it" and "will not build it" are different facts.**
+
+Likewise:
+
+- **Can build** ≠ **has built**
+- **Has built** ≠ **deploys widely**
+- **Deploys** ≠ **uses well**
+- **Uses well** ≠ **believes it should use**
+- **Does not use** ≠ **cannot use**
+
+This lets faction asymmetry become a consequence of civilization rather than a designer-assigned roster.
+
+### Capability rejection is itself meaningful behavior
+
+A faction's refusal to adopt a technology should be modeled as meaningful historical and institutional behavior.
+
+A faction may reject a capability because of:
+
+- doctrine;
+- cost;
+- maintenance burden;
+- resource requirements;
+- training burden;
+- political symbolism;
+- cultural values;
+- ethical constraints;
+- strategic geography;
+- vulnerability to enemy countermeasures;
+- distrust of the organization that invented it;
+- dependence on foreign supply chains;
+- institutional inertia;
+- previous catastrophic experience;
+- deliberate preservation of another way of fighting.
+
+That means a faction can have a **negative preference** for a capability even when the technology is available to it.
+
+The resulting asymmetry can be richer than a conventional technology tree:
+
+```
+Technology available
+       ↓
+Faction evaluates it
+       ↓
+Disposition + doctrine + economy + history
+       ↓
+Adopt / adapt / restrict / reject
+       ↓
+Local production and training
+       ↓
+Actual deployment
+```
+
+The goal is not to eliminate authored creativity. The goal is to make authored creativity **causally believable**.
+
+> **We can still invent the weird shit. We just want the galaxy to be able to explain why it exists.**
+
+### Faction identity extends beyond military hardware
+
+The same causal chain should influence everything the player observes:
+
+| Observable | Should emerge from |
+|---|---|
+| **Colors / materials** | resources, industry, culture, environment, tradition |
+| **Flags / heraldry** | history, legitimacy, identity, political memory |
+| **Uniforms** | doctrine, climate, rank structure, manufacturing, tradition |
+| **Architecture** | resources, security needs, technology, culture, geography |
+| **Rules / laws** | values, history, political structure, threats |
+| **Economy** | resources, trade relationships, institutions, priorities |
+| **Spycraft** | threat model, paranoia, intelligence institutions, doctrine |
+| **Warfare** | geography, doctrine, training, equipment, experience |
+| **Research** | problems the faction wants solved and knowledge it values |
+| **Logistics** | geography, infrastructure, commerce, military doctrine |
+| **Medicine** | value of life, resources, scientific tradition, military needs |
+| **Construction** | available materials, engineering tradition, threats, labor |
+| **Social behavior** | collective memory, values, incentives, institutions |
+
+The player should therefore be able to walk into a faction's territory and gradually recognize it before seeing a faction name.
+
+**The faction should look, sound, behave, fight, build, trade, research, spy, heal, and organize like the society that produced it.**
+
+That is the standard the capability matrix is intended to support.
