@@ -876,7 +876,10 @@ Potential dimensions include:
 - power;
 - mobility;
 - sensors;
+- cameras;
 - communications;
+- displays;
+- comfort/ergonomics;
 - tools;
 - weapons;
 - specialist modules;
@@ -898,6 +901,9 @@ It may change:
 - compatibility;
 - operational role;
 - survivability;
+- sensory quality;
+- operator comfort;
+- reliability;
 - interaction options.
 
 ## 11.5 Personal ownership
