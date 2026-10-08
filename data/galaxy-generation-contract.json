@@ -1,0 +1,131 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesingularityworkshop.com/raWWar/schemas/galaxy-generation-contract.v1.json",
+  "schemaVersion": "raWWar.galaxy-generation-contract.v1",
+  "status": "design-contract",
+  "purpose": "Define stable spatial identity and reproducible generation rules. This contract is not itself a physical simulation or a claim of astrophysical accuracy.",
+  "universe": {
+    "gridDimensions": [10, 10, 10],
+    "cellCount": 1000,
+    "coordinateOrigin": "zero-based",
+    "linearization": "x-fastest, then y, then z",
+    "ordinalBase": 1,
+    "ordinalFormula": "ordinal = 1 + x + 10*y + 100*z",
+    "coordinateFormula": {
+      "x": "(ordinal - 1) % 10",
+      "y": "floor((ordinal - 1) / 10) % 10",
+      "z": "floor((ordinal - 1) / 100)"
+    },
+    "galaxyAnchor": {
+      "ordinal": 42,
+      "coordinates": [1, 4, 0],
+      "role": "reserved-galaxy-region",
+      "bakePolicy": "do-not-bake-galaxy-internal-star-map"
+    }
+  },
+  "subdivision": {
+    "childGridDimensions": [10, 10, 10],
+    "childCount": 1000,
+    "childLinearScaleFactor": 0.1,
+    "addressing": "parent address plus integer child coordinates at each depth",
+    "identityRule": "A spatial address is independent of visit order, rendering, loading, and camera position.",
+    "precisionRule": "Do not claim infinite physical precision; each domain defines units, bounds, and numeric representation."
+  },
+  "generationIdentity": {
+    "requiredInputs": [
+      "worldSeed",
+      "generatorVersion",
+      "canonicalSpatialAddress",
+      "featureDomain",
+      "featureOrdinal"
+    ],
+    "optionalInputs": [
+      "modelVersion",
+      "parentFeatureAddress"
+    ],
+    "rule": "Every generated feature has a semantic address. Never derive identity from global random-call order or discovery order.",
+    "featureDomainsMustBeIndependent": true,
+    "randomPrimitive": {
+      "family": "Squirrel3-style integer hash / deterministic pseudo-random primitive",
+      "implementationMustBeVersioned": true,
+      "mustUseVerifiedReferenceVectors": true,
+      "referenceVectorsStatus": "must-be-added-from-a-verified-reference-before-implementation-is-accepted",
+      "cryptographic": false,
+      "isPhysicalLaw": false
+    }
+  },
+  "temporalSimulation": {
+    "initialStateRule": "Initial state is a deterministic function of seed, generator version, and stable semantic address.",
+    "transitionRule": "Changes occur through explicit, ordered simulation transitions, including FSM-governed decisions.",
+    "probabilityRule": "If a transition is probabilistic, its probability model and logical time step must be explicit; deterministic event-keyed sampling selects a reproducible outcome.",
+    "eventRandomKey": [
+      "worldSeed",
+      "simulationModelVersion",
+      "entityOrRegionAddress",
+      "eventDomain",
+      "eventOrdinal",
+      "logicalTimeKey"
+    ],
+    "mustNotDependOn": [
+      "camera movement",
+      "render frame rate",
+      "cell request order",
+      "unrelated random calls",
+      "load/unload order"
+    ],
+    "commitRule": "A committed logical event must not apply its consequences twice merely because it is reevaluated or replayed."
+  },
+  "persistence": {
+    "regenerate": [
+      "immutable seed-derived initial properties",
+      "unvisited regions with no player-caused changes"
+    ],
+    "persist": [
+      "discoveries and knowledge",
+      "ownership changes",
+      "battles and casualties",
+      "construction and destruction",
+      "resource depletion",
+      "faction decisions that affect the world",
+      "other authoritative consequences of play"
+    ],
+    "principle": "Regenerate immutable initial conditions; persist the history the world has lived through."
+  },
+  "cosmicContext": {
+    "outsideAnchorCell": "generate and bake stable large-scale context at appropriate fidelity",
+    "anchorCell": "leave galaxy contents unresolved until a new-game seed and generation contract are supplied",
+    "projectionRule": "Rendering is an observer-relative projection of authoritative or deterministically reconstructed data, never the source of world identity."
+  },
+  "intergalacticTravel": {
+    "singlePlayerTravelToSisterGalaxies": "allowed",
+    "cellBoundaryIsPhysicalWall": false,
+    "travelFeasibilityInputs": [
+      "route distance and conditions",
+      "drive model and ship configuration",
+      "current reactor condition",
+      "stored energy and fuel",
+      "ship load",
+      "safety reserve"
+    ],
+    "warningPolicy": "Warn when estimated route requirements exceed current safe capability; do not silently hard-lock movement at the galaxy or cell boundary.",
+    "consequencePolicy": "If the player proceeds, outcomes emerge from the vessel's modeled physical state and resources; narrative examples must not substitute for runtime calculations."
+  },
+  "reproducibilityTests": [
+    "same seed, version, address, and feature domain produce the same initial canonical data",
+    "cell generation is independent of request order",
+    "camera and rendering operations do not mutate authoritative identity or state",
+    "probabilistic event outcomes reproduce from the same saved state and ordered logical event stream",
+    "child addresses and bounds remain stable under recursive subdivision",
+    "modified regions reconstruct without losing persisted history",
+    "travel warnings recalculate when route or vessel state changes"
+  ],
+  "unresolvedImplementationDecisions": [
+    "numeric widths and overflow rules for address hashing",
+    "canonical serialized encoding and byte order",
+    "verified Squirrel3 reference vectors and local implementation",
+    "exact physical models and fidelity per scale",
+    "logical time-step policy and event identity rules per simulation domain",
+    "route-cost and jump-budget equations for each propulsion model",
+    "save migration policy when generation or simulation versions change"
+  ]
+}
