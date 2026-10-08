@@ -3173,6 +3173,24 @@ This makes politics a genuine alternative and complement to brute military force
 
 See [Political Power, Speeches, and Factional Endgame](POLITICAL_POWER_AND_SPEECHES.md).
 
+## Political research is capability research
+
+Political research expands what the player and organization can actually do politically. It can improve rhetoric, audience analysis, political intelligence, coalition building, diplomatic practice, institutional access, assembly procedures, and inter-faction diplomacy.
+
+Research may therefore unlock a capability rather than merely increase a statistic. A faction meeting, for example, can become possible only after the organization has developed the institutional knowledge and procedures required to convene it. Later research may enable multi-faction meetings or a larger galactic summit.
+
+Research can also change political frequency by improving scheduling, communications, preparation, staffing, or institutional throughput. This is not an arbitrary cooldown reduction: the underlying machinery becomes more capable.
+
+The same capability model applies:
+
+**Research → qualified people → institutional knowledge → infrastructure → staff → procedure → political capability**
+
+A newly researched capability still requires real people, places, communications, security, participants, logistics, and appropriate political circumstances.
+
+Political research should also be faction-shaped. The same research domain can lead to different capabilities according to faction history, dispositions, institutions, and doctrine.
+
+> **Research should unlock capabilities before it improves numbers.**
+
 ## Known structures, rare frontier science, and thirteen ultimate capabilities
 
 Most structures should be known and understandable. The game should not hide ordinary barracks, factories, storage, processing, research, maintenance, command, logistics, defensive, or utility structures behind arbitrary faction locks.
