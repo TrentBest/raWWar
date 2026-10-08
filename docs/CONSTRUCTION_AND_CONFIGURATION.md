@@ -80,7 +80,50 @@ It is the explanation of **why the thing exists, what it can do, and what it tak
 
 > **The world should know why something works. Then the player can decide how to make it work better.**
 
-## 3. Configuration comes before commitment
+## 3. 3D terrain and elevation are construction data
+
+A construction project records not only where a structure is placed, but how that structure relates to the terrain beneath and around it.
+
+Relevant planning data includes:
+
+- selected elevation;
+- local terrain elevation;
+- excavation volume;
+- support depth;
+- support material;
+- maximum permitted ordinary support;
+- cantilever/span requirement;
+- structural load;
+- terrain stability;
+- access elevation;
+- infrastructure elevation;
+- resulting construction cost.
+
+The placement preview is therefore a projected construction state.
+
+If terrain must be removed, the excavation is shown transparently and its cost is included before commitment.
+
+If terrain is below the structure, up to two layers of PlasCrete may provide ordinary support. Beyond that limit, the design must become an engineered spanning/cantilevered solution rather than silently accumulating more fill.
+
+Elevation also has operational meaning. Raised walls, platforms, command positions, and terraces can deliberately create defensive height advantages. The construction system therefore feeds tactical geometry rather than treating terrain as scenery.
+
+## 4. Infrastructure corridors carry utilities
+
+Roads and other planned corridors should be able to carry subsurface infrastructure such as:
+
+- electrical distribution;
+- communications;
+- control/data networks;
+- other buried utilities.
+
+A road is consequently both movement infrastructure and a utility corridor.
+
+Rerouting a road can require rerouting those services. Damaging a road can affect traffic independently from buried services, while utility damage can occur without completely destroying the surface route.
+
+Planning data should preserve these relationships so that a player can understand the consequences of changing a corridor before construction or demolition is committed.
+
+
+## 5. Configuration comes before commitment
 
 Players should be able to try configurations and arrangements before committing physical resources.
 
@@ -98,7 +141,7 @@ Examples:
 
 The game should expose the consequences rather than hiding them behind a single “optimal” build.
 
-## 4. Planning is an engineering workspace
+## 6. Planning is an engineering workspace
 
 A planned configuration should be inspectable before construction.
 
@@ -124,7 +167,7 @@ For a proposed barracks:
 
 The player is designing a system, not selecting a bonus.
 
-## 5. Bottlenecks emerge from real dependencies
+## 7. Bottlenecks emerge from real dependencies
 
 There should be no arbitrary rule such as “you may build three factories.”
 
@@ -157,7 +200,7 @@ Another may accept inefficient layouts because they are easier to defend.
 
 The simulation should make these choices meaningfully different.
 
-## 6. Construction itself has configuration
+## 8. Construction itself has configuration
 
 Construction equipment, crews, staging areas, temporary utilities, material handling, and site access are capabilities.
 
@@ -179,7 +222,7 @@ A player who improves construction infrastructure should actually be able to con
 
 This is the same philosophy as the rest of raWWar.
 
-## 7. Structures can be designed for future change
+## 9. Structures can be designed for future change
 
 A structure can expose physical interfaces for later expansion:
 
@@ -197,7 +240,7 @@ Future capacity is therefore something the player can deliberately design into t
 
 > **A base should be able to grow because the player built it to grow.**
 
-## 8. Construction history matters
+## 10. Construction history matters
 
 A structure should remember:
 
@@ -220,7 +263,7 @@ The base therefore accumulates institutional memory.
 
 A facility that has survived decades of storms, attacks, expansions, repairs, and changing commanders should not be indistinguishable from a freshly completed facility.
 
-## 9. Experimentation is a first-class player activity
+## 11. Experimentation is a first-class player activity
 
 The player should be encouraged to ask:
 
@@ -246,7 +289,7 @@ Once construction is authorized, consequences become real.
 
 > **Experimentation belongs in planning. Commitment belongs in the world.**
 
-## 10. Data enables discovery rather than forcing optimization
+## 12. Data enables discovery rather than forcing optimization
 
 The purpose of exposing all this information is not to turn raWWar into a spreadsheet.
 
@@ -274,7 +317,7 @@ Neither should simply be labeled “better.”
 
 The player discovers the trade.
 
-## 11. The API is supposed to handle this
+## 13. The API is supposed to handle this
 
 This is exactly the kind of domain where FSM_API's purpose becomes visible.
 
@@ -300,7 +343,7 @@ The result is a construction system that is complicated because the **world is c
 
 > **Tons of interrelated FSMs empower the capability.**
 
-## 12. Same abstraction across the game
+## 14. Same abstraction across the game
 
 Construction follows the same pattern already established for vehicles and exoskeletons.
 
@@ -320,7 +363,7 @@ The shared principle is:
 
 > **The player is configuring a system, not selecting a bonus.**
 
-## 13. The player should be able to become dangerous through understanding
+## 15. The player should be able to become dangerous through understanding
 
 A player who studies the data should eventually discover configurations that produce outcomes other players did not anticipate.
 
@@ -339,7 +382,7 @@ The game should reward understanding, not merely reaction speed or memorized bui
 
 This is where the historical lesson from classic factional strategy games becomes useful: asymmetric capabilities are most interesting when the player learns how to arrange them, not when the game hands them a “correct strategy.”
 
-## 14. No universal optimal configuration
+## 16. No universal optimal configuration
 
 There should not be one arrangement that dominates every situation.
 
@@ -362,7 +405,7 @@ A configuration that is ideal for one faction may violate another faction's doct
 
 A configuration that works during peace may collapse during sustained war.
 
-## 15. Construction is another way the galaxy remembers
+## 17. Construction is another way the galaxy remembers
 
 When a player changes a base, the change becomes part of the world.
 
