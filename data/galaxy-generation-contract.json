@@ -5,7 +5,11 @@
   "status": "design-contract",
   "purpose": "Define stable spatial identity and reproducible generation rules. This contract is not itself a physical simulation or a claim of astrophysical accuracy.",
   "universe": {
-    "gridDimensions": [10, 10, 10],
+    "gridDimensions": [
+      10,
+      10,
+      10
+    ],
     "cellCount": 1000,
     "coordinateOrigin": "zero-based",
     "linearization": "x-fastest, then y, then z",
@@ -18,13 +22,21 @@
     },
     "galaxyAnchor": {
       "ordinal": 42,
-      "coordinates": [1, 4, 0],
+      "coordinates": [
+        1,
+        4,
+        0
+      ],
       "role": "reserved-galaxy-region",
       "bakePolicy": "do-not-bake-galaxy-internal-star-map"
     }
   },
   "subdivision": {
-    "childGridDimensions": [10, 10, 10],
+    "childGridDimensions": [
+      10,
+      10,
+      10
+    ],
     "childCount": 1000,
     "childLinearScaleFactor": 0.1,
     "addressing": "parent address plus integer child coordinates at each depth",
@@ -127,5 +139,86 @@
     "logical time-step policy and event identity rules per simulation domain",
     "route-cost and jump-budget equations for each propulsion model",
     "save migration policy when generation or simulation versions change"
-  ]
+  ],
+  "spatiotemporalWorldModel": {
+    "status": "design-contract",
+    "conceptualQuery": "F(x,y,z,t)",
+    "meaning": "A query at a spatial position and valid simulation time returns the appropriate world sample or set of entities/fields; it does not mutate the world merely by being evaluated.",
+    "entityStateFunction": "S_i(t) = Evolve(S_i(t0), t-t0, versionedMotionModel, orderedApplicableEvents)",
+    "separateConcerns": [
+      "stable semantic identity",
+      "seed-derived immutable initial conditions",
+      "versioned motion/interaction model",
+      "live evolved state",
+      "authoritative event history",
+      "observer-relative observation",
+      "derived rendering and GUI presentation"
+    ],
+    "motionRule": "Time-dependent state evolves through a domain-appropriate analytical or numerical model. Classical F_net = m*a is a useful model where its assumptions apply, not a universal law for every game phenomenon.",
+    "deltaRule": "S(t+deltaT) = Phi_deltaT(S(t), inputs, events); the transition operator, time unit, solver, and model version are domain-defined.",
+    "timePolicy": {
+      "boundedValidRangeRequired": true,
+      "arbitraryBeginningOfUniverseReconstructionPromised": false,
+      "renderFrameIsAuthoritativeClock": false,
+      "cameraOrObservationMutatesWorld": false,
+      "domainMustDeclare": [
+        "time unit and epoch",
+        "valid query range",
+        "analytical or numerical evaluation method",
+        "step and tolerance policy where applicable",
+        "model version",
+        "event ordering and stable event identities",
+        "checkpoint and persistence policy",
+        "determinism contract"
+      ]
+    },
+    "observerProjection": {
+      "authoritativeWorldStateIsSourceOfTruth": true,
+      "conceptualRenderFunction": "R(WorldState(t), Observer, Scale, Layers, RenderBudget)",
+      "cameraAndGuiAreProjectionsNotWorldIdentity": true,
+      "textureAndMeshCachesMayBeRegenerated": true,
+      "renderAssetCacheMayNotMutatePhysicalState": true,
+      "supportedViewExamples": [
+        "galaxy map",
+        "star-system map",
+        "station orbital view",
+        "planetary approach",
+        "surface view",
+        "world-space and screen-space GUI"
+      ]
+    },
+    "planetaryObservationExample": {
+      "procedure": [
+        "evaluate station and planet states at the same valid simulation time",
+        "transform observer pose and target into a shared coordinate frame",
+        "derive visible hemisphere, lighting, occlusion, and surface representation",
+        "render the appropriate texture/detail layers for the view",
+        "present target identity, orbital data, orientation, navigation, and actions through GUI"
+      ],
+      "cameraMovementAdvancesSimulation": false,
+      "timeAdvanceReevaluatesMotion": true
+    },
+    "simulationFidelityTiers": [
+      "analytical prediction",
+      "coarse evolution",
+      "local numerical simulation",
+      "detailed interaction",
+      "presentation-only refinement"
+    ],
+    "unresolvedImplementationDecisions": [
+      "numeric widths and overflow rules for address hashing",
+      "canonical serialized encoding and byte order",
+      "verified Squirrel3 reference vectors and local implementation",
+      "exact physical models and fidelity per scale",
+      "logical time-step policy and event identity rules per simulation domain",
+      "route-cost and jump-budget equations for each propulsion model",
+      "save migration policy when generation or simulation versions change",
+      "canonical world time epoch, supported range, and time units per domain",
+      "motion model selection and validity horizon for each object class",
+      "coordinate frames and transform conventions",
+      "solver, step-size, numerical tolerance, and cross-platform determinism policy",
+      "observer/camera/GUI coordinate-space contracts",
+      "texture/data-layer schemas and cache invalidation rules"
+    ]
+  }
 }
