@@ -19,7 +19,7 @@ The identifiers in these files are stable semantic keys. They are intended to be
 
 ## World-generation architecture
 
-The seed universe content corpus complements the spatial generation model. See [Galaxy Generation and Spatial Refinement](../docs/GALAXY_GENERATION_AND_SPATIAL_REFINEMENT.md) for the reserved cell-42 galaxy anchor, baked cosmic context, seed-addressed Squirrel3-style determinism, recursive 10 × 10 × 10 refinement, and the boundary between reproducible generated properties and persistent gameplay history.
+The seed universe content corpus complements the spatial generation model. See [Galaxy Generation and Spatial Refinement](../docs/GALAXY_GENERATION_AND_SPATIAL_REFINEMENT.md) for the reserved cell-42 galaxy anchor, baked cosmic context, stable cell identity, time-ordered probability, recursive 10 × 10 × 10 refinement, sister-galaxy travel, and the boundary between reproducible generated properties and persistent gameplay history. The machine-readable [Galaxy Generation Contract](galaxy-generation-contract.json) records the current address ordering, seed/event keys, persistence rules, travel-warning policy, and unresolved implementation decisions.
 
 ## Design rule
 
