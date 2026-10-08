@@ -21,6 +21,15 @@ The commander-facing model intentionally reports consequences rather than forcin
 
 > **The soldier operates the machine. The commander allocates the capability.**
 
+
+## Scope across environments
+
+"Vehicle" is the cut-sheet family name, not a limitation to ground vehicles. The same model extends to atmospheric aircraft, ocean vessels, submersibles, orbital craft, spacecraft, starships, and related mobile platforms. Fixed planetary and orbital stations use the same chassis/socket/configuration philosophy at infrastructure scale.
+
+See **[Platform and Vessel Classes](PLATFORM_AND_VESSEL_CLASSES.md)** for the environmental and crewed-platform model, and **[Resource Extraction and Keyed Logistics](RESOURCE_EXTRACTION_AND_KEYED_LOGISTICS.md)** for resource-specific industrial logistics.
+
+A platform's environment adds constraints; it does not create a disconnected technology stack.
+
 ## 1. Vehicle identity
 
 Each vehicle definition should contain:
