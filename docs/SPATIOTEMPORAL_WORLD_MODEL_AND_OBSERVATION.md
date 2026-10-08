@@ -182,3 +182,26 @@ These are fidelity tiers, not different universes. Moving the camera closer may 
 An FSM can schedule or gate a maneuver, record a stationkeeping procedure, transition a satellite from nominal to degraded control, or commit the consequences of a collision. The continuous or numerical motion model computes the trajectory under its defined inputs. Neither should be forced to impersonate the other.
 
 This division allows the simulation to be mathematical without making every physical trajectory a hand-authored FSM, and allows FSMs to be authoritative without making the entire galaxy tick in lockstep at display-frame rate.
+
+
+## Executable slice: time-addressable orbital motion
+
+The first runtime proof lives in `src/raWWar/Spatiotemporal/KeplerOrbit.cs`. It is intentionally narrow: a pure, immutable Keplerian two-body evaluator for elliptic orbits. Given orbital elements and an explicit logical time, it returns an inertial-frame 3D position. It does not own a clock, advance the world, consult the camera, generate random values, or mutate state.
+
+This is a useful first contract because it proves the central distinction:
+
+- the orbit's identity and elements are stable inputs;
+- position is a time-dependent result;
+- requesting a position is an observation, not a simulation side effect;
+- changing the observer or render frame rate cannot alter the orbit;
+- a single orbit can be queried for a station view, map view, or other presentation at the same time.
+
+The model uses consistent caller-supplied units: the gravitational parameter has units of distance cubed per time squared, the semi-major axis uses the chosen distance unit, and time uses the matching time unit. Angles are radians. The evaluator currently supports only (0 \le e < 1); parabolic and hyperbolic trajectories are deliberately rejected instead of silently approximated.
+
+A dependency-free executable contract suite is in `tests/raWWar.ContractTests`, included in `raWWar.sln`. Run it with:
+
+```sh
+dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj
+```
+
+This is an initial mathematical slice, not a claim that the full spatiotemporal world model is complete. Next contracts should establish canonical entity identity, shared-frame observer transforms, time-aware station/planet observation, explicit maneuver/event application, persistence checkpoints, and render/GUI non-mutation. Close interactions and perturbations will require a separately versioned numerical model rather than stretching this two-body approximation beyond its assumptions.
