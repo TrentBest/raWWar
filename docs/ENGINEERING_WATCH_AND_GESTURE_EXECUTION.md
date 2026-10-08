@@ -385,3 +385,66 @@ The same underlying question remains:
 > **What should a qualified person physically do, where, when, and with what consequence if they do it poorly or fail to do it?**
 
 That is exactly the kind of question raWWar can simulate.
+
+
+## 15. Damage control is executable physical work
+
+Battle damage does not create a generic hit-point deduction. It creates a casualty condition that changes the physical state of the ship and creates work for qualified people.
+
+A simplified casualty flow is:
+
+Damage → Casualty Detection → Damage Assessment → Dispatch → Physical Response → Verification → Recovery/Degradation → History
+
+A newly created hull breach can produce an immediately understandable task. A damage-control crew member may be released from another assignment, sent to the casualty station, and shown an Ideal Gesture for the repair:
+
+1. reach the breach;
+2. inspect the opening and surrounding structure;
+3. retrieve the correctly sized emergency plate;
+4. position the plate against the hull;
+5. hold it in the required spatial relationship;
+6. apply instant adherent around the sealing interface;
+7. verify the seal;
+8. monitor for renewed leakage or structural movement;
+9. report the compartment restored or escalate the casualty.
+
+The player therefore sees the repair rather than a progress bar labeled Repair Hull.
+
+### 15A. Casualty work can interrupt normal work
+
+Crew are not permanently attached to one animation loop. A watchstander, technician, or other qualified crew member may be ordered to suspend routine work when a higher-priority casualty appears. The system records the interruption, moves the person through the ship, and assigns the casualty procedure they are qualified to perform.
+
+Routine Work → Casualty Appears → Priority Re-evaluation → Crew Released → Transit → Casualty Procedure → Verification → Resume/Redirect
+
+The consequence of pulling that person away is also real. The original procedure may become late, another station may need coverage, or another qualified person may have to take the watch.
+
+### 15B. Fire is a physical casualty
+
+Fire fighting follows the same model. A fire can have location, intensity, fuel source, atmosphere, heat, smoke, spread direction, containment state, suppression equipment, structural consequences, and personnel risk.
+
+The response may include alarm and casualty communication, compartment isolation, route selection, protective equipment, extinguisher or suppression-system selection, approach to the fire, physical suppression Gesture, temperature and atmosphere verification, re-entry decision, damage inspection, and restoration of the compartment.
+
+A failed response can allow the fire to spread. A successful response can still leave heat damage, smoke contamination, consumed suppression material, damaged wiring, or a maintenance requirement.
+
+### 15C. The reactor officer's worst day
+
+The reactor officer should be allowed to experience the consequences of being responsible for a real machine.
+
+A severe reactor casualty can produce an all-reactors scram.
+
+The event is not merely a health value reaching zero. It is a cascade:
+
+Reactor Casualty → All Reactors Scram → Power Margin Collapses → Loads Shed → Propulsion Restricted → Systems Degraded → Engineering Casualty Response → Ship Mission Capability Reduced
+
+The engineering department immediately changes state. Qualified personnel move to casualty stations. Emergency power becomes important. Cooling and reactor condition must be verified. The command crew receives a new operational picture.
+
+If the ship can no longer maintain mission requirements, the commander may have no glamorous choice at all: limp home.
+
+The ship turns toward a space station at reduced capability while the crew manages the casualty, protects life support, preserves remaining systems, and prepares for repair. The station must have the required repair capability, qualified personnel, tooling, spares, and docking capacity before the repair can actually happen.
+
+### 15D. Damage creates history
+
+Every casualty should leave a record containing at least: initiating event, location, equipment affected, people assigned, procedures attempted, timing, physical damage, temporary repairs, permanent repairs, materials consumed, secondary damage, mission impact, downtime, and lessons or research implications.
+
+A ship returning to a station is visibly the ship that survived that battle. A plate may still be temporary. A burned compartment may still show evidence of the fire. A reactor plant may carry maintenance history. A crew member may have gained experience from the casualty. The next sortie begins from that history rather than resetting the ship to pristine condition.
+
+> **Damage creates work. Work creates decisions. Decisions create consequences. Consequences become history.**
