@@ -55,7 +55,7 @@ Near(inclinedQuarter.Y, 0, 1e-9, "Inclined quarter-period Y");
 Near(inclinedQuarter.Z, 10, 1e-9, "Inclined quarter-period Z");
 
 var rejectedInvalid = false;
-try { _ = circular with { Eccentricity = 1 }.PositionAt(0); }
+try { _ = (circular with { Eccentricity = 1 }).PositionAt(0); }
 catch (ArgumentOutOfRangeException) { rejectedInvalid = true; }
 Check(rejectedInvalid, "Parabolic/hyperbolic eccentricity must be rejected explicitly");
 
