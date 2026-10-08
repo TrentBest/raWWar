@@ -49,6 +49,7 @@ See [Faction Design](FACTIONS.md) for the working political catalogue and simula
 See [Empire History & Faction Origins](EMPIRE_HISTORY_AND_FACTION_ORIGINS.md) for the historical formation of the factions.
 
 See [Faction Dispositions](FACTION_DISPOSITIONS.md) for the behavioral rating model.
+- [Simulation Scale & Memory](SIMULATION_SCALE_AND_MEMORY.md) — byte-level FSM state, soldier complexity budgets, galaxy/system state fields, Event-Horizon scaling, and capacity targets.
 - **Characters** — commanders, soldiers, researchers, and other important people.
 - **Equipment** — exoskeletons, armor, weapons, tools, sensors, communications, modules.
 - **Vehicles** — ground, air, orbital, and space vehicles.
