@@ -40,7 +40,7 @@ The raWWar design hub should expose:
 - **Research** — scientific work and technology progression.
 - **Combat** — ground, air, and space warfare.
 - **Play Modes** — campaign, cooperative, competitive, persistent, massively persistent.
-- **Factions** — thirteen political and military organizations, their historical origins, hidden Imperial-alignment gradient, dispositions, dynamic faction relationships, and the continuously active galactic simulation.
+- **Factions** — thirteen political and military organizations, their historical origins, hidden Imperial-alignment gradient, dispositions, dynamic faction relationships, political play, apex capabilities, and the continuously active galactic simulation.\n- [Political Power, Speeches, and Factional Endgame](POLITICAL_POWER_AND_SPEECHES.md) — first-person political assemblies, speeches, alliances, coalition building, espionage/assassination consequences, shared frontier science, and thirteen faction-specific ultimate capabilities.
 
 ![The thirteen factions](images/rawwar-faction-spectrum.svg)
 
