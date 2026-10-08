@@ -448,3 +448,36 @@ Every casualty should leave a record containing at least: initiating event, loca
 A ship returning to a station is visibly the ship that survived that battle. A plate may still be temporary. A burned compartment may still show evidence of the fire. A reactor plant may carry maintenance history. A crew member may have gained experience from the casualty. The next sortie begins from that history rather than resetting the ship to pristine condition.
 
 > **Damage creates work. Work creates decisions. Decisions create consequences. Consequences become history.**
+
+
+## 16. Control orders, shaft coordination, and device-level twins
+
+A propulsion order is an intent, not proof that the machinery has reached the requested state. The model must keep these distinct:
+
+`Bridge Order → Control-Station Logic → Permissives/Interlocks → Per-Shaft Commands → Machinery Response → Feedback → Bridge Indication`
+
+A multi-shaft vessel should not depend on operators independently guessing when to answer the bell. Its configured control arrangement coordinates the order across the selected shafts, then evaluates each shaft's actual response. The twin must preserve per-shaft state and timing so that a delayed command, lagging actuator, missing feedback signal, or mismatched response can be diagnosed rather than hidden behind one aggregate throttle value.
+
+Control arrangements are data-driven:
+- **Common control:** one authorized order requests the selected shafts to respond under the configured coordination logic.
+- **Concurrence control:** a configured number of distinct stations must authorize the order before actuation.
+- **Individual control:** a station may command its assigned shaft when the vessel's operating configuration permits it.
+- **Fallback or degraded control:** a detected fault changes which commands are available and what indications the operators receive.
+
+The simulation should represent the difference between order, authorization, permissive, command, actuator state, shaft response, and measured feedback. It should not assume that adding more operators automatically makes control safer, nor that one button is always correct. The appropriate arrangement depends on vessel design, failure containment, authority, and the modeled operating procedure.
+
+### Device-level causality
+
+Where a control depends on physical devices, represent the chain that makes it work. A limit switch may confirm a lever or actuator position; a relay contact may permit the next circuit; an interlock may inhibit motion; an indication circuit may report the resulting state. Each device has an identity, installed configuration, connections, expected state, and failure behavior.
+
+Examples of distinguishable faults include:
+- the command is issued but the relay coil does not energize;
+- the coil energizes but the contact does not change state;
+- a limit switch reports a state inconsistent with physical position;
+- the actuator receives a valid command but responds slowly or not at all;
+- one shaft's feedback disagrees with the other shafts;
+- the system receives late or stale feedback and must follow its configured response.
+
+The player can investigate at the level of the control station or follow the causal chain down to the relevant device. Replacing a relay or switch is not enough by itself: required checks, calibration or adjustment, functional tests, and return-to-service authorization must be completed and recorded.
+
+This is the same architecture used for factory tooling and every other maintainable system. It gives the player freedom to operate at a high level while preserving a detailed explanation when the physical world does not behave as expected.
