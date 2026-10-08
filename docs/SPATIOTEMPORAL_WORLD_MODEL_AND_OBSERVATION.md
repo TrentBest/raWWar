@@ -205,3 +205,32 @@ dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj
 ```
 
 This is an initial mathematical slice, not a claim that the full spatiotemporal world model is complete. Next contracts should establish canonical entity identity, shared-frame observer transforms, time-aware station/planet observation, explicit maneuver/event application, persistence checkpoints, and render/GUI non-mutation. Close interactions and perturbations will require a separately versioned numerical model rather than stretching this two-body approximation beyond its assumptions.
+
+
+## 11. Micro-bundle boundaries and compact GPU state
+
+All runtime functionality introduced for this world model must be backed by micro bundles. A capability is not considered integrated merely because a helper class or renderer can perform it in isolation. Micro bundles are the composition and capability boundary through which the runtime discovers, configures, and uses functionality.
+
+Keep the responsibilities small and composable. Examples of candidate capability boundaries include stable spatial identity, orbital evaluation, coordinate transforms, observer-relative queries, texture-layer production, texture residency/cache policy, and presentation. These are candidate boundaries, not a mandate to create a separate bundle for every class: group cohesive behavior, expose clear contracts, and compose capabilities rather than building a monolith. Lower-level bundles must not depend upward on an application or on FSM_COS.
+
+### Pack discrete state tightly; keep behavior understandable
+
+For an FSM whose state identifier is constrained to an unsigned 8-bit value, one byte is enough to encode its current state (256 possible values, including 0 and 255). A conventional 32-bit RGBA texel can therefore pack four such state identifiers—one per channel. This is an ordinary GPU data-layout technique, not a special property of raWWar or FSM_API.
+
+The representation is valid only when the contract guarantees that the state identifier fits in one byte. Define the mapping from FSM identity to texture location/channel explicitly, and define how wider identifiers, invalid/uninitialized states, transitions, and synchronization are handled. Do not assume that packing four state IDs also stores each FSM's complete data, event history, transition inputs, or persistence.
+
+A large number of small FSM instances is preferable to one oversized FSM when the behaviors can be expressed as cohesive, hierarchical parts. A machine with around 30 states is already capable of expressing substantial behavior; hundreds of states should trigger a design review, not an arbitrary hard limit. FSM_API's hierarchical composition should be used to keep each part understandable and independently testable. State-count guidance is a heuristic, not a runtime restriction.
+
+### Texture data can reduce work to the relevant system
+
+Use the stable spatial address to identify the relevant system and its data layers. Generate or load only the systems, entities, texture tiles, and simulation fidelity needed for the current query and its declared neighborhood. A system-level view can use compact texture-backed data for bulk GPU evaluation while detailed nearby entities use richer CPU-side state and focused simulation.
+
+The texture is a packed representation or cache of explicitly defined fields—not an implicit substitute for canonical entity identity or authoritative history. Texture generation, upload, eviction, mip selection, or a camera query must not reroll a system, advance its logical time, or commit world events. When a texture is rebuilt, the same world identity, time, model version, and authoritative history must yield equivalent defined content.
+
+Design tests should cover:
+- four 8-bit state identifiers round-trip through one RGBA texel without channel ambiguity;
+- state values outside the declared 8-bit range are rejected or encoded through an explicitly different format;
+- texture generation and cache eviction do not mutate canonical world state;
+- the same system query is independent of camera movement, request order, and display refresh rate;
+- small FSMs compose hierarchically and preserve their own transition contracts;
+- micro-bundle capability contracts can be tested without requiring the full application or presentation stack.
