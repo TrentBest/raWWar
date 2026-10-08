@@ -1,0 +1,26 @@
+name: raWWar build and contract checks
+
+on:
+  push:
+    branches: [master, development]
+  pull_request:
+    branches: [master, development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Build solution
+        run: dotnet build raWWar.sln --configuration Release
+      - name: Run executable contract checks
+        run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
