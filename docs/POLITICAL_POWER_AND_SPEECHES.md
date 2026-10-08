@@ -492,6 +492,122 @@ This preserves the central raWWar rule:
 
 > **A technology can become possible without becoming magically available.**
 
+
+## 15.1 Political research is capability research
+
+Political research should not be reduced to a collection of percentage bonuses.
+
+Research can expand the player's **political capability envelope**: what political actions can be performed, how frequently they can be attempted, how much preparation is possible, who can be reached, and how effectively the organization can turn political intent into action.
+
+Examples include:
+
+- **Rhetoric and Oratory** — improves communication with large audiences and complex arguments.
+- **Audience Analysis** — reveals interests, grievances, alliances, fears, and priorities before a speech.
+- **Political Organization** — improves preparation, delegation, scheduling, and coordination.
+- **Public Communications** — expands communication with larger or more distant populations.
+- **Coalition Building** — improves coordination among several factions.
+- **Diplomatic Practice** — expands formal negotiation and alliance capabilities.
+- **Political Intelligence** — improves the information available before political decisions.
+- **Institutional Access** — unlocks additional political bodies, committees, councils, or levels of representation.
+- **Assembly Procedures** — can unlock the ability to call or convene a faction meeting under defined circumstances.
+- **Inter-Faction Diplomacy** — can unlock the ability to call a meeting involving representatives of multiple factions.
+- **Galactic Congress / Summit** — a possible late-stage capability allowing the player to convene a much larger political gathering when authority, relationships, logistics, and political circumstances support it.
+
+The important distinction is:
+
+> **Research should unlock capabilities before it improves numbers.**
+
+A research project might therefore change:
+
+**Available political actions → Expanded political actions**
+
+rather than merely:
+
+**Speech effectiveness +10%**
+
+Numerical improvements still have a place, but they should be consequences of acquiring better methods, information, tools, training, and institutional capability.
+
+### Research can change political frequency
+
+Some political actions should be limited by real organizational constraints.
+
+A player should not simply call a faction-wide assembly every few minutes because the game needs another event.
+
+Calling a major assembly can require:
+
+- political authority;
+- administrative staff;
+- venue availability;
+- preparation time;
+- communications;
+- agenda formation;
+- supporting evidence;
+- faction willingness;
+- appropriate political conditions.
+
+Research can reduce those constraints or make new procedures available.
+
+For example:
+
+**Political Organization research → better assembly scheduling → shorter preparation cycle → assemblies can be called more often**
+
+Likewise:
+
+**Public Communications research → broader communication infrastructure → more frequent / larger political addresses**
+
+and:
+
+**Inter-Faction Diplomacy research → formal summit procedure → multi-faction meeting becomes possible**
+
+This is not an arbitrary cooldown reduction.
+
+> **Research changes the machinery that makes the action possible.**
+
+### Political research has prerequisites too
+
+Political capability follows the same physical truth as military capability.
+
+A research project may require:
+
+**Research → qualified political researchers → institutional knowledge → supporting infrastructure → trained staff → procedure → capability**
+
+A newly unlocked summit does not mean the summit magically occurs.
+
+The player may still need:
+
+- a place to hold it;
+- staff to organize it;
+- communication infrastructure;
+- security;
+- invitations;
+- participating factions;
+- transportation;
+- translation or representation where applicable;
+- an agenda;
+- political conditions that make attendance possible.
+
+This lets political research become another expression of the raWWar capability model:
+
+> **Research determines what can become possible. Organizations, people, infrastructure, resources, and procedures determine whether it can happen now.**
+
+### Political research should be faction-shaped
+
+The same research domain can produce different capabilities in different factions.
+
+A militaristic faction may research methods for rallying soldiers and securing wartime support.
+
+A mercantile faction may develop sophisticated negotiation, contract, and trade-congress procedures.
+
+A revolutionary faction may develop clandestine organizing and mass mobilization.
+
+A highly centralized faction may develop enormous formal assemblies while a decentralized faction develops distributed councils.
+
+Thus:
+
+**Faction history + disposition + institutions + research → political capability**
+
+Political research becomes another place where faction identity emerges from the society rather than from arbitrary ability lists.
+
 ## 16. Politics as another configuration problem
 
 The player is effectively configuring political relationships just as they configure:
