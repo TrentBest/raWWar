@@ -66,7 +66,82 @@
         "apc",
         "light_combat",
         "engineering"
-      ]
+      ],
+      "productionFlow": {
+        "states": [
+          "in_process",
+          "produced",
+          "awaiting_acceptance",
+          "under_test",
+          "accepted",
+          "rejected",
+          "rework",
+          "outgoing_inventory",
+          "dispatched"
+        ],
+        "procedures": [
+          "manufacture",
+          "present_for_test",
+          "run_acceptance_test",
+          "accept_part",
+          "reject_part",
+          "quarantine",
+          "rework",
+          "release_to_outgoing",
+          "dispatch"
+        ],
+        "acceptanceInputs": [
+          "test_fixtures",
+          "acceptance_specification",
+          "qualified_inspector",
+          "calibrated_instruments"
+        ],
+        "records": [
+          "product_identity",
+          "configuration",
+          "material_lot_provenance",
+          "machine_provenance",
+          "test_results",
+          "acceptance_decision",
+          "rework_history"
+        ]
+      },
+      "maintenancePolicy": {
+        "playerConfigurableIntervalCycles": true,
+        "intervalMeaning": "Player-selected preventive service interval expressed in production cycles; no universal default is asserted by this data.",
+        "trackedState": [
+          "production_cycles",
+          "load_exposure",
+          "wear_condition",
+          "calibration_drift",
+          "alarms",
+          "failed_tests",
+          "maintenance_history"
+        ],
+        "modes": [
+          "cycle_based_preventive",
+          "condition_based",
+          "corrective",
+          "emergency"
+        ],
+        "shutdownRequiredForIntrusiveWork": true,
+        "shutdownConsequences": [
+          "station_unavailable",
+          "queued_work_waits_or_routes_to_compatible_station",
+          "throughput_and_delivery_impact"
+        ],
+        "procedures": [
+          "isolate",
+          "inspect",
+          "diagnose",
+          "disassemble",
+          "repair_or_replace",
+          "calibrate",
+          "functional_test",
+          "commission",
+          "record"
+        ]
+      }
     },
     {
       "id": "facility.aerospace_factory",
@@ -89,7 +164,82 @@
         "heavy_vtol",
         "ornithopter",
         "fighter"
-      ]
+      ],
+      "productionFlow": {
+        "states": [
+          "in_process",
+          "produced",
+          "awaiting_acceptance",
+          "under_test",
+          "accepted",
+          "rejected",
+          "rework",
+          "outgoing_inventory",
+          "dispatched"
+        ],
+        "procedures": [
+          "manufacture",
+          "present_for_test",
+          "run_acceptance_test",
+          "accept_part",
+          "reject_part",
+          "quarantine",
+          "rework",
+          "release_to_outgoing",
+          "dispatch"
+        ],
+        "acceptanceInputs": [
+          "test_fixtures",
+          "acceptance_specification",
+          "qualified_inspector",
+          "calibrated_instruments"
+        ],
+        "records": [
+          "product_identity",
+          "configuration",
+          "material_lot_provenance",
+          "machine_provenance",
+          "test_results",
+          "acceptance_decision",
+          "rework_history"
+        ]
+      },
+      "maintenancePolicy": {
+        "playerConfigurableIntervalCycles": true,
+        "intervalMeaning": "Player-selected preventive service interval expressed in production cycles; no universal default is asserted by this data.",
+        "trackedState": [
+          "production_cycles",
+          "load_exposure",
+          "wear_condition",
+          "calibration_drift",
+          "alarms",
+          "failed_tests",
+          "maintenance_history"
+        ],
+        "modes": [
+          "cycle_based_preventive",
+          "condition_based",
+          "corrective",
+          "emergency"
+        ],
+        "shutdownRequiredForIntrusiveWork": true,
+        "shutdownConsequences": [
+          "station_unavailable",
+          "queued_work_waits_or_routes_to_compatible_station",
+          "throughput_and_delivery_impact"
+        ],
+        "procedures": [
+          "isolate",
+          "inspect",
+          "diagnose",
+          "disassemble",
+          "repair_or_replace",
+          "calibrate",
+          "functional_test",
+          "commission",
+          "record"
+        ]
+      }
     },
     {
       "id": "facility.spacecraft_yard",
@@ -114,7 +264,82 @@
         "destroyer",
         "cruiser",
         "carrier"
-      ]
+      ],
+      "productionFlow": {
+        "states": [
+          "in_process",
+          "produced",
+          "awaiting_acceptance",
+          "under_test",
+          "accepted",
+          "rejected",
+          "rework",
+          "outgoing_inventory",
+          "dispatched"
+        ],
+        "procedures": [
+          "manufacture",
+          "present_for_test",
+          "run_acceptance_test",
+          "accept_part",
+          "reject_part",
+          "quarantine",
+          "rework",
+          "release_to_outgoing",
+          "dispatch"
+        ],
+        "acceptanceInputs": [
+          "test_fixtures",
+          "acceptance_specification",
+          "qualified_inspector",
+          "calibrated_instruments"
+        ],
+        "records": [
+          "product_identity",
+          "configuration",
+          "material_lot_provenance",
+          "machine_provenance",
+          "test_results",
+          "acceptance_decision",
+          "rework_history"
+        ]
+      },
+      "maintenancePolicy": {
+        "playerConfigurableIntervalCycles": true,
+        "intervalMeaning": "Player-selected preventive service interval expressed in production cycles; no universal default is asserted by this data.",
+        "trackedState": [
+          "production_cycles",
+          "load_exposure",
+          "wear_condition",
+          "calibration_drift",
+          "alarms",
+          "failed_tests",
+          "maintenance_history"
+        ],
+        "modes": [
+          "cycle_based_preventive",
+          "condition_based",
+          "corrective",
+          "emergency"
+        ],
+        "shutdownRequiredForIntrusiveWork": true,
+        "shutdownConsequences": [
+          "station_unavailable",
+          "queued_work_waits_or_routes_to_compatible_station",
+          "throughput_and_delivery_impact"
+        ],
+        "procedures": [
+          "isolate",
+          "inspect",
+          "diagnose",
+          "disassemble",
+          "repair_or_replace",
+          "calibrate",
+          "functional_test",
+          "commission",
+          "record"
+        ]
+      }
     },
     {
       "id": "facility.resource_refinery",
@@ -250,6 +475,97 @@
         "casualty_logging",
         "return_to_station"
       ]
+    },
+    {
+      "id": "facility.quality_acceptance_station",
+      "name": "Production Quality and Acceptance Station",
+      "category": "quality",
+      "inputs": [
+        "produced_component",
+        "acceptance_specification",
+        "calibrated_instruments",
+        "test_fixtures",
+        "qualified_inspector",
+        "power"
+      ],
+      "outputs": [
+        "accepted_component",
+        "rejected_component",
+        "test_evidence",
+        "quality_record",
+        "rework_instruction"
+      ],
+      "procedures": [
+        "identify_item",
+        "verify_configuration",
+        "inspect",
+        "fixture_component",
+        "run_test",
+        "compare_with_limits",
+        "accept",
+        "reject",
+        "quarantine",
+        "release_to_outgoing",
+        "record_provenance"
+      ],
+      "stateModel": [
+        "awaiting_acceptance",
+        "under_test",
+        "accepted",
+        "rejected",
+        "quarantined",
+        "rework",
+        "outgoing_inventory"
+      ],
+      "notes": "Acceptance is a recorded state transition. Manufactured output is not automatically accepted or dispatched."
+    },
+    {
+      "id": "facility.industrial_repair_bay",
+      "name": "Industrial Equipment Repair Bay",
+      "category": "maintenance",
+      "inputs": [
+        "faulted_asset",
+        "qualified_technicians",
+        "technical_data",
+        "diagnostic_equipment",
+        "calibrated_tools",
+        "spare_parts",
+        "isolation_and_lockout",
+        "power"
+      ],
+      "outputs": [
+        "repaired_asset",
+        "restricted_asset_or_open_defect",
+        "calibration_record",
+        "functional_test_evidence",
+        "maintenance_history",
+        "returned_service_capability"
+      ],
+      "procedures": [
+        "receive_asset",
+        "identify_configuration",
+        "make_safe",
+        "isolate",
+        "diagnose",
+        "inspect",
+        "disassemble",
+        "repair",
+        "replace_component",
+        "reassemble",
+        "calibrate",
+        "functional_test",
+        "commission",
+        "record"
+      ],
+      "supportsAssetLevels": [
+        "facility",
+        "production_line",
+        "machine",
+        "assembly",
+        "component",
+        "device"
+      ],
+      "notes": "Hands-on repair is a playable procedure. Return to service depends on verification and qualification, not completion of an animation."
     }
   ]
 }
