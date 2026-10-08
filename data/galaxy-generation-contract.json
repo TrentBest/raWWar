@@ -219,6 +219,46 @@
       "solver, step-size, numerical tolerance, and cross-platform determinism policy",
       "observer/camera/GUI coordinate-space contracts",
       "texture/data-layer schemas and cache invalidation rules"
-    ]
+    ],
+    "microBundleArchitecture": {
+      "requirement": "All runtime functionality introduced for the world model is exposed and composed through micro bundles; isolated helper classes do not by themselves constitute runtime integration.",
+      "candidateCapabilityBoundaries": [
+        "stable spatial identity",
+        "orbital evaluation",
+        "coordinate transforms",
+        "observer-relative queries",
+        "texture-layer production",
+        "texture residency and cache policy",
+        "presentation"
+      ],
+      "compositionRule": "Use cohesive capability boundaries and hierarchical composition; candidate boundaries are guidance, not a requirement for one bundle per class.",
+      "dependencyRule": "Lower-level micro bundles must not depend upward on an application or FSM_COS.",
+      "statePacking": {
+        "scope": "GPU representation of discrete FSM state identifiers",
+        "stateIdentifierWidthBits": 8,
+        "representableValues": 256,
+        "rgbaChannels": 4,
+        "stateIdentifiersPerRgbaTexel": 4,
+        "mappingMustBeExplicit": true,
+        "outOfRangeValuesMustBeRejectedOrUseAnotherDeclaredFormat": true,
+        "packedStateIsCompleteFsmRecord": false,
+        "authoritativeHistoryStoredOnlyInTexture": false,
+        "techniqueIsGeneralGpuDataLayout": true
+      },
+      "designGuidance": {
+        "prefer": "Many cohesive small FSMs composed hierarchically over monolithic FSMs with hundreds of states when the behavior naturally decomposes.",
+        "stateCountTarget": "Around 30 states is a useful design heuristic, not a runtime limit.",
+        "apiGuidance": "Use FSM_API hierarchical composition to keep parts understandable and independently testable."
+      },
+      "textureSystemRule": "Use stable spatial identity to select relevant systems and data layers. Textures may compactly represent fields for GPU evaluation, but texture generation, upload, eviction, mip selection, and camera queries must not mutate authoritative world state or commit events.",
+      "requiredTests": [
+        "Four 8-bit state identifiers round-trip through one RGBA texel without channel ambiguity.",
+        "Out-of-range state identifiers are rejected or encoded through another declared format.",
+        "Texture generation and cache eviction do not mutate canonical world state.",
+        "System queries are independent of camera movement, request order, and display refresh rate.",
+        "Hierarchical FSM composition preserves the transition contracts of component machines.",
+        "Micro-bundle capability contracts can be tested without the full application or presentation stack."
+      ]
+    }
   }
 }
