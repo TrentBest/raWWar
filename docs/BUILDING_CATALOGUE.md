@@ -337,3 +337,390 @@ New buildings should be added by answering:
 - What other capabilities depend on it?
 
 This prevents the catalogue from becoming a list of decorative assets.
+
+
+## 15. Non-orthogonal base planning
+
+Base geometry is not constrained to a grid.
+
+A placed structure has a three-dimensional transform:
+
+    Position = X, Y, Z
+    Rotation = orientation
+
+The footprint remains a physical shape in world space.
+
+For fast broad-phase checks, the rotated footprint can be enclosed by a **maximum bounding box**: the box that inscribes/encloses the rotated footprint.
+
+The maximum bounding box is the first inexpensive test for:
+
+- collision;
+- placement overlap;
+- access;
+- navigation;
+- infrastructure clearance.
+
+A precise rotated-footprint test can then be performed only when the broad-phase test indicates a possible conflict.
+
+This keeps non-orthogonal construction practical without pretending that the base is orthogonal.
+
+> **The box is a first check, not the truth.**
+
+The actual building remains oriented geometry in a three-dimensional world.
+
+## 16. Buildings project intent infrastructure
+
+Placing a building should reveal the infrastructure its capability requires.
+
+These are not merely decorative guides. They can be **intent GUI**: projected physical requirements that the player can inspect and commit.
+
+Examples:
+
+- headquarters → review/parade yard;
+- headquarters → approach and ceremonial lanes;
+- factory → loading/staging areas;
+- warehouse → loading lanes;
+- barracks → personnel movement routes;
+- starport → approach/departure areas;
+- vehicle factory → vehicle staging and departure lanes;
+- research facility → service/access zones;
+- processing plant → material delivery and output routes.
+
+The player should see these requirements before construction.
+
+A highlighted area can answer:
+
+    What does this building need around itself?
+    How much space does it need?
+    What traffic can it handle?
+    What infrastructure can connect to it?
+    What future capability can this space support?
+
+## 17. Infrastructure guides are clickable
+
+Projected infrastructure can become a construction intent.
+
+For example:
+
+    HQ placed
+      ↓
+    Review yard projected
+      ↓
+    Player clicks the yard
+      ↓
+    Review-yard construction added to project
+      ↓
+    Construction proceeds through normal capability rules
+
+Likewise, a player can click highlighted road/traffic lanes beside a structure.
+
+The selected lane count becomes an infrastructure commitment.
+
+The system should then preserve that planned corridor when additional buildings are placed nearby.
+
+The player can deliberately:
+
+- remove lanes;
+- add lanes;
+- widen corridors;
+- reroute infrastructure;
+- change priorities;
+- accept a constrained layout.
+
+The game should explain the resulting consequences rather than silently optimizing the base.
+
+> **The guide shows what the building wants. The player decides what the base actually provides.**
+
+## 18. Lanes are physical capacity
+
+A lane is a usable movement band with physical spacing appropriate to the traffic using it.
+
+A road's lane count therefore limits how much traffic can pass simultaneously.
+
+A lane can represent:
+
+- marching formation space;
+- vehicle movement;
+- cargo movement;
+- emergency access;
+- ceremonial movement;
+- service traffic.
+
+Different traffic classes can require different numbers of lanes.
+
+A vehicle's footprint should therefore include a **lane requirement**.
+
+For example, a three-lane vehicle requires three formation rows of usable passage.
+
+If it drives through a marching formation occupying those lanes, the physical consequences are real.
+
+That means the amusing version of the problem is also the simulation problem:
+
+> **If the tank needs three lanes and the commander sends it through a four-lane formation, the game should not magically move the soldiers aside.**
+
+The resulting collision, casualties, interruption, traffic blockage, disciplinary consequences, and political consequences should follow the same physical/procedural systems as everything else.
+
+This creates a useful planning puzzle:
+
+> **How do I arrange the base so that the things I want to happen can actually happen without the organization fucking itself up?**
+
+## 19. Infrastructure preserves spatial intent
+
+When a player places a new structure beside an existing planned road, lane system, yard, or access corridor, the placement system should detect the existing intent.
+
+The player should receive a visible indication when a proposed structure:
+
+- preserves the corridor;
+- narrows it;
+- blocks it;
+- consumes planned capacity;
+- requires rerouting;
+- creates a new intersection;
+- creates a new bottleneck.
+
+The system should not silently delete previously planned infrastructure.
+
+The player explicitly chooses whether to:
+
+- preserve;
+- modify;
+- reroute;
+- remove.
+
+This makes the base layout persistent design data rather than transient placement UI.
+
+## 20. Facilities have fixed and configurable dimensions
+
+Not every building should be freely stretchable.
+
+### Fixed or constrained-size structures
+
+Some structures have dimensions dictated by their physical function.
+
+Examples:
+
+- barracks;
+- refineries;
+- processing plants;
+- defensive structures;
+- research facilities where laboratory geometry is capability-specific;
+- specialized launch/maintenance structures.
+
+Their footprint is therefore part of the capability definition.
+
+### Dynamically sizeable structures
+
+Other structures scale naturally with the capacity the player wants to provide.
+
+Examples:
+
+- factories;
+- storage facilities;
+- starports.
+
+For these, size becomes a configuration variable.
+
+    Structure
+      → dimensions
+      → capacity
+      → equipment / work cells / storage positions
+      → crew requirement
+      → utility requirement
+      → logistics requirement
+      → throughput
+
+A larger factory should therefore not merely look larger.
+
+It should provide additional physical capacity while creating additional requirements.
+
+## 21. Starport scale
+
+A starport is a particularly clear dynamic structure.
+
+Its size can determine:
+
+- number of simultaneous approaches;
+- landing/takeoff capacity;
+- staging capacity;
+- servicing capacity;
+- maintenance positions;
+- cargo throughput;
+- passenger/personnel throughput;
+- communications demand;
+- control staff;
+- emergency response capacity.
+
+A small starport may handle a modest flow of craft.
+
+A massive starport can handle much more traffic, but it also requires:
+
+- more physical area;
+- more infrastructure;
+- more qualified personnel;
+- more power;
+- more maintenance;
+- more logistics;
+- more traffic management.
+
+> **Capacity is physical.**
+
+## 22. Starting bases are intentionally incomplete
+
+The opening military base should already be functioning, but it should not be finished.
+
+The player arrives at a base with:
+
+- an existing command capability;
+- enough infrastructure to operate;
+- visible personnel and activity;
+- incomplete expansion;
+- obvious inefficiencies;
+- available future building footprints;
+- opportunities for configuration improvement.
+
+This gives the player a working reference system before asking them to build a perfect base.
+
+The player can immediately observe:
+
+- how traffic moves;
+- how soldiers form up;
+- how vehicles are staged;
+- how factories operate;
+- how logistics arrives;
+- where bottlenecks occur;
+- what infrastructure is missing.
+
+A skilled player should begin thinking:
+
+> **I already see how I would improve this.**
+
+The base therefore becomes the first construction tutorial without being a tutorial screen.
+
+## 23. The first conquered world is deliberately worse
+
+After the opening base, the player is sent to the poorly defended, resource-rich enemy world established by the campaign premise.
+
+The new headquarters should be substantially less capable.
+
+Its construction technology can initially provide only the weakest available **PlasCrete** tier.
+
+The player must operate with that infrastructure while researching or acquiring better construction technology.
+
+This creates a direct connection between:
+
+    Technology
+      ↓
+    Construction capability
+      ↓
+    Material quality
+      ↓
+    Structure durability
+      ↓
+    Vehicle / equipment support
+      ↓
+    Base capability
+
+## 24. Three initial PlasCrete tiers
+
+The initial construction model should expose three meaningful quality tiers.
+
+| Tier | Character | Consequence |
+|---|---|---|
+| PlasCrete I | basic / weakest | low durability, lower supported loads, greater maintenance exposure |
+| PlasCrete II | improved | stronger structures and improved operational margin |
+| PlasCrete III | advanced | high durability and greater supported loads/capacity |
+
+Exact material values, strength limits, environmental resistance, cost, production requirements, and research thresholds remain **Illumination Needed**.
+
+The tiers should not be simple cosmetic levels.
+
+They should affect what the physical installation can safely support.
+
+## 25. Technology can invalidate existing capability
+
+A structure can become unsuitable when technology or requirements advance.
+
+For example, a vehicle factory may eventually need to support a vehicle whose mass or operational load exceeds the installed floor, pad, route, or structural rating.
+
+If the existing PlasCrete cannot support that vehicle:
+
+    Vehicle requirement
+      ↓
+    Base infrastructure capacity
+      ↓
+    Insufficient structural rating
+      ↓
+    Vehicle cannot safely operate there
+      ↓
+    Vehicle remains in factory bay
+      ↓
+    Bay cannot release the vehicle
+      ↓
+    Production bay becomes occupied
+      ↓
+    Production pauses or changes
+
+The game should not teleport the vehicle outside.
+
+The player must upgrade, retrofit, relocate, or otherwise provide an appropriate physical capability.
+
+This is the intended consequence of technology progression.
+
+> **Technology does not merely unlock the vehicle. It can reveal that the world around the vehicle is no longer good enough.**
+
+## 26. Base footprints are known before commitment
+
+The player should be able to inspect the complete set of structures currently available to them.
+
+Each available building can expose:
+
+- footprint;
+- height/volume;
+- orientation;
+- required clearances;
+- access requirements;
+- infrastructure guides;
+- lane requirements;
+- service zones;
+- environmental requirements;
+- utility interfaces;
+- expansion interfaces;
+- dynamic sizing rules;
+- structural requirements;
+- construction requirements.
+
+This lets the player plan ahead without constructing everything.
+
+A player can therefore reserve physical space for a future capability even before they can afford to build it.
+
+> **Planning for something is not the same as having it.**
+
+## 27. Base planning is a spatial dependency graph
+
+The base can be understood as:
+
+    Buildings
+      ↕
+    Clearances
+      ↕
+    Infrastructure
+      ↕
+    Traffic capacity
+      ↕
+    Logistics
+      ↕
+    Personnel movement
+      ↕
+    Production / training / command
+      ↕
+    Capability
+
+A good layout reduces unnecessary conflicts.
+
+A bad layout can remain physically valid while being operationally terrible.
+
+That is intentional.
+
+The player should be able to create a base that technically works but produces constant friction.
+
+> **The puzzle is not making buildings fit. The puzzle is making the organization fit inside the buildings.**
