@@ -830,3 +830,42 @@ What is operational right now?
 ```
 
 This prevents faction identity from becoming a cosmetic skin applied to identical armies.
+
+
+## 17. Known structures, frontier science, and faction apex capabilities
+
+The structural world should be substantially knowable.
+
+Most buildings are not mysterious faction-specific unlocks. Barracks, factories, storage, processing plants, research facilities, command centers, maintenance facilities, launch infrastructure, defensive works, utilities, and other ordinary structures belong to the common physical vocabulary of civilization.
+
+That gives players something important: **they can learn the world.**
+
+A very small number of extraordinary science-fiction structures may remain genuinely undiscovered at the beginning. A candidate model is one or two advanced structures that any faction can eventually research and unlock.
+
+Each faction can also pursue one extraordinary faction-specific technological path, producing **thirteen ultimate faction capabilities**—one associated with each major faction.
+
+The ultimate capability is the physical expression of:
+
+`History → Disposition → Doctrine → Research → Industry → Training → Politics → Resources → Configuration`
+
+The exact units remain to be illuminated. They should not simply be bigger tanks or conventional super-weapons. Each should make the player understand why its faction built it.
+
+The capability still obeys the physical world:
+
+`Research → Design → Production → Construction → Crew → Qualification → Logistics → Readiness → Deployment`
+
+## 18. Politics is a primary faction playstyle
+
+Faction gameplay is not limited to warfare.
+
+A player can rise before the political body of their faction and speak to an enormous assembled population—potentially hundreds of thousands of people in a purpose-built hall.
+
+The player can seek alliances, rally support, request resources, defend decisions, propose war or peace, expose enemies, promise reforms, negotiate coalition commitments, persuade industrial/military/scientific/civic interests, respond to opposition, and accept responsibility for failure.
+
+The audience is not an influence bar. Its response emerges from faction dispositions, history, reputation, current events, material interests, alliances, fear, hope, evidence, and the player's record.
+
+A successful speech can result in actual organizational decisions, but those decisions must still propagate through physical capability:
+
+`Authorization → Recruitment / Assignment → Training → Qualification → Equipment → Logistics → Readiness → Deployment`
+
+See [Political Power, Speeches, and Factional Endgame](POLITICAL_POWER_AND_SPEECHES.md) for the deeper model.
