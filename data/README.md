@@ -17,6 +17,10 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `facilities.json` — production, research, logistics, training and infrastructure facilities.
 - `cut-sheets.json` — commander-facing consequences and crew-facing operational summaries.
 
+## World-generation architecture
+
+The seed universe content corpus complements the spatial generation model. See [Galaxy Generation and Spatial Refinement](../docs/GALAXY_GENERATION_AND_SPATIAL_REFINEMENT.md) for the reserved cell-42 galaxy anchor, baked cosmic context, seed-addressed Squirrel3-style determinism, recursive 10 × 10 × 10 refinement, and the boundary between reproducible generated properties and persistent gameplay history.
+
 ## Design rule
 
 Numbers describe a capability. They do not replace the people, procedures, equipment, dependencies or history that make the capability real.
