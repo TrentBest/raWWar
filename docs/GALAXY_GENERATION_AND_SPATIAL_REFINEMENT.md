@@ -209,3 +209,95 @@ The anchor cell is fixed by design. The contents of the galaxy are not fixed unt
 ## Central principle
 
 > **One stable cosmic address space. One reproducible generation contract. Many levels of physical detail. A galaxy that is generated for each new game—and a universe that remembers what happens after play begins.**
+
+
+## 13. A cell is a stable address, not a rerolled scene
+
+The player-facing invariant is simple: **look away, travel away, return later—the same address still describes the same place.** Camera movement, scrolling, zoom, loading, unloading, or visiting neighboring cells must never reroll a star system or move it merely because it was requested in a different order.
+
+The generator is a deterministic function of an address and a generation contract:
+
+```text
+InitialCell = Generate(worldSeed, generatorVersion, canonicalCellAddress)
+```
+
+Within that cell, each generated feature receives its own semantic address. A star, orbit, planet, moon, asteroid belt, or sister galaxy is not identified by the order in which code happened to discover it. It is identified by its stable address and feature domain.
+
+Static does not mean frozen for all time. It means **initial identity and placement are stable**. A planet's orbit, a ship's trajectory, a battle, a factory, and a faction can change when simulation time advances and their authoritative rules say they should. Those changes are state transitions—not side effects of rendering or revisiting a cell.
+
+Separate four things:
+
+- **Existence:** deterministic generated identity and initial properties.
+- **Observation:** what the player can currently see.
+- **Simulation:** what changes as time advances.
+- **History:** what must remain true after unloading and reconstruction.
+
+The renderer may cull, simplify, or reproject an object. It must not create a new object identity or change the authoritative state.
+
+## 14. Time-ordered probability: choose outcomes without losing reproducibility
+
+“Time-ordered probability equation” is a useful working hypothesis for the simulation. It should not mean that every frame rerolls the universe. The model needs two layers:
+
+1. **Deterministic initial conditions:** the seed and stable address determine the same initial candidate state.
+2. **Ordered state transitions:** at simulation time (t), an FSM evaluates the current state, available actions, physical constraints, and event conditions. If several outcomes are possible, a deterministic random value keyed to that event may select among them.
+
+A compact conceptual form is:
+
+```text
+S(t + Δt) = Transition(
+    S(t),
+    Δt,
+    physical constraints,
+    active FSMs,
+    EventRandom(seed, address, event type, event ordinal, time key))
+```
+
+For a probabilistic event with conditional probability (p), map a stable event-keyed integer to a documented uniform interval and compare it with (p). The event key must identify *which decision at what logical time* is being evaluated. Do not use frame number or call order unless the simulation contract deliberately makes those authoritative: variable frame rates, parallel execution, and different observation orders would otherwise change outcomes.
+
+For an event whose probability varies over time, define the time step and the conditional hazard or transition probability explicitly. In a simple discrete model, the chance of an event during step (k), conditional on its not having occurred earlier, is (p_k). The cumulative chance by step (n) is:
+
+```text
+P(event by n) = 1 - product(k = 1..n, 1 - p_k)
+```
+
+This is a modeling option, not a claim that every physical process is memoryless or follows this formula. Select the right model for the phenomenon. Deterministic hashing makes the sampled choices repeatable; it does not prove that the probability model describes nature correctly.
+
+**FSMs provide the ordered state transitions.** They define when a decision becomes eligible, what state it reads, what outcome it commits, and what consequences follow. Randomness supplies a reproducible choice only where the model calls for one. A transition should be committed once for its logical event, not rerun because the camera moved or a region reloaded.
+
+## 15. Sister galaxies are real destinations, not skybox decoration
+
+The baked cosmic context includes sister galaxies outside cell 42. In a single-player game, the player may choose to pilot a starship toward one. We should not implement a magical invisible wall at the edge of the playable galaxy.
+
+Instead, travel feasibility emerges from distance, route conditions, propulsion capability, and remaining resources. The outermost consequential object or region can provide a natural point at which the crew warns that the next leg is not currently feasible. The warning is advisory: the player remains in control and may continue, turn back, wait, refit, or accept the consequences.
+
+A sample in-world warning:
+
+> “Sire, the next navigational landmark is beyond our present jump budget. The route requires an estimated 1,240 jumps under this drive model; our current reactor reserve supports 86 at this load. We can proceed, but we cannot promise a return voyage.”
+
+Those numbers are illustrative only. Runtime estimates must be computed from the actual ship configuration, route, drive model, load, fuel/reactant availability, and reactor condition—not copied from narrative text.
+
+A useful feasibility calculation is:
+
+```text
+RequiredJumps = RouteCost(distance, obstacles, driveModel, shipConfiguration)
+AvailableJumps = JumpBudget(reactorState, storedEnergy, fuel, load, safetyReserve)
+Margin = AvailableJumps - RequiredJumps
+```
+
+The result informs the warning and the player's decision; it is not automatically a movement lock. If the player presses on, the simulation should continue to produce physical consequences: depletion, reduced power, inability to make another jump, drift, distress, or other outcomes supported by the ship's actual design. Do not guarantee any particular consequence unless the model establishes it.
+
+The travel model must distinguish **a galaxy boundary** from **a cell boundary**. Crossing a recursive spatial cell boundary is an addressing operation, not a wall. Leaving cell 42 means leaving the galaxy's reserved generation region and entering the already-defined cosmic context or an explicitly expandable region. The player can travel into that context. If the destination needs finer detail, expand it deterministically from its own stable address and the relevant generator version.
+
+For single-player, generation can happen locally on demand. The same seed/address/version contract still applies, and any player-caused changes to visited sister-galaxy regions must be persisted just like changes inside the home galaxy.
+
+## 16. Invariants to test
+
+- Requesting a cell in any order produces the same initial canonical data.
+- Camera movement, zoom, culling, and reload do not reroll or relocate objects.
+- Advancing simulation time changes only state authorized by simulation rules.
+- Each probabilistic decision has a stable event identity and explicit logical time.
+- Replaying the same saved state and ordered event stream reproduces the same outcomes within the documented determinism contract.
+- Repeated evaluation of one already-committed event does not apply its consequence twice.
+- Crossing a cell boundary does not itself create a travel barrier.
+- Sister-galaxy travel warnings are calculated from current route and vessel state, and do not silently disable player movement.
+- Unvisited cosmic context can be regenerated; visited and modified regions preserve authoritative history.
