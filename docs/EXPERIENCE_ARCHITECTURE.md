@@ -207,6 +207,14 @@ This is deliberately not a bureaucratic execution process. It is an **illuminati
 
 > **Do we now know enough to build the next thing?**
 
+## Galaxy generation and cosmic address space
+
+Galaxy generation is an Experience-owned world-generation rule, not a renderer trick or a fixed star-map lookup. The universe begins as a canonical 10 × 10 × 10 address space. Cell 42 is reserved as the galaxy's anchor; surrounding cosmic context is generated and baked while the galaxy itself remains unresolved until a new game's seed is supplied. Each cell can recursively subdivide into another 10 × 10 × 10 grid, with stable integer addresses and versioned deterministic generation.
+
+The seed, canonical coordinates, generator version, and feature domain determine reproducible candidates. Physical constraints turn those candidates into coherent systems. Immutable generated properties may be reconstructed; discoveries and consequences of play must persist. The Renderer projects the result but never owns the universe's truth.
+
+See [Galaxy Generation, Cosmic Context, and Spatial Refinement](GALAXY_GENERATION_AND_SPATIAL_REFINEMENT.md) for the full model.
+
 ## Relationship to the GDD
 
 The master GDD remains the primary design document. This companion exists to make the architectural implications explicit. Material that matures here should eventually be absorbed into the master GDD.
