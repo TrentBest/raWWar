@@ -3153,3 +3153,32 @@ The world should remember.
 And wherever the player looks:
 
 > **something should be happening.**
+
+
+---
+
+# Political Power, Speeches, and Factional Apex Capabilities
+
+Politics is a primary way to play raWWar.
+
+The player can physically stand before their faction's political body—potentially hundreds of thousands of people gathered in an enormous hall—and speak.
+
+The player can seek alliances, rally support, request resources, defend decisions, propose war or peace, expose enemies, promise reforms, and assemble coalitions.
+
+The audience is not an abstract influence meter. Its response emerges from faction dispositions, history, reputation, current events, material interests, alliances, fear, hope, evidence, and the player's actual record.
+
+Political decisions then propagate into the physical world. Authorization still requires recruitment, training, qualification, equipment, logistics, readiness, and deployment.
+
+This makes politics a genuine alternative and complement to brute military force. Different factions can make political power, espionage, assassination, commerce, research, logistics, conventional warfare, or combinations of them central to their play.
+
+See [Political Power, Speeches, and Factional Endgame](POLITICAL_POWER_AND_SPEECHES.md).
+
+## Known structures, rare frontier science, and thirteen ultimate capabilities
+
+Most structures should be known and understandable. The game should not hide ordinary barracks, factories, storage, processing, research, maintenance, command, logistics, defensive, or utility structures behind arbitrary faction locks.
+
+A very small number of genuinely advanced science-fiction structures may instead be discovered by research and shared by all factions that reach them.
+
+In parallel, each of the thirteen factions can develop one extraordinary faction-specific apex capability: **thirteen ultimate units, one per faction**.
+
+These are not arbitrary RTS super-weapons. They should emerge from each faction's history, dispositions, doctrine, research, industry, training, politics, resources, and configuration. The exact thirteen remain to be illuminated.
