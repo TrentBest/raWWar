@@ -174,6 +174,133 @@ Training produces measurable capabilities:
 - leadership;
 - unit cohesion.
 
+
+
+## 6A. Skill is Gesture execution variance
+
+Skill does not need to be represented as a conventional abstract "skill stat."
+
+The ideal Gesture already defines the desired physical action.
+
+For a precision action such as firing a weapon:
+
+1. The soldier receives the intent to engage a target.
+2. The weapon/interaction procedure identifies the required Gesture.
+3. The Gesture describes the ideal sequence and positioning required for a perfect execution.
+4. The soldier attempts to execute that Gesture.
+5. The soldier's experience determines the variance allowed around the ideal motion.
+6. The resulting physical position determines the actual outcome.
+
+Conceptually:
+
+`Ideal Gesture + Soldier State + Experience → Executed Gesture`
+
+A highly experienced soldier approaches the ideal trajectory and final position closely.
+
+A green soldier has a wider fuzzy range around the same ideal.
+
+The important point is that the green soldier is **not aiming at a different target** and does not need a separate inaccurate animation.
+
+The soldier is attempting the same ideal action.
+
+The difference is the precision of execution.
+
+### Example: precision fire
+
+Suppose Soldier A is ordered to shoot Soldier B.
+
+The ideal Gesture produces a position that would place the weapon's aim exactly on Soldier B's head.
+
+An experienced soldier may execute within a very small positional range around that ideal:
+
+`Ideal aim → very small execution variance → head hit is likely`
+
+A green soldier may have a much larger range:
+
+`Ideal aim → larger execution variance → head, torso, limb, near miss, or complete miss`
+
+The green soldier can therefore produce a leg hit without the game ever deciding:
+
+> "This soldier has a 17% chance to hit the leg."
+
+The leg hit is the physical consequence of the Gesture being executed slightly away from its ideal position.
+
+This same principle applies to:
+
+- weapon handling;
+- aiming;
+- throwing;
+- driving;
+- aircraft control;
+- climbing;
+- loading equipment;
+- medical procedures;
+- construction;
+- maintenance;
+- formation movement;
+- communications procedures;
+- emergency actions;
+- tool operation.
+
+### Experience narrows the fuzzy range
+
+Practice does not replace the ideal Gesture.
+
+Practice changes the soldier's ability to reproduce it.
+
+Conceptually:
+
+`Green → large variance`
+
+`Trained → reduced variance`
+
+`Experienced → small variance`
+
+`Expert → very small variance`
+
+There should still be bounded variation at every level.
+
+An expert is not a perfectly identical animation or a mathematically perfect machine.
+
+The experienced soldier simply executes the intended action much more consistently.
+
+### Skill therefore becomes visible
+
+This gives the simulation a powerful visual consequence.
+
+Two soldiers can receive the same order, use the same weapon, possess the same equipment, and attempt the same Gesture.
+
+Yet they can produce different physical outcomes because their execution variance differs.
+
+The player can therefore **see skill** rather than merely reading it from a character sheet.
+
+A green squad may:
+
+- take longer to settle into firing positions;
+- produce visibly wider aim movement;
+- make larger corrections;
+- occasionally miss;
+- occasionally strike less desirable portions of a target;
+- recover more slowly from mistakes.
+
+A practiced squad converges toward the same ideal actions with tighter, faster, more repeatable motion.
+
+### Skill is therefore not another simulation layer
+
+The architecture remains:
+
+`Intent → Procedure → Ideal Gesture → Execution Variance → Physical Result`
+
+not:
+
+`Intent → Skill Stat → Dice Roll → Result`
+
+The first model lets the existing Gesture system carry the meaning of skill.
+
+The same mechanism can be used by soldiers, vehicle crews, construction workers, technicians, pilots, medical personnel, and any other qualified actor.
+
+> **The ideal Gesture is what perfect execution looks like. Skill is how tightly the actor can reproduce it.**
+
 ## 7. PT tooling
 
 Physical training and drilling require physical infrastructure.
