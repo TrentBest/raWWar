@@ -1,0 +1,152 @@
+{
+  "schema": "raWWar.technology.v1",
+  "technologies": [
+    {
+      "id": "tech.modular_chassis",
+      "name": "Modular Chassis Engineering",
+      "domain": "vehicles",
+      "maturity": "production",
+      "prerequisites": [],
+      "enables": ["vehicle_socket_configuration", "field_variants", "rapid_rekeying"],
+      "adoptionCost": "tooling_and_engineering",
+      "demonstration": "chassis_configuration_trial"
+    },
+    {
+      "id": "tech.networked_sensors",
+      "name": "Networked Sensor Fusion",
+      "domain": "sensors",
+      "maturity": "field_trial",
+      "prerequisites": ["tech.digital_data_bus"],
+      "enables": ["shared_sensor_picture", "remote_detection_nodes", "cooperative_targeting"],
+      "failureModes": ["latency", "stale_data", "network_partition", "false_correlation"]
+    },
+    {
+      "id": "tech.digital_data_bus",
+      "name": "Deterministic Vehicle Data Bus",
+      "domain": "electronics",
+      "maturity": "production",
+      "prerequisites": [],
+      "enables": ["sensor_to_station_links", "remote_weapon_control", "diagnostics", "crew_alerts"]
+    },
+    {
+      "id": "tech.active_protection",
+      "name": "Active Protection System",
+      "domain": "survivability",
+      "maturity": "alpha",
+      "prerequisites": ["tech.networked_sensors"],
+      "enables": ["incoming_threat_detection", "interceptor_launch"],
+      "demonstration": "live_fire_aps_trial",
+      "notes": "Alpha behavior may overreact, miss timing windows or expend interceptors unnecessarily."
+    },
+    {
+      "id": "tech.precision_missile_guidance_alpha",
+      "name": "Adaptive Missile Guidance",
+      "domain": "weapons",
+      "maturity": "alpha",
+      "prerequisites": ["tech.networked_sensors"],
+      "enables": ["terminal_correction", "moving_target_guidance"],
+      "demonstration": "missile_guidance_test_range",
+      "failureModes": ["oscillation", "overshoot", "late_correction", "target_loss"]
+    },
+    {
+      "id": "tech.precision_missile_guidance_mature",
+      "name": "Adaptive Missile Guidance — Mature",
+      "domain": "weapons",
+      "maturity": "qualified",
+      "prerequisites": ["tech.precision_missile_guidance_alpha", "tech.guidance_damping"],
+      "enables": ["stable_terminal_guidance", "multi_target_priority"]
+    },
+    {
+      "id": "tech.guidance_damping",
+      "name": "Guidance Damping Control",
+      "domain": "flight_control",
+      "maturity": "research",
+      "prerequisites": ["tech.precision_missile_guidance_alpha"],
+      "enables": ["stable_guidance", "reduced_oscillation"],
+      "demonstration": "guidance_damping_trial"
+    },
+    {
+      "id": "tech.ornithopter_damping",
+      "name": "Adaptive Ornithopter Wing Damping",
+      "domain": "flight",
+      "maturity": "alpha",
+      "prerequisites": ["tech.adaptive_flight_control"],
+      "enables": ["high_frequency_wing_control", "stable_flapping"],
+      "demonstration": "ornithopter_test_series",
+      "failureModes": ["overspeed", "flutter", "loss_of_attitude", "structural_failure"]
+    },
+    {
+      "id": "tech.adaptive_flight_control",
+      "name": "Adaptive Flight Control",
+      "domain": "flight_control",
+      "maturity": "prototype",
+      "prerequisites": ["tech.digital_data_bus"],
+      "enables": ["ornithopter_control", "autonomous_trim", "gust_response"]
+    },
+    {
+      "id": "tech.controlled_fusion",
+      "name": "Controlled Fusion",
+      "domain": "energy",
+      "maturity": "research",
+      "prerequisites": ["tech.high_temperature_materials", "tech.advanced_magnetics"],
+      "enables": ["power.fusion_pilot_plant", "power.fusion_ship_core", "high_output_propulsion"]
+    },
+    {
+      "id": "tech.high_temperature_materials",
+      "name": "High-Temperature Structural Materials",
+      "domain": "materials",
+      "maturity": "field_trial",
+      "prerequisites": ["tech.aerospace_alloys"],
+      "enables": ["fusion_components", "high_energy_thrusters", "thermal_protection"]
+    },
+    {
+      "id": "tech.advanced_magnetics",
+      "name": "Advanced Magnetic Confinement",
+      "domain": "energy",
+      "maturity": "research",
+      "prerequisites": ["tech.superconductive_materials"],
+      "enables": ["fusion_confinement"]
+    },
+    {
+      "id": "tech.superconductive_materials",
+      "name": "High-Temperature Superconductive Materials",
+      "domain": "materials",
+      "maturity": "prototype",
+      "prerequisites": ["tech.aerospace_alloys"],
+      "enables": ["advanced_magnetics", "compact_power_systems"]
+    },
+    {
+      "id": "tech.aerospace_alloys",
+      "name": "Aerospace Alloy Production",
+      "domain": "materials",
+      "maturity": "production",
+      "prerequisites": ["resource.aerospace_alloy"],
+      "enables": ["lightweight_chassis", "pressure_vessels", "orbital_structures"]
+    },
+    {
+      "id": "tech.autonomous_logistics",
+      "name": "Autonomous Logistics Routing",
+      "domain": "logistics",
+      "maturity": "field_trial",
+      "prerequisites": ["tech.networked_sensors", "tech.digital_data_bus"],
+      "enables": ["dynamic_route_selection", "vehicle_dispatch", "supply_prediction"],
+      "failureModes": ["route_staleness", "communications_loss", "bad_forecast"]
+    },
+    {
+      "id": "tech.event_horizon_lod",
+      "name": "Event-Horizon Simulation Scaling",
+      "domain": "simulation",
+      "maturity": "production",
+      "prerequisites": [],
+      "enables": ["remote_coarse_simulation", "local_detail_expansion", "persistent_history"]
+    },
+    {
+      "id": "tech.gesture_execution_model",
+      "name": "Gesture Execution Modeling",
+      "domain": "personnel",
+      "maturity": "production",
+      "prerequisites": [],
+      "enables": ["skill_as_execution_variance", "procedural_training", "physical_task_simulation"]
+    }
+  ]
+}
