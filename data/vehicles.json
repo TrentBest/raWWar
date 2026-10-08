@@ -7,12 +7,52 @@
       "environment": "ground",
       "family": "scout",
       "role": "reconnaissance",
-      "chassis": {"id": "chassis.light_utility_01", "mass": "4.8 t", "sockets": ["power", "mobility", "sensor", "comms", "utility", "light_weapon"]},
-      "configuration": {"power": "compact_hydrogen_turbine", "mobility": "6x6_all_terrain", "protection": "light_composite", "sensors": "passive_active_recon_suite", "comms": "tactical_mesh_radio", "weapons": "coaxial_light_weapon"},
-      "crew": ["scout_operator"],
-      "capacity": {"crew": 2, "cargo": "250 kg"},
-      "readinessDependencies": ["qualified_scout_operator", "fuel", "sensor_calibration", "comms_key", "maintenance"],
-      "commanderConsequences": {"strengths": ["fast", "quiet", "low_logistics_footprint", "excellent_observation"], "weaknesses": ["light_protection", "limited_firepower"]},
+      "chassis": {
+        "id": "chassis.light_utility_01",
+        "mass": "4.8 t",
+        "sockets": [
+          "power",
+          "mobility",
+          "sensor",
+          "comms",
+          "utility",
+          "light_weapon"
+        ]
+      },
+      "configuration": {
+        "power": "compact_hydrogen_turbine",
+        "mobility": "6x6_all_terrain",
+        "protection": "light_composite",
+        "sensors": "passive_active_recon_suite",
+        "comms": "tactical_mesh_radio",
+        "weapons": "coaxial_light_weapon"
+      },
+      "crew": [
+        "scout_operator"
+      ],
+      "capacity": {
+        "crew": 2,
+        "cargo": "250 kg"
+      },
+      "readinessDependencies": [
+        "qualified_scout_operator",
+        "fuel",
+        "sensor_calibration",
+        "comms_key",
+        "maintenance"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "fast",
+          "quiet",
+          "low_logistics_footprint",
+          "excellent_observation"
+        ],
+        "weaknesses": [
+          "light_protection",
+          "limited_firepower"
+        ]
+      },
       "cutSheet": "cut.vehicle.scout_mk1"
     },
     {
@@ -21,12 +61,58 @@
       "environment": "ground",
       "family": "armored_personnel_carrier",
       "role": "protected_infantry_transport",
-      "chassis": {"id": "chassis.medium_armored_02", "mass": "24 t", "sockets": ["power", "mobility", "armor", "sensor", "comms", "weapon", "troop_module", "cargo"]},
-      "configuration": {"power": "hybrid_turbine_electric", "mobility": "8x8_adaptive_suspension", "protection": "modular_composite_armor", "sensors": "360_degree_sensor_suite", "comms": "command_mesh", "weapons": "remote_25mm", "troopModule": "squad_transport"},
-      "crew": ["driver", "vehicle_commander", "gunner"],
-      "capacity": {"crew": 3, "passengers": 8, "cargo": "1.2 t"},
-      "readinessDependencies": ["crew_qualification", "squad_assignment", "power", "fuel", "ammunition", "maintenance"],
-      "commanderConsequences": {"strengths": ["protected_transport", "networked_sensors", "modular"], "weaknesses": ["large_signature", "maintenance_burden"]},
+      "chassis": {
+        "id": "chassis.medium_armored_02",
+        "mass": "24 t",
+        "sockets": [
+          "power",
+          "mobility",
+          "armor",
+          "sensor",
+          "comms",
+          "weapon",
+          "troop_module",
+          "cargo"
+        ]
+      },
+      "configuration": {
+        "power": "hybrid_turbine_electric",
+        "mobility": "8x8_adaptive_suspension",
+        "protection": "modular_composite_armor",
+        "sensors": "360_degree_sensor_suite",
+        "comms": "command_mesh",
+        "weapons": "remote_25mm",
+        "troopModule": "squad_transport"
+      },
+      "crew": [
+        "driver",
+        "vehicle_commander",
+        "gunner"
+      ],
+      "capacity": {
+        "crew": 3,
+        "passengers": 8,
+        "cargo": "1.2 t"
+      },
+      "readinessDependencies": [
+        "crew_qualification",
+        "squad_assignment",
+        "power",
+        "fuel",
+        "ammunition",
+        "maintenance"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "protected_transport",
+          "networked_sensors",
+          "modular"
+        ],
+        "weaknesses": [
+          "large_signature",
+          "maintenance_burden"
+        ]
+      },
       "cutSheet": "cut.vehicle.apc_mk2"
     },
     {
@@ -35,12 +121,48 @@
       "environment": "ground",
       "family": "light_combat",
       "role": "mobile_fire_support",
-      "chassis": {"id": "chassis.quad_01", "mass": "0.9 t", "sockets": ["power", "mobility", "weapon", "utility", "comms"]},
-      "configuration": {"power": "compact_hydrogen_engine", "mobility": "four_wheel_independent", "protection": "none", "weapons": "heavy_machine_gun", "crewModule": "two_soldier_team"},
-      "crew": ["driver_operator", "gunner"],
-      "capacity": {"crew": 2, "cargo": "120 kg"},
-      "readinessDependencies": ["two_qualified_soldiers", "ammunition", "fuel"],
-      "commanderConsequences": {"strengths": ["cheap", "mobile", "rapid_deployment"], "weaknesses": ["exposed_crew", "limited_endurance"]}
+      "chassis": {
+        "id": "chassis.quad_01",
+        "mass": "0.9 t",
+        "sockets": [
+          "power",
+          "mobility",
+          "weapon",
+          "utility",
+          "comms"
+        ]
+      },
+      "configuration": {
+        "power": "compact_hydrogen_engine",
+        "mobility": "four_wheel_independent",
+        "protection": "none",
+        "weapons": "heavy_machine_gun",
+        "crewModule": "two_soldier_team"
+      },
+      "crew": [
+        "driver_operator",
+        "gunner"
+      ],
+      "capacity": {
+        "crew": 2,
+        "cargo": "120 kg"
+      },
+      "readinessDependencies": [
+        "two_qualified_soldiers",
+        "ammunition",
+        "fuel"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "cheap",
+          "mobile",
+          "rapid_deployment"
+        ],
+        "weaknesses": [
+          "exposed_crew",
+          "limited_endurance"
+        ]
+      }
     },
     {
       "id": "vehicle.missile_tank_mk1",
@@ -48,13 +170,60 @@
       "environment": "ground",
       "family": "missile_platform",
       "role": "long_range_fire_support",
-      "chassis": {"id": "chassis.heavy_armored_03", "mass": "48 t", "sockets": ["power", "mobility", "armor", "sensor", "comms", "missile_bay", "reload"]},
-      "configuration": {"power": "heavy_turbine_electric", "mobility": "tracked_adaptive", "protection": "heavy_composite", "sensors": "long_range_targeting_radar", "comms": "battle_network", "weapons": "adaptive_guided_missile_battery"},
-      "crew": ["driver", "commander", "weapons_operator", "systems_engineer"],
-      "capacity": {"crew": 4, "missiles": 12},
-      "readinessDependencies": ["missile_stock", "qualified_guidance_operator", "power", "sensor_calibration", "maintenance"],
-      "technologyVariants": ["tech.precision_missile_guidance_alpha", "tech.precision_missile_guidance_mature"],
-      "commanderConsequences": {"strengths": ["standoff_range", "networked_targeting", "high_effect"], "weaknesses": ["expensive_munitions", "sensor_dependency", "large_logistics_tail"]},
+      "chassis": {
+        "id": "chassis.heavy_armored_03",
+        "mass": "48 t",
+        "sockets": [
+          "power",
+          "mobility",
+          "armor",
+          "sensor",
+          "comms",
+          "missile_bay",
+          "reload"
+        ]
+      },
+      "configuration": {
+        "power": "heavy_turbine_electric",
+        "mobility": "tracked_adaptive",
+        "protection": "heavy_composite",
+        "sensors": "long_range_targeting_radar",
+        "comms": "battle_network",
+        "weapons": "adaptive_guided_missile_battery"
+      },
+      "crew": [
+        "driver",
+        "commander",
+        "weapons_operator",
+        "systems_engineer"
+      ],
+      "capacity": {
+        "crew": 4,
+        "missiles": 12
+      },
+      "readinessDependencies": [
+        "missile_stock",
+        "qualified_guidance_operator",
+        "power",
+        "sensor_calibration",
+        "maintenance"
+      ],
+      "technologyVariants": [
+        "tech.precision_missile_guidance_alpha",
+        "tech.precision_missile_guidance_mature"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "standoff_range",
+          "networked_targeting",
+          "high_effect"
+        ],
+        "weaknesses": [
+          "expensive_munitions",
+          "sensor_dependency",
+          "large_logistics_tail"
+        ]
+      },
       "cutSheet": "cut.vehicle.lancer_mk1"
     },
     {
@@ -63,12 +232,51 @@
       "environment": "atmospheric",
       "family": "recon_vtol",
       "role": "aerial_reconnaissance",
-      "chassis": {"id": "chassis.vtol_light_01", "mass": "6.2 t", "sockets": ["power", "lift", "sensor", "comms", "mission"]},
-      "configuration": {"power": "distributed_electric_turbine", "mobility": "tilt_lift", "protection": "light_composite", "sensors": "multispectral_recon", "comms": "high_gain_mesh", "mission": "deployable_sensor_nodes"},
-      "crew": ["pilot", "sensor_operator"],
-      "capacity": {"crew": 2, "sensor_nodes": 6},
-      "readinessDependencies": ["flight_qualification", "sensor_calibration", "weather_assessment", "fuel", "maintenance"],
-      "commanderConsequences": {"strengths": ["rapid_recon", "persistent_sensor_network", "terrain_independent"], "weaknesses": ["weather_sensitive", "light_protection"]}
+      "chassis": {
+        "id": "chassis.vtol_light_01",
+        "mass": "6.2 t",
+        "sockets": [
+          "power",
+          "lift",
+          "sensor",
+          "comms",
+          "mission"
+        ]
+      },
+      "configuration": {
+        "power": "distributed_electric_turbine",
+        "mobility": "tilt_lift",
+        "protection": "light_composite",
+        "sensors": "multispectral_recon",
+        "comms": "high_gain_mesh",
+        "mission": "deployable_sensor_nodes"
+      },
+      "crew": [
+        "pilot",
+        "sensor_operator"
+      ],
+      "capacity": {
+        "crew": 2,
+        "sensor_nodes": 6
+      },
+      "readinessDependencies": [
+        "flight_qualification",
+        "sensor_calibration",
+        "weather_assessment",
+        "fuel",
+        "maintenance"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "rapid_recon",
+          "persistent_sensor_network",
+          "terrain_independent"
+        ],
+        "weaknesses": [
+          "weather_sensitive",
+          "light_protection"
+        ]
+      }
     },
     {
       "id": "vehicle.heavy_carryall_vtol_mk1",
@@ -76,12 +284,58 @@
       "environment": "atmospheric",
       "family": "heavy_vtol",
       "role": "heavy_transport",
-      "chassis": {"id": "chassis.heavy_vtol_01", "mass": "68 t empty", "sockets": ["power", "lift", "cargo", "passenger", "sensor", "comms", "defense"]},
-      "configuration": {"power": "distributed_turbine", "mobility": "vector_thrust_vtol", "protection": "medium_composite", "sensors": "terrain_avoidance_suite", "comms": "command_mesh", "cargo": "modular_bay"},
-      "crew": ["pilot", "co_pilot", "loadmaster", "flight_engineer"],
-      "capacity": {"crew": 4, "passengers": 32, "cargo": "18 t"},
-      "readinessDependencies": ["flight_crew", "loadmaster_qualification", "power", "fuel", "maintenance", "route_clearance"],
-      "commanderConsequences": {"strengths": ["mass_transport", "rapid_redeployment", "construction_support"], "weaknesses": ["large_signature", "high_fuel_use", "vulnerable_without_escort"]},
+      "chassis": {
+        "id": "chassis.heavy_vtol_01",
+        "mass": "68 t empty",
+        "sockets": [
+          "power",
+          "lift",
+          "cargo",
+          "passenger",
+          "sensor",
+          "comms",
+          "defense"
+        ]
+      },
+      "configuration": {
+        "power": "distributed_turbine",
+        "mobility": "vector_thrust_vtol",
+        "protection": "medium_composite",
+        "sensors": "terrain_avoidance_suite",
+        "comms": "command_mesh",
+        "cargo": "modular_bay"
+      },
+      "crew": [
+        "pilot",
+        "co_pilot",
+        "loadmaster",
+        "flight_engineer"
+      ],
+      "capacity": {
+        "crew": 4,
+        "passengers": 32,
+        "cargo": "18 t"
+      },
+      "readinessDependencies": [
+        "flight_crew",
+        "loadmaster_qualification",
+        "power",
+        "fuel",
+        "maintenance",
+        "route_clearance"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "mass_transport",
+          "rapid_redeployment",
+          "construction_support"
+        ],
+        "weaknesses": [
+          "large_signature",
+          "high_fuel_use",
+          "vulnerable_without_escort"
+        ]
+      },
       "cutSheet": "cut.vehicle.atlas_carryall"
     },
     {
@@ -90,14 +344,53 @@
       "environment": "atmospheric",
       "family": "ornithopter",
       "role": "high_agility_test_aircraft",
-      "chassis": {"id": "chassis.ornithopter_prototype_01", "mass": "3.1 t", "sockets": ["power", "wing_actuation", "control", "sensor", "pilot", "test_instrumentation"]},
-      "configuration": {"power": "high_output_turbine", "mobility": "articulated_wing", "protection": "minimal", "control": "tech.adaptive_flight_control", "damping": "tech.ornithopter_damping"},
-      "crew": ["test_pilot"],
-      "capacity": {"crew": 1},
-      "readinessDependencies": ["test_pilot", "flight_range", "instrumentation", "maintenance_team"],
+      "chassis": {
+        "id": "chassis.ornithopter_prototype_01",
+        "mass": "3.1 t",
+        "sockets": [
+          "power",
+          "wing_actuation",
+          "control",
+          "sensor",
+          "pilot",
+          "test_instrumentation"
+        ]
+      },
+      "configuration": {
+        "power": "high_output_turbine",
+        "mobility": "articulated_wing",
+        "protection": "minimal",
+        "control": "tech.adaptive_flight_control",
+        "damping": "tech.ornithopter_damping"
+      },
+      "crew": [
+        "test_pilot"
+      ],
+      "capacity": {
+        "crew": 1
+      },
+      "readinessDependencies": [
+        "test_pilot",
+        "flight_range",
+        "instrumentation",
+        "maintenance_team"
+      ],
       "demonstrationSeries": "ornithopter_test_series",
-      "failureModes": ["wing_overfrequency", "loss_of_attitude", "structural_failure"],
-      "commanderConsequences": {"strengths": ["extreme_agility_potential", "research_value"], "weaknesses": ["alpha_instability", "high_test_risk"]},
+      "failureModes": [
+        "wing_overfrequency",
+        "loss_of_attitude",
+        "structural_failure"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "extreme_agility_potential",
+          "research_value"
+        ],
+        "weaknesses": [
+          "alpha_instability",
+          "high_test_risk"
+        ]
+      },
       "cutSheet": "cut.vehicle.ornithopter_alpha"
     },
     {
@@ -106,12 +399,55 @@
       "environment": "orbital_space",
       "family": "space_fighter",
       "role": "fleet_screen_and_interception",
-      "chassis": {"id": "chassis.starfighter_01", "mass": "18 t", "sockets": ["power", "propulsion", "armor", "sensor", "comms", "weapon", "missile", "life_support", "pilot"]},
-      "configuration": {"power": "compact_fusion", "mobility": "vector_thruster_cluster", "protection": "ceramic_composite", "sensors": "active_passive_space_search", "comms": "fleet_mesh", "weapons": "directed_energy_cannon", "missiles": 8},
-      "crew": ["pilot"],
-      "capacity": {"crew": 1},
-      "readinessDependencies": ["pilot_qualification", "propellant", "power", "missiles", "life_support", "maintenance"],
-      "commanderConsequences": {"strengths": ["speed", "sensor_network", "rapid_response"], "weaknesses": ["limited_endurance", "fragile_against_capital_weapons"]}
+      "chassis": {
+        "id": "chassis.starfighter_01",
+        "mass": "18 t",
+        "sockets": [
+          "power",
+          "propulsion",
+          "armor",
+          "sensor",
+          "comms",
+          "weapon",
+          "missile",
+          "life_support",
+          "pilot"
+        ]
+      },
+      "configuration": {
+        "power": "compact_fusion",
+        "mobility": "vector_thruster_cluster",
+        "protection": "ceramic_composite",
+        "sensors": "active_passive_space_search",
+        "comms": "fleet_mesh",
+        "weapons": "directed_energy_cannon",
+        "missiles": 8
+      },
+      "crew": [
+        "pilot"
+      ],
+      "capacity": {
+        "crew": 1
+      },
+      "readinessDependencies": [
+        "pilot_qualification",
+        "propellant",
+        "power",
+        "missiles",
+        "life_support",
+        "maintenance"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "speed",
+          "sensor_network",
+          "rapid_response"
+        ],
+        "weaknesses": [
+          "limited_endurance",
+          "fragile_against_capital_weapons"
+        ]
+      }
     },
     {
       "id": "vehicle.capital_ship_mk1",
@@ -119,13 +455,157 @@
       "environment": "space",
       "family": "cruiser",
       "role": "fleet_command_and_combat",
-      "chassis": {"id": "chassis.cruiser_01", "mass": "42000 t", "sockets": ["reactor", "propulsion", "armor", "sensors", "comms", "weapons", "hangar", "logistics", "medical", "command", "life_support", "maintenance"]},
-      "configuration": {"power": "power.fusion_ship_core", "propulsion": "fusion_torch_drive", "protection": "layered_armor_and_field", "sensors": "fleet_sensor_array", "comms": "deep_space_fleet_network", "weapons": "missile_cells_and_energy_batteries", "hangar": "12_starfighters", "logistics": "fleet_support_deck"},
-      "crew": ["captain", "executive_officer", "helm", "navigation", "engineering_watch", "sensor_officer", "communications_officer", "weapons_officer", "damage_control", "flight_operations", "medical", "logistics"],
-      "capacity": {"crew": 680, "marines": 160, "fighters": 12, "cargo": "900 t"},
-      "readinessDependencies": ["watchbill", "qualified_department_heads", "reactor_crew", "ammunition", "spares", "fuel", "food", "medical_stock", "comms"],
-      "commanderConsequences": {"strengths": ["fleet_coordination", "long_endurance", "fighter_screen", "command_capacity"], "weaknesses": ["enormous_crew_burden", "maintenance_complexity", "high_strategic_value"]},
-      "cutSheet": "cut.vehicle.resolute_cruiser"
+      "chassis": {
+        "id": "chassis.cruiser_01",
+        "mass": "42000 t",
+        "sockets": [
+          "reactor",
+          "propulsion",
+          "armor",
+          "sensors",
+          "comms",
+          "weapons",
+          "hangar",
+          "logistics",
+          "medical",
+          "command",
+          "life_support",
+          "maintenance"
+        ]
+      },
+      "configuration": {
+        "power": "power.fusion_ship_core",
+        "propulsion": "fusion_torch_drive",
+        "protection": "layered_armor_and_field",
+        "sensors": "fleet_sensor_array",
+        "comms": "deep_space_fleet_network",
+        "weapons": "missile_cells_and_energy_batteries",
+        "hangar": "12_starfighters",
+        "logistics": "fleet_support_deck"
+      },
+      "crew": [
+        "captain",
+        "executive_officer",
+        "helm",
+        "navigation",
+        "engineering_watch",
+        "sensor_officer",
+        "communications_officer",
+        "weapons_officer",
+        "damage_control",
+        "flight_operations",
+        "medical",
+        "logistics"
+      ],
+      "capacity": {
+        "crew": 680,
+        "marines": 160,
+        "fighters": 12,
+        "cargo": "900 t"
+      },
+      "readinessDependencies": [
+        "watchbill",
+        "qualified_department_heads",
+        "reactor_crew",
+        "ammunition",
+        "spares",
+        "fuel",
+        "food",
+        "medical_stock",
+        "comms"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "fleet_coordination",
+          "long_endurance",
+          "fighter_screen",
+          "command_capacity"
+        ],
+        "weaknesses": [
+          "enormous_crew_burden",
+          "maintenance_complexity",
+          "high_strategic_value"
+        ]
+      },
+      "cutSheet": "cut.vehicle.resolute_cruiser",
+      "damageControl": {
+        "department": "damage_control",
+        "purpose": "Restore ship capability after physical damage while protecting crew and preventing secondary casualties.",
+        "stations": [
+          "damage_control_central",
+          "hull_repair",
+          "fire_control",
+          "systems_isolation",
+          "structural_assessment",
+          "casualty_communications"
+        ],
+        "procedures": [
+          "receive_casualty_report",
+          "assess_damage",
+          "dispatch_team",
+          "isolate_system",
+          "fight_fire",
+          "seal_breach",
+          "patch_hull",
+          "dewater",
+          "restore_power",
+          "verify_repair",
+          "log_casualty"
+        ],
+        "physicalWork": [
+          "place_emergency_plate",
+          "apply_instant_adherent",
+          "brace_or_support_structure",
+          "deploy_fire_suppression",
+          "isolate_damaged_circuit",
+          "route_around_failed_system",
+          "pump_or_dewater_compartment"
+        ],
+        "consequences": [
+          "crew_injury",
+          "fire_spread",
+          "atmosphere_loss",
+          "flooding",
+          "power_loss",
+          "equipment_loss",
+          "secondary_structural_damage",
+          "reduced_speed",
+          "reduced_sensor_or_weapon_capability",
+          "forced_repair_diversion"
+        ],
+        "readinessDependencies": [
+          "qualified_damage_control_crew",
+          "repair_materials",
+          "fire_suppression",
+          "emergency_power",
+          "damage_control_tools"
+        ]
+      },
+      "engineeringCasualties": {
+        "allReactorsScram": {
+          "trigger": "reactor_casualty",
+          "immediateEffects": [
+            "all_reactors_scrammed",
+            "ship_power_reduced",
+            "propulsion_restricted",
+            "nonessential_loads_shed"
+          ],
+          "requiredResponse": [
+            "engineering_casualty_team",
+            "reactor_diagnostics",
+            "cooling_verification",
+            "emergency_power_management",
+            "damage_assessment"
+          ],
+          "operationalOutcome": [
+            "reduced_speed",
+            "limited_weapons",
+            "limited_life_support_margin",
+            "repair_priority_escalation",
+            "return_to_space_station_if_sustained"
+          ]
+        }
+      }
     },
     {
       "id": "vehicle.fleet_carrier_mk1",
@@ -133,13 +613,150 @@
       "environment": "space",
       "family": "carrier",
       "role": "mobile_air_and_space_base",
-      "chassis": {"id": "chassis.carrier_01", "mass": "160000 t", "sockets": ["reactor", "propulsion", "armor", "sensor", "command", "hangar", "maintenance", "medical", "logistics", "fabrication", "life_support"]},
-      "configuration": {"power": "power.fusion_ship_core", "propulsion": "multi_drive_cluster", "protection": "layered_heavy", "sensors": "fleet_sensor_array", "comms": "strategic_fleet_network", "hangar": "96_fighters_and_support_craft", "fabrication": "expeditionary_repair_fabrication"},
-      "crew": ["fleet_command", "engineering_department", "flight_department", "weapons_department", "sensor_department", "logistics_department", "medical_department", "marine_command"],
-      "capacity": {"crew": 2400, "marines": 900, "fighters": 96, "supportCraft": 40, "cargo": "6000 t"},
-      "readinessDependencies": ["thousands_of_qualified_personnel", "power", "fuel", "food", "ammunition", "spares", "aircraft_readiness", "maintenance_capacity"],
-      "commanderConsequences": {"strengths": ["mobile_base", "massive_flight_operations", "fleet_support"], "weaknesses": ["enormous_logistics_tail", "high_visibility", "catastrophic_loss_if_disabled"]},
-      "cutSheet": "cut.vehicle.imperial_carrier"
+      "chassis": {
+        "id": "chassis.carrier_01",
+        "mass": "160000 t",
+        "sockets": [
+          "reactor",
+          "propulsion",
+          "armor",
+          "sensor",
+          "command",
+          "hangar",
+          "maintenance",
+          "medical",
+          "logistics",
+          "fabrication",
+          "life_support"
+        ]
+      },
+      "configuration": {
+        "power": "power.fusion_ship_core",
+        "propulsion": "multi_drive_cluster",
+        "protection": "layered_heavy",
+        "sensors": "fleet_sensor_array",
+        "comms": "strategic_fleet_network",
+        "hangar": "96_fighters_and_support_craft",
+        "fabrication": "expeditionary_repair_fabrication"
+      },
+      "crew": [
+        "fleet_command",
+        "engineering_department",
+        "flight_department",
+        "weapons_department",
+        "sensor_department",
+        "logistics_department",
+        "medical_department",
+        "marine_command"
+      ],
+      "capacity": {
+        "crew": 2400,
+        "marines": 900,
+        "fighters": 96,
+        "supportCraft": 40,
+        "cargo": "6000 t"
+      },
+      "readinessDependencies": [
+        "thousands_of_qualified_personnel",
+        "power",
+        "fuel",
+        "food",
+        "ammunition",
+        "spares",
+        "aircraft_readiness",
+        "maintenance_capacity"
+      ],
+      "commanderConsequences": {
+        "strengths": [
+          "mobile_base",
+          "massive_flight_operations",
+          "fleet_support"
+        ],
+        "weaknesses": [
+          "enormous_logistics_tail",
+          "high_visibility",
+          "catastrophic_loss_if_disabled"
+        ]
+      },
+      "cutSheet": "cut.vehicle.imperial_carrier",
+      "damageControl": {
+        "department": "damage_control",
+        "purpose": "Restore ship capability after physical damage while protecting crew and preventing secondary casualties.",
+        "stations": [
+          "damage_control_central",
+          "hull_repair",
+          "fire_control",
+          "systems_isolation",
+          "structural_assessment",
+          "casualty_communications"
+        ],
+        "procedures": [
+          "receive_casualty_report",
+          "assess_damage",
+          "dispatch_team",
+          "isolate_system",
+          "fight_fire",
+          "seal_breach",
+          "patch_hull",
+          "dewater",
+          "restore_power",
+          "verify_repair",
+          "log_casualty"
+        ],
+        "physicalWork": [
+          "place_emergency_plate",
+          "apply_instant_adherent",
+          "brace_or_support_structure",
+          "deploy_fire_suppression",
+          "isolate_damaged_circuit",
+          "route_around_failed_system",
+          "pump_or_dewater_compartment"
+        ],
+        "consequences": [
+          "crew_injury",
+          "fire_spread",
+          "atmosphere_loss",
+          "flooding",
+          "power_loss",
+          "equipment_loss",
+          "secondary_structural_damage",
+          "reduced_speed",
+          "reduced_sensor_or_weapon_capability",
+          "forced_repair_diversion"
+        ],
+        "readinessDependencies": [
+          "qualified_damage_control_crew",
+          "repair_materials",
+          "fire_suppression",
+          "emergency_power",
+          "damage_control_tools"
+        ]
+      },
+      "engineeringCasualties": {
+        "allReactorsScram": {
+          "trigger": "reactor_casualty",
+          "immediateEffects": [
+            "all_reactors_scrammed",
+            "ship_power_reduced",
+            "propulsion_restricted",
+            "nonessential_loads_shed"
+          ],
+          "requiredResponse": [
+            "engineering_casualty_team",
+            "reactor_diagnostics",
+            "cooling_verification",
+            "emergency_power_management",
+            "damage_assessment"
+          ],
+          "operationalOutcome": [
+            "reduced_speed",
+            "limited_weapons",
+            "limited_life_support_margin",
+            "repair_priority_escalation",
+            "return_to_space_station_if_sustained"
+          ]
+        }
+      }
     }
   ]
 }
