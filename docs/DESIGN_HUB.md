@@ -34,6 +34,8 @@ The raWWar design hub should expose:
 - **Industrial Dependency Graph** — materials, components, factories, production readiness, and fielding dependencies.
 - **Building Catalogue** — the first physical building families, lifecycle states, capabilities, crews, and dependencies.
 - **3D Base Planning** — drag-and-drop spatial planning, non-orthogonal placement, ghost/planned/construction/solid states, and construction procedures.
+- [Construction & Configuration](CONSTRUCTION_AND_CONFIGURATION.md) — configuration before commitment, construction dependencies, experimentation, physical infrastructure, quality, and persistent base history.
+- [Communications & Command](COMMUNICATIONS_AND_COMMAND.md) — real transmission/relay time, information age, chain of command, holographic war-table planning, and intent-driven battle orders.
 - **Chassis & Vehicle Configuration** — chassis research, affixable modules, deterministic configurations, and production/crew dependencies.
 - **Deterministic Simulation & Research** — frames versus authoritative states, scheduled simulation checkpoints, and deterministic 0–100 research timing.
 - **Gameplay** — what the player actually does.
