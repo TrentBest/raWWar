@@ -301,3 +301,19 @@ For single-player, generation can happen locally on demand. The same seed/addres
 - Crossing a cell boundary does not itself create a travel barrier.
 - Sister-galaxy travel warnings are calculated from current route and vessel state, and do not silently disable player movement.
 - Unvisited cosmic context can be regenerated; visited and modified regions preserve authoritative history.
+
+
+## 17. The galaxy is a time-dependent world, not a static star map
+
+The stable-address rules above define what an entity is and how its initial conditions can be reconstructed. They do not mean the entity is frozen in place. Stars, planets, stations, and vessels have time-dependent states governed by their applicable motion models and consequential event history.
+
+The conceptual query is F(x, y, z, t): evaluate what occupies or influences a position at a valid simulation time. For a specific entity, reconstruct/evolve its state from canonical initial conditions, a versioned motion model, and ordered applicable events. The query must not advance time merely because a player looks, pans, zooms, or asks for another region.
+
+This is also the bridge between simulation and presentation:
+- A 2D galaxy map is a projection of 3D state, not the universe's storage format.
+- A planet's orbital position changes with simulation time while its identity and seed-derived initial conditions remain stable.
+- An orbital station view evaluates station and planet at a consistent time and coordinate frame, then derives the visible hemisphere, illumination, occlusion, textures, and GUI overlays.
+- Texture and mesh generation may be cached or refined on demand; those representations never become the authority for identity or physical motion.
+- The simulation's time range is explicitly bounded by each domain's epoch, model, history, and supported reconstruction horizon. It does not promise arbitrary travel back to the beginning of the universe.
+
+The detailed contract is in [Spatiotemporal World Model and Observation](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md). It distinguishes stable identity, initial conditions, motion, live state, history, observation, and presentation—and defines the tests needed to keep them from becoming entangled.
