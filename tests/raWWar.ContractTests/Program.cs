@@ -406,6 +406,38 @@ Check(historyDiscoveryRoot.GetProperty("archiveInteractionContract").GetProperty
 Check(historyDiscoveryRoot.GetProperty("illustrativeDiscovery").GetProperty("canonStatus").GetString() == "illustrative-not-canon",
     "Example derelict-battle discovery does not silently establish canon");
 
+
+
+// Milky Way mapping preserves scientific provenance, time scales, and presentation boundaries.
+using var milkyWayData = ReadData("milky-way-reference-model.json");
+var milkyWayRoot = milkyWayData.RootElement;
+Check(milkyWayRoot.GetProperty("schemaVersion").GetString() == "raWWar.milky-way-reference-model.v1",
+    "Milky Way reference model has a versioned schema");
+Check(milkyWayRoot.GetProperty("solarSystem").GetProperty("canonicalEntityId").GetString() == "system.sol" &&
+      milkyWayRoot.GetProperty("solarSystem").GetProperty("homeworldEntityId").GetString() == "planet.earth",
+    "Earth and the Solar System have stable galactic anchor identities");
+Check(milkyWayRoot.GetProperty("solarSystem").GetProperty("galacticReference").GetProperty("coordinatesStatus").GetString() == "coarse-cartographic-anchor-not-precision-astrometry",
+    "Coarse Solar System placement is not misrepresented as precision astrometry");
+Check(milkyWayRoot.GetProperty("catalogueStrategy").GetProperty("recordProvenanceRequired").EnumerateArray()
+    .Select(x => x.GetString()).Contains("sourceVersionOrRelease") &&
+      milkyWayRoot.GetProperty("catalogueStrategy").GetProperty("recordProvenanceRequired").EnumerateArray()
+    .Select(x => x.GetString()).Contains("coordinateFrame"),
+    "Astronomical records preserve catalogue version and coordinate-frame provenance");
+Check(milkyWayRoot.GetProperty("authority").GetProperty("absenceFromCatalogueDoesNotProveAbsenceOfObject").GetBoolean(),
+    "Catalogue incompleteness is not treated as proof that an object does not exist");
+Check(milkyWayRoot.GetProperty("proceduralExpansion").GetProperty("mustNotDo").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("label generated stars or planets as observed real objects", StringComparison.Ordinal)),
+    "Procedural populations cannot be mislabeled as observed astronomy");
+Check(milkyWayRoot.GetProperty("motionAndTime").GetProperty("millenniaScaleRule").GetString()!.Contains("0.016 degrees", StringComparison.Ordinal),
+    "Galactic motion across millennia is scale-checked rather than artificially accelerated");
+Check(milkyWayRoot.GetProperty("representationContract").GetProperty("authoritativeGeometry").GetString()!.Contains("remain unchanged", StringComparison.Ordinal),
+    "Navigation presentation cannot rewrite authoritative geometry");
+Check(milkyWayRoot.GetProperty("representationContract").GetProperty("navigationHorizon").GetProperty("visibilityModes").EnumerateArray()
+    .Select(x => x.GetString()).Contains("optically-visible") &&
+      milkyWayRoot.GetProperty("representationContract").GetProperty("navigationHorizon").GetProperty("visibilityModes").EnumerateArray()
+    .Select(x => x.GetString()).Contains("catalogue-known"),
+    "Navigation distinguishes visible objects from catalogue-known objects");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
