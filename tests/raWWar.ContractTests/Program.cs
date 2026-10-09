@@ -451,6 +451,30 @@ var rejectedCellCoordinate = false;
 try { _ = new GalaxyCellAddress(10, 0, 0); }
 catch (ArgumentOutOfRangeException) { rejectedCellCoordinate = true; }
 Check(rejectedCellCoordinate, "Top-level cell coordinates reject values outside the declared grid");
+
+// A recursive address is a path, not a single top-level ordinal. Each subdivision
+// contributes one bounded child coordinate and leaves its parent value unchanged.
+var hierarchyRoot = HierarchicalSpatialAddress.At(new GalaxyCellAddress(1, 4, 0));
+var firstChild = hierarchyRoot.Child(2, 3, 4);
+var grandchild = firstChild.Child(5, 6, 7);
+Check(hierarchyRoot.Depth == 0 && firstChild.Depth == 1 && grandchild.Depth == 2,
+    "Hierarchical spatial address records each subdivision depth");
+Check(firstChild.Root == hierarchyRoot.Root && grandchild.Root == hierarchyRoot.Root,
+    "Descendant addresses retain their top-level root cell");
+Check(firstChild.Children.Count == 1 &&
+      firstChild.Children[0] == new ChildCellCoordinate(2, 3, 4) &&
+      grandchild.Children.Count == 2 &&
+      grandchild.Children[1] == new ChildCellCoordinate(5, 6, 7),
+    "Each hierarchical address retains child coordinates in root-to-leaf order");
+Check(grandchild.Equals(hierarchyRoot.Child(2, 3, 4).Child(5, 6, 7)),
+    "Equivalent address paths have value equality independent of object identity");
+Check(!grandchild.Equals(hierarchyRoot.Child(2, 3, 4).Child(5, 6, 8)) &&
+      !grandchild.Equals(firstChild),
+    "Different child coordinates or path depths produce distinct addresses");
+var rejectedChildCoordinate = false;
+try { _ = firstChild.Child(10, 0, 0); }
+catch (ArgumentOutOfRangeException) { rejectedChildCoordinate = true; }
+Check(rejectedChildCoordinate, "Child coordinates reject values outside the 10×10×10 subdivision");
 var generationIdentity = generationRoot.GetProperty("generationIdentity");
 var requiredGenerationInputs = generationIdentity.GetProperty("requiredInputs")
     .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
