@@ -1,0 +1,444 @@
+{
+  "schema": "raWWar.security-system.v1",
+  "principle": "Security requires power, sensor coverage, access policy, staffing, maintenance, response time and event history. An alarm is evidence of a condition, not a guaranteed diagnosis.",
+  "systems": [
+    {
+      "id": "security.panel.access_control_v1",
+      "name": "Facility Access Control Panel",
+      "role": "credential_validation_and_door_control",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 22,
+        "active": 66,
+        "peak": 120
+      },
+      "inputs": [
+        "credential_reader",
+        "door_position",
+        "request_to_exit",
+        "tamper_loop"
+      ],
+      "outputs": [
+        "lock_release",
+        "local_alarm",
+        "central_alarm",
+        "event_record"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 32,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "panel_offline",
+        "clock_invalid",
+        "door_contact_disagreement"
+      ],
+      "procedures": [
+        "enroll_credential",
+        "revoke_credential",
+        "door_interlock_test",
+        "access_log_review"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.perimeter_v1",
+      "name": "Perimeter Intrusion Panel",
+      "role": "perimeter_zone_supervision",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 32,
+        "active": 99,
+        "peak": 180
+      },
+      "inputs": [
+        "fence_loop",
+        "gate_contact",
+        "ground_vibration",
+        "camera_analytics",
+        "tamper"
+      ],
+      "outputs": [
+        "zone_alarm",
+        "camera_cue",
+        "dispatch_request"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 64,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "weather_false_alarm",
+        "cut_loop",
+        "camera_occlusion",
+        "network_partition"
+      ],
+      "procedures": [
+        "walk_test_zone",
+        "verify_camera_cue",
+        "backup_power_test",
+        "investigate_tamper"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.vehicle_gate_v1",
+      "name": "Vehicle Entry and Dispatch Gate",
+      "role": "vehicle_identity_and_load_control",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 43,
+        "active": 132,
+        "peak": 240
+      },
+      "inputs": [
+        "vehicle_identity",
+        "driver_credential",
+        "cargo_manifest",
+        "load_measurement",
+        "barrier_state"
+      ],
+      "outputs": [
+        "permit_to_enter",
+        "inspection_hold",
+        "barrier_command",
+        "dispatch_record"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 8,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "manifest_mismatch",
+        "scale_drift",
+        "barrier_stuck",
+        "identity_spoof"
+      ],
+      "procedures": [
+        "calibrate_scale",
+        "test_barrier",
+        "audit_manifest",
+        "record_manual_override"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.industrial_safety_v1",
+      "name": "Industrial Safety and Interlock Panel",
+      "role": "hazardous_process_permissives_and_trip_annunciation",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 40,
+        "active": 121,
+        "peak": 220
+      },
+      "inputs": [
+        "guard_switches",
+        "pressure_switches",
+        "temperature_trip",
+        "smoke_or_gas"
+      ],
+      "outputs": [
+        "equipment_permissive",
+        "protective_trip",
+        "alarm",
+        "bypass_record"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 24,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "false_permissive",
+        "failure_to_trip",
+        "bypass_left_active"
+      ],
+      "procedures": [
+        "channel_proof_test",
+        "final_element_test",
+        "bypass_authorization",
+        "cause_effect_validation"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.shipboard_damage_control_v1",
+      "name": "Shipboard Compartment and Damage-Control Panel",
+      "role": "compartment_status_and_damage_control",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 112,
+        "active": 341,
+        "peak": 620
+      },
+      "inputs": [
+        "smoke_heat_flooding",
+        "watertight_door_state",
+        "ventilation_state",
+        "power_zone_state",
+        "crew_reports"
+      ],
+      "outputs": [
+        "compartment_alarm",
+        "isolation_request",
+        "repair_task",
+        "command_status"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 96,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "sensor_loss",
+        "stale_state",
+        "door_disagreement",
+        "network_partition"
+      ],
+      "procedures": [
+        "sensor_test",
+        "boundary_inspection",
+        "door_closure_drill",
+        "damage_control_reconciliation"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.research_custody_v1",
+      "name": "Research Sample and Prototype Custody Panel",
+      "role": "chain_of_custody_and_restricted_lab_access",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 27,
+        "active": 83,
+        "peak": 150
+      },
+      "inputs": [
+        "person_credential",
+        "sample_identity",
+        "cabinet_contact",
+        "transfer_acknowledgement"
+      ],
+      "outputs": [
+        "access_decision",
+        "custody_transfer",
+        "audit_alert"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 16,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "sample_identity_mismatch",
+        "custody_gap",
+        "clock_invalid"
+      ],
+      "procedures": [
+        "verify_sample",
+        "transfer_custody",
+        "reconcile_inventory"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.command_center_v1",
+      "name": "Command Center Access and Operations Security",
+      "role": "protect_operations_floor_and_secure_comms",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 72,
+        "active": 220,
+        "peak": 400
+      },
+      "inputs": [
+        "multi_factor_credential",
+        "door_state",
+        "console_login",
+        "secure_room_tamper",
+        "network_health"
+      ],
+      "outputs": [
+        "room_access",
+        "console_session",
+        "alarm_escalation",
+        "audit_event"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 360
+      },
+      "zones": 48,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "credential_compromise",
+        "audit_storage_full",
+        "identity_service_unavailable"
+      ],
+      "procedures": [
+        "shift_handover",
+        "credential_revoke",
+        "audit_review",
+        "degraded_mode_drill"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.mobile_unit_v1",
+      "name": "Mobile Checkpoint and Patrol Console",
+      "role": "field_access_verification_and_incident_reporting",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 8,
+        "active": 23,
+        "peak": 42
+      },
+      "inputs": [
+        "portable_credential_reader",
+        "vehicle_identity",
+        "offline_authorization_cache",
+        "local_clock"
+      ],
+      "outputs": [
+        "local_decision",
+        "incident_report",
+        "sync_queue"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 4,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "stale_cache",
+        "battery_low",
+        "device_loss",
+        "clock_drift"
+      ],
+      "procedures": [
+        "sync_before_shift",
+        "check_battery",
+        "report_lost_device",
+        "reconcile_offline_events"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    },
+    {
+      "id": "security.panel.sensor_fusion_v1",
+      "name": "Multi-Sensor Correlation Console",
+      "role": "correlate_observations_with_uncertainty",
+      "controller": "electronics.security_controller_v1",
+      "drawW": {
+        "standby": 140,
+        "active": 429,
+        "peak": 780
+      },
+      "inputs": [
+        "camera_tracks",
+        "radar_tracks",
+        "shoulder_camera_reports",
+        "patrol_reports",
+        "time_quality"
+      ],
+      "outputs": [
+        "correlated_track",
+        "confidence",
+        "conflict_alert",
+        "operator_review"
+      ],
+      "power": {
+        "primary": "low_voltage_dc",
+        "backupMinutes": 120
+      },
+      "zones": 128,
+      "coverageModel": "explicit sensor segments, coverage overlap, occlusion and blind spots",
+      "failureModes": [
+        "false_correlation",
+        "duplicate_track",
+        "stale_track",
+        "sensor_bias"
+      ],
+      "procedures": [
+        "calibrate_sources",
+        "review_conflict",
+        "replay_incident",
+        "validate_fusion_release"
+      ],
+      "staffing": [
+        "qualified_operator",
+        "security_technician"
+      ],
+      "dependencies": [
+        "electronics.security_controller_v1",
+        "electronics.data_recorder_v1"
+      ]
+    }
+  ]
+}
