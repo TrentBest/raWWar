@@ -148,7 +148,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 
 - [x] Removed duplicated paragraphs from `docs/TECHNICAL_DESIGN.md` and clarified the difference between the implemented explicit-time elliptic-orbit slice and still-planned world/renderer/host capabilities. Added links to the relevant world-model docs and manifest bridge.
 - [x] Fixed the malformed Milky Way visual-atlas entry in `docs/README.md`.
-- [ ] Re-check CI for these documentation commits. The GitHub workflow/status connector has previously returned no push-triggered status for the newest commits; do not infer success from the absence of a reported run.
+- [x] Re-checked CI for the latest documentation commit: workflow run [37998973548](https://github.com/TrentBest/raWWar/actions/runs/37998973548) completed successfully for head `7d3e8cd3c950fefe35e535535d45fa39d2f4bfef`.
 
 
 ## Documentation standard alignment — 2026-10-09
@@ -164,4 +164,6 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added status/owner/audience/evidence metadata to `docs/OPEN_QUESTIONS.md`; clarified that unanswered questions are not canon and normalized the Gesture question heading.
 - [x] Added status/owner/audience/evidence metadata to `docs/images/README.md`, explicitly separating explanatory artwork from runtime evidence and engineering-ready assets.
 - [ ] Complete the line-by-line audit of the GDD and companion design docs for contradictions, source/API accuracy, and link validity; the current pass is not exhaustive.
-- [ ] Re-check CI for the latest documentation commits; report unverified status honestly if GitHub provides no run/status result.
+- [x] Recorded a concrete unresolved campaign-opening/faction-selection conflict as [Open Question 22](docs/OPEN_QUESTIONS.md): faction choice among thirteen doors is not yet reconciled with the player already being a Commander and the Empress's short compliance deadline. Preserved the conflict rather than silently choosing canon.
+- [x] Extended the relative Markdown file-target audit to another 12 specialist/design documents; no missing local file targets were found in that batch. Heading anchors, embedded HTML/SVG references, external-link availability, and exhaustive coverage remain open.
+- [x] Re-checked CI for the latest documentation commit; the current head's workflow run completed successfully (run [37998973548](https://github.com/TrentBest/raWWar/actions/runs/37998973548)).
