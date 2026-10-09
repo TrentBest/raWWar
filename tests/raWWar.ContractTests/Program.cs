@@ -693,6 +693,45 @@ Check(keyboardMove.Event.LogicalTime == 10 &&
       keyboardMove.Event.InputSource == TheSingularityWorkshop.raWWar.Interaction.PhysicalInputSource.Keyboard,
     "Physical interaction events retain logical time and originating input source");
 
+
+
+// Composition must follow the current FSM_COS manifest boundary and keep generic capabilities
+// explicitly owned by reusable Workshop MicroBundles rather than by the raWWar Experience.
+using var workshopCompositionData = ReadData("workshop-composition-contract.json");
+var workshopComposition = workshopCompositionData.RootElement;
+Check(workshopComposition.GetProperty("schemaVersion").GetString() == "raWWar.workshop-composition-contract.v1",
+    "Workshop composition contract is versioned");
+Check(workshopComposition.GetProperty("currentFsmCosContract").GetProperty("configurationBoundary").GetString() ==
+      "separate IMicroBundleConfigurationSource" &&
+      workshopComposition.GetProperty("currentFsmCosContract").GetProperty("hostHandoff").GetString() == "RuntimeAssembly",
+    "raWWar aligns with FSM_COS configuration and assembly boundaries");
+Check(workshopComposition.GetProperty("currentFsmCosContract").GetProperty("kernelExpansionStatus").GetString() ==
+      "paused-after-correctness-gate" &&
+      !workshopComposition.GetProperty("currentFsmCosContract").GetProperty("nugetPublishAuthorized").GetBoolean(),
+    "raWWar does not require FSM_COS scope expansion or authorize publishing");
+Check(workshopComposition.GetProperty("reusableCapabilities").EnumerateArray()
+    .Where(x => x.GetProperty("logicalId").GetString() == "capability.physical-interaction")
+    .All(x => x.GetProperty("status").GetString() == "proposed-extraction" &&
+              x.GetProperty("mustNotDependOn").EnumerateArray().Select(y => y.GetString()).Contains("raWWar")),
+    "Generic physical interaction is assigned to a reusable capability, not a raWWar dependency");
+Check(workshopComposition.GetProperty("manifestRules").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("does not embed configuration bytes", StringComparison.Ordinal)) &&
+      workshopComposition.GetProperty("manifestRules").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("not reported as integrated", StringComparison.Ordinal)),
+    "Manifest configuration and truthful integration-status rules are explicit");
+using var runtimeManifestData = System.Text.Json.JsonDocument.Parse(
+    File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "runtime-manifest.json")));
+var runtimeManifest = runtimeManifestData.RootElement;
+Check(runtimeManifest.TryGetProperty("runtimeId", out _) &&
+      runtimeManifest.GetProperty("bundles").EnumerateArray()
+        .All(x => x.TryGetProperty("bundleId", out _) && x.TryGetProperty("version", out _) &&
+                  !x.TryGetProperty("configurationBase64", out _)),
+    "raWWar runtime manifest matches FSM_COS root ID/version entries without embedded configuration");
+using var experienceManifestData = System.Text.Json.JsonDocument.Parse(
+    File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "experience-manifest.json")));
+Check(experienceManifestData.RootElement.GetProperty("runtimeManifestPath").GetString() == "runtime-manifest.json",
+    "Experience authoring metadata points to the separate machine-oriented runtime manifest");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
