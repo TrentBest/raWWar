@@ -152,6 +152,40 @@ Check(eventHistory.ReadOrdered("resource.depleted", encodedSpatialBytes).Count =
 Check(eventHistory.ReadOrdered("resource.depleted").Count == 4,
     "Domain-wide reads include each committed stream for diagnostics");
 
+// A deliberately narrow replay example: signed Int64 resource deltas, big-endian payloads.
+var balanceHistory = new InMemoryEventHistory();
+var balanceAddress = encodedSpatialBytes;
+balanceHistory.Commit(SimulationEvent.Create(123, "v1", balanceAddress,
+    ResourceBalanceReplay.EventDomain, 1, "tick:000002", ResourceBalanceReplay.EncodeDelta(-3)));
+balanceHistory.Commit(SimulationEvent.Create(123, "v1", balanceAddress,
+    ResourceBalanceReplay.EventDomain, 2, "tick:000001", ResourceBalanceReplay.EncodeDelta(10)));
+balanceHistory.Commit(SimulationEvent.Create(123, "v1", otherAddressBytes,
+    ResourceBalanceReplay.EventDomain, 3, "tick:000001", ResourceBalanceReplay.EncodeDelta(900)));
+var balanceStream = balanceHistory.ReadOrdered(ResourceBalanceReplay.EventDomain, balanceAddress);
+Check(ResourceBalanceReplay.Replay(5, balanceStream) == 12,
+    "Balance replay applies address-scoped deltas in logical-time order (5 + 10 - 3)");
+Check(ResourceBalanceReplay.DecodeDelta(ResourceBalanceReplay.EncodeDelta(long.MinValue)) == long.MinValue,
+    "Resource delta V1 round-trips the signed Int64 lower boundary");
+var malformedBalanceRejected = false;
+try { _ = ResourceBalanceReplay.DecodeDelta(new byte[7]); }
+catch (FormatException) { malformedBalanceRejected = true; }
+Check(malformedBalanceRejected, "Resource delta decoder rejects payloads that are not exactly eight bytes");
+var balanceOverflowRejected = false;
+try
+{
+    _ = ResourceBalanceReplay.Replay(long.MaxValue, new[]
+    {
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            4, "tick:000004", ResourceBalanceReplay.EncodeDelta(1))
+    });
+}
+catch (OverflowException) { balanceOverflowRejected = true; }
+Check(balanceOverflowRejected, "Resource replay rejects signed Int64 overflow rather than wrapping");
+var wrongBalanceDomainRejected = false;
+try { _ = ResourceBalanceReplay.Replay(0, orderedResourceEvents); }
+catch (ArgumentException) { wrongBalanceDomainRejected = true; }
+Check(wrongBalanceDomainRejected, "Resource replay refuses events from another domain");
+
 var concurrentHistory = new InMemoryEventHistory();
 Parallel.For(0, 64, _ => concurrentHistory.Commit(firstEvent));
 Check(concurrentHistory.Count == 1,
