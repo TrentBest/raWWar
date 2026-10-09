@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "raWWar.workshop-composition-contract.v1",
+  "status": "architecture-and-integration-plan",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "raWWarMustConsumeReusableWorkshopCapabilities": true,
+    "genericRuntimeMachineryMustNotBeOwnedByRaWWar": true,
+    "proposedCapabilitiesAreNotClaimedAsImplemented": true,
+    "fsmCosCompositionKernelRemainsSmall": true,
+    "configurationIsSeparateFromRuntimeManifest": true
+  },
+  "currentFsmCosContract": {
+    "sourceRepository": "TrentBest/TheSingularityWorkshop.FSM_COS",
+    "branchAtReview": "development",
+    "reviewedHead": "a575f18987da399e1f1a0ea184c63d01cc48ede7",
+    "runtimeManifestFields": [
+      "RuntimeId",
+      "Bundles",
+      "ExperienceContext"
+    ],
+    "bundleEntryFields": [
+      "BundleId",
+      "Version"
+    ],
+    "configurationBoundary": "separate IMicroBundleConfigurationSource",
+    "hostHandoff": "RuntimeAssembly",
+    "kernelExpansionStatus": "paused-after-correctness-gate",
+    "nugetPublishAuthorized": false
+  },
+  "ownershipPrinciples": [
+    {
+      "id": "owner.rawwar-domain",
+      "owner": "raWWar",
+      "scope": [
+        "war-and-campaign-content",
+        "factions-and-politics",
+        "soldiers-and-qualifications-as-game-domain",
+        "vehicles-and-mechs-as-authored-configurations",
+        "research-and-economy",
+        "authored-events-and-contested-historical-accounts"
+      ]
+    },
+    {
+      "id": "owner.workshop-reusable",
+      "owner": "Workshop capability packages",
+      "scope": [
+        "generic-physical-interaction",
+        "input-adapters-and-semantic-control-resolution",
+        "generic-embodied-action-and-gesture-guidance",
+        "generic-component-damage-and-work-order-creation",
+        "generic-maintenance-and-isolation-workflow",
+        "reusable-vehicle-control-and-component-compatibility",
+        "rendering-and-GPU-presentation"
+      ]
+    },
+    {
+      "id": "owner.fsm-cos",
+      "owner": "TheSingularityWorkshop.FSM_COS",
+      "scope": [
+        "manifest-root-resolution",
+        "dependency-closure",
+        "configuration-propagation",
+        "loading",
+        "arbitration",
+        "RuntimeAssembly-handoff"
+      ]
+    }
+  ],
+  "reusableCapabilities": [
+    {
+      "logicalId": "capability.physical-interaction",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Resolve semantic actions against physical world objects with condition, power, authorization, reach, interlocks, jamming, damage, and event history.",
+      "mustNotDependOn": [
+        "raWWar",
+        "game-specific vehicle classes",
+        "renderer-specific input"
+      ],
+      "candidateConsumers": [
+        "raWWar",
+        "AnyApp",
+        "WebPage",
+        "other simulations"
+      ]
+    },
+    {
+      "logicalId": "capability.embodied-actor-performance",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Resolve reach, posture, force, timing, fatigue, injury, qualification, restraint, and Gesture variance.",
+      "mustNotDependOn": [
+        "raWWar",
+        "mech-only assumptions"
+      ]
+    },
+    {
+      "logicalId": "capability.gesture-guidance",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Represent ideal action/pose guidance and compare actual execution without automatically correcting the actor.",
+      "mustNotDependOn": [
+        "raWWar",
+        "specific renderer"
+      ]
+    },
+    {
+      "logicalId": "capability.component-damage-and-work",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Resolve component-local damage and dependencies into degraded functions, isolation needs, repair work, and acceptance requirements.",
+      "mustNotDependOn": [
+        "raWWar faction data",
+        "specific weapon canon"
+      ]
+    },
+    {
+      "logicalId": "capability.maintenance-isolation",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Model reusable work-order, isolation, lock/tag, stored-energy verification, repair, and return-to-service transitions.",
+      "mustNotDependOn": [
+        "raWWar",
+        "specific plant procedures"
+      ]
+    },
+    {
+      "logicalId": "capability.vehicle-control",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Route station inputs through control laws into actuator requests constrained by installed capability and physical state.",
+      "mustNotDependOn": [
+        "raWWar chassis definitions",
+        "specific cockpit renderer"
+      ]
+    },
+    {
+      "logicalId": "capability.component-configuration",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Check part compatibility, interfaces, power, thermal, mass, loads, crew and maintenance constraints for configured machines.",
+      "mustNotDependOn": [
+        "raWWar vehicle catalogue"
+      ]
+    },
+    {
+      "logicalId": "capability.provenance-and-evidence",
+      "status": "proposed-extraction",
+      "owner": "Workshop capability package",
+      "responsibility": "Preserve source, custody, integrity, dependencies, claim-level confidence and contradictory evidence for records and summaries.",
+      "mustNotDependOn": [
+        "raWWar historical canon"
+      ]
+    }
+  ],
+  "experienceOwnedDomains": [
+    "raWWar factions, doctrine, campaigns, missions, authored historical events and contested public narratives",
+    "soldier, pilot, engineer, and commander identities, qualifications and relationships as game content",
+    "mech chassis, installed components, weapons, tools, mission roles, environmental envelopes, and faction engineering choices",
+    "specific power/thermal/mobility thresholds and consequences authored for each machine",
+    "specific lockout/tagout procedures, plant topology, energy sources, hazards, and operational authority",
+    "scenario data, physical world instances, art direction, and narrative consequences"
+  ],
+  "manifestRules": [
+    "The RuntimeManifest contains root bundle IDs and requested versions; it does not embed configuration bytes.",
+    "The catalog resolves roots and dependencies; dependency closure is not duplicated in the Experience manifest.",
+    "Missing external configuration means the MicroBundle uses its defaults.",
+    "Bundle numeric IDs and released versions are assigned by the owning package, never guessed in raWWar.",
+    "A capability is not reported as integrated until a separately owned bundle, consuming catalog, manifest root/dependency path, and executable tests prove it.",
+    "The raWWar experience root must not become a wrapper that privately implements every reusable capability.",
+    "The temporary PhysicalControlResolver is not evidence that generic physical interaction belongs in raWWar's product boundary.",
+    "No NuGet publishing is authorized by this contract."
+  ],
+  "integrationProofsRequired": [
+    "A second non-raWWar consumer can load the reusable physical-interaction MicroBundle.",
+    "Keyboard, VR, controller, and NPC inputs resolve through the same semantic action and world preconditions.",
+    "Damaged, jammed, unpowered, unauthorized, or interlocked controls produce explicit outcomes and persistent events.",
+    "A configured mech consumes reusable control, component, damage, maintenance, and presentation capabilities without game-specific dependencies in those packages.",
+    "Engineering watch and LOTO scenarios demonstrate threshold logging, isolation, verification, repair, calibration, and safe return to service.",
+    "FSM_COS returns a RuntimeAssembly that the host actually uses; assembly is not mistaken for Experience execution."
+  ]
+}
