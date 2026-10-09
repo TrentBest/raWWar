@@ -160,7 +160,8 @@
       "unrelated random calls",
       "load/unload order"
     ],
-    "commitRule": "A committed logical event must not apply its consequences twice merely because it is reevaluated or replayed."
+    "commitRule": "A committed logical event must not apply its consequences twice merely because it is reevaluated or replayed.",
+    "timeValidityRule": "Each model declares its supported time domain. A finite horizon is required when its assumptions impose one; a mathematical analytical model may explicitly support all finite query times. Unsupported times are rejected or handled by a declared domain policy."
   },
   "persistence": {
     "regenerate": [
@@ -229,7 +230,6 @@
     "motionRule": "Time-dependent state evolves through a domain-appropriate analytical or numerical model. Classical F_net = m*a is a useful model where its assumptions apply, not a universal law for every game phenomenon.",
     "deltaRule": "S(t+deltaT) = Phi_deltaT(S(t), inputs, events); the transition operator, time unit, solver, and model version are domain-defined.",
     "timePolicy": {
-      "boundedValidRangeRequired": true,
       "arbitraryBeginningOfUniverseReconstructionPromised": false,
       "renderFrameIsAuthoritativeClock": false,
       "cameraOrObservationMutatesWorld": false,
@@ -242,7 +242,10 @@
         "event ordering and stable event identities",
         "checkpoint and persistence policy",
         "determinism contract"
-      ]
+      ],
+      "validRangePolicyRequired": true,
+      "finiteHorizonRequiredWhenModelRequiresIt": true,
+      "analyticModelsMayDeclareAllFiniteTimes": true
     },
     "observerProjection": {
       "authoritativeWorldStateIsSourceOfTruth": true,
