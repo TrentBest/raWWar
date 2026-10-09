@@ -6,6 +6,5 @@
       "version": "1.0.0"
     }
   ],
-  "experienceContext": null,
-  "note": "Matches the current FSM_COS RuntimeManifest shape. The root is currently a placeholder; no reusable capability dependency is claimed until separately owned MicroBundles exist and declare those dependencies."
+  "experienceContext": null
 }
