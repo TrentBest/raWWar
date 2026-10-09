@@ -510,7 +510,7 @@
     ]
   },
   "eventHistoryAndReplay": {
-    "status": "design-contract-runtime-not-yet-implemented",
+    "status": "stable-event-identity-v1-and-in-memory-idempotent-ledger-implemented; durable-store-and-replay-not-implemented",
     "purpose": "Reconstruct authoritative world state from compatible initial conditions or checkpoints plus committed history without duplicating event consequences.",
     "eventIdentityInputs": [
       "worldSeed",
@@ -549,15 +549,50 @@
       "missing causal prerequisites follow declared policy",
       "checkpoint-plus-tail replay matches compatible full replay",
       "incompatible checkpoint versions are rejected or explicitly migrated",
-      "observation does not append events or mutate authoritative state"
+      "observation does not append events or mutate authoritative state",
+      "event identity V1 matches a fixed canonical binary reference vector",
+      "in-memory duplicate commits are idempotent under concurrent retries",
+      "same identity with a different payload is reported as a conflict"
     ],
     "unresolvedImplementationDecisions": [
-      "canonical event-key encoding and uniqueness constraints",
       "domain-specific logical-time representations and event order",
       "durable atomic commit/deduplication mechanism",
       "checkpoint format and migrations",
-      "cross-platform determinism scope for numerical models"
-    ]
+      "cross-platform determinism scope for numerical models",
+      "durable atomic commit/deduplication mechanism",
+      "authoritative state reducer and causal prerequisite policy"
+    ],
+    "implementedReferenceSlice": {
+      "identityType": "SimulationEventId",
+      "eventType": "SimulationEvent",
+      "ledgerType": "InMemoryEventHistory",
+      "identityEncoding": "RWEI magic + V1 byte + big-endian uint64 seed + length-prefixed UTF-8 model version + length-prefixed canonical address bytes + length-prefixed UTF-8 event domain + big-endian uint64 event ordinal + length-prefixed UTF-8 domain logical-time key; SHA-256 uppercase hex",
+      "commitOutcomes": [
+        "Committed",
+        "AlreadyCommitted",
+        "IdentityConflict"
+      ],
+      "threadSafety": "process-local lock serializes commits",
+      "ordering": "within a domain, ordinal string comparison of logical-time key, then event ordinal, then stable event ID",
+      "executableChecks": [
+        "fixed event identity SHA-256 reference vector",
+        "identity repeatability and selected input sensitivity",
+        "payload defensive copy",
+        "identical retry is idempotent",
+        "same identity with different payload is a conflict",
+        "domain-local deterministic ordering",
+        "domain isolation",
+        "concurrent duplicate commit"
+      ],
+      "limitations": [
+        "volatile in-memory only",
+        "no durable atomic persistence",
+        "no authoritative state reducer",
+        "no causal prerequisite handling",
+        "no checkpoint or replay reconstruction",
+        "lexical logical-time ordering is suitable only when explicitly declared by the domain"
+      ]
+    }
   },
   "coordinateFrameContract": {
     "status": "generic-cartesian-transform-primitive-implemented; universal-frame-conventions-and-frame-graph-not-implemented",
