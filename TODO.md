@@ -13,6 +13,7 @@
 - Treat creator-authored vision as authoritative. Mark uncertain decisions **Candidate**, **Experiment**, or **Illumination Needed** instead of quietly making them canon.
 - raWWar owns game/world meaning. Reuse Workshop capabilities for FSMs, composition, MicroBundles, input, hosting, rendering, persistence and networking where those capabilities actually exist.
 - Verify APIs and package versions from their source repositories before depending on them. Do not invent APIs or duplicate generic infrastructure inside raWWar.
+- Maintain `examples/README.md` as the usage-example index. When consuming another package, API, schema, or capability, add a checked-in raWWar-side usage example, record the exact verified version/commit, cover important boundaries, link it from relevant docs, and state what it does not prove. Prefer runnable examples and keep them aligned with contract tests; examples are both documentation source material and agent handoff artifacts.
 - Record cross-repository needs as `docs/requests/REQUEST-FROM-raWWar-<Dependency>-<Capability>.md`; maintain the convention and active requests in [the request index](docs/requests/README.md). These are raWWar-owned requirements for review by the receiving repository's agent, not assignments or permission to change that repository.
 - Keep canonical world state independent from cameras, render loops, GUI, textures and presentation caches. Queries at an explicit logical time should be deterministic and order-independent where the model promises it.
 - Add or extend executable contract checks with each meaningful data/model change. Run CI and report actual results; never call a pending run green.
@@ -53,6 +54,7 @@
 - [ ] Ensure the Experience can be loaded by its intended host (AnyApp first) without raWWar taking ownership of host lifecycle or generic manifest machinery. The repository catalog and `ComposeAsync` exist on AnyApp `development`; prove artifact-address closure, immutable identity validation, and actual raWWar manifestation before relying on that path.
 - [ ] Ensure packaging remains non-publishing by default; `GeneratePackageOnBuild=false` and no automated NuGet publication without explicit approval.
 - [ ] Expand the contract-test README so every stated check matches the actual code and clearly states model limits.
+- [x] Added a runnable `KeplerOrbit` usage example under `examples/`, indexed it with the manifest/composition-contract examples, and added the example project to the solution. The example shares the real raWWar project and has a repeatability guard; CI status for this addition must be checked separately.
 
 ## P1 — Protect authoritative world-state contracts
 
@@ -84,6 +86,14 @@
 - [ ] Add visuals where they materially clarify systems, relationships, timelines, equipment, work and consequences; do not add decorative art in place of a tested model.
 - [ ] Keep navigation links valid and clean malformed escaped-newline artifacts when encountered.
 - [ ] Maintain clear non-coder explanations alongside technical deep dives: what it is, how it works in raWWar, and which Workshop capability enables it.
+
+## Examples are part of the engineering contract
+
+- Every newly consumed external capability should have a raWWar-side example that shows the intended call/data shape, relevant assumptions, and meaningful success/boundary/failure behavior where applicable.
+- Prefer runnable examples that compile against the exact package/source version being claimed. If only a proposed fixture is possible, label it as unverified and explain why.
+- Link the complete relevant example set from the architecture/API documentation. Generate or expand documentation from the example set rather than selecting one convenient snippet and treating it as exhaustive.
+- Keep examples in the solution or otherwise verify them in CI when practical. Report builds, runs, and contract tests separately; never equate a checked-in example with a passing test or end-to-end integration proof.
+- Record negative scope explicitly: what an example does not establish about host loading, execution, persistence, networking, rendering, or release readiness.
 
 ## Definition of done for a work item
 
