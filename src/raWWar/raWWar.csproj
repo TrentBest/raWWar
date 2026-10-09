@@ -10,8 +10,8 @@
     <Version>0.1.0-alpha.1</Version>
     <Authors>The Singularity Workshop</Authors>
     <Company>The Singularity Workshop</Company>
-    <Description>raWWar — a persistent, first-person VR war Experience centered on individual soldiers and the people who command them.</Description>
-    <PackageTags>singularity;workshop;experience;rawwar;vr;fps;simulation;microbundle</PackageTags>
+    <Description>raWWar — a persistent, first-person war Experience centered on individual soldiers and the people who command them.</Description>
+    <PackageTags>singularity;workshop;experience;rawwar;fps;simulation;microbundle</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/TrentBest/raWWar</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -20,8 +20,17 @@
     <PackageReference Include="TheSingularityWorkshop.MicroBundleDomain" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="manifest.json">
+    <!-- These manifests live at the repository root, not beside this project file.
+         Link them into the Experience output/package under their canonical names. -->
+    <Content Include="../../manifest.json" Link="manifest.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+      <Pack>true</Pack>
+      <PackagePath>contentFiles/any/any/</PackagePath>
+    </Content>
+    <Content Include="../../runtime-manifest.json" Link="runtime-manifest.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Pack>true</Pack>
+      <PackagePath>contentFiles/any/any/</PackagePath>
+    </Content>
   </ItemGroup>
 </Project>
