@@ -20,12 +20,14 @@ System-specific documents expand the design without silently changing canon.
 - [Player Roles](PLAYER_ROLES.md) — occupations, roles, and qualification-driven participation.
 - [Persistent Universes](PERSISTENT_UNIVERSES.md) — long-term persistent-world vision.
 - [Authored Galaxies, Campaigns, and Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md) — deliberate single-player campaign construction, reproducible multiplayer generation, civilization ancestry, validation, and distribution.
+- [Mapping the Milky Way](MAPPING_THE_MILKY_WAY.md) — evidence-backed galactic reference, Solar System placement, procedural population expansion, motion across time, and truthful navigation presentation.
 - [Humanity's Long History and the Discoverable Past](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) — speculative history from Earth to the galactic Empire, science-fiction guardrails, and deep discoverable archives.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
 ## Visual atlas
 
-- [Visual Asset Catalogue](images/README.md) — an illustrated map of the current visual language, system diagrams, and where each image belongs.
+- [Visual Asset Catalogue](images/README.md)
+- [Milky Way reference layers](images/rawwar-milky-way-reference-layers.svg) — observed data, inferred galactic structure, generated populations, and player-facing representation kept separate. — an illustrated map of the current visual language, system diagrams, and where each image belongs.
 - [Advisor agency and consequences](images/rawwar-advisor-agency.svg) — how an advisor's agency, earned experience, warnings, physical outcomes, and persistent history connect.
 - [Work kanban lifecycle](images/rawwar-work-kanban.svg) — the board as a projection of real work, with evidence-based transitions and blockers.
 - [Science floor construction](images/rawwar-science-floor-construction.svg) — the physical prerequisites between proposing a lab and operating it.
