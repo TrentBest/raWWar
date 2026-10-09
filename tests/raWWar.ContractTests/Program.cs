@@ -438,6 +438,43 @@ Check(milkyWayRoot.GetProperty("representationContract").GetProperty("navigation
     .Select(x => x.GetString()).Contains("catalogue-known"),
     "Navigation distinguishes visible objects from catalogue-known objects");
 
+// Navigation charts evolve with civilization, but never rewrite authoritative space.
+using var navigationFramesData = ReadData("navigation-reference-frames.json");
+var navigationFramesRoot = navigationFramesData.RootElement;
+Check(navigationFramesRoot.GetProperty("schemaVersion").GetString() == "raWWar.navigation-reference-frames.v1",
+    "Navigation frame contract is explicitly versioned");
+Check(navigationFramesRoot.GetProperty("coreDistinction").GetProperty("chartFrameIsNotWorldIdentity").GetBoolean() &&
+      navigationFramesRoot.GetProperty("coreDistinction").GetProperty("shipNavigationSolution").GetString()!.Contains("instruments", StringComparison.Ordinal),
+    "Chart coordinates remain distinct from authoritative world identity and ship navigation estimates");
+var candidateFrames = navigationFramesRoot.GetProperty("frameHierarchy").GetProperty("candidateFrames")
+    .EnumerateArray().Select(x => x.GetProperty("id").GetString()!).ToHashSet(StringComparer.Ordinal);
+Check(candidateFrames.Contains("frame.earth-local") && candidateFrames.Contains("frame.solar-system") &&
+      candidateFrames.Contains("frame.local-stellar") && candidateFrames.Contains("frame.galactocentric"),
+    "Navigation contract covers Earth-origin through galactocentric reference frames");
+var transformFields = navigationFramesRoot.GetProperty("frameHierarchy").GetProperty("requiredTransformFields")
+    .EnumerateArray().Select(x => x.GetString()!).ToHashSet(StringComparer.Ordinal);
+Check(transformFields.Contains("sourceFrameId") && transformFields.Contains("targetFrameId") &&
+      transformFields.Contains("validAtOrEpoch") && transformFields.Contains("uncertaintyModel"),
+    "Coordinate transformations declare endpoints, epoch, and uncertainty");
+var navigationPhases = navigationFramesRoot.GetProperty("historicalNavigationEras").GetProperty("phases").EnumerateArray().ToArray();
+Check(navigationPhases.Any(x => x.GetProperty("id").GetString() == "nav-era.earth-origin") &&
+      navigationPhases.Any(x => x.GetProperty("id").GetString() == "nav-era.galactocentric"),
+    "Historical navigation model explicitly spans Earth-origin and galactocentric charting");
+var chartFields = navigationFramesRoot.GetProperty("chartRecordContract").GetProperty("requiredFields")
+    .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+Check(chartFields.Contains("coordinateEpoch") && chartFields.Contains("accuracyAndUncertainty"),
+    "Chart editions preserve epoch, provenance, and uncertainty");
+Check(navigationFramesRoot.GetProperty("equipmentCapabilityModel").GetProperty("limitationsToModel").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("does not create new observations", StringComparison.Ordinal)),
+    "A new coordinate standard cannot grant sensors or observations");
+var persistentNavArtifacts = navigationFramesRoot.GetProperty("historyAndGameplay").GetProperty("persistentArtifacts")
+    .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+Check(persistentNavArtifacts.Contains("superseded charts") && persistentNavArtifacts.Contains("navigation failures"),
+    "Superseded charts and navigation failures remain part of persistent history");
+Check(navigationFramesRoot.GetProperty("validationGates").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("different polities can adopt or retain different standards", StringComparison.Ordinal)),
+    "Civilizations can retain competing navigation standards without breaking shared world identity");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
