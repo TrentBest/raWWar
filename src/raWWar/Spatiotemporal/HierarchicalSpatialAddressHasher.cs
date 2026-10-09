@@ -21,6 +21,6 @@ public static class HierarchicalSpatialAddressHasher
     public static byte[] ComputeV1(HierarchicalSpatialAddress address)
     {
         ArgumentNullException.ThrowIfNull(address);
-        return SHA256.HashData(HierarchicalSpatialAddressCodec.Encode(address));
+        return SHA256.HashData(HierarchicalSpatialAddressCodec.EncodeV1(address));
     }
 }
