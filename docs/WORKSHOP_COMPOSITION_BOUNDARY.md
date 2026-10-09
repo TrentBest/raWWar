@@ -82,7 +82,7 @@ Lockout/tagout should be deliberately annoying because it is a real coordination
 
 - **Current FSM_COS contract:** versioned root MicroBundle entries; configuration source separate; dependency closure and arbitration; host receives `RuntimeAssembly`.
 - **Current raWWar design:** embodied interaction, mech platform families, engineering watch, damage/salvage, and rendering budgets are described in data and docs.
-- **Current executable slice:** raWWar has a small physical-control resolver used to prove shared input semantics. Treat it as a temporary reference slice, not proof that generic interaction belongs in the raWWar product boundary.
+- **Ownership correction:** the prototype physical-control resolver is being removed from the raWWar product assembly. The reusable interaction behavior is not claimed as implemented until it lives in a separately owned MicroBundle and a consumer test proves reuse.
 - **Not yet verified:** a separately packaged physical-interaction MicroBundle consumed by raWWar; a fully composed mech runtime; production GPU-driven rendering; a finished FPS/VR presentation.
 - **No kernel expansion required for this design:** implement reusable capabilities in their owning packages and consume them through the existing MicroBundle/FSM_COS contract.
 
