@@ -29,6 +29,7 @@ System-specific documents expand the design without silently changing canon.
 - [Science floor construction](images/rawwar-science-floor-construction.svg) — the physical prerequisites between proposing a lab and operating it.
 - [Ship damage and salvage](images/rawwar-ship-damage-and-salvage.svg) — part hierarchy, directional effects, causal system failures, and surviving wreck components.
 - [Starship sizing, damage, and salvage](STARSHIP_SIZING_DAMAGE_AND_SALVAGE.md) — candidate reference ship, what is sized now, what remains unknown, and how to model persistent destruction.
+- [Faction ship design languages](FACTION_SHIP_DESIGN_LANGUAGES.md) — how shared human missions produce recognizable faction-specific ship architecture, industrial signatures, tradeoffs, refits, and repair histories.
 - [Experience architecture](images/rawwar-experience-architecture.svg) — what raWWar owns versus reusable Workshop machinery.
 - [Engineering base cutaway](images/rawwar-base-cutaway.svg) — facilities, staffing, logistics, and infrastructure as one system.
 - [Gesture sequence](images/rawwar-gesture-sequence.svg) — semantic intent becoming physical procedure and visible action.
