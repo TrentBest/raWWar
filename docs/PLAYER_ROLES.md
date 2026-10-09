@@ -1,5 +1,10 @@
 # raWWar — Player Roles
 
+**Status:** Living role catalogue; not a finalized class system.  
+**Owner:** raWWar Experience design.  
+**Audience:** Designers, content authors, and engineers modelling meaningful participation.  
+**Evidence rule:** A role described here is an intended player opportunity, not proof of an implemented occupation or qualification system.
+
 This document records roles already described by the creator. It is not a final class system.
 
 ## Soldier
