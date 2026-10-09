@@ -53,6 +53,7 @@ See [Empire History & Faction Origins](EMPIRE_HISTORY_AND_FACTION_ORIGINS.md) fo
 See [Faction Dispositions](FACTION_DISPOSITIONS.md) for the behavioral rating model.
 - [Simulation Scale & Memory](SIMULATION_SCALE_AND_MEMORY.md) — byte-level FSM state, soldier complexity budgets, galaxy/system state fields, Event-Horizon scaling, and capacity targets.
 - [Soldier Dissertation](SOLDIER_DISSERTATION.md) — the soldier as a persistent person: exoskeletons, training programs, qualifications, formation sizes, crew composition, equipment, experience, careers, survival, and first-person life.\n- **Characters** — commanders, soldiers, researchers, and other important people.
+- [Advisors and Command Staff](ADVISORS_AND_STAFF.md) — qualified candidates, service records, specialist advice, and command appointments.
 - **Equipment** — exoskeletons, armor, weapons, tools, sensors, communications, modules.
 - **Vehicles** — ground, air, orbital, and space vehicles.
 - **Vehicle Configuration** — chassis capabilities, module interfaces, research-expanded configuration envelopes, and deterministic assembly.
