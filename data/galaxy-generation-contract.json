@@ -207,8 +207,6 @@
     "travel warnings recalculate when route or vessel state changes"
   ],
   "unresolvedImplementationDecisions": [
-    "numeric widths and overflow rules for address hashing",
-    "canonical serialized encoding and byte order",
     "exact physical models and fidelity per scale",
     "logical time-step policy and event identity rules per simulation domain",
     "route-cost and jump-budget equations for each propulsion model",
@@ -280,8 +278,6 @@
       "presentation-only refinement"
     ],
     "unresolvedImplementationDecisions": [
-      "numeric widths and overflow rules for address hashing",
-      "canonical serialized encoding and byte order",
       "exact physical models and fidelity per scale",
       "logical time-step policy and event identity rules per simulation domain",
       "route-cost and jump-budget equations for each propulsion model",
@@ -469,5 +465,45 @@
       }
     ],
     "compatibilityRule": "Never change V1 byte meanings in place. Introduce a new version for incompatible encoding changes. Stable hash selection and hash versioning remain separate decisions."
+  },
+  "spatialAddressHash": {
+    "status": "v1-implemented-and-contract-tested",
+    "algorithm": "SHA-256",
+    "version": 1,
+    "input": "Exact canonical bytes produced by HierarchicalSpatialAddressCodec V1, including RWSA magic, encoding version, root ordinal, depth, and ordered child coordinates.",
+    "output": "32-byte digest; hexadecimal form is uppercase for display only.",
+    "domainSeparation": "The canonical RWSA V1 magic/version header is included in the hashed bytes.",
+    "compatibilityRule": "Never change V1 hash inputs or algorithm in place. Any incompatible encoding or hash definition requires a separately versioned hash API and fixed reference vectors. This digest is stable identity material, not encryption, authentication, or proof of ownership.",
+    "referenceVectors": [
+      {
+        "description": "Root ordinal 42, then children (3,4,5) and (9,0,1)",
+        "address": {
+          "rootOrdinal": 42,
+          "children": [
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              9,
+              0,
+              1
+            ]
+          ]
+        },
+        "inputHex": "5257534101002A00000002030405090001",
+        "expectedSha256Hex": "06C16FED1EC8BC08A1EB95AE7722F7ECD9BC8A3B502BB579229CB090B956033E"
+      },
+      {
+        "description": "Root ordinal 1 with no child levels",
+        "address": {
+          "rootOrdinal": 1,
+          "children": []
+        },
+        "inputHex": "5257534101000100000000",
+        "expectedSha256Hex": "46715799BB957132931E309ADA71A4E1F3C9807BAF4071056DB67A819BC315F0"
+      }
+    ]
   }
 }
