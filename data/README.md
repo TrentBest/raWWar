@@ -67,3 +67,5 @@ The expanded catalogues describe capabilities at different levels instead of dup
 These are seed data and simulation design values, not real-world engineering specifications. Unknown or balance-sensitive quantities remain explicit estimates rather than false precision. Facility loads are not self-powered: generation, distribution, backup, route diversity, staffing, qualification, spare parts and maintenance must all be modeled. A research unlock does not retrofit assets globally. The player must manufacture, accept, dispatch and install each physical upgrade, and the asset must pass its defined tests.
 
 See [Advisor Agents, Consequences, and the Work Kanban](../docs/ADVISOR_AGENTS_AND_WORK_KANBAN.md) for the agent-driven advisor model and the distinction between a board card and authoritative world work.
+
+- [`workshop-composition-contract.json`](workshop-composition-contract.json) — current FSM_COS boundary, reusable capability extraction targets, and integration proof requirements.
