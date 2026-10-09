@@ -161,5 +161,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Clarified Game Design Bible authority and added purpose/owner/audience/evidence metadata to the Bible, GDD, Technical Design, and Production Plan.
 - [x] Added scope/status/evidence metadata to Vision and Pillars, Systems Design, Player Roles, and UX and Interaction.
 - [x] Updated the conformance audit with concrete findings and a more precise remaining-work list.
+- [x] Added status/owner/audience/evidence metadata to `docs/OPEN_QUESTIONS.md`; clarified that unanswered questions are not canon and normalized the Gesture question heading.
+- [x] Added status/owner/audience/evidence metadata to `docs/images/README.md`, explicitly separating explanatory artwork from runtime evidence and engineering-ready assets.
 - [ ] Complete the line-by-line audit of the GDD and companion design docs for contradictions, source/API accuracy, and link validity; the current pass is not exhaustive.
 - [ ] Re-check CI for the latest documentation commits; report unverified status honestly if GitHub provides no run/status result.
