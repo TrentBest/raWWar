@@ -76,3 +76,5 @@ The purpose of this layer is to **edify, not mystify**: someone new to the proje
 The design should lead the implementation.
 
 If implementation exposes a better possibility, record the possibility here first rather than allowing an implementation convenience to silently become game design.
+
+- [Workshop Composition Boundary](WORKSHOP_COMPOSITION_BOUNDARY.md) — ownership rules for reusable Workshop MicroBundles versus raWWar domain content.
