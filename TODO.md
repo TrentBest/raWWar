@@ -149,3 +149,13 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Removed duplicated paragraphs from `docs/TECHNICAL_DESIGN.md` and clarified the difference between the implemented explicit-time elliptic-orbit slice and still-planned world/renderer/host capabilities. Added links to the relevant world-model docs and manifest bridge.
 - [x] Fixed the malformed Milky Way visual-atlas entry in `docs/README.md`.
 - [ ] Re-check CI for these documentation commits. The GitHub workflow/status connector has previously returned no push-triggered status for the newest commits; do not infer success from the absence of a reported run.
+
+
+## Documentation standard alignment — 2026-10-09
+
+- [x] Analyzed the shared [FSM_COS Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/docs/ecosystem-documentation-standard/DOCUMENTATION_STANDARD.md) on its `docs/ecosystem-documentation-standard` branch. It defines semantic README IDs 00–13, marker colors, reader paths, ownership boundaries, evidence discipline, visuals, runnable-example expectations, and the rule to **edify, not mystify**. The reference is still a proposal under review; do not represent it as merged or universally adopted.
+- [x] Reworked the raWWar README around the shared section identifiers and color markers, including a responsibility-first explanation of FSM_COS, the manifest/runtime/host boundary, reader paths, developer commands, examples, implementation status, and Workshop footer.
+- [x] Added [Documentation Conformance](docs/DOCUMENTATION_CONFORMANCE.md) to record what has been applied and what remains to be audited.
+- [x] Linked the conformance guide from the documentation index.
+- [ ] Audit the GDD, Game Design Bible, Experience Architecture, technical docs, and companion design docs for authority conflicts, source/API accuracy, link validity, and implementation-vs-intent labeling.
+- [ ] Re-check CI for the README and documentation-index commits; report unverified status honestly if GitHub provides no run/status result.
