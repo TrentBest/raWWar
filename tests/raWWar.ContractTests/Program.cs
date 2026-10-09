@@ -63,6 +63,33 @@ try { _ = (circular with { Eccentricity = 1 }).PositionAt(0); }
 catch (ArgumentOutOfRangeException) { rejectedInvalid = true; }
 Check(rejectedInvalid, "Parabolic/hyperbolic eccentricity must be rejected explicitly");
 
+var rejectedNonFiniteTime = false;
+try { _ = circular.PositionAt(double.NaN); }
+catch (ArgumentOutOfRangeException) { rejectedNonFiniteTime = true; }
+Check(rejectedNonFiniteTime, "Non-finite logical time must be rejected explicitly");
+
+var rejectedNonFiniteParameter = false;
+try { _ = (circular with { GravitationalParameter = double.PositiveInfinity }).PositionAt(0); }
+catch (ArgumentOutOfRangeException) { rejectedNonFiniteParameter = true; }
+Check(rejectedNonFiniteParameter, "Non-finite gravitational parameter must be rejected explicitly");
+
+// Near-parabolic elliptic motion is a numerically demanding boundary. The solver
+// must remain finite and periodic without claiming to support e >= 1.
+var highEccentricity = circular with
+{
+    SemiMajorAxis = 1,
+    Eccentricity = 0.999,
+    MeanAnomalyAtEpoch = 1e-6
+};
+var nearPeriapsis = highEccentricity.PositionAt(0);
+var nearPeriapsisAgain = highEccentricity.PositionAt(highEccentricity.Period);
+Check(double.IsFinite(nearPeriapsis.X) && double.IsFinite(nearPeriapsis.Y)
+    && double.IsFinite(nearPeriapsis.Z), "High-eccentricity periapsis query remains finite");
+Near((nearPeriapsisAgain - nearPeriapsis).Length, 0, 1e-8,
+    "High-eccentricity orbit repeats after one period");
+Check(nearPeriapsis.Length >= 1 - highEccentricity.Eccentricity - 1e-10,
+    "High-eccentricity orbit does not cross inside its periapsis radius");
+
 
  
 // The data scape is a graph of composable capability records. Validate its joins
