@@ -1,8 +1,22 @@
 # raWWar — Game Design Bible
 
-Status: Living design document.
+> **The soldiers themselves are the stars of this game.**
 
-Authority: creator statements are canon unless explicitly marked otherwise.
+**Status:** Living design authority; maintained as creator decisions and canon evolve.  
+**Owner:** raWWar Experience design.  
+**Audience:** Creator, designers, artists, engineers, and collaborators.  
+**Evidence rule:** This document records design authority; it is not evidence that a described feature has been implemented.
+
+## 00. Identity and purpose
+
+The Bible preserves the foundational truths, constraints, and creator decisions that give raWWar its identity. It is intentionally concise relative to the master Game Design Document and specialist design laboratories.
+
+## 01. Authority and certainty
+
+Creator-established decisions are **Canon** unless explicitly marked otherwise. Proposed interpretations are **Candidate**; deliberate trials are **Experiment**; unresolved matters that require creator vision are **Illumination Needed**. A design statement does not become implementation evidence merely because it appears here.
+
+The **Game Design Bible** establishes design authority. The **Game Design Document (GDD)** expands that authority into the comprehensive player-experience and production description. Specialist documents explore individual systems and must not silently overrule canon. When documents conflict, record the conflict and resolve it against explicit creator direction; do not choose whichever wording is easiest to implement.
+
 
 ## 1. What raWWar is
 
