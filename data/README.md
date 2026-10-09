@@ -16,6 +16,11 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `vehicles.json` — populated vehicle/chassis/configuration records across environments.
 - `facilities.json` — production, research, logistics, training and infrastructure facilities.
 - `cut-sheets.json` — commander-facing consequences and crew-facing operational summaries.
+- `vehicle-chassis.json` — physical chassis envelopes, sockets, payloads, power/thermal budgets, mobility, service and compatible families.
+- `electronic-systems.json` — electronics, power conversion, relays, I/O, sensors, data buses, communications, safety controls and event recorders.
+- `building-assemblies.json` — building footprints, foundations, shell, materials, connected/peak loads, contents, utilities, construction stages and commissioning.
+- `security-systems.json` — access, perimeter, industrial safety, shipboard damage control, custody and sensor-fusion panels.
+- `upgrades.json` — research-to-manufacture-to-dispatch-to-install-to-acceptance upgrade lifecycle.
 
 ## World-generation architecture
 
@@ -34,3 +39,10 @@ A refinery with no keyed input is not refining.
 A researched technology is not deployed until someone chooses to adopt it, tooling exists, production occurs, personnel qualify, and logistics deliver it.
 
 The FSM layer is what turns these relationships from documentation into executable world state.
+
+
+## Engineering data is deliberately composable
+
+The expanded catalogues describe capabilities at different levels instead of duplicating every detail into every vehicle or building. A vehicle points to a stable chassis identity; a chassis declares sockets and physical limits; electronic systems describe their interfaces, load, failure modes and maintenance; facilities point to construction assemblies; and upgrades describe how a researched design becomes a physically installed and accepted capability.
+
+These are seed data and simulation design values, not real-world engineering specifications. Unknown or balance-sensitive quantities remain explicit estimates rather than false precision. Facility loads are not self-powered: generation, distribution, backup, route diversity, staffing, qualification, spare parts and maintenance must all be modeled. A research unlock does not retrofit assets globally. The player must manufacture, accept, dispatch and install each physical upgrade, and the asset must pass its defined tests.
