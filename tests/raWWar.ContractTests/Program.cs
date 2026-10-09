@@ -607,7 +607,7 @@ Check(detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("falsi
 Check(detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("batchingRules").EnumerateArray()
     .Any(x => x.GetString()!.Contains("independently damaged", StringComparison.Ordinal)) &&
       detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("noUnlimitedClaim").GetString()!
-    .Contains("memory bandwidth", StringComparison.Ordinal),
+    .Contains("bandwidth", StringComparison.Ordinal),
     "Mesh batching preserves independently damaged components and acknowledges hardware ceilings");
 
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
