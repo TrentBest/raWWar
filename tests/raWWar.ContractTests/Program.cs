@@ -388,7 +388,7 @@ var humanHistoryRoot = humanHistoryData.RootElement;
 var historyDiscoveryRoot = historyDiscoveriesData.RootElement;
 var historicalEras = humanHistoryRoot.GetProperty("eras").EnumerateArray().ToArray();
 Check(historicalEras.Length >= 8, "Human history spans Earth-origin through a campaign-era galactic order");
-Check(humanHistoryRoot.GetProperty("absoluteDatesDeliberatelyUnfixed").GetBoolean(),
+Check(humanHistoryRoot.GetProperty("authority").GetProperty("eraDatesAreDeliberatelyUnfixed").GetBoolean(),
     "Speculative future chronology does not claim unsupported absolute dates");
 Check(historicalEras.Any(e => e.GetProperty("id").GetString() == "history.imperial-fractures"),
     "Long history explicitly includes imperial fractures, rebellion, and civil war");
