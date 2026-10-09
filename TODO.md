@@ -190,3 +190,10 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [ ] Choose and test canonical event-key encoding, uniqueness constraints, and domain-owned logical-time/order rules before exposing a stable event identity API.
 - [ ] Implement one narrow replayable domain with fixed event vectors, durable idempotent commit semantics, checkpoint boundaries, and executable replay tests; do not generalize before this slice is proven.
 - [ ] Keep cross-platform floating-point determinism and checkpoint migration guarantees unclaimed until specified and tested.
+
+## Coordinate frame and transform contract — 2026-10-09
+
+- [x] Added [Coordinate Frames and Transform Contracts](docs/COORDINATE_FRAME_CONTRACT.md), defining required frame metadata, convention disclosure, time validity, and executable transform properties without silently choosing world-wide handedness or axis canon.
+- [x] Added a machine-readable `coordinateFrameContract` section to `data/galaxy-generation-contract.json`, explicitly marked as design contract rather than implemented runtime infrastructure.
+- [ ] Resolve the canonical world frame, handedness, and axis directions when the creator/world-model and renderer integration require that decision; keep adapters explicit until then.
+- [ ] Implement a narrow frame pair with fixed reference vectors, inverse/composition tests, unit declarations, and logical-time validity before introducing a general frame graph.
