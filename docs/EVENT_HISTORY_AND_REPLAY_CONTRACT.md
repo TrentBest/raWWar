@@ -2,10 +2,10 @@
 
 > **A query observes the world. A committed event changes it. A checkpoint accelerates reconstruction; it does not replace the history that explains the state.**
 
-**Status:** Design contract; runtime event store/replay implementation is not yet established.  
+**Status:** Partial reference implementation; durable storage, authoritative state application, checkpoints, and replay reconstruction are not implemented.  
 **Owner:** raWWar world-model implementation.  
 **Audience:** Simulation, persistence, networking, testing, and content-tooling contributors.  
-**Evidence rule:** The rules below constrain future implementations. They are not evidence that a durable event store, cross-platform deterministic solver, or multiplayer replication layer already exists.
+**Evidence rule:** The repository implements stable V1 event identity and a thread-safe in-memory reference ledger. This is not durable storage, a world-state reducer, checkpoint support, or proof of cross-platform deterministic simulation.
 
 ## 1. Separate identity, ordering, and consequences
 
@@ -83,7 +83,20 @@ If evaluating a model discovers that an event should occur, the implementation m
 
 Do not promise bit-for-bit replay across platforms merely because event ordering is stable. Floating-point math, solver changes, and model-version changes may affect results. If exact replay is required, specify the implementation strategy and test it against fixed reference scenarios.
 
-## 7. Minimum acceptance tests
+## 7. Implemented reference slice
+
+The core now contains `SimulationEventId`, `SimulationEvent`, and `InMemoryEventHistory` under `src/raWWar/History/`.
+
+- Event identity V1 hashes a canonical binary encoding with the `RWEI` magic/version prefix, big-endian unsigned integers, length-prefixed UTF-8 strings and length-prefixed canonical address bytes. SHA-256 output is represented as uppercase hexadecimal.
+- Identity inputs are world seed, model version, canonical address bytes, event domain, event ordinal, and the domain-defined logical-time key. Fixed vectors guard against accidental encoding drift.
+- Event construction copies payload bytes. It does not commit anything.
+- The in-memory ledger serializes commits under a lock. Identical retries return `AlreadyCommitted`; a reused ID with different event content returns `IdentityConflict`.
+- Reads filter by domain and sort by ordinal string comparison of the logical-time key, then event ordinal, then stable ID. This is only appropriate when that domain explicitly chooses a lexical time key; the type does not infer numeric time.
+- Executable contract checks cover a fixed event-ID vector, repeatability, changed identity inputs, payload isolation, idempotent retry, payload conflict, deterministic domain ordering, domain isolation, and concurrent duplicate commits.
+
+**Known boundary:** the ledger is process-local and volatile. It neither persists events nor applies their payloads to authoritative world state. Its lock is not a persistence transaction. Restart-safe idempotency, causal prerequisite policy, durable ordering, state reduction, checkpoint boundaries, and replay equivalence remain future implementation work. Do not use this reference ledger as a multiplayer or production persistence guarantee.
+
+## 8. Minimum acceptance tests
 
 A future event/history implementation should demonstrate:
 
@@ -97,6 +110,6 @@ A future event/history implementation should demonstrate:
 - an observation-only query does not append events or mutate authoritative state;
 - unsupported times and out-of-order events are handled by the domain's declared policy.
 
-## 8. Implementation boundary
+## 9. Implementation boundary
 
 This document is a design contract, not an event-store API. Do not invent public types, package dependencies, event encodings, or storage providers solely to make the document appear implemented. The next implementation slice should begin with one small domain, fixed event vectors, explicit ordering, and executable replay/idempotency tests before generalizing the contract.
