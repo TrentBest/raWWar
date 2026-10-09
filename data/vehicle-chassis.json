@@ -1,0 +1,871 @@
+{
+  "schema": "raWWar.chassis-catalogue.v1",
+  "unitPolicy": {
+    "mass": "metric tonnes (t)",
+    "length": "metres (m)",
+    "power": "kW unless explicitly stated",
+    "status": "Initial authored simulation values; not real-world engineering specifications."
+  },
+  "chassis": [
+    {
+      "id": "chassis.light_utility_01",
+      "name": "Light Utility 6x6",
+      "environment": "ground",
+      "dryMassT": 4.8,
+      "dimensionsM": {
+        "length": 4.7,
+        "width": 2.15,
+        "height": 2.1
+      },
+      "payloadKg": 900,
+      "crewSeats": 2,
+      "passengerSeats": 0,
+      "hardpoints": [
+        "power",
+        "mobility",
+        "sensor",
+        "comms",
+        "utility",
+        "light_weapon"
+      ],
+      "powerBus": {
+        "continuousKW": 18,
+        "peakKW": 32,
+        "backupMinutes": 20,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "6x6",
+        "maxRoadKmh": 125,
+        "maxCrossCountryKmh": 72,
+        "gradePercent": 60
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "scout",
+        "communications",
+        "engineering"
+      ]
+    },
+    {
+      "id": "chassis.medium_armored_02",
+      "name": "Medium Armored 8x8",
+      "environment": "ground",
+      "dryMassT": 24,
+      "dimensionsM": {
+        "length": 7.4,
+        "width": 3.1,
+        "height": 2.8
+      },
+      "payloadKg": 6500,
+      "crewSeats": 3,
+      "passengerSeats": 8,
+      "hardpoints": [
+        "power",
+        "mobility",
+        "armor",
+        "sensor",
+        "comms",
+        "weapon",
+        "troop_module",
+        "cargo"
+      ],
+      "powerBus": {
+        "continuousKW": 180,
+        "peakKW": 420,
+        "backupMinutes": 35,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "8x8_adaptive_suspension",
+        "maxRoadKmh": 105,
+        "maxCrossCountryKmh": 58,
+        "gradePercent": 65
+      },
+      "protection": {
+        "class": "modular_composite",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "apc",
+        "command",
+        "ambulance",
+        "engineering"
+      ]
+    },
+    {
+      "id": "chassis.quad_01",
+      "name": "Light Combat Quad",
+      "environment": "ground",
+      "dryMassT": 0.9,
+      "dimensionsM": {
+        "length": 2.8,
+        "width": 1.65,
+        "height": 1.55
+      },
+      "payloadKg": 320,
+      "crewSeats": 2,
+      "passengerSeats": 0,
+      "hardpoints": [
+        "power",
+        "mobility",
+        "weapon",
+        "utility",
+        "comms"
+      ],
+      "powerBus": {
+        "continuousKW": 4,
+        "peakKW": 10,
+        "backupMinutes": 10,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "4x4_independent",
+        "maxRoadKmh": 115,
+        "maxCrossCountryKmh": 65,
+        "gradePercent": 55
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "light_combat",
+        "courier",
+        "scout"
+      ]
+    },
+    {
+      "id": "chassis.heavy_armored_03",
+      "name": "Heavy Tracked Combat Chassis",
+      "environment": "ground",
+      "dryMassT": 48,
+      "dimensionsM": {
+        "length": 8.8,
+        "width": 3.8,
+        "height": 3.1
+      },
+      "payloadKg": 12500,
+      "crewSeats": 4,
+      "passengerSeats": 0,
+      "hardpoints": [
+        "power",
+        "mobility",
+        "armor",
+        "sensor",
+        "comms",
+        "missile_bay",
+        "reload",
+        "auxiliary_power"
+      ],
+      "powerBus": {
+        "continuousKW": 320,
+        "peakKW": 900,
+        "backupMinutes": 45,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "tracked_adaptive",
+        "maxRoadKmh": 78,
+        "maxCrossCountryKmh": 52,
+        "gradePercent": 70
+      },
+      "protection": {
+        "class": "modular_composite",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "missile_platform",
+        "assault",
+        "engineering_heavy"
+      ]
+    },
+    {
+      "id": "chassis.vtol_light_01",
+      "name": "Light Tilt-Lift Airframe",
+      "environment": "atmospheric",
+      "dryMassT": 6.2,
+      "dimensionsM": {
+        "length": 8.6,
+        "width": 10.4,
+        "height": 3.1
+      },
+      "payloadKg": 1800,
+      "crewSeats": 2,
+      "passengerSeats": 4,
+      "hardpoints": [
+        "power",
+        "lift",
+        "sensor",
+        "comms",
+        "mission"
+      ],
+      "powerBus": {
+        "continuousKW": 95,
+        "peakKW": 240,
+        "backupMinutes": 12,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "tilt_lift",
+        "maxRoadKmh": 390,
+        "maxCrossCountryKmh": 0,
+        "gradePercent": 0
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 12,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "recon_vtol",
+        "communications_vtol",
+        "electronic_warfare"
+      ]
+    },
+    {
+      "id": "chassis.heavy_vtol_01",
+      "name": "Heavy Lift Tilt-Rotor Airframe",
+      "environment": "atmospheric",
+      "dryMassT": 68,
+      "dimensionsM": {
+        "length": 24,
+        "width": 32,
+        "height": 8.5
+      },
+      "payloadKg": 18000,
+      "crewSeats": 4,
+      "passengerSeats": 32,
+      "hardpoints": [
+        "power",
+        "lift",
+        "mobility",
+        "cargo",
+        "mission",
+        "comms",
+        "defensive_system"
+      ],
+      "powerBus": {
+        "continuousKW": 950,
+        "peakKW": 2100,
+        "backupMinutes": 18,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "distributed_tilt_rotor",
+        "maxRoadKmh": 330,
+        "maxCrossCountryKmh": 0,
+        "gradePercent": 0
+      },
+      "protection": {
+        "class": "modular_composite",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 12,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "heavy_vtol",
+        "assault_transport",
+        "construction_lift"
+      ]
+    },
+    {
+      "id": "chassis.ornithopter_prototype_01",
+      "name": "Articulated-Wing Prototype",
+      "environment": "atmospheric",
+      "dryMassT": 3.1,
+      "dimensionsM": {
+        "length": 5.2,
+        "width": 8.8,
+        "height": 2.2
+      },
+      "payloadKg": 260,
+      "crewSeats": 1,
+      "passengerSeats": 0,
+      "hardpoints": [
+        "power",
+        "wing_actuation",
+        "flight_control",
+        "sensor",
+        "comms",
+        "test_instrumentation"
+      ],
+      "powerBus": {
+        "continuousKW": 65,
+        "peakKW": 190,
+        "backupMinutes": 8,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "articulated_flapping_wing",
+        "maxRoadKmh": 280,
+        "maxCrossCountryKmh": 0,
+        "gradePercent": 0
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 12,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "ornithopter",
+        "experimental_flight"
+      ]
+    },
+    {
+      "id": "chassis.starfighter_01",
+      "name": "Single-Seat Space Fighter Frame",
+      "environment": "orbital_space",
+      "dryMassT": 18,
+      "dimensionsM": {
+        "length": 14,
+        "width": 9.5,
+        "height": 4.2
+      },
+      "payloadKg": 4500,
+      "crewSeats": 1,
+      "passengerSeats": 0,
+      "hardpoints": [
+        "power",
+        "propulsion",
+        "thermal_control",
+        "sensor",
+        "comms",
+        "weapon",
+        "mission"
+      ],
+      "powerBus": {
+        "continuousKW": 420,
+        "peakKW": 1100,
+        "backupMinutes": 30,
+        "voltageClass": "zoned_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "reaction_control_plus_main_drive",
+        "deltaVClass": "vehicle-specific",
+        "maxAccelerationMps2": 22
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "space_fighter",
+        "interceptor",
+        "recon_fighter"
+      ]
+    },
+    {
+      "id": "chassis.cruiser_01",
+      "name": "Heavy Cruiser Pressure Hull",
+      "environment": "space",
+      "dryMassT": 42000,
+      "dimensionsM": {
+        "length": 680,
+        "width": 140,
+        "height": 105
+      },
+      "payloadKg": 8200000,
+      "crewSeats": 680,
+      "passengerSeats": 180,
+      "hardpoints": [
+        "reactor",
+        "propulsion",
+        "life_support",
+        "command",
+        "sensor",
+        "weapon",
+        "hangar",
+        "cargo",
+        "repair",
+        "communications"
+      ],
+      "powerBus": {
+        "continuousKW": 600000,
+        "peakKW": 980000,
+        "backupMinutes": 120,
+        "voltageClass": "zoned_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "multi_engine_spacecraft",
+        "deltaVClass": "vehicle-specific",
+        "maxAccelerationMps2": 3.2
+      },
+      "protection": {
+        "class": "layered_hull_and_compartmentation",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 8,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "cruiser",
+        "command_ship",
+        "fleet_support"
+      ]
+    },
+    {
+      "id": "chassis.carrier_01",
+      "name": "Fleet Carrier Pressure Hull",
+      "environment": "space",
+      "dryMassT": 160000,
+      "dimensionsM": {
+        "length": 1200,
+        "width": 260,
+        "height": 190
+      },
+      "payloadKg": 28000000,
+      "crewSeats": 2400,
+      "passengerSeats": 1200,
+      "hardpoints": [
+        "reactor",
+        "propulsion",
+        "life_support",
+        "command",
+        "sensor",
+        "weapon",
+        "fighter_bays",
+        "maintenance_decks",
+        "cargo",
+        "medical",
+        "communications"
+      ],
+      "powerBus": {
+        "continuousKW": 1800000,
+        "peakKW": 3200000,
+        "backupMinutes": 150,
+        "voltageClass": "zoned_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "multi_engine_carrier",
+        "deltaVClass": "vehicle-specific",
+        "maxAccelerationMps2": 1.6
+      },
+      "protection": {
+        "class": "layered_hull_and_compartmentation",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 8,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "carrier",
+        "fleet_command",
+        "expeditionary_base"
+      ]
+    },
+    {
+      "id": "chassis.engineering_tracked_01",
+      "name": "Tracked Combat Engineering Chassis",
+      "environment": "ground",
+      "dryMassT": 36,
+      "dimensionsM": {
+        "length": 7.9,
+        "width": 3.5,
+        "height": 3
+      },
+      "payloadKg": 9000,
+      "crewSeats": 3,
+      "passengerSeats": 2,
+      "hardpoints": [
+        "power",
+        "mobility",
+        "armor",
+        "sensor",
+        "comms",
+        "earthmoving_tool",
+        "lift",
+        "utility",
+        "recovery"
+      ],
+      "powerBus": {
+        "continuousKW": 250,
+        "peakKW": 620,
+        "backupMinutes": 35,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "tracked_engineering",
+        "maxRoadKmh": 68,
+        "maxCrossCountryKmh": 42,
+        "gradePercent": 65
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "engineering",
+        "recovery",
+        "construction_support"
+      ]
+    },
+    {
+      "id": "chassis.utility_subsurface_01",
+      "name": "Subsurface Utility Carrier",
+      "environment": "subsurface_ground",
+      "dryMassT": 12,
+      "dimensionsM": {
+        "length": 5.8,
+        "width": 2.6,
+        "height": 2.4
+      },
+      "payloadKg": 2400,
+      "crewSeats": 2,
+      "passengerSeats": 2,
+      "hardpoints": [
+        "power",
+        "mobility",
+        "comms",
+        "air_quality",
+        "lighting",
+        "cable_reel",
+        "tooling"
+      ],
+      "powerBus": {
+        "continuousKW": 35,
+        "peakKW": 90,
+        "backupMinutes": 45,
+        "voltageClass": "mixed_low_and_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "low_profile_articulated_track",
+        "maxRoadKmh": 45,
+        "maxCrossCountryKmh": 18,
+        "gradePercent": 35
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "utility",
+        "maintenance",
+        "rescue",
+        "subsurface_logistics"
+      ]
+    },
+    {
+      "id": "chassis.orbital_tug_01",
+      "name": "Orbital Cargo Tug Frame",
+      "environment": "orbital_space",
+      "dryMassT": 95,
+      "dimensionsM": {
+        "length": 22,
+        "width": 12,
+        "height": 8
+      },
+      "payloadKg": 120000,
+      "crewSeats": 2,
+      "passengerSeats": 4,
+      "hardpoints": [
+        "power",
+        "propulsion",
+        "docking",
+        "cargo",
+        "comms",
+        "robotic_arm",
+        "navigation"
+      ],
+      "powerBus": {
+        "continuousKW": 850,
+        "peakKW": 2200,
+        "backupMinutes": 60,
+        "voltageClass": "zoned_high_voltage_dc"
+      },
+      "thermal": {
+        "design": "segmented cooling loop",
+        "track": "load, coolant state, temperature, and derating"
+      },
+      "mobility": {
+        "type": "electric_main_drive_plus_rcs",
+        "deltaVClass": "vehicle-specific",
+        "maxAccelerationMps2": 22
+      },
+      "protection": {
+        "class": "mission_specific",
+        "replaceablePanels": true
+      },
+      "service": {
+        "inspectionIntervalHours": 25,
+        "track": [
+          "wear",
+          "calibration_drift",
+          "faults",
+          "repair_history"
+        ],
+        "fieldReplaceable": [
+          "sensor_head",
+          "power_converter",
+          "controller",
+          "cable_harness"
+        ]
+      },
+      "dependencies": [
+        "resource.aerospace_alloy"
+      ],
+      "compatibleFamilies": [
+        "cargo_tug",
+        "rescue_tug",
+        "orbital_construction"
+      ]
+    }
+  ]
+}
