@@ -22,7 +22,7 @@ System-specific documents expand the design without silently changing canon.
 - [Authored Galaxies, Campaigns, and Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md) — deliberate single-player campaign construction, reproducible multiplayer generation, civilization ancestry, validation, and distribution.
 - [Mapping the Milky Way](MAPPING_THE_MILKY_WAY.md) — evidence-backed galactic reference, Solar System placement, procedural population expansion, motion across time, and truthful navigation presentation.
 - [Navigation Frames and Chart Evolution](NAVIGATION_FRAMES_AND_CHART_EVOLUTION.md) — how Earth-origin, Solar-System, stellar, and galactocentric chart frames evolve with navigation equipment, standards, uncertainty, and historical knowledge.
-- [Navigation Frames and Chart Evolution](NAVIGATION_FRAMES_AND_CHART_EVOLUTION.md) — how Earth-origin, Solar-System, stellar, and galactocentric chart frames evolve with navigation equipment, standards, uncertainty, and historical knowledge.
+- [Contested History, Betrayal, and the Politics of Memory](CONTESTED_HISTORY_BETRAYAL_AND_MEMORY.md) — victor-written narratives, conflicting battle accounts, evidence provenance, betrayal, propaganda, cover-ups, and player-led historical investigation.
 - [Humanity's Long History and the Discoverable Past](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) — speculative history from Earth to the galactic Empire, science-fiction guardrails, and deep discoverable archives.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
