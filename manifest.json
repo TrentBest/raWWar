@@ -1,11 +1,11 @@
 {
-  "experienceId": 3301,
-  "version": "1.0.0",
   "runtimeId": 3311,
   "bundles": [
     {
       "bundleId": 3301,
-      "configurationBase64": ""
+      "version": "1.0.0"
     }
-  ]
+  ],
+  "experienceContext": null,
+  "note": "Matches the current FSM_COS RuntimeManifest shape. The root is currently a placeholder; no reusable capability dependency is claimed until separately owned MicroBundles exist and declare those dependencies."
 }
