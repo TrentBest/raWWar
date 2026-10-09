@@ -117,3 +117,12 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Checked the current `TheSingularityWorkshop.MicroBundleDomain` `development` documentation: `IMicroBundleLoadContext.TryGetConfiguration(bundleId, out configuration)` provides opaque configuration bytes, and Adventure 4 demonstrates schema-like `MicroBundleDefinition` / `MicroBundleField` descriptions.
 - [ ] **Version boundary remains open:** raWWar currently references NuGet MicroBundleDomain `1.0.1`, while the current Domain `development` getting-started guide describes `2.0.0-alpha.1`. Do not assume development-only configuration APIs exist in 1.0.1; verify the exact published contract or intentionally stage a package upgrade only with its broader integration implications understood.
 - [ ] Current source/documentation inspection did not establish a public provider-lookup method named `TryGetProvider`; verify the actual descriptor/provider API from source before implementing lookup. Do not invent an API from the conceptual contract.
+
+
+## Cross-repository handoff — 2026-10-09
+
+- [x] Opened [MicroBundleDomain issue #11](https://github.com/TrentBest/TheSingularityWorkshop.MicroBundleDomain/issues/11) to explain the creator's corrected ownership model to the implementation LLM: Experience configuration is parameter-ID-to-literal-value overrides only; the MicroBundle owns schema, parameter meanings/defaults/validation, and providers; consumers use checked provider lookup and handle absence. ProtocolAi remains optional.
+- [x] Opened [AnyApp issue #23](https://github.com/TrentBest/AnyApp/issues/23) for the separate host integration blocker: artifact identities for the full transitive MicroBundle closure must be represented independently from Experience runtime roots. Do not append dependencies to the root request list as a shortcut.
+- [x] Updated [this manifest bridge](docs/integration/ANYAPP_MANIFEST_BRIDGE.md) to link both implementation briefs and keep the boundaries visible across repositories.
+- [ ] Revisit the AnyApp/raWWar bridge after MicroBundleDomain's contract is corrected. Verify the concrete published API and package version before consuming new configuration/provider APIs.
+- [ ] Keep repository artifact closure work independent from the Experience override semantics; both are required for the eventual end-to-end proof.
