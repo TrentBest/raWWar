@@ -1,5 +1,10 @@
 # raWWar Visual Asset Catalogue
 
+Status: Living index of explanatory visual assets.
+Owner: raWWar design and documentation.
+Audience: Designers, implementers, reviewers, and readers who need a visual entry point.
+Evidence rule: Diagrams explain intended relationships unless explicitly labeled as implementation evidence.
+
 This catalogue is the index for the repository's explanatory artwork. Images should help a reader **see the system being described**: relationships, scale, physical dependencies, procedures, decisions, and consequences.
 
 These SVGs are authored, lightweight diagrams and concept illustrations. Unless an image explicitly says otherwise, it is **not** a capture of a completed runtime, a finalized art asset, or a construction-ready engineering drawing.
@@ -59,7 +64,5 @@ Do not let polished artwork accidentally promote a candidate into canon. A visua
 7. **Ship construction and recovery:** a hierarchy of zones, parts and dependencies; directional impact lookup; causal secondary events; surviving components and provenance-backed recovery.
 
 These are documentation priorities, not claims that the corresponding runtime systems are already complete.
-
-
 
 - [Embodied mech control and engineering](rawwar-embodied-mech-control.svg) — one semantic action pipeline across VR/FPS/input devices, boarded mech control, breathing guidance, engineering logging, lockout/tagout, and measured rendering budgets.
