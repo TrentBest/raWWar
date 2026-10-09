@@ -1,0 +1,191 @@
+{
+  "schema": "raWWar.directional-damage-and-salvage.v1",
+  "status": "candidate simulation contract",
+  "disclaimer": "Authored simulation parameters are game-model inputs, not real-world weapon-effect predictions.",
+  "directionFrame": {
+    "forward": "+X",
+    "aft": "-X",
+    "starboard": "+Y",
+    "port": "-Y",
+    "dorsal": "+Z",
+    "ventral": "-Z",
+    "rule": "Use the target-local frame at impact time; target rotation changes world-to-local direction."
+  },
+  "sixFaces": [
+    "forward",
+    "aft",
+    "port",
+    "starboard",
+    "dorsal",
+    "ventral"
+  ],
+  "requiredImpactRecord": [
+    "eventId",
+    "logicalTime",
+    "targetAssetId",
+    "impactPointLocalM",
+    "incomingDirectionLocal",
+    "effectId",
+    "incidentEnergyJ",
+    "incidenceAngleDeg",
+    "hitLocationId",
+    "interveningLayers",
+    "resultingPartStates",
+    "secondaryEvents",
+    "survivingParts",
+    "salvageLots"
+  ],
+  "pipeline": [
+    "Intersect the event with current geometry and occlusion; resolve the first contacted surface and ordered layers behind it.",
+    "Evaluate penetration, deformation, transmitted load, heat, severed connections and local shock using authored model parameters.",
+    "Apply effects to physically exposed or connected parts, respecting barriers, isolation and compartment boundaries.",
+    "Evaluate secondary events only when an actual source and trigger exist: fire, pressure loss, fluid release, electrical fault, thermal damage, structural collapse or hazardous payload event.",
+    "Update only affected parts, neighbors, compartments and hazard events; preserve the causal chain in persistent history.",
+    "Record detached debris, surviving equipment, repair work, salvage condition and uncertainty."
+  ],
+  "faceModel": {
+    "requiredPerFace": [
+      "protectionLayerIds",
+      "structureLayerIds",
+      "occlusionGeometry",
+      "weakPoints",
+      "serviceOpenings",
+      "conditionModifiers"
+    ],
+    "rules": [
+      "A weak point is a physical location or interface, not a magic damage multiplier.",
+      "A propulsion mount may be vulnerable because its location, protection, load path and connections make it vulnerable.",
+      "A damaged mount can impair thrust alignment without immediately destroying the engine; later operation may worsen the fault.",
+      "Prior impacts change geometry and condition, so later events must resolve against updated state."
+    ]
+  },
+  "partStates": [
+    "intact",
+    "degraded",
+    "damaged",
+    "disabled",
+    "severed",
+    "breached",
+    "burning",
+    "contaminated",
+    "detached",
+    "destroyed",
+    "unknown"
+  ],
+  "survival": {
+    "outcomes": [
+      "survives_functional",
+      "survives_degraded",
+      "repairable",
+      "recoverable_material",
+      "scrap_only",
+      "consumed_or_dispersed",
+      "unresolved"
+    ],
+    "factors": [
+      "construction",
+      "local exposure",
+      "thermal and pressure history",
+      "remaining structural support",
+      "secondary event exposure",
+      "time before recovery",
+      "handling damage"
+    ],
+    "rule": "Destroying a parent assembly does not automatically destroy each child. Evaluate each part from local exposure, support, barriers, heat, shock and subsequent collapse.",
+    "salvageLotFields": [
+      "lotId",
+      "sourceEventId",
+      "sourcePartId",
+      "recoveredLocation",
+      "observedCondition",
+      "functionEvidence",
+      "hazards",
+      "massEstimate",
+      "confidence",
+      "custodyHistory",
+      "eligibleUses",
+      "requiredInspection",
+      "recoveredBy"
+    ]
+  },
+  "cascade": {
+    "rule": "Each secondary event has an identifiable trigger, transfer path, affected parts, source of energy/load/material, onset, termination or containment reason, and resulting work items.",
+    "eventFields": [
+      "eventId",
+      "parentEventId",
+      "triggerPartId",
+      "mechanism",
+      "transferPath",
+      "affectedPartIds",
+      "source",
+      "onsetTime",
+      "terminationCondition",
+      "containmentAction",
+      "resultingWorkItems"
+    ],
+    "stopConditions": [
+      "source isolated or depleted",
+      "boundary contains event",
+      "required connection severed",
+      "stored energy exhausted",
+      "event falls below authored threshold",
+      "remaining work deferred without erasing it"
+    ],
+    "rules": [
+      "Criticality describes consequences; it does not itself cause an explosion.",
+      "The same hit can produce different outcomes based on configuration, maintenance, operating state, orientation, load and previous damage.",
+      "Do not substitute one universal explosion outcome for the actual sequence of affected components and available energy."
+    ]
+  },
+  "performance": {
+    "authoring": "Precompute static geometry, face layers, part adjacency, occlusion and candidate transfer neighborhoods for each approved configuration.",
+    "runtime": "Resolve each event against current configuration and condition, then update only the affected neighborhood.",
+    "persistence": "Persist authoritative event and part state; cached tables are never the source of truth.",
+    "determinism": "Use event-keyed deterministic variation, never frame order or a global mutable random stream.",
+    "fidelity": [
+      "strategic: zones and persistent work",
+      "tactical: part-level effects and local cascades",
+      "inspection: individual condition, debris and salvage"
+    ],
+    "optimization": "Precompute candidate hit regions and transfer paths, not a universal outcome. Angle, configuration, prior damage, active systems and containment change the result."
+  },
+  "scenarios": [
+    {
+      "id": "scenario.exposed_thruster_mount",
+      "steps": [
+        "target presents aft quarter",
+        "event intersects exposed mount or thrust-frame region",
+        "mount deforms according to local state",
+        "thruster alignment or support degrades",
+        "sensors and watch may detect vibration or thrust asymmetry",
+        "shutdown may limit further damage; continued operation may worsen it",
+        "repair requires isolation, support, inspection and alignment"
+      ],
+      "lesson": "A precise hit creates a physical fault path, not an instant vehicle-delete event."
+    },
+    {
+      "id": "scenario.compartment_fire",
+      "steps": [
+        "local fault creates an ignition source",
+        "spread follows available fuel, oxygen, heat and connected spaces",
+        "doors, suppression, ventilation and crew response alter spread",
+        "heat and smoke affect nearby systems",
+        "suppression leaves inspection and contamination work",
+        "shielded parts may remain recoverable"
+      ],
+      "lesson": "Secondary damage depends on local conditions and response."
+    },
+    {
+      "id": "scenario.wreck_salvage",
+      "steps": [
+        "structural support is lost",
+        "large pieces separate at damaged joints",
+        "some enclosed modules survive while exposed components do not",
+        "debris moves according to local environment",
+        "recovery teams secure, inspect and catalog parts",
+        "accepted salvage returns to inventory with provenance"
+      ],
+      "lesson": "The wreck persists as material, intelligence, hazards and history."
+    }
+  ]
+}
