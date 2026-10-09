@@ -176,4 +176,5 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [ ] Re-check CI for these latest README/conformance commits; do not reuse the prior green result as proof for this new head.
 - [x] Completed a repository-wide relative inline-Markdown-link target pass across all 102 Markdown files: 263 link targets checked, no missing local file targets found. This does not yet validate heading anchors, reference-style links, raw HTML `href`/`src` attributes, or external URL availability.
 - [x] Checked all 21 checked-in SVG assets for `href` / `xlink:href` references; none were present, so there were no local SVG-linked assets to resolve.
-- [ ] Complete heading-anchor, raw HTML `href`/`src`, external-link availability, and line-by-line design-contradiction audits.
+- [x] Scanned all 102 Markdown files for raw HTML `href` / `src` attributes and inline Markdown fragment links; none were found in the checked content.
+- [ ] Validate reference-style Markdown links and external URL availability, then continue the line-by-line design-contradiction audit.
