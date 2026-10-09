@@ -157,5 +157,6 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Reworked the raWWar README around the shared section identifiers and color markers, including a responsibility-first explanation of FSM_COS, the manifest/runtime/host boundary, reader paths, developer commands, examples, implementation status, and Workshop footer.
 - [x] Added [Documentation Conformance](docs/DOCUMENTATION_CONFORMANCE.md) to record what has been applied and what remains to be audited.
 - [x] Linked the conformance guide from the documentation index.
-- [ ] Audit the GDD, Game Design Bible, Experience Architecture, technical docs, and companion design docs for authority conflicts, source/API accuracy, link validity, and implementation-vs-intent labeling.
+- [x] Reviewed Experience Architecture's responsibility boundary and added an implementation-evidence table separating package/manifest checks, local FSM_COS composition, orbit-example coverage, and the unimplemented station-and-rig/host integration.
+- [ ] Audit the GDD, Game Design Bible, technical docs, and companion design docs for authority conflicts, source/API accuracy, link validity, and implementation-vs-intent labeling.
 - [ ] Re-check CI for the README and documentation-index commits; report unverified status honestly if GitHub provides no run/status result.
