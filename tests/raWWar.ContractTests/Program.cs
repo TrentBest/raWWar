@@ -2,6 +2,7 @@ using TheSingularityWorkshop.FSM_COS;
 using TheSingularityWorkshop.MicroBundleDomain;
 using TheSingularityWorkshop.raWWar;
 using TheSingularityWorkshop.raWWar.ContractTests;
+using TheSingularityWorkshop.raWWar.History;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
 
 var failures = new List<string>();
