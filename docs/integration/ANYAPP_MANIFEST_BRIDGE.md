@@ -4,6 +4,8 @@
 **Reviewed:** 2026-10-09  
 **Working branch:** `development`  
 
+**Dependency request:** [AnyApp artifact closure](../requests/REQUEST-FROM-raWWar-AnyApp-ArtifactClosure.md). The corresponding MicroBundle configuration requirement is tracked in [the MicroBundleDomain request](../requests/REQUEST-FROM-raWWar-MicroBundleDomain-ExperienceConfiguration.md). See the [request convention and index](../requests/README.md).
+
 ## The three documents have different jobs
 
 | Document/contract | Owner | Job |
