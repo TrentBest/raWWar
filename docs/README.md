@@ -2,6 +2,10 @@
 
 This directory is the design and production knowledge base for the raWWar Experience.
 
+## Documentation standard
+
+- [Documentation Conformance](DOCUMENTATION_CONFORMANCE.md) — how raWWar applies the shared Workshop section identifiers, visual markers, evidence rules, architecture boundaries, and example requirements. The referenced [FSM_COS Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/docs/ecosystem-documentation-standard/DOCUMENTATION_STANDARD.md) is currently a proposal under review; raWWar's conformance work is incremental, not a claim that every companion document has already been audited.
+
 ## Authority
 
 The **Game Design Bible** records established design truth and creator decisions.
