@@ -26,6 +26,8 @@ The identifiers in these files are stable semantic keys. They are intended to be
 
 The seed universe content corpus complements the spatial generation model. See [Galaxy Generation and Spatial Refinement](../docs/GALAXY_GENERATION_AND_SPATIAL_REFINEMENT.md) for the reserved cell-42 galaxy anchor, baked cosmic context, stable cell identity, time-ordered probability, recursive 10 × 10 × 10 refinement, sister-galaxy travel, and the boundary between reproducible generated properties and persistent gameplay history. The machine-readable [Galaxy Generation Contract](galaxy-generation-contract.json) records the current address ordering, seed/event keys, persistence rules, travel-warning policy, bounded spatiotemporal query model, observer-relative projection rules, and unresolved implementation decisions. The [Spatiotemporal World Model and Observation](../docs/SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md) document defines the conceptual `F(x,y,z,t)` query, time-dependent motion, and how galaxy/system/orbit/surface views and GUI derive from one authoritative world.
 
+See [Engineering Data Scape](../docs/ENGINEERING_DATA_SCAPE.md) for the connected data graph, assembly compatibility, physical power and utility dependencies, electronics failure models, security systems, upgrade deployment lifecycle, and authoring/validation rules.
+
 ## Design rule
 
 Numbers describe a capability. They do not replace the people, procedures, equipment, dependencies or history that make the capability real.
