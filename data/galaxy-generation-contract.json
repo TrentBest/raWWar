@@ -61,12 +61,18 @@
       "family": "Squirrel3-style integer hash / deterministic pseudo-random primitive",
       "implementationMustBeVersioned": true,
       "mustUseVerifiedReferenceVectors": true,
-      "referenceVectorsStatus": "blocked-by-reference-variant-reconciliation; do-not-accept-vectors-until-the-exact-Squirrel3-variant-and-32-bit-semantics-are-pinned",
+      "referenceVectorsStatus": "included-and-executable-contract-tests-added",
       "cryptographic": false,
       "isPhysicalLaw": false,
       "referenceResearch": {
-        "status": "source-investigation; implementation-not-yet-approved",
+        "status": "corroborated-reference-variant-selected-for-v1",
         "sources": [
+          {
+            "role": "primary-talk-record",
+            "url": "https://www.gdcvault.com/play/1024365/Math-for-Game-Programmers-Noise",
+            "observedAlgorithm": "GDC 2017 session by Squirrel Eiserloh, the source talk for SquirrelNoise3",
+            "note": "Algorithm transcription is cross-checked against multiple independent-language ports below."
+          },
           {
             "role": "GDC-2017-attributed-Squirrel3-transcription",
             "url": "https://github.com/sublee/squirrel3-python/blob/master/squirrel3.py",
@@ -84,10 +90,55 @@
             "url": "https://gist.github.com/kevinmoran/0198d8e9de0da7057abe8b8b34d50f86",
             "observedAlgorithm": "SquirrelNoise5 uses different constants and additional mixing stages.",
             "note": "The author states version 5 addresses a high-position-bit influence weakness in the original version 3. It is not interchangeable with Squirrel3."
+          },
+          {
+            "role": "independent-CSharp-transcription",
+            "url": "https://gist.github.com/BwdYeti/f9d019bff90139a336b4137c09faa5e2",
+            "observedAlgorithm": "Uses wrapping uint32 arithmetic and adds BIT_NOISE2",
+            "note": "Corroborates the Python and Rust transcriptions for the SquirrelNoise3 operation sequence."
+          },
+          {
+            "role": "independent-Rust-transcription-and-explanation",
+            "url": "https://www.annardunster.com/posts/2024/eiserloh-noise-rng-rust",
+            "observedAlgorithm": "Casts position to uint32, uses wrapping multiplication/addition, and adds BIT_NOISE2",
+            "note": "Explicitly describes the Squirrel3 operations and unsigned 32-bit behavior."
           }
         ],
         "acceptanceRule": "Resolve the exact intended variant and unsigned 32-bit behavior against the strongest primary/reference source; then independently compute and cross-check fixed vectors before adding them to executable contract tests. Do not silently substitute SquirrelNoise5 for Squirrel3."
-      }
+      },
+      "referenceVectors": [
+        {
+          "position": 0,
+          "seed": 0,
+          "expectedUInt32Hex": "0x1A0A96C2"
+        },
+        {
+          "position": 1,
+          "seed": 0,
+          "expectedUInt32Hex": "0x2B427F45"
+        },
+        {
+          "position": 42,
+          "seed": 0,
+          "expectedUInt32Hex": "0xF0E5F5A6"
+        },
+        {
+          "position": 0,
+          "seed": 1,
+          "expectedUInt32Hex": "0xDE7CC04F"
+        },
+        {
+          "position": 1,
+          "seed": 1,
+          "expectedUInt32Hex": "0xD5C31A94"
+        },
+        {
+          "position": 123456789,
+          "seed": 987654321,
+          "expectedUInt32Hex": "0x65CE2196"
+        }
+      ],
+      "acceptanceRule": "Vectors are fixed outputs cross-checked against independent implementations of the GDC 2017 SquirrelNoise3 operation sequence using uint32 wraparound. The third-party C gist that multiplies by BIT_NOISE2 is treated as a transcription error; do not substitute that variant or SquirrelNoise5."
     }
   },
   "temporalSimulation": {
@@ -158,7 +209,7 @@
   "unresolvedImplementationDecisions": [
     "numeric widths and overflow rules for address hashing",
     "canonical serialized encoding and byte order",
-    "reconcile conflicting Squirrel3 reference transcriptions, pin exact 32-bit semantics, then add independently verified reference vectors and local implementation",
+    "canonical serialized encoding and byte order for hierarchical spatial addresses",
     "exact physical models and fidelity per scale",
     "logical time-step policy and event identity rules per simulation domain",
     "route-cost and jump-budget equations for each propulsion model",
@@ -232,7 +283,7 @@
     "unresolvedImplementationDecisions": [
       "numeric widths and overflow rules for address hashing",
       "canonical serialized encoding and byte order",
-      "reconcile conflicting Squirrel3 reference transcriptions, pin exact 32-bit semantics, then add independently verified reference vectors and local implementation",
+      "canonical serialized encoding and byte order for hierarchical spatial addresses",
       "exact physical models and fidelity per scale",
       "logical time-step policy and event identity rules per simulation domain",
       "route-cost and jump-budget equations for each propulsion model",
