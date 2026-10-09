@@ -13,6 +13,7 @@
 - Treat creator-authored vision as authoritative. Mark uncertain decisions **Candidate**, **Experiment**, or **Illumination Needed** instead of quietly making them canon.
 - raWWar owns game/world meaning. Reuse Workshop capabilities for FSMs, composition, MicroBundles, input, hosting, rendering, persistence and networking where those capabilities actually exist.
 - Verify APIs and package versions from their source repositories before depending on them. Do not invent APIs or duplicate generic infrastructure inside raWWar.
+- Record cross-repository needs as `docs/requests/REQUEST-FROM-raWWar-<Dependency>-<Capability>.md`; maintain the convention and active requests in [the request index](docs/requests/README.md). These are raWWar-owned requirements for review by the receiving repository's agent, not assignments or permission to change that repository.
 - Keep canonical world state independent from cameras, render loops, GUI, textures and presentation caches. Queries at an explicit logical time should be deterministic and order-independent where the model promises it.
 - Add or extend executable contract checks with each meaningful data/model change. Run CI and report actual results; never call a pending run green.
 - Do **not** merge PRs or publish NuGet packages without explicit creator approval. A GitHub token is permission to continue engineering, not permission to merge or publish.
