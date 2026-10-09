@@ -562,5 +562,339 @@
         "mispatched_fiber"
       ]
     }
+  ],
+  "installPackages": [
+    {
+      "id": "install.relay_logic_rack_v2",
+      "name": "Relay Rack Replacement Kit",
+      "deliveredCapability": "electronics.relay_logic_rack_v2",
+      "components": [
+        "relay_rack",
+        "labelled_harness",
+        "configuration_sheet"
+      ],
+      "procedure": [
+        "isolate",
+        "remove_old_rack",
+        "verify_terminal_identity",
+        "install_rack",
+        "proof_test",
+        "record_configuration"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.solid_state_io_v1",
+      "name": "Solid-State I/O Retrofit Kit",
+      "deliveredCapability": "electronics.solid_state_io_v1",
+      "components": [
+        "io_module",
+        "isolated_terminal_blocks",
+        "harness",
+        "approved_configuration"
+      ],
+      "procedure": [
+        "isolate",
+        "verify_signal_map",
+        "install_module",
+        "channel_test",
+        "prove_safe_state",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.vehicle_bus_redundancy_v1",
+      "name": "Redundant Vehicle Bus Kit",
+      "deliveredCapability": "electronics.vehicle_gateway_v1",
+      "components": [
+        "gateway",
+        "diverse_cable_route",
+        "terminators",
+        "network_configuration"
+      ],
+      "procedure": [
+        "inspect_route_diversity",
+        "install_gateway",
+        "configure_failover",
+        "test_link_loss",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.sensor_calibration_kit_v1",
+      "name": "Field Sensor Calibration Kit",
+      "deliveredCapability": "electronics.multispectral_sensor_v1",
+      "components": [
+        "reference_target",
+        "calibration_fixture",
+        "calibration_file"
+      ],
+      "procedure": [
+        "inspect_optics",
+        "align_reference",
+        "capture_calibration",
+        "verify_time",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.power_converter_28_600_v2",
+      "name": "High-Efficiency Power Converter Kit",
+      "deliveredCapability": "electronics.power_converter_28_600_v1",
+      "components": [
+        "converter",
+        "cooling_adapter",
+        "protected_cables",
+        "configuration"
+      ],
+      "procedure": [
+        "isolate_power",
+        "verify_voltage_class",
+        "install_converter",
+        "load_bank_test",
+        "thermal_test",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.command_sensor_fusion_v1",
+      "name": "Command Sensor Fusion Workstation Kit",
+      "deliveredCapability": "security.panel.sensor_fusion_v1",
+      "components": [
+        "compute_node",
+        "operator_console",
+        "time_source",
+        "sensor_gateway"
+      ],
+      "procedure": [
+        "install_compute",
+        "align_time",
+        "enroll_sources",
+        "replay_conflicts",
+        "train_operators",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.dual_feeder_retrofit_v1",
+      "name": "Dual-Feeder Retrofit Kit",
+      "deliveredCapability": "power.grid.base_medium",
+      "components": [
+        "second_feeder",
+        "independent_route",
+        "switchgear",
+        "protection_settings"
+      ],
+      "procedure": [
+        "survey_route_diversity",
+        "install_feeder",
+        "coordinate_protection",
+        "test_transfer",
+        "load_shed_drill"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.security_backup_battery_v2",
+      "name": "Security Panel Backup Battery Kit",
+      "deliveredCapability": "power.storage.security_backup_v2",
+      "components": [
+        "battery_module",
+        "charger",
+        "monitor",
+        "protected_enclosure"
+      ],
+      "procedure": [
+        "isolate",
+        "install_battery",
+        "test_transfer",
+        "run_discharge_test",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.condition_monitoring_v1",
+      "name": "Condition Monitoring Kit",
+      "deliveredCapability": "electronics.environment_monitor_v1",
+      "components": [
+        "sensor_heads",
+        "mounting_hardware",
+        "gateway",
+        "baseline_procedure"
+      ],
+      "procedure": [
+        "install_sensors",
+        "capture_baseline",
+        "validate_alarms",
+        "connect_work_orders",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.adaptive_wing_damping_v1",
+      "name": "Adaptive Wing Damping Kit",
+      "deliveredCapability": "tech.ornithopter_damping",
+      "components": [
+        "wing_actuator_modules",
+        "damping_controller",
+        "strain_sensors",
+        "test_plan"
+      ],
+      "procedure": [
+        "inspect_structure",
+        "install_actuators",
+        "calibrate",
+        "bench_sweep",
+        "ground_vibration_test",
+        "flight_clearance"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.guidance_damping_controller_v1",
+      "name": "Guidance Damping Controller Kit",
+      "deliveredCapability": "tech.guidance_damping",
+      "components": [
+        "controller",
+        "sensor_update",
+        "versioned_parameters",
+        "test_fixture"
+      ],
+      "procedure": [
+        "install",
+        "hardware_in_loop_test",
+        "moving_target_test",
+        "sign_configuration",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.shipboard_zonal_isolation_v1",
+      "name": "Shipboard Zonal Isolation Kit",
+      "deliveredCapability": "electronics.shipboard_switchboard_v1",
+      "components": [
+        "switchboard_sections",
+        "breakers",
+        "protection_relays",
+        "cable_and_bus_material"
+      ],
+      "procedure": [
+        "isolate_zone",
+        "install_sections",
+        "prove_selectivity",
+        "test_alternate_feed",
+        "conduct_damage_drill"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.batch_traceability_v1",
+      "name": "Batch Traceability Kit",
+      "deliveredCapability": "electronics.data_recorder_v1",
+      "components": [
+        "identity_readers",
+        "label_printers",
+        "event_recorder",
+        "sampling_station_interface"
+      ],
+      "procedure": [
+        "enroll_batch_types",
+        "test_transfer_events",
+        "reconcile_inventory",
+        "audit_custody"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.factory_condition_monitoring_v1",
+      "name": "Factory Condition Monitoring Kit",
+      "deliveredCapability": "electronics.environment_monitor_v1",
+      "components": [
+        "vibration_sensors",
+        "temperature_sensors",
+        "gateway",
+        "calibrated_reference"
+      ],
+      "procedure": [
+        "install_sensors",
+        "capture_baseline",
+        "test_alarm_routing",
+        "prove_work_order_link",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.redundant_optical_backbone_v1",
+      "name": "Redundant Optical Backbone Kit",
+      "deliveredCapability": "electronics.optical_fiber_backbone_v1",
+      "components": [
+        "fiber_cable",
+        "transceivers",
+        "diverse_route",
+        "patch_panels"
+      ],
+      "procedure": [
+        "survey_separate_routes",
+        "install_cable",
+        "measure_optical_power",
+        "test_failover",
+        "audit_route_diversity"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    }
   ]
 }
