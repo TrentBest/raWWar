@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "raWWar.civilization-lineages.v1",
+  "status": "candidate-design-contract",
+  "purpose": "Represent how human civilizations and factions descend from shared origins, disperse through colonization, diverge, reunify, or inherit institutions and disputes over time.",
+  "canonPrinciples": [
+    "All raWWar factions are human; differentiation comes from history, environment, institutions, industry, and choices, not separate alien biology.",
+    "A faction may have multiple ancestors, successor relationships, and adopted traditions; ancestry is a graph, not a single parent pointer.",
+    "A colony does not automatically become a new faction. Political, cultural, economic, and logistical divergence must have a cause and a recorded history.",
+    "Shared ancestry creates possible commonality and tension, not a predetermined attitude or moral alignment.",
+    "Lineage records describe historical claims and evidence as well as events; disputed histories can coexist in the world model."
+  ],
+  "entityKinds": [
+    "civilization",
+    "faction",
+    "polity",
+    "colony",
+    "settlement",
+    "diaspora",
+    "successor-state",
+    "historical-culture"
+  ],
+  "relationshipKinds": [
+    "founded-by",
+    "colonized-by",
+    "seceded-from",
+    "succeeded",
+    "unified-with",
+    "absorbed-by",
+    "liberated-from",
+    "exiled-from",
+    "adopted-traditions-from",
+    "contested-claim-to",
+    "split-from",
+    "reunified-with"
+  ],
+  "requiredEntityFields": [
+    "id",
+    "kind",
+    "displayName",
+    "validFrom",
+    "validUntilOrPresent",
+    "homeworldOrOriginAddress",
+    "politicalIdentityRef",
+    "industrialHeritageRefs",
+    "culturalHeritageRefs",
+    "evidenceRefs",
+    "canonStatus"
+  ],
+  "requiredRelationshipFields": [
+    "id",
+    "sourceEntityId",
+    "relationshipKind",
+    "targetEntityId",
+    "startTime",
+    "endTimeOrPresent",
+    "causalEventIds",
+    "confidence",
+    "publicKnowledgeState",
+    "contestedByEntityIds",
+    "canonStatus"
+  ],
+  "causalEventFields": [
+    "eventId",
+    "eventType",
+    "logicalTime",
+    "locationAddress",
+    "actors",
+    "triggeringConditions",
+    "resourceAndLogisticsContext",
+    "immediateConsequences",
+    "longTermConsequences",
+    "survivingEvidence",
+    "historicalInterpretations"
+  ],
+  "divergenceDrivers": [
+    "travelAndCommunicationDelay",
+    "localResourceAvailability",
+    "planetaryAndOrbitalEnvironment",
+    "industrialCapacityAndSupplyChains",
+    "governanceAndSuccession",
+    "securityThreatsAndWars",
+    "economicInterdependence",
+    "migrationAndPopulationChange",
+    "ideologyAndInstitutionalReform",
+    "accidentsAndCatastrophes",
+    "tradeAndCulturalExchange"
+  ],
+  "inheritancePolicy": {
+    "mayInherit": [
+      "languageAndTerminology",
+      "engineeringStandards",
+      "industrialTooling",
+      "shipDesignLineage",
+      "legalAndAdministrativeStructures",
+      "militaryDoctrine",
+      "religiousOrSecularTraditions",
+      "historicalMemories",
+      "claimsAndGrievances",
+      "technicalDebtAndLegacyInfrastructure"
+    ],
+    "inheritanceMustBeExplicitlySelected": true,
+    "divergenceMayBePartial": true,
+    "technologyDoesNotTransferWithoutPhysicalAssetsOrKnowledgeTransfer": true,
+    "culturalSimilarityDoesNotGuaranteePoliticalAlliance": true
+  },
+  "timeAndCausalityRules": {
+    "eventsMustHaveStableIds": true,
+    "relationshipsMustBeSupportedByEventsOrExplicitFoundingRecords": true,
+    "causalCyclesRequireExplicitInterpretation": true,
+    "retconsRequireVersionedCanonChange": true,
+    "generatedHistoriesMustPassChronologyAndReachabilityValidation": true,
+    "campaignOverridesMustNotSilentlyRewriteSharedCanon": true
+  },
+  "campaignUsage": {
+    "authoredCampaignsMayPinEntitiesEventsAndRelationships": true,
+    "authoredCampaignsMayDeclarePermittedVariationRanges": true,
+    "multiplayerGenerationMayGenerateLineagesWithinTheSameContract": true,
+    "sharedRulesDoNotRequireIdenticalCampaignHistories": true,
+    "worldHistoryPersistsOnceGameplayChangesIt": true
+  },
+  "openQuestions": [
+    "Which civilization and faction identities are established canon, and which remain candidates?",
+    "What is the campaign's historical time origin and chronology scale?",
+    "Which historical facts are objective truth versus contested records or propaganda?",
+    "How much lineage detail is authored versus generated within constraints for each campaign?"
+  ]
+}
