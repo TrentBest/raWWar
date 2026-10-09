@@ -483,7 +483,8 @@
         "temporary_repair",
         "casualty_logging",
         "return_to_station"
-      ]
+      ],
+      "assemblyDefinition": "assembly.ship_engineering_department"
     },
     {
       "id": "facility.quality_acceptance_station",
@@ -526,7 +527,8 @@
         "rework",
         "outgoing_inventory"
       ],
-      "notes": "Acceptance is a recorded state transition. Manufactured output is not automatically accepted or dispatched."
+      "notes": "Acceptance is a recorded state transition. Manufactured output is not automatically accepted or dispatched.",
+      "assemblyDefinition": "assembly.quality_acceptance_station"
     },
     {
       "id": "facility.industrial_repair_bay",
