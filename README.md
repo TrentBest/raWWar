@@ -132,6 +132,10 @@ When something is not defined, we do not quietly invent it and call the inventio
 
 ---
 
+## Visual atlas
+
+The [visual asset catalogue](docs/images/README.md) explains the diagrams and their intended use. The artwork is deliberately explanatory: it should make systems, dependencies, people, and consequences easier to understand—not merely decorate the repository.
+
 ## The design standard
 
 A conventional game document tells you what features exist.
