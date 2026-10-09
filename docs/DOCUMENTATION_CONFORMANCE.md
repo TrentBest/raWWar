@@ -83,9 +83,11 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 ### Remaining audit work
 
 - [ ] Finish the full GDD and companion-document review for contradictions, stale APIs, missing prerequisites, and malformed links; this pass establishes clearer authority and evidence rules, not exhaustive line-by-line validation.
-- [ ] Run a repository-wide relative-link check, including anchors and image paths; record confirmed failures and distinguish intentional external links.
+- [x] Ran a repository-wide relative inline-Markdown-link target check across all 102 Markdown files (263 inline links); no missing local file targets were found.
+- [ ] Validate heading anchors, reference-style links, raw HTML `href`/`src` paths, and external-link availability; those checks are not covered by the inline-link pass.
 - [ ] Ensure every technical capability consumed by raWWar has a repository-local example or a documented reason an example is not yet executable.
 - [ ] Continue replacing repeated explanations with one authoritative document and clear cross-links.
-- [ ] Re-run CI after the documentation changes and record the actual result; empty status/run responses are **unverified**, not green.
+- [x] Re-ran CI after the README/conformance/queue changes; run [37999757533](https://github.com/TrentBest/raWWar/actions/runs/37999757533) passed for head `e76736aea714367f57301e1a6559b59ed5c14493`.
+
 
 This audit is intentionally incremental. The shared FSM_COS standard is still a proposal under review, and this pass does not claim universal or exhaustive conformance.
