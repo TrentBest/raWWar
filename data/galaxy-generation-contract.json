@@ -510,7 +510,7 @@
     ]
   },
   "eventHistoryAndReplay": {
-    "status": "stable-event-identity-v1-and-in-memory-idempotent-ledger-implemented; durable-store-and-replay-not-implemented",
+    "status": "stable-event-identity-v1-in-memory-ledger-and-resource-balance-replay-slice-implemented; durable-store-general-replay-and-checkpoints-not-implemented",
     "purpose": "Reconstruct authoritative world state from compatible initial conditions or checkpoints plus committed history without duplicating event consequences.",
     "eventIdentityInputs": [
       "worldSeed",
@@ -559,7 +559,6 @@
       "durable atomic commit/deduplication mechanism",
       "checkpoint format and migrations",
       "cross-platform determinism scope for numerical models",
-      "durable atomic commit/deduplication mechanism",
       "authoritative state reducer and causal prerequisite policy"
     ],
     "implementedReferenceSlice": {
@@ -584,17 +583,28 @@
         "domain isolation",
         "concurrent duplicate commit",
         "event metadata retains canonical address stream key",
-        "address-scoped history reads exclude other entities/regions while domain-wide diagnostics remain available"
+        "address-scoped history reads exclude other entities/regions while domain-wide diagnostics remain available",
+        "resource delta V1 signed Int64 big-endian round-trip",
+        "address-scoped resource balance replay applies logical-time order",
+        "resource delta payload length validation",
+        "resource replay rejects signed Int64 overflow",
+        "resource replay rejects cross-domain input"
       ],
       "limitations": [
         "volatile in-memory only",
         "no durable atomic persistence",
-        "no authoritative state reducer",
         "no causal prerequisite handling",
         "no checkpoint or replay reconstruction",
-        "lexical logical-time ordering is suitable only when explicitly declared by the domain"
+        "lexical logical-time ordering is suitable only when explicitly declared by the domain",
+        "only one narrow resource-balance reducer is implemented; no general world-state reducer",
+        "replay caller must supply an address-scoped ordered stream",
+        "no checkpoint or replay reconstruction from checkpoint-plus-tail"
       ],
-      "streamSelection": "events retain canonical address bytes as an uppercase-hex stream key; history supports domain-plus-address reads so unrelated entities/regions are not mixed during reconstruction"
+      "streamSelection": "events retain canonical address bytes as an uppercase-hex stream key; history supports domain-plus-address reads so unrelated entities/regions are not mixed during reconstruction",
+      "reducerType": "ResourceBalanceReplay",
+      "reducerDomain": "resource.balance.delta",
+      "reducerPayloadV1": "exactly 8 bytes: signed Int64 two's-complement delta, big-endian",
+      "reducerBehavior": "caller supplies one address-scoped ordered event stream; checked Int64 accumulation from initial balance; rejects malformed payload, wrong domain, and overflow"
     }
   },
   "coordinateFrameContract": {
