@@ -21,7 +21,8 @@
         "shutdown",
         "emergency_scram"
       ],
-      "capacity": "450 MW"
+      "capacity": "450 MW",
+      "assemblyDefinition": "assembly.reactor_block_450mw"
     },
     {
       "id": "facility.barracks_standard",
@@ -43,7 +44,8 @@
       "capacity": "4 soldiers per squad module",
       "dependencies": [
         "power.grid.base_medium"
-      ]
+      ],
+      "assemblyDefinition": "assembly.barracks_squad_module"
     },
     {
       "id": "facility.vehicle_factory_medium",
@@ -141,7 +143,8 @@
           "commission",
           "record"
         ]
-      }
+      },
+      "assemblyDefinition": "assembly.vehicle_factory_medium"
     },
     {
       "id": "facility.aerospace_factory",
@@ -239,7 +242,8 @@
           "commission",
           "record"
         ]
-      }
+      },
+      "assemblyDefinition": "assembly.aerospace_factory"
     },
     {
       "id": "facility.spacecraft_yard",
@@ -339,7 +343,8 @@
           "commission",
           "record"
         ]
-      }
+      },
+      "assemblyDefinition": "assembly.spacecraft_yard"
     },
     {
       "id": "facility.resource_refinery",
@@ -355,7 +360,8 @@
         "waste"
       ],
       "configuration": "resource_key",
-      "notes": "The same physical plant can become a different capability only after re-keying, tooling, cleaning, calibration and qualification."
+      "notes": "The same physical plant can become a different capability only after re-keying, tooling, cleaning, calibration and qualification.",
+      "assemblyDefinition": "assembly.resource_refinery"
     },
     {
       "id": "facility.research_laboratory",
@@ -381,7 +387,8 @@
         "record",
         "evaluate",
         "revise"
-      ]
+      ],
+      "assemblyDefinition": "assembly.research_laboratory"
     },
     {
       "id": "facility.test_range",
@@ -409,7 +416,8 @@
         "record",
         "recover",
         "evaluate"
-      ]
+      ],
+      "assemblyDefinition": "assembly.test_range"
     },
     {
       "id": "facility.logistics_depot",
@@ -433,7 +441,8 @@
         "pick",
         "load",
         "dispatch"
-      ]
+      ],
+      "assemblyDefinition": "assembly.logistics_depot"
     },
     {
       "id": "facility.ship_engineering",
@@ -565,7 +574,94 @@
         "component",
         "device"
       ],
-      "notes": "Hands-on repair is a playable procedure. Return to service depends on verification and qualification, not completion of an animation."
+      "notes": "Hands-on repair is a playable procedure. Return to service depends on verification and qualification, not completion of an animation.",
+      "assemblyDefinition": "assembly.industrial_repair_bay"
+    },
+    {
+      "id": "facility.command_monitoring_center",
+      "name": "Command and Monitoring Center",
+      "category": "command_and_control",
+      "assemblyDefinition": "assembly.command_monitoring_center",
+      "inputs": [
+        "power",
+        "redundant_data_backbone",
+        "qualified_watchstanders",
+        "sensor_feeds",
+        "maintenance"
+      ],
+      "outputs": [
+        "situational_awareness",
+        "dispatch_orders",
+        "sensor_correlation",
+        "event_history"
+      ],
+      "capacity": "Configurable consoles and watch positions; each active station requires a qualified operator.",
+      "contains": [
+        "operations_floor",
+        "situation_display",
+        "sensor_fusion_servers",
+        "radio_room",
+        "secure_comms_room",
+        "event_archive",
+        "power_monitoring",
+        "dispatch_console",
+        "backup_control_room",
+        "shoulder_camera_ingest"
+      ],
+      "dependencies": [
+        "power.grid.base_medium",
+        "electronics.optical_fiber_backbone_v1",
+        "electronics.data_recorder_v1"
+      ],
+      "procedures": [
+        "watch_handover",
+        "sensor_health_review",
+        "dispatch",
+        "network_failover",
+        "incident_replay",
+        "backup_control_transfer"
+      ]
+    },
+    {
+      "id": "facility.security_checkpoint",
+      "name": "Perimeter Security Checkpoint",
+      "category": "security",
+      "assemblyDefinition": "assembly.security_checkpoint",
+      "inputs": [
+        "power",
+        "credential_policy",
+        "communications",
+        "trained_guards",
+        "maintenance"
+      ],
+      "outputs": [
+        "access_decisions",
+        "vehicle_inspection",
+        "perimeter_alarm",
+        "incident_records"
+      ],
+      "capacity": "Gate lanes and simultaneous inspections are configuration-defined.",
+      "contains": [
+        "credential_reader",
+        "vehicle_barrier",
+        "camera_head",
+        "tamper_loop",
+        "visitor_intercom",
+        "local_event_recorder",
+        "emergency_release"
+      ],
+      "dependencies": [
+        "security.panel.access_control_v1",
+        "security.panel.vehicle_gate_v1",
+        "electronics.security_controller_v1"
+      ],
+      "procedures": [
+        "verify_credentials",
+        "inspect_manifest",
+        "test_barrier",
+        "investigate_alarm",
+        "degraded_manual_entry"
+      ]
     }
   ]
 }
