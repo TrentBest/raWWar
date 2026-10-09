@@ -78,13 +78,13 @@ The implemented address model starts with a one-based galaxy-cell ordinal and ex
 
 `HierarchicalSpatialAddressHasher.ComputeV1` returns the 32-byte SHA-256 digest of those exact V1 bytes. The encoding and hash are deliberately distinct APIs: serialized bytes can be decoded; a digest cannot. Both definitions are versioned contracts, not cryptographic authorization, and their existing meanings must not change in place. The same contract file contains fixed digest vectors so another implementation can independently verify byte-for-byte compatibility.
 
-## 4. Time is logical, bounded, and versioned
+## 4. Time is logical, domain-defined, and versioned
 
-The game has a supported simulation epoch and time range. It does not promise arbitrary reconstruction back to the beginning of the universe.
+The game does not promise arbitrary reconstruction back to the beginning of the universe. Each model must declare its supported time domain: a finite validity horizon when its assumptions impose one, or an explicit statement that an analytical model supports all finite query times.
 
 Each simulation domain must define:
 - its time unit and epoch;
-- valid query range and behavior outside that range;
+- its supported query domain and behavior outside it;
 - integration or analytical-evaluation method;
 - step size, adaptive-step rules, and numerical tolerances where applicable;
 - model/version identity;
