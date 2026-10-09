@@ -1,5 +1,10 @@
 # raWWar — Game Design Document
 
+**Status:** Living master design; some sections are established canon, while others are candidates, experiments, or explicitly unresolved.  
+**Owner:** raWWar Experience design.  
+**Audience:** Creator, designers, artists, engineers, and collaborators.  
+**Evidence rule:** This document defines intended game behavior. It does not, by itself, prove that a described capability exists in code or runs in a host.
+
 ![raWWar — The war is alive](images/rawwar-hero.svg)
 
 > **The soldiers themselves are the stars of this game.**
@@ -46,6 +51,8 @@ When the document reaches a subject for which the creator's inner vision has not
 The companion design documents currently contain deeper treatment of individual subjects. Those documents are working design laboratories. Their mature material should ultimately be incorporated into this master document.
 
 ### Design authority
+
+The [Game Design Bible](GAME_DESIGN_BIBLE.md) preserves foundational creator decisions and design authority. This GDD expands those decisions into the comprehensive player experience and production description. Companion documents may explore details, but must not silently change canon. If two documents conflict, preserve the conflict for explicit resolution rather than choosing the easiest implementation.
 
 The project uses four design states:
 
