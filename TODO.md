@@ -71,7 +71,8 @@
 - [x] Define and prototype the first station-and-rig contract from the creator's vision: station occupancy → physical restraint state → interface connection → raised control rig → bounded pilot-control request. Visible hands/grips and station animation remain presentation work, not implemented behavior.
 - [ ] Start with one role (fighter pilot is the current example) and trace the whole chain: station state → qualified occupant → physical controls → FSM/procedure → authoritative world action → durable outcome/event → observable feedback.
 - [ ] Model requirements and behavior as data and reusable FSM/MicroBundle capabilities where appropriate; avoid a pile of one-off animation scripts.
-- [ ] Add deterministic tests for valid/invalid occupancy, qualification/access, control availability, interruption/failure and outcome recording. Separate interaction semantics from desktop/VR presentation.
+- [x] Add deterministic contract checks for valid/invalid occupancy, qualification/access, control availability, power/damage failure gates, bounded axes, emergency release, and desktop/VR semantic parity.
+- [ ] Add partial/interrupted securing and connection procedure handling with durable action/outcome history; keep semantic interaction separate from desktop/VR presentation.
 - [ ] Host the slice through AnyApp first. Keep MyVR as a later manifestation of the same Experience rather than a separate game implementation.
 
 ## P2 — Close the highest-value world-model gaps
