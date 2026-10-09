@@ -1148,6 +1148,30 @@ Example:
 
 **soldier → semantic request: “enter cockpit” → vehicle Gesture Provider → interaction point → Gesture FSM → physical entry**
 
+## 12.5 Fighter-pilot station: secure, connect, raise, control
+
+**Creator-established interaction intent:** entering a station is not a camera toggle. The station physically takes hold of the occupant, secures them in place, and connects them to the station's operating system. The player then sees the appropriate physical control rig and their hands on its grips. For a fighter pilot, the raised rig expresses pilot intent through the aircraft's actual control system.
+
+The first-person sequence is:
+
+1. **Occupy the seat.** The station identifies the person and checks whether they are qualified for this role. Occupancy alone grants no authority.
+2. **Secure the occupant.** Restraints engage and the station records that the person is physically secured. A failed or interrupted restraint sequence must not be presented as complete.
+3. **Connect the pilot interface.** The station establishes the physical/system connection. A damaged interface can prevent this step.
+4. **Raise the control rig.** The rig moves into its operating position. The player's hands and grips are the visible embodiment of that state; they are not a separate, magical input path.
+5. **Accept control intent.** Only a qualified, secured occupant at a connected, raised, powered, intact station can issue a valid bounded control request.
+6. **Resolve the aircraft response.** The request goes to the aircraft's control law and authoritative vehicle state. It may produce motion, a constrained response, or no motion; a grip movement does not teleport or directly set the aircraft's position.
+7. **Preserve safe egress.** Emergency release must remain possible without relying on station power. It releases restraints, disconnects the interface, lowers the rig, and clears occupancy as one explicit transition.
+
+Desktop, controller, VR, accessibility, and NPC inputs may express the same pilot intent. They must not produce different world rules. The input source is evidence about how intent was expressed, not permission to bypass qualification, restraint, connection, power, damage, or control limits.
+
+### Executable boundary
+
+The raWWar-side `FighterPilotStation` prototype models immutable station-state transitions, qualification and occupancy checks, rig readiness, bounded pilot intent, blocked outcomes, and emergency release. Its executable contract checks are deliberately narrow. They do **not** prove visible hands/grips, restraint animation, physical force, a functioning flight-control law, aircraft movement, durable event storage, or AnyApp manifestation.
+
+Generic physical-interaction resolution and actor-performance machinery remain Workshop capability responsibilities. The raWWar prototype is a temporary Experience-side proof of the required domain contract, not a new generic interaction framework.
+
+The exact look, timing, and animation of the securing/connection sequence remain a presentation design task. The station's authoritative preconditions and outcomes must not depend on those animations.
+
 ---
 
 # 13. Gestures and Physical Motion
