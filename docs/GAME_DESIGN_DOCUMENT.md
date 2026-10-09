@@ -1152,6 +1152,10 @@ Example:
 
 **Creator-established interaction intent:** entering a station is not a camera toggle. The station physically takes hold of the occupant, secures them in place, and connects them to the station's operating system. The player then sees the appropriate physical control rig and their hands on its grips. For a fighter pilot, the raised rig expresses pilot intent through the aircraft's actual control system.
 
+![Fighter-pilot station sequence](images/rawwar-pilot-station-sequence.svg)
+
+*Conceptual sequence diagram—not a runtime capture. The code currently verifies state and control-request contracts, not the physical animation.*
+
 The first-person sequence is:
 
 1. **Occupy the seat.** The station identifies the person and checks whether they are qualified for this role. Occupancy alone grants no authority.
