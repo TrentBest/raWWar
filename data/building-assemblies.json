@@ -81,6 +81,39 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "operations": 8,
+        "maintenance": 12,
+        "chemistry_and_radiological": 4,
+        "electrical_and_instrumentation": 6
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -157,6 +190,38 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "residents": 4,
+        "training_instructor_shared": 1,
+        "facility_maintenance_shared": 1
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -241,6 +306,40 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "production": 32,
+        "quality": 6,
+        "maintenance": 8,
+        "materials_and_dispatch": 10,
+        "controls_and_metrology": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -322,6 +421,40 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "assembly": 28,
+        "flight_controls": 8,
+        "quality": 8,
+        "maintenance": 8,
+        "flight_test": 6
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -401,6 +534,40 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "assembly": 90,
+        "pressure_systems": 18,
+        "robotics": 24,
+        "quality": 12,
+        "maintenance": 20
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -481,6 +648,39 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "process_operators": 12,
+        "lab_technicians": 4,
+        "maintenance": 6,
+        "materials_handling": 8
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -558,6 +758,38 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "researchers": 14,
+        "technicians": 6,
+        "security": 2
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -631,6 +863,40 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "test_directors": 2,
+        "instrumentation": 6,
+        "safety_observers": 4,
+        "maintenance": 4,
+        "recovery_team": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -706,6 +972,40 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "warehouse": 16,
+        "dispatch": 6,
+        "inventory_control": 4,
+        "maintenance": 3,
+        "security": 2
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -782,6 +1082,40 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "mechanics": 12,
+        "electrical_technicians": 6,
+        "instrument_technicians": 4,
+        "inspectors": 3,
+        "parts": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -863,6 +1197,41 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "command": 6,
+        "intelligence": 8,
+        "communications": 6,
+        "network_operators": 8,
+        "security": 4,
+        "maintenance": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -937,6 +1306,38 @@
         "work_queue_growth",
         "repair_and_recommissioning",
         "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "guards_per_active_lane": 2,
+        "security_technician_shared": 1,
+        "shift_supervisor_shared": 1
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -1006,6 +1407,33 @@
         "instrument_calibration",
         "identity_trace_test",
         "acceptance_record_replay"
+      ],
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     },
     {
@@ -1088,6 +1516,33 @@
         "cooling_flow_test",
         "alarm_and_interlock_proof",
         "degraded_control_drill"
+      ],
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
       ]
     }
   ]
