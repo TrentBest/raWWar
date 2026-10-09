@@ -44,7 +44,7 @@ All raWWar factions are human. Their differences emerge from human history and c
 
 A possible history:
 
-\`\`\`text
+```text
 Older home civilization
         |
         +-- core worlds retain the original institutions
@@ -62,7 +62,7 @@ Older home civilization
                                   +-- adapts ship design to local industry
                                   +-- develops a distinct doctrine
                                   +-- contests the parent's account of history
-\`\`\`
+```
 
 This is an illustrative pattern, not predetermined raWWar canon. A colony does not become a new faction simply because it is far away. Its divergence needs causes and consequences.
 
@@ -98,7 +98,7 @@ For distribution, a campaign references stable content identities and declares r
 
 ## 6. Generation and validation pipeline
 
-\`\`\`text
+```text
 Campaign intent + lineage/history
               |
               v
@@ -128,7 +128,7 @@ Campaign intent + lineage/history
         |
         v
   simulation -> consequences -> persistent history
-\`\`\`
+```
 
 Validation should explain failures rather than silently “fix” a campaign into a different story. An authored colony that cannot be reached by available technology is either a deliberate plot fact that needs explanation, or a contradiction to resolve. The validator should report which constraint failed and what it affects.
 
