@@ -475,6 +475,46 @@ Check(navigationFramesRoot.GetProperty("validationGates").EnumerateArray()
     .Any(x => x.GetString()!.Contains("different polities can adopt or retain different standards", StringComparison.Ordinal)),
     "Civilizations can retain competing navigation standards without breaking shared world identity");
 
+
+
+// Contested history keeps events, accounts, evidence, interpretations, and public narratives distinct.
+using var contestedHistoryData = ReadData("contested-history-and-betrayal.json");
+var contestedHistoryRoot = contestedHistoryData.RootElement;
+Check(contestedHistoryRoot.GetProperty("schemaVersion").GetString() == "raWWar.contested-history-and-betrayal.v1",
+    "Contested history and betrayal use a versioned machine-readable contract");
+Check(contestedHistoryRoot.GetProperty("authority").GetProperty("victorNarrativeIsNotAutomaticallyTrue").GetBoolean() &&
+      contestedHistoryRoot.GetProperty("authority").GetProperty("defeatedNarrativeIsNotAutomaticallyTrue").GetBoolean(),
+    "Neither victory nor defeat grants an account automatic truth");
+var historyLayers = contestedHistoryRoot.GetProperty("coreModel");
+Check(historyLayers.TryGetProperty("event", out _) && historyLayers.TryGetProperty("account", out _) &&
+      historyLayers.TryGetProperty("evidence", out _) && historyLayers.TryGetProperty("interpretation", out _) &&
+      historyLayers.TryGetProperty("publicNarrative", out _) && historyLayers.TryGetProperty("playerUnderstanding", out _),
+    "Historical event, account, evidence, interpretation, public narrative, and player understanding are separate");
+var accountKinds = contestedHistoryRoot.GetProperty("accountKinds").EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+Check(accountKinds.Contains("official-victory-chronicle") && accountKinds.Contains("defeated-side-testimony") &&
+      accountKinds.Contains("forged-document") && accountKinds.Contains("later-historical-synthesis"),
+    "History supports victor accounts, defeated testimony, forgery, and later reinterpretation");
+var evidenceRules = contestedHistoryRoot.GetProperty("evidenceRules").EnumerateArray().Select(x => x.GetString()!).ToArray();
+Check(evidenceRules.Any(x => x.Contains("not independent corroboration", StringComparison.Ordinal)) &&
+      evidenceRules.Any(x => x.Contains("does not automatically prove every claim", StringComparison.Ordinal)),
+    "Evidence contract guards against copied sources and overclaiming from authentic records");
+var betrayal = contestedHistoryRoot.GetProperty("betrayalModel");
+Check(betrayal.GetProperty("eventFields").EnumerateArray().Select(x => x.GetString()).Contains("relationshipOrObligationRef") &&
+      betrayal.GetProperty("eventFields").EnumerateArray().Select(x => x.GetString()).Contains("actorKnowledgeAtDecision") &&
+      betrayal.GetProperty("rules").EnumerateArray().Any(x => x.GetString()!.Contains("motives", StringComparison.Ordinal)),
+    "Betrayal records a relationship, actor knowledge, and disputed motive rather than a surprise label");
+Check(contestedHistoryRoot.GetProperty("battleNarratives").GetProperty("accountVariantsMayDifferOn").EnumerateArray()
+    .Select(x => x.GetString()).Contains("who fired first") &&
+      contestedHistoryRoot.GetProperty("battleNarratives").GetProperty("accountVariantsMayDifferOn").EnumerateArray()
+    .Select(x => x.GetString()).Contains("who abandoned whom"),
+    "One battle can have competing accounts about initiation, orders, and betrayal");
+Check(contestedHistoryRoot.GetProperty("archiveIntegration").GetProperty("preserveOriginals").GetBoolean() &&
+      contestedHistoryRoot.GetProperty("archiveIntegration").GetProperty("contradictoryRecordsAreFirstClass").GetBoolean(),
+    "Original evidence and contradictory records remain first-class archive objects");
+Check(contestedHistoryRoot.GetProperty("validationGates").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("victor's official account receives no automatic truth bonus", StringComparison.Ordinal)),
+    "Validation explicitly rejects victor-biased truth scoring");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
