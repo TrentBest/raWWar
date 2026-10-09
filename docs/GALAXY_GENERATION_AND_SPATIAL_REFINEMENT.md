@@ -317,3 +317,16 @@ This is also the bridge between simulation and presentation:
 - The simulation's time range is explicitly bounded by each domain's epoch, model, history, and supported reconstruction horizon. It does not promise arbitrary travel back to the beginning of the universe.
 
 The detailed contract is in [Spatiotemporal World Model and Observation](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md). It distinguishes stable identity, initial conditions, motion, live state, history, observation, and presentation—and defines the tests needed to keep them from becoming entangled.
+
+
+## 13. Authored campaigns and civilization lineage
+
+The galaxy-generation contract supports two content-creation policies over the same world model. **Single-player campaigns are authored and curated**: a campaign manifest can pin important systems, colonies, faction origins, historical events, starting conditions, and knowledge while allowing explicitly declared variation elsewhere. **Multiplayer galaxies are automatically generated** from a seed, versioned rules, and scenario constraints.
+
+This distinction belongs to campaign content, not a separate simulation engine. Both modes retain stable spatial identity, deterministic generation, physical constraints, ordered events, and persistent history.
+
+Civilization and faction ancestry is modeled as a lineage graph. Colonies may remain dependent, become culturally distinct, secede, reunify, or become successor states when causal history supports the transition. All raWWar factions share human biology; divergence comes from migration, industry, environment, institutions, conflict, trade, and choices. Inheritance can include industrial standards, shipbuilding practices, doctrine, institutions, and unresolved claims, but does not guarantee political alignment.
+
+The machine-readable contracts are [Campaign Galaxy Manifests](../data/campaign-galaxy-manifests.json) and [Civilization Lineages](../data/civilization-lineages.json). The full authoring and validation design is in [Authored Galaxies, Campaigns, and Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md).
+
+A campaign author can pin facts, constrain generated properties, permit seeded variation, override a generated candidate with a recorded reason, validate chronology and feasibility, and distribute a versioned manifest. Once play begins, the history of the world must be persisted rather than silently regenerated from the original seed.
