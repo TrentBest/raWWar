@@ -23,6 +23,7 @@ These SVGs are authored, lightweight diagrams and concept illustrations. Unless 
 | [rawwar-science-floor-construction.svg](rawwar-science-floor-construction.svg) | Underground science-floor construction from site investigation through support, utilities, lab installation, commissioning, and acceptance | Engineering data scape, advisors, facilities |
 | [rawwar-ship-damage-and-salvage.svg](rawwar-ship-damage-and-salvage.svg) | Ship hierarchy, six-face impact resolution, causal secondary effects, and surviving wreck components | Starship sizing, systems design, engineering data scape |
 | [rawwar-faction-ship-languages.svg](rawwar-faction-ship-languages.svg) | Six candidate human ship-design archetypes, each with a visible silhouette and engineering tradeoffs | Faction ship design languages, art direction |
+| [rawwar-authored-campaign-lineage.svg](rawwar-authored-campaign-lineage.svg) | Authored single-player campaign versus generated multiplayer world, shared validation, persistent history, and branching human civilization ancestry | Campaign authoring, galaxy generation |
 
 ## Visual language
 
@@ -58,4 +59,3 @@ Do not let polished artwork accidentally promote a candidate into canon. A visua
 
 These are documentation priorities, not claims that the corresponding runtime systems are already complete.
 
-- `rawwar-authored-campaign-lineage.svg` — single-player authoring versus multiplayer generation, shared validation, persistent history, and human civilization lineage.
