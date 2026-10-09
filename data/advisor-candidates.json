@@ -1,0 +1,100 @@
+{
+  "schema": "raWWar.advisor-candidates.v1",
+  "status": "illustrative-seed-data",
+  "notice": "Named people, scores, histories, and event seeds in this file are illustrative design examples, not fixed canon or balance values. Production candidates should be generated from persistent personnel histories and faction circumstances.",
+  "candidateGenerationPrinciples": {
+    "candidateIsPerson": true,
+    "qualificationComesFromEvidence": true,
+    "reputationMayBeIncompleteOrBiased": true,
+    "appointmentsDoNotGrantUnqualifiedExpertise": true,
+    "bonusesAreEarnedByAgentExperience": true,
+    "uniquePeopleMayBeLostPermanently": true
+  },
+  "candidates": [
+    {
+      "id": "candidate.mara-sato",
+      "personnelId": "person.mara-sato",
+      "name": "Dr. Mara Sato",
+      "factionId": "faction.seed",
+      "eligibleAppointments": ["advisor.science", "advisor.logistics-engineering"],
+      "qualifications": ["scientific-method", "research-leadership", "experimental-safety", "power-systems"],
+      "specialties": ["power-conversion", "materials-testing", "instrumentation"],
+      "recordEvidence": [
+        {"type": "accepted-program", "reference": "history.power-conversion-trials", "confidence": "verified"},
+        {"type": "project-delay", "reference": "history.cooling-capacity-miscalculation", "confidence": "verified"}
+      ],
+      "knownLimitations": ["limited-field-service-experience"],
+      "agentBonuses": [
+        {"id": "bonus.sato.experimental-method", "domain": "experimental-method", "magnitude": 0.08, "earnedBy": "agent-experience", "evidence": ["history.power-conversion-trials"], "scope": "research-projects-led-by-holder"}
+      ],
+      "candidateFirstWork": ["science-floor-project", "research-prerequisite-assessment"],
+      "warningBehavior": {"canIssueWarnings": true, "warningEvidenceRequired": true, "playerCanOverride": true}
+    },
+    {
+      "id": "candidate.elias-arden",
+      "personnelId": "person.elias-arden",
+      "name": "Colonel Elias Arden",
+      "factionId": "faction.seed",
+      "eligibleAppointments": ["advisor.military-command"],
+      "qualifications": ["command-chain", "operational-planning", "force-readiness"],
+      "specialties": ["combined-arms", "campaign-logistics", "readiness-assessment"],
+      "recordEvidence": [
+        {"type": "successful-operation", "reference": "history.mobile-defence-campaign", "confidence": "verified"},
+        {"type": "risk-disposition", "reference": "history.conservative-intelligence-posture", "confidence": "contested"}
+      ],
+      "knownLimitations": ["conservative-under-uncertain-intelligence"],
+      "agentBonuses": [
+        {"id": "bonus.arden.command-coordination", "domain": "command-coordination", "magnitude": 0.06, "earnedBy": "agent-experience", "evidence": ["history.mobile-defence-campaign"], "scope": "operations-with-mixed-ground-formations"}
+      ],
+      "candidateFirstWork": ["command-structure-assessment", "force-readiness-review"],
+      "warningBehavior": {"canIssueWarnings": true, "warningEvidenceRequired": true, "playerCanOverride": true}
+    },
+    {
+      "id": "candidate.juno-torres",
+      "personnelId": "person.juno-torres",
+      "name": "Sergeant First Class Juno Torres",
+      "factionId": "faction.seed",
+      "eligibleAppointments": ["advisor.armored-warfare"],
+      "qualifications": ["armored-vehicle-operation", "crew-coordination", "vehicle-recovery"],
+      "specialties": ["tank-operation", "crew-drills", "damaged-vehicle-recovery"],
+      "recordEvidence": [
+        {"type": "successful-recovery", "reference": "history.recovery-under-fire", "confidence": "verified"},
+        {"type": "crew-evaluation", "reference": "history.armored-crew-evaluations", "confidence": "verified"}
+      ],
+      "knownLimitations": ["not-qualified-for-theater-level-command"],
+      "agentBonuses": [
+        {"id": "bonus.torres.vehicle-recovery", "domain": "vehicle-recovery", "magnitude": 0.10, "earnedBy": "agent-experience", "evidence": ["history.recovery-under-fire"], "scope": "recovery-work-personally-supervised"}
+      ],
+      "candidateFirstWork": ["fleet-readiness-review", "armored-crew-training"],
+      "warningBehavior": {"canIssueWarnings": true, "warningEvidenceRequired": true, "playerCanOverride": true}
+    },
+    {
+      "id": "candidate.ivo-kade",
+      "personnelId": "person.ivo-kade",
+      "name": "Sergeant Ivo Kade",
+      "factionId": "faction.seed",
+      "eligibleAppointments": ["advisor.systems-intelligence"],
+      "qualifications": ["systems-analysis", "signals-exploitation", "security-authorization"],
+      "specialties": ["protocol-analysis", "network-intrusion", "defensive-hardening"],
+      "recordEvidence": [
+        {"type": "confirmed-exposure", "reference": "history.hostile-control-network", "confidence": "verified"}
+      ],
+      "knownLimitations": ["requires-dedicated-analysis-equipment"],
+      "agentBonuses": [
+        {"id": "bonus.kade.protocol-analysis", "domain": "protocol-analysis", "magnitude": 0.07, "earnedBy": "agent-experience", "evidence": ["history.hostile-control-network"], "scope": "authorized-system-analysis"}
+      ],
+      "candidateFirstWork": ["network-exposure-assessment", "signal-baseline"],
+      "warningBehavior": {"canIssueWarnings": true, "warningEvidenceRequired": true, "playerCanOverride": true}
+    }
+  ],
+  "bonusRules": {
+    "bonusMustReferenceEvidence": true,
+    "bonusBelongsToPersonOrAgent": true,
+    "bonusScopeMustMatchRelevantWork": true,
+    "bonusCanImproveWithFurtherExperience": true,
+    "bonusDoesNotReplacePrerequisites": true,
+    "bonusDoesNotMakeSuccessCertain": true,
+    "deathDoesNotTransferPersonalBonusAutomatically": true,
+    "teamBenefitsRequireKnowledgeTransferOrObservedPractice": true
+  }
+}
