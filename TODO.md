@@ -165,7 +165,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added status/owner/audience/evidence metadata to `docs/images/README.md`, explicitly separating explanatory artwork from runtime evidence and engineering-ready assets.
 - [ ] Complete the line-by-line audit of the GDD and companion design docs for contradictions, source/API accuracy, and link validity; the current pass is not exhaustive.
 - [x] Recorded a concrete unresolved campaign-opening/faction-selection conflict as [Open Question 22](docs/OPEN_QUESTIONS.md): faction choice among thirteen doors is not yet reconciled with the player already being a Commander and the Empress's short compliance deadline. Preserved the conflict rather than silently choosing canon.
-- [x] Extended the relative Markdown file-target audit to another 12 specialist/design documents; no missing local file targets were found in that batch. Heading anchors, embedded HTML/SVG references, external-link availability, and exhaustive coverage remain open.
+- [x] Extended the relative Markdown file-target audit to another 12 specialist/design documents; no missing local file targets were found in that historical batch. The later repository-wide inline-link, Markdown fragment, raw HTML attribute, and SVG-reference checks are recorded in the Documentation alignment follow-up below.
 - [x] Re-checked CI for the latest documentation commit; the current head's workflow run completed successfully (run [37998973548](https://github.com/TrentBest/raWWar/actions/runs/37998973548)).
 
 ## Documentation alignment follow-up — 2026-10-09
