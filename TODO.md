@@ -1,0 +1,90 @@
+# raWWar — Maintained Work Queue
+
+**Owner:** Workshop engineering assistant  
+**Working branch:** `development`  
+**Current integration PR:** [#2 — Reset raWWar as a manifest-driven Experience](https://github.com/TrentBest/raWWar/pull/2)  
+**Last reviewed:** 2026-10-09  
+**Purpose:** Durable handoff and execution queue. Update this file as work is completed, priorities change, or the conversation is reset. The repository—not chat history—is the source of truth.
+
+## Operating rules
+
+- Work systematically from the highest-priority actionable item; keep this list current as work proceeds.
+- Treat creator-authored vision as authoritative. Mark uncertain decisions **Candidate**, **Experiment**, or **Illumination Needed** instead of quietly making them canon.
+- raWWar owns game/world meaning. Reuse Workshop capabilities for FSMs, composition, MicroBundles, input, hosting, rendering, persistence and networking where those capabilities actually exist.
+- Verify APIs and package versions from their source repositories before depending on them. Do not invent APIs or duplicate generic infrastructure inside raWWar.
+- Keep canonical world state independent from cameras, render loops, GUI, textures and presentation caches. Queries at an explicit logical time should be deterministic and order-independent where the model promises it.
+- Add or extend executable contract checks with each meaningful data/model change. Run CI and report actual results; never call a pending run green.
+- Do **not** merge PRs or publish NuGet packages without explicit creator approval. A GitHub token is permission to continue engineering, not permission to merge or publish.
+- Keep changes reviewable and explain what changed, why, how it was verified, and what remains.
+
+## Current state (verified during this review)
+
+- [ ] **Integration PR #2 remains open and unmerged.** It is the current integration lane; do not create a competing PR without a reason.
+- [x] Repository has been reset to a .NET 8, manifest-oriented raWWar Experience; old engine-bound shell is no longer the architecture.
+- [x] A dependency-free .NET 8 executable contract-check project exists.
+- [x] The first spatiotemporal implementation slice includes immutable `KeplerOrbit` / `Vector3d` types for explicit-time two-body elliptic orbit queries.
+- [x] The design foundation, visual atlas, content catalogues, and engineering-data documents are substantial and should be extended rather than replaced.
+- [ ] **The actual Experience composition remains a scaffold.** `RaWWarMicroBundle.Load` currently validates its context but composes no capabilities; `Arbitrate` returns `false`. The manifest/runtime-manifest relationship and host integration still need a tested end-to-end contract.
+- [ ] The contract-test README still describes the initial orbit checks; reconcile it with the actual current executable checks before relying on its coverage claims.
+- [ ] Re-check the latest commit and latest CI run before the next implementation decision. Previous comments report green runs at earlier commits; do not assume they validate the current head.
+
+## P0 — Establish a trustworthy current baseline
+
+- [ ] Identify the current `development` HEAD, PR head/base SHAs, and the latest workflow run; record the real current status.
+- [ ] Read the current solution, project files, manifest(s), executable contract checks, and machine-readable data contracts together. Map what is executable versus documentation/data-only.
+- [ ] Inventory the exact current MicroBundleDomain, FSM_COS, FSM_API, FSM_UserIO and AnyApp APIs/versions from their repositories. Check the relevant integration branches and existing plans; do not upgrade or publish packages as part of this inventory.
+- [ ] Reconcile the Experience manifest, runtime manifest and MicroBundle identity/version fields. Define one explicit, tested source of truth for IDs, required capabilities, configuration and supported manifestations.
+- [ ] Update this queue with the verified baseline, current contract count, outstanding CI failures, and the next smallest implementation slice.
+
+## P1 — Make the Experience actually compose
+
+- [ ] Replace the empty MicroBundle scaffold with the smallest real composition that uses an existing Workshop capability. If the current contracts cannot express the needed behavior, document the exact missing platform contract rather than faking it locally.
+- [ ] Add contract checks for manifest parsing/validation, identity consistency, declared dependencies, missing capabilities, deterministic loading/arbitration, and invalid configurations as supported by the real API.
+- [ ] Ensure the Experience can be loaded by its intended host (AnyApp first) without raWWar taking ownership of host lifecycle or generic manifest machinery.
+- [ ] Ensure packaging remains non-publishing by default; `GeneratePackageOnBuild=false` and no automated NuGet publication without explicit approval.
+- [ ] Expand the contract-test README so every stated check matches the actual code and clearly states model limits.
+
+## P1 — Protect authoritative world-state contracts
+
+- [ ] Locate and reconcile the actual spatiotemporal world-model document and machine-readable galaxy/world contract (paths have changed from earlier notes; discover actual paths rather than assuming names).
+- [ ] Validate stable identity, explicit logical time, coordinate-frame conventions, supported orbit domains, deterministic queries and unsupported cases.
+- [ ] Keep derived GPU/texture state explicitly packed and bounded; never treat a texel as a full FSM record/history or let camera/rendering operations mutate canonical state.
+- [ ] Continue cross-catalogue validation for unique IDs, valid joins, prerequisites, physical capacities, materials, staffing, power/thermal budgets, installed upgrades, ship parts and causal damage/salvage records.
+- [ ] Keep every numeric engineering example labeled as candidate/illustrative until the full inventory and constraints reconcile. No fake precision.
+
+## P2 — Deliver one meaningful first-person vertical slice
+
+- [ ] Define a station-and-rig interaction slice grounded in the creator's vision: the station physically secures the soldier, connects them to the system, and presents the rig and hands/grips appropriate to the station's real function.
+- [ ] Start with one role (fighter pilot is the current example) and trace the whole chain: station state → qualified occupant → physical controls → FSM/procedure → authoritative world action → durable outcome/event → observable feedback.
+- [ ] Model requirements and behavior as data and reusable FSM/MicroBundle capabilities where appropriate; avoid a pile of one-off animation scripts.
+- [ ] Add deterministic tests for valid/invalid occupancy, qualification/access, control availability, interruption/failure and outcome recording. Separate interaction semantics from desktop/VR presentation.
+- [ ] Host the slice through AnyApp first. Keep MyVR as a later manifestation of the same Experience rather than a separate game implementation.
+
+## P2 — Close the highest-value world-model gaps
+
+- [ ] Establish the canonical world event/history contract: initiating cause, logical time, affected identities, pre/post state or changes, causal links, provenance and deterministic replay/reconstruction expectations.
+- [ ] Define how expensive world work is scheduled/deferred without dropping consequences or allowing presentation distance to freeze the authoritative world.
+- [ ] Reconcile the Wayfarer reference ship's part inventory and mass roll-up before presenting it as a fully sized design; continue center-of-mass/inertia, connections, structure, power, thermal, pressure, access, damage and salvage validation.
+- [ ] Promote mature content-lab concepts into authoritative records only when their status and prerequisites are clear; preserve Canon/Candidate/Experiment/Illumination Needed labels.
+
+## P3 — Keep the design experience coherent
+
+- [ ] Maintain the master GDD as the primary reading path; companion documents and the Design Hub are views into the same design knowledge, not competing sources of truth.
+- [ ] Keep the visual asset catalogue accurate. Distinguish conceptual diagrams from runtime captures and construction-ready engineering drawings.
+- [ ] Add visuals where they materially clarify systems, relationships, timelines, equipment, work and consequences; do not add decorative art in place of a tested model.
+- [ ] Keep navigation links valid and clean malformed escaped-newline artifacts when encountered.
+- [ ] Maintain clear non-coder explanations alongside technical deep dives: what it is, how it works in raWWar, and which Workshop capability enables it.
+
+## Definition of done for a work item
+
+1. The change fits the Experience/Workshop boundary and preserves the creator's stated vision.
+2. The smallest useful behavior or data contract is implemented—not merely described—when implementation is the objective.
+3. Relevant executable checks pass, or the exact failure/blocker is recorded.
+4. Documentation and catalogue references match the implementation.
+5. The current branch/commit and CI status are verified.
+6. This queue is updated, and a concise progress note is added to PR #2 when useful.
+7. No merge or package publication occurs without explicit approval.
+
+## Handoff for a resumed conversation
+
+Start by reading this file, then inspect the actual current GitHub state (branches, PR #2, latest commit, workflows, open issues, and the files named in the top unchecked items). Treat this file as a prioritized guide, not proof that a task is still outstanding: verify before acting. Continue on `development` unless the creator redirects you. Ask the creator only when a real design decision is blocked on their intent; otherwise make safe, reversible engineering decisions and keep moving.
