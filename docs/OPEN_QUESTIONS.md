@@ -166,3 +166,16 @@ The current documents describe two sequences that may conflict:
 These could be reconciled if the opening headquarters is a pre-choice selection space, if faction selection happens before the campaign opening, or if the doors serve another purpose. The current documents do not establish which interpretation is intended. Do not choose one silently.
 
 **Creator decision needed:** Is the thirteen-door choice made before the moniker/lightning opening, during the headquarters scene before the Empress's order, after the opening order, or in another sequence? How can that choice coexist with the established Commander identity and the short compliance deadline?
+
+### 23. What exactly does the pilot control rig measure and command?
+
+The first executable station contract requires the occupant to raise a physical control rig before pilot input is accepted. The creator-established experience is that the station secures the pilot, connects them to the system, and presents their hands on the station-appropriate grips.
+
+The current prototype uses a bounded candidate control-intent payload to test the readiness gate. It does **not** establish the final physical device, pose/force measurements, axis mapping, control-law design, or how aircraft response feeds back into the pilot's rig.
+
+- Is the rig primarily hand/grip motion, a full-body motion harness, or a combination that varies by station?
+- Which pilot movements represent desired aircraft behavior, and which are limited by the aircraft's actual control surfaces, actuators, power, damage, and flight state?
+- What physical feedback does the rig return when the aircraft cannot follow the pilot's intent?
+- How do manual backup controls and emergency release behave if tracking, power, or the pilot interface fails?
+
+Keep the station readiness contract separate from this unresolved hardware/control-law design. Do not treat the prototype's candidate axes as canon.
