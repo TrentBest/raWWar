@@ -53,7 +53,26 @@
           "limited_firepower"
         ]
       },
-      "cutSheet": "cut.vehicle.scout_mk1"
+      "cutSheet": "cut.vehicle.scout_mk1",
+      "chassisDefinition": "chassis.light_utility_01",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.multispectral_sensor_v1",
+        "electronics.tactical_mesh_radio_v1",
+        "electronics.inertial_navigation_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
+      }
     },
     {
       "id": "vehicle.apc_mk2",
@@ -113,7 +132,27 @@
           "maintenance_burden"
         ]
       },
-      "cutSheet": "cut.vehicle.apc_mk2"
+      "cutSheet": "cut.vehicle.apc_mk2",
+      "chassisDefinition": "chassis.medium_armored_02",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.vehicle_gateway_v1",
+        "electronics.multispectral_sensor_v1",
+        "electronics.tactical_mesh_radio_v1",
+        "electronics.power_converter_28_600_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
+      }
     },
     {
       "id": "vehicle.quad_mk1",
@@ -162,6 +201,23 @@
           "exposed_crew",
           "limited_endurance"
         ]
+      },
+      "chassisDefinition": "chassis.quad_01",
+      "electronicSystems": [
+        "electronics.tactical_mesh_radio_v1",
+        "electronics.vehicle_data_bus_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
       }
     },
     {
@@ -224,7 +280,26 @@
           "large_logistics_tail"
         ]
       },
-      "cutSheet": "cut.vehicle.lancer_mk1"
+      "cutSheet": "cut.vehicle.lancer_mk1",
+      "chassisDefinition": "chassis.heavy_armored_03",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.active_radar_array_v1",
+        "electronics.inertial_navigation_v1",
+        "electronics.power_converter_28_600_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
+      }
     },
     {
       "id": "vehicle.recon_vtol_mk1",
@@ -276,6 +351,25 @@
           "weather_sensitive",
           "light_protection"
         ]
+      },
+      "chassisDefinition": "chassis.vtol_light_01",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.multispectral_sensor_v1",
+        "electronics.tactical_mesh_radio_v1",
+        "electronics.inertial_navigation_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
       }
     },
     {
@@ -336,7 +430,26 @@
           "vulnerable_without_escort"
         ]
       },
-      "cutSheet": "cut.vehicle.atlas_carryall"
+      "cutSheet": "cut.vehicle.atlas_carryall",
+      "chassisDefinition": "chassis.heavy_vtol_01",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.inertial_navigation_v1",
+        "electronics.tactical_mesh_radio_v1",
+        "electronics.power_converter_28_600_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
+      }
     },
     {
       "id": "vehicle.ornithopter_mk1",
@@ -391,7 +504,25 @@
           "high_test_risk"
         ]
       },
-      "cutSheet": "cut.vehicle.ornithopter_alpha"
+      "cutSheet": "cut.vehicle.ornithopter_alpha",
+      "chassisDefinition": "chassis.ornithopter_prototype_01",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.inertial_navigation_v1",
+        "electronics.gesture_tracker_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
+      }
     },
     {
       "id": "vehicle.starfighter_mk1",
@@ -447,6 +578,25 @@
           "limited_endurance",
           "fragile_against_capital_weapons"
         ]
+      },
+      "chassisDefinition": "chassis.starfighter_01",
+      "electronicSystems": [
+        "electronics.vehicle_data_bus_v1",
+        "electronics.active_radar_array_v1",
+        "electronics.inertial_navigation_v1",
+        "electronics.power_converter_28_600_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
       }
     },
     {
@@ -605,6 +755,28 @@
             "return_to_space_station_if_sustained"
           ]
         }
+      },
+      "chassisDefinition": "chassis.cruiser_01",
+      "electronicSystems": [
+        "electronics.shipboard_switchboard_v1",
+        "electronics.vehicle_data_bus_v1",
+        "electronics.active_radar_array_v1",
+        "electronics.environment_monitor_v1",
+        "electronics.fire_detection_loop_v1",
+        "electronics.interlock_module_v1",
+        "electronics.data_recorder_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
       }
     },
     {
@@ -756,6 +928,28 @@
             "return_to_space_station_if_sustained"
           ]
         }
+      },
+      "chassisDefinition": "chassis.carrier_01",
+      "electronicSystems": [
+        "electronics.shipboard_switchboard_v1",
+        "electronics.vehicle_data_bus_v1",
+        "electronics.active_radar_array_v1",
+        "electronics.environment_monitor_v1",
+        "electronics.fire_detection_loop_v1",
+        "electronics.interlock_module_v1",
+        "electronics.data_recorder_v1"
+      ],
+      "integrationModel": {
+        "power": "Load is drawn from the installed power configuration; peak loads, startup transients, cooling and isolation must be satisfied.",
+        "commissioning": [
+          "verify_component_identity",
+          "verify_interfaces_and_voltage_class",
+          "calibrate_sensors",
+          "test_interlocks",
+          "test_degraded_mode",
+          "acceptance_record"
+        ],
+        "installationRule": "A compatible socket is necessary but not sufficient; mass, volume, cooling, electrical capacity, software/protocol, crew qualification and mission role must all be checked."
       }
     }
   ]
