@@ -1,6 +1,9 @@
 # raWWar — Art Direction
 
-Status: Initial direction; subject to refinement.
+**Status:** Initial direction; subject to refinement.  
+**Owner:** raWWar art direction, coordinated with Experience design.  
+**Audience:** Artists, technical artists, animation/gesture authors, and engineers implementing presentation.  
+**Evidence rule:** This document defines visual intent and pipeline requirements; it does not prove that assets, rigs, gesture tooling, or renderer features are implemented.
 
 ## Purpose
 This document establishes the visual direction for original raWWar assets now that the Experience is no longer constrained by an external asset pack.
@@ -40,21 +43,6 @@ A soldier should be recognizable from silhouette and equipment before the player
 Motion is part of identity. Soldiers should share recognizable military procedures without moving as perfectly synchronized copies. The Gesture system provides ideal physical procedures, while each soldier's seed and state create bounded variation in timing, posture, direction, attention, recovery, and other details.
 
 At population scale, the visual objective is coordinated life rather than animation uniformity.
-The soldier is the primary visual subject.
-
-The foundational soldier should use an exoskeleton-based architecture capable of accepting modular equipment.
-
-Visual identity should communicate:
-- role;
-- qualification;
-- rank;
-- awards;
-- equipment;
-- faction;
-- wear;
-- personal modification.
-
-A soldier should be recognizable from silhouette and equipment before the player reads a nameplate.
 
 ## Equipment
 Equipment should be designed as meaningful components rather than disconnected cosmetic meshes.
@@ -99,7 +87,6 @@ The old external asset set is no longer the design authority.
 Future assets should be authored for raWWar and the Workshop Renderer, with inspiration treated as a reference for emotional/functional qualities rather than copied identity.
 
 ## Gesture and motion production
-
 The art pipeline should author motion as reusable pose/transition data rather than requiring a bespoke baked animation for every soldier and circumstance.
 
 Gesture authoring will eventually need standards for:
