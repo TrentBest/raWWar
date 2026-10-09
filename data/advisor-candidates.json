@@ -63,7 +63,7 @@
       ],
       "knownLimitations": ["not-qualified-for-theater-level-command"],
       "agentBonuses": [
-        {"id": "bonus.torres.vehicle-recovery", "domain": "vehicle-recovery", "magnitude": 0.10, "earnedBy": "agent-experience", "evidence": ["history.recovery-under-fire"], "scope": "recovery-work-personally-supervised"}
+        {"id": "bonus.torres.vehicle-recovery", "domain": "recovery", "magnitude": 0.10, "earnedBy": "agent-experience", "evidence": ["history.recovery-under-fire"], "scope": "recovery-work-personally-supervised"}
       ],
       "candidateFirstWork": ["fleet-readiness-review", "armored-crew-training"],
       "warningBehavior": {"canIssueWarnings": true, "warningEvidenceRequired": true, "playerCanOverride": true}
