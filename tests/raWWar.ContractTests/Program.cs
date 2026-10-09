@@ -610,6 +610,50 @@ Check(detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("batch
     .Contains("bandwidth", StringComparison.Ordinal),
     "Mesh batching preserves independently damaged components and acknowledges hardware ceilings");
 
+
+// Engineering watch rounds, measurement quality, threshold decisions, maintenance, and LOTO form one auditable workflow.
+using var engineeringOpsData = ReadData("engineering-watch-and-maintenance.json");
+var engineeringOps = engineeringOpsData.RootElement;
+Check(engineeringOps.GetProperty("schemaVersion").GetString() == "raWWar.engineering-watch-and-maintenance.v1",
+    "Engineering watch and maintenance contract is versioned");
+var loggerContract = engineeringOps.GetProperty("loggerInteraction");
+Check(loggerContract.GetProperty("recordFields").EnumerateArray().Select(x => x.GetString())
+    .Contains("calibrationState") &&
+      loggerContract.GetProperty("recordFields").EnumerateArray().Select(x => x.GetString())
+    .Contains("rawRecordRef"),
+    "Engineering logger records calibration and preserves raw reading provenance");
+Check(loggerContract.GetProperty("rules").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("does not automatically decide", StringComparison.Ordinal)),
+    "Instrument capture remains separate from engineering judgment");
+var thresholdBands = engineeringOps.GetProperty("thresholdAssessment").GetProperty("bands")
+    .EnumerateArray().Select(x => x.GetProperty("id").GetString()).ToHashSet(StringComparer.Ordinal);
+Check(thresholdBands.Contains("condition.watch") && thresholdBands.Contains("condition.limit-approach") &&
+      thresholdBands.Contains("condition.limit-exceeded") && thresholdBands.Contains("condition.unknown"),
+    "Engineering assessment distinguishes trends, limit approach, exceedance, and unknown condition");
+Check(engineeringOps.GetProperty("maintenanceDecision").GetProperty("lifecycle").EnumerateArray()
+    .Select(x => x.GetString()).Contains("isolated-and-verified") &&
+      engineeringOps.GetProperty("maintenanceDecision").GetProperty("lifecycle").EnumerateArray()
+    .Select(x => x.GetString()).Contains("returned-to-service"),
+    "Maintenance lifecycle requires verified isolation and a distinct return-to-service state");
+var detailedLoto = engineeringOps.GetProperty("lockoutTagout");
+Check(detailedLoto.GetProperty("procedureStages").EnumerateArray().Count() >= 7 &&
+      detailedLoto.GetProperty("blockingConditions").EnumerateArray().Select(x => x.GetString())
+    .Contains("zero-energy-test-failed"),
+    "LOTO is a staged procedure with explicit physical blockers");
+Check(detailedLoto.GetProperty("deliberateFriction").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("shift change", StringComparison.Ordinal)) &&
+      detailedLoto.GetProperty("deliberateFriction").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("stored pressure", StringComparison.Ordinal)),
+    "LOTO friction comes from custody, shift handover, and stored energy rather than random timers");
+Check(detailedLoto.GetProperty("noMagicRules").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("checkbox", StringComparison.Ordinal)) &&
+      detailedLoto.GetProperty("noMagicRules").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("suitable instrument", StringComparison.Ordinal)),
+    "LOTO requires instrument-backed verification rather than a UI flag");
+Check(engineeringOps.GetProperty("eventAndHistory").GetProperty("everyProcedureStepProducesAuditableEvent").GetBoolean() &&
+      engineeringOps.GetProperty("eventAndHistory").GetProperty("preserveFailedAttempts").GetBoolean(),
+    "Failed engineering and LOTO attempts remain part of persistent audit history");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
