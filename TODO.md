@@ -173,6 +173,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Re-read the current FSM_COS documentation-standard proposal rather than relying only on the prior summary. The proposal emphasizes accurate identity, applicable README section IDs, audience paths, precise boundaries, evidence, visuals, runnable-or-labeled examples, and link validation. It remains a proposal on the FSM_COS documentation branch, not a merged ecosystem mandate.
 - [x] Added README section **00 — identity** and real MIT-license / development-CI badges. Deliberately did not add a NuGet release badge: raWWar is an Experience and this branch has not been published as a package release.
 - [x] Updated the conformance record to describe the actual section-00 treatment.
+- [x] Corrected the public README and PR summary so they no longer imply the faction-selection/Empress-order chronology is settled; both now point to Open Question 22.
 - [ ] Re-check CI for these latest README/conformance commits; do not reuse the prior green result as proof for this new head.
 - [x] Completed a repository-wide relative inline-Markdown-link target pass across all 102 Markdown files: 263 link targets checked, no missing local file targets found. This does not yet validate heading anchors, reference-style links, raw HTML `href`/`src` attributes, or external URL availability.
 - [x] Checked all 21 checked-in SVG assets for `href` / `xlink:href` references; none were present, so there were no local SVG-linked assets to resolve.
