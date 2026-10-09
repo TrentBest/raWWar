@@ -189,7 +189,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added a machine-readable `eventHistoryAndReplay` section to `data/galaxy-generation-contract.json`, explicitly marked as a design contract rather than implemented runtime infrastructure.
 - [x] Implemented `SimulationEventId` V1 with explicit canonical binary encoding and a fixed SHA-256 reference vector; identity inputs include seed, model version, canonical spatial address, event domain, ordinal, and domain-defined logical-time key.
 - [x] Implemented immutable-payload `SimulationEvent` and thread-safe `InMemoryEventHistory` reference ledger with idempotent duplicate commit, conflicting-payload detection, and domain-local deterministic ordering.
-- [x] Added executable checks for fixed identity vectors, identity-input sensitivity, payload copying, duplicate retry, conflicting payload, domain isolation/order, and concurrent identical commits.
+- [x] Added executable checks for fixed identity vectors, identity-input sensitivity, payload copying, duplicate retry, conflicting payload, domain isolation/order, address-scoped stream isolation, and concurrent identical commits.
 - [ ] Replace the process-local reference ledger with durable atomic commit/deduplication before claiming restart-safe or distributed idempotency.
 - [ ] Implement one narrow state reducer and replay reconstruction path, then test fixed initial state + ordered events against checkpoint-plus-tail replay; checkpoint format/migration remain unimplemented.
 - [ ] Keep cross-platform floating-point determinism and checkpoint migration guarantees unclaimed until specified and tested.
