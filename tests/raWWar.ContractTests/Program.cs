@@ -410,6 +410,76 @@ Check(generationRoot.GetProperty("campaignCreation").GetProperty("singlePlayer")
 Check(generationRoot.GetProperty("campaignCreation").GetProperty("civilizationLineage").GetProperty("model").GetString() == "graph",
     "Galaxy generation contract treats civilization ancestry as a lineage graph");
 
+// The galaxy-generation contract's spatial addresses must be mathematically
+// self-consistent, and deterministic generation must not depend on observation order.
+var universeContract = generationRoot.GetProperty("universe");
+var gridDimensions = universeContract.GetProperty("gridDimensions").EnumerateArray()
+    .Select(x => x.GetInt32()).ToArray();
+var declaredCellCount = universeContract.GetProperty("cellCount").GetInt32();
+Check(gridDimensions.SequenceEqual(new[] { 10, 10, 10 }) && declaredCellCount == 1000,
+    "Galaxy spatial grid declares the expected 10×10×10 address space");
+var anchor = universeContract.GetProperty("galaxyAnchor");
+var anchorCoordinates = anchor.GetProperty("coordinates").EnumerateArray()
+    .Select(x => x.GetInt32()).ToArray();
+var anchorOrdinal = anchor.GetProperty("ordinal").GetInt32();
+Check(anchorOrdinal == 42 && anchorCoordinates.SequenceEqual(new[] { 1, 4, 0 }),
+    "Reserved galaxy anchor agrees with the declared x-fastest ordinal convention");
+var addressRoundTrips = true;
+for (var ordinal = 1; ordinal <= declaredCellCount; ordinal++)
+{
+    var zeroBased = ordinal - 1;
+    var x = zeroBased % gridDimensions[0];
+    var y = (zeroBased / gridDimensions[0]) % gridDimensions[1];
+    var z = zeroBased / (gridDimensions[0] * gridDimensions[1]);
+    var reconstructedOrdinal = 1 + x + gridDimensions[0] * y +
+        gridDimensions[0] * gridDimensions[1] * z;
+    if (reconstructedOrdinal != ordinal ||
+        x < 0 || x >= gridDimensions[0] ||
+        y < 0 || y >= gridDimensions[1] ||
+        z < 0 || z >= gridDimensions[2])
+    {
+        addressRoundTrips = false;
+        break;
+    }
+}
+Check(addressRoundTrips,
+    "Every declared galaxy cell round-trips through the documented coordinate/ordinal mapping");
+var generationIdentity = generationRoot.GetProperty("generationIdentity");
+var requiredGenerationInputs = generationIdentity.GetProperty("requiredInputs")
+    .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+Check(requiredGenerationInputs.Contains("worldSeed") &&
+      requiredGenerationInputs.Contains("generatorVersion") &&
+      requiredGenerationInputs.Contains("canonicalSpatialAddress") &&
+      requiredGenerationInputs.Contains("featureDomain") &&
+      requiredGenerationInputs.Contains("featureOrdinal") &&
+      generationIdentity.GetProperty("featureDomainsMustBeIndependent").GetBoolean(),
+    "Generated feature identity includes stable semantic address and independent feature domain");
+var eventRandomKey = generationRoot.GetProperty("temporalSimulation").GetProperty("eventRandomKey")
+    .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+var forbiddenGenerationInputs = generationRoot.GetProperty("temporalSimulation").GetProperty("mustNotDependOn")
+    .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+Check(eventRandomKey.Contains("logicalTimeKey") &&
+      eventRandomKey.Contains("entityOrRegionAddress") &&
+      forbiddenGenerationInputs.Contains("camera movement") &&
+      forbiddenGenerationInputs.Contains("render frame rate") &&
+      forbiddenGenerationInputs.Contains("cell request order"),
+    "Event randomness is time/address keyed and independent of camera, frame rate, and request order");
+var persistenceContract = generationRoot.GetProperty("persistence");
+Check(persistenceContract.GetProperty("regenerate").EnumerateArray()
+        .Any(x => x.GetString()!.Contains("immutable seed-derived", StringComparison.OrdinalIgnoreCase)) &&
+      persistenceContract.GetProperty("persist").EnumerateArray()
+        .Any(x => x.GetString()!.Contains("battles and casualties", StringComparison.OrdinalIgnoreCase)) &&
+      persistenceContract.GetProperty("persist").EnumerateArray()
+        .Any(x => x.GetString()!.Contains("ownership changes", StringComparison.OrdinalIgnoreCase)),
+    "World reconstruction regenerates immutable origins while preserving consequential history");
+var reproducibilityRequirements = generationRoot.GetProperty("reproducibilityTests")
+    .EnumerateArray().Select(x => x.GetString()!).ToArray();
+Check(reproducibilityRequirements.Any(x => x.Contains("request order", StringComparison.OrdinalIgnoreCase)) &&
+      reproducibilityRequirements.Any(x => x.Contains("persisted history", StringComparison.OrdinalIgnoreCase)) &&
+      reproducibilityRequirements.Any(x => x.Contains("probabilistic event outcomes", StringComparison.OrdinalIgnoreCase)),
+    "Machine-readable world contract retains request-order, event-replay, and persistence test obligations");
+
+
 
 // Human history remains speculative where canon is open; archive records retain
 // provenance and can expose more history than a single mission presents.
