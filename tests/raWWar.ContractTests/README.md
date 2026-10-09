@@ -10,7 +10,7 @@ dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj
 
 ## Current coverage
 
-The executable suite reported **175/175 checks passed** on the latest verified CI run ([37985313061](https://github.com/TrentBest/raWWar/actions/runs/37985313061)). The checks include:
+The executable suite reported **195/195 checks passed** on [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718) at code/test head `7ec40343f15a15639951a096165169cf991d7920`. The checks include:
 
 - explicit-time circular and elliptic Kepler-orbit positions, period repeatability, 3D inclination, query purity/order independence, and explicit rejection of unsupported eccentricity;
 - uniqueness and cross-catalogue joins for resources, technologies, vehicles, chassis, electronic systems, facilities, assemblies, security systems, upgrades, installation packages, and power distribution;
@@ -20,6 +20,7 @@ The executable suite reported **175/175 checks passed** on the latest verified C
 - candidate faction ship-style profiles and their visible/operational trade-offs;
 - campaign and galaxy-generation policies, civilization lineage, human history, campaign discoveries, and astronomical reference/provenance contracts;
 - renderer and Event-Horizon boundaries, embodied physical interaction, control outcomes and interlocks, manned mech component identity, and engineering watch/maintenance/lockout-tagout procedures;
+- fighter-pilot station occupancy, restraint/connect/raise ordering, qualification, bounded control intent, desktop/VR parity, invalid input rejection, damaged/unpowered blocking, and emergency release;
 - Workshop composition ownership, FSM_COS manifest-boundary assumptions, and the separation of authoring metadata from the machine-oriented `runtime-manifest.json`;
 - a test-only in-memory composition of the raWWar root through the same published FSM_COS `0.1.0-alpha.5` package currently referenced by AnyApp, producing a `RuntimeAssembly` and checking runtime/root identity.
 
