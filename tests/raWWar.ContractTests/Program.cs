@@ -90,6 +90,61 @@ Check(Convert.ToHexString(HierarchicalSpatialAddressCodec.Encode(
         HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)))) == "5257534101000100000000",
     "Top-level address V1 encoding has an explicit zero-depth representation");
 
+// Stable event identity uses canonical binary fields rather than delimiter-based strings.
+var resourceEventId = SimulationEventId.Create(
+    123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042");
+Check(resourceEventId.Value == "F223794D5176C58304EF88BF2E2C0721B4BFFC5F9C4CC1433C80D701D244A1D1",
+    "Event identity V1 matches a fixed SHA-256 reference vector");
+Check(SimulationEventId.Create(123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042")
+        == resourceEventId,
+    "Equivalent event identity inputs produce the same identifier");
+Check(SimulationEventId.Create(124, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042")
+        != resourceEventId,
+    "Changing world seed changes event identity");
+Check(SimulationEventId.Create(123, "v1", encodedSpatialBytes, "resource.depleted", 8, "tick:000042")
+        != resourceEventId,
+    "Changing event ordinal changes event identity");
+Check(SimulationEventId.Create(123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000043")
+        != resourceEventId,
+    "Changing domain logical-time key changes event identity");
+
+var eventPayload = new byte[] { 0x10, 0x20, 0x30 };
+var firstEvent = new SimulationEvent(resourceEventId, "resource.depleted", "tick:000042", 7, eventPayload);
+eventPayload[0] = 0xFF;
+Check(firstEvent.Payload.Span[0] == 0x10,
+    "Event payload copies caller bytes to prevent post-construction mutation");
+var eventHistory = new InMemoryEventHistory();
+Check(eventHistory.Commit(firstEvent) == EventCommitResult.Committed,
+    "First event commit appends the candidate");
+Check(eventHistory.Commit(new SimulationEvent(resourceEventId, "resource.depleted", "tick:000042", 7,
+        new byte[] { 0x10, 0x20, 0x30 })) == EventCommitResult.AlreadyCommitted,
+    "Retrying an identical event identity and payload is idempotent");
+Check(eventHistory.Count == 1, "Idempotent retry does not duplicate history");
+Check(eventHistory.Commit(new SimulationEvent(resourceEventId, "resource.depleted", "tick:000042", 7,
+        new byte[] { 0x99 })) == EventCommitResult.IdentityConflict,
+    "Reusing an event identity with a different payload is reported as a conflict");
+Check(eventHistory.Count == 1, "Identity conflict does not replace or append history");
+
+var nextTimeId = SimulationEventId.Create(123, "v1", encodedSpatialBytes,
+    "resource.depleted", 8, "tick:000043");
+var earlierTimeId = SimulationEventId.Create(123, "v1", encodedSpatialBytes,
+    "resource.depleted", 9, "tick:000041");
+eventHistory.Commit(new SimulationEvent(nextTimeId, "resource.depleted", "tick:000043", 8, new byte[] { 4 }));
+eventHistory.Commit(new SimulationEvent(earlierTimeId, "resource.depleted", "tick:000041", 9, new byte[] { 5 }));
+var orderedResourceEvents = eventHistory.ReadOrdered("resource.depleted");
+Check(orderedResourceEvents.Select(e => e.LogicalTimeKey)
+        .SequenceEqual(new[] { "tick:000041", "tick:000042", "tick:000043" }),
+    "Domain event reads use the declared ordinal logical-time key ordering");
+Check(eventHistory.ReadOrdered("unrelated.domain").Count == 0,
+    "Domain event reads do not leak events from unrelated domains");
+
+var concurrentHistory = new InMemoryEventHistory();
+Parallel.For(0, 64, _ => concurrentHistory.Commit(firstEvent));
+Check(concurrentHistory.Count == 1,
+    "Concurrent identical commits serialize to one history entry");
+Check(concurrentHistory.ReadOrdered("resource.depleted").Count == 1,
+    "Concurrent identical commits remain singly observable");
+
 var badSpatialVersion = (byte[])encodedSpatialBytes.Clone();
 badSpatialVersion[4] = 2;
 var rejectedSpatialVersion = false;
