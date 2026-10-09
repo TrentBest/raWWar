@@ -110,3 +110,10 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [ ] Evaluate ProtocolAi as an optional stable-vocabulary aid for parameter/provider identities. Do not add a mandatory dependency without an executable use case; it must not become an LLM/runtime requirement.
 - [ ] Add executable checks for default behavior, valid/invalid overrides, duplicate/unknown parameter IDs, provider present/absent, and required versus optional capability handling when the owning API can express them.
 - [ ] Continue the AnyApp bridge separately: solve immutable artifact identities for dependency closure without accidentally promoting every dependency to an FSM_COS root.
+
+
+### API verification note
+
+- [x] Checked the current `TheSingularityWorkshop.MicroBundleDomain` `development` documentation: `IMicroBundleLoadContext.TryGetConfiguration(bundleId, out configuration)` provides opaque configuration bytes, and Adventure 4 demonstrates schema-like `MicroBundleDefinition` / `MicroBundleField` descriptions.
+- [ ] **Version boundary remains open:** raWWar currently references NuGet MicroBundleDomain `1.0.1`, while the current Domain `development` getting-started guide describes `2.0.0-alpha.1`. Do not assume development-only configuration APIs exist in 1.0.1; verify the exact published contract or intentionally stage a package upgrade only with its broader integration implications understood.
+- [ ] Current source/documentation inspection did not establish a public provider-lookup method named `TryGetProvider`; verify the actual descriptor/provider API from source before implementing lookup. Do not invent an API from the conceptual contract.
