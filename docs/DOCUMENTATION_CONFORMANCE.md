@@ -77,6 +77,7 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [x] The visual asset catalogue identifies its owner, audience, status, and evidence rule so conceptual artwork is not mistaken for completed runtime or engineering output.
 - [x] Art Direction now records owner, audience, status, and evidence boundaries; a duplicated soldier-description block was removed without changing its intent.
 - [x] Audio Direction now records owner, audience, status, and evidence boundaries.
+- [x] Corrected the README license link to match the repository's actual `LICENSE` path after a targeted navigation check.
 
 ### Remaining audit work
 
