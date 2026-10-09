@@ -174,4 +174,6 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added README section **00 — identity** and real MIT-license / development-CI badges. Deliberately did not add a NuGet release badge: raWWar is an Experience and this branch has not been published as a package release.
 - [x] Updated the conformance record to describe the actual section-00 treatment.
 - [ ] Re-check CI for these latest README/conformance commits; do not reuse the prior green result as proof for this new head.
-- [ ] Continue bounded repository-wide Markdown link, heading-anchor, SVG-reference, and design-contradiction audits. A sampled pass is not an exhaustive audit.
+- [x] Completed a repository-wide relative inline-Markdown-link target pass across all 102 Markdown files: 263 link targets checked, no missing local file targets found. This does not yet validate heading anchors, reference-style links, raw HTML `href`/`src` attributes, or external URL availability.
+- [x] Checked all 21 checked-in SVG assets for `href` / `xlink:href` references; none were present, so there were no local SVG-linked assets to resolve.
+- [ ] Complete heading-anchor, raw HTML `href`/`src`, external-link availability, and line-by-line design-contradiction audits.
