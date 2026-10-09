@@ -26,6 +26,8 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `work-kanban-contract.json` — persistent work-board columns, work-item fields, legal transitions, risk overrides, personnel death, and capacity rules.
 - `ship-assemblies.json` — candidate ship envelope, structural zones, part hierarchy, dependencies, repair approaches, and salvage classes.
 - `faction-ship-doctrines.json` — candidate faction design-language dimensions and unassigned ship-style archetypes with physical tradeoffs.
+- `campaign-galaxy-manifests.json` — authored single-player galaxy manifests, automatic multiplayer generation policy, authoring controls, validation gates, and an illustrative scenario.
+- `civilization-lineages.json` — graph-based civilization ancestry, colonization and succession relationships, selective heritage, historical evidence, and divergence causes.
 - `directional-damage-and-salvage.json` — six-face local coordinates, causal secondary events, part outcomes, recovery provenance, and performance strategy.
 
 ## World-generation architecture
