@@ -187,8 +187,11 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 
 - [x] Added [Event History, Checkpoints, and Deterministic Replay](docs/EVENT_HISTORY_AND_REPLAY_CONTRACT.md), separating event identity, ordering, commit, replay, checkpoints, and observation-only queries.
 - [x] Added a machine-readable `eventHistoryAndReplay` section to `data/galaxy-generation-contract.json`, explicitly marked as a design contract rather than implemented runtime infrastructure.
-- [ ] Choose and test canonical event-key encoding, uniqueness constraints, and domain-owned logical-time/order rules before exposing a stable event identity API.
-- [ ] Implement one narrow replayable domain with fixed event vectors, durable idempotent commit semantics, checkpoint boundaries, and executable replay tests; do not generalize before this slice is proven.
+- [x] Implemented `SimulationEventId` V1 with explicit canonical binary encoding and a fixed SHA-256 reference vector; identity inputs include seed, model version, canonical spatial address, event domain, ordinal, and domain-defined logical-time key.
+- [x] Implemented immutable-payload `SimulationEvent` and thread-safe `InMemoryEventHistory` reference ledger with idempotent duplicate commit, conflicting-payload detection, and domain-local deterministic ordering.
+- [x] Added executable checks for fixed identity vectors, identity-input sensitivity, payload copying, duplicate retry, conflicting payload, domain isolation/order, and concurrent identical commits.
+- [ ] Replace the process-local reference ledger with durable atomic commit/deduplication before claiming restart-safe or distributed idempotency.
+- [ ] Implement one narrow state reducer and replay reconstruction path, then test fixed initial state + ordered events against checkpoint-plus-tail replay; checkpoint format/migration remain unimplemented.
 - [ ] Keep cross-platform floating-point determinism and checkpoint migration guarantees unclaimed until specified and tested.
 
 ## Coordinate frame and transform contract — 2026-10-09
