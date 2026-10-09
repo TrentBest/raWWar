@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "raWWar", "src\raWWar\raWWar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "raWWar.ContractTests", "tests\raWWar.ContractTests\raWWar.ContractTests.csproj", "{B74F5D1A-47C0-4B39-A68B-9B72E4A35D10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "raWWar.KeplerOrbitExample", "examples\KeplerOrbit\raWWar.KeplerOrbitExample.csproj", "{C3A7B2E9-7D1F-4B88-9E5A-1C6F3A2D8B40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{B74F5D1A-47C0-4B39-A68B-9B72E4A35D10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B74F5D1A-47C0-4B39-A68B-9B72E4A35D10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B74F5D1A-47C0-4B39-A68B-9B72E4A35D10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3A7B2E9-7D1F-4B88-9E5A-1C6F3A2D8B40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3A7B2E9-7D1F-4B88-9E5A-1C6F3A2D8B40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3A7B2E9-7D1F-4B88-9E5A-1C6F3A2D8B40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3A7B2E9-7D1F-4B88-9E5A-1C6F3A2D8B40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
