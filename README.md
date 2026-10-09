@@ -43,7 +43,7 @@ After choosing a faction, the player is introduced to the Empress. She orders th
 - **Want to understand the technology boundary:** read [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
 - **Designing a system:** start at the [Design Documentation Index](docs/README.md), then follow the relevant deep dive.
 - **Reviewing implementation status:** read [Technical Design](docs/TECHNICAL_DESIGN.md), [Production Plan](docs/PRODUCTION_PLAN.md), and [TODO.md](TODO.md).
-- **Building or verifying the repository:** use the commands and evidence guidance in section 11.
+- **Building or verifying the repository:** use the commands in section 08 and the evidence guidance in section 11.
 
 ## 05 🟣 At a glance
 
