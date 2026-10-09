@@ -182,3 +182,11 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Checked all 21 checked-in SVG assets for `href` / `xlink:href` references; none were present, so there were no local SVG-linked assets to resolve.
 - [x] Scanned all 102 Markdown files for raw HTML `href` / `src` attributes and inline Markdown fragment links; none were found in the checked content.
 - [ ] Validate reference-style Markdown links and external URL availability, then continue the line-by-line design-contradiction audit.
+
+## Event history and replay contract — 2026-10-09
+
+- [x] Added [Event History, Checkpoints, and Deterministic Replay](docs/EVENT_HISTORY_AND_REPLAY_CONTRACT.md), separating event identity, ordering, commit, replay, checkpoints, and observation-only queries.
+- [x] Added a machine-readable `eventHistoryAndReplay` section to `data/galaxy-generation-contract.json`, explicitly marked as a design contract rather than implemented runtime infrastructure.
+- [ ] Choose and test canonical event-key encoding, uniqueness constraints, and domain-owned logical-time/order rules before exposing a stable event identity API.
+- [ ] Implement one narrow replayable domain with fixed event vectors, durable idempotent commit semantics, checkpoint boundaries, and executable replay tests; do not generalize before this slice is proven.
+- [ ] Keep cross-platform floating-point determinism and checkpoint migration guarantees unclaimed until specified and tested.
