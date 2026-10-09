@@ -427,23 +427,30 @@ Check(anchorOrdinal == 42 && anchorCoordinates.SequenceEqual(new[] { 1, 4, 0 }),
 var addressRoundTrips = true;
 for (var ordinal = 1; ordinal <= declaredCellCount; ordinal++)
 {
-    var zeroBased = ordinal - 1;
-    var x = zeroBased % gridDimensions[0];
-    var y = (zeroBased / gridDimensions[0]) % gridDimensions[1];
-    var z = zeroBased / (gridDimensions[0] * gridDimensions[1]);
-    var reconstructedOrdinal = 1 + x + gridDimensions[0] * y +
-        gridDimensions[0] * gridDimensions[1] * z;
-    if (reconstructedOrdinal != ordinal ||
-        x < 0 || x >= gridDimensions[0] ||
-        y < 0 || y >= gridDimensions[1] ||
-        z < 0 || z >= gridDimensions[2])
+    var address = GalaxyCellAddress.FromOrdinal(ordinal);
+    if (address.Ordinal != ordinal ||
+        address.X < 0 || address.X >= gridDimensions[0] ||
+        address.Y < 0 || address.Y >= gridDimensions[1] ||
+        address.Z < 0 || address.Z >= gridDimensions[2])
     {
         addressRoundTrips = false;
         break;
     }
 }
 Check(addressRoundTrips,
-    "Every declared galaxy cell round-trips through the documented coordinate/ordinal mapping");
+    "Every declared galaxy cell round-trips through the production address mapping");
+Check(new GalaxyCellAddress(1, 4, 0).Ordinal == anchorOrdinal,
+    "Production address mapping preserves the reserved galaxy anchor");
+Check(GalaxyCellAddress.FromOrdinal(declaredCellCount) == new GalaxyCellAddress(9, 9, 9),
+    "Last top-level cell maps to the maximum coordinate tuple");
+var rejectedCellOrdinal = false;
+try { _ = GalaxyCellAddress.FromOrdinal(0); }
+catch (ArgumentOutOfRangeException) { rejectedCellOrdinal = true; }
+Check(rejectedCellOrdinal, "Top-level cell ordinal rejects values below the declared range");
+var rejectedCellCoordinate = false;
+try { _ = new GalaxyCellAddress(10, 0, 0); }
+catch (ArgumentOutOfRangeException) { rejectedCellCoordinate = true; }
+Check(rejectedCellCoordinate, "Top-level cell coordinates reject values outside the declared grid");
 var generationIdentity = generationRoot.GetProperty("generationIdentity");
 var requiredGenerationInputs = generationIdentity.GetProperty("requiredInputs")
     .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
