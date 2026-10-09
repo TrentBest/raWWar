@@ -36,16 +36,40 @@ public static class ResourceBalanceReplay
     {
         ArgumentNullException.ThrowIfNull(orderedEvents);
         var balance = initialBalance;
+        SimulationEvent? first = null;
+        SimulationEvent? previous = null;
         foreach (var simulationEvent in orderedEvents)
         {
             ArgumentNullException.ThrowIfNull(simulationEvent);
             if (!StringComparer.Ordinal.Equals(simulationEvent.EventDomain, EventDomain))
                 throw new ArgumentException("Replay input contains an event from a different domain.", nameof(orderedEvents));
 
+            first ??= simulationEvent;
+            if (!StringComparer.Ordinal.Equals(simulationEvent.StreamKey, first.StreamKey))
+                throw new ArgumentException("Replay input contains events from different address streams.", nameof(orderedEvents));
+            if (simulationEvent.WorldSeed != first.WorldSeed
+                || !StringComparer.Ordinal.Equals(simulationEvent.SimulationModelVersion, first.SimulationModelVersion))
+                throw new ArgumentException("Replay input mixes world seeds or simulation-model versions.", nameof(orderedEvents));
+
+            if (previous is not null && CompareOrder(previous, simulationEvent) > 0)
+                throw new ArgumentException("Replay input is not in the history's declared deterministic order.", nameof(orderedEvents));
+
             var delta = DecodeDelta(simulationEvent.Payload.Span);
             balance = checked(balance + delta);
+            previous = simulationEvent;
         }
 
         return balance;
+    }
+
+    private static int CompareOrder(SimulationEvent left, SimulationEvent right)
+    {
+        var timeComparison = StringComparer.Ordinal.Compare(left.LogicalTimeKey, right.LogicalTimeKey);
+        if (timeComparison != 0) return timeComparison;
+
+        var ordinalComparison = left.EventOrdinal.CompareTo(right.EventOrdinal);
+        if (ordinalComparison != 0) return ordinalComparison;
+
+        return StringComparer.Ordinal.Compare(left.Id.Value, right.Id.Value);
     }
 }
