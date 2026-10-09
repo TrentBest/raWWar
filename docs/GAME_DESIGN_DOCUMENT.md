@@ -319,6 +319,8 @@ The first faction-selection experience presents thirteen physical doors in that 
 
 This is deliberately a discovery rather than a faction-selection stat screen.
 
+**Sequence remains unresolved:** this describes the faction-selection experience, not a settled placement in the campaign opening. The relationship between the thirteen doors, the player's established Commander identity, and the Empress's short compliance deadline remains an explicit creator decision in [Open Question 22](OPEN_QUESTIONS.md#22-when-does-faction-selection-occur-relative-to-the-campaign-opening). Do not infer that this paragraph resolves that question.
+
 > **Political alignment is not morality.**
 
 Some factions may be admirable in one respect and monstrous in another. Some may cooperate with the Empress while genuinely improving the lives of their people. Some may oppose her while becoming tyrannical themselves.
