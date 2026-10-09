@@ -1,6 +1,9 @@
 # raWWar — Audio Direction
 
-Status: Initial direction.
+**Status:** Initial direction; subject to refinement.  
+**Owner:** raWWar audio direction, coordinated with Experience design.  
+**Audience:** Audio designers, sound artists, narrative designers, and engineers implementing audio presentation.  
+**Evidence rule:** This document records desired behavior and open design work; it does not claim an audio runtime, asset library, procedural mixer, or accessibility pipeline is implemented.
 
 ## Audio philosophy
 Audio should make the world feel occupied before the player understands why.
