@@ -1,3 +1,5 @@
+using TheSingularityWorkshop.FSM_COS;
+using TheSingularityWorkshop.raWWar;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
 
 var failures = new List<string>();
@@ -691,6 +693,33 @@ using var experienceManifestData = System.Text.Json.JsonDocument.Parse(
     File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "manifest.json")));
 Check(experienceManifestData.RootElement.GetProperty("runtimeManifestPath").GetString() == "runtime-manifest.json",
     "Experience authoring metadata points to the separate machine-oriented runtime manifest");
+
+// Compose the actual runtime-manifest request through the same published FSM_COS
+// alpha package currently used by AnyApp. This is an in-memory local catalog proof,
+// not a repository-backed artifact download or an Experience execution loop.
+var runtimeIdForComposition = runtimeManifest.GetProperty("runtimeId").GetUInt64();
+var runtimeRootsForComposition = runtimeManifest.GetProperty("bundles").EnumerateArray()
+    .Select(entry => new MicroBundleManifestEntry(
+        entry.GetProperty("bundleId").GetUInt64(),
+        entry.GetProperty("version").GetString()!))
+    .ToArray();
+try
+{
+    var composition = new FsmCos(new SingleBundleCatalog(new RaWWarMicroBundle()))
+        .Execute(new RuntimeManifest(runtimeIdForComposition, runtimeRootsForComposition));
+    Check(composition.RuntimeId == runtimeIdForComposition,
+        "FSM_COS assembly preserves the runtime identity requested by raWWar's runtime manifest");
+    Check(composition.TryGetBundle<RaWWarMicroBundle>(RaWWarMicroBundle.BundleId, out var loadedRoot) &&
+          loadedRoot is not null,
+        "FSM_COS resolves and loads the actual raWWar Experience MicroBundle");
+    Check(composition.Bundles.Count == 1 &&
+          composition.Bundles[0].Id == RaWWarMicroBundle.BundleId,
+        "The current manifest composes exactly its declared root without inventing undeclared capabilities");
+}
+catch (Exception exception)
+{
+    Check(false, $"Runtime manifest composes through the current AnyApp FSM_COS package: {exception.Message}");
+}
 
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
