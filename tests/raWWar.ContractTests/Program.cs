@@ -379,6 +379,33 @@ Check(generationRoot.GetProperty("campaignCreation").GetProperty("singlePlayer")
 Check(generationRoot.GetProperty("campaignCreation").GetProperty("civilizationLineage").GetProperty("model").GetString() == "graph",
     "Galaxy generation contract treats civilization ancestry as a lineage graph");
 
+
+// Human history remains speculative where canon is open; archive records retain
+// provenance and can expose more history than a single mission presents.
+using var humanHistoryData = ReadData("human-galactic-history.json");
+using var historyDiscoveriesData = ReadData("campaign-history-discoveries.json");
+var humanHistoryRoot = humanHistoryData.RootElement;
+var historyDiscoveryRoot = historyDiscoveriesData.RootElement;
+var historicalEras = humanHistoryRoot.GetProperty("eras").EnumerateArray().ToArray();
+Check(historicalEras.Length >= 8, "Human history spans Earth-origin through a campaign-era galactic order");
+Check(humanHistoryRoot.GetProperty("absoluteDatesDeliberatelyUnfixed").GetBoolean(),
+    "Speculative future chronology does not claim unsupported absolute dates");
+Check(historicalEras.Any(e => e.GetProperty("id").GetString() == "history.imperial-fractures"),
+    "Long history explicitly includes imperial fractures, rebellion, and civil war");
+Check(humanHistoryRoot.GetProperty("discoveryPrinciples").GetProperty("playerKnowledgeIsTrackedSeparately").GetBoolean(),
+    "Player knowledge remains distinct from historical truth");
+Check(historyDiscoveryRoot.GetProperty("recordKinds").EnumerateArray().Select(x => x.GetString())
+    .Contains("maintenance-history") &&
+      historyDiscoveryRoot.GetProperty("recordKinds").EnumerateArray().Select(x => x.GetString())
+    .Contains("political-correspondence"),
+    "Archives connect technical evidence with political history");
+Check(historyDiscoveryRoot.GetProperty("archiveInteractionContract").GetProperty("recordProvenanceMustNotBeDiscardedDuringSummarization").GetBoolean(),
+    "Archive summaries preserve record provenance");
+Check(historyDiscoveryRoot.GetProperty("archiveInteractionContract").GetProperty("fullArchiveDoesNotNeedToBeRenderedOrLoadedAtOnce").GetBoolean(),
+    "Deep archives can feel vast without loading every record at once");
+Check(historyDiscoveryRoot.GetProperty("illustrativeDiscovery").GetProperty("canonStatus").GetString() == "illustrative-not-canon",
+    "Example derelict-battle discovery does not silently establish canon");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
