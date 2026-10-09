@@ -2,7 +2,7 @@
 
 > **The interface is part of the world. The player does not click an abstract command; they operate a physical thing, through a body, with consequences.**
 
-Status: Candidate simulation contract. The machine-readable contracts are [Embodied Interaction and Control](../data/embodied-interaction-and-control.json) and [Manned Mech Platforms](../data/manned-mech-platforms.json). These establish architecture and validation requirements; they do not claim that a finished interaction runtime, mech simulator, or renderer already exists.
+Status: Candidate simulation contract. The machine-readable contracts are [Embodied Interaction and Control](../data/embodied-interaction-and-control.json), [Manned Mech Platforms](../data/manned-mech-platforms.json), and [Engineering Watch and Maintenance](../data/engineering-watch-and-maintenance.json). These establish architecture and validation requirements; they do not claim that a finished interaction runtime, mech simulator, or renderer already exists.
 
 ## 1. The world is the GUI
 
