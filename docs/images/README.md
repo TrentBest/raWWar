@@ -60,3 +60,6 @@ Do not let polished artwork accidentally promote a candidate into canon. A visua
 
 These are documentation priorities, not claims that the corresponding runtime systems are already complete.
 
+
+
+- [Embodied mech control and engineering](rawwar-embodied-mech-control.svg) — one semantic action pipeline across VR/FPS/input devices, boarded mech control, breathing guidance, engineering logging, lockout/tagout, and measured rendering budgets.
