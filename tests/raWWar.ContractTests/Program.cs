@@ -184,7 +184,50 @@ Check(balanceOverflowRejected, "Resource replay rejects signed Int64 overflow ra
 var wrongBalanceDomainRejected = false;
 try { _ = ResourceBalanceReplay.Replay(0, orderedResourceEvents); }
 catch (ArgumentException) { wrongBalanceDomainRejected = true; }
+
 Check(wrongBalanceDomainRejected, "Resource replay refuses events from another domain");
+
+var mixedAddressRejected = false;
+try
+{
+    _ = ResourceBalanceReplay.Replay(0, new[]
+    {
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            10, "tick:000001", ResourceBalanceReplay.EncodeDelta(1)),
+        SimulationEvent.Create(123, "v1", otherAddressBytes, ResourceBalanceReplay.EventDomain,
+            11, "tick:000002", ResourceBalanceReplay.EncodeDelta(2))
+    });
+}
+catch (ArgumentException) { mixedAddressRejected = true; }
+Check(mixedAddressRejected, "Resource replay rejects streams that mix canonical addresses");
+
+var mixedModelVersionRejected = false;
+try
+{
+    _ = ResourceBalanceReplay.Replay(0, new[]
+    {
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            12, "tick:000001", ResourceBalanceReplay.EncodeDelta(1)),
+        SimulationEvent.Create(123, "v2", balanceAddress, ResourceBalanceReplay.EventDomain,
+            13, "tick:000002", ResourceBalanceReplay.EncodeDelta(2))
+    });
+}
+catch (ArgumentException) { mixedModelVersionRejected = true; }
+Check(mixedModelVersionRejected, "Resource replay rejects mixed simulation-model versions");
+
+var unorderedBalanceStreamRejected = false;
+try
+{
+    _ = ResourceBalanceReplay.Replay(0, new[]
+    {
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            14, "tick:000002", ResourceBalanceReplay.EncodeDelta(1)),
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            15, "tick:000001", ResourceBalanceReplay.EncodeDelta(2))
+    });
+}
+catch (ArgumentException) { unorderedBalanceStreamRejected = true; }
+Check(unorderedBalanceStreamRejected, "Resource replay rejects streams that violate the declared ordering");
 
 var concurrentHistory = new InMemoryEventHistory();
 Parallel.For(0, 64, _ => concurrentHistory.Commit(firstEvent));
