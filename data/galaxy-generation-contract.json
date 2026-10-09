@@ -555,5 +555,47 @@
       "checkpoint format and migrations",
       "cross-platform determinism scope for numerical models"
     ]
+  },
+  "coordinateFrameContract": {
+    "status": "design-contract-runtime-not-yet-implemented",
+    "purpose": "Make spatial quantities interpretable and transformable without conflating coordinate representation, canonical identity, and authoritative physical state.",
+    "frameMetadataRequired": [
+      "frame identity/role",
+      "origin and parent relationship",
+      "axis directions and handedness",
+      "units",
+      "orientation convention",
+      "valid logical-time range for moving frames",
+      "model version"
+    ],
+    "conventionsMustDeclare": [
+      "handedness and positive axis directions",
+      "angular units and positive rotation direction",
+      "transform representation and normalization rules",
+      "source/destination mapping direction",
+      "composition order",
+      "distance units",
+      "invalid/singular/non-finite input policy",
+      "numerical tolerance and determinism scope"
+    ],
+    "semanticRule": "A transform changes coordinate representation; it does not mutate entity identity, move authoritative state, advance time, or commit an event.",
+    "temporalRule": "Time-dependent transforms declare epoch, units, validity range, model version, and evaluation method. Related poses used in one observation must be evaluated at compatible logical times.",
+    "acceptanceTests": [
+      "identity transform preserves values",
+      "transform followed by inverse returns original within declared tolerance",
+      "composition matches documented order",
+      "nested parent/local round trips are consistent",
+      "positions and directions treat translation differently",
+      "invalid inputs follow explicit policy",
+      "moving-frame transforms use requested logical time",
+      "camera/frame conversion does not mutate identity or authoritative state",
+      "fixed reference vectors detect convention drift"
+    ],
+    "unresolvedCreatorAndImplementationDecisions": [
+      "canonical world frame, handedness, and axis conventions",
+      "public frame identifiers and transform representation",
+      "time-dependent frame graph and validity policy",
+      "domain-specific unit conventions and renderer adapters"
+    ]
   }
 }
