@@ -70,6 +70,14 @@ Random-seeded generation is useful for constructing stable initial conditions. I
 
 Regenerate immutable properties where the contract permits. Persist player-caused and otherwise authoritative consequences. If an event changes an orbit, destroys a station, moves ownership, or depletes a resource, reconstructing the seed alone must not erase that change.
 
+### Canonical hierarchical addresses and stable hashes
+
+The implemented address model starts with a one-based galaxy-cell ordinal and extends it through an ordered sequence of child-cell coordinates. This is a semantic path, not a floating-point position: changing a camera, coordinate frame, or render level of detail cannot change the address.
+
+`HierarchicalSpatialAddressCodec` defines canonical binary encoding V1: the four-byte ASCII prefix `RWSA`, version byte 1, a big-endian 16-bit root ordinal, a big-endian 32-bit child depth, and three coordinate bytes per child in root-to-leaf order. Each child axis is in the range 0–9. Unknown versions, invalid roots or coordinates, and truncated or trailing bytes are rejected. The fixed vectors live in `data/galaxy-generation-contract.json` and are checked by the executable contract suite.
+
+`HierarchicalSpatialAddressHasher.ComputeV1` returns the 32-byte SHA-256 digest of those exact V1 bytes. The encoding and hash are deliberately distinct APIs: serialized bytes can be decoded; a digest cannot. Both definitions are versioned contracts, not cryptographic authorization, and their existing meanings must not change in place. The same contract file contains fixed digest vectors so another implementation can independently verify byte-for-byte compatibility.
+
 ## 4. Time is logical, bounded, and versioned
 
 The game has a supported simulation epoch and time range. It does not promise arbitrary reconstruction back to the beginning of the universe.
