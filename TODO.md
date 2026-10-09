@@ -196,4 +196,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added [Coordinate Frames and Transform Contracts](docs/COORDINATE_FRAME_CONTRACT.md), defining required frame metadata, convention disclosure, time validity, and executable transform properties without silently choosing world-wide handedness or axis canon.
 - [x] Added a machine-readable `coordinateFrameContract` section to `data/galaxy-generation-contract.json`, explicitly marked as design contract rather than implemented runtime infrastructure.
 - [ ] Resolve the canonical world frame, handedness, and axis directions when the creator/world-model and renderer integration require that decision; keep adapters explicit until then.
-- [ ] Implement a narrow frame pair with fixed reference vectors, inverse/composition tests, unit declarations, and logical-time validity before introducing a general frame graph.
+- [x] Added `CartesianTransform3d` with explicit row-major affine mapping, separate position/direction operations, documented composition order, orthonormal-only inverse, and non-finite input validation.
+- [x] Added executable contract checks for fixed rotation/translation vectors, inverse round-trip, composition order, direction semantics, and invalid inputs.
+- [ ] Add named source/destination frame metadata, unit compatibility, and a domain-specific time-dependent adapter only after the relevant world/renderer conventions are established.
+- [ ] Do not generalize to a frame graph until a real frame pair has fixed reference vectors and tested semantics.
