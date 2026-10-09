@@ -21,6 +21,7 @@ These SVGs are authored, lightweight diagrams and concept illustrations. Unless 
 | [rawwar-advisor-agency.svg](rawwar-advisor-agency.svg) | Advisors as agents who learn, warn, act, suffer outcomes, and leave history | Advisors and command staff |
 | [rawwar-work-kanban.svg](rawwar-work-kanban.svg) | Work-board states and evidence-based transitions grounded in world state | Work orders, logistics, production |
 | [rawwar-science-floor-construction.svg](rawwar-science-floor-construction.svg) | Underground science-floor construction from site investigation through support, utilities, lab installation, commissioning, and acceptance | Engineering data scape, advisors, facilities |
+| [rawwar-ship-damage-and-salvage.svg](rawwar-ship-damage-and-salvage.svg) | Ship hierarchy, six-face impact resolution, causal secondary effects, and surviving wreck components | Starship sizing, systems design, engineering data scape |
 
 ## Visual language
 
