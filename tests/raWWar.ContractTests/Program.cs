@@ -16,6 +16,38 @@ void Check(bool condition, string message)
 void Near(double actual, double expected, double tolerance, string message) =>
     Check(Math.Abs(actual - expected) <= tolerance, $"{message}: expected {expected}, got {actual}");
 
+var encodedSpatialAddress = HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(42))
+    .Child(3, 4, 5)
+    .Child(9, 0, 1);
+var encodedSpatialBytes = HierarchicalSpatialAddressCodec.Encode(encodedSpatialAddress);
+Check(Convert.ToHexString(encodedSpatialBytes) == "5257534101002A00000002030405090001",
+    "Hierarchical spatial address V1 has the fixed big-endian reference encoding");
+Check(HierarchicalSpatialAddressCodec.Decode(encodedSpatialBytes).Equals(encodedSpatialAddress),
+    "Hierarchical spatial address V1 round-trips root and ordered child coordinates");
+Check(Convert.ToHexString(HierarchicalSpatialAddressCodec.Encode(
+        HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)))) == "5257534101000100000000",
+    "Top-level address V1 encoding has an explicit zero-depth representation");
+
+var badSpatialVersion = (byte[])encodedSpatialBytes.Clone();
+badSpatialVersion[4] = 2;
+var rejectedSpatialVersion = false;
+try { _ = HierarchicalSpatialAddressCodec.Decode(badSpatialVersion); }
+catch (FormatException) { rejectedSpatialVersion = true; }
+Check(rejectedSpatialVersion, "Spatial address decoder rejects unknown encoding versions");
+
+var badSpatialChild = (byte[])encodedSpatialBytes.Clone();
+badSpatialChild[^3] = 10;
+var rejectedSpatialChild = false;
+try { _ = HierarchicalSpatialAddressCodec.Decode(badSpatialChild); }
+catch (FormatException) { rejectedSpatialChild = true; }
+Check(rejectedSpatialChild, "Spatial address decoder rejects child coordinates outside the 10x10x10 grid");
+
+var truncatedSpatialAddress = encodedSpatialBytes[..^1];
+var rejectedSpatialLength = false;
+try { _ = HierarchicalSpatialAddressCodec.Decode(truncatedSpatialAddress); }
+catch (FormatException) { rejectedSpatialLength = true; }
+Check(rejectedSpatialLength, "Spatial address decoder rejects payload lengths inconsistent with declared depth");
+
 var circular = new KeplerOrbit(
     SemiMajorAxis: 10,
     Eccentricity: 0,
