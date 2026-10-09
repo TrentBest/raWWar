@@ -24,7 +24,8 @@
 - [x] A dependency-free .NET 8 executable contract-check project exists.
 - [x] The first spatiotemporal implementation slice includes immutable `KeplerOrbit` / `Vector3d` types for explicit-time two-body elliptic orbit queries.
 - [x] The design foundation, visual atlas, content catalogues, and engineering-data documents are substantial and should be extended rather than replaced.
-- [x] Fixed the project-file manifest path mismatch: the root authoring manifest and runtime manifest are now explicitly linked into the raWWar project output and packed as content files. Verify the produced package layout before any future release.
+- [x] Fixed the project-file manifest path mismatch: the root authoring manifest and runtime manifest are now explicitly linked into the raWWar project output and packed as content files.
+- [x] Added a CI step that locally packs the Experience package and checks that both manifest files are present in the `.nupkg`; this is packaging verification only, not publication.
 - [ ] **The actual Experience composition remains a scaffold.** `RaWWarMicroBundle.Load` currently validates its context but composes no capabilities; `Arbitrate` returns `false`. The manifest/runtime-manifest relationship and host integration still need a tested end-to-end contract.
 - [x] Reconciled the contract-test README with the actual suite; it now documents the major current contract areas and clearly distinguishes contract assertions from end-to-end integration proof (171 checks on the last verified run).
 - [x] Verified the workflow triggered by the work-queue commit: [run 37984743404](https://github.com/TrentBest/raWWar/actions/runs/37984743404) succeeded; build had **0 warnings and 0 errors**, and the executable suite reported **171/171 checks passed**. This validates that commit only; re-check CI after subsequent changes.
@@ -34,7 +35,7 @@
 - [x] Confirmed PR #2 is open/unmerged and the current integration lane is `development`; workflow run 37984743404 passed on the queue commit. Re-check head SHA and CI after subsequent edits.
 - [x] Reviewed the .NET 8 projects, executable contract checks, root `manifest.json`, `runtime-manifest.json`, and `data/workshop-composition-contract.json`. Many architecture assertions are present, but end-to-end composition is not implemented.
 - [ ] Inventory the exact current MicroBundleDomain, FSM_COS, FSM_API, FSM_UserIO and AnyApp APIs/versions from their repositories. Check the relevant integration branches and existing plans; do not upgrade or publish packages as part of this inventory.
-- [ ] Reconcile the Experience manifest, runtime manifest and MicroBundle identity/version fields. Define one explicit, tested source of truth for IDs, required capabilities, configuration and supported manifestations. The manifest files are now linked into project output, but the actual package layout and host load path still need verification.
+- [ ] Reconcile the Experience manifest, runtime manifest and MicroBundle identity/version fields. Define one explicit, tested source of truth for IDs, required capabilities, configuration and supported manifestations. The new local-pack CI check must pass before the package layout is considered verified; the host load path remains unproven.
 - [x] Queue now records the verified baseline and 171/171 check count; no failure in the verified queue-commit run. Next implementation slice: inspect the exact FSM_COS/MicroBundle contracts and make manifest-to-host composition real.
 
 ## P1 — Make the Experience actually compose
