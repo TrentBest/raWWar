@@ -22,5 +22,16 @@ jobs:
           dotnet-version: 8.0.x
       - name: Build solution
         run: dotnet build raWWar.sln --configuration Release
+      - name: Verify package contains both manifests (local pack only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet pack src/raWWar/raWWar.csproj --configuration Release --no-build --output artifacts/packages
+          package="$(find artifacts/packages -maxdepth 1 -name '*.nupkg' -print -quit)"
+          test -n "$package"
+          contents="$(unzip -Z1 "$package")"
+          printf '%s\n' "$contents"
+          grep -Eq '(^|/)manifest\.json$' <<< "$contents"
+          grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
