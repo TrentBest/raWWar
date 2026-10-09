@@ -556,6 +556,60 @@ Check(renderContract.GetProperty("validationRules").EnumerateArray().Select(x =>
     .Any(x => x!.Contains("VR comfort", StringComparison.Ordinal)),
     "Rendering validation accounts for VR refresh deadlines and comfort");
 
+// Embodied interactions route every input device through physical world objects and semantic actions.
+using var embodiedData = ReadData("embodied-interaction-and-control.json");
+var embodiedRoot = embodiedData.RootElement;
+Check(embodiedRoot.GetProperty("schemaVersion").GetString() == "raWWar.embodied-interaction-and-control.v1",
+    "Embodied interaction contract is versioned");
+Check(embodiedRoot.GetProperty("authority").GetProperty("worldObjectsRemainAuthoritative").GetBoolean() &&
+      embodiedRoot.GetProperty("authority").GetProperty("visualGuidanceDoesNotExecuteAnAction").GetBoolean(),
+    "Physical world state is authoritative and breathing guidance never acts for the player");
+var actionOutcomes = embodiedRoot.GetProperty("actionContract").GetProperty("outcomes").EnumerateArray()
+    .Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
+Check(actionOutcomes.Contains("blocked-by-interlock") && actionOutcomes.Contains("target-damaged") &&
+      actionOutcomes.Contains("interrupted"),
+    "Physical interactions report interlocks, damage, and interruption as distinct outcomes");
+Check(embodiedRoot.GetProperty("inputMapping").GetProperty("example").GetProperty("actorAnimation").GetString()!
+    .Contains("hand", StringComparison.Ordinal) &&
+      embodiedRoot.GetProperty("inputMapping").GetProperty("example").GetProperty("semanticAction").GetString()!
+    .Contains("throttle", StringComparison.Ordinal),
+    "Keyboard input animates a visible pilot hand while operating a semantic physical control");
+var loto = embodiedRoot.GetProperty("lockoutTagout");
+Check(loto.GetProperty("requiredSteps").EnumerateArray().Select(x => x.GetString()).Contains("verify-zero-energy-state") &&
+      loto.GetProperty("requiredSteps").EnumerateArray().Select(x => x.GetString()).Contains("apply-personal-lock") &&
+      loto.GetProperty("requiredSteps").EnumerateArray().Select(x => x.GetString()).Contains("restore-energy-in-stages"),
+    "Lockout/tagout requires physical isolation, personal locks, verification, and controlled restoration");
+Check(loto.GetProperty("noMagicRules").EnumerateArray().Any(x => x.GetString()!.Contains("checkbox does not isolate", StringComparison.Ordinal)),
+    "Lockout/tagout cannot be satisfied by a UI checkbox alone");
+
+// The detailed mech contract preserves component identity and treats performance as a measurable hypothesis.
+using var detailedMechData = ReadData("manned-mech-platforms.json");
+var detailedMechRoot = detailedMechData.RootElement;
+Check(detailedMechRoot.GetProperty("schemaVersion").GetString() == "raWWar.manned-mech-and-exotic-environment-platforms.v1",
+    "Detailed manned mech contract is versioned");
+Check(detailedMechRoot.GetProperty("designAuthority").GetProperty("mechWarriorLikePlayIsAnExplicitExperienceGoal").GetBoolean(),
+    "Boarded MechWarrior-like pilot play is explicitly in scope");
+var platformIds = detailedMechRoot.GetProperty("platformFamilies").EnumerateArray()
+    .Select(x => x.GetProperty("id").GetString()).ToHashSet(StringComparer.Ordinal);
+Check(platformIds.Contains("mech.walker.combat") && platformIds.Contains("mech.platform.orbital-work") &&
+      platformIds.Contains("mech.platform.environmental"),
+    "Platform families cover combat walkers, orbital work, and environmental research");
+Check(detailedMechRoot.GetProperty("componentHierarchy").GetProperty("componentsMustHave").EnumerateArray()
+    .Select(x => x.GetString()).Contains("failureModes") &&
+      detailedMechRoot.GetProperty("componentHierarchy").GetProperty("componentsMustHave").EnumerateArray()
+    .Select(x => x.GetString()).Contains("inspectionAndMaintenanceProcedure"),
+    "Mech components carry failure and maintenance identity rather than one generic health pool");
+Check(detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("falsifiableHypotheses").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("reducing render resolution", StringComparison.Ordinal)) &&
+      detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("falsifiableHypotheses").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("simulation dominates", StringComparison.Ordinal)),
+    "Renderer performance hypotheses distinguish pixel cost from simulation cost");
+Check(detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("batchingRules").EnumerateArray()
+    .Any(x => x.GetString()!.Contains("independently damaged", StringComparison.Ordinal)) &&
+      detailedMechRoot.GetProperty("performanceAndRendering").GetProperty("noUnlimitedClaim").GetString()!
+    .Contains("memory bandwidth", StringComparison.Ordinal),
+    "Mesh batching preserves independently damaged components and acknowledges hardware ceilings");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
