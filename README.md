@@ -1,4 +1,7 @@
-# raWWar
+# ✳️ 00 raWWar — The Singularity Workshop
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/raWWar/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/raWWar/actions/workflows/build.yml)
 
 ## 01 🔷 Definition
 
