@@ -1,6 +1,25 @@
 # raWWar — Technical Design
 
-**Status:** Initial architecture document. Implemented behavior and proposed direction are distinguished below; this document is not a claim that every planned subsystem exists.
+**Status:** Living technical companion; implementation evidence is explicitly separated from intended architecture.  
+**Owner:** raWWar Experience engineering.  
+**Audience:** Contributors deciding what belongs in raWWar, what should be consumed from the Workshop, and what is actually verified.  
+**Evidence rule:** Architecture diagrams and future-tense requirements describe intent, not completed integration.
+
+## 00. Identity and purpose
+
+This document defines the technical boundaries needed to build raWWar as an Experience without duplicating reusable Workshop machinery. It is subordinate to explicit creator design authority for game meaning and does not claim every described subsystem exists.
+
+## 01. Responsibility boundary
+
+- **raWWar owns:** world meaning, soldiers, factions, rules, procedures, game-specific data, content, and consequences.
+- **MicroBundleDomain owns:** MicroBundle contracts.
+- **FSM_API owns:** state-machine primitives and execution semantics.
+- **FSM_COS owns:** capability composition; it is not the game loop, host, or renderer.
+- **AnyApp owns:** host/manifestation lifecycle and artifact-loading responsibilities.
+- **Workshop Renderer owns:** observer-relative presentation, not authoritative world truth.
+
+## 02. Architecture at a glance
+
 
 ## Architectural position
 
