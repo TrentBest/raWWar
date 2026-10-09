@@ -335,23 +335,24 @@
       },
       "heightM": 160,
       "foundation": {
-        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "type": "orbital_truss_and_berth_frame",
         "surveyRequired": true,
-        "geotechnicalOrLoadPathCheck": true
+        "geotechnicalOrLoadPathCheck": false,
+        "anchors": "microgravity load paths, docking nodes, thermal expansion and assembly loads"
       },
       "shell": {
-        "primary": "configuration-specific structural frame",
-        "secondary": "fire, environmental and security zoning as required"
+        "primary": "open structural truss",
+        "secondary": "pressurized workshop modules and radiation/surface-protection zones"
       },
       "materials": [
         {
-          "id": "resource.plascrete_mix",
+          "id": "resource.aerospace_alloy",
           "quantity": 18000,
           "unit": "t"
         },
         {
-          "id": "resource.aerospace_alloy",
-          "quantity": 2880,
+          "id": "resource.carbon_feedstock",
+          "quantity": 1200,
           "unit": "t"
         }
       ],
@@ -1020,11 +1021,12 @@
       "foundation": {
         "type": "integrated_ship_structure_and_vibration_mounts",
         "surveyRequired": true,
-        "geotechnicalOrLoadPathCheck": false
+        "geotechnicalOrLoadPathCheck": false,
+        "anchors": "ship structural frames and machinery vibration limits"
       },
       "shell": {
-        "primary": "watertight_compartment_boundaries",
-        "secondary": "fire_zones_and_zoned_service_routes"
+        "primary": "watertight compartment boundaries",
+        "secondary": "fire zones, zoned service routes and maintainable equipment access"
       },
       "materials": [
         {
@@ -1033,7 +1035,7 @@
           "unit": "t"
         },
         {
-          "id": "resource.plascrete_mix",
+          "id": "resource.carbon_feedstock",
           "quantity": 120,
           "unit": "t"
         }
