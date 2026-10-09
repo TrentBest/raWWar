@@ -756,6 +756,102 @@ catch (Exception exception)
     Check(false, $"Runtime manifest composes through the current AnyApp FSM_COS package: {exception.Message}");
 }
 
+// Fighter-station slice: the station secures the occupant, connects the interface, then
+// requires the pilot to raise the physical rig before any control request can be accepted.
+var pilotAxes = new TheSingularityWorkshop.raWWar.Interaction.PilotControlAxes(
+    Pitch: 0.25, Roll: -0.5, Yaw: 0.1, Throttle: 0.7);
+var emptyPilotStation = TheSingularityWorkshop.raWWar.Interaction.FighterPilotStation.Create(9001);
+var emptyControlAttempt = emptyPilotStation.TryApplyControl(
+    42, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Desktop, pilotAxes);
+Check(!emptyControlAttempt.Accepted &&
+      emptyControlAttempt.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.NoOccupant,
+    "An empty fighter station cannot accept pilot input");
+
+var seatedPilot = emptyPilotStation.TrySeat(42, fighterPilotQualified: true);
+Check(seatedPilot.Accepted && seatedPilot.After.OccupantId == 42 &&
+      emptyPilotStation.OccupantId is null,
+    "Seating returns a new station state without mutating the prior state");
+var duplicateSeat = seatedPilot.After.TrySeat(43, fighterPilotQualified: true);
+Check(!duplicateSeat.Accepted &&
+      duplicateSeat.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.AlreadyOccupied &&
+      duplicateSeat.After == duplicateSeat.Before,
+    "An occupied station rejects a second occupant without changing state");
+
+var beforeSecure = seatedPilot.After.TryApplyControl(
+    42, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Desktop, pilotAxes);
+Check(!beforeSecure.Accepted &&
+      beforeSecure.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.RestraintsNotSecured,
+    "Pilot controls remain unavailable until the station secures the occupant");
+
+var securedPilot = seatedPilot.After.TrySecureOccupant();
+var connectedPilot = securedPilot.After.TryConnectInterface();
+var raisedPilot = connectedPilot.After.TryRaiseControlRig();
+Check(securedPilot.Accepted && connectedPilot.Accepted && raisedPilot.Accepted &&
+      raisedPilot.After.ControlsReady,
+    "The station must secure, connect, and raise the control rig before becoming ready");
+
+var desktopPilotInput = raisedPilot.After.TryApplyControl(
+    42, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Desktop, pilotAxes);
+var vrPilotInput = raisedPilot.After.TryApplyControl(
+    42, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.VirtualReality, pilotAxes);
+Check(desktopPilotInput.Accepted && vrPilotInput.Accepted &&
+      desktopPilotInput.Request is not null && vrPilotInput.Request is not null &&
+      desktopPilotInput.Request.Axes == vrPilotInput.Request.Axes &&
+      desktopPilotInput.Request.ActorId == vrPilotInput.Request.ActorId &&
+      desktopPilotInput.Request.StationId == vrPilotInput.Request.StationId,
+    "Desktop and VR inputs produce the same bounded authoritative control intent");
+var wrongPilotInput = raisedPilot.After.TryApplyControl(
+    99, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Controller, pilotAxes);
+Check(!wrongPilotInput.Accepted &&
+      wrongPilotInput.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.WrongOccupant,
+    "Only the station's current occupant may command its controls");
+
+var unqualifiedStation = TheSingularityWorkshop.raWWar.Interaction.FighterPilotStation.Create(9002);
+var unqualifiedSeated = unqualifiedStation.TrySeat(77, fighterPilotQualified: false).After;
+var unqualifiedSecured = unqualifiedSeated.TrySecureOccupant().After;
+var unqualifiedConnected = unqualifiedSecured.TryConnectInterface().After;
+var unqualifiedRaised = unqualifiedConnected.TryRaiseControlRig().After;
+var unqualifiedInput = unqualifiedRaised.TryApplyControl(
+    77, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Controller, pilotAxes);
+Check(!unqualifiedInput.Accepted &&
+      unqualifiedInput.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.QualificationRequired,
+    "Physical occupancy does not grant fighter-pilot qualification");
+
+var unpoweredStation = TheSingularityWorkshop.raWWar.Interaction.FighterPilotStation.Create(9003, powered: false);
+var unpoweredReady = unpoweredStation.TrySeat(88, fighterPilotQualified: true).After
+    .TrySecureOccupant().After
+    .TryConnectInterface().After
+    .TryRaiseControlRig().After;
+var unpoweredInput = unpoweredReady.TryApplyControl(
+    88, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Desktop, pilotAxes);
+Check(!unpoweredInput.Accepted &&
+      unpoweredInput.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.StationUnpowered,
+    "A raised rig cannot command an unpowered station");
+
+var invalidAxes = raisedPilot.After.TryApplyControl(
+    42,
+    TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Desktop,
+    new TheSingularityWorkshop.raWWar.Interaction.PilotControlAxes(double.NaN, 0, 0, 0.5));
+Check(!invalidAxes.Accepted &&
+      invalidAxes.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.InvalidControlInput,
+    "Non-finite control axes are rejected rather than entering the flight-control pipeline");
+
+var emergencyRelease = unpoweredReady.TryEmergencyRelease();
+Check(emergencyRelease.Accepted &&
+      emergencyRelease.After.OccupantId is null &&
+      !emergencyRelease.After.RestraintsSecured &&
+      !emergencyRelease.After.InterfaceConnected &&
+      !emergencyRelease.After.ControlRigRaised,
+    "Emergency egress releases the occupant and rig without depending on station power");
+
+var damagedStation = TheSingularityWorkshop.raWWar.Interaction.FighterPilotStation.Create(9004, controlsIntact: false);
+var damagedSeated = damagedStation.TrySeat(101, fighterPilotQualified: true).After;
+var damagedSecured = damagedSeated.TrySecureOccupant().After;
+var damagedConnection = damagedSecured.TryConnectInterface();
+Check(!damagedConnection.Accepted &&
+      damagedConnection.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.ControlsDamaged,
+    "Damaged station controls block interface connection explicitly");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
