@@ -20,6 +20,7 @@ These SVGs are authored, lightweight diagrams and concept illustrations. Unless 
 | [rawwar-faction-spectrum.svg](rawwar-faction-spectrum.svg) | The thirteen-faction political space | Faction design |
 | [rawwar-advisor-agency.svg](rawwar-advisor-agency.svg) | Advisors as agents who learn, warn, act, suffer outcomes, and leave history | Advisors and command staff |
 | [rawwar-work-kanban.svg](rawwar-work-kanban.svg) | Work-board states and evidence-based transitions grounded in world state | Work orders, logistics, production |
+| [rawwar-science-floor-construction.svg](rawwar-science-floor-construction.svg) | Underground science-floor construction from site investigation through support, utilities, lab installation, commissioning, and acceptance | Engineering data scape, advisors, facilities |
 
 ## Visual language
 
