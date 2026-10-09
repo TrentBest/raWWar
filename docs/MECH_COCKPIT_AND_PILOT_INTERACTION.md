@@ -10,6 +10,16 @@ The player approaches a mech, inspects its condition and access state, opens the
 
 The machine has a physical cockpit: seat and restraints, hatch and seal, displays, status lamps, switches, guarded controls, levers, grips, pedals, communications, environmental controls, maintenance access, manual isolation controls, and emergency egress. Those are objects in the same world as the player, not a separate menu that pretends to be a cockpit.
 
+## The station engages the pilot
+
+![Fighter-pilot station sequence](images/rawwar-pilot-station-sequence.svg)
+
+The station does not simply move the camera into a cockpit. It takes responsibility for the occupant: seat and identify, engage restraints, connect the pilot interface, then raise the physical control rig into operating position. The player's visible hands and grips express that rig state. Flight input remains unavailable until the occupant is qualified, secured, connected, the rig is raised, power is available, and the controls are intact.
+
+The raWWar `FighterPilotStation` prototype and executable contract checks cover those state gates and bounded pilot intent. The physical sequence animation, hand pose, flight-control law, durable event history, and AnyApp presentation are not yet implemented. See the [master GDD's station sequence](GAME_DESIGN_DOCUMENT.md#125-fighter-pilot-station-secure-connect-raise-control) for the full design boundary.
+
+Emergency egress is a first-class station transition. It must not depend on station power; the occupant cannot be trapped merely because the interface or electrical system has failed.
+
 ## One physical control, one semantic action
 
 Every control maps to a semantic action against the authoritative world object. Desktop mouse and keyboard, VR hand/controller, and accessibility inputs can invoke the same action. The input method changes; the world rules do not.
