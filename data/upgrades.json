@@ -190,7 +190,7 @@
       "target": [
         "soldier.equipped"
       ],
-      "installPackage": "electronics.shoulder_camera_v1",
+      "installPackage": "install.shoulder_camera_spatial_overlay",
       "manufacturing": [
         "resource.rare_earth_concentrate",
         "resource.aerospace_alloy"
@@ -225,7 +225,7 @@
       "target": [
         "facility.command_monitoring_center"
       ],
-      "installPackage": "security.panel.sensor_fusion_v1",
+      "installPackage": "install.command_sensor_fusion_workstation",
       "manufacturing": [
         "resource.rare_earth_concentrate",
         "resource.aerospace_alloy"
@@ -890,6 +890,56 @@
         "measure_optical_power",
         "test_failover",
         "audit_route_diversity"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.shoulder_camera_spatial_overlay",
+      "name": "Shoulder Camera Spatial Overlay Kit",
+      "deliveredCapability": "electronics.shoulder_camera_v1",
+      "components": [
+        "camera_module",
+        "helmet_or_shoulder_mount",
+        "power_and_data_lead",
+        "time_sync_profile",
+        "privacy_and_recording_policy"
+      ],
+      "procedure": [
+        "issue_to_soldier",
+        "fit_mount",
+        "pair_identity",
+        "align_pose_reference",
+        "verify_time_sync",
+        "test_range_overlay",
+        "accept_and_record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.command_sensor_fusion_workstation",
+      "name": "Command Sensor Fusion Workstation Kit",
+      "deliveredCapability": "security.panel.sensor_fusion_v1",
+      "components": [
+        "compute_node",
+        "operator_console",
+        "time_source",
+        "sensor_gateway",
+        "calibration_profiles"
+      ],
+      "procedure": [
+        "install_compute",
+        "align_time_sources",
+        "enroll_sensor_sources",
+        "replay_track_conflicts",
+        "train_operators",
+        "test_failover",
+        "accept_and_record"
       ],
       "requiresPhysicalDispatch": true,
       "requiresQualifiedInstaller": true,
