@@ -34,6 +34,7 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `contested-history-and-betrayal.json` — account and claim types, evidence provenance, victor and defeated-side narrative bias, betrayal relationships, and validation rules for contested historical events.
 - `campaign-history-discoveries.json` — archive record types, integrity/access states, layered investigation, and an illustrative derelict-warship discovery.
 - `directional-damage-and-salvage.json` — six-face local coordinates, causal secondary events, part outcomes, recovery provenance, and performance strategy.
+- `mech-and-exotic-platforms.json` — boarded battle-mech requirements, cross-environment machine families, physical controls, damageable interfaces, and GPU performance validation contracts.
 
 ## World-generation architecture
 
