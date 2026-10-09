@@ -23,6 +23,7 @@ These SVGs are authored, lightweight diagrams and concept illustrations. Unless 
 | [rawwar-science-floor-construction.svg](rawwar-science-floor-construction.svg) | Underground science-floor construction from site investigation through support, utilities, lab installation, commissioning, and acceptance | Engineering data scape, advisors, facilities |
 | [rawwar-ship-damage-and-salvage.svg](rawwar-ship-damage-and-salvage.svg) | Ship hierarchy, six-face impact resolution, causal secondary effects, and surviving wreck components | Starship sizing, systems design, engineering data scape |
 | [rawwar-faction-ship-languages.svg](rawwar-faction-ship-languages.svg) | Six candidate human ship-design archetypes, each with a visible silhouette and engineering tradeoffs | Faction ship design languages, art direction |
+| [rawwar-milky-way-reference-layers.svg](rawwar-milky-way-reference-layers.svg) | The Solar System's place in the Milky Way and the separation of observed, inferred, generated, and presentation layers | Galaxy generation, spatial observation, navigation HUD |
 | [rawwar-authored-campaign-lineage.svg](rawwar-authored-campaign-lineage.svg) | Authored single-player campaign versus generated multiplayer world, shared validation, persistent history, and branching human civilization ancestry | Campaign authoring, galaxy generation |
 
 ## Visual language
