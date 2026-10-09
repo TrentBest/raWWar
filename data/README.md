@@ -24,6 +24,8 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `advisor-appointments.json` — appointment authority, qualification groups, initial work programs, scoped bonus domains, and succession intent.
 - `advisor-candidates.json` — illustrative candidates with service evidence, limitations, agent-earned bonus examples, and warning behavior.
 - `work-kanban-contract.json` — persistent work-board columns, work-item fields, legal transitions, risk overrides, personnel death, and capacity rules.
+- `ship-assemblies.json` — candidate ship envelope, structural zones, part hierarchy, dependencies, repair approaches, and salvage classes.
+- `directional-damage-and-salvage.json` — six-face local coordinates, causal secondary events, part outcomes, recovery provenance, and performance strategy.
 
 ## World-generation architecture
 
