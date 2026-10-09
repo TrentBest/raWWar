@@ -362,7 +362,7 @@ Check(campaignRoot.GetProperty("modes").GetProperty("multiplayer").GetProperty("
 var manifestFields = campaignRoot.GetProperty("manifestFields").EnumerateArray().Select(x => x.GetString()!).ToHashSet(StringComparer.Ordinal);
 Check(manifestFields.Contains("authoredLineageRefs") && manifestFields.Contains("permittedVariation") && manifestFields.Contains("saveCompatibilityPolicy"),
     "Campaign manifests can pin ancestry, control variation, and declare save compatibility");
-Check(campaignRoot.GetProperty("validationGates").EnumerateArray().Any(x => x.GetString()!.Contains("chronological lineage consistency", StringComparison.OrdinalIgnoreCase)),
+Check(campaignRoot.GetProperty("validationGates").EnumerateArray().Any(x => x.GetString()!.Contains("chronology", StringComparison.OrdinalIgnoreCase) && x.GetString()!.Contains("lineage", StringComparison.OrdinalIgnoreCase)),
     "Generated campaign histories validate chronology and lineage");
 var lineageRelationshipKinds = lineageRoot.GetProperty("relationshipKinds").EnumerateArray().Select(x => x.GetString()!).ToHashSet(StringComparer.Ordinal);
 Check(lineageRelationshipKinds.Contains("colonized-by") && lineageRelationshipKinds.Contains("seceded-from") &&
