@@ -1,0 +1,794 @@
+{
+  "schema": "raWWar.electronic-system.v1",
+  "designNotes": {
+    "powerValues": "Nominal simulation draw in watts; startup, idle, active, transmit and fault loads may differ.",
+    "signalRule": "Power, signal, grounding/isolation, clock quality and data freshness are separate interfaces.",
+    "researchRule": "Research unlocks a design; manufacturing, dispatch, qualified installation, downtime and acceptance are still required.",
+    "safetyRule": "Interlocks, alarms and bypass history are authoritative state, not decoration."
+  },
+  "systems": [
+    {
+      "id": "electronics.vehicle_data_bus_v1",
+      "name": "Deterministic Vehicle Data Bus",
+      "domain": "control_and_data",
+      "maturity": "production",
+      "drawW": {
+        "idle": 18,
+        "active": 65,
+        "peak": 120
+      },
+      "interfaces": [
+        "sensor_data",
+        "command",
+        "status",
+        "diagnostics"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "bus_open",
+        "bus_short",
+        "stale_message",
+        "address_collision"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.digital_data_bus",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.vehicle_gateway_v1",
+      "name": "Vehicle Network Gateway",
+      "domain": "control_and_data",
+      "maturity": "production",
+      "drawW": {
+        "idle": 12,
+        "active": 40,
+        "peak": 90
+      },
+      "interfaces": [
+        "legacy_bus",
+        "deterministic_bus",
+        "maintenance_port"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "protocol_mismatch",
+        "buffer_overrun",
+        "isolation_fault"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.digital_data_bus",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.relay_logic_rack_v1",
+      "name": "Electromechanical Relay Logic Rack",
+      "domain": "discrete_control",
+      "maturity": "production",
+      "drawW": {
+        "idle": 8,
+        "active": 42,
+        "peak": 110
+      },
+      "interfaces": [
+        "dry_contact_inputs",
+        "coil_outputs",
+        "hardwired_interlocks"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "coil_open",
+        "contact_weld",
+        "contact_resistance",
+        "chatter",
+        "miswire"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.relay_logic_rack_v2",
+      "name": "High-Reliability Relay Rack",
+      "domain": "discrete_control",
+      "maturity": "research",
+      "drawW": {
+        "idle": 6,
+        "active": 34,
+        "peak": 85
+      },
+      "interfaces": [
+        "dry_contact_inputs",
+        "coil_outputs",
+        "hardwired_interlocks",
+        "event_counter"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "coil_open",
+        "contact_weld",
+        "contact_resistance"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.high_reliability_relays",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.solid_state_io_v1",
+      "name": "Solid-State Remote I/O Module",
+      "domain": "discrete_control",
+      "maturity": "prototype",
+      "drawW": {
+        "idle": 14,
+        "active": 55,
+        "peak": 130
+      },
+      "interfaces": [
+        "isolated_inputs",
+        "protected_outputs",
+        "diagnostics",
+        "timestamped_events"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "output_short",
+        "thermal_shutdown",
+        "threshold_drift"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.solid_state_control",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.galvanic_isolator_v1",
+      "name": "Galvanically Isolated Signal Coupler",
+      "domain": "signal_integrity",
+      "maturity": "production",
+      "drawW": {
+        "idle": 2,
+        "active": 6,
+        "peak": 12
+      },
+      "interfaces": [
+        "field_signal",
+        "logic_signal"
+      ],
+      "isolation": "no_direct_conductive_signal_path",
+      "failureModes": [
+        "isolation_breakdown",
+        "contamination",
+        "common_mode_limit"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.power_converter_28_600_v1",
+      "name": "28 V / 600 V DC Power Converter",
+      "domain": "power_conversion",
+      "maturity": "production",
+      "drawW": {
+        "idle": 140,
+        "active": 850,
+        "peak": 2400
+      },
+      "interfaces": [
+        "power_input",
+        "power_output",
+        "fault_status"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "overtemperature",
+        "switch_failure",
+        "capacitor_degradation",
+        "ground_fault"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.shipboard_switchboard_v1",
+      "name": "Zoned Shipboard Switchboard",
+      "domain": "power_distribution",
+      "maturity": "production",
+      "drawW": {
+        "idle": 500,
+        "active": 2500,
+        "peak": 9000
+      },
+      "interfaces": [
+        "zoned_bus",
+        "feeder_outputs",
+        "breaker_status",
+        "protection_trip"
+      ],
+      "isolation": "breaker_and_bus_sectionalization",
+      "failureModes": [
+        "breaker_fail_to_trip",
+        "bus_fault",
+        "hot_joint",
+        "miscoordination"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.zoned_power_distribution",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.motor_drive_v1",
+      "name": "Variable-Speed Motor Drive",
+      "domain": "actuation",
+      "maturity": "production",
+      "drawW": {
+        "idle": 45,
+        "active": 180,
+        "peak": 600
+      },
+      "interfaces": [
+        "power",
+        "speed_torque_command",
+        "encoder_feedback",
+        "fault_status"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "overcurrent",
+        "encoder_loss",
+        "thermal_trip"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.inertial_navigation_v1",
+      "name": "Inertial Navigation Unit",
+      "domain": "navigation",
+      "maturity": "production",
+      "drawW": {
+        "idle": 18,
+        "active": 32,
+        "peak": 50
+      },
+      "interfaces": [
+        "imu_data",
+        "time_reference",
+        "navigation_solution"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "bias_drift",
+        "time_sync_loss",
+        "sensor_saturation"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.networked_sensors",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.multispectral_sensor_v1",
+      "name": "Multispectral Observation Head",
+      "domain": "sensing",
+      "maturity": "production",
+      "drawW": {
+        "idle": 35,
+        "active": 160,
+        "peak": 320
+      },
+      "interfaces": [
+        "visible",
+        "infrared",
+        "range",
+        "calibration",
+        "health"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "lens_contamination",
+        "cooler_fault",
+        "calibration_drift"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.networked_sensors",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.active_radar_array_v1",
+      "name": "Active Radar Array",
+      "domain": "sensing",
+      "maturity": "prototype",
+      "drawW": {
+        "idle": 220,
+        "active": 1800,
+        "peak": 4200
+      },
+      "interfaces": [
+        "transmit_control",
+        "receive_channels",
+        "track_data",
+        "built_in_test"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "array_element_loss",
+        "thermal_derate",
+        "clutter_error"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.networked_sensors",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.tactical_mesh_radio_v1",
+      "name": "Tactical Mesh Radio",
+      "domain": "communications",
+      "maturity": "production",
+      "drawW": {
+        "idle": 9,
+        "active": 38,
+        "peak": 95
+      },
+      "interfaces": [
+        "voice",
+        "packet_data",
+        "time_sync",
+        "key_status"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "key_expiry",
+        "antenna_damage",
+        "congestion",
+        "network_partition"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.optical_fiber_backbone_v1",
+      "name": "Optical Fiber Data Trunk",
+      "domain": "communications",
+      "maturity": "production",
+      "drawW": {
+        "idle": 0,
+        "active": 0,
+        "peak": 0
+      },
+      "interfaces": [
+        "optical_tx",
+        "optical_rx",
+        "link_health"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "fiber_break",
+        "connector_loss",
+        "bend_loss"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.resilient_networks",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.security_controller_v1",
+      "name": "Facility Security Controller",
+      "domain": "security",
+      "maturity": "production",
+      "drawW": {
+        "idle": 22,
+        "active": 85,
+        "peak": 160
+      },
+      "interfaces": [
+        "credential_reader",
+        "door_contact",
+        "tamper_loop",
+        "alarm_bus",
+        "event_log"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "reader_offline",
+        "door_forced",
+        "tamper_open",
+        "clock_invalid"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.resilient_facility_controls",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.environment_monitor_v1",
+      "name": "Industrial Environment Monitor",
+      "domain": "safety_and_environment",
+      "maturity": "production",
+      "drawW": {
+        "idle": 5,
+        "active": 18,
+        "peak": 35
+      },
+      "interfaces": [
+        "temperature",
+        "pressure",
+        "humidity",
+        "smoke",
+        "gas",
+        "alarm"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "sensor_drift",
+        "blocked_sample",
+        "alarm_fault"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.power_quality_meter_v1",
+      "name": "Power Quality and Feeder Meter",
+      "domain": "instrumentation",
+      "maturity": "production",
+      "drawW": {
+        "idle": 4,
+        "active": 12,
+        "peak": 22
+      },
+      "interfaces": [
+        "voltage",
+        "current",
+        "frequency",
+        "harmonics",
+        "event_capture"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "ratio_error",
+        "phase_mapping_error",
+        "clock_drift"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.shoulder_camera_v1",
+      "name": "Soldier Shoulder Camera and Spatial Overlay",
+      "domain": "soldier_systems",
+      "maturity": "prototype",
+      "drawW": {
+        "idle": 2,
+        "active": 7,
+        "peak": 14
+      },
+      "interfaces": [
+        "video",
+        "pose_estimate",
+        "timecode",
+        "range_overlay",
+        "recording_state"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "lens_obstruction",
+        "pose_drift",
+        "timecode_mismatch",
+        "storage_full"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.soldier_spatial_overlay",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.crew_terminal_v1",
+      "name": "Rugged Crew Procedure Terminal",
+      "domain": "human_machine_interface",
+      "maturity": "production",
+      "drawW": {
+        "idle": 6,
+        "active": 24,
+        "peak": 50
+      },
+      "interfaces": [
+        "procedure_display",
+        "acknowledgement",
+        "alarms",
+        "asset_identity",
+        "work_order"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "display_failure",
+        "stale_procedure",
+        "input_failure"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.gesture_tracker_v1",
+      "name": "Gesture and Task Execution Tracker",
+      "domain": "personnel_systems",
+      "maturity": "production",
+      "drawW": {
+        "idle": 8,
+        "active": 35,
+        "peak": 90
+      },
+      "interfaces": [
+        "pose_samples",
+        "task_phase",
+        "reference_gesture",
+        "variance_summary"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "occlusion",
+        "reference_mismatch",
+        "sampling_drop"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "technology": "tech.gesture_execution_model",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.fire_detection_loop_v1",
+      "name": "Addressable Fire Detection Loop",
+      "domain": "safety_and_environment",
+      "maturity": "production",
+      "drawW": {
+        "idle": 10,
+        "active": 32,
+        "peak": 75
+      },
+      "interfaces": [
+        "smoke",
+        "heat",
+        "manual_call_point",
+        "loop_fault",
+        "alarm"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "open_loop",
+        "short_circuit",
+        "contamination",
+        "false_alarm"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.interlock_module_v1",
+      "name": "Permissive and Interlock Module",
+      "domain": "safety_control",
+      "maturity": "production",
+      "drawW": {
+        "idle": 12,
+        "active": 36,
+        "peak": 80
+      },
+      "interfaces": [
+        "permissive_inputs",
+        "trip_inputs",
+        "feedback",
+        "bypass_status",
+        "event_record"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "false_permissive",
+        "failure_to_trip",
+        "feedback_disagreement",
+        "unauthorized_bypass"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    },
+    {
+      "id": "electronics.data_recorder_v1",
+      "name": "Tamper-Evident Event Recorder",
+      "domain": "history_and_audit",
+      "maturity": "production",
+      "drawW": {
+        "idle": 4,
+        "active": 14,
+        "peak": 30
+      },
+      "interfaces": [
+        "timestamped_events",
+        "asset_identity",
+        "sequence_counter",
+        "integrity_status"
+      ],
+      "isolation": "isolated_or_segmented_interface",
+      "failureModes": [
+        "clock_loss",
+        "storage_degradation",
+        "sequence_gap"
+      ],
+      "maintenance": [
+        "inspection",
+        "calibration_or_proof_test",
+        "functional_test",
+        "record_result"
+      ],
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ]
+    }
+  ]
+}
