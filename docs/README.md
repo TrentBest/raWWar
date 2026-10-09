@@ -35,7 +35,7 @@ System-specific documents expand the design without silently changing canon.
 
 - [Visual Asset Catalogue](images/README.md)
 - [Embodied mech control and engineering](images/rawwar-embodied-mech-control.svg) — shared action semantics, pilot control loop, physical engineering procedures, and performance limits.
-- [Milky Way reference layers](images/rawwar-milky-way-reference-layers.svg) — observed data, inferred galactic structure, generated populations, and player-facing representation kept separate. — an illustrated map of the current visual language, system diagrams, and where each image belongs.
+- [Milky Way reference layers](images/rawwar-milky-way-reference-layers.svg) — observed data, inferred galactic structure, generated populations, and player-facing representation kept separate.
 - [Advisor agency and consequences](images/rawwar-advisor-agency.svg) — how an advisor's agency, earned experience, warnings, physical outcomes, and persistent history connect.
 - [Work kanban lifecycle](images/rawwar-work-kanban.svg) — the board as a projection of real work, with evidence-based transitions and blockers.
 - [Science floor construction](images/rawwar-science-floor-construction.svg) — the physical prerequisites between proposing a lab and operating it.
