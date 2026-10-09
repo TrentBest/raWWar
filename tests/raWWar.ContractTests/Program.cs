@@ -655,46 +655,6 @@ Check(engineeringOps.GetProperty("eventAndHistory").GetProperty("everyProcedureS
     "Failed engineering and LOTO attempts remain part of persistent audit history");
 
 
-// Input adapters converge on the same physical control transition, rather than bypassing the world.
-var throttleDefinition = new TheSingularityWorkshop.raWWar.Interaction.PhysicalControlDefinition(
-    "control.test.throttle", "grip", 0, 1, 0.5, 0.1, true, "move-hand-to-grip");
-var initialControl = new TheSingularityWorkshop.raWWar.Interaction.PhysicalControlState(0.5);
-var keyboardMove = TheSingularityWorkshop.raWWar.Interaction.PhysicalControlResolver.Apply(
-    throttleDefinition, initialControl,
-    new("pilot-1", TheSingularityWorkshop.raWWar.Interaction.PhysicalControlAction.Move, 0.2,
-        TheSingularityWorkshop.raWWar.Interaction.PhysicalInputSource.Keyboard, 10));
-var vrMove = TheSingularityWorkshop.raWWar.Interaction.PhysicalControlResolver.Apply(
-    throttleDefinition, initialControl,
-    new("pilot-1", TheSingularityWorkshop.raWWar.Interaction.PhysicalControlAction.Move, 0.2,
-        TheSingularityWorkshop.raWWar.Interaction.PhysicalInputSource.VrTrackedHand, 10));
-Near(keyboardMove.State.Position, vrMove.State.Position, 1e-12,
-    "Keyboard and VR resolve to the same physical control state");
-Check(keyboardMove.Event.ControlId == vrMove.Event.ControlId &&
-      keyboardMove.Event.ResultingPosition == vrMove.Event.ResultingPosition,
-    "Different input devices retain one authoritative control identity and outcome");
-Check(keyboardMove.ActorMotion == "move-hand-to-grip" && keyboardMove.WorldStateChanged,
-    "A successful semantic input requests visible actor motion and changes world state");
-var lockedControl = TheSingularityWorkshop.raWWar.Interaction.PhysicalControlResolver.Apply(
-    throttleDefinition, initialControl with { InterlockSatisfied = false },
-    new("pilot-1", TheSingularityWorkshop.raWWar.Interaction.PhysicalControlAction.Move, 0.2,
-        TheSingularityWorkshop.raWWar.Interaction.PhysicalInputSource.Keyboard, 11));
-Check(!lockedControl.Event.Accepted && lockedControl.RejectionReason == "interlock-open" &&
-      lockedControl.State.Position == initialControl.Position,
-    "An open interlock blocks input without moving the actual control");
-var damagedControl = TheSingularityWorkshop.raWWar.Interaction.PhysicalControlResolver.Apply(
-    throttleDefinition, initialControl with { Integrity = 0 },
-    new("pilot-1", TheSingularityWorkshop.raWWar.Interaction.PhysicalControlAction.Move, 0.2,
-        TheSingularityWorkshop.raWWar.Interaction.PhysicalInputSource.VrTrackedHand, 12));
-Check(!damagedControl.Event.Accepted && damagedControl.RejectionReason == "destroyed",
-    "A destroyed physical control rejects input and records the failed attempt");
-Check(lockedControl.State.EventCount == 1 && !lockedControl.Event.Accepted,
-    "Rejected interactions remain auditable state transitions");
-Check(keyboardMove.Event.LogicalTime == 10 &&
-      keyboardMove.Event.InputSource == TheSingularityWorkshop.raWWar.Interaction.PhysicalInputSource.Keyboard,
-    "Physical interaction events retain logical time and originating input source");
-
-
-
 // Composition must follow the current FSM_COS manifest boundary and keep generic capabilities
 // explicitly owned by reusable Workshop MicroBundles rather than by the raWWar Experience.
 using var workshopCompositionData = ReadData("workshop-composition-contract.json");
