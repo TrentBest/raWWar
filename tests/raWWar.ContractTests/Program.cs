@@ -515,6 +515,47 @@ Check(contestedHistoryRoot.GetProperty("validationGates").EnumerateArray()
     .Any(x => x.GetString()!.Contains("victor's official account receives no automatic truth bonus", StringComparison.Ordinal)),
     "Validation explicitly rejects victor-biased truth scoring");
 
+// A mech is boarded and operated through physical, damageable controls; GPU performance remains measurable.
+using var mechData = ReadData("mech-and-exotic-platforms.json");
+var mechRoot = mechData.RootElement;
+Check(mechRoot.GetProperty("schema").GetString() == "raWWar.mech-and-exotic-platforms.v1",
+    "Mech and exotic platform contract is versioned");
+Check(mechRoot.GetProperty("authority").GetProperty("battleMechsAreAnExplicitDesiredExperience").GetBoolean(),
+    "Pilotable battle mechs are an explicit desired experience");
+var pilotExperience = mechRoot.GetProperty("pilotExperience");
+Check(pilotExperience.GetProperty("boardingSequence").EnumerateArray().Select(x => x.GetString())
+    .Contains("secure-seat-and-restraints") &&
+      pilotExperience.GetProperty("boardingSequence").EnumerateArray().Select(x => x.GetString())
+    .Contains("run-self-test"),
+    "Mech operation includes physical boarding, restraint, and system checks");
+Check(pilotExperience.GetProperty("motionInterface").GetProperty("status").GetString() ==
+      "candidate-option-not-universal-requirement" &&
+      pilotExperience.GetProperty("motionInterface").GetProperty("requiredChecks").EnumerateArray()
+      .Select(x => x.GetString()).Contains("latency-and-loss-detection"),
+    "Motion capture is an optional control path with calibration and failure handling");
+Check(pilotExperience.GetProperty("interfaceSemantics").GetProperty("oneAuthoritativeWorldObject").GetString()!
+    .Contains("same semantic action", StringComparison.Ordinal),
+    "Desktop and VR controls invoke the same world-level semantic action");
+Check(pilotExperience.GetProperty("damageableInterfaces").GetProperty("targets").EnumerateArray()
+    .Select(x => x.GetString()).Contains("screen-surface") &&
+      pilotExperience.GetProperty("damageableInterfaces").GetProperty("targets").EnumerateArray()
+    .Select(x => x.GetString()).Contains("hatch-interlock"),
+    "Cockpit displays and mechanisms are separately damageable physical components");
+var renderContract = mechRoot.GetProperty("renderingPerformanceContract");
+Check(renderContract.GetProperty("measuredLimits").EnumerateArray().Select(x => x.GetString())
+    .Contains("GPU memory capacity and fragmentation") &&
+      renderContract.GetProperty("measuredLimits").EnumerateArray().Select(x => x.GetString())
+    .Contains("pixel/fragment workload and overdraw"),
+    "GPU rendering budgets include memory and pixel work rather than assuming unlimited capacity");
+Check(renderContract.GetProperty("meshJoiningPolicy").GetProperty("compareStrategies").EnumerateArray()
+    .Select(x => x.GetString()).Contains("instanced repeated components") &&
+      renderContract.GetProperty("meshJoiningPolicy").GetProperty("compareStrategies").EnumerateArray()
+    .Select(x => x.GetString()).Contains("selectively joined static groups"),
+    "Mesh joining and instancing are benchmarked as alternatives");
+Check(renderContract.GetProperty("validationRules").EnumerateArray()
+    .Any(x => x.Contains("VR comfort", StringComparison.Ordinal)),
+    "Rendering validation accounts for VR refresh deadlines and comfort");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
