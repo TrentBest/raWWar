@@ -23,6 +23,8 @@ System-specific documents expand the design without silently changing canon.
 - [Mapping the Milky Way](MAPPING_THE_MILKY_WAY.md) — evidence-backed galactic reference, Solar System placement, procedural population expansion, motion across time, and truthful navigation presentation.
 - [Navigation Frames and Chart Evolution](NAVIGATION_FRAMES_AND_CHART_EVOLUTION.md) — how Earth-origin, Solar-System, stellar, and galactocentric chart frames evolve with navigation equipment, standards, uncertainty, and historical knowledge.
 - [Contested History, Betrayal, and the Politics of Memory](CONTESTED_HISTORY_BETRAYAL_AND_MEMORY.md) — victor-written narratives, conflicting battle accounts, evidence provenance, betrayal, propaganda, cover-ups, and player-led historical investigation.
+- [Diegetic Interaction and Physical Interfaces](DIEGETIC_INTERACTION_AND_PHYSICAL_INTERFACES.md) — physical controls, mounted screens, desktop/VR semantic parity, damageable interfaces, and repair work.
+- [Mechs, Machines, and the Evolution of Warfare](MECHS_MACHINES_AND_WARFARE_EVOLUTION.md) — pilotable battle mechs and branching combat, industrial, research, extraction, and exotic-environment platforms.
 - [Humanity's Long History and the Discoverable Past](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) — speculative history from Earth to the galactic Empire, science-fiction guardrails, and deep discoverable archives.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
