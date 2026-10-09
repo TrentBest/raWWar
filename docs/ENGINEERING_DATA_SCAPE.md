@@ -139,4 +139,4 @@ GPU textures may hold compact state snapshots or bulk system fields, but a textu
 
 ## 11. Current coverage
 
-The first engineering expansion includes 13 chassis, 23 electronic system records, 14 facility/building assemblies, 9 security panels, 27 technology records, 16 upgrade definitions and 15 physical installation packages. The corpus also links all ten current vehicle records to their chassis and selected electronics, and links all fourteen facilities to assembly definitions. These are starting catalogues intended for continued expansion.
+The first engineering expansion includes 13 chassis, 23 electronic system records, 14 facility/building assemblies, 9 security panels, 27 technology records, 16 upgrade definitions and 17 physical installation packages. The corpus also links all ten current vehicle records to their chassis and selected electronics, and links all fourteen facilities to assembly definitions. These are starting catalogues intended for continued expansion.
