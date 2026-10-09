@@ -6,7 +6,7 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 
 | Example | What it demonstrates | Verification boundary |
 |---|---|---|
-| [KeplerOrbit](KeplerOrbit/Program.cs) | Constructing an immutable elliptic orbit, querying explicit logical times, and checking periodic repeatability without a rendering or simulation-clock dependency. | The project is in the solution and references the real raWWar project. The matching numerical contract checks live in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). Run the example with the command below. |
+| [KeplerOrbit](KeplerOrbit/Program.cs) | Constructing an immutable elliptic orbit, querying explicit logical times, checking repeatability, and rejecting non-finite logical time and eccentricity outside the supported elliptic domain. | The project is in the solution and references the real raWWar project. Matching numerical contract checks live in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). Run the example with the command below. |
 | [Authoring manifest](../manifest.json) and [runtime manifest](../runtime-manifest.json) | Separating Experience metadata from FSM_COS root bundle IDs and requested versions. | Manifest-shape and identity checks are in the contract-test program. This is not AnyApp publication-manifest or end-to-end host-loading proof. |
 | [Workshop composition contract](../data/workshop-composition-contract.json) | Recording ownership boundaries, current verified FSM_COS contract, proposed reusable capabilities, and explicit non-publication status as data. | Architecture assertions are in the contract-test program. Proposed capabilities are not implemented capabilities. |
 
