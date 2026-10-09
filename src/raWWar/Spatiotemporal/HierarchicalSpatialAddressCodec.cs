@@ -34,7 +34,7 @@ public static class HierarchicalSpatialAddressCodec
         bytes[2] = MagicS;
         bytes[3] = MagicA;
         bytes[4] = CurrentVersion;
-        BinaryPrimitives.WriteUInt16BigEndian(bytes.AsSpan(5, 2), checked((ushort)address.Root.Ordinal);
+        BinaryPrimitives.WriteUInt16BigEndian(bytes.AsSpan(5, 2), checked((ushort)address.Root.Ordinal));
         BinaryPrimitives.WriteUInt32BigEndian(bytes.AsSpan(7, 4), checked((uint)depth));
 
         var offset = HeaderLength;
