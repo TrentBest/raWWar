@@ -158,7 +158,8 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added [Documentation Conformance](docs/DOCUMENTATION_CONFORMANCE.md) to record what has been applied and what remains to be audited.
 - [x] Linked the conformance guide from the documentation index.
 - [x] Reviewed Experience Architecture's responsibility boundary and added an implementation-evidence table separating package/manifest checks, local FSM_COS composition, orbit-example coverage, and the unimplemented station-and-rig/host integration.
-- [x] Clarified Game Design Bible authority and added purpose/owner/audience/evidence metadata to the Bible, Technical Design, and Production Plan.
+- [x] Clarified Game Design Bible authority and added purpose/owner/audience/evidence metadata to the Bible, GDD, Technical Design, and Production Plan.
+- [x] Added scope/status/evidence metadata to Vision and Pillars, Systems Design, Player Roles, and UX and Interaction.
 - [x] Updated the conformance audit with concrete findings and a more precise remaining-work list.
 - [ ] Complete the line-by-line audit of the GDD and companion design docs for contradictions, source/API accuracy, and link validity; the current pass is not exhaustive.
 - [ ] Re-check CI for the latest documentation commits; report unverified status honestly if GitHub provides no run/status result.
