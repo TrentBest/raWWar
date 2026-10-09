@@ -219,6 +219,24 @@ See [Galaxy Generation, Cosmic Context, and Spatial Refinement](GALAXY_GENERATIO
 
 The master GDD remains the primary design document. This companion exists to make the architectural implications explicit. Material that matures here should eventually be absorbed into the master GDD.
 
+
+## Implementation evidence and current limits
+
+The architecture above is the intended responsibility model. It must not be read as a claim that every layer is already integrated.
+
+| Slice | Current evidence | What it does **not** establish |
+|---|---|---|
+| .NET Experience scaffold | The raWWar project and executable contract-check project are in the solution. | A playable game or complete domain simulation. |
+| Manifest packaging | CI locally packs the Experience package and checks that both authoring/runtime manifest files are present. [Historical run](https://github.com/TrentBest/raWWar/actions/runs/37985018118). | Publication to NuGet or compatibility with AnyApp's publication manifest. |
+| FSM_COS root composition | A test-only in-memory catalog adapts the root to the published FSM_COS `0.1.0-alpha.5` API; the earlier run passed 175/175 checks with no warnings/errors. [Run](https://github.com/TrentBest/raWWar/actions/runs/37985434148). | Repository retrieval, artifact-address closure, direct runtime-manifest deserialization, or host launch. |
+| Explicit-time orbital model | The KeplerOrbit example and contract checks cover repeatability, periodicity, and selected invalid boundaries. See the [examples index](../examples/README.md). | A complete galaxy simulation, multi-body dynamics, general frame transformations, or rendering integration. |
+| Station-and-rig interaction | Design documents establish the intended physical interaction direction. | Implemented physical-control resolution, desktop/VR semantic parity, or an end-to-end authoritative action. |
+
+The most important current integration blocker is the distinction between raWWar's authoring/runtime manifests and AnyApp's publication manifest, including immutable artifact identity for transitive dependency closure. See the [AnyApp manifest bridge investigation](integration/ANYAPP_MANIFEST_BRIDGE.md) and [maintained TODO queue](../TODO.md).
+
+Treat architecture diagrams as **conceptual unless explicitly labeled as implementation evidence**. A package that builds, a manifest that packs, a local composition test, and a host that can retrieve and launch the Experience are four different milestones.
+
+
 ## The ultimate test
 
 If raWWar becomes a showcase for FSM_COS, the visitor should not leave thinking it was a clever FSM demonstration.
