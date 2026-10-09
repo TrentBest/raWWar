@@ -1,6 +1,9 @@
 # raWWar — UX and Interaction Design
 
-Status: Initial direction.
+**Status:** Initial direction; desktop/VR semantic parity and physical-control resolution are not yet implemented as a complete pipeline.  
+**Owner:** raWWar Experience design.  
+**Audience:** Interaction designers, content authors, and engineers defining player-facing procedures.  
+**Evidence rule:** Interaction sequences are conceptual unless a runnable example and its tests are linked.
 
 ## Interaction philosophy
 The player should interact with systems as a person inside the world.
