@@ -73,6 +73,8 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [x] Reaffirmed the critical boundary: FSM_COS composes capabilities; it is not the game loop, host, renderer, or source of raWWar's domain meaning.
 - [x] Technical Design distinguishes intended architecture from implemented orbit-query coverage and from unproven end-to-end AnyApp integration.
 - [x] Experience Architecture includes an implementation-evidence table and identifies what current scaffold/package/composition checks do not prove.
+- [x] Open Questions is explicitly labeled as an elicitation register; unanswered questions are not implied decisions, and the Gesture question is numbered consistently.
+- [x] The visual asset catalogue identifies its owner, audience, status, and evidence rule so conceptual artwork is not mistaken for completed runtime or engineering output.
 
 ### Remaining audit work
 
