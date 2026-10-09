@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "raWWar.manned-mech-and-exotic-environment-platforms.v1",
+  "status": "candidate-platform-family-contract",
+  "purpose": "Model battle mechs and related walkers as boarded, crew-operated, componentized machines that emerge from terrestrial, aerospace, orbital, maritime, subsurface, and industrial robotics. A mech is a physical vehicle and workplace, not a character skin or a single health bar.",
+  "designAuthority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "allMajorSystemsArePhysicalComponents": true,
+    "mechIsBoardedAndOccupied": true,
+    "visualRepresentationDerivesFromInstalledHardwareAndState": true,
+    "roleIsConfigurationNotSpeciesOrMagic": true,
+    "noUniversalBestPlatform": true,
+    "mechWarriorLikePlayIsAnExplicitExperienceGoal": true
+  },
+  "evolutionaryPressures": [
+    {
+      "id": "pressure.terrestrial-exoskeleton",
+      "driver": "Powered load-bearing frames, hazardous-material work, casualty extraction, logistics and construction.",
+      "tradeoffs": [
+        "limited armor and payload",
+        "operator injury if control loop mismatches body",
+        "battery or fuel and cooling burden"
+      ]
+    },
+    {
+      "id": "pressure.industrial-walker",
+      "driver": "Rough terrain, rubble, steep grades, narrow work sites, manipulator reach and tools that benefit from a high stance.",
+      "tradeoffs": [
+        "complex joints",
+        "ground pressure and balance",
+        "maintenance-heavy actuators"
+      ]
+    },
+    {
+      "id": "pressure.combat-walker",
+      "driver": "Mission packages combining protection, sensors, weapons, manipulation and mobility in terrain hostile to wheeled or tracked platforms.",
+      "tradeoffs": [
+        "large signature",
+        "high silhouette and leverage loads",
+        "crew workload",
+        "expensive joints and recovery"
+      ]
+    },
+    {
+      "id": "pressure.atmospheric-operations",
+      "driver": "High-altitude, low-pressure, high-wind, toxic or thermally extreme environments.",
+      "tradeoffs": [
+        "sealing and pressure shell",
+        "heat rejection",
+        "mobility and lift limits"
+      ]
+    },
+    {
+      "id": "pressure.orbital-construction",
+      "driver": "External station/ship work, assembly, rescue, payload handling and inspection.",
+      "tradeoffs": [
+        "reaction-control propellant",
+        "anchoring and restraint",
+        "debris and contamination control"
+      ]
+    },
+    {
+      "id": "pressure.lunar-planetary",
+      "driver": "Low gravity, dust, vacuum, radiation, cryogenic or chemically hostile environments.",
+      "tradeoffs": [
+        "dust intrusion",
+        "thermal cycling",
+        "radiation shielding",
+        "traction and anchoring"
+      ]
+    },
+    {
+      "id": "pressure.ocean-subsurface",
+      "driver": "Deep ocean, flooded infrastructure, seabed industry, high pressure and low visibility.",
+      "tradeoffs": [
+        "pressure hull",
+        "corrosion",
+        "buoyancy and drag",
+        "rescue constraints"
+      ]
+    },
+    {
+      "id": "pressure.exotic-research-and-extraction",
+      "driver": "Radiation zones, volcanic/cryogenic sites, collapsed megastructures, unknown biology, high-gravity or unusual material environments.",
+      "tradeoffs": [
+        "specialized containment",
+        "instrument contamination",
+        "crew risk",
+        "narrow mission utility"
+      ]
+    }
+  ],
+  "platformFamilies": [
+    {
+      "id": "mech.frame.utility-exoskeleton",
+      "name": "Utility Exoframe",
+      "crew": 1,
+      "scale": "human-scale powered frame",
+      "primaryRoles": [
+        "load handling",
+        "engineering",
+        "casualty extraction",
+        "hazardous maintenance"
+      ],
+      "locomotion": [
+        "bipedal",
+        "assisted-walk",
+        "tool-assisted"
+      ],
+      "crewInterface": "motion-harness plus force-sensing grips and foot controls",
+      "signatureTradeoff": "agility and access versus payload, endurance and operator fatigue"
+    },
+    {
+      "id": "mech.walker.light",
+      "name": "Light Recon Walker",
+      "crew": 1,
+      "scale": "light vehicle",
+      "primaryRoles": [
+        "scouting",
+        "screening",
+        "sensor placement",
+        "rapid response"
+      ],
+      "locomotion": [
+        "bipedal",
+        "digitigrade-or-multi-leg-variant"
+      ],
+      "crewInterface": "seated or suspended pilot rig with hand grips, pedals, displays and safety harness",
+      "signatureTradeoff": "speed and low mass versus armor, heat and payload"
+    },
+    {
+      "id": "mech.walker.combat",
+      "name": "Combat Walker",
+      "crew": 1,
+      "scale": "armored combat vehicle",
+      "primaryRoles": [
+        "direct fire",
+        "urban or broken-terrain combat",
+        "escort",
+        "breach support"
+      ],
+      "locomotion": [
+        "bipedal",
+        "quadrupedal variant"
+      ],
+      "crewInterface": "boarded cockpit, motion/force harness, physical controls, tactical displays and manual emergency controls",
+      "signatureTradeoff": "firepower and protection versus joint loads, thermal signature, maintenance and recovery burden"
+    },
+    {
+      "id": "mech.walker.heavy",
+      "name": "Heavy Support Walker",
+      "crew": 1,
+      "scale": "heavy armored platform",
+      "primaryRoles": [
+        "fire support",
+        "engineering breach",
+        "heavy manipulation",
+        "mobile sensor mast"
+      ],
+      "locomotion": [
+        "bipedal",
+        "multi-leg variant"
+      ],
+      "crewInterface": "restrained pilot capsule with assisted motion capture, force-feedback grips and systems panels",
+      "signatureTradeoff": "payload and redundancy versus ground pressure, power, transportability and repair time"
+    },
+    {
+      "id": "mech.platform.orbital-work",
+      "name": "Orbital Work Mech",
+      "crew": 1,
+      "scale": "space-rated work platform",
+      "primaryRoles": [
+        "station construction",
+        "hull repair",
+        "cargo handling",
+        "rescue",
+        "external inspection"
+      ],
+      "locomotion": [
+        "anchored-crawl",
+        "reaction-control translation",
+        "rail-or-tether traversal"
+      ],
+      "crewInterface": "restraint harness, manipulators, hand controllers, suit/vehicle life-support console",
+      "signatureTradeoff": "dexterity and reach versus propellant, tether dependence and contamination risk"
+    },
+    {
+      "id": "mech.platform.environmental",
+      "name": "Environmental Research Walker",
+      "crew": 1,
+      "scale": "specialist expedition vehicle",
+      "primaryRoles": [
+        "sample collection",
+        "hazard survey",
+        "remote instrument deployment",
+        "resource prospecting"
+      ],
+      "locomotion": [
+        "terrain-specific walking",
+        "anchored manipulation",
+        "swim-or-crawl variant"
+      ],
+      "crewInterface": "sealed pilot rig with mission-specific tool panels, sensor/logging ports and redundant controls",
+      "signatureTradeoff": "instrumentation and survivability versus specialization, mass and supply burden"
+    }
+  ],
+  "componentHierarchy": {
+    "levels": [
+      "vehicle-identity",
+      "chassis-and-structural-frame",
+      "joint-and-actuator-assemblies",
+      "power-source-and-distribution",
+      "thermal-management",
+      "mobility-and-contact-system",
+      "sensors-and-compute",
+      "control-law-and-stability-system",
+      "life-support-and-crew-protection",
+      "armor-and-pressure-boundaries",
+      "manipulators-and-tools",
+      "weapon-mounts-and-feed-systems",
+      "communications-and-navigation",
+      "pilot-station-and-restraints",
+      "maintenance-access-and-recovery-points"
+    ],
+    "componentsMustHave": [
+      "stablePartId",
+      "parentAssemblyId",
+      "mountAndInterface",
+      "massAndCenterOfMassContribution",
+      "powerAndPeakLoad",
+      "heatGenerationAndRejection",
+      "operatingEnvelope",
+      "failureModes",
+      "damageAndDegradation",
+      "inspectionAndMaintenanceProcedure",
+      "requiredQualifications",
+      "sparePartsAndRepairTime",
+      "eventHistory"
+    ],
+    "stateCascade": "Control input -> pilot/rig state -> control law -> actuator commands -> power/thermal limits -> actual joint forces and contact -> balance/trajectory -> sensor feedback -> pilot correction. Damage and latency propagate through this loop."
+  },
+  "pilotInterface": {
+    "harness": {
+      "functions": [
+        "restraint",
+        "pose-and-motion-capture",
+        "force-input",
+        "fatigue-model",
+        "impact-protection",
+        "emergency-release"
+      ],
+      "states": [
+        "unoccupied",
+        "occupied-unsecured",
+        "secured",
+        "calibrating",
+        "ready",
+        "degraded",
+        "emergency-release",
+        "maintenance-required"
+      ]
+    },
+    "grips": {
+      "functions": [
+        "continuous-control-input",
+        "mode-selection",
+        "force-feedback",
+        "deadman-or-enable-control"
+      ],
+      "rules": [
+        "grip displacement maps through calibrated control laws",
+        "a pilot's fatigue, injury, skill and timing change command quality",
+        "keyboard/controller bindings can drive the same virtual grip and visible pilot animation"
+      ]
+    },
+    "movementModel": "Do not require the pilot to literally imitate every mech joint. Pilot motion is an input to a control system; the machine's thousands of thrusters or actuators are computed outputs constrained by dynamics, installed components and current damage.",
+    "speedChallenge": "A raised/held control posture can demand sustained force or endurance where the vehicle design supports it. Fatigue must emerge from a declared ergonomic/load model, be trainable and equipment-dependent, and never be a universal arbitrary tax."
+  },
+  "weaponAndDamageModel": {
+    "weaponsAreAssemblies": true,
+    "requiredRecords": [
+      "mount",
+      "feed",
+      "power-or-propellant",
+      "cooling",
+      "safety-interlocks",
+      "aiming-sensors",
+      "recoil-or-impulse-transfer",
+      "ammunition-or-energy-storage",
+      "damage-effects",
+      "reload-and-maintenance"
+    ],
+    "damageOutcomes": [
+      "weapon-unavailable",
+      "aiming-degraded",
+      "feed-jam",
+      "cooling-limited",
+      "mount-fracture",
+      "power-isolated",
+      "unsafe-to-fire",
+      "repairable",
+      "salvageable"
+    ],
+    "rule": "Destroying a weapon mount, actuator, sensor, feed or power bus has a distinct consequence; do not reduce the whole mech to a single hit-point pool."
+  },
+  "performanceAndRendering": {
+    "hypothesis": "Visible cost may be bounded by projected pixel coverage, draw/dispatch overhead, geometry/compute workload, memory residency and bandwidth, synchronization, and simulation cost. GPU execution does not make work unlimited.",
+    "lodDimensions": [
+      "screen-space-error",
+      "distance-and-occlusion",
+      "motion-and-temporal-stability",
+      "semantic-importance",
+      "interaction-proximity",
+      "damage-inspection-detail",
+      "shadow-and-reflection-contribution",
+      "memory-residency"
+    ],
+    "batchingRules": [
+      "Join static compatible meshes when profiling shows draw-call/dispatch overhead dominates and the joined asset preserves required material, damage, culling and streaming boundaries.",
+      "Do not merge articulated, independently damaged, interactable, independently streamed, or differently animated parts merely to reduce draw calls.",
+      "Use GPU instancing for repeated compatible parts; use hierarchical culling and mesh/cluster LOD for large assemblies.",
+      "Maintain per-component authoritative simulation state even if visual geometry is merged, instanced, impostored or streamed out.",
+      "A visually hidden part can still simulate consequential events at a lower fidelity tier; visual absence does not erase world state."
+    ],
+    "measuredBudgets": [
+      "CPU simulation time per active actor and background actor",
+      "GPU frame time by pass",
+      "draw/dispatch count",
+      "visible triangles and meshlet/cluster counts",
+      "pixel coverage and overdraw",
+      "GPU memory resident/committed and streaming churn",
+      "memory bandwidth and cache pressure",
+      "bus/PCIe transfer bytes and stalls",
+      "animation/skin/compute cost",
+      "physics contacts and solver time",
+      "interaction latency",
+      "load and recovery time"
+    ],
+    "scalabilityStrategy": [
+      "Define target hardware tiers and test scenes before claiming a population scale.",
+      "Use adaptive fidelity tiers for near interaction, combat, tactical simulation and strategic/background history.",
+      "Keep persistent world and component state separate from render caches.",
+      "Profile representative worst cases: many articulated mechs, damage, smoke, lights, transparent guidance ghosts, cockpit screens and simultaneous combat.",
+      "If bottleneck is draw-call overhead, batch/instance; if bandwidth, reduce data movement and improve locality; if memory, stream and compress; if pixel/fill, reduce overdraw/resolution or simplify shading; if CPU simulation, reduce update frequency or model detail without erasing consequences."
+    ],
+    "falsifiableHypotheses": [
+      "If cost is primarily pixel-limited, reducing render resolution should improve GPU frame time predictably.",
+      "If draw-call/dispatch overhead dominates, compatible batching or instancing should improve frame time without unacceptable culling/damage regressions.",
+      "If memory bandwidth dominates, reducing per-frame uploads and improving residency should improve frame time.",
+      "If simulation dominates, lowering pixel count alone will not solve the frame-time problem."
+    ],
+    "noUnlimitedClaim": "Performance ceilings remain. Pixel coverage is one dimension; memory capacity, bandwidth, bus transfer, cache locality, command submission, synchronization, geometry processing, physics and simulation all matter."
+  },
+  "validationGates": [
+    "Mechs are boarded vehicles with visible pilot occupancy and physical controls.",
+    "Every mech function maps to installed systems and components.",
+    "Pilot input is not identical to actuator output; control laws and physical limits intervene.",
+    "Fatigue depends on ergonomic demand and pilot state.",
+    "Distinct environment families have credible life-support, locomotion, power, thermal and recovery requirements.",
+    "Damage affects specific components and cascades through dependencies.",
+    "GPU/CPU/memory/bus hypotheses are tested with benchmarks rather than asserted.",
+    "Visual mesh merging never destroys component identity or damage simulation.",
+    "Performance tests include both pixel-heavy and simulation-heavy scenes.",
+    "Illustrative families do not silently lock faction identity or balance."
+  ]
+}
