@@ -2,10 +2,10 @@
 
 > **A query observes the world. A committed event changes it. A checkpoint accelerates reconstruction; it does not replace the history that explains the state.**
 
-**Status:** Partial reference implementation; durable storage, authoritative state application, checkpoints, and replay reconstruction are not implemented.  
+**Status:** Partial reference implementation; stable event identity, an in-memory ledger, and one narrow resource-balance replay reducer are implemented. Durable storage, checkpoints, and general authoritative world-state reconstruction are not implemented.  
 **Owner:** raWWar world-model implementation.  
 **Audience:** Simulation, persistence, networking, testing, and content-tooling contributors.  
-**Evidence rule:** The repository implements stable V1 event identity and a thread-safe in-memory reference ledger. This is not durable storage, a world-state reducer, checkpoint support, or proof of cross-platform deterministic simulation.
+**Evidence rule:** The repository implements stable V1 event identity and a thread-safe in-memory reference ledger. This is not durable storage, a general world-state reducer, checkpoint support, or proof of cross-platform deterministic simulation.
 
 ## 1. Separate identity, ordering, and consequences
 
@@ -95,6 +95,18 @@ The core now contains `SimulationEventId`, `SimulationEvent`, and `InMemoryEvent
 - Executable contract checks cover a fixed event-ID vector, repeatability, changed identity inputs, payload isolation, idempotent retry, payload conflict, deterministic domain ordering, domain isolation, and concurrent duplicate commits.
 
 **Known boundary:** the ledger is process-local and volatile. It neither persists events nor applies their payloads to authoritative world state. Its lock is not a persistence transaction. Restart-safe idempotency, causal prerequisite policy, durable ordering, state reduction, checkpoint boundaries, and replay equivalence remain future implementation work. Do not use this reference ledger as a multiplayer or production persistence guarantee.
+
+
+### Narrow executable replay example: resource balance
+
+`ResourceBalanceReplay` demonstrates one domain-specific reducer without claiming a universal simulation law:
+
+- Domain: `resource.balance.delta`.
+- Payload V1: exactly eight bytes representing a signed 64-bit delta in big-endian two's-complement form.
+- Replay input: the caller supplies the already ordered events from one domain-and-address stream returned by `InMemoryEventHistory.ReadOrdered(domain, canonicalAddress)`.
+- State transition: add each decoded delta to the initial balance using checked Int64 arithmetic; malformed payloads, cross-domain input, and overflow are rejected.
+- The reducer does not fetch or commit events, infer logical-time units, persist state, process causal prerequisites, or support checkpoints. Stream scoping is provided by the history read; callers must not pass a domain-wide multi-address diagnostic read into replay.
+- Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, and overflow rejection.
 
 ## 8. Minimum acceptance tests
 
