@@ -54,7 +54,7 @@ After choosing a faction, the player is introduced to the Empress. She orders th
 | Implementation baseline | .NET 8 |
 | Architecture | Experience domain + manifest + MicroBundles + FSM_COS composition + host |
 | Status | Active design and engineering; the end-to-end playable Experience is not yet complete |
-| License | See [LICENSE.txt](LICENSE.txt) |
+| License | See [LICENSE](LICENSE) |
 
 ## 06 🟢 Responsibility boundary
 
