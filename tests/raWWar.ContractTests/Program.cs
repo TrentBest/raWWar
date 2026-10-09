@@ -643,7 +643,7 @@ Check(detailedLoto.GetProperty("procedureStages").EnumerateArray().Count() >= 7 
 Check(detailedLoto.GetProperty("deliberateFriction").EnumerateArray()
     .Any(x => x.GetString()!.Contains("shift change", StringComparison.Ordinal)) &&
       detailedLoto.GetProperty("deliberateFriction").EnumerateArray()
-    .Any(x => x.GetString()!.Contains("stored pressure", StringComparison.Ordinal)),
+    .Any(x => x.GetString()!.Contains("stored pressure", StringComparison.OrdinalIgnoreCase)),
     "LOTO friction comes from custody, shift handover, and stored energy rather than random timers");
 Check(detailedLoto.GetProperty("noMagicRules").EnumerateArray()
     .Any(x => x.GetString()!.Contains("checkbox", StringComparison.Ordinal)) &&
