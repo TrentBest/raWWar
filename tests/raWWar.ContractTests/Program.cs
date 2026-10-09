@@ -110,40 +110,53 @@ Check(SimulationEventId.Create(123, "v1", encodedSpatialBytes, "resource.deplete
     "Changing domain logical-time key changes event identity");
 
 var eventPayload = new byte[] { 0x10, 0x20, 0x30 };
-var firstEvent = new SimulationEvent(resourceEventId, "resource.depleted", "tick:000042", 7, eventPayload);
+var firstEvent = SimulationEvent.Create(123, "v1", encodedSpatialBytes,
+    "resource.depleted", 7, "tick:000042", eventPayload);
 eventPayload[0] = 0xFF;
 Check(firstEvent.Payload.Span[0] == 0x10,
     "Event payload copies caller bytes to prevent post-construction mutation");
+Check(firstEvent.StreamKey == Convert.ToHexString(encodedSpatialBytes),
+    "Event retains its canonical entity/region address for stream-scoped replay");
 var eventHistory = new InMemoryEventHistory();
 Check(eventHistory.Commit(firstEvent) == EventCommitResult.Committed,
     "First event commit appends the candidate");
-Check(eventHistory.Commit(new SimulationEvent(resourceEventId, "resource.depleted", "tick:000042", 7,
-        new byte[] { 0x10, 0x20, 0x30 })) == EventCommitResult.AlreadyCommitted,
+Check(eventHistory.Commit(SimulationEvent.Create(123, "v1", encodedSpatialBytes,
+        "resource.depleted", 7, "tick:000042", new byte[] { 0x10, 0x20, 0x30 }))
+        == EventCommitResult.AlreadyCommitted,
     "Retrying an identical event identity and payload is idempotent");
 Check(eventHistory.Count == 1, "Idempotent retry does not duplicate history");
-Check(eventHistory.Commit(new SimulationEvent(resourceEventId, "resource.depleted", "tick:000042", 7,
-        new byte[] { 0x99 })) == EventCommitResult.IdentityConflict,
+Check(eventHistory.Commit(SimulationEvent.Create(123, "v1", encodedSpatialBytes,
+        "resource.depleted", 7, "tick:000042", new byte[] { 0x99 }))
+        == EventCommitResult.IdentityConflict,
     "Reusing an event identity with a different payload is reported as a conflict");
 Check(eventHistory.Count == 1, "Identity conflict does not replace or append history");
 
-var nextTimeId = SimulationEventId.Create(123, "v1", encodedSpatialBytes,
-    "resource.depleted", 8, "tick:000043");
-var earlierTimeId = SimulationEventId.Create(123, "v1", encodedSpatialBytes,
-    "resource.depleted", 9, "tick:000041");
-eventHistory.Commit(new SimulationEvent(nextTimeId, "resource.depleted", "tick:000043", 8, new byte[] { 4 }));
-eventHistory.Commit(new SimulationEvent(earlierTimeId, "resource.depleted", "tick:000041", 9, new byte[] { 5 }));
-var orderedResourceEvents = eventHistory.ReadOrdered("resource.depleted");
+var nextTimeEvent = SimulationEvent.Create(123, "v1", encodedSpatialBytes,
+    "resource.depleted", 8, "tick:000043", new byte[] { 4 });
+var earlierTimeEvent = SimulationEvent.Create(123, "v1", encodedSpatialBytes,
+    "resource.depleted", 9, "tick:000041", new byte[] { 5 });
+eventHistory.Commit(nextTimeEvent);
+eventHistory.Commit(earlierTimeEvent);
+var orderedResourceEvents = eventHistory.ReadOrdered("resource.depleted", encodedSpatialBytes);
 Check(orderedResourceEvents.Select(e => e.LogicalTimeKey)
         .SequenceEqual(new[] { "tick:000041", "tick:000042", "tick:000043" }),
-    "Domain event reads use the declared ordinal logical-time key ordering");
-Check(eventHistory.ReadOrdered("unrelated.domain").Count == 0,
+    "Address-scoped domain event reads use the declared ordinal logical-time key ordering");
+Check(eventHistory.ReadOrdered("unrelated.domain", encodedSpatialBytes).Count == 0,
     "Domain event reads do not leak events from unrelated domains");
+var otherAddressBytes = HierarchicalSpatialAddressCodec.Encode(
+    HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)));
+eventHistory.Commit(SimulationEvent.Create(123, "v1", otherAddressBytes,
+    "resource.depleted", 1, "tick:000001", new byte[] { 6 }));
+Check(eventHistory.ReadOrdered("resource.depleted", encodedSpatialBytes).Count == 3,
+    "Address-scoped reads exclude events belonging to another entity or region");
+Check(eventHistory.ReadOrdered("resource.depleted").Count == 4,
+    "Domain-wide reads include each committed stream for diagnostics");
 
 var concurrentHistory = new InMemoryEventHistory();
 Parallel.For(0, 64, _ => concurrentHistory.Commit(firstEvent));
 Check(concurrentHistory.Count == 1,
     "Concurrent identical commits serialize to one history entry");
-Check(concurrentHistory.ReadOrdered("resource.depleted").Count == 1,
+Check(concurrentHistory.ReadOrdered("resource.depleted", encodedSpatialBytes).Count == 1,
     "Concurrent identical commits remain singly observable");
 
 var badSpatialVersion = (byte[])encodedSpatialBytes.Clone();
