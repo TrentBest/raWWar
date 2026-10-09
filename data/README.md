@@ -37,6 +37,7 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `mech-and-exotic-platforms.json` — existing warfare-evolution and platform-family contract, including the explicit pilotable battle-mech goal.
 - `manned-mech-platforms.json` — deeper componentized mech architecture, pilot control loop, environment-specific tradeoffs, damageable systems, and falsifiable performance hypotheses.
 - `embodied-interaction-and-control.json` — shared world-object actions across FPS, VR, keyboard, mouse, controller, and accessibility input, including breathing Gesture guidance, logging, and physical lockout/tagout.
+- `engineering-watch-and-maintenance.json` — physical logger rounds, trend/threshold assessment, evidence-driven maintenance work, and detailed auditable lockout/tagout stages, blockers, custody, and restoration.
 
 ## World-generation architecture
 
