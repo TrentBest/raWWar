@@ -35,6 +35,15 @@ System-specific documents expand the design without silently changing canon.
 - [Humanity's Long History and the Discoverable Past](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) — speculative history from Earth to the galactic Empire, science-fiction guardrails, and deep discoverable archives.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
+## Spatiotemporal and runtime contracts
+
+These documents define the world-model rules and implementation gaps. A design contract is not evidence that the runtime feature is already implemented.
+
+- [Spatiotemporal World Model and Observer-Relative Presentation](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md) — stable identity, explicit-time motion, observation-only queries, authoritative history, and rendering as a projection.
+- [Coordinate Frames and Transform Contracts](COORDINATE_FRAME_CONTRACT.md) — required frame metadata, transform conventions, logical-time validity, and tests; canonical world-wide axes and handedness remain open.
+- [Event History, Checkpoints, and Deterministic Replay](EVENT_HISTORY_AND_REPLAY_CONTRACT.md) — event identity versus ordering, idempotent commits, checkpoint boundaries, and replay acceptance tests.
+- [Machine-readable galaxy generation contract](../data/galaxy-generation-contract.json) — executable-contract metadata, including implemented spatial address V1/hash vectors and explicitly unimplemented transform/history requirements.
+
 ## Visual atlas
 
 - [Visual Asset Catalogue](images/README.md)
