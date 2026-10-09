@@ -303,9 +303,9 @@
       },
       "mobility": {
         "type": "tilt_lift",
-        "maxRoadKmh": 390,
-        "maxCrossCountryKmh": 0,
-        "gradePercent": 0
+        "maxCruiseKmh": 390,
+        "maxHoverSecondsAtReserve": 720,
+        "serviceCeilingM": 8500
       },
       "protection": {
         "class": "mission_specific",
@@ -369,9 +369,9 @@
       },
       "mobility": {
         "type": "distributed_tilt_rotor",
-        "maxRoadKmh": 330,
-        "maxCrossCountryKmh": 0,
-        "gradePercent": 0
+        "maxCruiseKmh": 330,
+        "maxHoverSecondsAtReserve": 480,
+        "serviceCeilingM": 7000
       },
       "protection": {
         "class": "modular_composite",
@@ -434,9 +434,15 @@
       },
       "mobility": {
         "type": "articulated_flapping_wing",
-        "maxRoadKmh": 280,
-        "maxCrossCountryKmh": 0,
-        "gradePercent": 0
+        "maxCruiseKmh": 280,
+        "serviceCeilingM": 6000,
+        "flightEnvelope": "experimental",
+        "requiredMeasurements": [
+          "wing_frequency",
+          "actuator_temperature",
+          "structural_strain",
+          "attitude_error"
+        ]
       },
       "protection": {
         "class": "mission_specific",
