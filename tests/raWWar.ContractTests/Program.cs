@@ -24,6 +24,24 @@ Check(Convert.ToHexString(encodedSpatialBytes) == "5257534101002A000000020304050
     "Hierarchical spatial address V1 has the fixed big-endian reference encoding");
 Check(HierarchicalSpatialAddressCodec.Decode(encodedSpatialBytes).Equals(encodedSpatialAddress),
     "Hierarchical spatial address V1 round-trips root and ordered child coordinates");
+
+var addressHashVectors = new[]
+{
+    (Address: encodedSpatialAddress, Expected: "06C16FED1EC8BC08A1EB95AE7722F7ECD9BC8A3B502BB579229CB090B956033E",
+        Label: "root 42 with two ordered child levels"),
+    (Address: HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)),
+        Expected: "46715799BB957132931E309ADA71A4E1F3C9807BAF4071056DB67A819BC315F0",
+        Label: "root 1 with no child levels")
+};
+foreach (var vector in addressHashVectors)
+{
+    Check(Convert.ToHexString(HierarchicalSpatialAddressHasher.ComputeV1(vector.Address)) == vector.Expected,
+        $"Spatial address SHA-256 V1 matches its fixed reference vector ({vector.Label})");
+}
+Check(HierarchicalSpatialAddressHasher.ComputeV1(encodedSpatialAddress)
+        .SequenceEqual(HierarchicalSpatialAddressHasher.ComputeV1(
+            HierarchicalSpatialAddressCodec.Decode(encodedSpatialBytes))),
+    "Equivalent decoded spatial addresses have identical stable V1 hashes");
 Check(Convert.ToHexString(HierarchicalSpatialAddressCodec.Encode(
         HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)))) == "5257534101000100000000",
     "Top-level address V1 encoding has an explicit zero-depth representation");
