@@ -61,9 +61,33 @@
       "family": "Squirrel3-style integer hash / deterministic pseudo-random primitive",
       "implementationMustBeVersioned": true,
       "mustUseVerifiedReferenceVectors": true,
-      "referenceVectorsStatus": "must-be-added-from-a-verified-reference-before-implementation-is-accepted",
+      "referenceVectorsStatus": "blocked-by-reference-variant-reconciliation; do-not-accept-vectors-until-the-exact-Squirrel3-variant-and-32-bit-semantics-are-pinned",
       "cryptographic": false,
-      "isPhysicalLaw": false
+      "isPhysicalLaw": false,
+      "referenceResearch": {
+        "status": "source-investigation; implementation-not-yet-approved",
+        "sources": [
+          {
+            "role": "GDC-2017-attributed-Squirrel3-transcription",
+            "url": "https://github.com/sublee/squirrel3-python/blob/master/squirrel3.py",
+            "observedAlgorithm": "NOISE1 multiply; add seed; xor right 8; add NOISE2; xor left 8; multiply NOISE3; xor right 8; reduce to unsigned 32-bit output",
+            "note": "Independent-language transcription attributed to Squirrel Eiserloh's GDC 2017 Noise-based RNG."
+          },
+          {
+            "role": "GDC-talk-attributed-C-transcription-with-discrepancy",
+            "url": "https://gist.github.com/randompast/72ea1f00b1a2b0b4495032456313db9c",
+            "observedAlgorithm": "The displayed code multiplies by BIT_NOISE2 where the Python transcription adds NOISE2.",
+            "note": "Treat as a conflicting transcription, not as a source of accepted test vectors."
+          },
+          {
+            "role": "Squirrel-Eiserloh-later-version-5",
+            "url": "https://gist.github.com/kevinmoran/0198d8e9de0da7057abe8b8b34d50f86",
+            "observedAlgorithm": "SquirrelNoise5 uses different constants and additional mixing stages.",
+            "note": "The author states version 5 addresses a high-position-bit influence weakness in the original version 3. It is not interchangeable with Squirrel3."
+          }
+        ],
+        "acceptanceRule": "Resolve the exact intended variant and unsigned 32-bit behavior against the strongest primary/reference source; then independently compute and cross-check fixed vectors before adding them to executable contract tests. Do not silently substitute SquirrelNoise5 for Squirrel3."
+      }
     }
   },
   "temporalSimulation": {
@@ -134,7 +158,7 @@
   "unresolvedImplementationDecisions": [
     "numeric widths and overflow rules for address hashing",
     "canonical serialized encoding and byte order",
-    "verified Squirrel3 reference vectors and local implementation",
+    "reconcile conflicting Squirrel3 reference transcriptions, pin exact 32-bit semantics, then add independently verified reference vectors and local implementation",
     "exact physical models and fidelity per scale",
     "logical time-step policy and event identity rules per simulation domain",
     "route-cost and jump-budget equations for each propulsion model",
@@ -208,7 +232,7 @@
     "unresolvedImplementationDecisions": [
       "numeric widths and overflow rules for address hashing",
       "canonical serialized encoding and byte order",
-      "verified Squirrel3 reference vectors and local implementation",
+      "reconcile conflicting Squirrel3 reference transcriptions, pin exact 32-bit semantics, then add independently verified reference vectors and local implementation",
       "exact physical models and fidelity per scale",
       "logical time-step policy and event identity rules per simulation domain",
       "route-cost and jump-budget equations for each propulsion model",
