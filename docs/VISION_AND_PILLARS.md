@@ -1,5 +1,10 @@
 # raWWar — Vision and Pillars
 
+**Status:** Living north-star statement; describes intended experience, not shipped features.  
+**Owner:** raWWar Experience design.  
+**Audience:** Everyone making design, content, or implementation decisions.  
+**Evidence rule:** Use this document to evaluate direction; use source, tests, and host runs to establish implementation status.
+
 ## North Star
 
 **Make being a person inside a war the game.**
