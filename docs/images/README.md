@@ -22,6 +22,7 @@ These SVGs are authored, lightweight diagrams and concept illustrations. Unless 
 | [rawwar-work-kanban.svg](rawwar-work-kanban.svg) | Work-board states and evidence-based transitions grounded in world state | Work orders, logistics, production |
 | [rawwar-science-floor-construction.svg](rawwar-science-floor-construction.svg) | Underground science-floor construction from site investigation through support, utilities, lab installation, commissioning, and acceptance | Engineering data scape, advisors, facilities |
 | [rawwar-ship-damage-and-salvage.svg](rawwar-ship-damage-and-salvage.svg) | Ship hierarchy, six-face impact resolution, causal secondary effects, and surviving wreck components | Starship sizing, systems design, engineering data scape |
+| [rawwar-faction-ship-languages.svg](rawwar-faction-ship-languages.svg) | Six candidate human ship-design archetypes, each with a visible silhouette and engineering tradeoffs | Faction ship design languages, art direction |
 
 ## Visual language
 
