@@ -191,7 +191,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Implemented immutable-payload `SimulationEvent` and thread-safe `InMemoryEventHistory` reference ledger with idempotent duplicate commit, conflicting-payload detection, and domain-local deterministic ordering.
 - [x] Added executable checks for fixed identity vectors, identity-input sensitivity, payload copying, duplicate retry, conflicting payload, domain isolation/order, address-scoped stream isolation, and concurrent identical commits.
 - [ ] Replace the process-local reference ledger with durable atomic commit/deduplication before claiming restart-safe or distributed idempotency.
-- [x] Implemented the narrow `ResourceBalanceReplay` reducer: V1 payload is an 8-byte big-endian signed Int64 delta; replay consumes a caller-supplied address-scoped ordered stream with checked arithmetic. Contract tests cover logical ordering, stream isolation, malformed payloads, wrong domain, and overflow.
+- [x] Implemented the narrow `ResourceBalanceReplay` reducer: V1 payload is an 8-byte big-endian signed Int64 delta; replay uses checked arithmetic and rejects mixed address streams, mixed world seeds/model versions, out-of-order events, malformed payloads, wrong domains, and overflow. CI is validating the expanded contract tests now; do not mark this validation pass until the current head run completes.
 - [ ] Implement general authoritative state reconstruction and test fixed initial state + ordered events against checkpoint-plus-tail replay; checkpoint format/migration remain unimplemented.
 - [ ] Keep cross-platform floating-point determinism and checkpoint migration guarantees unclaimed until specified and tested.
 
