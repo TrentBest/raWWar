@@ -1,0 +1,97 @@
+{
+  "schema": "raWWar.faction-ship-doctrines.v1",
+  "status": "candidate design data; faction identities and balance remain open",
+  "designPrinciple": "Shared human species, shared physical laws, overlapping mission requirements; distinct industrial, doctrinal, cultural, and historical solutions.",
+  "rules": [
+    "Faction identity must be legible from silhouette, arrangement, and operational behavior before insignia or color is visible.",
+    "Style must emerge from doctrine, industrial base, logistics, maintenance, political priorities, and historical lessons; do not reduce a faction to a paint scheme.",
+    "All factions can build ships for the same mission class. They differ in how they satisfy its constraints, what they sacrifice, and what they can sustain.",
+    "Every signature feature has a physical cost, benefit, maintenance burden, production implication, or tactical consequence.",
+    "Common interfaces and captured or exported ships may blur the silhouette; faction identity is a strong tendency, not an absolute rule.",
+    "The design profiles below are archetype experiments, not assignments to the thirteen major factions and not real-world nation-to-faction mappings."
+  ],
+  "styleDimensions": [
+    { "id": "silhouette", "meaning": "Hull outline, proportions, massing, and recognizable negative space" },
+    { "id": "architecture", "meaning": "Arrangement of command, crew, engineering, propulsion, payload, and protection zones" },
+    { "id": "protectionDoctrine", "meaning": "Armor placement, compartmentation, shielding assumptions, and willingness to expose serviceable components" },
+    { "id": "redundancyDoctrine", "meaning": "Duplication, separation, isolation, graceful degradation, and repairability" },
+    { "id": "propulsionExpression", "meaning": "Engine spacing, mount geometry, plume management, and service access" },
+    { "id": "industrialSignature", "meaning": "Manufacturing tolerances, modularity, standardization, finish, and replacement philosophy" },
+    { "id": "crewCulture", "meaning": "Visibility, access, watch stations, maintenance paths, and how human work shapes the vessel" },
+    { "id": "ornamentAndMarking", "meaning": "Insignia, surface language, ceremonial features, stencils, and propaganda layered over functional design" },
+    { "id": "damageAndRepairSignature", "meaning": "Typical field repairs, replaceable panels, reinforcement patterns, and scars from prior doctrine" }
+  ],
+  "profiles": [
+    {
+      "id": "style.mass-and-redundancy",
+      "label": "Mass, separation, and redundancy",
+      "status": "candidate archetype",
+      "designTendency": "Large structural margins, separated critical systems, conservative access routes, substantial compartment boundaries, and visible serviceability.",
+      "silhouetteCues": ["broad shoulders or separated side bodies", "clearly segmented engineering volumes", "thick central structural line"],
+      "operationalStrengths": ["survivability through isolation", "field repair access", "tolerance for prolonged deployments"],
+      "tradeoffs": ["greater dry mass", "more structure and inspection labor", "slower or more expensive production"],
+      "industrialDependencies": ["heavy structural fabrication", "large dock capacity", "spares and repair crews"],
+      "failureAndRepairExpression": ["reinforced patches", "replaceable outer panels", "obvious access covers and isolation boundaries"]
+    },
+    {
+      "id": "style.dense-and-integrated",
+      "label": "Dense integration and compactness",
+      "status": "candidate archetype",
+      "designTendency": "Compact envelopes, tightly integrated systems, shared service trunks, and high capability per unit of hull volume.",
+      "silhouetteCues": ["compact central body", "nested or faceted outer hull", "few large protrusions"],
+      "operationalStrengths": ["smaller target envelope", "reduced material per hull", "efficient use of constrained docks"],
+      "tradeoffs": ["congested maintenance access", "common-mode failure risk", "difficult repair after local deformation"],
+      "industrialDependencies": ["precision manufacturing", "high-quality components", "skilled diagnostic and integration labor"],
+      "failureAndRepairExpression": ["modular internal pallets", "dense diagnostic ports", "larger repair effort when integrated trunks are damaged"]
+    },
+    {
+      "id": "style.distributed-and-adaptive",
+      "label": "Distributed modules and adaptation",
+      "status": "candidate archetype",
+      "designTendency": "Distinct mission modules, visible attachment structures, replaceable pods, and hulls that can be reconfigured between deployments.",
+      "silhouetteCues": ["separated pods or outriggers", "open truss and hardpoints", "mission package changes the outline"],
+      "operationalStrengths": ["role flexibility", "rapid mission conversion when modules are available", "damage isolation between modules"],
+      "tradeoffs": ["exposed connections", "configuration and alignment work", "logistics burden from many module types"],
+      "industrialDependencies": ["standardized interfaces", "module transport and storage", "configuration-control discipline"],
+      "failureAndRepairExpression": ["swapped modules", "temporary bypasses", "empty hardpoints and visibly mixed-generation equipment"]
+    },
+    {
+      "id": "style.forward-concentration",
+      "label": "Forward concentration and decisive engagement",
+      "status": "candidate archetype",
+      "designTendency": "Command, sensing, and mission systems concentrated toward the expected engagement direction, with strong directional optimization.",
+      "silhouetteCues": ["pronounced bow", "forward-facing arrays and apertures", "clear fore-aft asymmetry"],
+      "operationalStrengths": ["mission equipment can be concentrated", "strong directional coverage", "clear command orientation"],
+      "tradeoffs": ["vulnerable blind or rear sectors if neglected", "orientation constraints", "predictable service and protection priorities"],
+      "industrialDependencies": ["precision alignment", "high-quality forward sensors", "doctrine that manages approach and withdrawal"],
+      "failureAndRepairExpression": ["replaceable forward arrays", "reinforced bow repairs", "urgent aft and flank inspections after maneuvering damage"]
+    },
+    {
+      "id": "style.dispersed-and-deceptive",
+      "label": "Dispersed signature and deception",
+      "status": "candidate archetype",
+      "designTendency": "Separated emitters, ambiguous external geometry, distributed decoys, and deliberate control of observable signatures.",
+      "silhouetteCues": ["irregular but intentional asymmetry", "detached sensor or decoy elements", "minimal ceremonial external structure"],
+      "operationalStrengths": ["signature management", "multiple plausible equipment interpretations", "flexible sensor placement"],
+      "tradeoffs": ["more calibration and coordination", "fragile separated links", "signature discipline can constrain crew convenience"],
+      "industrialDependencies": ["sensor and emitter expertise", "accurate time and data distribution", "specialist maintenance"],
+      "failureAndRepairExpression": ["carefully logged alignment marks", "replaceable signature-control surfaces", "obvious loss of deception when damaged elements are not restored"]
+    },
+    {
+      "id": "style.mass-produced-and-serviceable",
+      "label": "Standardized production and fast service",
+      "status": "candidate archetype",
+      "designTendency": "Repeated hull families, accessible standard parts, clear lifting points, and design choices optimized for fleet availability rather than individual perfection.",
+      "silhouetteCues": ["recognizable repeated blocks", "standardized engine spacing", "consistent panel and hatch rhythm"],
+      "operationalStrengths": ["high production volume", "interchangeable spares", "shorter repair and training cycles"],
+      "tradeoffs": ["less mission-specific optimization", "visible common weak points", "upgrades must preserve fleet compatibility"],
+      "industrialDependencies": ["stable supply chains", "repeatable quality control", "large repair and training network"],
+      "failureAndRepairExpression": ["standard patch geometry", "serialized replacement blocks", "mixed batches and field modifications visible across older hulls"]
+    }
+  ],
+  "missionComparisonContract": {
+    "rule": "Compare ships only after matching mission, operating environment, payload, crew, endurance, and technology era.",
+    "requiredOutputs": ["mission effectiveness", "production cost and time", "mass and volume", "power and thermal demand", "crew and qualification burden", "maintenance hours", "spare-part burden", "repair time", "failure isolation", "signature", "upgrade flexibility"],
+    "prohibitedShortcut": "Do not assign a universal faction quality score or assume one visual style is always superior."
+  }
+}
