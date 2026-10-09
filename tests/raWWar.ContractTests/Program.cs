@@ -271,6 +271,51 @@ Check(kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProper
       kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProperty("knowledgeTransferRequiresAnEventOrPractice").GetBoolean(),
     "Personnel death triggers work review and preserves the distinction between records and transferred knowledge");
 
+
+// Ship assembly and directional-damage contracts: persistent part identity, valid joins,
+// six target-local directions, and explicit salvage/cascade semantics.
+using var shipAssembliesData = ReadData("ship-assemblies.json");
+using var damageModelData = ReadData("directional-damage-and-salvage.json");
+var shipRecords = shipAssembliesData.RootElement.GetProperty("examples").EnumerateArray().ToArray();
+var shipPartRecords = shipRecords.SelectMany(s => s.GetProperty("parts").EnumerateArray()).ToArray();
+var shipPartIds = shipPartRecords.Select(p => p.GetProperty("id").GetString()!).ToArray();
+var shipZoneIds = shipRecords.SelectMany(s => s.GetProperty("zones").EnumerateArray())
+    .Select(z => z.GetProperty("id").GetString()!).ToHashSet(StringComparer.Ordinal);
+Unique("Ship part", shipPartIds);
+AllExist("Ship part zone", shipPartRecords.Select(p => p.GetProperty("zone").GetString()!), shipZoneIds);
+var shipPartIdSet = shipPartIds.ToHashSet(StringComparer.Ordinal);
+AllExist("Ship part mount", shipPartRecords.Where(p => !p.GetProperty("mountsTo").ValueKind.Equals(System.Text.Json.JsonValueKind.Null))
+    .Select(p => p.GetProperty("mountsTo").GetString()!), shipPartIdSet);
+AllExist("Ship part dependency", shipPartRecords.SelectMany(p => p.GetProperty("dependencies").EnumerateArray()
+    .Select(d => d.GetString()!)), shipPartIdSet);
+Check(shipPartRecords.All(p => p.GetProperty("massT").GetDouble() > 0 &&
+    p.GetProperty("damageModes").EnumerateArray().Any() &&
+    !string.IsNullOrWhiteSpace(p.GetProperty("salvageClass").GetString()) &&
+    !string.IsNullOrWhiteSpace(p.GetProperty("repair").GetString())),
+    "Every ship part declares positive mass, damage modes, salvage class and repair approach");
+var damageRoot = damageModelData.RootElement;
+var expectedFaces = new[] { "forward", "aft", "port", "starboard", "dorsal", "ventral" };
+Check(damageRoot.GetProperty("sixFaces").EnumerateArray().Select(x => x.GetString())
+    .SequenceEqual(expectedFaces), "Directional damage defines all six target-local faces in stable order");
+Check(expectedFaces.All(face => damageRoot.GetProperty("directionFrame").TryGetProperty(face, out _)),
+    "Every directional face has an explicit local-axis mapping");
+Check(damageRoot.GetProperty("survival").GetProperty("salvageLotFields").EnumerateArray()
+    .Select(x => x.GetString()).Contains("sourceEventId") &&
+      damageRoot.GetProperty("survival").GetProperty("salvageLotFields").EnumerateArray()
+    .Select(x => x.GetString()).Contains("observedCondition"),
+    "Salvage records retain source event and observed condition");
+Check(damageRoot.GetProperty("cascade").GetProperty("eventFields").EnumerateArray()
+    .Select(x => x.GetString()).Contains("parentEventId") &&
+      damageRoot.GetProperty("cascade").GetProperty("eventFields").EnumerateArray()
+    .Select(x => x.GetString()).Contains("transferPath"),
+    "Secondary effects retain causal parent and physical transfer path");
+Check(damageRoot.GetProperty("performance").GetProperty("persistence").GetString()!
+    .Contains("source of truth", StringComparison.OrdinalIgnoreCase),
+    "Precomputed damage tables remain caches rather than authoritative persistent state");
+Check(shipRecords.All(s => s.GetProperty("zones").EnumerateArray().Any() &&
+    s.GetProperty("parts").EnumerateArray().Any()),
+    "Ship reference models connect structural zones and independently identifiable parts");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
