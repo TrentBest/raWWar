@@ -33,7 +33,7 @@ A launch crew can be working while another squad trains, researchers run experim
 
 The universe is a **galaxy**. The Empire spans many star systems, and the campaign is a continuous war rather than a sequence of disposable maps. Warp drives exist, but a jump takes **days to initialize and prepare**; distance, logistics, reinforcement, and time therefore matter.
 
-After choosing a faction, the player is introduced to the Empress. She orders the player to take a poorly defended but resource-rich enemy world and uphold the tithe. The player can obey or disobey. Either choice affects their relationship with Imperial authority and the larger galaxy.
+The opening campaign brings together faction choice and the Empress's first uncompromising order: take a poorly defended but resource-rich enemy world and uphold the tithe. The player can obey or disobey, with consequences for their relationship with Imperial authority and the larger galaxy. The exact placement of faction selection relative to the opening scene and the order remains an open design question; see [Open Question 22](docs/OPEN_QUESTIONS.md).
 
 ![The Empress's first order](docs/images/rawwar-empress-order.svg)
 
