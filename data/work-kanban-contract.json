@@ -1,0 +1,57 @@
+{
+  "schema": "raWWar.work-kanban-contract.v1",
+  "status": "design-contract",
+  "description": "A kanban is a view of authoritative work orders and projects. It is not the source of truth for world state, and moving a card cannot bypass its prerequisites.",
+  "columns": [
+    {"id": "backlog", "name": "Proposed", "meaning": "Need or opportunity identified; not yet approved or resourced."},
+    {"id": "ready", "name": "Ready", "meaning": "Authorized work with explicit owner, scope, and prerequisites that are currently satisfied."},
+    {"id": "active", "name": "In progress", "meaning": "Agents and resources are performing the work; progress is derived from actual actions."},
+    {"id": "blocked", "name": "Blocked", "meaning": "Work cannot currently proceed; one or more explicit blocking reasons are recorded."},
+    {"id": "verification", "name": "Verification", "meaning": "Work is awaiting inspection, test, evidence review, or acceptance."},
+    {"id": "done", "name": "Accepted / done", "meaning": "Completion criteria passed and resulting world-state changes were committed."},
+    {"id": "cancelled", "name": "Cancelled", "meaning": "Authorized cancellation recorded with reason; irreversible work already performed remains in history."}
+  ],
+  "requiredWorkItemFields": [
+    "id", "kind", "title", "ownerAgentId", "createdAtLogicalTime", "priority", "status",
+    "prerequisites", "requiredResources", "requiredQualifications", "locationId",
+    "riskAssessmentId", "progressEvidence", "completionCriteria", "eventHistory"
+  ],
+  "transitionRules": [
+    {"from": "backlog", "to": "ready", "requires": ["authorization", "owner", "scope", "prerequisite-check"]},
+    {"from": "ready", "to": "active", "requires": ["resources-committed", "qualified-agent-available", "worksite-safe"]},
+    {"from": "active", "to": "blocked", "requires": ["recorded-blocker"]},
+    {"from": "blocked", "to": "ready", "requires": ["blocker-resolved", "prerequisite-recheck"]},
+    {"from": "active", "to": "verification", "requires": ["completion-evidence"]},
+    {"from": "verification", "to": "done", "requires": ["acceptance-passed"]},
+    {"from": "backlog", "to": "cancelled", "requires": ["authorized-cancellation"]},
+    {"from": "ready", "to": "cancelled", "requires": ["authorized-cancellation"]},
+    {"from": "active", "to": "cancelled", "requires": ["authorized-cancellation", "safe-stop-or-hazard-disposition"]}
+  ],
+  "riskAndOrderContract": {
+    "warningsArePersistentEvidence": true,
+    "warningMustCapture": ["authorAgentId", "logicalTime", "observations", "inference", "uncertainty", "recommendedMitigation", "affectedWorkItemId"],
+    "playerOrderMayOverrideRecommendation": true,
+    "overrideMustCapture": ["decisionMakerId", "logicalTime", "orderText", "warningIdsAcknowledged", "acceptedRisk", "mitigationsAccepted"],
+    "overrideDoesNotEraseWarning": true,
+    "overrideDoesNotGuaranteeDisaster": true,
+    "outcomeMustBeResolvedByWorldSimulation": true,
+    "causalHistoryMustLink": ["warning", "order", "physical-actions", "outcome", "casualties", "recovery-work"]
+  },
+  "agentAndPersonnelLifecycle": {
+    "agentsMayEarnScopedBonuses": true,
+    "bonusesRequireExperienceEvidence": true,
+    "deathIsPersistentAndIrreversibleByDefault": true,
+    "deathCausesWorkReassignmentReview": true,
+    "uniqueKnowledgeMayBeLost": true,
+    "knowledgeTransferRequiresAnEventOrPractice": true,
+    "assassinationRequiresAnAttackOrPlotAndAnOpportunity": true,
+    "combatDeathRequiresPhysicalExposureAndLethalOutcome": true,
+    "riskEscalationUsesSamePhysicalSimulation": true
+  },
+  "capacityRules": {
+    "activeWorkLimitsMayExistByOrganizationOrWorkType": true,
+    "blockedWorkDoesNotCountAsActiveExecution": true,
+    "boardViewDoesNotCreateOrDeleteWork": true,
+    "priorityChangesDoNotMagicallyCreateLaborOrMaterials": true
+  }
+}
