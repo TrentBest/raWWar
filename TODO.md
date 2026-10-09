@@ -174,7 +174,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added README section **00 — identity** and real MIT-license / development-CI badges. Deliberately did not add a NuGet release badge: raWWar is an Experience and this branch has not been published as a package release.
 - [x] Updated the conformance record to describe the actual section-00 treatment.
 - [x] Corrected the public README and PR summary so they no longer imply the faction-selection/Empress-order chronology is settled; both now point to Open Question 22.
-- [ ] Re-check CI for these latest README/conformance commits; do not reuse the prior green result as proof for this new head.
+- [x] Re-checked CI after the README/conformance updates: PR-triggered run [38000282573](https://github.com/TrentBest/raWWar/actions/runs/38000282573) passed at head `b07d1312584a964878475df31b366fc26bceeaf8`. A subsequent queue-only note cleanup is on the current head and its own run must be checked before reporting the current head green.
 - [x] Completed a repository-wide relative inline-Markdown-link target pass across all 102 Markdown files: 263 link targets checked, no missing local file targets found. This does not yet validate heading anchors, reference-style links, raw HTML `href`/`src` attributes, or external URL availability.
 - [x] Checked all 21 checked-in SVG assets for `href` / `xlink:href` references; none were present, so there were no local SVG-linked assets to resolve.
 - [x] Scanned all 102 Markdown files for raw HTML `href` / `src` attributes and inline Markdown fragment links; none were found in the checked content.
