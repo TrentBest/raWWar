@@ -65,37 +65,63 @@ public readonly record struct SimulationEventId(string Value)
 /// <summary>A proposed immutable event occurrence. Constructing it does not commit history.</summary>
 public sealed class SimulationEvent
 {
+    private readonly byte[] _canonicalAddress;
     private readonly byte[] _payload;
 
-    public SimulationEvent(
-        SimulationEventId id,
+    private SimulationEvent(
+        ulong worldSeed,
+        string simulationModelVersion,
+        ReadOnlySpan<byte> canonicalAddress,
         string eventDomain,
-        string logicalTimeKey,
         ulong eventOrdinal,
+        string logicalTimeKey,
         ReadOnlySpan<byte> payload)
     {
-        if (string.IsNullOrWhiteSpace(id.Value) || id.Value.Length != 64
-            || !id.Value.All(Uri.IsHexDigit))
-            throw new ArgumentException("Event identity must be a 64-character SHA-256 hex digest.", nameof(id));
+        WorldSeed = worldSeed;
+        SimulationModelVersion = simulationModelVersion;
+        _canonicalAddress = canonicalAddress.ToArray();
+        EventDomain = eventDomain;
+        EventOrdinal = eventOrdinal;
+        LogicalTimeKey = logicalTimeKey;
+        _payload = payload.ToArray();
+        Id = SimulationEventId.Create(worldSeed, simulationModelVersion, _canonicalAddress,
+            eventDomain, eventOrdinal, logicalTimeKey);
+    }
+
+    public static SimulationEvent Create(
+        ulong worldSeed,
+        string simulationModelVersion,
+        ReadOnlySpan<byte> canonicalAddress,
+        string eventDomain,
+        ulong eventOrdinal,
+        string logicalTimeKey,
+        ReadOnlySpan<byte> payload)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(simulationModelVersion);
         ArgumentException.ThrowIfNullOrWhiteSpace(eventDomain);
         ArgumentNullException.ThrowIfNull(logicalTimeKey);
-
-        Id = id;
-        EventDomain = eventDomain;
-        LogicalTimeKey = logicalTimeKey;
-        EventOrdinal = eventOrdinal;
-        _payload = payload.ToArray();
+        if (canonicalAddress.IsEmpty)
+            throw new ArgumentException("A canonical entity or region address is required.", nameof(canonicalAddress));
+        return new SimulationEvent(worldSeed, simulationModelVersion, canonicalAddress,
+            eventDomain, eventOrdinal, logicalTimeKey, payload);
     }
 
     public SimulationEventId Id { get; }
+    public ulong WorldSeed { get; }
+    public string SimulationModelVersion { get; }
     public string EventDomain { get; }
+    /// <summary>Canonical address bytes as uppercase hexadecimal for stream selection.</summary>
+    public string StreamKey => Convert.ToHexString(_canonicalAddress);
     /// <summary>Opaque, domain-defined ordering key; this type assigns no units or numeric meaning.</summary>
     public string LogicalTimeKey { get; }
     public ulong EventOrdinal { get; }
     public ReadOnlyMemory<byte> Payload => _payload.ToArray();
 
     internal bool HasSameContent(SimulationEvent other) =>
-        EventDomain == other.EventDomain
+        WorldSeed == other.WorldSeed
+        && SimulationModelVersion == other.SimulationModelVersion
+        && StreamKey == other.StreamKey
+        && EventDomain == other.EventDomain
         && LogicalTimeKey == other.LogicalTimeKey
         && EventOrdinal == other.EventOrdinal
         && _payload.AsSpan().SequenceEqual(other._payload);
@@ -144,7 +170,26 @@ public sealed class InMemoryEventHistory
         }
     }
 
-    /// <summary>Returns a snapshot ordered deterministically within the requested domain.</summary>
+    /// <summary>Returns a deterministic snapshot for one domain and canonical entity/region address.</summary>
+    public IReadOnlyList<SimulationEvent> ReadOrdered(string eventDomain, ReadOnlySpan<byte> canonicalAddress)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(eventDomain);
+        if (canonicalAddress.IsEmpty)
+            throw new ArgumentException("A canonical entity or region address is required.", nameof(canonicalAddress));
+        var streamKey = Convert.ToHexString(canonicalAddress);
+        lock (_gate)
+        {
+            return _events.Values
+                .Where(e => StringComparer.Ordinal.Equals(e.EventDomain, eventDomain)
+                    && StringComparer.Ordinal.Equals(e.StreamKey, streamKey))
+                .OrderBy(e => e.LogicalTimeKey, StringComparer.Ordinal)
+                .ThenBy(e => e.EventOrdinal)
+                .ThenBy(e => e.Id.Value, StringComparer.Ordinal)
+                .ToArray();
+        }
+    }
+
+    /// <summary>Returns a domain-wide deterministic snapshot; use the address-scoped overload for replay.</summary>
     public IReadOnlyList<SimulationEvent> ReadOrdered(string eventDomain)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(eventDomain);
