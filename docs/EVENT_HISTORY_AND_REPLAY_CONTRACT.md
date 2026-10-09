@@ -26,7 +26,7 @@ The world-model contract already identifies these event-key inputs:
 - event ordinal;
 - domain-defined logical-time key.
 
-The exact canonical encoding, uniqueness constraints, and domain-specific time representation remain implementation decisions. Until those are specified and tested, do not claim cross-process event IDs are stable or derive them from ad hoc string formatting.
+The reference implementation specifies a canonical V1 binary encoding and fixed identity vectors; that encoding is a repository contract, not a universal Workshop-wide standard. Domain-specific time representation and the uniqueness assumptions for event ordinals remain domain-owned. Do not derive identity from ad hoc string formatting.
 
 ## 2. A committed event is applied at most once
 
@@ -104,9 +104,9 @@ The core now contains `SimulationEventId`, `SimulationEvent`, and `InMemoryEvent
 - Domain: `resource.balance.delta`.
 - Payload V1: exactly eight bytes representing a signed 64-bit delta in big-endian two's-complement form.
 - Replay input: the caller supplies the already ordered events from one domain-and-address stream returned by `InMemoryEventHistory.ReadOrdered(domain, canonicalAddress)`.
-- State transition: add each decoded delta to the initial balance using checked Int64 arithmetic; malformed payloads, cross-domain input, and overflow are rejected.
-- The reducer does not fetch or commit events, infer logical-time units, persist state, process causal prerequisites, or support checkpoints. Stream scoping is provided by the history read; callers must not pass a domain-wide multi-address diagnostic read into replay.
-- Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, and overflow rejection.
+- State transition: add each decoded delta to the initial balance using checked Int64 arithmetic; malformed payloads, cross-domain input, mixed address streams, mixed world seeds/model versions, out-of-order input, and overflow are rejected.
+- The reducer does not fetch or commit events, infer logical-time units, persist state, process causal prerequisites, or support checkpoints. It validates that the supplied events form one address-scoped, seed/model-consistent stream in the ledger's declared deterministic order, but callers should still obtain streams through `ReadOrdered(domain, canonicalAddress)`.
+- Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, mixed stream rejection, out-of-order rejection, and overflow rejection.
 
 ## 8. Minimum acceptance tests
 
