@@ -20,6 +20,7 @@ System-specific documents expand the design without silently changing canon.
 - [Player Roles](PLAYER_ROLES.md) — occupations, roles, and qualification-driven participation.
 - [Persistent Universes](PERSISTENT_UNIVERSES.md) — long-term persistent-world vision.
 - [Authored Galaxies, Campaigns, and Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md) — deliberate single-player campaign construction, reproducible multiplayer generation, civilization ancestry, validation, and distribution.
+- [Humanity's Long History and the Discoverable Past](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) — speculative history from Earth to the galactic Empire, science-fiction guardrails, and deep discoverable archives.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
 ## Visual atlas
@@ -31,6 +32,7 @@ System-specific documents expand the design without silently changing canon.
 - [Ship damage and salvage](images/rawwar-ship-damage-and-salvage.svg) — part hierarchy, directional effects, causal system failures, and surviving wreck components.
 - [Faction ship design languages](images/rawwar-faction-ship-languages.svg) — candidate ship silhouettes showing how doctrine changes engineering, not just paint.
 - [Authored campaign and civilization lineage](images/rawwar-authored-campaign-lineage.svg) — curated single-player and generated multiplayer creation paths, converging on one world contract and a branching human lineage graph.
+- [Campaign history discoveries](../data/campaign-history-discoveries.json) — a data contract for physical evidence, archive access, contradictory records, and layered discovery.
 - [Starship sizing, damage, and salvage](STARSHIP_SIZING_DAMAGE_AND_SALVAGE.md) — candidate reference ship, what is sized now, what remains unknown, and how to model persistent destruction.
 - [Faction ship design languages](FACTION_SHIP_DESIGN_LANGUAGES.md) — how shared human missions produce recognizable faction-specific ship architecture, industrial signatures, tradeoffs, refits, and repair histories.
 - [Experience architecture](images/rawwar-experience-architecture.svg) — what raWWar owns versus reusable Workshop machinery.
