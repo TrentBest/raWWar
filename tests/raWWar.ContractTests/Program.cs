@@ -552,8 +552,8 @@ Check(renderContract.GetProperty("meshJoiningPolicy").GetProperty("compareStrate
       renderContract.GetProperty("meshJoiningPolicy").GetProperty("compareStrategies").EnumerateArray()
     .Select(x => x.GetString()).Contains("selectively joined static groups"),
     "Mesh joining and instancing are benchmarked as alternatives");
-Check(renderContract.GetProperty("validationRules").EnumerateArray()
-    .Any(x => x.Contains("VR comfort", StringComparison.Ordinal)),
+Check(renderContract.GetProperty("validationRules").EnumerateArray().Select(x => x.GetString())
+    .Any(x => x!.Contains("VR comfort", StringComparison.Ordinal)),
     "Rendering validation accounts for VR refresh deadlines and comfort");
 
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
