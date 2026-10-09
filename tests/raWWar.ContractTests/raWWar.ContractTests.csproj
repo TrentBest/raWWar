@@ -9,6 +9,6 @@
     <ProjectReference Include="../../src/raWWar/raWWar.csproj" />
     <Content Include="../../data/*.json" Link="data/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
     <Content Include="../../runtime-manifest.json" Link="runtime-manifest.json" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="../../experience-manifest.json" Link="experience-manifest.json" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="../../manifest.json" Link="manifest.json" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
