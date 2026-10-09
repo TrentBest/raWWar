@@ -1,8 +1,6 @@
 # raWWar
 
-![raWWar — The war is alive](docs/images/rawwar-hero.svg)
-
-> **The soldiers themselves are the stars of this game.**
+## 01 🔷 Definition
 
 **raWWar is a first-person war Experience, not an application.** It is a living military world that continues whether or not the player is looking at it.
 
@@ -11,6 +9,10 @@ The player inhabits a soldier inside a military system: a person with identity, 
 > **What happens when I become one of the people who has to live here?**
 
 ## 02 🟢 Visual identity
+
+![raWWar — The war is alive](docs/images/rawwar-hero.svg)
+
+> **The soldiers themselves are the stars of this game.**
 
 ![One galaxy, one war](docs/images/rawwar-galactic-war.svg)
 
