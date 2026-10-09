@@ -19,6 +19,7 @@ System-specific documents expand the design without silently changing canon.
 - [Vision and Pillars](VISION_AND_PILLARS.md) — north star and non-negotiable principles.
 - [Player Roles](PLAYER_ROLES.md) — occupations, roles, and qualification-driven participation.
 - [Persistent Universes](PERSISTENT_UNIVERSES.md) — long-term persistent-world vision.
+- [Authored Galaxies, Campaigns, and Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md) — deliberate single-player campaign construction, reproducible multiplayer generation, civilization ancestry, validation, and distribution.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
 ## Visual atlas
