@@ -344,6 +344,41 @@ Check(factionStyleRoot.GetProperty("missionComparisonContract").GetProperty("req
     .Select(x => x.GetString()).Contains("failure isolation"),
     "Matched mission comparisons include maintenance and survivability consequences");
 
+ 
+// Authored single-player campaigns and generated multiplayer galaxies share one
+// world contract, while civilization ancestry records causal human history.
+using var campaignManifestsData = ReadData("campaign-galaxy-manifests.json");
+using var civilizationLineagesData = ReadData("civilization-lineages.json");
+using var galaxyGenerationContractData = ReadData("galaxy-generation-contract.json");
+var campaignRoot = campaignManifestsData.RootElement;
+var lineageRoot = civilizationLineagesData.RootElement;
+var generationRoot = galaxyGenerationContractData.RootElement;
+Check(campaignRoot.GetProperty("modes").GetProperty("singlePlayer").GetProperty("generationPolicy").GetString() == "authored-and-curated",
+    "Single-player galaxy creation is authored and curated");
+Check(campaignRoot.GetProperty("modes").GetProperty("multiplayer").GetProperty("generationPolicy").GetString() == "automatic-and-seed-reproducible",
+    "Multiplayer galaxy creation is automatic and reproducible");
+Check(campaignRoot.GetProperty("modes").GetProperty("multiplayer").GetProperty("mustUseSameWorldContract").GetBoolean(),
+    "Single-player and multiplayer use the same underlying world-generation contract");
+var manifestFields = campaignRoot.GetProperty("manifestFields").EnumerateArray().Select(x => x.GetString()!).ToHashSet(StringComparer.Ordinal);
+Check(manifestFields.Contains("authoredLineageRefs") && manifestFields.Contains("permittedVariation") && manifestFields.Contains("saveCompatibilityPolicy"),
+    "Campaign manifests can pin ancestry, control variation, and declare save compatibility");
+Check(campaignRoot.GetProperty("validationGates").EnumerateArray().Any(x => x.GetString()!.Contains("chronological lineage consistency", StringComparison.OrdinalIgnoreCase)),
+    "Generated campaign histories validate chronology and lineage");
+var lineageRelationshipKinds = lineageRoot.GetProperty("relationshipKinds").EnumerateArray().Select(x => x.GetString()!).ToHashSet(StringComparer.Ordinal);
+Check(lineageRelationshipKinds.Contains("colonized-by") && lineageRelationshipKinds.Contains("seceded-from") &&
+      lineageRelationshipKinds.Contains("succeeded") && lineageRelationshipKinds.Contains("reunified-with"),
+    "Civilization lineage supports colonization, secession, succession, and reunification");
+Check(lineageRoot.GetProperty("canonPrinciples").EnumerateArray().Any(x => x.GetString()!.Contains("All raWWar factions are human", StringComparison.Ordinal)),
+    "Faction diversity is grounded in shared human species and divergent histories");
+Check(lineageRoot.GetProperty("inheritancePolicy").GetProperty("inheritanceMustBeExplicitlySelected").GetBoolean() &&
+      lineageRoot.GetProperty("inheritancePolicy").GetProperty("culturalSimilarityDoesNotGuaranteePoliticalAlliance").GetBoolean(),
+    "Heritage is selective and does not predetermine alliances");
+Check(generationRoot.GetProperty("campaignCreation").GetProperty("singlePlayer").GetProperty("policy").GetString() == "authored-and-curated" &&
+      generationRoot.GetProperty("campaignCreation").GetProperty("multiplayer").GetProperty("policy").GetString() == "automatic-and-seed-reproducible",
+    "Machine-readable galaxy generation contract exposes both campaign creation modes");
+Check(generationRoot.GetProperty("campaignCreation").GetProperty("civilizationLineage").GetProperty("model").GetString() == "graph",
+    "Galaxy generation contract treats civilization ancestry as a lineage graph");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
