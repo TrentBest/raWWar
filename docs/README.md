@@ -25,6 +25,8 @@ System-specific documents expand the design without silently changing canon.
 - [Contested History, Betrayal, and the Politics of Memory](CONTESTED_HISTORY_BETRAYAL_AND_MEMORY.md) — victor-written narratives, conflicting battle accounts, evidence provenance, betrayal, propaganda, cover-ups, and player-led historical investigation.
 - [Diegetic Interaction and Physical Interfaces](DIEGETIC_INTERACTION_AND_PHYSICAL_INTERFACES.md) — physical controls, mounted screens, desktop/VR semantic parity, damageable interfaces, and repair work.
 - [Mechs, Machines, and the Evolution of Warfare](MECHS_MACHINES_AND_WARFARE_EVOLUTION.md) — pilotable battle mechs and branching combat, industrial, research, extraction, and exotic-environment platforms.
+- [Mech Cockpit and Pilot Interaction](MECH_COCKPIT_AND_PILOT_INTERACTION.md) — boarding, physical controls, optional motion-capture harness, interface failures, and shared desktop/VR actions.
+- [Rendering Performance and GPU Budgets](RENDERING_PERFORMANCE_AND_GPU_BUDGETS.md) — mesh joining versus instancing, GPU budgets, VR frame deadlines, and reproducible benchmark requirements.
 - [Humanity's Long History and the Discoverable Past](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) — speculative history from Earth to the galactic Empire, science-fiction guardrails, and deep discoverable archives.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
