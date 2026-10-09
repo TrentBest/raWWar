@@ -93,3 +93,8 @@ The host passes configuration; it should not need to interpret each bundle's pri
 7. Optional absence follows a documented fallback; required capability absence produces a clear failure.
 8. Provider and parameter identities remain distinct in manifests, configuration, diagnostics, and any ProtocolAi vocabulary.
 9. The behavior works without a ProtocolAi dependency unless the owning package explicitly adopts it.
+
+
+## Usage examples
+
+The examples index at [`examples/README.md`](../../examples/README.md) is the source of truth for checked-in usage examples, including their verification boundaries. When this contract becomes consumable through a verified package API, add a runnable raWWar-side configuration/provider example there; this document alone does not prove that a specific provider-lookup API exists in the currently referenced MicroBundleDomain package.
