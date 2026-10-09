@@ -158,6 +158,47 @@ Check(assemblyIds.Count == facilityIds.Count, "Every facility has a construction
 Check(installPackageIds.Count == Ids(upgradesData, "upgrades").Length - 1 || installPackageIds.Count >= 10,
     "Physical installation packages are explicitly catalogued");
 
+
+using var advisorAppointmentsData = ReadData("advisor-appointments.json");
+using var advisorCandidatesData = ReadData("advisor-candidates.json");
+using var kanbanData = ReadData("work-kanban-contract.json");
+var appointmentIdsArray = Ids(advisorAppointmentsData, "appointments");
+var appointmentIds = appointmentIdsArray.ToHashSet(StringComparer.Ordinal);
+var candidateIds = Ids(advisorCandidatesData, "candidates");
+var kanbanColumnIds = Ids(kanbanData, "columns").ToHashSet(StringComparer.Ordinal);
+Unique("Advisor appointment", appointmentIdsArray);
+Unique("Advisor candidate", candidateIds);
+var bonusIds = advisorCandidatesData.RootElement.GetProperty("candidates").EnumerateArray()
+    .SelectMany(c => c.GetProperty("agentBonuses").EnumerateArray().Select(b => b.GetProperty("id").GetString()!)).ToArray();
+Unique("Agent-earned bonus", bonusIds);
+AllExist("Candidate appointment eligibility", advisorCandidatesData.RootElement.GetProperty("candidates").EnumerateArray()
+    .SelectMany(c => c.GetProperty("eligibleAppointments").EnumerateArray().Select(x => x.GetString()!)), appointmentIds);
+Check(advisorAppointmentsData.RootElement.GetProperty("appointments").EnumerateArray()
+    .All(a => a.GetProperty("workPrograms").EnumerateArray().Any() &&
+              a.GetProperty("qualificationGroups").EnumerateArray().Any() &&
+              a.GetProperty("bonusDomains").EnumerateArray().Any()),
+    "Every advisor appointment connects qualifications, work programs and scoped bonus domains");
+Check(advisorCandidatesData.RootElement.GetProperty("candidates").EnumerateArray()
+    .All(c => c.GetProperty("agentBonuses").EnumerateArray().All(b =>
+        b.GetProperty("earnedBy").GetString() == "agent-experience" &&
+        b.GetProperty("evidence").EnumerateArray().Any() &&
+        b.GetProperty("scope").GetString()!.Length > 0)),
+    "Every illustrative advisor bonus is earned through agent experience, evidenced and scoped");
+Check(advisorCandidatesData.RootElement.GetProperty("candidates").EnumerateArray()
+    .All(c => c.GetProperty("warningBehavior").GetProperty("canIssueWarnings").GetBoolean() &&
+              c.GetProperty("warningBehavior").GetProperty("playerCanOverride").GetBoolean()),
+    "Advisor candidates can warn the player while preserving explicit player authority");
+AllExist("Kanban transition source", kanbanData.RootElement.GetProperty("transitionRules").EnumerateArray()
+    .Select(t => t.GetProperty("from").GetString()!), kanbanColumnIds);
+AllExist("Kanban transition destination", kanbanData.RootElement.GetProperty("transitionRules").EnumerateArray()
+    .Select(t => t.GetProperty("to").GetString()!), kanbanColumnIds);
+Check(kanbanData.RootElement.GetProperty("riskAndOrderContract").GetProperty("overrideDoesNotEraseWarning").GetBoolean(),
+    "Risky player orders preserve the advisor's warning as historical evidence");
+Check(kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProperty("deathIsPersistentAndIrreversibleByDefault").GetBoolean(),
+    "Personnel death is modeled as persistent world history");
+Check(kanbanData.RootElement.GetProperty("capacityRules").GetProperty("priorityChangesDoNotMagicallyCreateLaborOrMaterials").GetBoolean(),
+    "Kanban reprioritization cannot bypass physical labor and material constraints");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
