@@ -5,7 +5,7 @@
 **Status:** Design contract; no universal raWWar coordinate convention is selected here.  
 **Owner:** raWWar world-model implementation.  
 **Audience:** Physics/orbit, navigation, observer, renderer, animation, and tooling contributors.  
-**Evidence rule:** This document defines what a transform API must state and prove. It does not claim that all runtime coordinate transforms are implemented.
+**Evidence rule:** The repository now includes a generic Cartesian affine-transform primitive and executable contract checks. A universal frame graph, named canonical frames, world-wide axis/handedness conventions, and time-dependent transforms remain unimplemented.
 
 ## 1. Name the frame of every spatial quantity
 
