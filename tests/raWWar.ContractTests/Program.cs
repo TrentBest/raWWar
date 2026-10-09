@@ -501,7 +501,7 @@ Check(evidenceRules.Any(x => x.Contains("not independent corroboration", StringC
 var betrayal = contestedHistoryRoot.GetProperty("betrayalModel");
 Check(betrayal.GetProperty("eventFields").EnumerateArray().Select(x => x.GetString()).Contains("relationshipOrObligationRef") &&
       betrayal.GetProperty("eventFields").EnumerateArray().Select(x => x.GetString()).Contains("actorKnowledgeAtDecision") &&
-      betrayal.GetProperty("rules").EnumerateArray().Any(x => x.GetString()!.Contains("motives", StringComparison.Ordinal)),
+      betrayal.GetProperty("rules").EnumerateArray().Any(x => x.GetString()!.Contains("motive", StringComparison.Ordinal)),
     "Betrayal records a relationship, actor knowledge, and disputed motive rather than a surprise label");
 Check(contestedHistoryRoot.GetProperty("battleNarratives").GetProperty("accountVariantsMayDifferOn").EnumerateArray()
     .Select(x => x.GetString()).Contains("who fired first") &&
