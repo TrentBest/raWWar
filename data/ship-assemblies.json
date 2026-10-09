@@ -1,0 +1,454 @@
+{
+  "schema": "raWWar.ship-assemblies.v1",
+  "status": "candidate simulation data; not real-world spacecraft engineering",
+  "units": {
+    "length": "m",
+    "mass": "t",
+    "power": "MW"
+  },
+  "examples": [
+    {
+      "id": "ship.testbed_wayfarer_01",
+      "name": "Wayfarer Systems Testbed",
+      "status": "illustrative_reference_design",
+      "role": "unarmed deep-space engineering and damage-model test platform",
+      "envelope": {
+        "lengthM": 120,
+        "widthM": 34,
+        "heightM": 28,
+        "referenceMassT": 18500,
+        "massTolerancePercent": 15,
+        "axes": {
+          "forward": "+X",
+          "aft": "-X",
+          "starboard": "+Y",
+          "port": "-Y",
+          "dorsal": "+Z",
+          "ventral": "-Z"
+        }
+      },
+      "massBudgetT": {
+        "dry": 14200,
+        "propellantCapacity": 1800,
+        "storesAndCargo": 1200,
+        "crewAndPersonal": 30,
+        "growthMarginPercent": 8
+      },
+      "zones": [
+        {
+          "id": "zone.forward",
+          "label": "Forward sensors and command",
+          "boundsM": {
+            "min": [
+              38,
+              -11,
+              -8
+            ],
+            "max": [
+              59,
+              11,
+              9
+            ]
+          },
+          "protection": "light",
+          "role": "sensor mounts and forward pressure hull"
+        },
+        {
+          "id": "zone.midship",
+          "label": "Crew and mission spaces",
+          "boundsM": {
+            "min": [
+              -12,
+              -15,
+              -10
+            ],
+            "max": [
+              38,
+              15,
+              10
+            ]
+          },
+          "protection": "medium",
+          "role": "primary pressure hull and structural spine"
+        },
+        {
+          "id": "zone.engineering",
+          "label": "Power and engineering",
+          "boundsM": {
+            "min": [
+              -36,
+              -12,
+              -9
+            ],
+            "max": [
+              -12,
+              12,
+              9
+            ]
+          },
+          "protection": "reinforced",
+          "role": "isolated machinery raft and service bulkheads"
+        },
+        {
+          "id": "zone.aft",
+          "label": "Propulsion and motor mounts",
+          "boundsM": {
+            "min": [
+              -60,
+              -15,
+              -11
+            ],
+            "max": [
+              -36,
+              15,
+              11
+            ]
+          },
+          "protection": "light_service_access",
+          "role": "thrust frame and propulsion service truss"
+        }
+      ],
+      "parts": [
+        {
+          "id": "part.primary_spine",
+          "name": "Primary longitudinal spine",
+          "zone": "zone.midship",
+          "kind": "structure",
+          "massT": 820,
+          "mountsTo": null,
+          "dependencies": [],
+          "damageModes": [
+            "bending",
+            "fracture",
+            "buckling"
+          ],
+          "salvageClass": "heavy_structural",
+          "repair": "brace_inspect_and_splice"
+        },
+        {
+          "id": "part.sensor_array",
+          "name": "Forward sensor array",
+          "zone": "zone.forward",
+          "kind": "sensor",
+          "massT": 18,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [
+            "part.power_bus_a",
+            "part.data_backbone"
+          ],
+          "damageModes": [
+            "fracture",
+            "misalignment",
+            "cable_severance"
+          ],
+          "salvageClass": "precision_electronics",
+          "repair": "replace_modules_and_recalibrate"
+        },
+        {
+          "id": "part.command_module",
+          "name": "Command module",
+          "zone": "zone.forward",
+          "kind": "crew_module",
+          "massT": 95,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [
+            "part.life_support_a",
+            "part.power_bus_a",
+            "part.data_backbone"
+          ],
+          "damageModes": [
+            "pressure_loss",
+            "fire",
+            "control_line_failure"
+          ],
+          "salvageClass": "mixed",
+          "repair": "isolate_and_assess"
+        },
+        {
+          "id": "part.life_support_a",
+          "name": "Life support train A",
+          "zone": "zone.midship",
+          "kind": "life_support",
+          "massT": 44,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [
+            "part.power_bus_a"
+          ],
+          "damageModes": [
+            "leak",
+            "contamination",
+            "pump_failure"
+          ],
+          "salvageClass": "industrial_equipment",
+          "repair": "isolate_loop_and_swap_modules"
+        },
+        {
+          "id": "part.life_support_b",
+          "name": "Life support train B",
+          "zone": "zone.midship",
+          "kind": "life_support",
+          "massT": 44,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [
+            "part.power_bus_b"
+          ],
+          "damageModes": [
+            "leak",
+            "contamination",
+            "pump_failure"
+          ],
+          "salvageClass": "industrial_equipment",
+          "repair": "isolate_loop_and_swap_modules"
+        },
+        {
+          "id": "part.reactor",
+          "name": "Primary reactor assembly",
+          "zone": "zone.engineering",
+          "kind": "reactor",
+          "massT": 690,
+          "mountsTo": "part.engineering_raft",
+          "dependencies": [
+            "part.coolant_loop",
+            "part.reactor_control"
+          ],
+          "damageModes": [
+            "scram",
+            "coolant_loss",
+            "containment_damage"
+          ],
+          "salvageClass": "hazardous_heavy_equipment",
+          "repair": "scram_isolate_cool_and_assess"
+        },
+        {
+          "id": "part.reactor_control",
+          "name": "Reactor control and protection",
+          "zone": "zone.engineering",
+          "kind": "control",
+          "massT": 12,
+          "mountsTo": "part.engineering_raft",
+          "dependencies": [
+            "part.power_bus_a"
+          ],
+          "damageModes": [
+            "sensor_drift",
+            "relay_failure",
+            "cable_severance"
+          ],
+          "salvageClass": "precision_electronics",
+          "repair": "safe_state_then_test"
+        },
+        {
+          "id": "part.coolant_loop",
+          "name": "Primary heat transport loop",
+          "zone": "zone.engineering",
+          "kind": "thermal",
+          "massT": 78,
+          "mountsTo": "part.engineering_raft",
+          "dependencies": [
+            "part.pump"
+          ],
+          "damageModes": [
+            "pipe_rupture",
+            "pump_loss",
+            "valve_failure"
+          ],
+          "salvageClass": "industrial_equipment",
+          "repair": "isolate_patch_and_pressure_test"
+        },
+        {
+          "id": "part.power_bus_a",
+          "name": "Port essential power bus",
+          "zone": "zone.midship",
+          "kind": "power_distribution",
+          "massT": 31,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [
+            "part.reactor"
+          ],
+          "damageModes": [
+            "arc_fault",
+            "breaker_failure",
+            "feeder_severance"
+          ],
+          "salvageClass": "mixed",
+          "repair": "isolate_and_test"
+        },
+        {
+          "id": "part.power_bus_b",
+          "name": "Starboard essential power bus",
+          "zone": "zone.midship",
+          "kind": "power_distribution",
+          "massT": 31,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [
+            "part.reactor"
+          ],
+          "damageModes": [
+            "arc_fault",
+            "breaker_failure",
+            "feeder_severance"
+          ],
+          "salvageClass": "mixed",
+          "repair": "isolate_and_test"
+        },
+        {
+          "id": "part.data_backbone",
+          "name": "Command and data backbone",
+          "zone": "zone.midship",
+          "kind": "data_network",
+          "massT": 9,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [],
+          "damageModes": [
+            "cable_cut",
+            "gateway_failure",
+            "stale_data"
+          ],
+          "salvageClass": "precision_electronics",
+          "repair": "reroute_and_verify"
+        },
+        {
+          "id": "part.engineering_raft",
+          "name": "Isolated engineering raft",
+          "zone": "zone.engineering",
+          "kind": "structure",
+          "massT": 210,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [],
+          "damageModes": [
+            "mount_fracture",
+            "distortion"
+          ],
+          "salvageClass": "heavy_structural",
+          "repair": "support_machinery_and_survey"
+        },
+        {
+          "id": "part.pump",
+          "name": "Primary coolant pump",
+          "zone": "zone.engineering",
+          "kind": "pump",
+          "massT": 8,
+          "mountsTo": "part.engineering_raft",
+          "dependencies": [
+            "part.power_bus_a"
+          ],
+          "damageModes": [
+            "bearing_seizure",
+            "impeller_damage",
+            "misalignment"
+          ],
+          "salvageClass": "industrial_equipment",
+          "repair": "remove_rebuild_or_replace"
+        },
+        {
+          "id": "part.thruster_port",
+          "name": "Port main thruster",
+          "zone": "zone.aft",
+          "kind": "propulsion",
+          "massT": 420,
+          "mountsTo": "part.thrust_frame",
+          "dependencies": [
+            "part.feed_port",
+            "part.power_bus_a",
+            "part.data_backbone"
+          ],
+          "damageModes": [
+            "nozzle_damage",
+            "mount_fracture",
+            "feed_leak"
+          ],
+          "salvageClass": "heavy_mechanical",
+          "repair": "isolate_and_survey_mount"
+        },
+        {
+          "id": "part.thruster_starboard",
+          "name": "Starboard main thruster",
+          "zone": "zone.aft",
+          "kind": "propulsion",
+          "massT": 420,
+          "mountsTo": "part.thrust_frame",
+          "dependencies": [
+            "part.feed_starboard",
+            "part.power_bus_b",
+            "part.data_backbone"
+          ],
+          "damageModes": [
+            "nozzle_damage",
+            "mount_fracture",
+            "feed_leak"
+          ],
+          "salvageClass": "heavy_mechanical",
+          "repair": "isolate_and_survey_mount"
+        },
+        {
+          "id": "part.thrust_frame",
+          "name": "Aft thrust frame",
+          "zone": "zone.aft",
+          "kind": "structure",
+          "massT": 360,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [],
+          "damageModes": [
+            "crack",
+            "joint_failure",
+            "deformation"
+          ],
+          "salvageClass": "heavy_structural",
+          "repair": "brace_inspect_and_splice"
+        },
+        {
+          "id": "part.feed_port",
+          "name": "Port propellant feed",
+          "zone": "zone.aft",
+          "kind": "fluid",
+          "massT": 23,
+          "mountsTo": "part.thrust_frame",
+          "dependencies": [],
+          "damageModes": [
+            "rupture",
+            "valve_failure"
+          ],
+          "salvageClass": "industrial_equipment",
+          "repair": "isolate_purge_replace"
+        },
+        {
+          "id": "part.feed_starboard",
+          "name": "Starboard propellant feed",
+          "zone": "zone.aft",
+          "kind": "fluid",
+          "massT": 23,
+          "mountsTo": "part.thrust_frame",
+          "dependencies": [],
+          "damageModes": [
+            "rupture",
+            "valve_failure"
+          ],
+          "salvageClass": "industrial_equipment",
+          "repair": "isolate_purge_replace"
+        },
+        {
+          "id": "part.payload_cell",
+          "name": "Mission payload cell",
+          "zone": "zone.midship",
+          "kind": "payload",
+          "massT": 160,
+          "mountsTo": "part.primary_spine",
+          "dependencies": [],
+          "damageModes": [
+            "rupture",
+            "venting",
+            "structural_release"
+          ],
+          "salvageClass": "payload_or_hazardous",
+          "repair": "secure_identify_and_assess"
+        }
+      ],
+      "rules": [
+        "Parts are persistent assets so they can be damaged, detached, repaired, removed, salvaged and replaced independently.",
+        "Every mount and dependency reference must resolve; null mounts identify root structures.",
+        "Derive assembled mass from part records and compare it with the design budget; never silently force totals to agree.",
+        "Aft propulsion mounts are an intentionally exposed candidate design feature; actual vulnerability depends on the impact location, protection layers, orientation and prior condition."
+      ]
+    }
+  ]
+}
