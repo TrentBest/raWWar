@@ -199,6 +199,44 @@ Check(kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProper
 Check(kanbanData.RootElement.GetProperty("capacityRules").GetProperty("priorityChangesDoNotMagicallyCreateLaborOrMaterials").GetBoolean(),
     "Kanban reprioritization cannot bypass physical labor and material constraints");
 
+
+// Cross-check the new design catalogues rather than merely checking that each file parses.
+var appointmentRecords = advisorAppointmentsData.RootElement.GetProperty("appointments").EnumerateArray().ToArray();
+var appointmentById = appointmentRecords.ToDictionary(a => a.GetProperty("id").GetString()!, StringComparer.Ordinal);
+var candidateRecords = advisorCandidatesData.RootElement.GetProperty("candidates").EnumerateArray().ToArray();
+Unique("Candidate personnel identity", candidateRecords.Select(c => c.GetProperty("personnelId").GetString()!).ToArray());
+Check(candidateRecords.All(c =>
+{
+    var eligible = c.GetProperty("eligibleAppointments").EnumerateArray()
+        .Select(x => x.GetString()!).ToArray();
+    var validPrograms = eligible
+        .Where(appointmentById.ContainsKey)
+        .SelectMany(id => appointmentById[id].GetProperty("workPrograms").EnumerateArray()
+            .Select(x => x.GetString()!))
+        .ToHashSet(StringComparer.Ordinal);
+    return c.GetProperty("candidateFirstWork").EnumerateArray()
+        .All(x => validPrograms.Contains(x.GetString()!));
+}), "Every candidate's initial work is offered by at least one eligible appointment");
+Check(candidateRecords.All(c =>
+{
+    var eligible = c.GetProperty("eligibleAppointments").EnumerateArray()
+        .Select(x => x.GetString()!).Where(appointmentById.ContainsKey).ToArray();
+    var domains = eligible.SelectMany(id => appointmentById[id].GetProperty("bonusDomains").EnumerateArray()
+        .Select(x => x.GetString()!)).ToHashSet(StringComparer.Ordinal);
+    return c.GetProperty("agentBonuses").EnumerateArray()
+        .All(b => domains.Contains(b.GetProperty("domain").GetString()!));
+}), "Every candidate bonus domain is supported by an eligible appointment");
+var requiredWorkFields = kanbanData.RootElement.GetProperty("requiredWorkItemFields")
+    .EnumerateArray().Select(x => x.GetString()!).ToArray();
+Unique("Required work-item field", requiredWorkFields);
+Check(requiredWorkFields.Contains("eventHistory", StringComparer.Ordinal) &&
+      requiredWorkFields.Contains("completionCriteria", StringComparer.Ordinal) &&
+      requiredWorkFields.Contains("ownerAgentId", StringComparer.Ordinal),
+    "Executable work items preserve ownership, acceptance criteria, and event history");
+Check(kanbanData.RootElement.GetProperty("transitionRules").EnumerateArray()
+    .All(t => t.GetProperty("requires").EnumerateArray().Any()),
+    "Every legal kanban transition declares explicit prerequisites");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
