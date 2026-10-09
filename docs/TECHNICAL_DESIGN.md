@@ -62,6 +62,12 @@ The goal is to express behavior through data, relationships, requirements, provi
 
 Gestures extend this model into physical motion. A Gesture is a sequence of poses plus a mathematical transition rule. Gesture FSMs can be supplied by the capability that owns a physical interaction, such as a vehicle or building MicroBundle. The general Gesture pipeline remains an architectural direction; do not infer that a complete runtime pipeline exists from this description.
 
+### Current physical-interaction prototype
+
+The narrow `FighterPilotStation` model in `src/raWWar/Interaction/FighterPilotStation.cs` is the first executable raWWar-side station contract. It models immutable state transitions for occupant identity, fighter-pilot qualification, restraint engagement, interface connection, rig raise, control readiness, bounded pilot-control intent, and emergency release. The executable contract suite checks the ordered gates and verifies that desktop and VR input produce the same intent from the same initial state.
+
+This is a **domain-contract prototype**, not the reusable Workshop physical-interaction capability. It does not animate the restraints or hands, model actual forces, persist an event stream, run aircraft control laws, move a vehicle, or prove AnyApp execution. The structured result is available for a future event-history adapter; durable recording is not implemented.
+
 ### Current spatiotemporal implementation slice
 
 The code currently includes immutable `KeplerOrbit` and `Vector3d` types for querying an elliptic two-body orbit at an explicit logical time. The contract checks exercise repeatability, periodicity, periapsis/apoapsis bounds, inclination, non-finite input rejection, and a high-eccentricity elliptic case.
