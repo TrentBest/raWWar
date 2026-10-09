@@ -560,7 +560,7 @@
     ]
   },
   "coordinateFrameContract": {
-    "status": "design-contract-runtime-not-yet-implemented",
+    "status": "generic-cartesian-transform-primitive-implemented; universal-frame-conventions-and-frame-graph-not-implemented",
     "purpose": "Make spatial quantities interpretable and transformable without conflating coordinate representation, canonical identity, and authoritative physical state.",
     "frameMetadataRequired": [
       "frame identity/role",
@@ -599,6 +599,48 @@
       "public frame identifiers and transform representation",
       "time-dependent frame graph and validity policy",
       "domain-specific unit conventions and renderer adapters"
+    ],
+    "implementedPrimitive": {
+      "type": "CartesianTransform3d",
+      "source": "src/raWWar/Spatiotemporal/CartesianTransform3d.cs",
+      "matrixConvention": "row-major 3x3 linear matrix maps source-frame column coordinates into destination-frame coordinates; translation is in destination-frame units",
+      "operations": [
+        "TransformPosition includes translation",
+        "TransformDirection ignores translation",
+        "Compose applies its argument transform first, then the receiver",
+        "Inverse supports orthonormal linear matrices only and rejects scale/shear"
+      ],
+      "validation": [
+        "reject non-finite transform components",
+        "reject non-finite input vector components"
+      ],
+      "contractTestCoverage": [
+        "identity mapping",
+        "fixed quarter-turn and translation reference vector",
+        "position and direction translation distinction",
+        "inverse round trip",
+        "composition order",
+        "reject scaled inverse",
+        "reject non-finite transform",
+        "reject non-finite vector"
+      ],
+      "limitations": [
+        "does not name or register source/destination frames",
+        "does not declare units",
+        "does not choose universal raWWar handedness or axes",
+        "does not implement a frame graph",
+        "does not implement time-dependent transforms"
+      ]
+    },
+    "completedTests": [
+      "identity transform preserves a point",
+      "fixed quarter-turn and translation vector",
+      "position and direction treat translation differently",
+      "orthonormal transform followed by inverse recovers point",
+      "composition applies argument before receiver",
+      "inverse rejects non-orthonormal matrix",
+      "non-finite transform components rejected",
+      "non-finite vectors rejected"
     ]
   }
 }
