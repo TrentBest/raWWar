@@ -21,7 +21,7 @@
 
 ## Current state (verified during this review)
 
-- [x] **Integration PR #2 remains open and unmerged** (verified 2026-10-09); it is the current integration lane. It is the current integration lane; do not create a competing PR without a reason.
+- [x] **Integration PR #2 remains open and unmerged** (verified 2026-10-09); it is the current integration lane. Do not create a competing PR without a reason.
 - [x] Repository has been reset to a .NET 8, manifest-oriented raWWar Experience; old engine-bound shell is no longer the architecture.
 - [x] A .NET 8 executable contract-check project exists; it has no test-framework dependency, and now uses a test-only FSM_COS package reference to prove root assembly.
 - [x] The first spatiotemporal implementation slice includes immutable `KeplerOrbit` / `Vector3d` types for explicit-time two-body elliptic orbit queries.
@@ -42,7 +42,9 @@
 - [x] Reviewed the .NET 8 projects, executable contract checks, root `manifest.json`, `runtime-manifest.json`, and `data/workshop-composition-contract.json`. Many architecture assertions are present, but end-to-end composition is not implemented.
 - [ ] Finish the ecosystem API/version inventory. Verified so far: MicroBundleDomain `1.0.1`; AnyApp uses FSM_COS `0.1.0-alpha.5`; FSM_COS `development` has the newer versioned-root contract. Still verify FSM_API, FSM_UserIO, and the approved integration plan. Do not upgrade or publish packages as part of this inventory.
 - [ ] Reconcile the Experience authoring manifest, FSM_COS runtime manifest and AnyApp publication manifest. Define one explicit, tested source of truth for Experience/runtime/bundle identity, version pinning, configuration, artifact identity and supported manifestations. AnyApp's current native `AnyAppMicroBundleCatalog` is compiled and only registers Moniker and Forge; the repository-backed catalog is implemented on AnyApp `development` but does not yet prove raWWar loading. The local-pack CI check passed on run 37985018118; raWWar-to-AnyApp loading remains unproven. Track the dependency-address closure constraint in [the bridge contract](docs/integration/ANYAPP_MANIFEST_BRIDGE.md).
-- [x] Queue now records the verified baseline and 171/171 check count; no failure in the verified queue-commit run. Next implementation slice: define and test the manifest bridge from raWWar's authoring/runtime metadata to AnyApp's publication manifest, then prove host catalog resolution for bundle 3301 without publishing NuGet.
+- [x] Queue records the verified baseline and 171/171 check count for run 37984743404.
+- [x] Request convention, MicroBundleDomain experience-configuration request, AnyApp artifact-closure request, and links from the manifest bridge were committed on `development`; workflow run [37989886690](https://github.com/TrentBest/raWWar/actions/runs/37989886690) completed successfully. This is documentation/queue validation, not proof of AnyApp loading.
+- [ ] Next bridge work remains blocked on the receiving repository's artifact-closure contract; continue independent raWWar-owned validation and design without inventing an external API.
 
 ## P1 — Make the Experience actually compose
 
