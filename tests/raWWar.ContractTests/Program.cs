@@ -1,4 +1,5 @@
 using TheSingularityWorkshop.FSM_COS;
+using TheSingularityWorkshop.MicroBundleDomain;
 using TheSingularityWorkshop.raWWar;
 using TheSingularityWorkshop.raWWar.ContractTests;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
@@ -699,14 +700,20 @@ Check(experienceManifestData.RootElement.GetProperty("runtimeManifestPath").GetS
 // alpha package currently used by AnyApp. This is an in-memory local catalog proof,
 // not a repository-backed artifact download or an Experience execution loop.
 var runtimeIdForComposition = runtimeManifest.GetProperty("runtimeId").GetUInt64();
-var runtimeRootsForComposition = runtimeManifest.GetProperty("bundles").EnumerateArray()
-    .Select(entry => new MicroBundleManifestEntry(
-        entry.GetProperty("bundleId").GetUInt64(),
-        entry.GetProperty("version").GetString()!))
+var rootBundle = new RaWWarMicroBundle();
+var declaredBundleEntries = runtimeManifest.GetProperty("bundles").EnumerateArray().ToArray();
+Check(declaredBundleEntries.All(entry =>
+        string.Equals(entry.GetProperty("version").GetString(), rootBundle.Descriptor.Version, StringComparison.Ordinal)),
+    "The checked-in runtime manifest requests the exact version declared by the raWWar root bundle");
+var runtimeRootsForComposition = declaredBundleEntries
+    .Select(entry => MicroBundleDependencyRequest.Unconfigured(entry.GetProperty("bundleId").GetUInt64()))
     .ToArray();
 try
 {
-    var composition = new FsmCos(new SingleBundleCatalog(new RaWWarMicroBundle()))
+    // AnyApp currently consumes FSM_COS 0.1.0-alpha.5, whose RuntimeManifest roots
+    // are MicroBundleDependencyRequests. The checked-in manifest's version is
+    // validated above; host artifact-version resolution remains a separate contract.
+    var composition = new FsmCos(new SingleBundleCatalog(rootBundle))
         .Execute(new RuntimeManifest(runtimeIdForComposition, runtimeRootsForComposition));
     Check(composition.RuntimeId == runtimeIdForComposition,
         "FSM_COS assembly preserves the runtime identity requested by raWWar's runtime manifest");
