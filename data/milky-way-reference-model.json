@@ -1,0 +1,297 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesingularityworkshop.com/raWWar/schemas/milky-way-reference-model.v1.json",
+  "schemaVersion": "raWWar.milky-way-reference-model.v1",
+  "status": "candidate-scientific-baseline",
+  "purpose": "A provenance-aware reference model for locating the Solar System in the Milky Way and separating measured astronomy, inferred large-scale structure, procedural expansion, and presentation choices. This is a design contract, not a complete star catalogue or a full N-body simulation.",
+  "authority": {
+    "creatorCanonOverridesCandidateParameters": true,
+    "measuredCataloguesOutrankIllustrativeArtwork": true,
+    "artworkMayCommunicateUncertaintyButMustNotReplaceMeasurements": true,
+    "unknownDoesNotMeanEmpty": true,
+    "absenceFromCatalogueDoesNotProveAbsenceOfObject": true,
+    "scientificParametersMustCarrySourceAndEpoch": true
+  },
+  "referenceEpoch": {
+    "label": "J2000-compatible baseline with source-specific observation epochs",
+    "rule": "Do not pretend all source catalogues share one epoch. Store the actual reference epoch and observation epoch per record when available; propagate coordinates using proper motion only when the required data and model are available.",
+    "gameStartDate": "2026-10-09",
+    "gameStartDateMeaning": "Campaign narrative reference only; not the astrometric epoch of the Milky Way model."
+  },
+  "galaxy": {
+    "classification": "barred spiral galaxy",
+    "stellarDiskDiameterLightYears": {
+      "approximate": 100000,
+      "confidence": "broad-scale estimate",
+      "source": "https://www.esa.int/ESA_Multimedia/Images/2016/09/Gaia_s_first_sky_map"
+    },
+    "solarGalactocentricDistanceLightYears": {
+      "nominal": 26000,
+      "approximateRange": [
+        24000,
+        28000
+      ],
+      "confidence": "approximate; literature and method dependent",
+      "source": "https://science.nasa.gov/learn/basics-of-space-flight/chapter1-1/"
+    },
+    "solarLocation": {
+      "namedRegion": "Local (Orion) Arm / Orion Spur",
+      "confidence": "well-established broad location; arm boundaries and nomenclature vary by model",
+      "galacticCenterDirection": "toward Sagittarius",
+      "source": "https://www.esa.int/Science_Exploration/Space_Science/Gaia"
+    },
+    "componentsToRepresent": [
+      {
+        "id": "galaxy.central-bar",
+        "kind": "large-scale-structure",
+        "status": "observationally-supported-model",
+        "geometry": "barred central stellar structure; exact dimensions/orientation are versioned parameters"
+      },
+      {
+        "id": "galaxy.bulge",
+        "kind": "large-scale-structure",
+        "status": "observationally-supported-model"
+      },
+      {
+        "id": "galaxy.stellar-disk",
+        "kind": "large-scale-structure",
+        "status": "observationally-supported-model"
+      },
+      {
+        "id": "galaxy.spiral-structure",
+        "kind": "large-scale-structure",
+        "status": "inferred-model",
+        "rule": "Do not bake one artist's arm outlines as exact physical boundaries; retain alternate/versioned models where useful."
+      },
+      {
+        "id": "galaxy.gas-and-dust",
+        "kind": "large-scale-structure",
+        "status": "observationally-mapped-with-incompleteness"
+      },
+      {
+        "id": "galaxy.stellar-halo",
+        "kind": "large-scale-structure",
+        "status": "observationally-supported-model"
+      },
+      {
+        "id": "galaxy.globular-and-open-clusters",
+        "kind": "catalogued-populations",
+        "status": "catalogue-backed-with-incompleteness"
+      }
+    ]
+  },
+  "solarSystem": {
+    "canonicalEntityId": "system.sol",
+    "homeworldEntityId": "planet.earth",
+    "primaryStarEntityId": "star.sun",
+    "galacticReference": {
+      "galactocentricDistanceLightYears": 26000,
+      "coordinatesStatus": "coarse-cartographic-anchor-not-precision-astrometry",
+      "rule": "Use a documented Galactic coordinate frame and versioned transformation for actual catalogued positions. This coarse anchor is for galactic-scale map placement only."
+    },
+    "motion": {
+      "solarGalacticOrbitalPeriodYears": {
+        "nominal": 230000000,
+        "approximateRange": [
+          230000000,
+          250000000
+        ],
+        "source": "https://science.nasa.gov/sun/facts/"
+      },
+      "orbitalSpeedKilometersPerSecond": {
+        "nominal": 220,
+        "approximateRange": [
+          220,
+          240
+        ],
+        "note": "Published estimates vary by adopted solar galactocentric radius, reference frame, tracers, and model.",
+        "source": "https://arxiv.org/abs/1608.03886"
+      },
+      "simpleCircularApproximationAllowedFor": "coarse map preview and rough long-term orientation only",
+      "fullSimulationRequirements": [
+        "versioned Galactic potential or explicitly declared approximation",
+        "initial position and velocity in a documented coordinate frame",
+        "proper-motion and radial-velocity data when available",
+        "validity horizon and uncertainty propagation",
+        "separation of stellar orbital motion from spiral-pattern motion",
+        "no rigid rotation of every galaxy component as a substitute for dynamics"
+      ]
+    }
+  },
+  "catalogueStrategy": {
+    "principle": "Use real catalogued objects where available, then expand the universe with deterministic synthetic populations whose provenance clearly says generated.",
+    "primaryReferenceCatalogues": [
+      {
+        "name": "ESA Gaia",
+        "url": "https://www.cosmos.esa.int/web/gaia/milky-way",
+        "role": "stellar astrometry, photometry, motion, population structure; catalogue selection limits apply"
+      },
+      {
+        "name": "NASA Exoplanet Archive",
+        "url": "https://exoplanetarchive.ipac.caltech.edu/",
+        "role": "confirmed planets and published planetary-system data; not a complete census of planetary systems"
+      },
+      {
+        "name": "SIMBAD Astronomical Database",
+        "url": "https://simbad.cds.unistra.fr/simbad/",
+        "role": "cross-identified astronomical objects and bibliography"
+      },
+      {
+        "name": "NASA/IPAC Infrared Science Archive",
+        "url": "https://irsa.ipac.caltech.edu/",
+        "role": "infrared surveys and dust-obscured populations"
+      },
+      {
+        "name": "VizieR Catalogue Service",
+        "url": "https://vizier.cds.unistra.fr/",
+        "role": "published astronomical catalogues; each imported catalogue retains its own metadata"
+      }
+    ],
+    "recordProvenanceRequired": [
+      "sourceCatalogueOrGenerationModel",
+      "sourceRecordIdWhenAvailable",
+      "sourceVersionOrRelease",
+      "observationOrReferenceEpochWhenAvailable",
+      "coordinateFrame",
+      "units",
+      "uncertaintyOrConfidence",
+      "selectionEffectsAndKnownLimitations",
+      "importTimestamp",
+      "transformationVersion"
+    ],
+    "objectKnowledgeStates": [
+      "measured",
+      "derived-from-measurements",
+      "model-inferred",
+      "candidate",
+      "procedurally-generated",
+      "unknown"
+    ],
+    "mergeRule": "Cross-identification may unify multiple catalogue records only with explicit evidence and preserved source identities; never merge solely because names look similar."
+  },
+  "proceduralExpansion": {
+    "whyNeeded": "Known catalogues are valuable but incomplete and unevenly sampled. The campaign requires a much larger, internally consistent population than current confirmed-system catalogues can provide.",
+    "mustNotDo": [
+      "label generated stars or planets as observed real objects",
+      "silently overwrite measured data with generated values",
+      "assume every star has a known planet count",
+      "treat catalogue gaps as empty space",
+      "use one uniform star density throughout the galaxy",
+      "make every generated system habitable or narratively important"
+    ],
+    "requiredInputs": [
+      "worldSeed",
+      "generatorVersion",
+      "modelVersion",
+      "stableSpatialAddress",
+      "populationDomain",
+      "featureOrdinal"
+    ],
+    "mustModelAtAppropriateFidelity": [
+      "radial and vertical population gradients",
+      "stellar population age and metallicity distributions",
+      "star-formation regions and clustered populations",
+      "gas, dust, and observational selection effects",
+      "binary and multiple-star populations where supported by the model",
+      "planet occurrence as a distribution with uncertainty, not a universal guarantee",
+      "local environmental variation",
+      "stable object identity independent of render or discovery order"
+    ],
+    "realDataWinsRule": "At a matched identity and compatible epoch, accepted measured records take precedence over procedural placeholders. Preserve generated assumptions as provenance if a placeholder was used before import."
+  },
+  "motionAndTime": {
+    "authoritativeState": "Object positions are functions of simulation time and a versioned motion model; map rendering never owns or mutates their positions.",
+    "motionDomains": [
+      {
+        "id": "motion.solar-system-galactic-orbit",
+        "model": "galactic-potential or explicitly limited coarse approximation"
+      },
+      {
+        "id": "motion.local-stars",
+        "model": "individual measured position and velocity where available; otherwise population model with declared uncertainty"
+      },
+      {
+        "id": "motion.spiral-pattern",
+        "model": "separate pattern-speed/model parameters; do not equate arm pattern motion with each star's orbit"
+      },
+      {
+        "id": "motion.gas-dust-and-clusters",
+        "model": "domain-specific model with stated fidelity and validity horizon"
+      }
+    ],
+    "millenniaScaleRule": "For a campaign spanning thousands to tens of thousands of years, calculate the actual angular change from the selected model. A simple 230-million-year circular orbit changes by only about 0.016 degrees in 10,000 years; local stellar motion, close encounters, and galactic structure may require separate treatment.",
+    "longTimespanRule": "For million-to-hundred-million-year histories, do not merely rotate a static image. Evolve or approximate stars and structures with a declared dynamical model, uncertainty, and fidelity tier.",
+    "historicalReplayRule": "Historical map views must specify simulation time, coordinate frame, model version, and whether positions are observed, reconstructed, or illustrative."
+  },
+  "representationContract": {
+    "authoritativeGeometry": "Real units, coordinates, distances, uncertainty, and motion remain unchanged by the UI.",
+    "allowedPresentationTransformations": [
+      "logarithmic or nonlinear zoom with a visible scale indicator",
+      "decluttering and density layers",
+      "screen-space labels and horizon markers for objects outside visual resolution",
+      "route ribbons or travel corridors that are explicitly overlays",
+      "layer toggles for stars, systems, clusters, dust, hazards, political regions, and history",
+      "uncertainty envelopes or confidence styling",
+      "local-to-galactic inset transitions",
+      "selection-based exaggeration of visual markers without changing world-space size or separation"
+    ],
+    "forbiddenMisrepresentation": [
+      "moving objects closer together in authoritative space to improve spectacle",
+      "using dense visible asteroid clusters as the default depiction of ordinary space",
+      "presenting speculative spiral-arm artwork as a surveyed star-by-star map",
+      "showing a travel path as physically navigable without checking drive capability, hazards, and route constraints",
+      "hiding the distinction between measured, inferred, and generated objects"
+    ],
+    "navigationHorizon": {
+      "purpose": "Make distant or visually unresolved objects discoverable without pretending they are visible to the naked eye.",
+      "markerFields": [
+        "objectIdentity",
+        "bearingOrAngularOffset",
+        "distance",
+        "rangeOrUncertainty",
+        "relativeMotionWhenKnown",
+        "routeRelation",
+        "hazardOrAccessState",
+        "knowledgeSource"
+      ],
+      "visibilityModes": [
+        "optically-visible",
+        "sensor-detected",
+        "catalogue-known",
+        "predicted",
+        "unknown-contact"
+      ],
+      "rule": "A marker may be displayed when an object is not optically resolved, but the UI must communicate whether it is seen, sensed, known from a catalogue, or merely predicted."
+    }
+  },
+  "simulationFidelity": {
+    "galacticAtlas": "versioned statistical structure plus catalogue-backed landmarks",
+    "cataloguedSystems": "measured coordinates and source-aware motion where available",
+    "generatedSystems": "deterministic synthetic population with declared uncertainty and provenance",
+    "nearbyNavigation": "high-fidelity local geometry, motion, sensor visibility, and route constraints",
+    "historicalGalaxy": "time-specific reconstruction with uncertainty; not a present-day image rotated backward",
+    "rendering": "observer-relative projection and cache only"
+  },
+  "initialValidationGates": [
+    "Earth resolves to the Solar System and Sun through stable IDs",
+    "Sun is marked in the Local/Orion Arm region with coarse placement clearly distinguished from precision coordinates",
+    "every imported astronomical record retains source and coordinate-frame metadata",
+    "generated objects are visibly and machine-readably distinct from measured objects",
+    "catalogue absence never automatically means no object exists",
+    "map zoom changes presentation but not world-space distances",
+    "historical position queries specify time and model version",
+    "10,000-year solar orbital preview does not visibly over-rotate the galaxy",
+    "navigation markers distinguish optical visibility from sensor/catalogue/predicted knowledge",
+    "procedural population density varies by declared galactic region and population model"
+  ],
+  "openDecisions": [
+    "canonical Galactic coordinate frame and transformation library",
+    "which Gaia release and subsets to import first, including licensing and reproducible download manifests",
+    "catalogue storage format, partitioning, and query indexes",
+    "galactic potential and spiral-pattern model for long historical intervals",
+    "planet population model and confidence calibration",
+    "procedural population model parameters and validation datasets",
+    "how player-era technology reveals objects beyond direct visual/sensor reach",
+    "whether and when the campaign chronology spans millions rather than thousands of years"
+  ]
+}
