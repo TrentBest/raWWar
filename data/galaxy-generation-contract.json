@@ -566,7 +566,7 @@
       "identityType": "SimulationEventId",
       "eventType": "SimulationEvent",
       "ledgerType": "InMemoryEventHistory",
-      "identityEncoding": "RWEI magic + V1 byte + big-endian uint64 seed + length-prefixed UTF-8 model version + length-prefixed canonical address bytes + length-prefixed UTF-8 event domain + big-endian uint64 event ordinal + length-prefixed UTF-8 domain logical-time key; SHA-256 uppercase hex",
+      "identityEncoding": "RWEI magic + V1 byte + big-endian uint64 seed + length-prefixed UTF-8 model version + length-prefixed canonical address bytes + length-prefixed UTF-8 event domain + big-endian uint64 event ordinal + length-prefixed UTF-8 domain logical-time key; SHA-256 uppercase hex; the created event retains seed, model version, canonical address stream key, domain, ordinal, and logical-time key alongside the derived identity",
       "commitOutcomes": [
         "Committed",
         "AlreadyCommitted",
@@ -582,7 +582,9 @@
         "same identity with different payload is a conflict",
         "domain-local deterministic ordering",
         "domain isolation",
-        "concurrent duplicate commit"
+        "concurrent duplicate commit",
+        "event metadata retains canonical address stream key",
+        "address-scoped history reads exclude other entities/regions while domain-wide diagnostics remain available"
       ],
       "limitations": [
         "volatile in-memory only",
@@ -591,7 +593,8 @@
         "no causal prerequisite handling",
         "no checkpoint or replay reconstruction",
         "lexical logical-time ordering is suitable only when explicitly declared by the domain"
-      ]
+      ],
+      "streamSelection": "events retain canonical address bytes as an uppercase-hex stream key; history supports domain-plus-address reads so unrelated entities/regions are not mixed during reconstruction"
     }
   },
   "coordinateFrameContract": {
