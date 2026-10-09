@@ -136,6 +136,22 @@ AllExist("Upgrade installation package", upgradesData.RootElement.GetProperty("u
 AllExist("Assembly material", assembliesData.RootElement.GetProperty("assemblies").EnumerateArray()
     .SelectMany(a => a.GetProperty("materials").EnumerateArray().Select(m => m.GetProperty("id").GetString()!)), resourceIds);
 
+
+using var powerDistribution = ReadData("power-distribution.json");
+var powerEquipmentIds = Ids(powerDistribution, "equipment");
+var powerArchitectureIds = Ids(powerDistribution, "architectures");
+Unique("Power distribution equipment", powerEquipmentIds);
+Unique("Power architecture", powerArchitectureIds);
+Check(powerEquipmentIds.Length >= 10, "Power catalogue covers distribution, protection, storage and control equipment");
+Check(powerArchitectureIds.Length >= 3, "Power catalogue includes multiple topology patterns");
+Check(assembliesData.RootElement.GetProperty("assemblies").EnumerateArray()
+    .All(a => a.TryGetProperty("staffingByShift", out var staffing) && staffing.EnumerateObject().Any()),
+    "Every building assembly declares shift staffing requirements");
+Check(assembliesData.RootElement.GetProperty("assemblies").EnumerateArray()
+    .All(a => a.GetProperty("connectedLoadKW").GetDouble() >= 0 &&
+              a.GetProperty("peakDemandKW").GetDouble() >= a.GetProperty("connectedLoadKW").GetDouble()),
+    "Every assembly declares non-negative connected load and peak demand at least as large");
+
 Check(chassisIds.Count >= 10, "Detailed chassis catalogue includes all current vehicle chassis");
 Check(electronicIds.Count >= 20, "Electronic system catalogue includes more than 20 components");
 Check(assemblyIds.Count == facilityIds.Count, "Every facility has a construction assembly definition");
