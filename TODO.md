@@ -144,3 +144,8 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [ ] When AnyApp's owner resolves artifact closure identity, verify the supported manifest path for raWWar without promoting transitive dependencies into runtime roots accidentally.
 - [ ] Keep external blockers concise here and continue raWWar-owned design, data validation, and tests that do not depend on those changes.
 
+## Documentation integrity pass — 2026-10-09
+
+- [x] Removed duplicated paragraphs from `docs/TECHNICAL_DESIGN.md` and clarified the difference between the implemented explicit-time elliptic-orbit slice and still-planned world/renderer/host capabilities. Added links to the relevant world-model docs and manifest bridge.
+- [x] Fixed the malformed Milky Way visual-atlas entry in `docs/README.md`.
+- [ ] Re-check CI for these documentation commits. The GitHub workflow/status connector has previously returned no push-triggered status for the newest commits; do not infer success from the absence of a reported run.
