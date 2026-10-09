@@ -236,7 +236,8 @@ public enum PilotInputSource
     NonPlayerCharacter
 }
 
-/// <summary>Normalized pilot intent: pitch, roll, and yaw in [-1, 1], throttle in [0, 1].</summary>
+/// <summary>Candidate normalized pilot intent: pitch, roll, and yaw in [-1, 1], throttle in [0, 1].</summary>
+/// <remarks>This payload is a readiness-contract example, not canon for the final rig, input axes, or aircraft control law.</remarks>
 public readonly record struct PilotControlAxes(double Pitch, double Roll, double Yaw, double Throttle)
 {
     public bool IsValid =>
