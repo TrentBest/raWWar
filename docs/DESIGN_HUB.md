@@ -42,7 +42,8 @@ The raWWar design hub should expose:
 - **Research** — scientific work and technology progression.
 - **Combat** — ground, air, and space warfare.
 - **Play Modes** — campaign, cooperative, competitive, persistent, massively persistent.
-- **Factions** — thirteen political and military organizations, their historical origins, hidden Imperial-alignment gradient, dispositions, dynamic faction relationships, political play, apex capabilities, and the continuously active galactic simulation.\n- [Political Power, Speeches, and Factional Endgame](POLITICAL_POWER_AND_SPEECHES.md) — first-person political assemblies, speeches, alliances, coalition building, espionage/assassination consequences, shared frontier science, and thirteen faction-specific ultimate capabilities.
+- **Factions** — thirteen political and military organizations, their historical origins, hidden Imperial-alignment gradient, dispositions, dynamic faction relationships, political play, apex capabilities, and the continuously active galactic simulation.
+- [Political Power, Speeches, and Factional Endgame](POLITICAL_POWER_AND_SPEECHES.md) — first-person political assemblies, speeches, alliances, coalition building, espionage/assassination consequences, shared frontier science, and thirteen faction-specific ultimate capabilities.
 
 ![The thirteen factions](images/rawwar-faction-spectrum.svg)
 
@@ -52,7 +53,8 @@ See [Empire History & Faction Origins](EMPIRE_HISTORY_AND_FACTION_ORIGINS.md) fo
 
 See [Faction Dispositions](FACTION_DISPOSITIONS.md) for the behavioral rating model.
 - [Simulation Scale & Memory](SIMULATION_SCALE_AND_MEMORY.md) — byte-level FSM state, soldier complexity budgets, galaxy/system state fields, Event-Horizon scaling, and capacity targets.
-- [Soldier Dissertation](SOLDIER_DISSERTATION.md) — the soldier as a persistent person: exoskeletons, training programs, qualifications, formation sizes, crew composition, equipment, experience, careers, survival, and first-person life.\n- **Characters** — commanders, soldiers, researchers, and other important people.
+- [Soldier Dissertation](SOLDIER_DISSERTATION.md) — the soldier as a persistent person: exoskeletons, training programs, qualifications, formation sizes, crew composition, equipment, experience, careers, survival, and first-person life.
+- **Characters** — commanders, soldiers, researchers, and other important people.
 - [Advisors and Command Staff](ADVISORS_AND_STAFF.md) — qualified candidates, service records, specialist advice, and command appointments.
 - **Equipment** — exoskeletons, armor, weapons, tools, sensors, communications, modules.
 - **Vehicles** — ground, air, orbital, and space vehicles.
@@ -68,6 +70,14 @@ See [Faction Dispositions](FACTION_DISPOSITIONS.md) for the behavioral rating mo
 - **Multiplayer** — cooperative, competitive, networking, synchronization.
 - **Persistent Universes** — long-lived worlds, identity, history, economics, universe lifecycle.
 - **Development** — current state, experiments, design gaps, milestones.
+
+## Visual index
+
+See the [Visual Asset Catalogue](images/README.md) for the current illustrated system map and guidance on adding new explanatory artwork. Two recent additions make advisor agency and operational work concrete:
+
+![Advisor agency and persistent consequences](images/rawwar-advisor-agency.svg)
+
+![The work kanban is a projection of real work](images/rawwar-work-kanban.svg)
 
 ## Content Laboratories
 
