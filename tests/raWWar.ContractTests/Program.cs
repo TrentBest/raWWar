@@ -443,7 +443,7 @@ using var navigationFramesData = ReadData("navigation-reference-frames.json");
 var navigationFramesRoot = navigationFramesData.RootElement;
 Check(navigationFramesRoot.GetProperty("schemaVersion").GetString() == "raWWar.navigation-reference-frames.v1",
     "Navigation frame contract is explicitly versioned");
-Check(navigationFramesRoot.GetProperty("coreDistinction").GetProperty("chartFrameIsNotWorldIdentity").GetBoolean() &&
+Check(navigationFramesRoot.GetProperty("authority").GetProperty("chartFrameIsNotWorldIdentity").GetBoolean() &&
       navigationFramesRoot.GetProperty("coreDistinction").GetProperty("shipNavigationSolution").GetString()!.Contains("instruments", StringComparison.Ordinal),
     "Chart coordinates remain distinct from authoritative world identity and ship navigation estimates");
 var candidateFrames = navigationFramesRoot.GetProperty("frameHierarchy").GetProperty("candidateFrames")
@@ -464,7 +464,7 @@ var chartFields = navigationFramesRoot.GetProperty("chartRecordContract").GetPro
     .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
 Check(chartFields.Contains("coordinateEpoch") && chartFields.Contains("accuracyAndUncertainty"),
     "Chart editions preserve epoch, provenance, and uncertainty");
-Check(navigationFramesRoot.GetProperty("equipmentCapabilityModel").GetProperty("limitationsToModel").EnumerateArray()
+Check(navigationFramesRoot.GetProperty("historyAndGameplay").GetProperty("notAutomatic").EnumerateArray()
     .Any(x => x.GetString()!.Contains("does not create new observations", StringComparison.Ordinal)),
     "A new coordinate standard cannot grant sensors or observations");
 var persistentNavArtifacts = navigationFramesRoot.GetProperty("historyAndGameplay").GetProperty("persistentArtifacts")
