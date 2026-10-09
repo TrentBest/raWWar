@@ -127,6 +127,7 @@ When something is not defined, we do not quietly invent it and call the inventio
 - [Design Hub](docs/DESIGN_HUB.md) — the intended public visual navigation model.
 - [Vision and Pillars](docs/VISION_AND_PILLARS.md) — the core experience.
 - [Gestures Design](docs/GESTURES_DESIGN.md) — physical soldier movement as data + FSM behavior.
+- [Advisors and Command Staff](docs/ADVISORS_AND_STAFF.md) — qualified people, candidate records, specialist advice, and command appointments.
 - [Renderer Integration](docs/RENDERER_INTEGRATION.md) — how the world becomes observable without making presentation the source of truth.
 
 ---
