@@ -63,11 +63,9 @@ Check(rejectedInvalid, "Parabolic/hyperbolic eccentricity must be rejected expli
  
 // The data scape is a graph of composable capability records. Validate its joins
 // so expanding the catalogue cannot quietly create orphaned or duplicate identities.
-using System.Text.Json;
-
 var dataRoot = Path.Combine(AppContext.BaseDirectory, "data");
-JsonDocument ReadData(string file) => JsonDocument.Parse(File.ReadAllText(Path.Combine(dataRoot, file)));
-string[] Ids(JsonDocument document, string collection) =>
+System.Text.Json.JsonDocument ReadData(string file) => System.Text.Json.JsonDocument.Parse(File.ReadAllText(Path.Combine(dataRoot, file)));
+string[] Ids(System.Text.Json.JsonDocument document, string collection) =>
     document.RootElement.GetProperty(collection).EnumerateArray()
         .Select(item => item.GetProperty("id").GetString()!).ToArray();
 void Unique(string label, string[] ids) =>
