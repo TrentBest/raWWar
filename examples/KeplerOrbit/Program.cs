@@ -29,4 +29,33 @@ if ((repeated - start).Length > 1e-12 || (oneFullPeriod - start).Length > 1e-9)
     return 1;
 }
 
+// Boundary: logical time must be finite.
+if (!ThrowsArgumentOutOfRange(() => orbit.PositionAt(double.NaN)))
+{
+    Console.Error.WriteLine("Expected a non-finite logical time to be rejected.");
+    return 1;
+}
+
+// Boundary: this evaluator supports elliptic orbits only (0 <= eccentricity < 1).
+var unsupportedParabolicBoundary = orbit with { Eccentricity = 1 };
+if (!ThrowsArgumentOutOfRange(() => unsupportedParabolicBoundary.PositionAt(0)))
+{
+    Console.Error.WriteLine("Expected eccentricity 1 to be rejected by the elliptic evaluator.");
+    return 1;
+}
+
+Console.WriteLine("Boundary checks passed: non-finite time and eccentricity outside the elliptic domain are rejected.");
 return 0;
+
+static bool ThrowsArgumentOutOfRange(Action action)
+{
+    try
+    {
+        action();
+        return false;
+    }
+    catch (ArgumentOutOfRangeException)
+    {
+        return true;
+    }
+}
