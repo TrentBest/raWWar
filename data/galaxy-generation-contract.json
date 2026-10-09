@@ -209,7 +209,6 @@
   "unresolvedImplementationDecisions": [
     "numeric widths and overflow rules for address hashing",
     "canonical serialized encoding and byte order",
-    "canonical serialized encoding and byte order for hierarchical spatial addresses",
     "exact physical models and fidelity per scale",
     "logical time-step policy and event identity rules per simulation domain",
     "route-cost and jump-budget equations for each propulsion model",
@@ -283,7 +282,6 @@
     "unresolvedImplementationDecisions": [
       "numeric widths and overflow rules for address hashing",
       "canonical serialized encoding and byte order",
-      "canonical serialized encoding and byte order for hierarchical spatial addresses",
       "exact physical models and fidelity per scale",
       "logical time-step policy and event identity rules per simulation domain",
       "route-cost and jump-budget equations for each propulsion model",
@@ -421,5 +419,55 @@
     ],
     "persistenceRule": "Initial immutable conditions may be reconstructed from manifest, seed, and version. Authoritative consequences after play begins must persist.",
     "canonRule": "Illustrative generated histories are not canon unless explicitly promoted by the creator."
+  },
+  "spatialAddressEncoding": {
+    "status": "v1-implemented-and-contract-tested",
+    "encodingName": "raWWar hierarchical spatial address binary encoding",
+    "magicAscii": "RWSA",
+    "versionByte": 1,
+    "layout": [
+      "4-byte ASCII magic RWSA",
+      "1-byte encoding version (1)",
+      "2-byte unsigned root galaxy-cell ordinal, big-endian",
+      "4-byte unsigned child depth, big-endian",
+      "3 bytes per child in root-to-leaf order: X, Y, Z"
+    ],
+    "childCoordinateEncoding": "One unsigned byte per axis; valid values are 0 through 9.",
+    "canonicalityRules": [
+      "Exactly one byte representation is accepted for each address under a given version.",
+      "The payload length must equal 11 + 3 * depth.",
+      "Unknown versions, invalid root ordinals, invalid child coordinates, and trailing or truncated bytes are rejected.",
+      "The encoding is identity serialization, not a stable hash and not physical coordinates."
+    ],
+    "referenceVectors": [
+      {
+        "description": "Root ordinal 42, then children (3,4,5) and (9,0,1)",
+        "address": {
+          "rootOrdinal": 42,
+          "children": [
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              9,
+              0,
+              1
+            ]
+          ]
+        },
+        "expectedHex": "5257534101002A00000002030405090001"
+      },
+      {
+        "description": "Root ordinal 1 with no child levels",
+        "address": {
+          "rootOrdinal": 1,
+          "children": []
+        },
+        "expectedHex": "5257534101000100000000"
+      }
+    ],
+    "compatibilityRule": "Never change V1 byte meanings in place. Introduce a new version for incompatible encoding changes. Stable hash selection and hash versioning remain separate decisions."
   }
 }
