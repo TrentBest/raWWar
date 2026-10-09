@@ -100,3 +100,13 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Verified AnyApp `development` calls `ComposeAsync` from its launch path; this supersedes older notes that described only a compiled catalog. The compiled catalog still contains only Moniker and Forge.
 - [ ] Investigate the repository catalog's dependency-address model before writing an adapter: the catalog queues declared dependencies but its address dictionary is populated only from `ExperienceManifest.Bundles`. An unlisted dependency therefore fails with “No repository address is registered”. The design must resolve this without accidentally changing which bundles are FSM_COS roots.
 - [ ] Keep the existing local composition proof scoped accurately: it tests the published FSM_COS alpha.5 adapter with an in-memory catalog, not AnyApp repository retrieval or a game capability.
+
+
+## Configuration and provider contract clarification — 2026-10-09
+
+- [x] Recorded the creator's intended responsibility chain in [Configuration and Provider Resolution](docs/architecture/CONFIGURATION_AND_PROVIDER_RESOLUTION.md): the Experience supplies parameter-ID/value overrides; the owning MicroBundle defines parameter meaning/defaults/validation and exposes providers; consumers use checked lookup and handle absence explicitly.
+- [x] Distinguished parameter IDs, literal values, and provider IDs. Configuration transport is not the semantic configuration contract; missing overrides preserve MicroBundle defaults.
+- [ ] Verify the exact MicroBundleDomain provider-lookup API and configuration-source contract from the current source branch before writing implementation against it.
+- [ ] Evaluate ProtocolAi as an optional stable-vocabulary aid for parameter/provider identities. Do not add a mandatory dependency without an executable use case; it must not become an LLM/runtime requirement.
+- [ ] Add executable checks for default behavior, valid/invalid overrides, duplicate/unknown parameter IDs, provider present/absent, and required versus optional capability handling when the owning API can express them.
+- [ ] Continue the AnyApp bridge separately: solve immutable artifact identities for dependency closure without accidentally promoting every dependency to an FSM_COS root.
