@@ -29,6 +29,7 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `campaign-galaxy-manifests.json` — authored single-player galaxy manifests, automatic multiplayer generation policy, authoring controls, validation gates, and an illustrative scenario.
 - `civilization-lineages.json` — graph-based civilization ancestry, colonization and succession relationships, selective heritage, historical evidence, and divergence causes.
 - `milky-way-reference-model.json` — provenance-aware astronomical baseline, Solar System anchor, motion/time rules, and separation of measured, inferred, and generated populations.
+- `navigation-reference-frames.json` — versioned coordinate-frame transformations, historical chart conventions, navigation equipment limits, and persistent chart provenance.
 - `human-galactic-history.json` — candidate era framework from Earth's present to the campaign-era galactic order, with speculative-future guardrails.
 - `campaign-history-discoveries.json` — archive record types, integrity/access states, layered investigation, and an illustrative derelict-warship discovery.
 - `directional-damage-and-salvage.json` — six-face local coordinates, causal secondary events, part outcomes, recovery provenance, and performance strategy.
