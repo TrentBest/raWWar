@@ -155,3 +155,14 @@ How are original soldiers, vehicles, environments, animation, audio, and effects
 ### 21. How is the Gesture system authored and integrated?
 
 How is Gesture authored, represented, evaluated, and individualized? How is it integrated with the Renderer and MicroBundle Gesture Providers?
+
+### 22. When does faction selection occur relative to the campaign opening?
+
+The current documents describe two sequences that may conflict:
+
+- The [Game Design Bible](GAME_DESIGN_BIBLE.md) opens with the player already serving as a Commander inside a faction headquarters. Imperial soldiers demand that the Commander report to the Empress immediately; the player has only a short window to comply, while faction offices can be explored.
+- [Faction Design](FACTIONS.md) describes the player entering the headquarters, seeing thirteen physical doors, exploring faction offices, and choosing a faction before the choice resolves into starting relationships, territory, doctrine, personnel, and opening conditions.
+
+These could be reconciled if the opening headquarters is a pre-choice selection space, if faction selection happens before the campaign opening, or if the doors serve another purpose. The current documents do not establish which interpretation is intended. Do not choose one silently.
+
+**Creator decision needed:** Is the thirteen-door choice made before the moniker/lightning opening, during the headquarters scene before the Empress's order, after the opening order, or in another sequence? How can that choice coexist with the established Commander identity and the short compliance deadline?
