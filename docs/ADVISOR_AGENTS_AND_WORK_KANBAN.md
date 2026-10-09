@@ -2,6 +2,10 @@
 
 Status: Living design contract. The shared world simulation is authoritative; this document specifies desired behavior, not a claim that the full runtime already exists.
 
+![Advisor agency, earned experience, warnings, physical outcomes, and persistent consequences](images/rawwar-advisor-agency.svg)
+
+![Work kanban lifecycle: status follows evidence from the authoritative world](images/rawwar-work-kanban.svg)
+
 > **An advisor can be right, be ignored, do the work anyway, earn a reputation, and die because the work was too dangerous. The world must remember all of it.**
 
 ## 1. The advisor is an agent
