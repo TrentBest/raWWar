@@ -20,7 +20,10 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `electronic-systems.json` — electronics, power conversion, relays, I/O, sensors, data buses, communications, safety controls and event recorders.
 - `building-assemblies.json` — building footprints, foundations, shell, materials, connected/peak loads, contents, utilities, construction stages and commissioning.
 - `security-systems.json` — access, perimeter, industrial safety, shipboard damage control, custody and sensor-fusion panels.
-- `upgrades.json` — research-to-manufacture-to-dispatch-to-install-to-acceptance upgrade lifecycle.\n- `advisor-appointments.json` — appointment authority, qualification groups, initial work programs, scoped bonus domains, and succession intent.\n- `advisor-candidates.json` — illustrative candidates with service evidence, limitations, agent-earned bonus examples, and warning behavior.\n- `work-kanban-contract.json` — persistent work-board columns, work-item fields, legal transitions, risk overrides, personnel death, and capacity rules.
+- `upgrades.json` — research-to-manufacture-to-dispatch-to-install-to-acceptance upgrade lifecycle.
+- `advisor-appointments.json` — appointment authority, qualification groups, initial work programs, scoped bonus domains, and succession intent.
+- `advisor-candidates.json` — illustrative candidates with service evidence, limitations, agent-earned bonus examples, and warning behavior.
+- `work-kanban-contract.json` — persistent work-board columns, work-item fields, legal transitions, risk overrides, personnel death, and capacity rules.
 
 ## World-generation architecture
 
@@ -48,4 +51,5 @@ The FSM layer is what turns these relationships from documentation into executab
 The expanded catalogues describe capabilities at different levels instead of duplicating every detail into every vehicle or building. A vehicle points to a stable chassis identity; a chassis declares sockets and physical limits; electronic systems describe their interfaces, load, failure modes and maintenance; facilities point to construction assemblies; and upgrades describe how a researched design becomes a physically installed and accepted capability.
 
 These are seed data and simulation design values, not real-world engineering specifications. Unknown or balance-sensitive quantities remain explicit estimates rather than false precision. Facility loads are not self-powered: generation, distribution, backup, route diversity, staffing, qualification, spare parts and maintenance must all be modeled. A research unlock does not retrofit assets globally. The player must manufacture, accept, dispatch and install each physical upgrade, and the asset must pass its defined tests.
-\nSee [Advisor Agents, Consequences, and the Work Kanban](../docs/ADVISOR_AGENTS_AND_WORK_KANBAN.md) for the agent-driven advisor model and the distinction between a board card and authoritative world work.\n
+
+See [Advisor Agents, Consequences, and the Work Kanban](../docs/ADVISOR_AGENTS_AND_WORK_KANBAN.md) for the agent-driven advisor model and the distinction between a board card and authoritative world work.
