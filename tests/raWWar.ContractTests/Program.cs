@@ -316,6 +316,34 @@ Check(shipRecords.All(s => s.GetProperty("zones").EnumerateArray().Any() &&
     s.GetProperty("parts").EnumerateArray().Any()),
     "Ship reference models connect structural zones and independently identifiable parts");
 
+
+// Faction ship style is data-driven, physically consequential, and deliberately not
+// assigned to named factions until creator-approved faction canon exists.
+using var factionShipDoctrinesData = ReadData("faction-ship-doctrines.json");
+var factionStyleRoot = factionShipDoctrinesData.RootElement;
+var factionStyleRecords = factionStyleRoot.GetProperty("profiles").EnumerateArray().ToArray();
+var factionStyleIds = factionStyleRecords.Select(p => p.GetProperty("id").GetString()!).ToArray();
+Unique("Faction ship style profile", factionStyleIds);
+var styleDimensionIds = factionStyleRoot.GetProperty("styleDimensions").EnumerateArray()
+    .Select(d => d.GetProperty("id").GetString()!).ToArray();
+Unique("Faction ship style dimension", styleDimensionIds);
+Check(factionStyleRecords.Length >= 6, "Faction ship catalogue includes multiple distinct candidate design languages");
+Check(factionStyleRoot.GetProperty("rules").EnumerateArray()
+    .Any(r => r.GetString()!.Contains("not real-world nation-to-faction mappings", StringComparison.OrdinalIgnoreCase)),
+    "Faction style archetypes are not silently mapped to real-world nations");
+Check(factionStyleRecords.All(p =>
+    p.TryGetProperty("silhouetteCues", out var silhouette) && silhouette.EnumerateArray().Any() &&
+    p.TryGetProperty("operationalStrengths", out var strengths) && strengths.EnumerateArray().Any() &&
+    p.TryGetProperty("tradeoffs", out var tradeoffs) && tradeoffs.EnumerateArray().Any() &&
+    p.TryGetProperty("industrialDependencies", out var dependencies) && dependencies.EnumerateArray().Any() &&
+    p.TryGetProperty("failureAndRepairExpression", out var repairs) && repairs.EnumerateArray().Any()),
+    "Every faction ship style connects visible cues to strengths, tradeoffs, industry, and repair");
+Check(factionStyleRoot.GetProperty("missionComparisonContract").GetProperty("requiredOutputs").EnumerateArray()
+    .Select(x => x.GetString()).Contains("maintenance hours") &&
+      factionStyleRoot.GetProperty("missionComparisonContract").GetProperty("requiredOutputs").EnumerateArray()
+    .Select(x => x.GetString()).Contains("failure isolation"),
+    "Matched mission comparisons include maintenance and survivability consequences");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
