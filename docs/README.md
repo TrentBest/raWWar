@@ -21,6 +21,15 @@ System-specific documents expand the design without silently changing canon.
 - [Persistent Universes](PERSISTENT_UNIVERSES.md) — long-term persistent-world vision.
 - [Open Questions](OPEN_QUESTIONS.md) — unresolved design questions requiring elicitation.
 
+## Visual atlas
+
+- [Visual Asset Catalogue](images/README.md) — an illustrated map of the current visual language, system diagrams, and where each image belongs.
+- [Advisor agency and consequences](images/rawwar-advisor-agency.svg) — how an advisor's agency, earned experience, warnings, physical outcomes, and persistent history connect.
+- [Work kanban lifecycle](images/rawwar-work-kanban.svg) — the board as a projection of real work, with evidence-based transitions and blockers.
+- [Experience architecture](images/rawwar-experience-architecture.svg) — what raWWar owns versus reusable Workshop machinery.
+- [Engineering base cutaway](images/rawwar-base-cutaway.svg) — facilities, staffing, logistics, and infrastructure as one system.
+- [Gesture sequence](images/rawwar-gesture-sequence.svg) — semantic intent becoming physical procedure and visible action.
+
 ## Production design
 
 - [Systems Design](SYSTEMS_DESIGN.md) — systemic behavior and simulation concepts.
