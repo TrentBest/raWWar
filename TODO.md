@@ -1,6 +1,6 @@
 # raWWar — Maintained Work Queue
 
-**Owner:** Workshop engineering assistant  
+**Owner:** raWWar engineering assistant (raWWar repository only)  
 **Working branch:** `development`  
 **Current integration PR:** [#2 — Reset raWWar as a manifest-driven Experience](https://github.com/TrentBest/raWWar/pull/2)  
 **Last reviewed:** 2026-10-09  
@@ -9,6 +9,7 @@
 ## Operating rules
 
 - Work systematically from the highest-priority actionable item; keep this list current as work proceeds.
+- **Repository boundary:** make changes only in `TrentBest/raWWar`. Other repositories are external dependencies. Record the exact requirement/blocker here, but do not open issues, edit files, create branches/PRs, or otherwise perform implementation work in those repositories. The creator coordinates their responsible LLMs.
 - Treat creator-authored vision as authoritative. Mark uncertain decisions **Candidate**, **Experiment**, or **Illumination Needed** instead of quietly making them canon.
 - raWWar owns game/world meaning. Reuse Workshop capabilities for FSMs, composition, MicroBundles, input, hosting, rendering, persistence and networking where those capabilities actually exist.
 - Verify APIs and package versions from their source repositories before depending on them. Do not invent APIs or duplicate generic infrastructure inside raWWar.
@@ -29,6 +30,7 @@
 - [x] Fixed the project-file manifest path mismatch: the root authoring manifest and runtime manifest are now explicitly linked into the raWWar project output and packed as content files.
 - [x] Added and passed a CI step that locally packs the Experience package and checks both manifest files in the `.nupkg` (run [37985018118](https://github.com/TrentBest/raWWar/actions/runs/37985018118)); packaging verification only, not publication.
 - [ ] **The actual Experience composition remains a scaffold.** `RaWWarMicroBundle.Load` currently validates its context but composes no capabilities; `Arbitrate` returns `false`. The manifest/runtime-manifest relationship and host integration still need a tested end-to-end contract.
+- [x] Corrected an inaccurate interaction status claim: the current source does not contain `Interaction/PhysicalControlResolver.cs`, and the contract tests do not prove keyboard/VR physical-control equivalence. The interaction document now labels that work as design-level and lists the first required proofs. Do not report the interaction slice as implemented until source and tests exist.
 - [x] Reconciled the contract-test README with the actual suite; it documents the current contract areas and distinguishes local composition proof from end-to-end integration (175 checks on the latest verified run).
 - [x] Verified the workflow triggered by the work-queue commit: [run 37984743404](https://github.com/TrentBest/raWWar/actions/runs/37984743404) succeeded; build had **0 warnings and 0 errors**, and the executable suite reported **171/171 checks passed**. This validates that commit only; re-check CI after subsequent changes.
 
@@ -119,10 +121,10 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [ ] Current source/documentation inspection did not establish a public provider-lookup method named `TryGetProvider`; verify the actual descriptor/provider API from source before implementing lookup. Do not invent an API from the conceptual contract.
 
 
-## Cross-repository handoff — 2026-10-09
+## External dependency constraints — raWWar-owned tracking only
 
-- [x] Opened [MicroBundleDomain issue #11](https://github.com/TrentBest/TheSingularityWorkshop.MicroBundleDomain/issues/11) to explain the creator's corrected ownership model to the implementation LLM: Experience configuration is parameter-ID-to-literal-value overrides only; the MicroBundle owns schema, parameter meanings/defaults/validation, and providers; consumers use checked provider lookup and handle absence. ProtocolAi remains optional.
-- [x] Opened [AnyApp issue #23](https://github.com/TrentBest/AnyApp/issues/23) for the separate host integration blocker: artifact identities for the full transitive MicroBundle closure must be represented independently from Experience runtime roots. Do not append dependencies to the root request list as a shortcut.
-- [x] Updated [this manifest bridge](docs/integration/ANYAPP_MANIFEST_BRIDGE.md) to link both implementation briefs and keep the boundaries visible across repositories.
-- [ ] Revisit the AnyApp/raWWar bridge after MicroBundleDomain's contract is corrected. Verify the concrete published API and package version before consuming new configuration/provider APIs.
-- [ ] Keep repository artifact closure work independent from the Experience override semantics; both are required for the eventual end-to-end proof.
+- [x] Clarified the repository boundary: this assistant implements only raWWar. Other Workshop repositories are inspected only as needed to verify a dependency contract or identify a blocker; no external implementation work is performed from this lane.
+- [ ] When MicroBundleDomain's owner finalizes the Experience override contract, verify the actual published package/API relevant to raWWar before consuming it. The Experience must supply parameter-ID-to-literal-value overrides only; MicroBundles own parameter meaning/defaults/validation and provider availability.
+- [ ] When AnyApp's owner resolves artifact closure identity, verify the supported manifest path for raWWar without promoting transitive dependencies into runtime roots accidentally.
+- [ ] Keep external blockers concise here and continue raWWar-owned design, data validation, and tests that do not depend on those changes.
+
