@@ -1,5 +1,10 @@
 # raWWar — Open Questions
 
+Status: Living elicitation register; unresolved by design.
+Owner: raWWar creator / game design.
+Audience: Creator, design collaborators, narrative and systems specialists, and implementation agents.
+Evidence rule: A question is not a decision. Do not fill a gap with generic assumptions or treat a proposed answer as canon without creator confirmation.
+
 This is deliberately a living interrogation list.
 
 The purpose is to expose what the creator knows but has not yet articulated, not to fill the gaps with generic game design.
@@ -147,4 +152,6 @@ Which elements are modular, procedural, hand-authored, or generated?
 
 How are original soldiers, vehicles, environments, animation, audio, and effects authored, validated, versioned, and delivered to the Experience and Workshop Renderer?
 
-21. How is the Gesture system authored, represented, evaluated, individualized, and integrated with the Renderer and MicroBundle Gesture Providers?
+### 21. How is the Gesture system authored and integrated?
+
+How is Gesture authored, represented, evaluated, and individualized? How is it integrated with the Renderer and MicroBundle Gesture Providers?
