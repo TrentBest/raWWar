@@ -784,7 +784,16 @@ Check(!beforeSecure.Accepted &&
     "Pilot controls remain unavailable until the station secures the occupant");
 
 var securedPilot = seatedPilot.After.TrySecureOccupant();
+var rigBeforeConnection = securedPilot.After.TryRaiseControlRig();
+Check(!rigBeforeConnection.Accepted &&
+      rigBeforeConnection.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.InterfaceNotConnected,
+    "The physical rig cannot raise before the pilot interface connects");
 var connectedPilot = securedPilot.After.TryConnectInterface();
+var inputBeforeRigRaised = connectedPilot.After.TryApplyControl(
+    42, TheSingularityWorkshop.raWWar.Interaction.PilotInputSource.Desktop, pilotAxes);
+Check(!inputBeforeRigRaised.Accepted &&
+      inputBeforeRigRaised.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.RigNotRaised,
+    "A connected interface cannot accept flight input before the pilot raises the rig");
 var raisedPilot = connectedPilot.After.TryRaiseControlRig();
 Check(securedPilot.Accepted && connectedPilot.Accepted && raisedPilot.Accepted &&
       raisedPilot.After.ControlsReady,
@@ -797,6 +806,7 @@ var vrPilotInput = raisedPilot.After.TryApplyControl(
 Check(desktopPilotInput.Accepted && vrPilotInput.Accepted &&
       desktopPilotInput.Request is not null && vrPilotInput.Request is not null &&
       desktopPilotInput.Request.Axes == vrPilotInput.Request.Axes &&
+      desktopPilotInput.Request.Axes == pilotAxes &&
       desktopPilotInput.Request.ActorId == vrPilotInput.Request.ActorId &&
       desktopPilotInput.Request.StationId == vrPilotInput.Request.StationId,
     "Desktop and VR inputs produce the same bounded authoritative control intent");
@@ -835,6 +845,13 @@ var invalidAxes = raisedPilot.After.TryApplyControl(
 Check(!invalidAxes.Accepted &&
       invalidAxes.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.InvalidControlInput,
     "Non-finite control axes are rejected rather than entering the flight-control pipeline");
+var invalidInputSource = raisedPilot.After.TryApplyControl(
+    42,
+    (TheSingularityWorkshop.raWWar.Interaction.PilotInputSource)999,
+    pilotAxes);
+Check(!invalidInputSource.Accepted &&
+      invalidInputSource.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.InvalidControlInput,
+    "Unsupported input-source values are rejected");
 
 var emergencyRelease = unpoweredReady.TryEmergencyRelease();
 Check(emergencyRelease.Accepted &&
