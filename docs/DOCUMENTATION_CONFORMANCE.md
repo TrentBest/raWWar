@@ -84,7 +84,8 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 
 - [ ] Finish the full GDD and companion-document review for contradictions, stale APIs, missing prerequisites, and malformed links; this pass establishes clearer authority and evidence rules, not exhaustive line-by-line validation.
 - [x] Ran a repository-wide relative inline-Markdown-link target check across all 102 Markdown files (263 inline links); no missing local file targets were found.
-- [ ] Validate heading anchors, reference-style links, raw HTML `href`/`src` paths, and external-link availability; those checks are not covered by the inline-link pass.
+- [x] Scanned all 102 Markdown files for inline Markdown fragment links and raw HTML `href` / `src` attributes; none were found in the checked content. All 21 SVGs also contain no `href` / `xlink:href` references.
+- [ ] Validate reference-style Markdown links and external-link availability; the inline-link and embedded-reference checks do not cover those.
 - [ ] Ensure every technical capability consumed by raWWar has a repository-local example or a documented reason an example is not yet executable.
 - [ ] Continue replacing repeated explanations with one authoritative document and clear cross-links.
 - [x] Re-ran CI after the README/conformance/queue changes; run [37999757533](https://github.com/TrentBest/raWWar/actions/runs/37999757533) passed for head `e76736aea714367f57301e1a6559b59ed5c14493`.
