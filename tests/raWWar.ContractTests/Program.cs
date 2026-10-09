@@ -1,5 +1,6 @@
 using TheSingularityWorkshop.FSM_COS;
 using TheSingularityWorkshop.raWWar;
+using TheSingularityWorkshop.raWWar.ContractTests;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
 
 var failures = new List<string>();
