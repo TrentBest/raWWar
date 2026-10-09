@@ -75,11 +75,13 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [x] Experience Architecture includes an implementation-evidence table and identifies what current scaffold/package/composition checks do not prove.
 - [x] Open Questions is explicitly labeled as an elicitation register; unanswered questions are not implied decisions, and the Gesture question is numbered consistently.
 - [x] The visual asset catalogue identifies its owner, audience, status, and evidence rule so conceptual artwork is not mistaken for completed runtime or engineering output.
+- [x] Art Direction now records owner, audience, status, and evidence boundaries; a duplicated soldier-description block was removed without changing its intent.
+- [x] Audio Direction now records owner, audience, status, and evidence boundaries.
 
 ### Remaining audit work
 
 - [ ] Finish the full GDD and companion-document review for contradictions, stale APIs, missing prerequisites, and malformed links; this pass establishes clearer authority and evidence rules, not exhaustive line-by-line validation.
-- [ ] Verify relative links across the documentation set and visual catalogue.
+- [ ] Run a repository-wide relative-link check, including anchors and image paths; record confirmed failures and distinguish intentional external links.
 - [ ] Ensure every technical capability consumed by raWWar has a repository-local example or a documented reason an example is not yet executable.
 - [ ] Continue replacing repeated explanations with one authoritative document and clear cross-links.
 - [ ] Re-run CI after the documentation changes and record the actual result; empty status/run responses are **unverified**, not green.
