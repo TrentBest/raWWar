@@ -1,8 +1,12 @@
 # raWWar — Production Plan
 
-Status: Initial production framework.
+**Status:** Living, capability-based production framework.  
+**Owner:** raWWar Experience production.  
+**Audience:** Creator and contributors coordinating design, art, audio, engineering, and playable demonstrations.  
+**Evidence rule:** A milestone is complete only when its acceptance evidence exists; a plan or source file alone is not proof of a working player-facing capability.
 
-## Purpose
+## 00. Identity and purpose
+
 This document provides a production structure without pretending that implementation is ready before the design is known.
 
 ## Workstreams
