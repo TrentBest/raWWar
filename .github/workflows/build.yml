@@ -35,3 +35,5 @@ jobs:
           grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
+      - name: Run checked-in usage examples
+        run: dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj --configuration Release
