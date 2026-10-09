@@ -4,6 +4,10 @@ Status: Living content architecture and authoring contract.
 
 > **A capability is not a label. It is a physical arrangement of materials, components, power, interfaces, qualified people, procedures, supply and history.**
 
+![Illustrative underground science floor: excavation, support, structure, utilities, laboratories, and commissioning](images/rawwar-science-floor-construction.svg)
+
+*Conceptual engineering illustration, not a construction-ready drawing. Each stage requires evidence and acceptance; a research idea does not make a laboratory operational.*
+
 This document explains how the machine-readable engineering corpus fits together. It is intentionally more like an engineering data dictionary than a list of game bonuses.
 
 ## 1. The connected capability graph
