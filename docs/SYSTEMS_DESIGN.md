@@ -1,6 +1,9 @@
 # raWWar — Systems Design
 
-Status: Living systems design.
+**Status:** Living systems design; intentionally separate from implementation code.  
+**Owner:** raWWar Experience design and engineering.  
+**Audience:** Designers and engineers translating the GDD into testable domain systems.  
+**Evidence rule:** Proposed models and ideal behavior are design intent unless a linked source/test demonstrates them.
 
 ## Purpose
 This document describes the systemic building blocks required to make the GDD possible. It is deliberately separate from implementation code.
