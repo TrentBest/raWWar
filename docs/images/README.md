@@ -52,5 +52,6 @@ Do not let polished artwork accidentally promote a candidate into canon. A visua
 4. **World time and observation:** one authoritative world state seen at different scales and times, with distance reducing detail—not halting history.
 5. **Persistent consequences:** warning → decision → physical event → casualty/damage → recovery work → historical record.
 6. **Agent and work ownership:** agents performing real tasks, blocked by actual dependencies, with the board only projecting work state.
+7. **Ship construction and recovery:** a hierarchy of zones, parts and dependencies; directional impact lookup; causal secondary events; surviving components and provenance-backed recovery.
 
 These are documentation priorities, not claims that the corresponding runtime systems are already complete.
