@@ -89,9 +89,9 @@ The core now contains `SimulationEventId`, `SimulationEvent`, and `InMemoryEvent
 
 - Event identity V1 hashes a canonical binary encoding with the `RWEI` magic/version prefix, big-endian unsigned integers, length-prefixed UTF-8 strings and length-prefixed canonical address bytes. SHA-256 output is represented as uppercase hexadecimal.
 - Identity inputs are world seed, model version, canonical address bytes, event domain, event ordinal, and the domain-defined logical-time key. Fixed vectors guard against accidental encoding drift.
-- Event construction copies payload bytes. It does not commit anything.
+- Event construction copies payload and canonical address bytes and derives the ID from the same immutable metadata. The event retains a canonical address stream key so history can be read per entity/region rather than mixing every entity in a domain. Constructing an event does not commit anything.
 - The in-memory ledger serializes commits under a lock. Identical retries return `AlreadyCommitted`; a reused ID with different event content returns `IdentityConflict`.
-- Reads filter by domain and sort by ordinal string comparison of the logical-time key, then event ordinal, then stable ID. This is only appropriate when that domain explicitly chooses a lexical time key; the type does not infer numeric time.
+- Reads can filter by both domain and canonical address, then sort by ordinal string comparison of the logical-time key, event ordinal, and stable ID. A domain-wide read remains available for diagnostics. Lexical ordering is only appropriate when the domain explicitly chooses that key policy; the type does not infer numeric time.
 - Executable contract checks cover a fixed event-ID vector, repeatability, changed identity inputs, payload isolation, idempotent retry, payload conflict, deterministic domain ordering, domain isolation, and concurrent duplicate commits.
 
 **Known boundary:** the ledger is process-local and volatile. It neither persists events nor applies their payloads to authoritative world state. Its lock is not a persistence transaction. Restart-safe idempotency, causal prerequisite policy, durable ordering, state reduction, checkpoint boundaries, and replay equivalence remain future implementation work. Do not use this reference ledger as a multiplayer or production persistence guarantee.
