@@ -16,6 +16,50 @@ void Check(bool condition, string message)
 void Near(double actual, double expected, double tolerance, string message) =>
     Check(Math.Abs(actual - expected) <= tolerance, $"{message}: expected {expected}, got {actual}");
 
+var identityTransform = CartesianTransform3d.Identity;
+var samplePoint = new Vector3d(2, -3, 4);
+var identityPoint = identityTransform.TransformPosition(samplePoint);
+Near((identityPoint - samplePoint).Length, 0, 1e-12, "Identity frame transform preserves a point");
+
+var quarterTurnAndOffset = new CartesianTransform3d(
+    0, -1, 0,
+    1,  0, 0,
+    0,  0, 1,
+    5,  6, 7);
+var transformedPoint = quarterTurnAndOffset.TransformPosition(new Vector3d(1, 0, 0));
+Near(transformedPoint.X, 5, 1e-12, "Frame transform rotates point X before adding destination translation");
+Near(transformedPoint.Y, 7, 1e-12, "Frame transform rotates point Y before adding destination translation");
+Near(transformedPoint.Z, 7, 1e-12, "Frame transform translates point Z");
+var transformedDirection = quarterTurnAndOffset.TransformDirection(new Vector3d(1, 0, 0));
+Near(transformedDirection.X, 0, 1e-12, "Direction transform rotates X");
+Near(transformedDirection.Y, 1, 1e-12, "Direction transform rotates into Y");
+Near(transformedDirection.Z, 0, 1e-12, "Direction transform does not gain translation");
+var recoveredPoint = quarterTurnAndOffset.Inverse().TransformPosition(transformedPoint);
+Near((recoveredPoint - new Vector3d(1, 0, 0)).Length, 0, 1e-12,
+    "Orthonormal frame transform followed by its inverse recovers the point");
+
+var offsetOnly = new CartesianTransform3d(1,0,0, 0,1,0, 0,0,1, 10,0,0);
+var composed = offsetOnly.Compose(new CartesianTransform3d(0,-1,0, 1,0,0, 0,0,1, 0,0,0));
+var composedPoint = composed.TransformPosition(new Vector3d(1, 0, 0));
+Near(composedPoint.X, 10, 1e-12, "Transform composition applies the argument before this transform");
+Near(composedPoint.Y, 1, 1e-12, "Transform composition preserves documented order");
+
+var rejectedScaledInverse = false;
+try { _ = new CartesianTransform3d(2,0,0, 0,1,0, 0,0,1, 0,0,0).Inverse(); }
+catch (InvalidOperationException) { rejectedScaledInverse = true; }
+Check(rejectedScaledInverse, "Inverse rejects non-orthonormal matrices instead of assuming transpose is inverse");
+
+var rejectedNonFiniteTransform = false;
+try { _ = new CartesianTransform3d(1,0,0, 0,1,0, 0,0,1, double.NaN,0,0)
+    .TransformPosition(new Vector3d(0,0,0)); }
+catch (ArgumentOutOfRangeException) { rejectedNonFiniteTransform = true; }
+Check(rejectedNonFiniteTransform, "Non-finite transform components are rejected");
+
+var rejectedNonFiniteVector = false;
+try { _ = identityTransform.TransformDirection(new Vector3d(double.PositiveInfinity,0,0)); }
+catch (ArgumentOutOfRangeException) { rejectedNonFiniteVector = true; }
+Check(rejectedNonFiniteVector, "Non-finite vectors are rejected before coordinate conversion");
+
 var encodedSpatialAddress = HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(42))
     .Child(3, 4, 5)
     .Child(9, 0, 1);
