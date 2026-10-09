@@ -728,10 +728,10 @@ Check(runtimeManifest.TryGetProperty("runtimeId", out _) &&
                   !x.TryGetProperty("configurationBase64", out _)),
     "raWWar runtime manifest matches FSM_COS root ID/version entries without embedded configuration");
 using var experienceManifestData = System.Text.Json.JsonDocument.Parse(
-    File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "experience-manifest.json")));
+    File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "manifest.json")));
 Check(experienceManifestData.RootElement.GetProperty("runtimeManifestPath").GetString() == "runtime-manifest.json",
     "Experience authoring metadata points to the separate machine-oriented runtime manifest");
 
-Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
+Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
