@@ -1,6 +1,6 @@
 # raWWar Contract Tests
 
-This dependency-free .NET 8 console project checks executable mathematical, data-integrity, and architectural contracts without adding a test-framework package dependency.
+This .NET 8 console project checks executable mathematical, data-integrity, and architectural contracts without adding a test-framework dependency. It references the current AnyApp FSM_COS package only for a small composition contract proof.
 
 Run from the repository root:
 
