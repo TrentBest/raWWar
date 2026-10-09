@@ -77,6 +77,8 @@ The design space includes ground vehicles, aircraft, VTOL systems, spacecraft, a
 
 Vehicles should visibly expose their operational purpose and maintenance requirements.
 
+Faction identity must be visible in ship architecture, not only paint, emblems, or decorative silhouettes. Ships of the same mission class should remain comparable while expressing different doctrine, industrial capacity, protection priorities, redundancy, propulsion arrangement, maintenance culture, and procurement history. Every signature feature should have a physical consequence in mass, volume, cost, performance, serviceability, or vulnerability. See [Faction Ship Design Languages](FACTION_SHIP_DESIGN_LANGUAGES.md) for the candidate framework and deliberately unassigned style families.
+
 ## Environment
 Military bases should communicate scale through:
 - layered infrastructure;
