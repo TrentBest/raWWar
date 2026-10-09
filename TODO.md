@@ -21,20 +21,22 @@
 
 - [x] **Integration PR #2 remains open and unmerged** (verified 2026-10-09); it is the current integration lane. It is the current integration lane; do not create a competing PR without a reason.
 - [x] Repository has been reset to a .NET 8, manifest-oriented raWWar Experience; old engine-bound shell is no longer the architecture.
-- [x] A dependency-free .NET 8 executable contract-check project exists.
+- [x] A .NET 8 executable contract-check project exists; it has no test-framework dependency, and now uses a test-only FSM_COS package reference to prove root assembly.
 - [x] The first spatiotemporal implementation slice includes immutable `KeplerOrbit` / `Vector3d` types for explicit-time two-body elliptic orbit queries.
 - [x] The design foundation, visual atlas, content catalogues, and engineering-data documents are substantial and should be extended rather than replaced.
+- [x] Added a test-only in-memory catalog and composed the checked-in raWWar root through the same published FSM_COS `0.1.0-alpha.5` package currently referenced by AnyApp. [Run 37985313061](https://github.com/TrentBest/raWWar/actions/runs/37985313061) passed 175/175 checks with 0 warnings/errors.
+- [ ] **Important versioned-manifest mismatch discovered:** the current AnyApp dependency (`FSM_COS 0.1.0-alpha.5`) accepts `MicroBundleDependencyRequest` roots without versions; FSM_COS `development` now exposes `MicroBundleManifestEntry` roots with requested versions. The checked-in runtime manifest carries versions. Reconcile the host/package contract before claiming direct manifest-to-host compatibility.
 - [x] Fixed the project-file manifest path mismatch: the root authoring manifest and runtime manifest are now explicitly linked into the raWWar project output and packed as content files.
 - [x] Added and passed a CI step that locally packs the Experience package and checks both manifest files in the `.nupkg` (run [37985018118](https://github.com/TrentBest/raWWar/actions/runs/37985018118)); packaging verification only, not publication.
 - [ ] **The actual Experience composition remains a scaffold.** `RaWWarMicroBundle.Load` currently validates its context but composes no capabilities; `Arbitrate` returns `false`. The manifest/runtime-manifest relationship and host integration still need a tested end-to-end contract.
-- [x] Reconciled the contract-test README with the actual suite; it now documents the major current contract areas and clearly distinguishes contract assertions from end-to-end integration proof (171 checks on the last verified run).
+- [x] Reconciled the contract-test README with the actual suite; it documents the current contract areas and distinguishes local composition proof from end-to-end integration (175 checks on the latest verified run).
 - [x] Verified the workflow triggered by the work-queue commit: [run 37984743404](https://github.com/TrentBest/raWWar/actions/runs/37984743404) succeeded; build had **0 warnings and 0 errors**, and the executable suite reported **171/171 checks passed**. This validates that commit only; re-check CI after subsequent changes.
 
 ## P0 — Establish a trustworthy current baseline
 
 - [x] Confirmed PR #2 is open/unmerged and the current integration lane is `development`; workflow run 37984743404 passed on the queue commit. Re-check head SHA and CI after subsequent edits.
 - [x] Reviewed the .NET 8 projects, executable contract checks, root `manifest.json`, `runtime-manifest.json`, and `data/workshop-composition-contract.json`. Many architecture assertions are present, but end-to-end composition is not implemented.
-- [ ] Inventory the exact current MicroBundleDomain, FSM_COS, FSM_API, FSM_UserIO and AnyApp APIs/versions from their repositories. Check the relevant integration branches and existing plans; do not upgrade or publish packages as part of this inventory.
+- [ ] Finish the ecosystem API/version inventory. Verified so far: MicroBundleDomain `1.0.1`; AnyApp uses FSM_COS `0.1.0-alpha.5`; FSM_COS `development` has the newer versioned-root contract. Still verify FSM_API, FSM_UserIO, and the approved integration plan. Do not upgrade or publish packages as part of this inventory.
 - [ ] Reconcile the Experience manifest, runtime manifest and MicroBundle identity/version fields. Define one explicit, tested source of truth for IDs, required capabilities, configuration and supported manifestations. The local-pack CI check passed on run 37985018118; the host load path remains unproven.
 - [x] Queue now records the verified baseline and 171/171 check count; no failure in the verified queue-commit run. Next implementation slice: inspect the exact FSM_COS/MicroBundle contracts and make manifest-to-host composition real.
 
