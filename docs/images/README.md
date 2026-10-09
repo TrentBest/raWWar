@@ -57,3 +57,5 @@ Do not let polished artwork accidentally promote a candidate into canon. A visua
 7. **Ship construction and recovery:** a hierarchy of zones, parts and dependencies; directional impact lookup; causal secondary events; surviving components and provenance-backed recovery.
 
 These are documentation priorities, not claims that the corresponding runtime systems are already complete.
+
+- `rawwar-authored-campaign-lineage.svg` — single-player authoring versus multiplayer generation, shared validation, persistent history, and human civilization lineage.
