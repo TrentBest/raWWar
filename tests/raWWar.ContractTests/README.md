@@ -12,6 +12,7 @@ dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj
 
 The executable suite reported **195/195 checks passed** on [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718) at code/test head `7ec40343f15a15639951a096165169cf991d7920`. The checks include:
 
+- stable event-identity V1 reference encoding, immutable event payloads, in-memory idempotent commits, conflicting-payload detection, domain-local ordering, domain isolation, and concurrent duplicate retries;
 - explicit-time circular and elliptic Kepler-orbit positions, period repeatability, 3D inclination, query purity/order independence, and explicit rejection of unsupported eccentricity;
 - uniqueness and cross-catalogue joins for resources, technologies, vehicles, chassis, electronic systems, facilities, assemblies, security systems, upgrades, installation packages, and power distribution;
 - advisor appointments/candidates, eligibility, evidence-backed bonuses, warning/override history, personnel loss, succession, and knowledge-transfer boundaries;
@@ -28,7 +29,7 @@ The suite is a growing set of contract checks, not proof that every catalogue is
 
 ## Known implementation limits
 
-The executable orbital model currently represents an isolated two-body elliptic orbit with fixed elements. It is not a complete n-body galaxy simulator. Perturbations, maneuvers, collisions, authoritative event-history reconstruction, observer transforms, rendering and GUI remain separate capabilities to model and test.
+The executable orbital model currently represents an isolated two-body elliptic orbit with fixed elements. It is not a complete n-body galaxy simulator. Perturbations, maneuvers, collisions, durable event-history reconstruction, checkpointing, observer frame graphs, rendering and GUI remain separate capabilities to model and test. The event-history reference ledger is volatile and does not apply events to authoritative world state.
 
 The raWWar Experience root is also still a composition scaffold: `RaWWarMicroBundle.Load` does not yet compose a domain capability, and `Arbitrate` returns `false`. The suite now proves that the root can be assembled through FSM_COS using a test-only in-memory catalog, but it does not prove repository artifact retrieval, direct deserialization of `runtime-manifest.json` by the host, or end-to-end loading/execution through AnyApp. The published FSM_COS `0.1.0-alpha.5` used by AnyApp accepts unversioned `MicroBundleDependencyRequest` roots; the current FSM_COS `development` source has a newer versioned `MicroBundleManifestEntry` contract. That boundary must be reconciled rather than silently treating the two APIs as identical.
 
