@@ -475,6 +475,24 @@ var rejectedChildCoordinate = false;
 try { _ = firstChild.Child(10, 0, 0); }
 catch (ArgumentOutOfRangeException) { rejectedChildCoordinate = true; }
 Check(rejectedChildCoordinate, "Child coordinates reject values outside the 10×10×10 subdivision");
+
+// SquirrelNoise3 is stateless and must match fixed reference outputs exactly.
+// These vectors exercise the operation sequence, seed influence, and uint32 wraparound.
+var randomPrimitiveContract = generationRoot.GetProperty("generationIdentity").GetProperty("randomPrimitive");
+var referenceVectors = randomPrimitiveContract.GetProperty("referenceVectors").EnumerateArray().ToArray();
+Check(referenceVectors.Length >= 6, "SquirrelNoise3 contract includes a useful fixed reference-vector set");
+var allRandomVectorsMatch = referenceVectors.All(vector =>
+{
+    var position = vector.GetProperty("position").GetInt32();
+    var seed = vector.GetProperty("seed").GetUInt32();
+    var expected = Convert.ToUInt32(vector.GetProperty("expectedUInt32Hex").GetString()![2..], 16);
+    return SquirrelNoise3.Hash(position, seed) == expected;
+});
+Check(allRandomVectorsMatch, "SquirrelNoise3 matches every fixed uint32 reference vector");
+Check(SquirrelNoise3.Hash(42, 0) != SquirrelNoise3.Hash(42, 1),
+    "SquirrelNoise3 seed changes the deterministic result");
+Check(SquirrelNoise3.Hash(42, 0) == SquirrelNoise3.Hash(42, 0),
+    "SquirrelNoise3 repeated random-access queries are order-independent");
 var generationIdentity = generationRoot.GetProperty("generationIdentity");
 var requiredGenerationInputs = generationIdentity.GetProperty("requiredInputs")
     .EnumerateArray().Select(x => x.GetString()).ToHashSet(StringComparer.Ordinal);
