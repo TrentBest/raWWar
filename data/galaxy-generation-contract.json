@@ -260,5 +260,91 @@
         "Micro-bundle capability contracts can be tested without the full application or presentation stack."
       ]
     }
+  },
+  "campaignCreation": {
+    "status": "candidate-design-contract",
+    "singlePlayer": {
+      "policy": "authored-and-curated",
+      "controls": [
+        "pin",
+        "constrain",
+        "seed",
+        "override",
+        "validate",
+        "bake",
+        "distribute"
+      ],
+      "mayAuthor": [
+        "important locations",
+        "civilization lineage",
+        "historical events",
+        "starting ownership",
+        "diplomatic conditions",
+        "player knowledge",
+        "scenario objectives"
+      ],
+      "permittedVariationMustBeExplicit": true
+    },
+    "multiplayer": {
+      "policy": "automatic-and-seed-reproducible",
+      "usesSameWorldContract": true,
+      "generatedDomains": [
+        "galactic structure",
+        "settlements",
+        "civilization lineage",
+        "historical events",
+        "resources",
+        "starting positions",
+        "initial political relationships"
+      ],
+      "validates": [
+        "chronology",
+        "lineage consistency",
+        "physical and travel constraints",
+        "resource and industrial plausibility",
+        "mode-specific fairness"
+      ]
+    },
+    "civilizationLineage": {
+      "model": "graph",
+      "humanSpeciesSharedAcrossAllFactions": true,
+      "relationshipKinds": [
+        "founded-by",
+        "colonized-by",
+        "seceded-from",
+        "succeeded",
+        "unified-with",
+        "absorbed-by",
+        "liberated-from",
+        "exiled-from",
+        "adopted-traditions-from",
+        "contested-claim-to",
+        "split-from",
+        "reunified-with"
+      ],
+      "inheritanceIsSelective": true,
+      "sharedAncestryDoesNotDetermineAlliance": true,
+      "historiesAndClaimsCanDiffer": true,
+      "technologyTransferRequiresPlausibleKnowledgeOrPhysicalTransfer": true
+    },
+    "manifestRequirements": [
+      "campaignId",
+      "manifestVersion",
+      "worldSeed",
+      "galaxyGeneratorVersion",
+      "simulationModelVersion",
+      "historicalEpoch",
+      "authoredEntityRefs",
+      "authoredLineageRefs",
+      "pinnedEvents",
+      "generationConstraints",
+      "permittedVariation",
+      "startingKnowledgeProfiles",
+      "scenarioEntryConditions",
+      "validationProfile",
+      "saveCompatibilityPolicy"
+    ],
+    "persistenceRule": "Initial immutable conditions may be reconstructed from manifest, seed, and version. Authoritative consequences after play begins must persist.",
+    "canonRule": "Illustrative generated histories are not canon unless explicitly promoted by the creator."
   }
 }
