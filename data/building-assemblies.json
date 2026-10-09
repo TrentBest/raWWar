@@ -937,6 +937,156 @@
         "repair_and_recommissioning",
         "persistent_history_recorded"
       ]
+    },
+    {
+      "id": "assembly.quality_acceptance_station",
+      "facility": "facility.quality_acceptance_station",
+      "name": "Production Quality and Acceptance Station",
+      "structure": "metrology_and_test_cell",
+      "footprintM": {
+        "length": 42,
+        "width": 28
+      },
+      "heightM": 8,
+      "foundation": {
+        "type": "vibration_stable_precision_slab",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "industrial_frame",
+        "secondary": "controlled_metrology_and_quarantine_zones"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 210,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 55,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 620,
+      "peakDemandKW": 2100,
+      "crewOnWatch": 2,
+      "staffingByShift": {
+        "inspectors": 5,
+        "metrology_technicians": 3,
+        "test_operators": 3
+      },
+      "contains": [
+        "calibrated_instruments",
+        "test_fixtures",
+        "metrology_bench",
+        "environment_control",
+        "identity_and_provenance_terminal",
+        "rejected_item_quarantine",
+        "secure_result_archive"
+      ],
+      "utilityConnections": [
+        "conditioned_power",
+        "data_backbone",
+        "precision_cooling",
+        "secure_inventory",
+        "industrial_air"
+      ],
+      "constructionStages": [
+        "precision_foundation",
+        "controlled_envelope",
+        "instrument_install",
+        "calibration",
+        "quarantine_layout"
+      ],
+      "commissioning": [
+        "reference_standard_check",
+        "instrument_calibration",
+        "identity_trace_test",
+        "acceptance_record_replay"
+      ]
+    },
+    {
+      "id": "assembly.ship_engineering_department",
+      "facility": "facility.ship_engineering",
+      "name": "Ship Engineering Department and Control Spaces",
+      "structure": "shipboard_engineering_zone",
+      "footprintM": {
+        "length": 110,
+        "width": 75
+      },
+      "heightM": 18,
+      "foundation": {
+        "type": "integrated_ship_structure_and_vibration_mounts",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": false
+      },
+      "shell": {
+        "primary": "watertight_compartment_boundaries",
+        "secondary": "fire_zones_and_zoned_service_routes"
+      },
+      "materials": [
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 1600,
+          "unit": "t"
+        },
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 120,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 18000,
+      "peakDemandKW": 52000,
+      "crewOnWatch": 24,
+      "staffingByShift": {
+        "engineering_watch": 24,
+        "maintenance": 40,
+        "electricians": 18,
+        "instrument_technicians": 12,
+        "damage_control": 12
+      },
+      "contains": [
+        "propulsion_control_stations",
+        "shaft_and_drive_monitoring",
+        "reactor_watch_console",
+        "switchboards",
+        "pump_skids",
+        "cooling_loops",
+        "instrument_racks",
+        "relay_panels",
+        "spares_cage",
+        "repair_bench",
+        "work_order_terminal",
+        "compartment_isolation_controls"
+      ],
+      "utilityConnections": [
+        "zoned_shipboard_power",
+        "cooling",
+        "service_water",
+        "secure_data_bus",
+        "ventilation",
+        "damage_control_network"
+      ],
+      "constructionStages": [
+        "compartment_definition",
+        "structural_boundaries",
+        "machinery_foundations",
+        "cable_and_pipe_routes",
+        "equipment_install",
+        "instrumentation",
+        "control_integration",
+        "functional_test"
+      ],
+      "commissioning": [
+        "shaft_control_concurrence_test",
+        "power_zone_isolation_test",
+        "cooling_flow_test",
+        "alarm_and_interlock_proof",
+        "degraded_control_drill"
+      ]
     }
   ]
 }
