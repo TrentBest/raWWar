@@ -54,7 +54,7 @@
 - [ ] Ensure the Experience can be loaded by its intended host (AnyApp first) without raWWar taking ownership of host lifecycle or generic manifest machinery. The repository catalog and `ComposeAsync` exist on AnyApp `development`; prove artifact-address closure, immutable identity validation, and actual raWWar manifestation before relying on that path.
 - [ ] Ensure packaging remains non-publishing by default; `GeneratePackageOnBuild=false` and no automated NuGet publication without explicit approval.
 - [ ] Expand the contract-test README so every stated check matches the actual code and clearly states model limits.
-- [x] Added a runnable `KeplerOrbit` usage example under `examples/`, indexed it with the manifest/composition-contract examples, and added the example project to the solution. The example shares the real raWWar project and has a repeatability guard; CI status for this addition must be checked separately.
+- [x] Added a runnable `KeplerOrbit` usage example under `examples/`, indexed it with the manifest/composition-contract examples, and added the example project to the solution. The example shares the real raWWar project and has a repeatability guard; the workflow now builds the solution and runs the example. The GitHub connector has not exposed a workflow run/status for the latest push-triggered commit, so verification is pending rather than claimed green.
 
 ## P1 — Protect authoritative world-state contracts
 
