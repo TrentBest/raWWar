@@ -140,3 +140,14 @@ These decisions should remain open until the creator establishes the intended ru
 > **The commander chooses people, not perks.**
 
 Advisor gameplay should make expertise legible while preserving uncertainty, personality, accountability, and the commander's responsibility for the decision. The advisor is part of the living military world first; any interface that presents them is only a way to meet and understand that person.
+
+
+## 11. Agent-driven bonuses, death, and operational work
+
+Advisors can die through combat, assassination, accidents, or dangerous work. A player may knowingly override a documented warning; if the physical simulation produces a lethal outcome, the warning, order, mitigation decisions, event, casualty, and recovery work must remain causally linked in persistent history. Overriding a warning permits the decision; it does not force disaster or guarantee safety.
+
+Advisors also earn scoped bonuses through their own agent-driven experience, just as the player can develop through experience. Bonuses require relevant evidence, remain bounded to their domain, and do not replace qualifications or physical prerequisites. A personal bonus does not automatically transfer after death; training and knowledge transfer require actual work.
+
+The proposed operational kanban is a view over real projects and work orders, with explicit proposed, ready, in-progress, blocked, verification, accepted, and cancelled states. Moving a card never creates labor, materials, qualifications, safety clearance, or a passed acceptance test.
+
+See [Advisor Agents, Consequences, and the Work Kanban](ADVISOR_AGENTS_AND_WORK_KANBAN.md) for the causal-death model, warning/override record, scoped agent-earned bonuses, work-item contract, state transitions, succession, and proposed micro-bundle boundaries. Machine-readable design contracts live in [advisor appointments](../data/advisor-appointments.json), [advisor candidates](../data/advisor-candidates.json), and the [work kanban contract](../data/work-kanban-contract.json).
