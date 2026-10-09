@@ -237,6 +237,40 @@ Check(kanbanData.RootElement.GetProperty("transitionRules").EnumerateArray()
     .All(t => t.GetProperty("requires").EnumerateArray().Any()),
     "Every legal kanban transition declares explicit prerequisites");
 
+
+// The warning and override schemas are durable causal records, not transient UI text.
+var riskContract = kanbanData.RootElement.GetProperty("riskAndOrderContract");
+var requiredWarningFields = new[] { "authorAgentId", "logicalTime", "observations", "inference", "uncertainty", "recommendedMitigation", "affectedWorkItemId" };
+var requiredOverrideFields = new[] { "decisionMakerId", "logicalTime", "orderText", "warningIdsAcknowledged", "acceptedRisk", "mitigationsAccepted" };
+Check(requiredWarningFields.All(field => riskContract.GetProperty("warningMustCapture").EnumerateArray()
+    .Any(x => x.GetString() == field)),
+    "Advisor warnings preserve observations, inference, uncertainty, mitigation, authorship and affected work");
+Check(requiredOverrideFields.All(field => riskContract.GetProperty("overrideMustCapture").EnumerateArray()
+    .Any(x => x.GetString() == field)),
+    "Player overrides preserve acknowledged warnings, accepted risk, decision and mitigations");
+Check(riskContract.GetProperty("causalHistoryMustLink").EnumerateArray().Select(x => x.GetString())
+    .SequenceEqual(new[] { "warning", "order", "physical-actions", "outcome", "casualties", "recovery-work" }),
+    "Risk outcomes retain an ordered causal path from warning to recovery");
+Check(appointmentRecords.All(a => a.TryGetProperty("successionPolicy", out var policy) &&
+    !string.IsNullOrWhiteSpace(policy.GetString())),
+    "Every advisor appointment defines vacancy and succession behavior");
+Check(candidateRecords.All(c =>
+{
+    var evidenceReferences = c.GetProperty("recordEvidence").EnumerateArray()
+        .Select(e => e.GetProperty("reference").GetString()!).ToHashSet(StringComparer.Ordinal);
+    return c.GetProperty("agentBonuses").EnumerateArray().All(b =>
+        b.GetProperty("evidence").EnumerateArray().Any() &&
+        b.GetProperty("evidence").EnumerateArray().All(e => evidenceReferences.Contains(e.GetString()!)));
+}), "Every illustrative earned bonus cites evidence present in that person's record");
+Check(candidateRecords.All(c => c.GetProperty("agentBonuses").EnumerateArray().All(b =>
+    b.GetProperty("magnitude").GetDouble() >= 0 &&
+    double.IsFinite(b.GetProperty("magnitude").GetDouble()))),
+    "Illustrative bonus magnitudes are finite and non-negative");
+Check(kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProperty("deathCausesWorkReassignmentReview").GetBoolean() &&
+      kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProperty("uniqueKnowledgeMayBeLost").GetBoolean() &&
+      kanbanData.RootElement.GetProperty("agentAndPersonnelLifecycle").GetProperty("knowledgeTransferRequiresAnEventOrPractice").GetBoolean(),
+    "Personnel death triggers work review and preserves the distinction between records and transferred knowledge");
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
