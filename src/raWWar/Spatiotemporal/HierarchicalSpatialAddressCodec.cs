@@ -22,7 +22,14 @@ public static class HierarchicalSpatialAddressCodec
     public const byte CurrentVersion = 1;
     private const int HeaderLength = 11;
 
-    public static byte[] Encode(HierarchicalSpatialAddress address)
+    /// <summary>Encodes using the canonical V1 byte layout.</summary>
+    public static byte[] Encode(HierarchicalSpatialAddress address) => EncodeV1(address);
+
+    /// <summary>
+    /// Encodes using the immutable V1 definition. Stable hashes that name V1 call this method
+    /// explicitly so a future default encoding cannot silently alter their input.
+    /// </summary>
+    public static byte[] EncodeV1(HierarchicalSpatialAddress address)
     {
         ArgumentNullException.ThrowIfNull(address);
 
@@ -33,7 +40,7 @@ public static class HierarchicalSpatialAddressCodec
         bytes[1] = MagicW;
         bytes[2] = MagicS;
         bytes[3] = MagicA;
-        bytes[4] = CurrentVersion;
+        bytes[4] = 1;
         BinaryPrimitives.WriteUInt16BigEndian(bytes.AsSpan(5, 2), checked((ushort)address.Root.Ordinal));
         BinaryPrimitives.WriteUInt32BigEndian(bytes.AsSpan(7, 4), checked((uint)depth));
 
