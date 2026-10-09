@@ -16,7 +16,7 @@ The README now uses the shared semantic section identifiers and colored markers 
 
 | ID | Topic | raWWar treatment |
 |---|---|---|
-| 00 | Identity and badges | Repository title and identity remain the page entry point; do not invent package/release badges for a game Experience. |
+| 00 | Identity and badges | Repository identity is explicit; MIT license and development-branch CI badges point to the real license and workflow. No NuGet release badge is implied for an Experience that has not been published. |
 | 01 | Definition | Defines raWWar as a first-person war Experience, not an application, in the opening paragraph. |
 | 02 | Visual identity | Hero and galaxy visuals establish the Experience's visual identity. |
 | 03 | Plain-language explanation | Explains the living war and continuous galaxy before deep implementation details. |
@@ -58,6 +58,7 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 ### Applied
 
 - [x] README has a reader-oriented path and the shared section identifiers/marker colors.
+- [x] README section 00 now provides explicit Workshop/Experience identity plus verified-license and development-CI badges; no package publication badge is implied.
 - [x] The responsibility boundary explicitly describes FSM_COS as composition rather than host execution.
 - [x] README describes the current manifest/AnyApp integration blocker without implying end-to-end loading.
 - [x] Example and contract-check links are included with limits on what they prove.
