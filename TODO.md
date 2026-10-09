@@ -167,3 +167,11 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Recorded a concrete unresolved campaign-opening/faction-selection conflict as [Open Question 22](docs/OPEN_QUESTIONS.md): faction choice among thirteen doors is not yet reconciled with the player already being a Commander and the Empress's short compliance deadline. Preserved the conflict rather than silently choosing canon.
 - [x] Extended the relative Markdown file-target audit to another 12 specialist/design documents; no missing local file targets were found in that batch. Heading anchors, embedded HTML/SVG references, external-link availability, and exhaustive coverage remain open.
 - [x] Re-checked CI for the latest documentation commit; the current head's workflow run completed successfully (run [37998973548](https://github.com/TrentBest/raWWar/actions/runs/37998973548)).
+
+## Documentation alignment follow-up — 2026-10-09
+
+- [x] Re-read the current FSM_COS documentation-standard proposal rather than relying only on the prior summary. The proposal emphasizes accurate identity, applicable README section IDs, audience paths, precise boundaries, evidence, visuals, runnable-or-labeled examples, and link validation. It remains a proposal on the FSM_COS documentation branch, not a merged ecosystem mandate.
+- [x] Added README section **00 — identity** and real MIT-license / development-CI badges. Deliberately did not add a NuGet release badge: raWWar is an Experience and this branch has not been published as a package release.
+- [x] Updated the conformance record to describe the actual section-00 treatment.
+- [ ] Re-check CI for these latest README/conformance commits; do not reuse the prior green result as proof for this new head.
+- [ ] Continue bounded repository-wide Markdown link, heading-anchor, SVG-reference, and design-contradiction audits. A sampled pass is not an exhaustive audit.
