@@ -392,7 +392,7 @@ Check(humanHistoryRoot.GetProperty("authority").GetProperty("eraDatesAreDelibera
     "Speculative future chronology does not claim unsupported absolute dates");
 Check(historicalEras.Any(e => e.GetProperty("id").GetString() == "history.imperial-fractures"),
     "Long history explicitly includes imperial fractures, rebellion, and civil war");
-Check(humanHistoryRoot.GetProperty("discoveryPrinciples").GetProperty("playerKnowledgeIsTrackedSeparately").GetBoolean(),
+Check(humanHistoryRoot.GetProperty("campaignDiscoveryPrinciples").GetProperty("playerKnowledgeIsTrackedSeparately").GetBoolean(),
     "Player knowledge remains distinct from historical truth");
 Check(historyDiscoveryRoot.GetProperty("recordKinds").EnumerateArray().Select(x => x.GetString())
     .Contains("maintenance-history") &&
