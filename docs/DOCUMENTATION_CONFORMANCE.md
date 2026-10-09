@@ -64,13 +64,20 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [x] Shared Workshop footer and related-project navigation are included.
 - [x] Existing visual-first game-design voice is retained.
 
+### Audit findings and changes
+
+- [x] Clarified the Game Design Bible's role as design authority, the GDD's role as comprehensive experience description, and specialist documents' obligation not to silently overrule creator canon.
+- [x] Added ownership, audience, purpose, and evidence-rule metadata to the Game Design Bible, Technical Design, and Production Plan.
+- [x] Reaffirmed the critical boundary: FSM_COS composes capabilities; it is not the game loop, host, renderer, or source of raWWar's domain meaning.
+- [x] Technical Design distinguishes intended architecture from implemented orbit-query coverage and from unproven end-to-end AnyApp integration.
+- [x] Experience Architecture includes an implementation-evidence table and identifies what current scaffold/package/composition checks do not prove.
+
 ### Remaining audit work
 
-- [ ] Review the Game Design Document, Game Design Bible, and Experience Architecture for duplicated or conflicting authority, accurate implementation-state labels, and links to evidence.
-- [ ] Review technical/design companion documents for stale APIs, missing prerequisites, malformed links, and claims that exceed source/tests.
+- [ ] Finish the full GDD and companion-document review for contradictions, stale APIs, missing prerequisites, and malformed links; this pass establishes clearer authority and evidence rules, not exhaustive line-by-line validation.
 - [ ] Verify relative links across the documentation set and visual catalogue.
 - [ ] Ensure every technical capability consumed by raWWar has a repository-local example or a documented reason an example is not yet executable.
 - [ ] Continue replacing repeated explanations with one authoritative document and clear cross-links.
 - [ ] Re-run CI after the documentation changes and record the actual result; empty status/run responses are **unverified**, not green.
 
-This audit is intentionally incremental. A README alignment pass does not establish that every companion document already conforms.
+This audit is intentionally incremental. The shared FSM_COS standard is still a proposal under review, and this pass does not claim universal or exhaustive conformance.
