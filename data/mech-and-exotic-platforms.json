@@ -1,0 +1,215 @@
+{
+  "schema": "raWWar.mech-and-exotic-platforms.v1",
+  "status": "candidate-capability-contract",
+  "purpose": "Define piloted and optionally autonomous machines for combat, research, construction, rescue, and extraction across terrestrial, aquatic, subsurface, atmospheric, orbital, and space environments.",
+  "governingPrinciple": "A mech is a configured physical machine, not a humanoid silhouette with arbitrary hit points.",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "battleMechsAreAnExplicitDesiredExperience": true,
+    "platformCapabilityIsNotGuaranteedByHumanoidForm": true,
+    "allExamplesAreCandidateDesignsUntilAssignedToCanonFactions": true
+  },
+  "warfareEvolution": [
+    {
+      "id": "terrestrial-industrial",
+      "label": "Terrestrial industrial warfare",
+      "roles": [
+        "transport",
+        "engineering",
+        "armor",
+        "artillery",
+        "logistics"
+      ],
+      "lesson": "Wheels, tracks, legs, and specialized machinery compete by terrain, payload, cost, and repairability."
+    },
+    {
+      "id": "powered-personal",
+      "label": "Powered personal systems",
+      "roles": [
+        "load-bearing",
+        "breaching",
+        "casualty-extraction",
+        "heavy-tool-use"
+      ],
+      "lesson": "Augmentation scales the person; it does not automatically make a person-sized system a tank."
+    },
+    {
+      "id": "remote-autonomous",
+      "label": "Remote and autonomous systems",
+      "roles": [
+        "reconnaissance",
+        "hazard-entry",
+        "attritable-logistics"
+      ],
+      "lesson": "Remote operation trades onboard crew exposure for communications, autonomy, latency, and electronic-warfare constraints."
+    },
+    {
+      "id": "atmospheric-orbital",
+      "label": "Atmospheric and orbital specialization",
+      "roles": [
+        "station-construction",
+        "external-repair",
+        "cargo-handling"
+      ],
+      "lesson": "Pressure, radiation, thermal management, reaction control, and anchoring dominate many tasks."
+    },
+    {
+      "id": "space-industrial",
+      "label": "Space-industrial platforms",
+      "roles": [
+        "hull-repair",
+        "module-replacement",
+        "salvage",
+        "construction"
+      ],
+      "lesson": "Human-compatible manipulators can help around human-built structures; momentum and restraint remain mandatory."
+    },
+    {
+      "id": "exotic-environments",
+      "label": "Return to exotic environments",
+      "roles": [
+        "deep-ocean",
+        "subsurface",
+        "cryogenic",
+        "volcanic",
+        "low-gravity",
+        "hazardous-research"
+      ],
+      "lesson": "Specialized locomotion and sealed bodies return where terrain or inherited infrastructure rewards them."
+    }
+  ],
+  "platformFamilies": [
+    {
+      "id": "walking-combat-mech",
+      "purpose": "Pilotable combat machine with locomotion, manipulators, protection, sensors, weapons, and egress.",
+      "advantages": [
+        "selected obstacle traversal",
+        "human-scale manipulation",
+        "modular mission tools"
+      ],
+      "tradeoffs": [
+        "joint loads",
+        "balance and fall recovery",
+        "maintenance burden",
+        "large signature"
+      ],
+      "mustModel": [
+        "mass and inertia",
+        "terrain bearing and foot contact",
+        "joint torque and heat",
+        "stance and recoil stability",
+        "pilot sightlines",
+        "egress and rescue"
+      ]
+    },
+    {
+      "id": "industrial-exo-loader",
+      "purpose": "Lifting, construction, casualty recovery, and field repair.",
+      "mustModel": [
+        "load chart",
+        "grip compatibility",
+        "tip risk",
+        "power and isolation"
+      ]
+    },
+    {
+      "id": "research-survey-walker",
+      "purpose": "Sensors, sampling, drilling, and hazardous exploration.",
+      "mustModel": [
+        "instrument calibration",
+        "sample custody",
+        "decontamination",
+        "power and station keeping"
+      ]
+    },
+    {
+      "id": "resource-harvester",
+      "purpose": "Cut, bore, collect, sort, and transfer material.",
+      "mustModel": [
+        "tool wear",
+        "throughput and grade",
+        "waste",
+        "ground reaction",
+        "spares"
+      ]
+    },
+    {
+      "id": "vacuum-construction-salvage-rig",
+      "purpose": "Hull work, module alignment, and wreck recovery in orbit or space.",
+      "mustModel": [
+        "reaction control",
+        "anchoring and tether loads",
+        "tool torque",
+        "debris and collision risk"
+      ]
+    },
+    {
+      "id": "exotic-environment-specialist",
+      "purpose": "Operate in deep ocean, caverns, dense atmospheres, cryogenic or volcanic terrain, and unusual gravity.",
+      "mustModel": [
+        "pressure and temperature envelope",
+        "buoyancy or gravity",
+        "corrosion and abrasion",
+        "visibility and communications"
+      ]
+    }
+  ],
+  "configurationRequired": [
+    "chassis",
+    "locomotion",
+    "actuators",
+    "power",
+    "energy-storage",
+    "thermal-system",
+    "sensors",
+    "control-system",
+    "pilot-or-remote-station",
+    "protection",
+    "manipulators",
+    "tools",
+    "weapons",
+    "communications",
+    "consumables",
+    "crew-qualification",
+    "calibration",
+    "maintenance-state"
+  ],
+  "combatRules": [
+    "Weapons have physical mounts, arcs, recoil, heat, ammunition, reload, and interlocks.",
+    "Hits resolve against armor, joints, sensors, actuators, cables, weapons, and internal systems rather than one health bar.",
+    "A damaged limb changes mobility or balance; a damaged sensor creates a blind sector; a damaged feed can make ammunition unavailable.",
+    "A mech can be degraded, immobilized, abandoned, captured, repaired, or salvaged without being destroyed.",
+    "Pilot egress, injury, rescue, recovery, and capture are part of combat."
+  ],
+  "productionAndResearch": {
+    "researchDoesNotEqualProduction": true,
+    "requiredChain": [
+      "research-question",
+      "prototype-design",
+      "materials-and-components",
+      "fabrication",
+      "instrumented-test",
+      "failure-analysis",
+      "revision",
+      "qualification",
+      "training",
+      "deployment"
+    ],
+    "prototypeFailureExamples": [
+      "actuator overheating",
+      "foot placement fails on loose regolith",
+      "recoil destabilizes stance",
+      "thermal plume reveals position",
+      "sample contamination",
+      "salvage rig spins after cutting a loaded member"
+    ]
+  },
+  "validationGates": [
+    "Walking combat mechs are an explicit desired player capability.",
+    "Combat, research, construction, rescue, and extraction share engineering rules but have different mission contracts.",
+    "Mass, power, heat, terrain, stability, recoil, maintenance, and qualification constrain operation.",
+    "Space rigs account for momentum, anchoring, tethers, and reaction control.",
+    "Prototype failures and repairs persist as world history.",
+    "Evolution branches; no platform is universally optimal."
+  ]
+}
