@@ -25,7 +25,9 @@
     "configurationBoundary": "separate IMicroBundleConfigurationSource",
     "hostHandoff": "RuntimeAssembly",
     "kernelExpansionStatus": "paused-after-correctness-gate",
-    "nugetPublishAuthorized": false
+    "nugetPublishAuthorized": false,
+    "microBundleDomainDependencyRef": "architecture/runtime-contract-ownership",
+    "microBundleDomainResolution": "FSM_COS development CI checks out and builds this branch directly; do not infer that the same contract has been released to NuGet without a separate verification."
   },
   "ownershipPrinciples": [
     {
