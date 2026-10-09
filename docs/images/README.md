@@ -22,6 +22,7 @@ These SVGs are authored, lightweight diagrams and concept illustrations. Unless 
 | [rawwar-experience-architecture.svg](rawwar-experience-architecture.svg) | What raWWar owns versus the reusable machinery provided by the Workshop | Experience architecture |
 | [rawwar-event-horizons.svg](rawwar-event-horizons.svg) | How observation detail can vary with distance without stopping world history | Renderer integration, simulation scale |
 | [rawwar-gesture-sequence.svg](rawwar-gesture-sequence.svg) | Intent becoming movement, procedure, and individual physical execution | Gestures design |
+| [rawwar-pilot-station-sequence.svg](rawwar-pilot-station-sequence.svg) | Fighter-pilot occupancy, restraint, interface connection, raised rig, control intent, aircraft response, and emergency egress | Mech cockpit and pilot interaction |
 | [rawwar-faction-spectrum.svg](rawwar-faction-spectrum.svg) | The thirteen-faction political space | Faction design |
 | [rawwar-advisor-agency.svg](rawwar-advisor-agency.svg) | Advisors as agents who learn, warn, act, suffer outcomes, and leave history | Advisors and command staff |
 | [rawwar-work-kanban.svg](rawwar-work-kanban.svg) | Work-board states and evidence-based transitions grounded in world state | Work orders, logistics, production |
