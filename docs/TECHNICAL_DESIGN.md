@@ -20,6 +20,25 @@ This document defines the technical boundaries needed to build raWWar as an Expe
 
 ## 02. Architecture at a glance
 
+```text
+raWWar Experience definition
+        │ declares requested capability roots
+        ▼
+MicroBundle contracts and capability definitions
+        │ validated composition request
+        ▼
+FSM_COS — composition boundary
+        │ composed RuntimeAssembly
+        ▼
+AnyApp or another supported host — execution / manifestation
+        │ authoritative state supplied for observation
+        ▼
+Workshop Renderer — observer-relative presentation
+```
+
+This is an **intended responsibility flow**, not a claim that every edge is implemented end to end. In particular, the current authoring/runtime manifests are not interchangeable with AnyApp's publication manifest, and repository-backed artifact closure is not yet proven for raWWar. See the [AnyApp manifest bridge investigation](integration/ANYAPP_MANIFEST_BRIDGE.md) for the exact blockers.
+
+The diagram is conceptual: it does not imply that the renderer is the source of truth, that FSM_COS runs the game loop, or that every capability must be a separate package.
 
 ## Architectural position
 
