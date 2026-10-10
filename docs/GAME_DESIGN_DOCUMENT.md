@@ -733,6 +733,8 @@ The jobs board is an in-world career interface. The player may apply for another
 
 Qualification, experience, and performance are separate. The soldier's visible insignia, rating badge, and related qualification markings communicate the level reached in the role they currently serve; these markings are not arbitrary cosmetics. The active role determines which role-specific insignia and rating badge the soldier carries, while the qualification level determines the appropriate progression marking. Exact insignia artwork and display conventions remain to be designed.
 
+Service medals are a separate part of the soldier's visible military identity. Soldiers wear awarded service medals on their chest. Medals recognize service, achievements, or notable actions in the living war; they are tied to the soldier's record and award criteria, not merely cosmetic unlocks. Role insignia and rating badges communicate the soldier's current role and qualification level, while service medals recognize service and deeds. Exact medal categories, award criteria, designs, placement conventions, and faction-specific practices remain to be designed.
+
 
 
 - **Qualification** records that the soldier has completed and passed required instruction. It can establish eligibility or permission, but does not imply extensive field experience.
