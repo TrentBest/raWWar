@@ -12,7 +12,7 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 
 ## In-progress first-person slice
 
-- [Fighter Pilot Action Slice](../docs/FIGHTER_PILOT_ACTION_SLICE.md) — the next design contract connecting station readiness to an authoritative aircraft-state transition, causal history, and observable feedback. **Design contract only:** it is not a runnable example and does not claim the flight-control implementation exists.
+- [Fighter Pilot Action Slice](../docs/FIGHTER_PILOT_ACTION_SLICE.md) — a **candidate** design sketch for connecting a future station interaction to an authoritative aircraft-state transition, causal history, and observable feedback. It is not evidence of an existing station implementation, not a selected implementation commitment, and not a runnable example. Reconcile it with canonical game-design decisions before using it to drive code.
 
 ## Run the executable example
 
