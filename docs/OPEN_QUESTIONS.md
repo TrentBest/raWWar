@@ -191,3 +191,25 @@ This establishes the teaching and interaction model, but not every low-level sta
 
 Do not generalize one station's control scheme to every vehicle, and do not treat a ghost demonstration as the player's completed action. The ghost shows the target; the player must perform the procedure.
 
+### 24. How do interleaved training, qualifications, experience, and career changes work?
+
+The recruit's training day rotates through actual simulators. The player learns a subject, moves to other trainers, then returns to continue it; qualifications are not normally completed in one uninterrupted sitting. Long qualifications such as piloting span realistic in-world time, while the player's presentation can cut away between training sessions.
+
+A training barracks serves one squad at a time. A squad qualifying to operate a tank must qualify for each crew position, not merely acquire a single generic tank qualification. After boot camp, the squad marches around its base, reports to its assigned training barracks, completes advanced combat training with a wider set of weapons and squad-on-squad exercises, and then gains access to the jobs board.
+
+The jobs board is diegetic. The player can apply to another listed job at any time; current training pauses rather than being discarded. Applications are typically accepted, but not guaranteed. Roles whose prerequisites are missing are visibly distinguished, and selecting one shows the ordered qualification path needed to reach it. The selected destination uses a green rotating reticle, distinct from the prerequisite path.
+
+The same ghost-avatar model teaches all occupations, including research. A qualified researcher needs to learn the procedures relevant to their own work, not every other occupation.
+
+Qualification and experience are separate. A ghost can demonstrate a field-repair procedure, but its guidance may depend on the soldier's own repetitions and relevant nearby experience. Following a ghost does not guarantee success at an unfamiliar repair; a soldier who has never used a plasma torch might cut unintended holes in a hull instead. Soldiers do not normally perform their own maintenance, but field emergencies may force them to try.
+
+**Remaining design questions:**
+- What are the complete qualification families and prerequisite edges, and which roles have additional rank, staffing, aptitude, or organizational requirements?
+- How are lessons scheduled and resumed across in-world time, especially for long qualifications such as piloting?
+- What determines whether a job application is accepted when the player meets its visible prerequisites?
+- What information is shown for locked or unqualified jobs without turning the board into an out-of-world menu?
+- How are squad members distributed across each vehicle's required crew positions, and how is qualification recorded for each position?
+- How does prior personal experience and nearby expertise affect the ghost's repair guidance? What is shown when guidance is uncertain or unavailable?
+- How are simulator performance, qualification status, field experience, and actual task outcome represented separately?
+- Which training procedures are shared across factions, and which are faction-specific?
+
