@@ -1,3 +1,5 @@
+using System.Diagnostics;
+using System.Reflection;
 using TheSingularityWorkshop.raWWar.History;
 
 namespace TheSingularityWorkshop.raWWar.ContractTests;
@@ -70,6 +72,43 @@ internal static class CandidateFileEventJournalChecks
                 check(recovered.Count == 1, "Reopen resolves the injected pre-flush failure from the journal bytes");
                 check(recovered.Commit(uncertainEvent) == EventCommitResult.AlreadyCommitted,
                     "Retry after uncertain outcome does not append a duplicate event");
+            }
+
+            // A clean child-process exit followed by a fresh process opening the journal checks
+            // process-restart reconstruction, but does not simulate a crash or power loss.
+            var processRestartPath = Path.Combine(directory, "process-restart.rwej");
+            var assemblyPath = Assembly.GetExecutingAssembly().Location;
+            var start = new ProcessStartInfo("dotnet")
+            {
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true,
+                CreateNoWindow = true
+            };
+            start.ArgumentList.Add(assemblyPath);
+            start.ArgumentList.Add("--journal-child-write");
+            start.ArgumentList.Add(processRestartPath);
+            using (var child = Process.Start(start) ?? throw new InvalidOperationException("Could not start journal child process."))
+            {
+                if (!child.WaitForExit(30000))
+                {
+                    child.Kill(entireProcessTree: true);
+                    throw new TimeoutException("Journal child process did not exit within 30 seconds.");
+                }
+                var childOutput = child.StandardOutput.ReadToEnd();
+                var childError = child.StandardError.ReadToEnd();
+                check(child.ExitCode == 0,
+                    $"Child process committed its journal event and exited successfully (exit {child.ExitCode}; stdout: {childOutput}; stderr: {childError})");
+            }
+            using (var restarted = new CandidateFileEventJournal(processRestartPath))
+            {
+                var recovered = restarted.ReadOrdered("process.restart.probe", address);
+                check(recovered.Count == 1 && recovered[0].Payload.Span.SequenceEqual(new byte[] { 0xC1, 0xC2 }),
+                    "A new process can reopen and reconstruct an event committed by an exited process");
+                var restartEvent = SimulationEvent.Create(123, "v1", address, "process.restart.probe",
+                    1, "tick:000001", new byte[] { 0xC1, 0xC2 });
+                check(restarted.Commit(restartEvent) == EventCommitResult.AlreadyCommitted,
+                    "Retry after clean process restart resolves to AlreadyCommitted without duplicate append");
             }
 
             var validBytes = File.ReadAllBytes(path);
