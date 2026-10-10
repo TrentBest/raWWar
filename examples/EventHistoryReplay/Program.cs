@@ -60,7 +60,7 @@ if (history.Commit(conflictingRetry) != EventCommitResult.IdentityConflict)
 // The ledger's declared ordering is by logical-time key, then ordinal, then stable event ID.
 // Read only this domain and address before passing events to the narrow reducer.
 var orderedEvents = history.ReadOrdered(ResourceBalanceReplay.EventDomain, canonicalAddress);
-var reconstructedBalance = ResourceBalanceReplay.Replay(initialBalance: 5, orderedEvents);
+var reconstructedBalance = ResourceBalanceReplay.Replay(initialBalance: 5, orderedEvents: orderedEvents);
 
 Console.WriteLine($"Committed events in this stream: {orderedEvents.Count}");
 Console.WriteLine($"Initial balance: 5");
