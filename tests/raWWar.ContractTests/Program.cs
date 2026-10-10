@@ -1380,6 +1380,8 @@ Check(!damagedConnection.Accepted &&
       damagedConnection.BlockReason == TheSingularityWorkshop.raWWar.Interaction.PilotStationBlockReason.ControlsDamaged,
     "Damaged station controls block interface connection explicitly");
 
+CandidateFileEventJournalChecks.Run(Check);
+
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
 return failures.Count == 0 ? 0 : 1;
