@@ -6,6 +6,7 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 
 | Example | What it demonstrates | Verification boundary |
 |---|---|---|
+| [HierarchicalSpatialAddress](HierarchicalSpatialAddress/Program.cs) | Building a multi-level address, canonical V1 encoding/decoding, stable SHA-256 identity, and invalid-coordinate/trailing-byte boundaries. | Standalone .NET 8 example referencing the actual raWWar project; contract-test vectors live in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). |
 | [CartesianTransform](CartesianTransform/Program.cs) | Transforming points versus directions, applying an orthonormal inverse, and rejecting unsupported scaled inverses. | Standalone .NET 8 example referencing the actual raWWar project; contract-test coverage is in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). |
 | [KeplerOrbit](KeplerOrbit/Program.cs) | Constructing an immutable elliptic orbit, querying explicit logical times, checking repeatability, and rejecting non-finite logical time and eccentricity outside the supported elliptic domain. | The project is in the solution and references the real raWWar project. Matching numerical contract checks live in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). Run the example with the command below. |
 | [Authoring manifest](../manifest.json) and [runtime manifest](../runtime-manifest.json) | Separating Experience metadata from FSM_COS root bundle IDs and requested versions. | Manifest-shape and identity checks are in the contract-test program. This is not AnyApp publication-manifest or end-to-end host-loading proof. |
@@ -17,7 +18,7 @@ The following raWWar-owned contracts have executable checks in [the contract-tes
 
 | Contract | Current evidence | Example gap |
 |---|---|---|
-| [Hierarchical spatial address V1](../src/raWWar/Spatiotemporal/HierarchicalSpatialAddress.cs) | Canonical encoding/decoding and stable SHA-256 vectors are checked by the contract suite. | Add a focused example showing address construction, encoding, decoding, and validation boundaries. |
+
 
 | [Event history and resource replay](../docs/EVENT_HISTORY_AND_REPLAY_CONTRACT.md) | The contract suite checks stable event identity, immutable payload handling, in-memory commit semantics, ordering, stream boundaries, malformed events, and checked resource arithmetic. | Add a focused example of event creation, commit, and replay; explicitly label the ledger as process-local and replay as a narrow resource-balance reducer. |
 
@@ -34,6 +35,7 @@ From the repository root:
 ```sh
 dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj
 dotnet run --project examples/CartesianTransform/raWWar.CartesianTransformExample.csproj
+dotnet run --project examples/HierarchicalSpatialAddress/raWWar.HierarchicalSpatialAddressExample.csproj
 ```
 
 ## Rules for future examples
