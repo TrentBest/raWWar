@@ -90,7 +90,36 @@ Ordering remains the current declared order: ordinal logical-time key using ordi
 9. A same-ID/different-payload retry is detected as a conflict by the recovered store.
 10. Tests include maximum accepted field sizes and checked-length arithmetic boundaries without allocating unbounded input.
 
-## 7. Decisions still required
+## 7. Fixed reference frame — candidate vector only
+
+This vector makes the proposed field order, lengths, byte order, event identity, and checksum independently reproducible. It is a review aid, **not approval to freeze the format**.
+
+Input event:
+- World seed: `123`
+- Simulation-model version UTF-8: `v1`
+- Canonical address bytes: `5257534101002A00000002030405090001`
+- Event domain UTF-8: `resource.depleted`
+- Event ordinal: `7`
+- Logical-time key UTF-8: `tick:000042`
+- Payload: `102030`
+
+Expected current event identity (raw 32-byte digest):
+`F223794D5176C58304EF88BF2E2C0721B4BFFC5F9C4CC1433C80D701D244A1D1`
+
+Expected candidate frame length: **160 bytes** (`0x000000A0`).
+
+Expected complete frame, hexadecimal (line wrapping is presentation only):
+
+```text
+5257454A0100000000A0000000000000007B000000027631000000115257534101002A00000002030405090001000000117265736F757263652E6465706C6574656400000000000000070000000B7469636B3A30303030343200000003102030F223794D5176C58304EF88BF2E2C0721B4BFFC5F9C4CC1433C80D701D244A1D1BCE9CCE3807A763076F756157C1D83F117AFFBFBC6831B3427F876FC901D6567
+```
+
+Expected final checksum (the final 32 bytes, SHA-256 over the preceding 128 bytes):
+`BCE9CCE3807A763076F756157C1D83F117AFFBFBC6831B3427F876FC901D6567`
+
+Before implementation relies on this vector, a second independent implementation should verify it and the field offsets. The executable contract suite must then pin the vector and include mutation tests for every field and checksum.
+
+## 8. Decisions still required
 
 - Approve or change the provisional bounds.
 - Confirm the frame checksum algorithm and whether an accidental-corruption checksum is sufficient for the stated local threat model.
