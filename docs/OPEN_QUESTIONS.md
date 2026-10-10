@@ -193,12 +193,12 @@ Do not generalize one station's control scheme to every vehicle, and do not trea
 
 ### 25. How does career progression differ between single-player and multiplayer?
 
-The creator has established a deliberate mode distinction. The single-player Enlisted campaign guides one player's progression more tightly to carry the story of rising from the bottom of the military hierarchy. Multiplayer begins every player at the bottom as a soldier. A multiplayer player chooses a class to train for; because the character is directly inhabited only while the player is online, training must not depend on the player being present at one specific moment or in one required position. Once qualified, the player may answer any job in that class or any other class for which they have qualified.
+The creator has established a deliberate mode distinction. The single-player Enlisted campaign guides one player's progression more tightly to carry the story of rising from the bottom of the military hierarchy. Multiplayer begins every player at the bottom as a soldier. A multiplayer player chooses a class to train for through discrete VR sessions; the player is outside the passage of world time while training, can return to gameplay between sessions, and can resume training whenever they choose. Abandoning an active module scraps that session's training, while earlier completed sessions and qualifications remain intact. Incomplete qualifications cannot be used. Once qualified, the player may answer any job in that class or any other class for which they have qualified.
 
 The same underlying world and qualification system can support both modes without granting identical career freedom.
 
 **Remaining design questions:**
-- Which parts of class training can progress or be scheduled while the player is offline, and which require direct hands-on participation?
+- What counts as successfully completing each VR training session, and how does the barracks staff direct a recruit to the next module?
 - Does multiplayer class qualification establish eligibility for every job in that class, or do some jobs require additional position-specific qualifications, experience, rank, or staffing conditions?
 - How are multiple qualified classes displayed on the diegetic jobs board?
 - How should the world present a job opportunity when the player is qualified but another applicant or organizational need may determine assignment?
@@ -206,7 +206,7 @@ The same underlying world and qualification system can support both modes withou
 
 ### 24. How do interleaved training, qualifications, experience, and career changes work?
 
-The recruit's training day rotates through actual simulators. The player learns a subject, moves to other trainers, then returns to continue it; qualifications are not normally completed in one uninterrupted sitting. Long qualifications such as piloting span realistic in-world time, while the player's presentation can cut away between training sessions.
+The recruit marches with their squad to the assigned training building, where the soldiers staffing the barracks help them choose the appropriate VR module. The player is outside the passage of world time while inside a module. Training is divided into discrete hands-on sessions: the player can pass a session, return to gameplay with the qualifications currently earned, and return to training whenever they choose. If the player bails out of an active module, the current session's training is scrapped; prior completed sessions and qualifications remain intact. Incomplete qualifications cannot be used. Long qualifications can therefore be completed across multiple visits without trapping the player in VR for the full in-world duration.
 
 A training barracks serves one squad at a time. A squad qualifying to operate a tank must qualify for each crew position, not merely acquire a single generic tank qualification. After boot camp, the squad marches around its base, reports to its assigned training barracks, completes advanced combat training with a wider set of weapons and squad-on-squad exercises, and then gains access to the jobs board.
 
@@ -218,7 +218,7 @@ Qualification and experience are separate. A ghost can demonstrate a field-repai
 
 **Remaining design questions:**
 - What are the complete qualification families and prerequisite edges, and which roles have additional rank, staffing, aptitude, or organizational requirements?
-- How are lessons scheduled and resumed across in-world time, especially for long qualifications such as piloting?
+- What counts as successful completion of a VR training session, and how do barracks staff help the player choose the next module?
 - What determines whether a job application is accepted when the player meets its visible prerequisites?
 - What information is shown for locked or unqualified jobs without turning the board into an out-of-world menu?
 - How are squad members distributed across each vehicle's required crew positions, and how is qualification recorded for each position?
