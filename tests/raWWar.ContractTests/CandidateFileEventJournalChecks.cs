@@ -43,6 +43,35 @@ internal static class CandidateFileEventJournalChecks
                 check(journal.Commit(conflict) == EventCommitResult.IdentityConflict, "Identity conflict remains detectable after reopen");
             }
 
+
+            // Inject an exception after bytes are written but before Flush(true). This tests
+            // the journal's uncertainty guard and reopen/retry protocol, not actual power loss.
+            var uncertainPath = Path.Combine(directory, "uncertain-outcome.rwej");
+            var uncertainEvent = SimulationEvent.Create(123, "v1", address, "resource.depleted",
+                99, "tick:000099", new byte[] { 0x55, 0x66 });
+            using (var journal = new CandidateFileEventJournal(uncertainPath,
+                () => throw new IOException("Injected failure before durable flush.")))
+            {
+                var injectedFailureObserved = false;
+                try { _ = journal.Commit(uncertainEvent); }
+                catch (IOException) { injectedFailureObserved = true; }
+                check(injectedFailureObserved, "Injected pre-flush failure is surfaced to the caller");
+                var furtherCommitBlocked = false;
+                try { _ = journal.Commit(second); }
+                catch (InvalidOperationException) { furtherCommitBlocked = true; }
+                check(furtherCommitBlocked, "Uncertain write outcome blocks further commits until reopen");
+                var furtherReadBlocked = false;
+                try { _ = journal.ReadOrdered("resource.depleted", address); }
+                catch (InvalidOperationException) { furtherReadBlocked = true; }
+                check(furtherReadBlocked, "Uncertain write outcome blocks reads against a potentially stale index");
+            }
+            using (var recovered = new CandidateFileEventJournal(uncertainPath))
+            {
+                check(recovered.Count == 1, "Reopen resolves the injected pre-flush failure from the journal bytes");
+                check(recovered.Commit(uncertainEvent) == EventCommitResult.AlreadyCommitted,
+                    "Retry after uncertain outcome does not append a duplicate event");
+            }
+
             var validBytes = File.ReadAllBytes(path);
             File.WriteAllBytes(path, validBytes[..^1]);
             var rejectedTruncation = false;
