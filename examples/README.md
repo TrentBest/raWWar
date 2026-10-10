@@ -13,15 +13,9 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 | [Authoring manifest](../manifest.json) and [runtime manifest](../runtime-manifest.json) | Separating Experience metadata from FSM_COS root bundle IDs and requested versions. | Manifest-shape and identity checks are in the contract-test program. This is not AnyApp publication-manifest or end-to-end host-loading proof. |
 | [Workshop composition contract](../data/workshop-composition-contract.json) | Recording ownership boundaries, current verified FSM_COS contract, proposed reusable capabilities, and explicit non-publication status as data. | Architecture assertions are in the contract-test program. Proposed capabilities are not implemented capabilities. |
 
-## Implemented contracts that still need dedicated examples
+## Remaining example gaps
 
-The following raWWar-owned contracts have executable checks in [the contract-test program](../tests/raWWar.ContractTests/Program.cs), but are not yet presented as dedicated, copyable usage examples. Treat the tests as current verification evidence—not as a substitute for reader-facing examples.
-
-| Contract | Current evidence | Example gap |
-|---|---|---|
-
-
-
+The examples above cover the currently prioritized executable contracts. Keep this section for additional implemented contracts that lack reader-facing examples; do not leave empty placeholder tables.
 
 These contracts are useful implemented slices, not evidence of a complete galaxy simulation, durable event store, distributed exactly-once processing, checkpoint migration, or host-level world advancement.
 
