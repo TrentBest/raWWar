@@ -107,7 +107,7 @@ The copyable walkthrough is [`examples/EventHistoryReplay/Program.cs`](../exampl
 - Payload V1: exactly eight bytes representing a signed 64-bit delta in big-endian two's-complement form.
 - Replay input: the caller supplies the already ordered events from one domain-and-address stream returned by `InMemoryEventHistory.ReadOrdered(domain, canonicalAddress)`.
 - State transition: add each decoded delta to the initial balance using checked Int64 arithmetic; malformed payloads, cross-domain input, mixed address streams, mixed world seeds/model versions, out-of-order input, and overflow are rejected.
-- The reducer does not fetch or commit events, infer logical-time units, persist state, process causal prerequisites, or support checkpoints. It validates that the supplied events form one address-scoped, seed/model-consistent stream in the ledger's declared deterministic order, but callers should still obtain streams through `ReadOrdered(domain, canonicalAddress)`.
+- The reducer does not fetch or commit events, infer logical-time units, persist state, or process causal prerequisites. A separate `ResourceBalanceCheckpoint` now demonstrates a deliberately narrow in-memory checkpoint: it captures the balance plus schema version, seed/model identity, stream scope, and the exact last-event ordering boundary. `ReplayTail` rejects incompatible schema/scope, events at or before the checkpoint boundary, and unordered tails. This is a replay-equivalence experiment, not a durable checkpoint file format, migration system, or general world checkpoint.
 - Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, mixed stream rejection, duplicate event-identity rejection, out-of-order rejection, and overflow rejection.
 
 ## 8. Minimum acceptance tests
@@ -119,7 +119,7 @@ A future event/history implementation should demonstrate:
 - the same event identity with a different payload is detected as a conflict;
 - different thread scheduling, packet arrival order, render frame rate, and camera movement do not change the committed result when the domain contract says they are irrelevant;
 - missing causal prerequisites follow a declared policy;
-- checkpoint-plus-tail replay matches full replay from the same compatible origin;
+- checkpoint-plus-tail replay matches full replay from the same compatible origin (currently verified only for the narrow resource-balance checkpoint);
 - incompatible checkpoint/model versions are rejected or migrated explicitly;
 - an observation-only query does not append events or mutate authoritative state;
 - unsupported times and out-of-order events are handled by the domain's declared policy.
