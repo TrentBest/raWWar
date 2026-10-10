@@ -111,6 +111,11 @@ The candidate journal contract checks now include two events with the same logic
 
 Both workflows passed for test head [885ee823befd28d3593773915deb2f591a87626e](https://github.com/TrentBest/raWWar/commit/885ee823befd28d3593773915deb2f591a87626e): [push CI](https://github.com/TrentBest/raWWar/actions/runs/38027600622) and [PR CI](https://github.com/TrentBest/raWWar/actions/runs/38027603530).
 
+
+### Additional recovery-boundary evidence: hostile lengths and UTF-8
+
+Two more recovery tests now pass in both push and pull-request CI. The oversized-length test writes a header declaring a frame larger than the configured maximum and verifies rejection before frame allocation: [push CI](https://github.com/TrentBest/raWWar/actions/runs/38028112078), [PR CI](https://github.com/TrentBest/raWWar/actions/runs/38028114391), on test head [fd4c2d0b](https://github.com/TrentBest/raWWar/commit/fd4c2d0b83d0bf9ccbddd96b45e2834fab241fa9). The strict UTF-8 test corrupts a text field's encoding, recomputes the frame checksum, and verifies recovery still rejects the field: [push CI](https://github.com/TrentBest/raWWar/actions/runs/38028124171), [PR CI](https://github.com/TrentBest/raWWar/actions/runs/38028127529), on test head [be29a137](https://github.com/TrentBest/raWWar/commit/be29a13778be8c98fcdc6593aa18d964cf06593f). These tests strengthen bounded parsing and encoding validation; they do not change the prototype's durability failure model or make the candidate format canon.
+
 ## 7. Open decisions before implementation
 
 1. Confirm that a single-process local reference store is the right first deployment target.
