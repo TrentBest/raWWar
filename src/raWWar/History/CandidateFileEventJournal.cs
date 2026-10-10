@@ -73,7 +73,7 @@ internal sealed class CandidateFileEventJournal : IDisposable
         }
     }
 
-    internal IReadOnlyList<SimulationEvent> ReadOrdered(string eventDomain, ReadOnlySpan<byte> canonicalAddress)
+    internal IReadOnlyList<SimulationEvent> ReadOrdered(ulong worldSeed, string simulationModelVersion, string eventDomain, ReadOnlySpan<byte> canonicalAddress)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(eventDomain);
         if (canonicalAddress.IsEmpty)
@@ -83,8 +83,11 @@ internal sealed class CandidateFileEventJournal : IDisposable
         lock (_gate)
         {
             EnsureUsable();
+            ArgumentException.ThrowIfNullOrWhiteSpace(simulationModelVersion);
             return _events.Values
-                .Where(e => StringComparer.Ordinal.Equals(e.EventDomain, eventDomain)
+                .Where(e => e.WorldSeed == worldSeed
+                    && StringComparer.Ordinal.Equals(e.SimulationModelVersion, simulationModelVersion)
+                    && StringComparer.Ordinal.Equals(e.EventDomain, eventDomain)
                     && StringComparer.Ordinal.Equals(e.StreamKey, streamKey))
                 .OrderBy(e => e.LogicalTimeKey, StringComparer.Ordinal)
                 .ThenBy(e => e.EventOrdinal)
