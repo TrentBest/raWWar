@@ -96,6 +96,56 @@ var resourceEventId = SimulationEventId.Create(
     123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042");
 Check(resourceEventId.Value == "F223794D5176C58304EF88BF2E2C0721B4BFFC5F9C4CC1433C80D701D244A1D1",
     "Event identity V1 matches a fixed SHA-256 reference vector");
+
+static bool CandidateFrameRejected(byte[] candidate)
+{
+    try { _ = CandidateEventFrameCodec.Decode(candidate); return false; }
+    catch (FormatException) { return true; }
+}
+
+var frameVectorEvent = SimulationEvent.Create(
+    123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042",
+    new byte[] { 0x10, 0x20, 0x30 });
+var candidateFrame = CandidateEventFrameCodec.Encode(frameVectorEvent);
+const string expectedCandidateFrame =
+    "5257454A0100000000A0000000000000007B000000027631000000115257534101002A00000002030405090001000000117265736F757263652E6465706C6574656400000000000000070000000B7469636B3A30303030343200000003102030F223794D5176C58304EF88BF2E2C0721B4BFFC5F9C4CC1433C80D701D244A1D1BCE9CCE3807A763076F756157C1D83F117AFFBFBC6831B3427F876FC901D6567";
+Check(candidateFrame.Length == 160, "Candidate event frame V1 fixed vector is exactly 160 bytes");
+Check(Convert.ToHexString(candidateFrame) == expectedCandidateFrame,
+    "Candidate event frame V1 matches the documented complete byte vector");
+var decodedCandidateFrame = CandidateEventFrameCodec.Decode(candidateFrame);
+Check(decodedCandidateFrame.Id == frameVectorEvent.Id
+    && decodedCandidateFrame.WorldSeed == frameVectorEvent.WorldSeed
+    && decodedCandidateFrame.SimulationModelVersion == frameVectorEvent.SimulationModelVersion
+    && decodedCandidateFrame.StreamKey == frameVectorEvent.StreamKey
+    && decodedCandidateFrame.EventDomain == frameVectorEvent.EventDomain
+    && decodedCandidateFrame.EventOrdinal == frameVectorEvent.EventOrdinal
+    && decodedCandidateFrame.LogicalTimeKey == frameVectorEvent.LogicalTimeKey
+    && decodedCandidateFrame.Payload.Span.SequenceEqual(frameVectorEvent.Payload.Span),
+    "Candidate event frame V1 round-trips all semantic fields and payload bytes");
+Check(CandidateFrameRejected(candidateFrame[..9]),
+    "Candidate event frame rejects a truncated fixed header");
+Check(CandidateFrameRejected(candidateFrame[..^1]),
+    "Candidate event frame rejects a truncated frame");
+var badChecksumFrame = candidateFrame.ToArray();
+badChecksumFrame[^1] ^= 0x01;
+Check(CandidateFrameRejected(badChecksumFrame),
+    "Candidate event frame rejects a checksum mismatch");
+var unsupportedVersionFrame = candidateFrame.ToArray();
+unsupportedVersionFrame[4] = 2;
+Check(CandidateFrameRejected(unsupportedVersionFrame),
+    "Candidate event frame rejects an unsupported format version");
+var nonzeroFlagsFrame = candidateFrame.ToArray();
+nonzeroFlagsFrame[5] = 1;
+Check(CandidateFrameRejected(nonzeroFlagsFrame),
+    "Candidate event frame rejects nonzero reserved flags");
+var wrongLengthFrame = candidateFrame.ToArray();
+wrongLengthFrame[9] ^= 0x01;
+Check(CandidateFrameRejected(wrongLengthFrame),
+    "Candidate event frame rejects a declared length that differs from input length");
+var oversizeLengthFrame = candidateFrame.ToArray();
+Array.Fill(oversizeLengthFrame, (byte)0xFF, 6, 4);
+Check(CandidateFrameRejected(oversizeLengthFrame),
+    "Candidate event frame rejects an unbounded declared length before parsing fields");
 Check(SimulationEventId.Create(123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042")
         == resourceEventId,
     "Equivalent event identity inputs produce the same identifier");
