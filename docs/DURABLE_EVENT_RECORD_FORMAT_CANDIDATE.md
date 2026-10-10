@@ -114,6 +114,33 @@ Expected complete frame, hexadecimal (line wrapping is presentation only):
 5257454A0100000000A0000000000000007B000000027631000000115257534101002A00000002030405090001000000117265736F757263652E6465706C6574656400000000000000070000000B7469636B3A30303030343200000003102030F223794D5176C58304EF88BF2E2C0721B4BFFC5F9C4CC1433C80D701D244A1D1BCE9CCE3807A763076F756157C1D83F117AFFBFBC6831B3427F876FC901D6567
 ```
 
+### Fixed-vector byte offsets
+
+The following offsets are zero-based and apply to this 160-byte example only. Ranges are half-open, so `[22, 24)` contains two bytes.
+
+| Byte range | Length | Field / sample |
+|---|---:|---|
+| `[0, 4)` | 4 | Magic: `RWEJ` |
+| `[4, 5)` | 1 | Format version: `01` |
+| `[5, 6)` | 1 | Flags: `00` |
+| `[6, 10)` | 4 | Total length: `000000A0` |
+| `[10, 18)` | 8 | World seed: `000000000000007B` |
+| `[18, 22)` | 4 | Model byte length: `00000002` |
+| `[22, 24)` | 2 | Model: `v1` |
+| `[24, 28)` | 4 | Address byte length: `00000011` |
+| `[28, 45)` | 17 | Canonical address bytes |
+| `[45, 49)` | 4 | Event-domain byte length: `00000011` |
+| `[49, 66)` | 17 | Event domain: `resource.depleted` |
+| `[66, 74)` | 8 | Event ordinal: `0000000000000007` |
+| `[74, 78)` | 4 | Logical-time byte length: `0000000B` |
+| `[78, 89)` | 11 | Logical time: `tick:000042` |
+| `[89, 93)` | 4 | Payload byte length: `00000003` |
+| `[93, 96)` | 3 | Payload: `102030` |
+| `[96, 128)` | 32 | Stored event ID |
+| `[128, 160)` | 32 | SHA-256 checksum over `[0, 128)` |
+
+A second, language-independent reference assembly is checked in at [`tools/verify_candidate_event_frame.py`](../tools/verify_candidate_event_frame.py). It uses only Python's standard library, independently assembles the frame from the documented fields, and asserts the complete vector, offsets, event-ID placement, and checksum. It treats the event-ID bytes as the already-established SimulationEventId V1 reference vector; it does **not** independently reimplement the event-ID algorithm. CI runs it alongside the C# contract suite. This is a reproducible cross-language layout check, not external review or format approval.
+
 Expected final checksum (the final 32 bytes, SHA-256 over the preceding 128 bytes):
 `BCE9CCE3807A763076F756157C1D83F117AFFBFBC6831B3427F876FC901D6567`
 
