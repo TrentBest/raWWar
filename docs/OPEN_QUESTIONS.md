@@ -229,5 +229,6 @@ Qualification and experience are separate. A ghost can demonstrate a field-repai
 - How does prior personal experience and nearby expertise affect the ghost's repair guidance? What is shown when guidance is uncertain or unavailable?
 - How are simulator performance, qualification status, field experience, and actual task outcome represented separately?
 - What are the exact insignia and rating-badge designs, placement rules, and visual conventions for each role and qualification level?
+- What service medals can soldiers earn, what deeds or service qualify for each award, and how do medal designs and chest-wearing conventions differ by faction?
 - Which training procedures are shared across factions, and which are faction-specific?
 
