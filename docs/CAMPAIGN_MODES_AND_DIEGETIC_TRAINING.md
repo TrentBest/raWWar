@@ -95,6 +95,8 @@ A qualification is a prescribed sequence of sessions with explicit cumulative pr
 
 The soldier's current role determines which role-specific insignia and rating badge they display. The qualification level reached must be reflected in the appropriate visible markings. These insignia communicate the soldier's current role and qualification status as part of the world; they are not merely decorative unlocks. The exact badge designs, placement, and conventions remain to be designed.
 
+Service medals are a separate part of the soldier's visible military identity. Soldiers wear awarded service medals on their chest. Medals recognize service, achievements, or notable actions in the living war; they are tied to the soldier's record and award criteria, not merely cosmetic unlocks. Role insignia and rating badges communicate the soldier's current role and qualification level, while service medals recognize service and deeds. Exact medal categories, award criteria, designs, placement conventions, and faction-specific practices remain to be designed.
+
 ## 7. The jobs board: diegetic career choice and interruptible training
 
 After advanced combat, the player can inspect a physical jobs board and choose what work to pursue. Unlike a rigid modern military career path, the player may apply to another job **at any moment**. If the player is in the middle of a qualification, that training is paused at its current point rather than erased. If a job is listed and the player meets its prerequisites, they can apply; applications are typically accepted, but acceptance is not an unconditional guarantee.
