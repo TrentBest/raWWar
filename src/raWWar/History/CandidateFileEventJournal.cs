@@ -10,13 +10,15 @@ internal sealed class CandidateFileEventJournal : IDisposable
 {
     private readonly object _gate = new();
     private readonly FileStream _stream;
+    private readonly Action? _beforeDurableFlush;
     private readonly Dictionary<SimulationEventId, SimulationEvent> _events = new();
     private bool _requiresReopen;
     private bool _disposed;
 
-    internal CandidateFileEventJournal(string path)
+    internal CandidateFileEventJournal(string path, Action? beforeDurableFlush = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(path);
+        _beforeDurableFlush = beforeDurableFlush;
         var fullPath = Path.GetFullPath(path);
         Directory.CreateDirectory(Path.GetDirectoryName(fullPath)!);
         _stream = new FileStream(fullPath, FileMode.OpenOrCreate, FileAccess.ReadWrite,
@@ -54,6 +56,8 @@ internal sealed class CandidateFileEventJournal : IDisposable
             {
                 _stream.Position = _stream.Length;
                 _stream.Write(frame);
+                // Internal fault seam for testing the uncertain outcome between append and flush.
+                _beforeDurableFlush?.Invoke();
                 _stream.Flush(flushToDisk: true);
                 _events.Add(candidate.Id, candidate);
                 return EventCommitResult.Committed;
