@@ -74,6 +74,20 @@ internal static class CandidateFileEventJournalChecks
                     "Retry after uncertain outcome does not append a duplicate event");
             }
 
+            var concurrentPath = Path.Combine(directory, "concurrent-retries.rwej");
+            var concurrentEvent = SimulationEvent.Create(123, "v1", address, "resource.depleted",
+                77, "tick:000077", new byte[] { 0x77 });
+            using (var concurrentJournal = new CandidateFileEventJournal(concurrentPath))
+            {
+                var outcomes = new System.Collections.Concurrent.ConcurrentBag<EventCommitResult>();
+                Parallel.For(0, 32, _ => outcomes.Add(concurrentJournal.Commit(concurrentEvent)));
+                check(outcomes.Count(result => result == EventCommitResult.Committed) == 1
+                    && outcomes.Count(result => result == EventCommitResult.AlreadyCommitted) == 31,
+                    "Concurrent identical journal commits produce one append and 31 idempotent retries");
+                check(concurrentJournal.Count == 1,
+                    "Concurrent identical journal commits leave exactly one recovered identity in the live index");
+            }
+
             // A clean child-process exit followed by a fresh process opening the journal checks
             // process-restart reconstruction, but does not simulate a crash or power loss.
             var processRestartPath = Path.Combine(directory, "process-restart.rwej");
