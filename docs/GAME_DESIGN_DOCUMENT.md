@@ -719,6 +719,25 @@ Advanced facilities and vehicles can require multiple specialized squads.
 
 Each squad role therefore creates training, staffing, housing, qualification, and readiness requirements.
 
+## 8.4 Training, qualification, experience, and careers
+
+Training is performed through actual simulators for the recruit's intended duties. A training day rotates between trainers: the recruit studies part of one subject, moves to another, and later returns to continue. Long qualifications such as piloting take realistic in-world time, but the player does not remain inside a simulator for that entire duration; the experience can move between sessions while preserving progress.
+
+Each training barracks services one squad at a time. Vehicle qualification is position-specific: a squad qualifying to operate a tank trains for the tank's distinct crew positions rather than receiving one undifferentiated tank credential. After boot camp, the squad proceeds to its assigned training barracks for advanced combat, including weapons beyond the pistol and squad-versus-squad exercises such as capture-the-flag-style training. Passing advanced combat unlocks access to the jobs board.
+
+The jobs board is an in-world career interface. The player may apply for another listed job at any time. If the player changes direction during a qualification, the current training pauses and its progress is preserved. Applications are typically accepted but are not guaranteed. Jobs whose prerequisites are unmet remain inspectable but are visually distinguished from currently eligible jobs; inspecting one reveals the ordered qualification path required to reach it. A green rotating reticle marks the selected job, distinct from the prerequisite path.
+
+Qualification, experience, and performance are separate:
+
+- **Qualification** records that the soldier has completed and passed required instruction. It can establish eligibility or permission, but does not imply extensive field experience.
+- **Experience** accumulates through relevant activity and repetitions. It can affect what a soldier can reliably do and what guidance is available during an unfamiliar procedure.
+- **Performance** is the outcome of the current attempt. Qualification and experience influence the attempt but do not guarantee success.
+
+The ghost avatar demonstrates the intended procedure; it does not perform the action for the player or guarantee competence. For example, an inexperienced soldier attempting an emergency plasma-torch repair may follow the displayed motions yet cut unintended holes through a hull. Relevant prior repetitions and nearby expertise may affect the availability or correctness of the ghost's repair guidance. Routine soldiers do not normally perform their own maintenance, but field emergencies can force them to attempt it.
+
+The same diegetic, ghost-guided teaching model applies to occupations beyond combat, including research. A qualified researcher learns the procedures relevant to their own work rather than needing to master every other occupation.
+
+See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md) for the expanded campaign and training design, and [Open Question 24](OPEN_QUESTIONS.md#24-how-do-interleaved-training-qualifications-experience-and-career-changes-work) for details that still require creator decisions.
 ## 8.4 Military precision
 
 Soldiers should behave according to actual organizational rules.
