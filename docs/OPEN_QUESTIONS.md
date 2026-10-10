@@ -156,26 +156,38 @@ How are original soldiers, vehicles, environments, animation, audio, and effects
 
 How is Gesture authored, represented, evaluated, and individualized? How is it integrated with the Renderer and MicroBundle Gesture Providers?
 
-### 22. When does faction selection occur relative to the campaign opening?
+### 22. How do the two campaigns enact House choice and authority?
 
-The current documents describe two sequences that may conflict:
+The creator has established two distinct single-player campaigns:
 
-- The [Game Design Bible](GAME_DESIGN_BIBLE.md) opens with the player already serving as a Commander inside a faction headquarters. Imperial soldiers demand that the Commander report to the Empress immediately; the player has only a short window to comply, while faction offices can be explored.
-- [Faction Design](FACTIONS.md) describes the player entering the headquarters, seeing thirteen physical doors, exploring faction offices, and choosing a faction before the choice resolves into starting relationships, territory, doctrine, personnel, and opening conditions.
+- **Commander campaign:** The player starts as faction leader. The opening is a rainy lightning storm, with the player looking across a massive square toward the Imperial Palace. Imperial soldiers demand an immediate audience with the Empress. The player then discovers that the monumental, three-story lobby contains faction offices.
+- **Enlisted campaign:** The player starts as an unarmored citizen at a fair, has time to learn about the Houses, chooses a faction by crossing the threshold of that House's recruiting door, enters its boot-camp barracks, and appears at the faction leader's primary base after completing boot camp. The player rises from the lowest enlisted rank toward faction leadership while the wider war continues.
 
-These could be reconciled if the opening headquarters is a pre-choice selection space, if faction selection happens before the campaign opening, or if the doors serve another purpose. The current documents do not establish which interpretation is intended. Do not choose one silently.
+Crossing a House door's threshold is the faction-selection interaction itself—the diegetic equivalent of clicking a faction button. In the Commander opening, the choice is under immediate pressure: Imperial soldiers regard entering a faction office instead of obeying the Empress's summons as disobedience and would rather execute the Commander than wait.
 
-**Creator decision needed:** Is the thirteen-door choice made before the moniker/lightning opening, during the headquarters scene before the Empress's order, after the opening order, or in another sequence? How can that choice coexist with the established Commander identity and the short compliance deadline?
+The lobby and palace deliberately contrast their scale and emotional effect: the vast lobby should make the player feel important; the Imperial Palace should make a person feel insignificant.
 
-### 23. What exactly does the pilot control rig measure and command?
+See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md).
 
-The first executable station contract requires the occupant to raise a physical control rig before pilot input is accepted. The creator-established experience is that the station secures the pilot, connects them to the system, and presents their hands on the station-appropriate grips.
+**Remaining design questions:**
+- How exactly is the threshold event, House selection, and the Empress's summons resolved in the Commander campaign, including the order of events and any resulting fail state?
+- How are campaign selection, replay, and return-to-campaign handled without weakening the physical meaning of the threshold?
+- What happens immediately after the Commander obeys the summons? What is the first actual mission?
+- What does the player know about the factions and the war at the start of each campaign?
 
-A historical prototype used a bounded candidate control-intent payload to test the readiness gate; that prototype and its tests were subsequently reverted and are not present on the current branch. The experiment did **not** establish the final physical device, pose/force measurements, axis mapping, control-law design, or how aircraft response feeds back into the pilot's rig.
+### 23. How does embodied station control work across vehicles and procedures?
 
-- Is the rig primarily hand/grip motion, a full-body motion harness, or a combination that varies by station?
-- Which pilot movements represent desired aircraft behavior, and which are limited by the aircraft's actual control surfaces, actuators, power, damage, and flight state?
-- What physical feedback does the rig return when the aircraft cannot follow the pilot's intent?
-- How do manual backup controls and emergency release behave if tracking, power, or the pilot interface fails?
+The player is always operating through a soldier's exoskeleton and its HUD. Vehicles have physical actuators and control panels, and stations have task-appropriate controls. The player's view should not collapse into a generic vehicle camera; the player sees and operates the station through the soldier's embodied interface.
 
-Keep the station readiness contract separate from this unresolved hardware/control-law design. Do not treat the prototype's candidate axes as canon.
+A ghost avatar demonstrates intended actions. During boot camp, for example, it shows the recruit where to stand, how to handle and disassemble a weapon, and the required positioning, timing, and rotation. The player attempts to follow the demonstration; closer performance earns a better action score. The guidance can react to confusion: an instructor may call out a lost recruit, after which the ghost updates to show the correct target.
+
+This establishes the teaching and interaction model, but not every low-level station contract.
+
+- Which movement, pose, timing, rotation, contact, and sequence dimensions matter for each procedure?
+- How are scoring tolerances and performance curves chosen per task?
+- How does the system infer that the player is lost, and when should an instructor or ghost update the instruction?
+- What are the exact actuator/control mappings, constraints, and feedback mechanisms for each vehicle station?
+- How do accessibility and alternate input devices preserve the intended embodied procedure?
+
+Do not generalize one station's control scheme to every vehicle, and do not treat a ghost demonstration as the player's completed action. The ghost shows the target; the player must perform the procedure.
+
