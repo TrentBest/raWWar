@@ -1172,7 +1172,7 @@ Desktop, controller, VR, accessibility, and NPC inputs may express the same pilo
 
 The raWWar-side `FighterPilotStation` domain prototype was a historical implementation, not current branch code. At code/test head `7ec40343f15a15639951a096165169cf991d7920`, its executable checks passed 195/195 in [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718); the prototype and tests were subsequently reverted. This paragraph records prior evidence only and must not be read as a claim that the active branch currently contains the model. Even in that historical revision, the checks did **not** prove visible hands/grips, restraint animation, physical force, a functioning flight-control law, aircraft movement, durable event storage, or AnyApp manifestation. The proposed next step remains gated on [Open Question 23](OPEN_QUESTIONS.md#23-what-exactly-does-the-pilot-control-rig-measure-and-command) and the candidate [Fighter Pilot Action Slice](FIGHTER_PILOT_ACTION_SLICE.md).
 
-Generic physical-interaction resolution and actor-performance machinery remain Workshop capability responsibilities. The raWWar prototype is a temporary Experience-side proof of the required domain contract, not a new generic interaction framework.
+Generic physical-interaction resolution and actor-performance machinery remain Workshop capability responsibilities. That historical prototype was an Experience-side experiment in the required domain contract, not a new generic interaction framework.
 
 The exact look, timing, and animation of the securing/connection sequence remain a presentation design task. The station's authoritative preconditions and outcomes must not depend on those animations.
 
