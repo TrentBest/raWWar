@@ -232,8 +232,9 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 
 - [x] Added an internal-only `CandidateEventFrameCodec` experiment for the proposed RWEJ V1 frame. It bounds the input before parsing, checks magic/version/flags/declared length, validates the frame checksum, uses strict UTF-8 on decode, recreates the event through the existing identity API, and compares the stored event ID.
 - [x] Added executable checks for the 160-byte documented frame vector, complete semantic round-trip, truncated header/frame, checksum corruption, unsupported version, nonzero flags, mismatched length, and an oversized declared length.
+- [x] Added checks for malformed UTF-8 with a recomputed checksum, an over-limit model field with a recomputed checksum, and stored-ID tampering with a recomputed checksum.
 - [x] Kept the codec internal and granted visibility only to the contract-test assembly. This is not a public serialization API and does not implement file I/O, durable commits, recovery across records, deduplication, or crash guarantees.
-- [ ] Verify the new code and executable checks on the current `development` head; expand negative tests (including malformed UTF-8 with a recomputed checksum, field bounds, and stored-ID tampering) before treating the candidate codec as review-ready.
+- [ ] Verify build, package-content assertions, executable contracts, and examples on the current `development` head; the latest run is in progress.
 - [ ] Have an independent implementation/reviewer validate the fixed vector and field offsets before freezing the format.
 
 ## Durable event format reference vector — 2026-10-10
@@ -241,5 +242,6 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added a reproducible 160-byte candidate journal-frame vector to [Durable Event Record Format — Candidate V1](docs/DURABLE_EVENT_RECORD_FORMAT_CANDIDATE.md), using the existing event-identity fixed vector and a small opaque payload. The document records the expected raw event ID, complete frame bytes, and final SHA-256 checksum.
 - [x] Independently calculated the vector with a separate script against the documented field order. This is useful design cross-checking, **not** yet a checked-in executable test or independent code review.
 - [ ] Have a second reviewer independently verify offsets, full frame bytes, and checksum before adopting the layout.
-- [ ] Pin the vector in executable contract tests when the codec implementation is started; add per-field mutation, malformed-frame, strict UTF-8, and bound tests before relying on durable storage.
-- [ ] Check CI for the latest candidate-document commit; a green documentation workflow does not prove any durable journal implementation because no codec/store is implemented yet.
+- [x] Pinned the vector in executable contract tests and implemented an internal candidate codec experiment.
+- [x] Added executable malformed-frame, strict UTF-8, field-bound, and stored-ID validation checks; CI verification is tracked in the codec experiment section above.
+- [ ] Have a second reviewer independently verify offsets, full frame bytes, and checksum before adopting the layout; no durable journal store exists yet.
