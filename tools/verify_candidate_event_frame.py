@@ -32,6 +32,20 @@ def field(value: bytes) -> bytes:
     return pack(">I", len(value)) + value
 
 
+def build_event_id() -> bytes:
+    identity = (
+        b"RWEI"
+        + bytes((1,))
+        + pack(">Q", WORLD_SEED)
+        + field(MODEL)
+        + field(ADDRESS)
+        + field(DOMAIN)
+        + pack(">Q", ORDINAL)
+        + field(LOGICAL_TIME)
+    )
+    return sha256(identity).digest()
+
+
 def build_frame() -> bytes:
     body = (
         b"RWEJ"
@@ -50,6 +64,9 @@ def build_frame() -> bytes:
 
 
 class CandidateFrameReferenceTests(unittest.TestCase):
+    def test_event_identity_is_independently_recomputed(self):
+        self.assertEqual(EVENT_ID, build_event_id())
+
     def test_independent_assembly_matches_documented_full_vector(self):
         frame = build_frame()
         self.assertEqual(160, len(frame))
