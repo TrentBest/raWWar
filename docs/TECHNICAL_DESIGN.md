@@ -62,11 +62,11 @@ The goal is to express behavior through data, relationships, requirements, provi
 
 Gestures extend this model into physical motion. A Gesture is a sequence of poses plus a mathematical transition rule. Gesture FSMs can be supplied by the capability that owns a physical interaction, such as a vehicle or building MicroBundle. The general Gesture pipeline remains an architectural direction; do not infer that a complete runtime pipeline exists from this description.
 
-### Current physical-interaction prototype
+### Fighter-pilot station contract — historical prototype, not current code
 
-The narrow `FighterPilotStation` model in `src/raWWar/Interaction/FighterPilotStation.cs` is the first executable raWWar-side station contract. It models immutable state transitions for occupant identity, fighter-pilot qualification, restraint engagement, interface connection, rig raise, control readiness, bounded pilot-control intent, and emergency release. The executable contract suite checks the ordered gates and verifies that desktop and VR input produce the same intent from the same initial state.
+A narrow `FighterPilotStation` domain prototype was previously implemented at code/test head `7ec40343f15a15639951a096165169cf991d7920`. Its executable contract suite passed 195/195 checks in [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718), covering occupancy, qualification, restraint/connect/raise ordering, bounded pilot intent, desktop/VR intent parity, failure gates, and emergency release. That prototype was subsequently reverted; the current branch must not be described as containing it or its tests until they are reintroduced and verified.
 
-This is a **domain-contract prototype**, not the reusable Workshop physical-interaction capability. It does not animate the restraints or hands, model actual forces, persist an event stream, run aircraft control laws, move a vehicle, or prove AnyApp execution. The structured result is available for a future event-history adapter; durable recording is not implemented.
+The historical prototype was a **domain-contract experiment**, not the reusable Workshop physical-interaction capability. Even at that revision, it did not animate restraints or hands, model actual forces, persist an event stream, run aircraft control laws, move a vehicle, or prove AnyApp execution. The candidate [Fighter Pilot Action Slice](FIGHTER_PILOT_ACTION_SLICE.md) records a possible future causal chain; it is not implementation evidence.
 
 ### Current spatiotemporal implementation slice
 
