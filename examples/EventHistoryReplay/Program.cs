@@ -62,6 +62,14 @@ if (history.Commit(conflictingRetry) != EventCommitResult.IdentityConflict)
 var orderedEvents = history.ReadOrdered(ResourceBalanceReplay.EventDomain, canonicalAddress);
 var reconstructedBalance = ResourceBalanceReplay.Replay(initialBalance: 5, orderedEvents: orderedEvents);
 
+var checkpoint = ResourceBalanceCheckpoint.Capture(initialBalance: 5, orderedPrefix: orderedEvents.Take(1));
+var checkpointBalance = checkpoint.ReplayTail(orderedEvents.Skip(1));
+if (checkpointBalance != reconstructedBalance)
+{
+    Console.Error.WriteLine("Checkpoint-plus-tail replay did not match full replay.");
+    return 1;
+}
+
 Console.WriteLine($"Committed events in this stream: {orderedEvents.Count}");
 Console.WriteLine($"Initial balance: 5");
 Console.WriteLine($"Reconstructed balance: {reconstructedBalance} (5 + 10 - 3)");
