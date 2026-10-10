@@ -3029,6 +3029,7 @@ Deep systems should therefore have their own working documents.
 
 Current companion documents include:
 
+- Campaign Modes and Diegetic Training;
 - Game Design Bible;
 - Vision and Pillars;
 - Player Roles;
