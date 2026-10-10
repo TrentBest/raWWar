@@ -83,15 +83,22 @@ A world attacked by the player is a location in the continuing galactic war. Own
 
 ## 3. Modes of participation
 
-The current intended modes are:
+The two single-player campaigns are distinct paths through the same living war:
 
-1. Campaign — Soldier
-2. Campaign — Officer
+1. **Campaign — Commander:** begin as a faction leader and experience the RTS inside the FPS.
+2. **Campaign — Enlisted:** begin as the lowest enlisted grunt and rise through the chain of command until eventually becoming faction leader—the FPS inside the RTS.
+
+These are different positions of authority and different experiences, not merely different camera angles. The enlisted player initially goes where they are sent while the war continues around them. Both campaigns are first-person and share the underlying world.
+
+Other intended modes are:
+
 3. Campaign — Cooperative
 4. Multiplayer — Free For All
 5. Multiplayer — Team vs Team
 6. Multiplayer — Persistent
 7. Massively Online — Fully Persistent Universes
+
+See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md) for the campaign openings, physical House selection, embodied vehicle interaction, and ghost-avatar training.
 
 These should eventually share the same underlying world model rather than becoming unrelated implementations.
 
