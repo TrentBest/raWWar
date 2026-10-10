@@ -6,6 +6,7 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 
 | Example | What it demonstrates | Verification boundary |
 |---|---|---|
+| [Event history and resource replay](EventHistoryReplay/Program.cs) | Explicit event construction and commit, idempotent retry versus identity conflict, address/domain-scoped ordered reads, and narrow resource-balance reconstruction. | Standalone .NET 8 example referencing the actual raWWar project. The ledger is volatile and process-local; this is not durable persistence or general world-state replay. |
 | [HierarchicalSpatialAddress](HierarchicalSpatialAddress/Program.cs) | Building a multi-level address, canonical V1 encoding/decoding, stable SHA-256 identity, and invalid-coordinate/trailing-byte boundaries. | Standalone .NET 8 example referencing the actual raWWar project; contract-test vectors live in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). |
 | [CartesianTransform](CartesianTransform/Program.cs) | Transforming points versus directions, applying an orthonormal inverse, and rejecting unsupported scaled inverses. | Standalone .NET 8 example referencing the actual raWWar project; contract-test coverage is in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). |
 | [KeplerOrbit](KeplerOrbit/Program.cs) | Constructing an immutable elliptic orbit, querying explicit logical times, checking repeatability, and rejecting non-finite logical time and eccentricity outside the supported elliptic domain. | The project is in the solution and references the real raWWar project. Matching numerical contract checks live in [the contract-test program](../tests/raWWar.ContractTests/Program.cs). Run the example with the command below. |
@@ -20,7 +21,7 @@ The following raWWar-owned contracts have executable checks in [the contract-tes
 |---|---|---|
 
 
-| [Event history and resource replay](../docs/EVENT_HISTORY_AND_REPLAY_CONTRACT.md) | The contract suite checks stable event identity, immutable payload handling, in-memory commit semantics, ordering, stream boundaries, malformed events, and checked resource arithmetic. | Add a focused example of event creation, commit, and replay; explicitly label the ledger as process-local and replay as a narrow resource-balance reducer. |
+
 
 These contracts are useful implemented slices, not evidence of a complete galaxy simulation, durable event store, distributed exactly-once processing, checkpoint migration, or host-level world advancement.
 
@@ -35,7 +36,7 @@ From the repository root:
 ```sh
 dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj
 dotnet run --project examples/CartesianTransform/raWWar.CartesianTransformExample.csproj
-dotnet run --project examples/HierarchicalSpatialAddress/raWWar.HierarchicalSpatialAddressExample.csproj
+dotnet run --project examples/HierarchicalSpatialAddress/raWWar.HierarchicalSpatialAddressExample.csproj\ndotnet run --project examples/EventHistoryReplay/raWWar.EventHistoryReplayExample.csproj
 ```
 
 ## Rules for future examples
