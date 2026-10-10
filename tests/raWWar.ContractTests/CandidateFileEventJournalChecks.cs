@@ -38,7 +38,7 @@ internal static class CandidateFileEventJournalChecks
             {
                 check(journal.Count == 2, "Closing and reopening reconstructs both committed events");
                 check(journal.Commit(first) == EventCommitResult.AlreadyCommitted, "Retry after reopen resolves to AlreadyCommitted");
-                var events = journal.ReadOrdered("resource.depleted", address);
+                var events = journal.ReadOrdered(123, "v1", "resource.depleted", address);
                 check(events.Count == 2 && events[0].Id == first.Id && events[1].Id == second.Id,
                     "Recovered address-scoped reads preserve deterministic logical order");
                 var conflict = SimulationEvent.Create(123, "v1", address, "resource.depleted", 7, "tick:000042", new byte[] { 0xAA });
@@ -63,7 +63,7 @@ internal static class CandidateFileEventJournalChecks
                 catch (InvalidOperationException) { furtherCommitBlocked = true; }
                 check(furtherCommitBlocked, "Uncertain write outcome blocks further commits until reopen");
                 var furtherReadBlocked = false;
-                try { _ = journal.ReadOrdered("resource.depleted", address); }
+                try { _ = journal.ReadOrdered(123, "v1", "resource.depleted", address); }
                 catch (InvalidOperationException) { furtherReadBlocked = true; }
                 check(furtherReadBlocked, "Uncertain write outcome blocks reads against a potentially stale index");
             }
@@ -102,8 +102,16 @@ internal static class CandidateFileEventJournalChecks
                     && distinctOutcomes.All(result => result == EventCommitResult.Committed),
                     "Concurrent distinct journal commits each report Committed");
                 check(distinctJournal.Count == 32
-                    && distinctJournal.ReadOrdered("resource.depleted", address).Count == 32,
+                    && distinctJournal.ReadOrdered(123, "v1", "resource.depleted", address).Count == 32,
                     "Concurrent distinct journal commits preserve all 32 events in the live index and ordered reads");
+                var foreignModelEvent = SimulationEvent.Create(456, "v2", address, "resource.depleted",
+                    200, "tick:000200", new byte[] { 0xFE });
+                check(distinctJournal.Commit(foreignModelEvent) == EventCommitResult.Committed,
+                    "Candidate journal can retain a distinct world-seed/model stream");
+                check(distinctJournal.Count == 33
+                    && distinctJournal.ReadOrdered(123, "v1", "resource.depleted", address).Count == 32
+                    && distinctJournal.ReadOrdered(456, "v2", "resource.depleted", address).Count == 1,
+                    "Ordered journal reads isolate world seed and simulation model as well as domain and address");
             }
 
             // A clean child-process exit followed by a fresh process opening the journal checks
@@ -134,7 +142,7 @@ internal static class CandidateFileEventJournalChecks
             }
             using (var restarted = new CandidateFileEventJournal(processRestartPath))
             {
-                var recovered = restarted.ReadOrdered("process.restart.probe", address);
+                var recovered = restarted.ReadOrdered(123, "v1", "process.restart.probe", address);
                 check(recovered.Count == 1 && recovered[0].Payload.Span.SequenceEqual(new byte[] { 0xC1, 0xC2 }),
                     "A new process can reopen and reconstruct an event committed by an exited process");
                 var restartEvent = SimulationEvent.Create(123, "v1", address, "process.restart.probe",
