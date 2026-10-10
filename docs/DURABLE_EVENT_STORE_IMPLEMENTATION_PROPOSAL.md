@@ -103,6 +103,14 @@ File flush semantics and storage hardware cannot make a universal promise agains
 
 Use real temporary files and close/reopen tests. Unit-level exception injection alone is not evidence of process-crash or power-loss safety. Add process-level fault tests where feasible, and label the remaining limits honestly.
 
+
+
+### Current prototype evidence: deterministic equal-time ordering
+
+The candidate journal contract checks now include two events with the same logical-time key, deliberately appended in reverse ordinal order. Ordered reads return the lower event ordinal first, both before close/reopen and after recovery. This establishes the prototype's deterministic tie-break behavior for this case; it does not establish broader distributed ordering or resolve the semantic choice of logical-time keys.
+
+Both workflows passed for test head [885ee823befd28d3593773915deb2f591a87626e](https://github.com/TrentBest/raWWar/commit/885ee823befd28d3593773915deb2f591a87626e): [push CI](https://github.com/TrentBest/raWWar/actions/runs/38027600622) and [PR CI](https://github.com/TrentBest/raWWar/actions/runs/38027603530).
+
 ## 7. Open decisions before implementation
 
 1. Confirm that a single-process local reference store is the right first deployment target.
