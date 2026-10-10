@@ -245,3 +245,11 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Pinned the vector in executable contract tests and implemented an internal candidate codec experiment.
 - [x] Added executable malformed-frame, strict UTF-8, field-bound, and stored-ID validation checks; CI verification is tracked in the codec experiment section above.
 - [ ] Have a second reviewer independently verify offsets, full frame bytes, and checksum before adopting the layout; no durable journal store exists yet.
+
+## Candidate event-frame independent layout check — 2026-10-10
+
+- [x] Re-checked both workflow runs for prior head `f5f190c176c889e9428786c980dcc023a644991b`: push run [38022121884](https://github.com/TrentBest/raWWar/actions/runs/38022121884) and PR run [38022124955](https://github.com/TrentBest/raWWar/actions/runs/38022124955) completed successfully. Both ran build, local package-content assertions, executable contract checks, and the checked-in KeplerOrbit example.
+- [x] Added [an independent Python reference verifier](tools/verify_candidate_event_frame.py) using only the standard library. It independently assembles the documented 160-byte frame and checks the complete vector, each fixed-vector field boundary, event-ID placement, and checksum; it deliberately does not duplicate the SimulationEventId hashing implementation.
+- [x] Added a zero-based offset table and documented the verifier's scope in [Candidate V1 frame format](docs/DURABLE_EVENT_RECORD_FORMAT_CANDIDATE.md).
+- [x] Added the reference verifier as a separate CI step. This remains a Candidate format and is not approval to freeze it or evidence of durable file-store behavior.
+- [ ] Verify the new head's push and PR CI runs, including the independent Python step, before treating this check as green. Continue to keep the format provisional until a separate human/independent reviewer validates the identity algorithm and format decisions.
