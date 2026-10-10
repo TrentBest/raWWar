@@ -206,7 +206,11 @@ The same underlying world and qualification system can support both modes withou
 
 ### 24. How do interleaved training, qualifications, experience, and career changes work?
 
-The recruit marches with their squad to the assigned training building, where the soldiers staffing the barracks help them choose the appropriate VR module. The player is outside the passage of world time while inside a module. Training is divided into discrete hands-on sessions: the player can pass a session, return to gameplay with the qualifications currently earned, and return to training whenever they choose. If the player bails out of an active module, the current session's training is scrapped; prior completed sessions and qualifications remain intact. Incomplete qualifications cannot be used. Long qualifications can therefore be completed across multiple visits without trapping the player in VR for the full in-world duration.
+The recruit marches with their squad to the assigned training building, where the soldiers staffing the barracks help them choose the appropriate VR module. The player is outside the passage of world time while inside a module. Training is divided into discrete, ordered hands-on sessions. Successfully completed sessions accumulate toward the unfinished qualification and remain recorded across gameplay breaks and job/class changes. If the player bails out of an active module, the current session's training is scrapped; prior completed sessions and qualifications remain intact. Incomplete qualifications cannot be used. Long qualifications can therefore be completed across multiple visits without trapping the player in VR for the full in-world duration.
+
+Qualification progress is explicit and sequential, not a binary flag or a pool of interchangeable lessons. If fighter-pilot qualification requires ten sessions, progress is tracked as 1/10 through 10/10; every soldier at 3/10 has completed the same first three prescribed sessions in the same order. Changing jobs or classes does not erase successfully completed sessions toward an unfinished qualification. Only abandoning the active module scraps that session's work.
+
+The soldier's current role determines which role-specific insignia and rating badge they display, and the qualification level reached is reflected in the appropriate markings. The exact visual designs and conventions remain to be specified.
 
 A training barracks serves one squad at a time. A squad qualifying to operate a tank must qualify for each crew position, not merely acquire a single generic tank qualification. After boot camp, the squad marches around its base, reports to its assigned training barracks, completes advanced combat training with a wider set of weapons and squad-on-squad exercises, and then gains access to the jobs board.
 
@@ -224,5 +228,6 @@ Qualification and experience are separate. A ghost can demonstrate a field-repai
 - How are squad members distributed across each vehicle's required crew positions, and how is qualification recorded for each position?
 - How does prior personal experience and nearby expertise affect the ghost's repair guidance? What is shown when guidance is uncertain or unavailable?
 - How are simulator performance, qualification status, field experience, and actual task outcome represented separately?
+- What are the exact insignia and rating-badge designs, placement rules, and visual conventions for each role and qualification level?
 - Which training procedures are shared across factions, and which are faction-specific?
 
