@@ -88,6 +88,24 @@ internal static class CandidateFileEventJournalChecks
                     "Concurrent identical journal commits leave exactly one recovered identity in the live index");
             }
 
+            var distinctConcurrentPath = Path.Combine(directory, "concurrent-distinct-events.rwej");
+            using (var distinctJournal = new CandidateFileEventJournal(distinctConcurrentPath))
+            {
+                var distinctOutcomes = new System.Collections.Concurrent.ConcurrentBag<EventCommitResult>();
+                Parallel.For(0, 32, i =>
+                {
+                    var distinctEvent = SimulationEvent.Create(123, "v1", address, "resource.depleted",
+                        checked((ulong)(100 + i)), $"tick:{100 + i:D6}", new byte[] { checked((byte)i) });
+                    distinctOutcomes.Add(distinctJournal.Commit(distinctEvent));
+                });
+                check(distinctOutcomes.Count == 32
+                    && distinctOutcomes.All(result => result == EventCommitResult.Committed),
+                    "Concurrent distinct journal commits each report Committed");
+                check(distinctJournal.Count == 32
+                    && distinctJournal.ReadOrdered("resource.depleted", address).Count == 32,
+                    "Concurrent distinct journal commits preserve all 32 events in the live index and ordered reads");
+            }
+
             // A clean child-process exit followed by a fresh process opening the journal checks
             // process-restart reconstruction, but does not simulate a crash or power loss.
             var processRestartPath = Path.Combine(directory, "process-restart.rwej");
