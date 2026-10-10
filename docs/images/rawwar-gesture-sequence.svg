@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#1c2932"/></linearGradient></defs>
+<rect width="1400" height="700" fill="url(#bg)"/>
+<text x="60" y="60" fill="#e3eef2" font-family="Arial" font-size="34" font-weight="700">GESTURES: THE SOLDIER DOESN'T TELEPORT INTO THE ACTION</text>
+<text x="60" y="96" fill="#9bb0ba" font-family="Arial" font-size="18">Movement gets the soldier to the interaction. The capability supplies the physical procedure.</text>
+<g transform="translate(70 145)">
+<rect width="1260" height="400" rx="20" fill="#09141b" stroke="#526a74" stroke-width="2"/>
+<g font-family="Arial">
+<g transform="translate(40 55)"><rect width="250" height="270" rx="14" fill="#14242d" stroke="#637f8a"/><text x="25" y="45" fill="#dce9ef" font-size="22" font-weight="700">1 · REQUEST</text><text x="25" y="85" fill="#9bb0ba" font-size="16">“enter cockpit”</text><text x="25" y="125" fill="#7f99a4" font-size="14">semantic intent</text><text x="25" y="165" fill="#7f99a4" font-size="14">vehicle capability</text><text x="25" y="205" fill="#7f99a4" font-size="14">available?</text></g>
+<g transform="translate(345 55)"><rect width="250" height="270" rx="14" fill="#13232c" stroke="#5e7a85"/><text x="25" y="45" fill="#dce9ef" font-size="22" font-weight="700">2 · APPROACH</text><text x="25" y="85" fill="#9bb0ba" font-size="16">move to interaction point</text><text x="25" y="125" fill="#7f99a4" font-size="14">generic movement</text><text x="25" y="165" fill="#7f99a4" font-size="14">provider says where</text><text x="25" y="205" fill="#7f99a4" font-size="14">FSM drives procedure</text></g>
+<g transform="translate(650 55)"><rect width="250" height="270" rx="14" fill="#12212a" stroke="#597580"/><text x="25" y="45" fill="#dce9ef" font-size="22" font-weight="700">3 · GESTURE</text><text x="25" y="85" fill="#9bb0ba" font-size="16">pose → transition → pose</text><text x="25" y="125" fill="#7f99a4" font-size="14">vehicle Gesture Provider</text><text x="25" y="165" fill="#7f99a4" font-size="14">identity-seeded variation</text><text x="25" y="205" fill="#7f99a4" font-size="14">equipment constraints</text></g>
+<g transform="translate(955 55)"><rect width="250" height="270" rx="14" fill="#101f27" stroke="#526e79"/><text x="25" y="45" fill="#dce9ef" font-size="22" font-weight="700">4 · RESULT</text><text x="25" y="85" fill="#9bb0ba" font-size="16">same job, different person</text><text x="25" y="125" fill="#7f99a4" font-size="14">speed / timing / posture</text><text x="25" y="165" fill="#7f99a4" font-size="14">attention / imperfection</text><text x="25" y="205" fill="#7f99a4" font-size="14">still deterministic</text></g>
+</g>
+<g stroke="#8caab5" stroke-width="4"><path d="M290 190 H345 M595 190 H650 M900 190 H955"/></g>
+</g>
+<text x="70" y="605" fill="#b8cbd2" font-family="Arial" font-size="18">IDEAL GESTURE = WHAT THE SOLDIER IS TRYING TO DO. IDENTITY + STATE = HOW THAT SOLDIER DOES IT.</text>
+<text x="70" y="638" fill="#8fa8b5" font-family="Arial" font-size="16">FSM_API governs behavior · MicroBundles provide capability knowledge · Renderer realizes observation</text>
+</svg>

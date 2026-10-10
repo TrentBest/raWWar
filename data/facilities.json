@@ -1,0 +1,669 @@
+{
+  "schema": "raWWar.facility.v1",
+  "facilities": [
+    {
+      "id": "facility.power_reactor_block",
+      "name": "Reactor Block",
+      "category": "power",
+      "inputs": [
+        "resource.refined_reactor_fuel",
+        "qualified_reactor_crew",
+        "maintenance"
+      ],
+      "outputs": [
+        "electric_power",
+        "waste_heat"
+      ],
+      "procedures": [
+        "startup",
+        "watch",
+        "load_following",
+        "shutdown",
+        "emergency_scram"
+      ],
+      "capacity": "450 MW",
+      "assemblyDefinition": "assembly.reactor_block_450mw"
+    },
+    {
+      "id": "facility.barracks_standard",
+      "name": "Standard Barracks",
+      "category": "personnel",
+      "inputs": [
+        "power",
+        "food",
+        "water",
+        "training_schedule",
+        "instructors"
+      ],
+      "outputs": [
+        "housed_squad",
+        "training",
+        "qualification_progress",
+        "cohesion"
+      ],
+      "capacity": "4 soldiers per squad module",
+      "dependencies": [
+        "power.grid.base_medium"
+      ],
+      "assemblyDefinition": "assembly.barracks_squad_module"
+    },
+    {
+      "id": "facility.vehicle_factory_medium",
+      "name": "Medium Vehicle Factory",
+      "category": "production",
+      "inputs": [
+        "aerospace_alloy",
+        "electronics",
+        "power",
+        "tooling",
+        "qualified_workers"
+      ],
+      "outputs": [
+        "ground_vehicle",
+        "spares",
+        "subassemblies"
+      ],
+      "supportsFamilies": [
+        "scout",
+        "apc",
+        "light_combat",
+        "engineering"
+      ],
+      "productionFlow": {
+        "states": [
+          "in_process",
+          "produced",
+          "awaiting_acceptance",
+          "under_test",
+          "accepted",
+          "rejected",
+          "rework",
+          "outgoing_inventory",
+          "dispatched"
+        ],
+        "procedures": [
+          "manufacture",
+          "present_for_test",
+          "run_acceptance_test",
+          "accept_part",
+          "reject_part",
+          "quarantine",
+          "rework",
+          "release_to_outgoing",
+          "dispatch"
+        ],
+        "acceptanceInputs": [
+          "test_fixtures",
+          "acceptance_specification",
+          "qualified_inspector",
+          "calibrated_instruments"
+        ],
+        "records": [
+          "product_identity",
+          "configuration",
+          "material_lot_provenance",
+          "machine_provenance",
+          "test_results",
+          "acceptance_decision",
+          "rework_history"
+        ]
+      },
+      "maintenancePolicy": {
+        "playerConfigurableIntervalCycles": true,
+        "intervalMeaning": "Player-selected preventive service interval expressed in production cycles; no universal default is asserted by this data.",
+        "trackedState": [
+          "production_cycles",
+          "load_exposure",
+          "wear_condition",
+          "calibration_drift",
+          "alarms",
+          "failed_tests",
+          "maintenance_history"
+        ],
+        "modes": [
+          "cycle_based_preventive",
+          "condition_based",
+          "corrective",
+          "emergency"
+        ],
+        "shutdownRequiredForIntrusiveWork": true,
+        "shutdownConsequences": [
+          "station_unavailable",
+          "queued_work_waits_or_routes_to_compatible_station",
+          "throughput_and_delivery_impact"
+        ],
+        "procedures": [
+          "isolate",
+          "inspect",
+          "diagnose",
+          "disassemble",
+          "repair_or_replace",
+          "calibrate",
+          "functional_test",
+          "commission",
+          "record"
+        ]
+      },
+      "assemblyDefinition": "assembly.vehicle_factory_medium"
+    },
+    {
+      "id": "facility.aerospace_factory",
+      "name": "Aerospace Assembly Hall",
+      "category": "production",
+      "inputs": [
+        "aerospace_alloy",
+        "composites",
+        "electronics",
+        "power",
+        "qualified_workers"
+      ],
+      "outputs": [
+        "vtol",
+        "aircraft",
+        "ornithopter"
+      ],
+      "supportsFamilies": [
+        "recon_vtol",
+        "heavy_vtol",
+        "ornithopter",
+        "fighter"
+      ],
+      "productionFlow": {
+        "states": [
+          "in_process",
+          "produced",
+          "awaiting_acceptance",
+          "under_test",
+          "accepted",
+          "rejected",
+          "rework",
+          "outgoing_inventory",
+          "dispatched"
+        ],
+        "procedures": [
+          "manufacture",
+          "present_for_test",
+          "run_acceptance_test",
+          "accept_part",
+          "reject_part",
+          "quarantine",
+          "rework",
+          "release_to_outgoing",
+          "dispatch"
+        ],
+        "acceptanceInputs": [
+          "test_fixtures",
+          "acceptance_specification",
+          "qualified_inspector",
+          "calibrated_instruments"
+        ],
+        "records": [
+          "product_identity",
+          "configuration",
+          "material_lot_provenance",
+          "machine_provenance",
+          "test_results",
+          "acceptance_decision",
+          "rework_history"
+        ]
+      },
+      "maintenancePolicy": {
+        "playerConfigurableIntervalCycles": true,
+        "intervalMeaning": "Player-selected preventive service interval expressed in production cycles; no universal default is asserted by this data.",
+        "trackedState": [
+          "production_cycles",
+          "load_exposure",
+          "wear_condition",
+          "calibration_drift",
+          "alarms",
+          "failed_tests",
+          "maintenance_history"
+        ],
+        "modes": [
+          "cycle_based_preventive",
+          "condition_based",
+          "corrective",
+          "emergency"
+        ],
+        "shutdownRequiredForIntrusiveWork": true,
+        "shutdownConsequences": [
+          "station_unavailable",
+          "queued_work_waits_or_routes_to_compatible_station",
+          "throughput_and_delivery_impact"
+        ],
+        "procedures": [
+          "isolate",
+          "inspect",
+          "diagnose",
+          "disassemble",
+          "repair_or_replace",
+          "calibrate",
+          "functional_test",
+          "commission",
+          "record"
+        ]
+      },
+      "assemblyDefinition": "assembly.aerospace_factory"
+    },
+    {
+      "id": "facility.spacecraft_yard",
+      "name": "Orbital Spacecraft Yard",
+      "category": "production",
+      "inputs": [
+        "aerospace_alloy",
+        "reactor_components",
+        "life_support_components",
+        "power",
+        "qualified_workers"
+      ],
+      "outputs": [
+        "spacecraft",
+        "modules",
+        "ship_repair"
+      ],
+      "supportsFamilies": [
+        "space_fighter",
+        "corvette",
+        "frigate",
+        "destroyer",
+        "cruiser",
+        "carrier"
+      ],
+      "productionFlow": {
+        "states": [
+          "in_process",
+          "produced",
+          "awaiting_acceptance",
+          "under_test",
+          "accepted",
+          "rejected",
+          "rework",
+          "outgoing_inventory",
+          "dispatched"
+        ],
+        "procedures": [
+          "manufacture",
+          "present_for_test",
+          "run_acceptance_test",
+          "accept_part",
+          "reject_part",
+          "quarantine",
+          "rework",
+          "release_to_outgoing",
+          "dispatch"
+        ],
+        "acceptanceInputs": [
+          "test_fixtures",
+          "acceptance_specification",
+          "qualified_inspector",
+          "calibrated_instruments"
+        ],
+        "records": [
+          "product_identity",
+          "configuration",
+          "material_lot_provenance",
+          "machine_provenance",
+          "test_results",
+          "acceptance_decision",
+          "rework_history"
+        ]
+      },
+      "maintenancePolicy": {
+        "playerConfigurableIntervalCycles": true,
+        "intervalMeaning": "Player-selected preventive service interval expressed in production cycles; no universal default is asserted by this data.",
+        "trackedState": [
+          "production_cycles",
+          "load_exposure",
+          "wear_condition",
+          "calibration_drift",
+          "alarms",
+          "failed_tests",
+          "maintenance_history"
+        ],
+        "modes": [
+          "cycle_based_preventive",
+          "condition_based",
+          "corrective",
+          "emergency"
+        ],
+        "shutdownRequiredForIntrusiveWork": true,
+        "shutdownConsequences": [
+          "station_unavailable",
+          "queued_work_waits_or_routes_to_compatible_station",
+          "throughput_and_delivery_impact"
+        ],
+        "procedures": [
+          "isolate",
+          "inspect",
+          "diagnose",
+          "disassemble",
+          "repair_or_replace",
+          "calibrate",
+          "functional_test",
+          "commission",
+          "record"
+        ]
+      },
+      "assemblyDefinition": "assembly.spacecraft_yard"
+    },
+    {
+      "id": "facility.resource_refinery",
+      "name": "Keyed Resource Refinery",
+      "category": "processing",
+      "inputs": [
+        "keyed_raw_resource",
+        "power",
+        "qualified_operators"
+      ],
+      "outputs": [
+        "keyed_refined_resource",
+        "waste"
+      ],
+      "configuration": "resource_key",
+      "notes": "The same physical plant can become a different capability only after re-keying, tooling, cleaning, calibration and qualification.",
+      "assemblyDefinition": "assembly.resource_refinery"
+    },
+    {
+      "id": "facility.research_laboratory",
+      "name": "Advanced Research Laboratory",
+      "category": "research",
+      "inputs": [
+        "researchers",
+        "power",
+        "instruments",
+        "materials",
+        "research_program"
+      ],
+      "outputs": [
+        "prototype",
+        "measurement",
+        "failure_record",
+        "technology_progress"
+      ],
+      "procedures": [
+        "experiment",
+        "instrument_calibration",
+        "test",
+        "record",
+        "evaluate",
+        "revise"
+      ],
+      "assemblyDefinition": "assembly.research_laboratory"
+    },
+    {
+      "id": "facility.test_range",
+      "name": "Live Technology Test Range",
+      "category": "demonstration",
+      "inputs": [
+        "prototype",
+        "test_crew",
+        "instrumentation",
+        "safety_team",
+        "target_or_test_environment"
+      ],
+      "outputs": [
+        "demonstration",
+        "telemetry",
+        "failure_history",
+        "qualification_evidence"
+      ],
+      "procedures": [
+        "brief",
+        "clear",
+        "configure",
+        "test",
+        "observe",
+        "record",
+        "recover",
+        "evaluate"
+      ],
+      "assemblyDefinition": "assembly.test_range"
+    },
+    {
+      "id": "facility.logistics_depot",
+      "name": "Keyed Logistics Depot",
+      "category": "logistics",
+      "inputs": [
+        "resource_or_product",
+        "vehicles",
+        "handlers",
+        "power"
+      ],
+      "outputs": [
+        "loaded_dispatch",
+        "inventory_state",
+        "chain_of_custody"
+      ],
+      "procedures": [
+        "receive",
+        "inspect",
+        "store",
+        "pick",
+        "load",
+        "dispatch"
+      ],
+      "assemblyDefinition": "assembly.logistics_depot"
+    },
+    {
+      "id": "facility.ship_engineering",
+      "name": "Ship Engineering Department",
+      "category": "shipboard",
+      "inputs": [
+        "engineering_crew",
+        "watchbill",
+        "technical_data",
+        "spares",
+        "power",
+        "damage_control_crew",
+        "repair_materials",
+        "fire_suppression",
+        "emergency_power"
+      ],
+      "outputs": [
+        "reactor_readiness",
+        "propulsion_readiness",
+        "maintenance_state",
+        "casualty_response",
+        "damage_control_readiness",
+        "temporary_repairs",
+        "casualty_history"
+      ],
+      "procedures": [
+        "watch",
+        "inspect",
+        "log",
+        "adjust",
+        "repair",
+        "isolate",
+        "stabilize",
+        "damage_control_dispatch",
+        "hull_patch",
+        "fire_response",
+        "casualty_isolation",
+        "temporary_repair",
+        "casualty_logging",
+        "return_to_station"
+      ],
+      "assemblyDefinition": "assembly.ship_engineering_department"
+    },
+    {
+      "id": "facility.quality_acceptance_station",
+      "name": "Production Quality and Acceptance Station",
+      "category": "quality",
+      "inputs": [
+        "produced_component",
+        "acceptance_specification",
+        "calibrated_instruments",
+        "test_fixtures",
+        "qualified_inspector",
+        "power"
+      ],
+      "outputs": [
+        "accepted_component",
+        "rejected_component",
+        "test_evidence",
+        "quality_record",
+        "rework_instruction"
+      ],
+      "procedures": [
+        "identify_item",
+        "verify_configuration",
+        "inspect",
+        "fixture_component",
+        "run_test",
+        "compare_with_limits",
+        "accept",
+        "reject",
+        "quarantine",
+        "release_to_outgoing",
+        "record_provenance"
+      ],
+      "stateModel": [
+        "awaiting_acceptance",
+        "under_test",
+        "accepted",
+        "rejected",
+        "quarantined",
+        "rework",
+        "outgoing_inventory"
+      ],
+      "notes": "Acceptance is a recorded state transition. Manufactured output is not automatically accepted or dispatched.",
+      "assemblyDefinition": "assembly.quality_acceptance_station"
+    },
+    {
+      "id": "facility.industrial_repair_bay",
+      "name": "Industrial Equipment Repair Bay",
+      "category": "maintenance",
+      "inputs": [
+        "faulted_asset",
+        "qualified_technicians",
+        "technical_data",
+        "diagnostic_equipment",
+        "calibrated_tools",
+        "spare_parts",
+        "isolation_and_lockout",
+        "power"
+      ],
+      "outputs": [
+        "repaired_asset",
+        "restricted_asset_or_open_defect",
+        "calibration_record",
+        "functional_test_evidence",
+        "maintenance_history",
+        "returned_service_capability"
+      ],
+      "procedures": [
+        "receive_asset",
+        "identify_configuration",
+        "make_safe",
+        "isolate",
+        "diagnose",
+        "inspect",
+        "disassemble",
+        "repair",
+        "replace_component",
+        "reassemble",
+        "calibrate",
+        "functional_test",
+        "commission",
+        "record"
+      ],
+      "supportsAssetLevels": [
+        "facility",
+        "production_line",
+        "machine",
+        "assembly",
+        "component",
+        "device"
+      ],
+      "notes": "Hands-on repair is a playable procedure. Return to service depends on verification and qualification, not completion of an animation.",
+      "assemblyDefinition": "assembly.industrial_repair_bay"
+    },
+    {
+      "id": "facility.command_monitoring_center",
+      "name": "Command and Monitoring Center",
+      "category": "command_and_control",
+      "assemblyDefinition": "assembly.command_monitoring_center",
+      "inputs": [
+        "power",
+        "redundant_data_backbone",
+        "qualified_watchstanders",
+        "sensor_feeds",
+        "maintenance"
+      ],
+      "outputs": [
+        "situational_awareness",
+        "dispatch_orders",
+        "sensor_correlation",
+        "event_history"
+      ],
+      "capacity": "Configurable consoles and watch positions; each active station requires a qualified operator.",
+      "contains": [
+        "operations_floor",
+        "situation_display",
+        "sensor_fusion_servers",
+        "radio_room",
+        "secure_comms_room",
+        "event_archive",
+        "power_monitoring",
+        "dispatch_console",
+        "backup_control_room",
+        "shoulder_camera_ingest"
+      ],
+      "dependencies": [
+        "power.grid.base_medium",
+        "electronics.optical_fiber_backbone_v1",
+        "electronics.data_recorder_v1"
+      ],
+      "procedures": [
+        "watch_handover",
+        "sensor_health_review",
+        "dispatch",
+        "network_failover",
+        "incident_replay",
+        "backup_control_transfer"
+      ]
+    },
+    {
+      "id": "facility.security_checkpoint",
+      "name": "Perimeter Security Checkpoint",
+      "category": "security",
+      "assemblyDefinition": "assembly.security_checkpoint",
+      "inputs": [
+        "power",
+        "credential_policy",
+        "communications",
+        "trained_guards",
+        "maintenance"
+      ],
+      "outputs": [
+        "access_decisions",
+        "vehicle_inspection",
+        "perimeter_alarm",
+        "incident_records"
+      ],
+      "capacity": "Gate lanes and simultaneous inspections are configuration-defined.",
+      "contains": [
+        "credential_reader",
+        "vehicle_barrier",
+        "camera_head",
+        "tamper_loop",
+        "visitor_intercom",
+        "local_event_recorder",
+        "emergency_release"
+      ],
+      "dependencies": [
+        "security.panel.access_control_v1",
+        "security.panel.vehicle_gate_v1",
+        "electronics.security_controller_v1"
+      ],
+      "procedures": [
+        "verify_credentials",
+        "inspect_manifest",
+        "test_barrier",
+        "investigate_alarm",
+        "degraded_manual_entry"
+      ]
+    }
+  ]
+}

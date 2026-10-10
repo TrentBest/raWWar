@@ -1,0 +1,1549 @@
+{
+  "schema": "raWWar.building-assembly.v1",
+  "unitPolicy": {
+    "dimensions": "metres",
+    "materials": "tonnes per assembly module; estimates for simulation balance",
+    "power": "connected and peak demand in kW; generation and distribution must be separately provisioned"
+  },
+  "assemblies": [
+    {
+      "id": "assembly.reactor_block_450mw",
+      "facility": "facility.power_reactor_block",
+      "name": "450 MW Reactor Block",
+      "structure": "shielded_reactor_module",
+      "footprintM": {
+        "length": 120,
+        "width": 90
+      },
+      "heightM": 34,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 18000,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 2880,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 4200,
+      "peakDemandKW": 18000,
+      "crewOnWatch": 8,
+      "contains": [
+        "reactor_vessel",
+        "primary_coolant_loop",
+        "heat_exchanger_train",
+        "turbine_generator",
+        "switchgear",
+        "protection_system",
+        "control_room",
+        "service_water"
+      ],
+      "utilityConnections": [
+        "medium_voltage",
+        "service_water",
+        "heat_rejection",
+        "secure_comms",
+        "drainage"
+      ],
+      "constructionStages": [
+        "survey",
+        "excavate",
+        "ground_improvement",
+        "foundation",
+        "containment",
+        "major_equipment_set",
+        "piping_and_cabling",
+        "instrumentation",
+        "proof_test",
+        "commission"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "operations": 8,
+        "maintenance": 12,
+        "chemistry_and_radiological": 4,
+        "electrical_and_instrumentation": 6
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.barracks_squad_module",
+      "facility": "facility.barracks_standard",
+      "name": "Four-Soldier Barracks Module",
+      "structure": "habitation_and_training",
+      "footprintM": {
+        "length": 18,
+        "width": 12
+      },
+      "heightM": 4.2,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 42,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 8,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 18,
+      "peakDemandKW": 55,
+      "crewOnWatch": 0,
+      "contains": [
+        "four_bunks",
+        "personal_lockers",
+        "sanitation",
+        "wash_station",
+        "crew_terminal",
+        "fire_detection",
+        "environment_monitor",
+        "secure_storage"
+      ],
+      "utilityConnections": [
+        "low_voltage_power",
+        "potable_water",
+        "wastewater",
+        "data",
+        "fire_alarm",
+        "ventilation"
+      ],
+      "constructionStages": [
+        "site_prep",
+        "slab",
+        "frame",
+        "envelope",
+        "utilities",
+        "interior_fitout",
+        "fire_test",
+        "occupancy_inspection"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "residents": 4,
+        "training_instructor_shared": 1,
+        "facility_maintenance_shared": 1
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.vehicle_factory_medium",
+      "facility": "facility.vehicle_factory_medium",
+      "name": "Medium Vehicle Production Cell",
+      "structure": "industrial_bay",
+      "footprintM": {
+        "length": 140,
+        "width": 90
+      },
+      "heightM": 18,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 5200,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 832,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 6800,
+      "peakDemandKW": 22000,
+      "crewOnWatch": 5,
+      "contains": [
+        "chassis_jigs",
+        "robotic_weld_cells",
+        "machining_center",
+        "torque_tools",
+        "powertrain_install_bay",
+        "electronics_integration_bench",
+        "fluid_fill_station",
+        "test_dynamometer",
+        "quality_station",
+        "quarantine_area",
+        "spares_cage",
+        "overhead_crane"
+      ],
+      "utilityConnections": [
+        "medium_voltage",
+        "compressed_gas",
+        "industrial_water",
+        "coolant",
+        "data_backbone",
+        "extraction",
+        "fire_suppression",
+        "logistics_apron"
+      ],
+      "constructionStages": [
+        "grading",
+        "service_corridor",
+        "machine_foundations",
+        "frame",
+        "crane_rails",
+        "envelope",
+        "power_distribution",
+        "tooling_install",
+        "metrology_calibration",
+        "first_article"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "production": 32,
+        "quality": 6,
+        "maintenance": 8,
+        "materials_and_dispatch": 10,
+        "controls_and_metrology": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.aerospace_factory",
+      "facility": "facility.aerospace_factory",
+      "name": "Aerospace Assembly and Flight-Test Hall",
+      "structure": "long_span_industrial_hall",
+      "footprintM": {
+        "length": 180,
+        "width": 110
+      },
+      "heightM": 32,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 7600,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 1216,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 9200,
+      "peakDemandKW": 30000,
+      "crewOnWatch": 4,
+      "contains": [
+        "airframe_jigs",
+        "composite_layup_room",
+        "curing_oven",
+        "wing_actuator_test_rig",
+        "avionics_lab",
+        "cable_harness_bench",
+        "hydraulic_test_stand",
+        "flight_control_simulator",
+        "calibration_room",
+        "hangar_doors",
+        "fire_suppression"
+      ],
+      "utilityConnections": [
+        "medium_voltage",
+        "conditioned_power",
+        "compressed_gas",
+        "vacuum",
+        "extraction",
+        "environmental_control",
+        "data_backbone",
+        "apron_access"
+      ],
+      "constructionStages": [
+        "grading",
+        "precision_foundations",
+        "long_span_frame",
+        "hangar_envelope",
+        "clean_process_rooms",
+        "utilities",
+        "test_rigs",
+        "calibration"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "assembly": 28,
+        "flight_controls": 8,
+        "quality": 8,
+        "maintenance": 8,
+        "flight_test": 6
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.spacecraft_yard",
+      "facility": "facility.spacecraft_yard",
+      "name": "Orbital Spacecraft Yard Berth",
+      "structure": "orbital_assembly_berth",
+      "footprintM": {
+        "length": 900,
+        "width": 240
+      },
+      "heightM": 160,
+      "foundation": {
+        "type": "orbital_truss_and_berth_frame",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": false,
+        "anchors": "microgravity load paths, docking nodes, thermal expansion and assembly loads"
+      },
+      "shell": {
+        "primary": "open structural truss",
+        "secondary": "pressurized workshop modules and radiation/surface-protection zones"
+      },
+      "materials": [
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 18000,
+          "unit": "t"
+        },
+        {
+          "id": "resource.carbon_feedstock",
+          "quantity": 1200,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 220000,
+      "peakDemandKW": 540000,
+      "crewOnWatch": 12,
+      "contains": [
+        "modular_docking_nodes",
+        "robotic_manipulators",
+        "pressure_hull_fixture",
+        "radiator_test_loop",
+        "life_support_test_cell",
+        "thruster_alignment_rig",
+        "power_bus_test_stand",
+        "airlock",
+        "eVA_locker",
+        "cargo_lock",
+        "quarantine_zone"
+      ],
+      "utilityConnections": [
+        "zoned_dc_power",
+        "thermal_rejection",
+        "life_support",
+        "data_backbone",
+        "cargo_transfer",
+        "emergency_return"
+      ],
+      "constructionStages": [
+        "berth_truss",
+        "power_data_backbone",
+        "docking_nodes",
+        "robotic_install",
+        "pressure_modules",
+        "thermal_loops",
+        "calibration"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "assembly": 90,
+        "pressure_systems": 18,
+        "robotics": 24,
+        "quality": 12,
+        "maintenance": 20
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.resource_refinery",
+      "facility": "facility.resource_refinery",
+      "name": "Keyed Resource Refinery Train",
+      "structure": "process_train",
+      "footprintM": {
+        "length": 100,
+        "width": 70
+      },
+      "heightM": 22,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 3200,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 512,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 5200,
+      "peakDemandKW": 16000,
+      "crewOnWatch": 4,
+      "contains": [
+        "feedstock_receiving",
+        "weigh_station",
+        "preparation",
+        "separation_train",
+        "purification_columns",
+        "product_tanks",
+        "sampling_station",
+        "batch_identity_system",
+        "waste_treatment",
+        "spill_containment",
+        "control_room"
+      ],
+      "utilityConnections": [
+        "medium_voltage",
+        "process_water",
+        "cooling",
+        "compressed_gas",
+        "waste_treatment",
+        "data_backbone",
+        "bulk_material_access"
+      ],
+      "constructionStages": [
+        "site_containment",
+        "foundations",
+        "vessel_set",
+        "pipe_rack",
+        "process_piping",
+        "instrumentation",
+        "batch_identity_setup",
+        "leak_test"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "process_operators": 12,
+        "lab_technicians": 4,
+        "maintenance": 6,
+        "materials_handling": 8
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.research_laboratory",
+      "facility": "facility.research_laboratory",
+      "name": "Advanced Research Laboratory Module",
+      "structure": "controlled_environment_lab",
+      "footprintM": {
+        "length": 48,
+        "width": 32
+      },
+      "heightM": 7,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 260,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 42,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 950,
+      "peakDemandKW": 3200,
+      "crewOnWatch": 2,
+      "contains": [
+        "instrument_benches",
+        "simulation_cluster",
+        "materials_lab",
+        "calibration_room",
+        "secure_data_store",
+        "prototype_cell",
+        "sample_custody",
+        "environment_monitor",
+        "experiment_interlocks",
+        "review_room"
+      ],
+      "utilityConnections": [
+        "conditioned_power",
+        "backup_power",
+        "precision_cooling",
+        "data_backbone",
+        "secure_comms",
+        "ventilation"
+      ],
+      "constructionStages": [
+        "vibration_survey",
+        "foundation",
+        "shielded_services",
+        "controlled_envelope",
+        "lab_utilities",
+        "instrument_install",
+        "calibration"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "researchers": 14,
+        "technicians": 6,
+        "security": 2
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.test_range",
+      "facility": "facility.test_range",
+      "name": "Live Technology Test Range",
+      "structure": "instrumented_test_site",
+      "footprintM": {
+        "length": 500,
+        "width": 300
+      },
+      "heightM": 12,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 950,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 152,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 1800,
+      "peakDemandKW": 8500,
+      "crewOnWatch": 3,
+      "contains": [
+        "test_fixture",
+        "instrumented_range",
+        "remote_cameras",
+        "telemetry_receivers",
+        "abort_station",
+        "safety_perimeter",
+        "recovery_team_bay",
+        "evidence_storage"
+      ],
+      "utilityConnections": [
+        "conditioned_power",
+        "data_backbone",
+        "secure_comms",
+        "range_clearance",
+        "emergency_access"
+      ],
+      "constructionStages": [
+        "range_survey",
+        "safe_zones",
+        "instrument_pads",
+        "cable_routes",
+        "control_bunker",
+        "calibration"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "test_directors": 2,
+        "instrumentation": 6,
+        "safety_observers": 4,
+        "maintenance": 4,
+        "recovery_team": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.logistics_depot",
+      "facility": "facility.logistics_depot",
+      "name": "Keyed Logistics Depot",
+      "structure": "warehouse_and_dispatch_yard",
+      "footprintM": {
+        "length": 120,
+        "width": 80
+      },
+      "heightM": 16,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 2800,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 448,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 1100,
+      "peakDemandKW": 4200,
+      "crewOnWatch": 3,
+      "contains": [
+        "receiving_dock",
+        "inspection_hold",
+        "keyed_stock_cages",
+        "hazmat_segregation",
+        "picking_aisles",
+        "load_weighing",
+        "dispatch_office",
+        "battery_charging",
+        "inventory_terminals",
+        "vehicle_staging"
+      ],
+      "utilityConnections": [
+        "medium_voltage",
+        "data_backbone",
+        "yard_lighting",
+        "fire_suppression",
+        "road_access"
+      ],
+      "constructionStages": [
+        "yard_grading",
+        "heavy_slab",
+        "racking",
+        "fire_zones",
+        "security_install",
+        "inventory_commissioning"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "warehouse": 16,
+        "dispatch": 6,
+        "inventory_control": 4,
+        "maintenance": 3,
+        "security": 2
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.industrial_repair_bay",
+      "facility": "facility.industrial_repair_bay",
+      "name": "Industrial Repair and Return-to-Service Bay",
+      "structure": "service_bay",
+      "footprintM": {
+        "length": 65,
+        "width": 45
+      },
+      "heightM": 14,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 1500,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 240,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 2400,
+      "peakDemandKW": 9000,
+      "crewOnWatch": 3,
+      "contains": [
+        "isolation_lockout_station",
+        "disassembly_bench",
+        "lifting_equipment",
+        "electrical_test_bench",
+        "hydraulic_test_stand",
+        "instrument_calibrator",
+        "parts_quarantine",
+        "clean_assembly_bench",
+        "functional_test_area",
+        "return_to_service_terminal"
+      ],
+      "utilityConnections": [
+        "medium_voltage",
+        "compressed_gas",
+        "industrial_water",
+        "extraction",
+        "data_backbone",
+        "lifting_access"
+      ],
+      "constructionStages": [
+        "slab_and_pads",
+        "lift_install",
+        "utilities",
+        "test_equipment",
+        "quarantine_layout",
+        "calibration"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "mechanics": 12,
+        "electrical_technicians": 6,
+        "instrument_technicians": 4,
+        "inspectors": 3,
+        "parts": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.command_monitoring_center",
+      "facility": "facility.command_monitoring_center",
+      "name": "Command and Monitoring Center",
+      "structure": "hardened_operations_building",
+      "footprintM": {
+        "length": 70,
+        "width": 50
+      },
+      "heightM": 9,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 2100,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 336,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 1400,
+      "peakDemandKW": 4200,
+      "crewOnWatch": 18,
+      "contains": [
+        "operations_floor",
+        "situation_display",
+        "sensor_fusion_servers",
+        "radio_room",
+        "secure_comms_room",
+        "event_archive",
+        "power_monitoring",
+        "dispatch_console",
+        "backup_control_room",
+        "shoulder_camera_ingest",
+        "credential_control",
+        "redundant_time_source"
+      ],
+      "utilityConnections": [
+        "dual_feeder_power",
+        "ups",
+        "backup_generation",
+        "fiber_backbone",
+        "secure_comms",
+        "cooling",
+        "fire_suppression"
+      ],
+      "constructionStages": [
+        "site_security",
+        "foundation",
+        "shielded_service_routes",
+        "hardened_shell",
+        "redundant_power",
+        "network_backbone",
+        "console_fitout",
+        "system_integration"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "command": 6,
+        "intelligence": 8,
+        "communications": 6,
+        "network_operators": 8,
+        "security": 4,
+        "maintenance": 4
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.security_checkpoint",
+      "facility": "facility.security_checkpoint",
+      "name": "Perimeter Security Checkpoint",
+      "structure": "access_control_node",
+      "footprintM": {
+        "length": 16,
+        "width": 10
+      },
+      "heightM": 4.5,
+      "foundation": {
+        "type": "site-specific reinforced slab, machine pads or orbital truss",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "configuration-specific structural frame",
+        "secondary": "fire, environmental and security zoning as required"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 35,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 8,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 8,
+      "peakDemandKW": 28,
+      "crewOnWatch": 2,
+      "contains": [
+        "credential_reader",
+        "vehicle_barrier",
+        "gate",
+        "camera_head",
+        "tamper_loop",
+        "visitor_intercom",
+        "local_event_recorder",
+        "emergency_release",
+        "environment_monitor"
+      ],
+      "utilityConnections": [
+        "low_voltage_power",
+        "ups",
+        "fiber_or_mesh",
+        "lighting",
+        "barrier_actuation"
+      ],
+      "constructionStages": [
+        "approach_geometry",
+        "foundation",
+        "barrier_install",
+        "reader_and_camera_install",
+        "network_enrollment",
+        "access_policy_test"
+      ],
+      "commissioning": [
+        "independent_inspection",
+        "utility_test",
+        "safety_interlock_test",
+        "equipment_calibration",
+        "acceptance_record"
+      ],
+      "failureConsequences": [
+        "capability_unavailable",
+        "work_queue_growth",
+        "repair_and_recommissioning",
+        "persistent_history_recorded"
+      ],
+      "staffingByShift": {
+        "guards_per_active_lane": 2,
+        "security_technician_shared": 1,
+        "shift_supervisor_shared": 1
+      },
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.quality_acceptance_station",
+      "facility": "facility.quality_acceptance_station",
+      "name": "Production Quality and Acceptance Station",
+      "structure": "metrology_and_test_cell",
+      "footprintM": {
+        "length": 42,
+        "width": 28
+      },
+      "heightM": 8,
+      "foundation": {
+        "type": "vibration_stable_precision_slab",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": true
+      },
+      "shell": {
+        "primary": "industrial_frame",
+        "secondary": "controlled_metrology_and_quarantine_zones"
+      },
+      "materials": [
+        {
+          "id": "resource.plascrete_mix",
+          "quantity": 210,
+          "unit": "t"
+        },
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 55,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 620,
+      "peakDemandKW": 2100,
+      "crewOnWatch": 2,
+      "staffingByShift": {
+        "inspectors": 5,
+        "metrology_technicians": 3,
+        "test_operators": 3
+      },
+      "contains": [
+        "calibrated_instruments",
+        "test_fixtures",
+        "metrology_bench",
+        "environment_control",
+        "identity_and_provenance_terminal",
+        "rejected_item_quarantine",
+        "secure_result_archive"
+      ],
+      "utilityConnections": [
+        "conditioned_power",
+        "data_backbone",
+        "precision_cooling",
+        "secure_inventory",
+        "industrial_air"
+      ],
+      "constructionStages": [
+        "precision_foundation",
+        "controlled_envelope",
+        "instrument_install",
+        "calibration",
+        "quarantine_layout"
+      ],
+      "commissioning": [
+        "reference_standard_check",
+        "instrument_calibration",
+        "identity_trace_test",
+        "acceptance_record_replay"
+      ],
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    },
+    {
+      "id": "assembly.ship_engineering_department",
+      "facility": "facility.ship_engineering",
+      "name": "Ship Engineering Department and Control Spaces",
+      "structure": "shipboard_engineering_zone",
+      "footprintM": {
+        "length": 110,
+        "width": 75
+      },
+      "heightM": 18,
+      "foundation": {
+        "type": "integrated_ship_structure_and_vibration_mounts",
+        "surveyRequired": true,
+        "geotechnicalOrLoadPathCheck": false,
+        "anchors": "ship structural frames and machinery vibration limits"
+      },
+      "shell": {
+        "primary": "watertight compartment boundaries",
+        "secondary": "fire zones, zoned service routes and maintainable equipment access"
+      },
+      "materials": [
+        {
+          "id": "resource.aerospace_alloy",
+          "quantity": 1600,
+          "unit": "t"
+        },
+        {
+          "id": "resource.carbon_feedstock",
+          "quantity": 120,
+          "unit": "t"
+        }
+      ],
+      "connectedLoadKW": 18000,
+      "peakDemandKW": 52000,
+      "crewOnWatch": 24,
+      "staffingByShift": {
+        "engineering_watch": 24,
+        "maintenance": 40,
+        "electricians": 18,
+        "instrument_technicians": 12,
+        "damage_control": 12
+      },
+      "contains": [
+        "propulsion_control_stations",
+        "shaft_and_drive_monitoring",
+        "reactor_watch_console",
+        "switchboards",
+        "pump_skids",
+        "cooling_loops",
+        "instrument_racks",
+        "relay_panels",
+        "spares_cage",
+        "repair_bench",
+        "work_order_terminal",
+        "compartment_isolation_controls"
+      ],
+      "utilityConnections": [
+        "zoned_shipboard_power",
+        "cooling",
+        "service_water",
+        "secure_data_bus",
+        "ventilation",
+        "damage_control_network"
+      ],
+      "constructionStages": [
+        "compartment_definition",
+        "structural_boundaries",
+        "machinery_foundations",
+        "cable_and_pipe_routes",
+        "equipment_install",
+        "instrumentation",
+        "control_integration",
+        "functional_test"
+      ],
+      "commissioning": [
+        "shaft_control_concurrence_test",
+        "power_zone_isolation_test",
+        "cooling_flow_test",
+        "alarm_and_interlock_proof",
+        "degraded_control_drill"
+      ],
+      "maintenanceAccess": {
+        "assetIdentityRequired": true,
+        "lockoutOrIsolationRequired": true,
+        "sparePartsAndToolsMustBeAvailable": true,
+        "serviceClearance": "must be validated against installed equipment and access routes"
+      },
+      "inspectionHoldPoints": [
+        "foundation_or_mounting_acceptance",
+        "utility_pressure_or_insulation_test",
+        "protective_interlock_proof",
+        "equipment_calibration",
+        "operational_acceptance"
+      ],
+      "constructionTemporaryServices": [
+        "construction_power",
+        "temporary_lighting",
+        "material_staging",
+        "waste_and_scrap_route",
+        "safe_access"
+      ],
+      "operationalPrerequisites": [
+        "accepted_structure",
+        "utilities_commissioned",
+        "qualified_staff",
+        "required_spares",
+        "active_maintenance_policy"
+      ]
+    }
+  ]
+}

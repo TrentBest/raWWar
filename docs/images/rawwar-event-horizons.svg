@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720">
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071017"/><stop offset="1" stop-color="#1a2831"/></linearGradient></defs>
+<rect width="1400" height="720" fill="url(#bg)"/>
+<text x="60" y="60" fill="#e3eef2" font-family="Arial" font-size="34" font-weight="700">EVENT HORIZONS: DETAIL FOLLOWS THE OBSERVER</text>
+<text x="60" y="96" fill="#9bb0ba" font-family="Arial" font-size="18">Distance changes what must be presented—not whether the world continues to exist.</text>
+<g transform="translate(70 145)">
+<rect width="1260" height="470" rx="20" fill="#09141b" stroke="#4e6873" stroke-width="2"/>
+<g font-family="Arial" font-weight="700">
+<rect x="45" y="55" width="260" height="350" rx="16" fill="#172832" stroke="#7a9aa5"/><text x="75" y="100" fill="#dce9ef" font-size="25">NEAR</text><text x="75" y="132" fill="#91aab5" font-size="15">individual truth</text>
+<rect x="345" y="55" width="260" height="350" rx="16" fill="#14242d" stroke="#66838e"/><text x="375" y="100" fill="#dce9ef" font-size="25">MIDDLE</text><text x="375" y="132" fill="#91aab5" font-size="15">role + activity</text>
+<rect x="645" y="55" width="260" height="350" rx="16" fill="#112029" stroke="#58747f"/><text x="675" y="100" fill="#dce9ef" font-size="25">FAR</text><text x="675" y="132" fill="#91aab5" font-size="15">population + event</text>
+<rect x="945" y="55" width="260" height="350" rx="16" fill="#0e1b23" stroke="#4b6570"/><text x="975" y="100" fill="#dce9ef" font-size="25">STRATEGIC</text><text x="975" y="132" fill="#91aab5" font-size="15">state + consequence</text>
+</g>
+<g font-family="Arial" font-size="16" fill="#c5d5db">
+<text x="75" y="185">identity</text><text x="75" y="215">equipment</text><text x="75" y="245">gesture</text><text x="75" y="275">attention</text><text x="75" y="305">fine interaction</text><text x="75" y="350">very little reduced</text>
+<text x="375" y="185">role</text><text x="375" y="215">formation</text><text x="375" y="245">movement</text><text x="375" y="275">activity</text><text x="375" y="305">major interactions</text><text x="375" y="350">pose detail reduced</text>
+<text x="675" y="185">population</text><text x="675" y="215">direction</text><text x="675" y="245">formation</text><text x="675" y="275">launch / battle</text><text x="675" y="305">major events</text><text x="675" y="350">individual detail reduced</text>
+<text x="975" y="185">ownership</text><text x="975" y="215">readiness</text><text x="975" y="245">logistics</text><text x="975" y="275">movement</text><text x="975" y="305">consequence</text><text x="975" y="350">physical presentation minimized</text>
+</g>
+<path d="M305 230 H345 M605 230 H645 M905 230 H945" stroke="#8eacb6" stroke-width="4"/>
+<text x="360" y="438" fill="#8fa8b5" font-family="Arial" font-size="17">THE WORLD IS NOT FROZEN BEYOND THE CAMERA.</text>
+</g>
+<text x="60" y="665" fill="#b8cbd2" font-family="Arial" font-size="18">DETAIL = GEOMETRY + IDENTITY + BEHAVIOR + RELATIONSHIPS + STATE + CAPABILITY + HISTORY + CONTEXT</text>
+</svg>

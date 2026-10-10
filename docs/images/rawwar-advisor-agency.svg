@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 950" role="img" aria-labelledby="title desc">
+<title id="title">raWWar advisor agency, earned experience, and persistent consequences</title><desc id="desc">Advisor agents observe, reason, advise, and act within authority. Their work can earn scoped bonuses or create warnings. Player decisions and world physics determine outcomes, which become persistent history including injury, death, knowledge loss, and succession.</desc>
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#172630"/></linearGradient></defs>
+<rect width="1500" height="950" fill="url(#bg)"/>
+<text x="60" y="68" fill="#f2f5f6" font-family="Arial,sans-serif" font-size="39" font-weight="700">AN ADVISOR IS A PERSON IN THE WORLD</text>
+<text x="62" y="108" fill="#a9bdc7" font-family="Arial,sans-serif" font-size="21">Authority is appointed. Expertise is earned. Outcomes are simulated. History persists.</text>
+<g font-family="Arial,sans-serif">
+<rect x="65" y="165" width="390" height="205" rx="20" fill="#172832" stroke="#6e8792" stroke-width="2"/>
+<text x="95" y="210" fill="#e6eff2" font-size="24" font-weight="700">01 · AGENT &amp; EXPERIENCE</text>
+<text x="95" y="252" fill="#b8cbd2" font-size="19">Qualifications · equipment</text><text x="95" y="282" fill="#b8cbd2" font-size="19">Knowledge · relationships</text><text x="95" y="312" fill="#b8cbd2" font-size="19">Evidence · scoped bonuses</text><text x="95" y="342" fill="#8fa8b5" font-size="16">No role grants omniscience</text>
+<rect x="555" y="165" width="390" height="205" rx="20" fill="#172832" stroke="#6e8792" stroke-width="2"/>
+<text x="585" y="210" fill="#e6eff2" font-size="24" font-weight="700">02 · ADVICE &amp; WORK</text>
+<text x="585" y="252" fill="#b8cbd2" font-size="19">Observe · infer · warn</text><text x="585" y="282" fill="#b8cbd2" font-size="19">Request · plan · execute</text><text x="585" y="312" fill="#b8cbd2" font-size="19">Record uncertainty and scope</text><text x="585" y="342" fill="#8fa8b5" font-size="16">Authority is explicit and traceable</text>
+<rect x="1045" y="165" width="390" height="205" rx="20" fill="#172832" stroke="#6e8792" stroke-width="2"/>
+<text x="1075" y="210" fill="#e6eff2" font-size="24" font-weight="700">03 · PLAYER DECISION</text>
+<text x="1075" y="252" fill="#b8cbd2" font-size="19">Accept · mitigate · postpone</text><text x="1075" y="282" fill="#b8cbd2" font-size="19">Narrow test · override warning</text><text x="1075" y="312" fill="#b8cbd2" font-size="19">Allocate people and resources</text><text x="1075" y="342" fill="#8fa8b5" font-size="16">Override accepts risk; no outcome is promised</text>
+<g stroke="#d7bd7c" stroke-width="4" fill="none"><path d="M455 265H555"/><path d="M945 265H1045"/><path d="M1435 265H1460V435H1435"/></g>
+<path d="M1460 435H750V485" fill="none" stroke="#d7bd7c" stroke-width="4"/>
+<rect x="270" y="485" width="960" height="140" rx="20" fill="#202b32" stroke="#d7bd7c" stroke-width="2"/>
+<text x="750" y="530" text-anchor="middle" fill="#f0d99c" font-size="26" font-weight="700">04 · AUTHORITATIVE WORLD SIMULATION</text>
+<text x="750" y="570" text-anchor="middle" fill="#c7d4d9" font-size="20">People · physics · equipment · energy · environment · timing · logistics</text>
+<text x="750" y="600" text-anchor="middle" fill="#9fb3bc" font-size="17">The same causal rules apply to advisors, soldiers, facilities, and adversaries.</text>
+<path d="M750 625V675H270V715 M750 675V715 M750 675H1230V715" fill="none" stroke="#8eabb6" stroke-width="3"/>
+<rect x="65" y="715" width="410" height="150" rx="18" fill="#18332d" stroke="#6ca58b" stroke-width="2"/>
+<text x="95" y="760" fill="#d9f0e5" font-size="23" font-weight="700">LEARNING &amp; BONUS</text><text x="95" y="800" fill="#b7d9cc" font-size="18">Performance evidence improves</text><text x="95" y="830" fill="#b7d9cc" font-size="18">only relevant capabilities.</text>
+<rect x="545" y="715" width="410" height="150" rx="18" fill="#3a2d2a" stroke="#b98968" stroke-width="2"/>
+<text x="575" y="760" fill="#f2d5c5" font-size="23" font-weight="700">WARNING / CASUALTY</text><text x="575" y="800" fill="#dec0b2" font-size="18">Injury, death, damage, failure,</text><text x="575" y="830" fill="#dec0b2" font-size="18">recovery and investigation.</text>
+<rect x="1025" y="715" width="410" height="150" rx="18" fill="#293040" stroke="#8996b7" stroke-width="2"/>
+<text x="1055" y="760" fill="#e0e5f8" font-size="23" font-weight="700">PERSISTENT HISTORY</text><text x="1055" y="800" fill="#c0c9e3" font-size="18">Knowledge transfer or loss;</text><text x="1055" y="830" fill="#c0c9e3" font-size="18">succession; changed relationships.</text>
+<path d="M475 790H545 M955 790H1025" stroke="#8eabb6" stroke-width="3"/>
+</g>
+<text x="65" y="915" fill="#d7bd7c" font-family="Arial,sans-serif" font-size="20" font-weight="700">THE WORLD REMEMBERS WHAT HAPPENED — NOT WHAT A MENU CLAIMED WOULD HAPPEN.</text>
+</svg>

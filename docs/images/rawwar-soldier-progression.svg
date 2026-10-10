@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 720">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#071018"/><stop offset="1" stop-color="#182733"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#13212b"/><stop offset="1" stop-color="#0b151d"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="1400" height="720" fill="url(#bg)"/>
+<text x="70" y="72" fill="#dce9ef" font-family="Arial" font-size="34" font-weight="700">A SOLDIER IS A CAREER, NOT A CLASS</text>
+<text x="70" y="108" fill="#8fa8b5" font-family="Arial" font-size="18">Identity accumulates. Qualifications change opportunity. History becomes visible.</text>
+<g transform="translate(70 155)">
+<rect width="1260" height="475" rx="20" fill="#081118" stroke="#405966" stroke-width="2"/>
+<line x1="90" y1="350" x2="1170" y2="350" stroke="#45606b" stroke-width="3"/>
+<g font-family="Arial">
+<text x="65" y="45" fill="#78909c" font-size="15">ENTRY</text><text x="330" y="45" fill="#78909c" font-size="15">QUALIFY</text><text x="595" y="45" fill="#78909c" font-size="15">SERVE</text><text x="860" y="45" fill="#78909c" font-size="15">LEAD</text><text x="1090" y="45" fill="#78909c" font-size="15">HISTORY</text>
+</g>
+<g stroke="#93b6c2" stroke-width="3" fill="none">
+<path d="M125 290 C190 250 230 250 290 210 S400 160 450 210 S555 300 620 230 S720 135 790 180 S900 275 960 205 S1080 125 1160 155"/>
+</g>
+<g fill="#dbeaf0" stroke="#89aab5" stroke-width="2">
+<circle cx="125" cy="290" r="16"/><circle cx="315" cy="190" r="16"/><circle cx="520" cy="270" r="16"/><circle cx="735" cy="160" r="16"/><circle cx="955" cy="205" r="16"/><circle cx="1160" cy="155" r="16"/>
+</g>
+<g font-family="Arial">
+<g transform="translate(45 82)"><rect width="160" height="95" rx="12" fill="url(#panel)" stroke="#506975"/><text x="16" y="28" fill="#dce9ef" font-size="18" font-weight="700">PVT.</text><text x="16" y="52" fill="#8fa8b5" font-size="14">identity</text><text x="16" y="75" fill="#8fa8b5" font-size="14">first assignment</text></g>
+<g transform="translate(235 105)"><rect width="170" height="95" rx="12" fill="url(#panel)" stroke="#506975"/><text x="16" y="28" fill="#dce9ef" font-size="18" font-weight="700">QUALIFIED</text><text x="16" y="52" fill="#8fa8b5" font-size="14">equipment access</text><text x="16" y="75" fill="#8fa8b5" font-size="14">new opportunities</text></g>
+<g transform="translate(430 315)"><rect width="190" height="95" rx="12" fill="url(#panel)" stroke="#506975"/><text x="16" y="28" fill="#dce9ef" font-size="18" font-weight="700">SPECIALIST</text><text x="16" y="52" fill="#8fa8b5" font-size="14">repair · research</text><text x="16" y="75" fill="#8fa8b5" font-size="14">pilot · intelligence</text></g>
+<g transform="translate(655 65)"><rect width="190" height="95" rx="12" fill="url(#panel)" stroke="#506975"/><text x="16" y="28" fill="#dce9ef" font-size="18" font-weight="700">OFFICER</text><text x="16" y="52" fill="#8fa8b5" font-size="14">command authority</text><text x="16" y="75" fill="#8fa8b5" font-size="14">responsibility</text></g>
+<g transform="translate(875 245)"><rect width="205" height="95" rx="12" fill="url(#panel)" stroke="#506975"/><text x="16" y="28" fill="#dce9ef" font-size="18" font-weight="700">VETERAN</text><text x="16" y="52" fill="#8fa8b5" font-size="14">ribbons · reputation</text><text x="16" y="75" fill="#8fa8b5" font-size="14">relationships</text></g>
+<g transform="translate(1080 65)"><rect width="140" height="115" rx="12" fill="url(#panel)" stroke="#506975"/><text x="16" y="28" fill="#dce9ef" font-size="18" font-weight="700">HISTORY</text><text x="16" y="52" fill="#8fa8b5" font-size="13">what happened</text><text x="16" y="72" fill="#8fa8b5" font-size="13">still matters</text><text x="16" y="92" fill="#8fa8b5" font-size="13">later</text></g>
+</g>
+<text x="60" y="430" fill="#b8cbd2" font-family="Arial" font-size="18">UNIFORM</text>
+<text x="150" y="430" fill="#8fa8b5" font-family="Arial" font-size="16">rank + qualifications + ribbons + equipment tell the story before the soldier speaks.</text>
+</g>
+<text x="70" y="680" fill="#8fa8b5" font-family="Arial" font-size="17">THE SOLDIER'S STATE IS DATA. THE SOLDIER'S MOVEMENT IS BEHAVIOR. THE SOLDIER'S HISTORY IS CONSEQUENCE.</text>
+</svg>

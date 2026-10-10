@@ -1,0 +1,413 @@
+{
+  "schemaVersion": "raWWar.engineering-watch-and-maintenance.v1",
+  "status": "candidate-operational-simulation-contract",
+  "purpose": "Connect physical engineering rounds, instrument/logger interactions, operating thresholds, trend assessment, maintenance decisions, and traceable lockout/tagout to the same persistent equipment state.",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "readingsAreObservationsNotOmniscientTruth": true,
+    "thresholdsBelongToSpecificEquipmentConfiguration": true,
+    "workRequiresPhysicalAndPersonnelPrerequisites": true,
+    "lockoutIsAnEnergyStateNotAUiFlag": true,
+    "proceduralFrictionMustComeFromRealDependenciesNotRandomWaits": true
+  },
+  "watchCycle": {
+    "cycleSteps": [
+      "receive-watch-handover",
+      "review-open-defects-and-active-isolations",
+      "walk-to-equipment",
+      "inspect-local-condition-and-indicators",
+      "retrieve-and-connect-logger",
+      "capture-accessible-readings",
+      "validate-units-calibration-and-sample-quality",
+      "compare-with-operating-envelope",
+      "compare-with-trend-and-prior-watch",
+      "classify-condition-and-risk",
+      "notify-engineering-lead-and-command-as-required",
+      "create-or-update-work-item",
+      "record-disposition-and-handover"
+    ],
+    "handoverMustPreserve": [
+      "active-work",
+      "open-defects",
+      "temporary-repairs",
+      "bypassed-protections",
+      "active-locks-and-tags",
+      "stored-energy-concerns",
+      "threshold-trends",
+      "missing-or-invalid-readings",
+      "deferred-maintenance-justification"
+    ],
+    "missedRoundsConsequences": [
+      "confidence-in-condition-decays-according-to-equipment-and-hazard",
+      "latent-degradation-may-remain-undetected",
+      "operating-authority-may-restrict-load-or-demand-inspection",
+      "later investigators can see the missed round and the reason if recorded"
+    ]
+  },
+  "loggerInteraction": {
+    "physicalSequence": [
+      "retrieve-assigned-logger",
+      "inspect-logger-condition-and-calibration",
+      "reach-and-align-with-valid-port",
+      "connect-and-establish-handshake",
+      "confirm-equipment-identity",
+      "select-authorized-sample-set",
+      "capture-readings-and-timestamps",
+      "review-quality-flags-and-gaps",
+      "disconnect-and-stow-logger",
+      "commit-record-to-maintenance-history"
+    ],
+    "recordFields": [
+      "recordId",
+      "assetId",
+      "componentId",
+      "loggerId",
+      "operatorId",
+      "location",
+      "sampleTime",
+      "recordTime",
+      "measurementId",
+      "value",
+      "unit",
+      "expectedRangeRef",
+      "calibrationState",
+      "instrumentUncertainty",
+      "qualityFlag",
+      "sourcePortId",
+      "sampleGap",
+      "rawRecordRef",
+      "interpretationRefs"
+    ],
+    "failureModes": [
+      "port-damaged",
+      "wrong-asset-port",
+      "logger-uncalibrated",
+      "handshake-failed",
+      "power-lost-during-capture",
+      "sample-window-missed",
+      "partial-record",
+      "unit-mismatch",
+      "sensor-disagreement",
+      "access-denied"
+    ],
+    "rules": [
+      "A logger records only channels available at the connected port and authorized for that operator.",
+      "A successful connection does not guarantee a valid sample; calibration, units, timing, channel health, and gaps are checked separately.",
+      "A copied or summarized reading retains a reference to the raw record and its provenance.",
+      "A player may compare the measured value with a threshold, but the instrument does not automatically decide the operational disposition.",
+      "A keyboard binding may animate the actor's hand and logger motion through the same interaction pipeline used by tracked hands."
+    ]
+  },
+  "thresholdAssessment": {
+    "bands": [
+      {
+        "id": "condition.normal",
+        "meaning": "Within expected operating envelope and no concerning trend.",
+        "disposition": "continue-with-scheduled-monitoring"
+      },
+      {
+        "id": "condition.watch",
+        "meaning": "Within absolute limits but trending toward a limit, drifting from baseline, or showing increased variability.",
+        "disposition": "increase-sampling-review-load-and-plan-maintenance"
+      },
+      {
+        "id": "condition.limit-approach",
+        "meaning": "Near a configured limit or with insufficient margin under current load.",
+        "disposition": "notify-watch-lead-consider-derating-or-inspection"
+      },
+      {
+        "id": "condition.limit-exceeded",
+        "meaning": "Validated reading or corroborated condition exceeds an operating limit.",
+        "disposition": "apply-equipment-specific-response-and-create-urgent-work"
+      },
+      {
+        "id": "condition.unknown",
+        "meaning": "Evidence is missing, stale, contradictory, uncalibrated, or otherwise insufficient.",
+        "disposition": "do-not-silently-assume-normal; seek-valid-measurement-or-restrict-operation"
+      }
+    ],
+    "assessmentFields": [
+      "assetId",
+      "componentId",
+      "thresholdSetId",
+      "configurationVersion",
+      "observedValue",
+      "unit",
+      "sampleTime",
+      "qualityFlags",
+      "absoluteMargin",
+      "trendSlope",
+      "trendWindow",
+      "uncertainty",
+      "corroboratingSamples",
+      "loadAtMeasurement",
+      "conditionBand",
+      "recommendedActions",
+      "authorizedDisposition",
+      "decisionActor",
+      "decisionTime",
+      "eventId"
+    ],
+    "rules": [
+      "Thresholds are versioned for the installed equipment and configuration; replacing a component may change its accepted envelope.",
+      "Trend warnings can occur before an absolute limit is crossed.",
+      "Noise, uncertainty, sample rate, load, ambient conditions, and sensor health affect confidence.",
+      "A limit crossing triggers the configured response for that system, not a universal global shutdown.",
+      "If a value is unknown, the system preserves unknown and records the action taken under uncertainty.",
+      "Command may accept explicitly bounded risk only where the equipment contract allows it; acceptance is attributed, time-limited, and reviewable."
+    ]
+  },
+  "maintenanceDecision": {
+    "requiredWorkItemFields": [
+      "workItemId",
+      "assetId",
+      "componentRefs",
+      "observedEvidenceRefs",
+      "conditionBand",
+      "hazardAssessment",
+      "operationalImpact",
+      "requiredQualifications",
+      "toolsAndConsumables",
+      "sparesAndMaterialLots",
+      "isolationPlanRef",
+      "accessRequirements",
+      "estimatedDuration",
+      "workPriority",
+      "riskAcceptanceRef",
+      "verificationPlan",
+      "acceptanceAuthority",
+      "statusHistory"
+    ],
+    "dispositions": [
+      "continue-monitoring",
+      "increase-sampling",
+      "derate",
+      "redistribute-load",
+      "inspect",
+      "repair-in-place",
+      "replace-component",
+      "isolate-equipment",
+      "remove-from-service",
+      "accept-bounded-risk",
+      "request-specialist-support"
+    ],
+    "lifecycle": [
+      "evidence-captured",
+      "triaged",
+      "authorized",
+      "resources-reserved",
+      "isolation-planned",
+      "isolated-and-verified",
+      "work-in-progress",
+      "inspection-pending",
+      "testing-pending",
+      "acceptance-pending",
+      "restoration-pending",
+      "returned-to-service",
+      "deferred-with-authority",
+      "cancelled-with-reason"
+    ],
+    "rules": [
+      "A work-board card projects an authoritative work item; moving a card does not itself isolate, repair, or restore equipment.",
+      "The required qualification must be valid for the actual work and current equipment configuration.",
+      "Parts must be available, correct, inspected, and traceable; a generic inventory count is not enough.",
+      "Repair completion is not return to service until inspection, tests, calibration where applicable, and authorized acceptance are recorded.",
+      "A temporary repair, bypass, or deferred defect remains visible to future watches and survives crew changes."
+    ]
+  },
+  "lockoutTagout": {
+    "gameplayIntent": "Intentionally bureaucratic, fussy, and interruption-prone when a job warrants full LOTO. The friction comes from real sources, verification, custody, people, records, and restoration dependencies—not arbitrary wait timers.",
+    "procedureStages": [
+      {
+        "id": "loto.scope",
+        "steps": [
+          "confirm-work-scope-and-boundary",
+          "match-asset-identity-to-drawings",
+          "identify-all-energy-sources",
+          "trace-normal-and-alternate-feeds",
+          "identify-remote-or-automatic-start-paths",
+          "identify-stored-and-reaccumulating-energy",
+          "identify-affected-personnel",
+          "notify-operations-and-adjacent-work-groups"
+        ]
+      },
+      {
+        "id": "loto.shutdown",
+        "steps": [
+          "obtain-shutdown-authority",
+          "place-system-in-defined-safe-state",
+          "stop-normal-operation",
+          "confirm-load-transfer-or-dependent-system-impact",
+          "record-pre-isolation-condition"
+        ]
+      },
+      {
+        "id": "loto.isolation",
+        "steps": [
+          "operate-each-physical-isolation-point",
+          "verify-isolator-identity-and-position",
+          "apply-individual-personal-lock",
+          "apply-readable-identity-and-contact-tag",
+          "record-lock-key-custody",
+          "install-group-lockbox-when-required",
+          "isolate-remote-command-and-automatic-restart",
+          "block-or-release-stored-energy"
+        ]
+      },
+      {
+        "id": "loto.prove",
+        "steps": [
+          "select-rated-and-valid-verification-instrument",
+          "check-instrument-before-use",
+          "test-for-zero-energy-at-defined-points",
+          "check-all-required-conductors-or-energy-paths",
+          "verify-pressure-motion-temperature-or-other-hazard-specific-state",
+          "recheck-instrument-after-test",
+          "attempt-safe-start-where-authorized",
+          "record-test-location-time-result-and-operator",
+          "wait-or-repeat-measurement-if-energy-can-reaccumulate"
+        ]
+      },
+      {
+        "id": "loto.work",
+        "steps": [
+          "brief-team-on-boundary-and-residual-hazards",
+          "confirm-all-workers-protected-by-locking-arrangement",
+          "release-work-permit",
+          "perform-authorized-work",
+          "record-scope-change-and-stop-if-boundary-changes",
+          "maintain-control-of-tools-parts-and-contamination"
+        ]
+      },
+      {
+        "id": "loto.clear",
+        "steps": [
+          "inspect-work-and-repair",
+          "account-for-workers-tools-and-temporary-equipment",
+          "replace-guards-and-close-access-panels",
+          "verify-no-person-remains-in-danger-zone",
+          "obtain-independent-check-where-required",
+          "close-or-revise-work-permit"
+        ]
+      },
+      {
+        "id": "loto.restore",
+        "steps": [
+          "each-person-removes-own-lock-under-authorized-rule",
+          "resolve-absent-worker-lock-through-formal-exception",
+          "confirm-all-isolations-and-bypasses-accounted-for",
+          "restore-energy-source-by-source-in-defined-order",
+          "watch-for-leaks-vibration-current-temperature-or-unexpected-motion",
+          "verify-control-and-protection-functions",
+          "record-return-to-service-acceptance",
+          "notify-affected-crew-and-close-watch-actions"
+        ]
+      }
+    ],
+    "stateFields": [
+      "lotoJobId",
+      "workItemId",
+      "assetId",
+      "boundaryVersion",
+      "energySourceRefs",
+      "isolationPointRefs",
+      "lockRecords",
+      "tagRecords",
+      "lockCustody",
+      "workerAcknowledgements",
+      "instrumentAndCalibration",
+      "verificationReadings",
+      "storedEnergyChecks",
+      "permitRef",
+      "workScopeRevision",
+      "clearanceEvidence",
+      "exceptionAuthority",
+      "restorationSequence",
+      "acceptanceEvidence",
+      "auditEvents"
+    ],
+    "blockingConditions": [
+      "unidentified-or-untraced-energy-source",
+      "wrong-asset-or-isolator-identity",
+      "required-personal-lock-missing",
+      "tag-does-not-match-lock-owner",
+      "group-lockbox-custody-incomplete",
+      "verification-instrument-invalid",
+      "zero-energy-test-failed",
+      "stored-energy-can-reaccumulate",
+      "worker-or-tool-not-accounted-for",
+      "work-scope-changed-after-isolation",
+      "required-qualification-expired",
+      "return-to-service-test-failed"
+    ],
+    "deliberateFriction": [
+      "A stale diagram sends the engineer to trace a hidden alternate feed before the permit can be approved.",
+      "The wrong meter range or overdue calibration invalidates the verification attempt and requires a valid instrument.",
+      "A second worker cannot begin exposed work until their personal protection is represented in the lock arrangement.",
+      "A shift change requires an explicit lock-transfer and handover record; the incoming crew cannot simply inherit an invisible lock.",
+      "Stored pressure, heat, capacitor charge, suspended load, or remote command may require separate proof and repeat verification.",
+      "A missing worker's lock requires a formal exception with authority, evidence, contact attempts, and a permanent audit event.",
+      "A scope change invalidates only the affected assumptions and requires re-assessment, not a magic full reset or silent continuation.",
+      "The restoration sequence can expose leaks, vibration, wrong rotation, sensor disagreement, or a downstream trip, sending the work back to diagnosis."
+    ],
+    "noMagicRules": [
+      "A checkbox, status lamp, software command, or tag alone does not prove physical energy isolation.",
+      "The lock prevents a defined operation; the tag communicates identity, ownership, warning, and intent.",
+      "Verification must use a suitable instrument at the defined point and retain its calibration and test evidence.",
+      "No single generic zero-energy boolean replaces source-by-source isolation and hazard-specific verification.",
+      "Emergency exceptions are possible only through explicit authority, recorded evidence, and consequences; they are not an ordinary skip button.",
+      "LOTO depth scales with hazard and work scope so routine low-risk tasks do not inherit irrelevant bureaucracy."
+    ]
+  },
+  "eventAndHistory": {
+    "everyProcedureStepProducesAuditableEvent": true,
+    "preserveFailedAttempts": true,
+    "preserveTemporaryBypassesAndDeferrals": true,
+    "retainOriginalReadingsAndProcedureVersions": true,
+    "consequencesMayInclude": [
+      "equipment-derating",
+      "missed-maintenance-debt",
+      "injury",
+      "equipment-damage",
+      "qualification-review",
+      "command-notification",
+      "investigation",
+      "trust-change",
+      "return-to-service-delay"
+    ],
+    "eventFields": [
+      "eventId",
+      "actorId",
+      "assetId",
+      "procedureId",
+      "procedureVersion",
+      "stepId",
+      "simulationTime",
+      "inputSource",
+      "preconditions",
+      "observedState",
+      "actionResult",
+      "evidenceRefs",
+      "authorizationRef",
+      "relatedWorkItemId"
+    ]
+  },
+  "validationGates": [
+    "A watch round records physical observations and retains raw logger provenance.",
+    "Threshold assessment includes uncertainty, load, configuration version, and trend history.",
+    "Approaching a limit can trigger action before an absolute limit is crossed.",
+    "Unknown or invalid measurements are never silently treated as normal.",
+    "Maintenance work connects observed evidence to qualifications, materials, isolation, verification, and acceptance.",
+    "Every required energy source has a traceable isolation and verification path.",
+    "Personal locks, tags, custody, zero-energy tests, work clearance, and staged restoration are distinct records.",
+    "A shift change preserves open jobs, lock ownership, temporary repairs, bypasses, and unresolved hazards.",
+    "A failed LOTO attempt persists and can cause a real operational delay without random waiting.",
+    "The player cannot bypass physical safety conditions by manipulating a board card or UI checkbox.",
+    "Illustrative procedure data does not claim to be a real-world safety manual or replace actual safety training."
+  ],
+  "openQuestions": [
+    "Which engineering subsystems should be the first playable threshold task: reactor cooling, power distribution, propulsion, life support, or mech actuators?",
+    "Which risk and simulation-fidelity tiers determine full versus abbreviated LOTO?",
+    "How much watch-round workload should be directly playable versus delegated to qualified NPC crew?"
+  ]
+}

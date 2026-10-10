@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "raWWar.campaign-history-discoveries.v1",
+  "status": "candidate-content-and-interaction-contract",
+  "purpose": "Represent history that can be discovered through physical places and artifacts, while allowing archives to contain far more information than a mission exposes at once.",
+  "principles": [
+    "A discovery is an interaction with a persistent world object or record, not a detached lore collectible.",
+    "The archive's full information capacity is distinct from the portion currently decoded, authorized, indexed, or surfaced to the player.",
+    "Records can be incomplete, redundant, contradictory, encrypted, damaged, forged, politically edited, or accurate but misunderstood.",
+    "A record's existence, its contents, the source's reliability, the player's interpretation, and its political consequences are separate facts.",
+    "The player may preserve, copy, suppress, alter, leak, trade, or destroy information where the world and their access permit it.",
+    "A discovery can alter objectives, diplomatic leverage, faction trust, legal claims, research, or future campaign events.",
+    "Archives must never require the player to read an entire civilization's history to continue the mission."
+  ],
+  "recordKinds": [
+    "command-log",
+    "personal-memory",
+    "crew-roster",
+    "sensor-record",
+    "maintenance-history",
+    "damage-assessment",
+    "navigation-and-transit-log",
+    "scientific-observation",
+    "manufacturing-record",
+    "supply-and-cargo-manifest",
+    "legal-decree",
+    "political-correspondence",
+    "propaganda-broadcast",
+    "civilian-testimony",
+    "medical-and-casualty-record",
+    "black-box-reconstruction",
+    "cultural-artifact",
+    "sealed-archive-index"
+  ],
+  "recordFields": [
+    "recordId",
+    "sourceEntityId",
+    "sourceEventIds",
+    "creationTime",
+    "recordedTime",
+    "lastModifiedTime",
+    "authorOrOriginConfidence",
+    "integrityState",
+    "accessState",
+    "languageOrEncoding",
+    "contentRefs",
+    "redactionAndForgeryEvidence",
+    "corroboratingRecordRefs",
+    "contradictingRecordRefs",
+    "interpretationRefs",
+    "knownToEntities",
+    "playerKnowledgeState",
+    "custodyHistory",
+    "politicalAndOperationalConsequences"
+  ],
+  "integrityStates": [
+    "intact",
+    "degraded",
+    "fragmentary",
+    "reconstructed",
+    "tampered",
+    "forged",
+    "unknown"
+  ],
+  "accessStates": [
+    "unnoticed",
+    "detected",
+    "physically-inaccessible",
+    "requires-power",
+    "requires-repair",
+    "requires-credentials",
+    "requires-translation",
+    "partially-decoded",
+    "accessible",
+    "copied",
+    "destroyed"
+  ],
+  "discoveryLayers": [
+    {
+      "id": "layer.immediate",
+      "label": "Immediate evidence",
+      "description": "Visible damage, markings, bodies, equipment states, local environmental clues, and obvious records."
+    },
+    {
+      "id": "layer.operational",
+      "label": "Operational reconstruction",
+      "description": "Logs, maintenance records, sensor data, crew lists, cargo, event ordering, and physical cause-and-effect."
+    },
+    {
+      "id": "layer.historical",
+      "label": "Historical context",
+      "description": "How the event relates to older wars, lineages, political decisions, industrial systems, and previous discoveries."
+    },
+    {
+      "id": "layer.contested",
+      "label": "Contested interpretation",
+      "description": "Conflicting accounts, hidden orders, propaganda, missing evidence, and competing claims about what the evidence means."
+    },
+    {
+      "id": "layer.deep-archive",
+      "label": "Deep archive",
+      "description": "Large indexed bodies of records that can be queried by person, unit, system, time, location, event, material, institution, or claim."
+    }
+  ],
+  "archiveInteractionContract": {
+    "archiveCanRepresentVeryLargeRecordCollections": true,
+    "playerAccessIsProgressiveAndContextual": true,
+    "queriesCanReturnSummariesSourcesAndConflicts": true,
+    "everySummaryCanLinkToSupportingRecordsWhereAvailable": true,
+    "recordProvenanceMustNotBeDiscardedDuringSummarization": true,
+    "unknownAndConflictingEvidenceMustRemainVisible": true,
+    "fullArchiveDoesNotNeedToBeRenderedOrLoadedAtOnce": true,
+    "accessAndDecodingCanBeSimulatedAsWork": true
+  },
+  "illustrativeDiscovery": {
+    "id": "discovery.example.derelict-battle-memory",
+    "canonStatus": "illustrative-not-canon",
+    "locationKind": "abandoned-warship-in-a-persistent-debris-field",
+    "initialEvidence": [
+      "The wreck's external damage does not match the victorious faction's published account.",
+      "The ship's power and data buses are damaged, and the archive is not immediately available.",
+      "A maintenance record suggests a failure began before the final engagement.",
+      "A damaged crew roster indicates civilian specialists were aboard despite the official mission classification."
+    ],
+    "workRequired": [
+      "Secure the wreck and establish a safe access route.",
+      "Restore limited power without energizing damaged systems unsafely.",
+      "Recover or bypass a damaged data backbone.",
+      "Reconstruct missing timestamps from independent clocks and sensor logs.",
+      "Translate or interpret obsolete technical and institutional terminology."
+    ],
+    "archiveReveals": [
+      "The ship's final hours across command, engineering, medical, navigation, and personal records.",
+      "A battle timeline assembled from records that disagree in detail.",
+      "Orders issued before the public declaration of hostilities.",
+      "A link to a colony evacuation, a missing fleet element, or a disputed succession claim.",
+      "The official history and the evidence that contradicts it."
+    ],
+    "possibleConsequences": [
+      "A faction's public justification loses credibility.",
+      "A forgotten colony becomes locatable or legally relevant.",
+      "A survivor lineage or unit tradition is identified.",
+      "Research unlocks a recovered method only after experts verify it and the required tools/materials exist.",
+      "The player may deliver the archive, leak selected records, conceal it, or leave it untouched."
+    ]
+  },
+  "presentationRules": [
+    "Do not expose all records in one unfiltered wall of text.",
+    "Present a navigable archive interface with search, time navigation, entity links, source provenance, confidence, and contradiction markers.",
+    "Use authored summaries as entry points, not replacements for underlying source records.",
+    "Allow deep dives without making the entire archive mandatory.",
+    "Keep the fictional archive's breadth apparent through indices, cross-references, record counts, unavailable branches, and meaningful search results—not fabricated claims that every possible record exists.",
+    "The same archive should be discoverable again later with additional records, interpretations, or access permissions."
+  ]
+}

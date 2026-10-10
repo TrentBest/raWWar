@@ -1,0 +1,104 @@
+{
+  "schema": "raWWar.resource.v1",
+  "resources": [
+    {
+      "id": "resource.iron_ore",
+      "name": "Iron Ore",
+      "class": "raw_mineral",
+      "forms": ["ore"],
+      "uses": ["steel", "structural_alloy", "machine_components"],
+      "extraction": "surface_mine",
+      "notes": "Common industrial feedstock. High-volume, low-prestige, strategically essential."
+    },
+    {
+      "id": "resource.titanium_ore",
+      "name": "Titanium Ore",
+      "class": "raw_mineral",
+      "forms": ["ore"],
+      "uses": ["aerospace_alloy", "armor", "pressure_vessels"],
+      "extraction": "open_pit_or_deep_mine",
+      "notes": "Light, strong and valuable for aircraft, spacecraft and high-performance structures."
+    },
+    {
+      "id": "resource.silicate",
+      "name": "Silicate Aggregate",
+      "class": "raw_mineral",
+      "forms": ["aggregate", "sand"],
+      "uses": ["plascrete", "glass", "ceramics", "road_foundations"],
+      "extraction": "quarry",
+      "notes": "Bulky and cheap. Transport distance strongly affects construction economics."
+    },
+    {
+      "id": "resource.carbon_feedstock",
+      "name": "Carbon Feedstock",
+      "class": "chemical",
+      "forms": ["slurry", "pellet", "fiber_precursor"],
+      "uses": ["polymers", "composites", "lubricants", "propellant_components"],
+      "extraction": "chemical_extraction",
+      "notes": "Industrial carbon stream used across civilian and military production."
+    },
+    {
+      "id": "resource.rare_earth_concentrate",
+      "name": "Rare-Earth Concentrate",
+      "class": "strategic_mineral",
+      "forms": ["concentrate"],
+      "uses": ["sensors", "motors", "guidance", "power_electronics"],
+      "extraction": "specialized_mine",
+      "notes": "Low-volume resource with disproportionate influence on advanced systems."
+    },
+    {
+      "id": "resource.fissile_feedstock",
+      "name": "Fissile Feedstock",
+      "class": "strategic_energy",
+      "forms": ["ore", "refined_fuel"],
+      "uses": ["reactor_fuel"],
+      "extraction": "secure_mine",
+      "notes": "Strategically controlled because energy infrastructure depends on it."
+    },
+    {
+      "id": "resource.ice",
+      "name": "Water Ice",
+      "class": "volatile",
+      "forms": ["ice", "water"],
+      "uses": ["life_support", "cooling", "propellant", "industrial_process"],
+      "extraction": "ice_mining",
+      "notes": "Especially valuable away from temperate worlds."
+    },
+    {
+      "id": "resource.hydrogen",
+      "name": "Hydrogen",
+      "class": "volatile",
+      "forms": ["gas", "liquid"],
+      "uses": ["fusion_fuel", "chemical_propulsion", "industrial_process"],
+      "extraction": "atmospheric_or_ice_processing",
+      "notes": "A major interplanetary energy and propulsion feedstock."
+    },
+    {
+      "id": "resource.plascrete_mix",
+      "name": "PlasCrete Mix",
+      "class": "refined_material",
+      "forms": ["wet_mix", "cured"],
+      "derivedFrom": ["resource.silicate", "resource.carbon_feedstock"],
+      "uses": ["foundations", "walls", "roads", "support_layers"],
+      "notes": "The ordinary material of bases. Cheap, massive and everywhere."
+    },
+    {
+      "id": "resource.aerospace_alloy",
+      "name": "Aerospace Alloy",
+      "class": "refined_material",
+      "forms": ["plate", "beam", "machined_stock"],
+      "derivedFrom": ["resource.titanium_ore", "resource.iron_ore"],
+      "uses": ["vehicles", "aircraft", "spacecraft", "pressure_structures"],
+      "notes": "High-value structural material."
+    },
+    {
+      "id": "resource.refined_reactor_fuel",
+      "name": "Refined Reactor Fuel",
+      "class": "energy_carrier",
+      "forms": ["fuel_element"],
+      "derivedFrom": ["resource.fissile_feedstock"],
+      "uses": ["reactor_core"],
+      "notes": "A keyed logistics product. It is not interchangeable with ordinary fuel."
+    }
+  ]
+}

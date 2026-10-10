@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+<title id="title">raWWar authored campaigns and civilization lineage</title>
+<desc id="desc">Single-player campaigns pin important history and permit controlled variation; multiplayer generates a reproducible world. Both flow through the same validation, simulation, and persistence contract. A shared human civilization can branch through colonies, secession, and successor states.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071629"/><stop offset="1" stop-color="#102d47"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#123653"/><stop offset="1" stop-color="#17304a"/></linearGradient>
+  <style>
+    .title{font:700 32px 'Segoe UI',Arial,sans-serif;fill:#f0f7ff;letter-spacing:1px}
+    .sub{font:16px 'Segoe UI',Arial,sans-serif;fill:#a9c6dd}
+    .head{font:700 19px 'Segoe UI',Arial,sans-serif;fill:#f0f7ff}
+    .body{font:15px 'Segoe UI',Arial,sans-serif;fill:#c6d8e7}
+    .small{font:13px 'Segoe UI',Arial,sans-serif;fill:#a9c6dd}
+    .cyan{stroke:#67d7e8}.gold{stroke:#efc66d}.green{stroke:#8fe0b4}
+    .line{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .node{fill:url(#panel);stroke:#3c607d;stroke-width:1.5}
+  </style>
+</defs>
+<rect width="1400" height="820" rx="22" fill="url(#bg)"/>
+<g opacity=".22" fill="#8cc7e5"><circle cx="92" cy="116" r="2"/><circle cx="270" cy="72" r="1.5"/><circle cx="1288" cy="120" r="2"/><circle cx="1180" cy="210" r="1.5"/><circle cx="90" cy="650" r="2"/><circle cx="1320" cy="700" r="2"/><circle cx="650" cy="760" r="1.5"/></g>
+<text x="56" y="65" class="title">ONE GALAXY MODEL · TWO CREATION PATHS</text>
+<text x="58" y="96" class="sub">Curated campaign history or seeded multiplayer generation — validated by the same rules</text>
+<rect x="58" y="130" width="610" height="150" rx="16" class="node" stroke="#67d7e8"/>
+<text x="84" y="166" class="head">SINGLE-PLAYER · AUTHOR AND CURATE</text>
+<text x="84" y="198" class="body">Pin important systems, founders, events, ownership</text>
+<text x="84" y="222" class="body">Constrain the rest · permit deliberate variation</text>
+<text x="84" y="250" class="small">Manifest + stable references + campaign history</text>
+<rect x="732" y="130" width="610" height="150" rx="16" class="node" stroke="#efc66d"/>
+<text x="758" y="166" class="head">MULTIPLAYER · GENERATE AND VALIDATE</text>
+<text x="758" y="198" class="body">Seeded systems, settlements, resources, lineages</text>
+<text x="758" y="222" class="body">Check reachability, chronology, coherence, fairness</text>
+<text x="758" y="250" class="small">Seed + generator version + scenario constraints</text>
+<path d="M363 280 V326 H700 V356 M1037 280 V326 H700" class="line cyan"/>
+<path d="M692 345 L700 357 L708 345" class="line cyan"/>
+<rect x="360" y="357" width="680" height="105" rx="16" class="node" stroke="#8fe0b4"/>
+<text x="700" y="394" text-anchor="middle" class="head">SHARED WORLD CONTRACT</text>
+<text x="700" y="423" text-anchor="middle" class="body">Stable identity · physical constraints · causal chronology · versioned generation</text>
+<text x="700" y="446" text-anchor="middle" class="small">Initial conditions are reproducible; lived consequences are persistent</text>
+<path d="M700 462 V500" class="line green"/><path d="M692 490 L700 502 L708 490" class="line green"/>
+<rect x="435" y="503" width="530" height="78" rx="14" class="node" stroke="#8fe0b4"/>
+<text x="700" y="535" text-anchor="middle" class="head">SIMULATION → EVENTS → HISTORY</text>
+<text x="700" y="558" text-anchor="middle" class="small">The world remembers what happened after play begins</text>
+<path d="M700 581 V610" class="line gold"/>
+<text x="700" y="640" text-anchor="middle" class="head">CIVILIZATION LINEAGE IS A GRAPH</text>
+<rect x="72" y="672" width="280" height="82" rx="12" class="node" stroke="#67d7e8"/>
+<text x="212" y="705" text-anchor="middle" class="head">Older civilization</text><text x="212" y="730" text-anchor="middle" class="small">Shared origin · institutions</text>
+<rect x="560" y="672" width="280" height="82" rx="12" class="node" stroke="#67d7e8"/>
+<text x="700" y="705" text-anchor="middle" class="head">Colony network</text><text x="700" y="730" text-anchor="middle" class="small">Distance · local industry</text>
+<rect x="1048" y="672" width="280" height="82" rx="12" class="node" stroke="#efc66d"/>
+<text x="1188" y="705" text-anchor="middle" class="head">Successor faction</text><text x="1188" y="730" text-anchor="middle" class="small">Selective heritage · divergence</text>
+<path d="M352 713 H560 M840 713 H1048" class="line cyan"/>
+<path d="M548 705 L560 713 L548 721 M1036 705 L1048 713 L1036 721" class="line cyan"/>
+</svg>

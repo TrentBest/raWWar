@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "raWWar.campaign-galaxy-manifests.v1",
+  "status": "candidate-authoring-contract",
+  "purpose": "Separate deliberately authored single-player galaxy scenarios from automatically generated multiplayer worlds while preserving a shared world-generation and simulation contract.",
+  "designRule": "A campaign manifest composes a galaxy from stable references, authored constraints, deterministic generation, and scenario events. It is not a second physics engine.",
+  "modes": {
+    "singlePlayer": {
+      "generationPolicy": "authored-and-curated",
+      "mayPin": [
+        "galacticRegions",
+        "starSystems",
+        "homeworlds",
+        "colonies",
+        "civilizationLineages",
+        "factionStartingPositions",
+        "historicalEvents",
+        "ownershipAndClaims",
+        "initialDiplomaticConditions",
+        "knownAndUnknownInformation",
+        "campaignObjectives",
+        "permittedProceduralVariation"
+      ],
+      "mustPreserve": [
+        "stable entity addresses",
+        "causal chronology",
+        "physical and travel constraints",
+        "lineage consistency",
+        "campaign continuity",
+        "persistent consequences after play begins"
+      ]
+    },
+    "multiplayer": {
+      "generationPolicy": "automatic-and-seed-reproducible",
+      "mustUseSameWorldContract": true,
+      "mayGenerate": [
+        "galacticStructure",
+        "starSystems",
+        "settlementDistribution",
+        "civilizationLineages",
+        "factionStartingPositions",
+        "initialResourceDistribution",
+        "initialPoliticalRelationships"
+      ],
+      "mustValidate": [
+        "playable reachability",
+        "travel and logistics feasibility",
+        "resource and industrial plausibility",
+        "chronological lineage consistency",
+        "starting-condition fairness under selected game mode",
+        "stable deterministic generation"
+      ]
+    }
+  },
+  "manifestFields": [
+    "campaignId",
+    "manifestVersion",
+    "displayName",
+    "canonStatus",
+    "worldSeed",
+    "galaxyGeneratorVersion",
+    "simulationModelVersion",
+    "historicalEpoch",
+    "authoredEntityRefs",
+    "authoredLineageRefs",
+    "pinnedEvents",
+    "generationConstraints",
+    "permittedVariation",
+    "startingKnowledgeProfiles",
+    "scenarioEntryConditions",
+    "validationProfile",
+    "saveCompatibilityPolicy"
+  ],
+  "authorshipControls": {
+    "pin": "Keep a selected entity, relationship, event, or property fixed across runs.",
+    "constrain": "Require generated content to satisfy a declared rule or range.",
+    "seed": "Allow reproducible variation while retaining stable results for the same version and seed.",
+    "override": "Replace a generated candidate with an authored value and record why.",
+    "validate": "Check structural, physical, temporal, narrative, and gameplay constraints before accepting the galaxy.",
+    "bake": "Cache derived immutable or versioned content; never bake away persistent mutable history."
+  },
+  "validationGates": [
+    "All references resolve and stable IDs are unique.",
+    "Lineage relationships have valid endpoints and chronological support.",
+    "Colonies have plausible founding windows, origins, travel paths, and logistics context.",
+    "No faction appears before its founding event unless the timeline explicitly defines an earlier predecessor.",
+    "Pinned campaign facts remain fixed under permitted procedural variation.",
+    "Generated variations do not invalidate mandatory story events or objectives.",
+    "Initial positions and resources satisfy the chosen scenario's stated fairness model.",
+    "Generated data can be reproduced from the declared seed and version.",
+    "A save records the manifest, generation, and simulation versions required to reconstruct its initial conditions."
+  ],
+  "exampleCampaign": {
+    "campaignId": "campaign.example.frontier-succession",
+    "displayName": "Frontier Succession — Illustrative Authoring Example",
+    "canonStatus": "illustrative-not-canon",
+    "worldSeed": "author-supplied-seed",
+    "galaxyGeneratorVersion": "1",
+    "simulationModelVersion": "1",
+    "pinnedFacts": [
+      "An older civilization established a remote colony network.",
+      "A colony's industrial and political center became separated from its origin by a long supply and communication chain.",
+      "A succession crisis and interrupted support contributed to the colony network's eventual independence.",
+      "The successor faction retains selected engineering standards and cultural practices but develops distinct ship architecture and doctrine.",
+      "The former parent civilization disputes the successor's account of independence."
+    ],
+    "permittedVariation": [
+      "minor system locations within authored regional bounds",
+      "nonessential settlements and resource deposits",
+      "which historical documents survive",
+      "secondary factions and their initial local interests"
+    ],
+    "warning": "This example demonstrates authoring structure only; it does not establish a named faction, fixed history, or campaign canon."
+  },
+  "openQuestions": [
+    "Which campaigns should share a common historical canon, and which may define alternate histories?",
+    "Which scenario facts are mandatory, optional, hidden, or player-discoverable?",
+    "How should authored manifests be composed, inherited, versioned, and distributed as MicroBundles?",
+    "What is the chosen balance policy for automatically generated multiplayer starts?"
+  ]
+}

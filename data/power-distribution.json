@@ -1,0 +1,409 @@
+{
+  "schema": "raWWar.power-distribution.v1",
+  "rule": "Generation capacity, connected load, coincident peak, starting transient, feeder capacity, voltage class, protection, reserve, backup duration and heat rejection are distinct constraints. A nameplate MW total does not prove every consumer can start or survive a fault.",
+  "equipment": [
+    {
+      "id": "power.distribution.transformer_medium_voltage_v1",
+      "name": "Medium-Voltage Step-Down Transformer",
+      "class": "transformer",
+      "ratingKVA": 25000,
+      "primaryKV": 13.8,
+      "secondaryKV": 0.6,
+      "lossModel": "load_and_temperature_dependent",
+      "cooling": "liquid_or_forced_air_by_configuration",
+      "failureModes": [
+        "insulation_degradation",
+        "cooling_loss",
+        "winding_fault",
+        "bushing_failure"
+      ],
+      "maintenance": [
+        "oil_or_coolant_sample",
+        "insulation_test",
+        "turns_ratio_test",
+        "thermal_scan"
+      ],
+      "requires": [
+        "foundation",
+        "earthing_grid",
+        "upstream_protection",
+        "downstream_switchgear"
+      ]
+    },
+    {
+      "id": "power.distribution.feeder_switchgear_v1",
+      "name": "Medium-Voltage Feeder Switchgear",
+      "class": "switchgear",
+      "ratingA": 2000,
+      "voltageKV": 13.8,
+      "protection": [
+        "overcurrent",
+        "earth_fault",
+        "undervoltage",
+        "breaker_failure"
+      ],
+      "failureModes": [
+        "breaker_fail_to_trip",
+        "relay_miscoordination",
+        "bus_fault",
+        "hot_joint"
+      ],
+      "maintenance": [
+        "breaker_timing_test",
+        "primary_or_secondary_injection",
+        "contact_resistance_test",
+        "interlock_test"
+      ],
+      "requires": [
+        "qualified_electrician",
+        "protection_settings",
+        "arc_zone_access_controls"
+      ]
+    },
+    {
+      "id": "power.distribution.sectionalizer_v1",
+      "name": "Bus Sectionalizer and Tie Breaker",
+      "class": "switchgear",
+      "ratingA": 4000,
+      "voltageKV": 0.6,
+      "functions": [
+        "split_bus_sections",
+        "alternate_feed_transfer",
+        "isolate_faulted_section"
+      ],
+      "failureModes": [
+        "tie_closed_into_fault",
+        "interlock_failure",
+        "position_feedback_disagreement"
+      ],
+      "maintenance": [
+        "mechanical_interlock_test",
+        "electrical_interlock_test",
+        "transfer_sequence_test"
+      ],
+      "requires": [
+        "independent_feeder_or_bus_section",
+        "verified_protection_coordination"
+      ]
+    },
+    {
+      "id": "power.distribution.facility_panelboard_v1",
+      "name": "Facility Low-Voltage Panelboard",
+      "class": "distribution_panel",
+      "ratingA": 800,
+      "voltageKV": 0.4,
+      "functions": [
+        "branch_circuit_protection",
+        "load_group_isolation",
+        "local_metering"
+      ],
+      "failureModes": [
+        "overload",
+        "loose_termination",
+        "wrong_circuit_label",
+        "breaker_failure"
+      ],
+      "maintenance": [
+        "torque_check",
+        "thermal_scan",
+        "circuit_schedule_audit",
+        "breaker_test"
+      ],
+      "requires": [
+        "upstream_feeder",
+        "earthing",
+        "circuit_schedule"
+      ]
+    },
+    {
+      "id": "power.distribution.ups_online_v1",
+      "name": "Online UPS and Static Transfer Module",
+      "class": "uninterruptible_power",
+      "ratingKW": 1200,
+      "backupMinutes": 15,
+      "functions": [
+        "ride_through",
+        "conditioned_output",
+        "static_transfer",
+        "event_logging"
+      ],
+      "failureModes": [
+        "battery_degradation",
+        "inverter_fault",
+        "static_switch_fault",
+        "overload"
+      ],
+      "maintenance": [
+        "battery_capacity_test",
+        "transfer_test",
+        "inverter_load_test",
+        "alarm_test"
+      ],
+      "requires": [
+        "battery_room_or_enclosure",
+        "thermal_management",
+        "maintenance_bypass_procedure"
+      ]
+    },
+    {
+      "id": "power.distribution.battery_bank_v1",
+      "name": "Modular Battery Energy Store",
+      "class": "energy_storage",
+      "energyMWh": 2.5,
+      "maxDischargeMW": 1.2,
+      "roundTripEfficiency": 0.88,
+      "functions": [
+        "black_start_support",
+        "peak_shaving",
+        "transient_support",
+        "critical_load_backup"
+      ],
+      "failureModes": [
+        "cell_imbalance",
+        "thermal_event",
+        "capacity_fade",
+        "contactor_fault"
+      ],
+      "maintenance": [
+        "cell_voltage_trend",
+        "insulation_test",
+        "capacity_test",
+        "thermal_monitoring"
+      ],
+      "requires": [
+        "battery_management_system",
+        "fire_detection",
+        "thermal_runaway_response",
+        "isolation_contactor"
+      ]
+    },
+    {
+      "id": "power.distribution.protection_relay_v1",
+      "name": "Configurable Protection Relay",
+      "class": "protection_and_control",
+      "drawW": 35,
+      "functions": [
+        "overcurrent_trip",
+        "earth_fault_trip",
+        "undervoltage_trip",
+        "event_recording",
+        "settings_group"
+      ],
+      "failureModes": [
+        "settings_mismatch",
+        "current_transformer_mapping_error",
+        "trip_output_fault",
+        "clock_drift"
+      ],
+      "maintenance": [
+        "secondary_injection_test",
+        "trip_path_test",
+        "settings_checksum",
+        "event_replay"
+      ],
+      "requires": [
+        "approved_protection_study",
+        "qualified_protection_engineer"
+      ]
+    },
+    {
+      "id": "power.distribution.feeder_cable_route_v1",
+      "name": "Armored Feeder Cable and Utility Corridor",
+      "class": "physical_distribution_route",
+      "capacityA": 1600,
+      "voltageKV": 13.8,
+      "routeAttributes": [
+        "length",
+        "burial_depth",
+        "thermal_resistivity",
+        "shared_corridor",
+        "flood_exposure",
+        "fire_separation",
+        "access_points"
+      ],
+      "failureModes": [
+        "excavation_damage",
+        "water_ingress",
+        "joint_failure",
+        "shared_corridor_casualty"
+      ],
+      "maintenance": [
+        "route_walkdown",
+        "joint_inspection",
+        "insulation_test",
+        "thermal_or_load_review"
+      ],
+      "requires": [
+        "surveyed_route",
+        "access_rights",
+        "separation_from_other_services"
+      ]
+    },
+    {
+      "id": "power.distribution.load_shed_controller_v1",
+      "name": "Priority Load-Shedding Controller",
+      "class": "power_management",
+      "drawW": 65,
+      "functions": [
+        "frequency_or_voltage_response",
+        "priority_group_shed",
+        "restoration_sequence",
+        "event_record"
+      ],
+      "priorityGroups": [
+        "life_safety",
+        "control_and_protection",
+        "life_support",
+        "essential_operations",
+        "production",
+        "comfort_and_nonessential"
+      ],
+      "failureModes": [
+        "bad_priority_map",
+        "simultaneous_restart_surge",
+        "stale_measurement",
+        "unintended_load_trip"
+      ],
+      "maintenance": [
+        "load_bank_simulation",
+        "priority_map_review",
+        "black_start_drill",
+        "restoration_sequence_test"
+      ],
+      "requires": [
+        "metering",
+        "contactor_or_breaker_interfaces",
+        "approved_priority_policy"
+      ]
+    },
+    {
+      "id": "power.distribution.grounding_and_bonding_v1",
+      "name": "Grounding and Equipotential Bonding Network",
+      "class": "electrical_safety",
+      "functions": [
+        "fault_current_path",
+        "equipotential_bonding",
+        "surge_reference",
+        "shield_termination"
+      ],
+      "failureModes": [
+        "corroded_bond",
+        "broken_conductor",
+        "ground_loop",
+        "incorrect_isolation_bridge"
+      ],
+      "maintenance": [
+        "bond_continuity_test",
+        "earth_impedance_test",
+        "visual_inspection",
+        "as_built_route_audit"
+      ],
+      "requires": [
+        "site_specific_design",
+        "bonding_schedule",
+        "qualified_test_instrument"
+      ]
+    },
+    {
+      "id": "power.distribution.shipboard_zones_v1",
+      "name": "Shipboard Zoned Power Distribution",
+      "class": "shipboard_distribution",
+      "functions": [
+        "zoned_feeds",
+        "selective_isolation",
+        "alternate_feed",
+        "essential_loads",
+        "damage_control_reconfiguration"
+      ],
+      "failureModes": [
+        "common_mode_route_damage",
+        "protection_miscoordination",
+        "breaker_failure",
+        "incorrect_load_shed_order"
+      ],
+      "maintenance": [
+        "zone_isolation_drill",
+        "breaker_proof_test",
+        "alternate_feed_test",
+        "load_shed_drill"
+      ],
+      "requires": [
+        "compartment_boundaries",
+        "cable_penetration_seals",
+        "qualified_ship_electricians",
+        "current_configuration_diagram"
+      ]
+    }
+  ],
+  "architectures": [
+    {
+      "id": "architecture.base_medium_grid_v1",
+      "name": "Base Medium-Voltage Radial Grid with Sectionalized Ties",
+      "topology": "radial_feeders_with_normally_open_ties",
+      "designRules": [
+        "independent route where redundancy is claimed",
+        "critical loads separated from production loads",
+        "protection coordination per feeder",
+        "spare feeder capacity explicitly calculated",
+        "utility corridors are spatial assets"
+      ],
+      "degradedModes": [
+        "isolate_faulted_section",
+        "shed_nonessential_loads",
+        "route_compatible_loads_to_alternate_feeder"
+      ],
+      "commonModeRisks": [
+        "shared_trench",
+        "shared_substation",
+        "flooded_switchroom",
+        "single_control_power_source"
+      ]
+    },
+    {
+      "id": "architecture.command_center_dual_feed_v1",
+      "name": "Command Center Dual Feed and UPS",
+      "topology": "two_physically_diverse_feeders_plus_ups_and_backup_generation",
+      "designRules": [
+        "feeders must not share a vulnerable route",
+        "UPS bridges transfer but is not infinite energy",
+        "cooling and network paths also require redundancy",
+        "test failover without losing audit timebase"
+      ],
+      "degradedModes": [
+        "critical_console_only",
+        "shed_nonessential_compute",
+        "manual_dispatch",
+        "transfer_to_backup_control_room"
+      ],
+      "commonModeRisks": [
+        "shared_utility_tunnel",
+        "shared_cooling",
+        "shared_time_source",
+        "common_firmware_configuration"
+      ]
+    },
+    {
+      "id": "architecture.shipboard_zoned_bus_v1",
+      "name": "Shipboard Zoned Bus with Selective Isolation",
+      "topology": "sectionalized_zoned_bus_with_alternate_feeds",
+      "designRules": [
+        "damage boundaries align with electrical zones where feasible",
+        "cable penetrations are explicit damage paths",
+        "essential control and protection are independently supplied",
+        "restoration sequence respects motor-start and reactor constraints"
+      ],
+      "degradedModes": [
+        "isolate_damaged_zone",
+        "shed_nonessential_loads",
+        "degraded_propulsion",
+        "manual local control"
+      ],
+      "commonModeRisks": [
+        "adjacent-zone cable bundles",
+        "shared cooling loop",
+        "incorrect breaker coordination",
+        "crew unavailable to reconfigure"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="650" viewBox="0 0 1440 650" role="img" aria-labelledby="title desc">
+<title id="title">Fighter pilot station: secure, connect, raise, control</title>
+<desc id="desc">A conceptual sequence showing a fighter pilot occupying a station, being secured by restraints, connecting to the interface, raising the physical control rig, issuing bounded control intent, having the aircraft control law resolve the request, and retaining an emergency egress path.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071523"/><stop offset="1" stop-color="#102d43"/></linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#173b51"/><stop offset="1" stop-color="#0b2437"/></linearGradient>
+  <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4de3e8"/><stop offset="1" stop-color="#80f7cf"/></linearGradient>
+  <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#4de3e8"/></marker>
+  <style>
+    .eyebrow{font:600 14px 'Segoe UI',Arial,sans-serif;fill:#9ebdca;letter-spacing:2px}
+    .title{font:700 30px 'Segoe UI',Arial,sans-serif;fill:#effbff;letter-spacing:.5px}
+    .step{font:700 19px 'Segoe UI',Arial,sans-serif;fill:#effbff}
+    .body{font:15px 'Segoe UI',Arial,sans-serif;fill:#c4dbe5}
+    .small{font:13px 'Segoe UI',Arial,sans-serif;fill:#9ebdca}
+    .number{font:700 16px 'Segoe UI',Arial,sans-serif;fill:#071523}
+    .node{fill:url(#panel);stroke:#397187;stroke-width:1.5;rx:16}
+    .line{fill:none;stroke:#4de3e8;stroke-width:2.5;marker-end:url(#arrow)}
+  </style>
+</defs>
+<rect width="1440" height="650" fill="url(#bg)"/>
+<path d="M40 120 H1400" stroke="#2c5265"/>
+<text x="48" y="43" class="eyebrow">RAWWAR · CANDIDATE PRESENTATION / EXECUTABLE DOMAIN CONTRACT</text>
+<text x="48" y="86" class="title">THE STATION TAKES RESPONSIBILITY FOR THE PILOT</text>
+<text x="1390" y="44" class="small" text-anchor="end">NOT A RUNTIME SCREENSHOT</text>
+<g>
+  <rect class="node" x="28" y="158" width="180" height="220"/>
+  <circle cx="54" cy="185" r="15" fill="url(#cyan)"/><text x="54" y="191" class="number" text-anchor="middle">01</text>
+  <text x="48" y="226" class="step">Occupy</text>
+  <text x="48" y="257" class="body"><tspan x="48">Identify the person.</tspan><tspan x="48" dy="23">Check the role and</tspan><tspan x="48" dy="23">pilot qualification.</tspan></text>
+  <text x="48" y="349" class="small">Presence ≠ authority</text>
+  <path class="line" d="M208 268 H226"/>
+  <rect class="node" x="230" y="158" width="180" height="220"/>
+  <circle cx="256" cy="185" r="15" fill="url(#cyan)"/><text x="256" y="191" class="number" text-anchor="middle">02</text>
+  <text x="250" y="226" class="step">Secure</text>
+  <text x="250" y="257" class="body"><tspan x="250">Seat and restraints</tspan><tspan x="250" dy="23">engage around the</tspan><tspan x="250" dy="23">occupant.</tspan></text>
+  <text x="250" y="349" class="small">Restraint state is real</text>
+  <path class="line" d="M410 268 H428"/>
+  <rect class="node" x="432" y="158" width="180" height="220"/>
+  <circle cx="458" cy="185" r="15" fill="url(#cyan)"/><text x="458" y="191" class="number" text-anchor="middle">03</text>
+  <text x="452" y="226" class="step">Connect</text>
+  <text x="452" y="257" class="body"><tspan x="452">The pilot interface</tspan><tspan x="452" dy="23">connects to station</tspan><tspan x="452" dy="23">systems.</tspan></text>
+  <text x="452" y="349" class="small">Damage can block it</text>
+  <path class="line" d="M612 268 H630"/>
+  <rect class="node" x="634" y="158" width="180" height="220" stroke="url(#cyan)" stroke-width="2"/>
+  <circle cx="660" cy="185" r="15" fill="url(#cyan)"/><text x="660" y="191" class="number" text-anchor="middle">04</text>
+  <text x="654" y="226" class="step">Raise the rig</text>
+  <text x="654" y="257" class="body"><tspan x="654">The physical controls</tspan><tspan x="654" dy="23">move into position.</tspan><tspan x="654" dy="23">Hands meet grips.</tspan></text>
+  <text x="654" y="349" class="small">Visible state, not magic</text>
+  <path class="line" d="M814 268 H832"/>
+  <rect class="node" x="836" y="158" width="180" height="220"/>
+  <circle cx="862" cy="185" r="15" fill="url(#cyan)"/><text x="862" y="191" class="number" text-anchor="middle">05</text>
+  <text x="856" y="226" class="step">Express intent</text>
+  <text x="856" y="257" class="body"><tspan x="856">Desktop, VR, pad,</tspan><tspan x="856" dy="23">accessibility or NPC</tspan><tspan x="856" dy="23">shares one contract.</tspan></text>
+  <text x="856" y="349" class="small">Input stays bounded</text>
+  <path class="line" d="M1016 268 H1034"/>
+  <rect class="node" x="1038" y="158" width="180" height="220"/>
+  <circle cx="1064" cy="185" r="15" fill="url(#cyan)"/><text x="1064" y="191" class="number" text-anchor="middle">06</text>
+  <text x="1058" y="226" class="step">Resolve flight</text>
+  <text x="1058" y="257" class="body"><tspan x="1058">Control law checks</tspan><tspan x="1058" dy="23">aircraft state and</tspan><tspan x="1058" dy="23">physical limits.</tspan></text>
+  <text x="1058" y="349" class="small">Request ≠ movement</text>
+  <path class="line" d="M1218 268 H1236"/>
+  <rect class="node" x="1240" y="158" width="172" height="220" stroke="#e6bb59" stroke-width="1.5"/>
+  <circle cx="1266" cy="185" r="15" fill="#e6bb59"/><text x="1266" y="191" class="number" text-anchor="middle">07</text>
+  <text x="1260" y="226" class="step">Egress</text>
+  <text x="1260" y="257" class="body"><tspan x="1260">Emergency release</tspan><tspan x="1260" dy="23">works without</tspan><tspan x="1260" dy="23">station power.</tspan></text>
+  <text x="1260" y="349" class="small">Safety is explicit</text>
+</g>
+<rect x="48" y="426" width="1344" height="154" rx="18" fill="#0b2437" stroke="#2c5265" stroke-width="1.5"/>
+<text x="76" y="463" class="eyebrow">CONTROL-READY GATE</text>
+<text x="76" y="499" class="step">Qualified occupant</text><text x="76" y="527" class="body">+ restraints secured</text>
+<text x="342" y="499" class="step">+ interface connected</text><text x="342" y="527" class="body">+ rig raised</text>
+<text x="616" y="499" class="step">+ power available</text><text x="616" y="527" class="body">+ controls intact</text>
+<path d="M880 455 V551" stroke="#2c5265"/>
+<text x="914" y="482" class="step">Authoritative state wins</text>
+<text x="914" y="510" class="body">Animation shows the procedure.</text>
+<text x="914" y="535" class="body">It cannot make a blocked action succeed.</text>
+<text x="48" y="617" class="small">raWWar owns the fighter, pilot role and control meaning. Reusable interaction, actor-performance and rendering machinery remain Workshop responsibilities.</text>
+</svg>

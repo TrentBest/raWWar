@@ -1,0 +1,950 @@
+{
+  "schema": "raWWar.upgrade.v1",
+  "deploymentRule": "Research unlocks a design; it does not install it. Each fielded upgrade requires a compatible target, manufactured kit, keyed stock, physical dispatch, qualified labor, downtime where required, acceptance testing and a persistent configuration record.",
+  "upgradeLifecycle": [
+    "researched",
+    "design_released",
+    "kit_manufactured",
+    "quality_accepted",
+    "stocked",
+    "dispatched",
+    "installation_authorized",
+    "under_installation",
+    "under_test",
+    "accepted_and_fielded",
+    "rejected_or_rework"
+  ],
+  "upgrades": [
+    {
+      "id": "upgrade.relay_quality_grade_2",
+      "name": "High-Reliability Relay Replacement",
+      "domain": "electronics",
+      "technology": "tech.high_reliability_relays",
+      "target": [
+        "electronics.relay_logic_rack_v1"
+      ],
+      "installPackage": "install.relay_logic_rack_v2",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 12,
+      "downtimeHours": 4,
+      "qualifications": [
+        "industrial_electrical_technician",
+        "control_logic_technician"
+      ],
+      "acceptance": [
+        "coil_resistance",
+        "contact_drop",
+        "logic_proof_test",
+        "event_record_test"
+      ],
+      "effects": {
+        "contactFaultRateMultiplier": 0.65,
+        "diagnosticVisibility": "improved"
+      },
+      "failureRisks": [
+        "miswire",
+        "wrong_contact_rating",
+        "incomplete_logic_test"
+      ],
+      "deployment": "dispatch a replacement module to each asset; no global instant upgrade"
+    },
+    {
+      "id": "upgrade.solid_state_remote_io",
+      "name": "Solid-State Remote I/O Retrofit",
+      "domain": "electronics",
+      "technology": "tech.solid_state_control",
+      "target": [
+        "electronics.relay_logic_rack_v1",
+        "electronics.relay_logic_rack_v2"
+      ],
+      "installPackage": "install.solid_state_io_v1",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 20,
+      "downtimeHours": 8,
+      "qualifications": [
+        "industrial_electrical_technician",
+        "controls_engineer"
+      ],
+      "acceptance": [
+        "channel_injection_test",
+        "isolation_test",
+        "fail_safe_state_test",
+        "configuration_compare"
+      ],
+      "effects": {
+        "diagnostics": "channel_level",
+        "wiringVolumeMultiplier": 0.7
+      },
+      "failureRisks": [
+        "configuration_error",
+        "output_short",
+        "unexpected_startup_state"
+      ]
+    },
+    {
+      "id": "upgrade.vehicle_bus_redundancy",
+      "name": "Redundant Vehicle Data Bus",
+      "domain": "electronics",
+      "technology": "tech.redundant_vehicle_networks",
+      "target": [
+        "vehicle.scout_mk1",
+        "vehicle.apc_mk2",
+        "vehicle.missile_tank_mk1"
+      ],
+      "installPackage": "install.vehicle_bus_redundancy_v1",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 16,
+      "downtimeHours": 6,
+      "qualifications": [
+        "vehicle_electronics_technician"
+      ],
+      "acceptance": [
+        "bus_failover_test",
+        "stale_message_test",
+        "time_sync_test"
+      ],
+      "effects": {
+        "singleLinkFaultTolerance": true
+      },
+      "failureRisks": [
+        "split_brain",
+        "stale_route_table"
+      ]
+    },
+    {
+      "id": "upgrade.sensor_calibration_kit",
+      "name": "Field Sensor Calibration Kit",
+      "domain": "sensors",
+      "technology": "tech.networked_sensors",
+      "target": [
+        "electronics.multispectral_sensor_v1",
+        "electronics.active_radar_array_v1"
+      ],
+      "installPackage": "install.sensor_calibration_kit_v1",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 6,
+      "downtimeHours": 2,
+      "qualifications": [
+        "sensor_technician"
+      ],
+      "acceptance": [
+        "reference_target_check",
+        "time_alignment_check",
+        "calibration_record"
+      ],
+      "effects": {
+        "calibrationDriftDetection": "earlier"
+      },
+      "deployment": "the kit must be physically issued and carried to the asset"
+    },
+    {
+      "id": "upgrade.vehicle_power_converter_mk2",
+      "name": "Higher-Efficiency Power Converter",
+      "domain": "power",
+      "technology": "tech.high_efficiency_power_conversion",
+      "target": [
+        "electronics.power_converter_28_600_v1"
+      ],
+      "installPackage": "install.power_converter_28_600_v2",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 10,
+      "downtimeHours": 5,
+      "qualifications": [
+        "power_electronics_technician"
+      ],
+      "acceptance": [
+        "load_bank_test",
+        "insulation_test",
+        "thermal_scan",
+        "ripple_measurement"
+      ],
+      "effects": {
+        "conversionLossMultiplier": 0.78,
+        "heatLoadMultiplier": 0.8
+      },
+      "failureRisks": [
+        "wrong_voltage_class",
+        "cooling_mismatch"
+      ]
+    },
+    {
+      "id": "upgrade.shoulder_camera_spatial_overlay",
+      "name": "Shoulder Camera Spatial Overlay",
+      "domain": "soldier_systems",
+      "technology": "tech.soldier_spatial_overlay",
+      "target": [
+        "soldier.equipped"
+      ],
+      "installPackage": "install.shoulder_camera_spatial_overlay",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 1.5,
+      "downtimeHours": 0.5,
+      "qualifications": [
+        "field_electronics_technician"
+      ],
+      "acceptance": [
+        "pose_alignment",
+        "time_sync",
+        "range_overlay_check",
+        "recording_policy_check"
+      ],
+      "effects": {
+        "spatialAwareness": "improved_when_calibrated",
+        "triangulation": "available_with_multiple_time_aligned_observers"
+      },
+      "failureRisks": [
+        "pose_drift",
+        "stale_overlay",
+        "lens_obstruction"
+      ],
+      "deployment": "each soldier receives, fits, pairs, calibrates and maintains a physical unit"
+    },
+    {
+      "id": "upgrade.command_center_sensor_fusion",
+      "name": "Command Center Sensor Fusion Workstation",
+      "domain": "command_and_control",
+      "technology": "tech.networked_sensors",
+      "target": [
+        "facility.command_monitoring_center"
+      ],
+      "installPackage": "install.command_sensor_fusion_workstation",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 40,
+      "downtimeHours": 3,
+      "qualifications": [
+        "network_engineer",
+        "sensor_fusion_operator"
+      ],
+      "acceptance": [
+        "source_time_alignment",
+        "track_conflict_replay",
+        "failover_test",
+        "operator_training"
+      ],
+      "effects": {
+        "correlation": "cross-source",
+        "uncertaintyDisplay": true
+      },
+      "failureRisks": [
+        "false_correlation",
+        "source_bias"
+      ]
+    },
+    {
+      "id": "upgrade.facility_redundant_power",
+      "name": "Dual-Feeder Facility Power Retrofit",
+      "domain": "infrastructure",
+      "technology": "tech.zoned_power_distribution",
+      "target": [
+        "facility.research_laboratory",
+        "facility.vehicle_factory_medium",
+        "facility.command_monitoring_center"
+      ],
+      "installPackage": "install.dual_feeder_retrofit_v1",
+      "manufacturing": [
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 120,
+      "downtimeHours": 12,
+      "qualifications": [
+        "qualified_electrician",
+        "protection_engineer"
+      ],
+      "acceptance": [
+        "feeder_transfer_test",
+        "protection_coordination",
+        "grounding_test",
+        "load_shed_test"
+      ],
+      "effects": {
+        "singleFeederOutage": "reduced_service_loss"
+      },
+      "failureRisks": [
+        "protection_miscoordination",
+        "shared_route_damage"
+      ],
+      "deployment": "a second physical feeder and independent route are required"
+    },
+    {
+      "id": "upgrade.security_panel_battery_extension",
+      "name": "Extended Backup Power for Security Panels",
+      "domain": "security",
+      "technology": "tech.resilient_facility_controls",
+      "target": [
+        "security.panel.access_control_v1",
+        "security.panel.perimeter_v1",
+        "security.panel.vehicle_gate_v1"
+      ],
+      "installPackage": "install.security_backup_battery_v2",
+      "manufacturing": [
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 4,
+      "downtimeHours": 1,
+      "qualifications": [
+        "security_electronics_technician"
+      ],
+      "acceptance": [
+        "discharge_test",
+        "low_voltage_alarm_test",
+        "transfer_test"
+      ],
+      "effects": {
+        "backupDurationMultiplier": 2
+      },
+      "failureRisks": [
+        "battery_age",
+        "charger_fault"
+      ]
+    },
+    {
+      "id": "upgrade.vehicle_condition_monitoring",
+      "name": "Vehicle Condition Monitoring Retrofit",
+      "domain": "maintenance",
+      "technology": "tech.condition_based_maintenance",
+      "target": [
+        "vehicle.apc_mk2",
+        "vehicle.missile_tank_mk1",
+        "vehicle.capital_ship_mk1"
+      ],
+      "installPackage": "install.condition_monitoring_v1",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 8,
+      "downtimeHours": 3,
+      "qualifications": [
+        "maintenance_technician",
+        "instrument_technician"
+      ],
+      "acceptance": [
+        "sensor_calibration",
+        "alarm_threshold_test",
+        "trend_record_test"
+      ],
+      "effects": {
+        "faultDetection": "earlier",
+        "plannedMaintenance": "better_evidence"
+      },
+      "failureRisks": [
+        "bad_threshold",
+        "sensor_drift"
+      ],
+      "deployment": "monitoring creates evidence; it does not perform repairs"
+    },
+    {
+      "id": "upgrade.ornithopter_damping_kit",
+      "name": "Adaptive Wing Damping Retrofit",
+      "domain": "flight_control",
+      "technology": "tech.ornithopter_damping",
+      "target": [
+        "vehicle.ornithopter_mk1"
+      ],
+      "installPackage": "install.adaptive_wing_damping_v1",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ],
+      "laborHours": 80,
+      "downtimeHours": 48,
+      "qualifications": [
+        "flight_controls_engineer",
+        "airframe_technician",
+        "test_pilot"
+      ],
+      "acceptance": [
+        "bench_sweep",
+        "actuator_response",
+        "ground_vibration_test",
+        "incremental_flight_test"
+      ],
+      "effects": {
+        "flutterRisk": "reduced_when_correctly_tuned"
+      },
+      "failureRisks": [
+        "resonance_shift",
+        "actuator_saturation",
+        "structural_fatigue"
+      ],
+      "deployment": "requires completed research, a manufactured kit and test-range campaign"
+    },
+    {
+      "id": "upgrade.missile_guidance_damping",
+      "name": "Guidance Damping Controller Retrofit",
+      "domain": "weapons",
+      "technology": "tech.guidance_damping",
+      "target": [
+        "vehicle.missile_tank_mk1"
+      ],
+      "installPackage": "install.guidance_damping_controller_v1",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 24,
+      "downtimeHours": 10,
+      "qualifications": [
+        "guidance_engineer",
+        "weapons_test_operator"
+      ],
+      "acceptance": [
+        "hardware_in_loop_test",
+        "moving_target_test",
+        "telemetry_review",
+        "configuration_signature_check"
+      ],
+      "effects": {
+        "oscillation": "reduced_in_validated_envelope"
+      },
+      "failureRisks": [
+        "late_correction",
+        "model_mismatch"
+      ]
+    },
+    {
+      "id": "upgrade.shipboard_zonal_isolation",
+      "name": "Shipboard Zonal Power Isolation Upgrade",
+      "domain": "ship_systems",
+      "technology": "tech.zoned_power_distribution",
+      "target": [
+        "vehicle.capital_ship_mk1",
+        "vehicle.fleet_carrier_mk1"
+      ],
+      "installPackage": "install.shipboard_zonal_isolation_v1",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ],
+      "laborHours": 900,
+      "downtimeHours": 72,
+      "qualifications": [
+        "ship_electrician",
+        "protection_engineer",
+        "damage_control_qualified"
+      ],
+      "acceptance": [
+        "breaker_timing",
+        "selective_trip_test",
+        "alternate_feed_test",
+        "load_shed_drill"
+      ],
+      "effects": {
+        "damageContainment": "improved when zones are correctly separated"
+      },
+      "failureRisks": [
+        "common_mode_route",
+        "protection_miscoordination"
+      ],
+      "deployment": "requires shipyard window, spares, qualified teams and compartment access"
+    },
+    {
+      "id": "upgrade.batch_traceability",
+      "name": "Refinery Batch Identity and Traceability",
+      "domain": "industrial_data",
+      "technology": "tech.material_provenance_tracking",
+      "target": [
+        "facility.resource_refinery",
+        "facility.logistics_depot"
+      ],
+      "installPackage": "install.batch_traceability_v1",
+      "manufacturing": [
+        "resource.aerospace_alloy",
+        "resource.rare_earth_concentrate"
+      ],
+      "laborHours": 32,
+      "downtimeHours": 4,
+      "qualifications": [
+        "process_technician",
+        "inventory_controller"
+      ],
+      "acceptance": [
+        "sample_identity_audit",
+        "batch_replay",
+        "inventory_reconciliation"
+      ],
+      "effects": {
+        "contaminationInvestigation": "faster",
+        "keyedStockMixups": "reduced"
+      },
+      "failureRisks": [
+        "incorrect_label_binding",
+        "missed_transfer_event"
+      ]
+    },
+    {
+      "id": "upgrade.factory_condition_maintenance",
+      "name": "Factory Condition-Based Maintenance Instrumentation",
+      "domain": "industrial_maintenance",
+      "technology": "tech.condition_based_maintenance",
+      "target": [
+        "facility.vehicle_factory_medium",
+        "facility.aerospace_factory",
+        "facility.spacecraft_yard"
+      ],
+      "installPackage": "install.factory_condition_monitoring_v1",
+      "manufacturing": [
+        "resource.rare_earth_concentrate",
+        "resource.aerospace_alloy"
+      ],
+      "laborHours": 60,
+      "downtimeHours": 8,
+      "qualifications": [
+        "instrument_technician",
+        "maintenance_engineer"
+      ],
+      "acceptance": [
+        "sensor_calibration",
+        "alarm_threshold_test",
+        "trend_capture_test"
+      ],
+      "effects": {
+        "unexpectedDowntime": "reduced_when_alarms_are_acted_upon"
+      },
+      "failureRisks": [
+        "bad_baseline",
+        "alarm_flood",
+        "ignored_alert"
+      ]
+    },
+    {
+      "id": "upgrade.secure_fiber_backbone",
+      "name": "Redundant Optical Backbone",
+      "domain": "communications",
+      "technology": "tech.resilient_networks",
+      "target": [
+        "facility.command_monitoring_center",
+        "facility.research_laboratory",
+        "facility.security_checkpoint"
+      ],
+      "installPackage": "install.redundant_optical_backbone_v1",
+      "manufacturing": [
+        "resource.silicate",
+        "resource.rare_earth_concentrate"
+      ],
+      "laborHours": 80,
+      "downtimeHours": 6,
+      "qualifications": [
+        "network_technician",
+        "cable_splicer"
+      ],
+      "acceptance": [
+        "optical_power_budget",
+        "route_diversity_audit",
+        "failover_test"
+      ],
+      "effects": {
+        "singleCableCut": "reduced_impact_if_routes_are_physically_diverse"
+      },
+      "failureRisks": [
+        "shared_trench",
+        "mispatched_fiber"
+      ]
+    }
+  ],
+  "installPackages": [
+    {
+      "id": "install.relay_logic_rack_v2",
+      "name": "Relay Rack Replacement Kit",
+      "deliveredCapability": "electronics.relay_logic_rack_v2",
+      "components": [
+        "relay_rack",
+        "labelled_harness",
+        "configuration_sheet"
+      ],
+      "procedure": [
+        "isolate",
+        "remove_old_rack",
+        "verify_terminal_identity",
+        "install_rack",
+        "proof_test",
+        "record_configuration"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.solid_state_io_v1",
+      "name": "Solid-State I/O Retrofit Kit",
+      "deliveredCapability": "electronics.solid_state_io_v1",
+      "components": [
+        "io_module",
+        "isolated_terminal_blocks",
+        "harness",
+        "approved_configuration"
+      ],
+      "procedure": [
+        "isolate",
+        "verify_signal_map",
+        "install_module",
+        "channel_test",
+        "prove_safe_state",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.vehicle_bus_redundancy_v1",
+      "name": "Redundant Vehicle Bus Kit",
+      "deliveredCapability": "electronics.vehicle_gateway_v1",
+      "components": [
+        "gateway",
+        "diverse_cable_route",
+        "terminators",
+        "network_configuration"
+      ],
+      "procedure": [
+        "inspect_route_diversity",
+        "install_gateway",
+        "configure_failover",
+        "test_link_loss",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.sensor_calibration_kit_v1",
+      "name": "Field Sensor Calibration Kit",
+      "deliveredCapability": "electronics.multispectral_sensor_v1",
+      "components": [
+        "reference_target",
+        "calibration_fixture",
+        "calibration_file"
+      ],
+      "procedure": [
+        "inspect_optics",
+        "align_reference",
+        "capture_calibration",
+        "verify_time",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.power_converter_28_600_v2",
+      "name": "High-Efficiency Power Converter Kit",
+      "deliveredCapability": "electronics.power_converter_28_600_v1",
+      "components": [
+        "converter",
+        "cooling_adapter",
+        "protected_cables",
+        "configuration"
+      ],
+      "procedure": [
+        "isolate_power",
+        "verify_voltage_class",
+        "install_converter",
+        "load_bank_test",
+        "thermal_test",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.command_sensor_fusion_v1",
+      "name": "Command Sensor Fusion Workstation Kit",
+      "deliveredCapability": "security.panel.sensor_fusion_v1",
+      "components": [
+        "compute_node",
+        "operator_console",
+        "time_source",
+        "sensor_gateway"
+      ],
+      "procedure": [
+        "install_compute",
+        "align_time",
+        "enroll_sources",
+        "replay_conflicts",
+        "train_operators",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.dual_feeder_retrofit_v1",
+      "name": "Dual-Feeder Retrofit Kit",
+      "deliveredCapability": "power.grid.base_medium",
+      "components": [
+        "second_feeder",
+        "independent_route",
+        "switchgear",
+        "protection_settings"
+      ],
+      "procedure": [
+        "survey_route_diversity",
+        "install_feeder",
+        "coordinate_protection",
+        "test_transfer",
+        "load_shed_drill"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.security_backup_battery_v2",
+      "name": "Security Panel Backup Battery Kit",
+      "deliveredCapability": "power.storage.security_backup_v2",
+      "components": [
+        "battery_module",
+        "charger",
+        "monitor",
+        "protected_enclosure"
+      ],
+      "procedure": [
+        "isolate",
+        "install_battery",
+        "test_transfer",
+        "run_discharge_test",
+        "record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.condition_monitoring_v1",
+      "name": "Condition Monitoring Kit",
+      "deliveredCapability": "electronics.environment_monitor_v1",
+      "components": [
+        "sensor_heads",
+        "mounting_hardware",
+        "gateway",
+        "baseline_procedure"
+      ],
+      "procedure": [
+        "install_sensors",
+        "capture_baseline",
+        "validate_alarms",
+        "connect_work_orders",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.adaptive_wing_damping_v1",
+      "name": "Adaptive Wing Damping Kit",
+      "deliveredCapability": "tech.ornithopter_damping",
+      "components": [
+        "wing_actuator_modules",
+        "damping_controller",
+        "strain_sensors",
+        "test_plan"
+      ],
+      "procedure": [
+        "inspect_structure",
+        "install_actuators",
+        "calibrate",
+        "bench_sweep",
+        "ground_vibration_test",
+        "flight_clearance"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.guidance_damping_controller_v1",
+      "name": "Guidance Damping Controller Kit",
+      "deliveredCapability": "tech.guidance_damping",
+      "components": [
+        "controller",
+        "sensor_update",
+        "versioned_parameters",
+        "test_fixture"
+      ],
+      "procedure": [
+        "install",
+        "hardware_in_loop_test",
+        "moving_target_test",
+        "sign_configuration",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.shipboard_zonal_isolation_v1",
+      "name": "Shipboard Zonal Isolation Kit",
+      "deliveredCapability": "electronics.shipboard_switchboard_v1",
+      "components": [
+        "switchboard_sections",
+        "breakers",
+        "protection_relays",
+        "cable_and_bus_material"
+      ],
+      "procedure": [
+        "isolate_zone",
+        "install_sections",
+        "prove_selectivity",
+        "test_alternate_feed",
+        "conduct_damage_drill"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.batch_traceability_v1",
+      "name": "Batch Traceability Kit",
+      "deliveredCapability": "electronics.data_recorder_v1",
+      "components": [
+        "identity_readers",
+        "label_printers",
+        "event_recorder",
+        "sampling_station_interface"
+      ],
+      "procedure": [
+        "enroll_batch_types",
+        "test_transfer_events",
+        "reconcile_inventory",
+        "audit_custody"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.factory_condition_monitoring_v1",
+      "name": "Factory Condition Monitoring Kit",
+      "deliveredCapability": "electronics.environment_monitor_v1",
+      "components": [
+        "vibration_sensors",
+        "temperature_sensors",
+        "gateway",
+        "calibrated_reference"
+      ],
+      "procedure": [
+        "install_sensors",
+        "capture_baseline",
+        "test_alarm_routing",
+        "prove_work_order_link",
+        "accept"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.redundant_optical_backbone_v1",
+      "name": "Redundant Optical Backbone Kit",
+      "deliveredCapability": "electronics.optical_fiber_backbone_v1",
+      "components": [
+        "fiber_cable",
+        "transceivers",
+        "diverse_route",
+        "patch_panels"
+      ],
+      "procedure": [
+        "survey_separate_routes",
+        "install_cable",
+        "measure_optical_power",
+        "test_failover",
+        "audit_route_diversity"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.shoulder_camera_spatial_overlay",
+      "name": "Shoulder Camera Spatial Overlay Kit",
+      "deliveredCapability": "electronics.shoulder_camera_v1",
+      "components": [
+        "camera_module",
+        "helmet_or_shoulder_mount",
+        "power_and_data_lead",
+        "time_sync_profile",
+        "privacy_and_recording_policy"
+      ],
+      "procedure": [
+        "issue_to_soldier",
+        "fit_mount",
+        "pair_identity",
+        "align_pose_reference",
+        "verify_time_sync",
+        "test_range_overlay",
+        "accept_and_record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    },
+    {
+      "id": "install.command_sensor_fusion_workstation",
+      "name": "Command Sensor Fusion Workstation Kit",
+      "deliveredCapability": "security.panel.sensor_fusion_v1",
+      "components": [
+        "compute_node",
+        "operator_console",
+        "time_source",
+        "sensor_gateway",
+        "calibration_profiles"
+      ],
+      "procedure": [
+        "install_compute",
+        "align_time_sources",
+        "enroll_sensor_sources",
+        "replay_track_conflicts",
+        "train_operators",
+        "test_failover",
+        "accept_and_record"
+      ],
+      "requiresPhysicalDispatch": true,
+      "requiresQualifiedInstaller": true,
+      "requiresAcceptance": true,
+      "createsConfigurationRecord": true
+    }
+  ]
+}

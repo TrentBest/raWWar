@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+<title id="title">raWWar faction ship design languages</title>
+<desc id="desc">Six candidate human ship design archetypes compared by silhouette and engineering tradeoffs. None is assigned to a specific faction.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#081522"/><stop offset="1" stop-color="#142b3b"/></linearGradient>
+  <linearGradient id="hull" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b7cbd5"/><stop offset="1" stop-color="#587383"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d3ad64"/><stop offset="1" stop-color="#f1d69a"/></linearGradient>
+  <style>
+    .title{font:700 36px system-ui,sans-serif;fill:#edf5f7}.sub{font:17px system-ui,sans-serif;fill:#a9c0cc}
+    .head{font:700 20px system-ui,sans-serif;fill:#f0f6f7}.body{font:15px system-ui,sans-serif;fill:#b8cbd3}
+    .tag{font:700 12px system-ui,sans-serif;letter-spacing:1.5px;fill:#e7c67f}
+    .panel{fill:#0c1d2a;stroke:#355165;stroke-width:1.5}.line{stroke:#7894a3;stroke-width:1.5;fill:none}
+    .hull{fill:url(#hull);stroke:#d0e0e5;stroke-width:1.5}.dark{fill:#294353;stroke:#8aa7b5;stroke-width:1.2}
+    .glow{fill:#e4bf74}.engine{fill:#75c7db;stroke:#c0f2ff;stroke-width:1}
+  </style>
+</defs>
+<rect width="1400" height="900" fill="url(#bg)"/>
+<path d="M0 120H1400M0 860H1400" stroke="#284253" stroke-width="1"/>
+<text x="58" y="58" class="tag">RAWWAR / CANDIDATE ART DIRECTION</text>
+<text x="58" y="101" class="title">Same mission. Different engineering answers.</text>
+<text x="58" y="145" class="sub">Human factions express doctrine through silhouette, system layout, industrial capacity, service culture, and accumulated history.</text>
+<text x="58" y="174" class="sub">Six unassigned archetypes · concept study, not final faction canon or finished ship assets</text>
+
+<!-- Card 1 -->
+<g transform="translate(45 205)">
+<rect class="panel" width="420" height="292" rx="12"/>
+<text x="22" y="35" class="tag">01 / SURVIVABILITY</text><text x="22" y="65" class="head">Mass, separation &amp; redundancy</text>
+<g transform="translate(28 82)">
+<path class="hull" d="M18 56L86 38L245 38L330 56L245 74L86 74Z"/>
+<path class="dark" d="M83 36L111 23L230 23L255 38L230 51L111 51Z"/>
+<path class="dark" d="M83 76L111 89L230 89L255 74L230 61L111 61Z"/>
+<path class="line" d="M122 22V89M156 22V89M190 22V89M224 22V89"/>
+<rect class="engine" x="324" y="47" width="24" height="7" rx="2"/><rect class="engine" x="324" y="63" width="24" height="7" rx="2"/>
+<circle class="glow" cx="67" cy="56" r="4"/>
+</g>
+<text x="22" y="211" class="body">Broad structure · isolated systems · generous access</text>
+<text x="22" y="237" class="body">Pays in mass, fabrication time, and repair labor.</text>
+<text x="22" y="269" class="tag">SIGNATURE: VISIBLE COMPARTMENTATION</text>
+</g>
+
+<!-- Card 2 -->
+<g transform="translate(490 205)">
+<rect class="panel" width="420" height="292" rx="12"/>
+<text x="22" y="35" class="tag">02 / DENSITY</text><text x="22" y="65" class="head">Dense integration &amp; compactness</text>
+<g transform="translate(28 82)">
+<path class="hull" d="M12 56L66 43L105 27L246 31L330 56L246 81L105 85L66 69Z"/>
+<path class="dark" d="M83 44L119 35L222 38L274 56L222 74L119 77L83 68Z"/>
+<path class="line" d="M113 35L137 77M143 35L165 77M173 36L195 76M203 37L225 73"/>
+<rect class="engine" x="326" y="50" width="23" height="5" rx="2"/><rect class="engine" x="326" y="58" width="23" height="5" rx="2"/>
+<circle class="glow" cx="56" cy="56" r="4"/>
+</g>
+<text x="22" y="211" class="body">Compact envelope · tightly integrated equipment</text>
+<text x="22" y="237" class="body">Pays in difficult access and common-mode failures.</text>
+<text x="22" y="269" class="tag">SIGNATURE: NESTED, FACETED HULL</text>
+</g>
+
+<!-- Card 3 -->
+<g transform="translate(935 205)">
+<rect class="panel" width="420" height="292" rx="12"/>
+<text x="22" y="35" class="tag">03 / ADAPTATION</text><text x="22" y="65" class="head">Distributed modules &amp; adaptation</text>
+<g transform="translate(28 82)">
+<path class="hull" d="M22 56L91 45L220 45L292 56L220 67L91 67Z"/>
+<path class="line" d="M101 45L72 24H41M101 67L72 88H41M220 45L248 24H280M220 67L248 88H280"/>
+<rect class="dark" x="8" y="13" width="40" height="22" rx="3"/><rect class="dark" x="8" y="77" width="40" height="22" rx="3"/>
+<rect class="dark" x="276" y="13" width="45" height="22" rx="3"/><rect class="dark" x="276" y="77" width="45" height="22" rx="3"/>
+<rect class="engine" x="292" y="49" width="27" height="5" rx="2"/><rect class="engine" x="292" y="58" width="27" height="5" rx="2"/>
+<circle class="glow" cx="52" cy="56" r="4"/>
+</g>
+<text x="22" y="211" class="body">Pods · hardpoints · role-specific modules</text>
+<text x="22" y="237" class="body">Pays in connection upkeep and logistics complexity.</text>
+<text x="22" y="269" class="tag">SIGNATURE: OUTRIGGERS &amp; SWAPPABLE PODS</text>
+</g>
+
+<!-- Bottom cards -->
+<g transform="translate(45 520)">
+<rect class="panel" width="420" height="292" rx="12"/>
+<text x="22" y="35" class="tag">04 / DIRECTIONAL DOCTRINE</text><text x="22" y="65" class="head">Forward concentration</text>
+<g transform="translate(28 82)">
+<path class="hull" d="M15 56L95 42L263 42L335 56L263 70L95 70Z"/>
+<path class="dark" d="M20 56L96 47L155 47L155 65L96 65Z"/>
+<path class="line" d="M48 48L28 56L48 64M100 42L115 28H212L235 42M100 70L115 84H212L235 70"/>
+<path d="M35 56H2" stroke="#e6c67e" stroke-width="2"/>
+<rect class="engine" x="328" y="49" width="20" height="5" rx="2"/><rect class="engine" x="328" y="58" width="20" height="5" rx="2"/>
+</g>
+<text x="22" y="211" class="body">Bow-focused sensors and mission equipment</text>
+<text x="22" y="237" class="body">Pays in orientation limits and neglected sectors.</text>
+<text x="22" y="269" class="tag">SIGNATURE: PRONOUNCED FORE-AFT AXIS</text>
+</g>
+
+<g transform="translate(490 520)">
+<rect class="panel" width="420" height="292" rx="12"/>
+<text x="22" y="35" class="tag">05 / SIGNATURE CONTROL</text><text x="22" y="65" class="head">Dispersed &amp; deceptive</text>
+<g transform="translate(28 82)">
+<path class="hull" d="M32 56L104 45L250 49L315 56L250 63L104 67Z"/>
+<path class="line" d="M95 47L62 25L40 30M130 45L142 20L162 18M203 48L220 28L245 25M110 66L80 86L55 82M215 63L236 84L263 80"/>
+<path class="dark" d="M42 20L65 15L74 25L56 32Z"/><path class="dark" d="M140 12L163 10L171 22L150 27Z"/><path class="dark" d="M231 18L254 19L261 29L240 31Z"/>
+<rect class="engine" x="311" y="52" width="24" height="4" rx="2"/><rect class="engine" x="311" y="59" width="24" height="4" rx="2"/>
+<circle class="glow" cx="62" cy="56" r="3"/>
+</g>
+<text x="22" y="211" class="body">Separated emitters and controlled observability</text>
+<text x="22" y="237" class="body">Pays in calibration and specialist maintenance.</text>
+<text x="22" y="269" class="tag">SIGNATURE: INTENTIONAL ASYMMETRY</text>
+</g>
+
+<g transform="translate(935 520)">
+<rect class="panel" width="420" height="292" rx="12"/>
+<text x="22" y="35" class="tag">06 / FLEET AVAILABILITY</text><text x="22" y="65" class="head">Standardized &amp; serviceable</text>
+<g transform="translate(28 82)">
+<path class="hull" d="M16 56L77 42L256 42L331 56L256 70L77 70Z"/>
+<path class="dark" d="M83 42V70M119 42V70M155 42V70M191 42V70M227 42V70M263 45V67"/>
+<path class="line" d="M80 42V29H258V42M80 70V83H258V70"/>
+<rect class="engine" x="326" y="48" width="23" height="6" rx="2"/><rect class="engine" x="326" y="58" width="23" height="6" rx="2"/>
+<circle class="glow" cx="58" cy="56" r="4"/>
+</g>
+<text x="22" y="211" class="body">Repeated parts and clear access standards</text>
+<text x="22" y="237" class="body">Pays in bespoke optimization and unique capability.</text>
+<text x="22" y="269" class="tag">SIGNATURE: REPEATED PANEL &amp; MODULE RHYTHM</text>
+</g>
+<text x="58" y="850" class="sub">Governing rule: silhouette identifies the likely builder; engineering explains the choice; repairs reveal the ship's history.</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 760">
+<defs><linearGradient id="bg" x2="0" y2="1"><stop stop-color="#08131a"/><stop offset="1" stop-color="#1b2931"/></linearGradient></defs>
+<rect width="1400" height="760" fill="url(#bg)"/>
+<text x="60" y="62" fill="#e3eef2" font-family="Arial" font-size="34" font-weight="700">A BASE IS A MACHINE MADE OF PEOPLE</text>
+<text x="60" y="98" fill="#9bb0ba" font-family="Arial" font-size="18">Capacity is not readiness. Every facility depends on trained people, procedures, resources and time.</text>
+<g transform="translate(60 140)">
+<rect width="1280" height="530" rx="18" fill="#0b151c" stroke="#526a74" stroke-width="2"/>
+<g fill="#13222b" stroke="#536c77" stroke-width="2">
+<rect x="40" y="45" width="280" height="190" rx="12"/><rect x="350" y="45" width="280" height="190" rx="12"/>
+<rect x="660" y="45" width="280" height="190" rx="12"/><rect x="970" y="45" width="260" height="190" rx="12"/>
+<rect x="40" y="285" width="380" height="190" rx="12"/><rect x="450" y="285" width="380" height="190" rx="12"/>
+<rect x="860" y="285" width="370" height="190" rx="12"/>
+</g>
+<g font-family="Arial">
+<g fill="#dce9ef" font-size="21" font-weight="700">
+<text x="65" y="80">LAUNCH PAD</text><text x="375" y="80">MAINTENANCE</text><text x="685" y="80">SCIENCE</text><text x="995" y="80">COMMAND</text>
+<text x="65" y="320">BARRACKS + TRAINING</text><text x="475" y="320">LOGISTICS</text><text x="885" y="320">SECURITY + INTELLIGENCE</text>
+</g>
+<g fill="#91aab5" font-size="15">
+<text x="65" y="112">crew · checks · fueling · launch</text><text x="375" y="112">mechanics · parts · qualified staff</text><text x="685" y="112">experiments · failures · discoveries</text><text x="995" y="112">orders · reports · readiness</text>
+<text x="65" y="352">squads · qualifications · recovery</text><text x="475" y="352">materials · scheduling · transport</text><text x="885" y="352">patrols · analysis · countermeasures</text>
+</g>
+<g stroke="#8daeb9" stroke-width="3" fill="none">
+<path d="M320 140 H350 M630 140 H660 M940 140 H970 M180 235 V285 M490 235 V285 M800 235 V285 M1100 235 V285"/>
+<path d="M420 380 H450 M830 380 H860"/>
+</g>
+<g fill="#dce9ef">
+<circle cx="95" cy="150" r="8"/><circle cx="125" cy="165" r="8"/><circle cx="155" cy="145" r="8"/><circle cx="205" cy="175" r="8"/>
+<circle cx="410" cy="150" r="8"/><circle cx="450" cy="175" r="8"/><circle cx="520" cy="145" r="8"/>
+<circle cx="730" cy="150" r="8"/><circle cx="770" cy="175" r="8"/><circle cx="830" cy="150" r="8"/>
+<circle cx="1030" cy="150" r="8"/><circle cx="1080" cy="180" r="8"/>
+</g>
+<g fill="#8fa8b5" font-size="14">
+<text x="60" y="208">8-person shift crew example</text><text x="370" y="208">specialized squads</text><text x="680" y="208">research staff</text><text x="990" y="208">staff + advisors</text>
+<text x="60" y="448">Training creates readiness.</text><text x="470" y="448">Logistics creates availability.</text><text x="880" y="448">Security creates access.</text>
+</g>
+</g>
+</g>
+<text x="60" y="710" fill="#b8cbd2" font-family="Arial" font-size="18">IF THE PEOPLE ARE NOT QUALIFIED, THE FACILITY DOES NOT MAGICALLY WORK.</text>
+</svg>

@@ -1,0 +1,187 @@
+{
+  "schema": "raWWar.diegetic-interaction-contract.v1",
+  "status": "candidate-experience-contract",
+  "purpose": "Make interaction part of the physical first-person world. Screens, controls, levers, tools, terminals, instruments, doors, and vehicle interfaces are objects in space with condition, power, access, and consequences.",
+  "governingPrinciple": "The world is the interface. A control is an object with a location, mechanism, state, authority, and failure modes—not a floating menu pretending to be one.",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "firstPersonIsTheExperienceRule": true,
+    "desktopAndVRShareWorldSemantics": true,
+    "worldObjectsRemainAuthoritativeAcrossPresentationModes": true,
+    "accessibilityMayOfferEquivalentAssistanceWithoutChangingWorldTruth": true
+  },
+  "interactionModel": {
+    "objectKinds": [
+      "physical-button",
+      "toggle-switch",
+      "lever",
+      "handwheel",
+      "guarded-control",
+      "keypad",
+      "touchscreen",
+      "instrument-panel",
+      "wall-display",
+      "workstation",
+      "portable-terminal",
+      "mechanical-interlock",
+      "tool-socket",
+      "door-control",
+      "vehicle-control",
+      "weapon-control",
+      "diagnostic-port",
+      "paper-document",
+      "physical-marker"
+    ],
+    "requiredObjectFields": [
+      "objectId",
+      "worldTransform",
+      "interactionVolume",
+      "reachAndApproachConstraints",
+      "currentCondition",
+      "powerAndNetworkRequirements",
+      "stateModel",
+      "allowedActions",
+      "authorityAndAccess",
+      "feedbackChannels",
+      "damageModes",
+      "repairProcedure",
+      "eventHistory"
+    ],
+    "actionPipeline": [
+      "observe-object",
+      "approach-and-reach",
+      "identify-affordance",
+      "check-authority-and-interlocks",
+      "perform-physical-input",
+      "resolve-mechanism-and-current-condition",
+      "apply-state-transition",
+      "emit-world-feedback",
+      "record-event-and-consequences"
+    ],
+    "controlPrinciples": [
+      "Buttons have travel, force, debounce or mechanical behavior appropriate to their model.",
+      "Levers have a meaningful axis, range, detents or continuous position, resistance, and mechanical limits.",
+      "Screens expose information only when powered, connected, intact, readable, and authorized; stale or corrupted data remains visibly distinguishable.",
+      "Controls may fail, jam, be severed, lose power, become wet, overheat, or report a fault.",
+      "A valid input may be ignored or blocked by a safety interlock; feedback explains the physical or procedural reason when the character can know it.",
+      "The player's hand, tool, weapon, body, and vehicle occupy world space; interaction must respect occlusion and reach.",
+      "VR hand tracking, tracked controllers, and desktop input map to the same semantic action and object state."
+    ]
+  },
+  "diegeticGui": {
+    "displayKinds": [
+      "status-panel",
+      "map-table",
+      "engineering-console",
+      "vehicle-dashboard",
+      "medical-monitor",
+      "research-instrument",
+      "work-order-board",
+      "communications-terminal",
+      "archive-reader",
+      "training-simulator",
+      "weapon-sight",
+      "mech-cockpit",
+      "portable-wrist-or-handheld-display"
+    ],
+    "informationRules": [
+      "Information has source, timestamp, confidence, and access level where relevant.",
+      "A display may be incomplete because its sensor, data feed, power, or operator is impaired.",
+      "No floating omniscient HUD by default; contextual overlays are optional presentation aids, not substitutes for world instrumentation.",
+      "Important operations should have readable physical alternatives or well-designed assistive equivalents where practical.",
+      "Text size, contrast, audio/haptic cues, and reach options may adapt for accessibility without changing simulation results."
+    ],
+    "inWorldFeedback": [
+      "mechanical movement",
+      "indicator lamps",
+      "analog gauge motion",
+      "display updates",
+      "warning tone",
+      "voice/comms",
+      "vibration or force feedback",
+      "smoke/heat/sparks when justified by simulated damage",
+      "work order or event record"
+    ]
+  },
+  "damageModel": {
+    "damageSources": [
+      "projectile-impact",
+      "fragmentation",
+      "blast",
+      "heat-or-fire",
+      "fluid-ingress",
+      "power-loss",
+      "network-disconnection",
+      "wear",
+      "misuse",
+      "environmental-exposure",
+      "tampering"
+    ],
+    "damageEffects": [
+      "screen-cracked-or-unreadable",
+      "pixel-or-segment-loss",
+      "sensor-drift",
+      "stuck-input",
+      "broken-linkage",
+      "lever-deformation",
+      "switch-failure",
+      "fused-contact",
+      "cut-cable",
+      "short-circuit",
+      "lost-power",
+      "lost-network",
+      "false-or-stale-reading",
+      "protective-cover-jam",
+      "mechanical-interlock-failure"
+    ],
+    "resolutionRules": [
+      "Damage follows the hit location, construction, shielding, current condition, and energy transfer model; it is not a universal 'shoot once and break' rule.",
+      "A projectile may penetrate, glance, damage a display face without disabling its controller, or damage hidden wiring behind it depending on modeled conditions.",
+      "A damaged control can fail open, fail closed, stick, misreport, or become intermittent only when supported by its modeled mechanism.",
+      "The world object persists after damage; broken controls create diagnostic, isolation, repair, replacement, and acceptance work.",
+      "Destruction does not imply the entire connected system is destroyed; dependencies and redundancy determine downstream effects."
+    ]
+  },
+  "consequenceContract": {
+    "everySuccessfulActionRecords": [
+      "actor",
+      "object",
+      "action",
+      "simulationTime",
+      "precondition",
+      "priorState",
+      "resultingState",
+      "feedback",
+      "authorityContext",
+      "causedEvents"
+    ],
+    "blockedActionRecords": [
+      "actor",
+      "object",
+      "attemptedAction",
+      "blockingReason",
+      "simulationTime"
+    ],
+    "repairLifecycle": [
+      "isolate-energy-and-hazards",
+      "diagnose",
+      "obtain-qualified-person-tools-and-spares",
+      "repair-or-replace",
+      "restore-connections",
+      "calibrate",
+      "test-interlocks",
+      "functional-acceptance",
+      "return-to-service"
+    ]
+  },
+  "validationGates": [
+    "The same in-world object identity is used in desktop and VR views.",
+    "A visible control has a defined interaction volume and state transition.",
+    "A button or lever cannot silently bypass authority, interlocks, or physical constraints.",
+    "Damaged controls create plausible symptoms and repair work.",
+    "Screens distinguish current, stale, missing, and suspect data.",
+    "Shooting a screen does not automatically destroy unrelated connected systems.",
+    "Action and damage histories preserve provenance and consequences.",
+    "Assistive UI does not grant knowledge the character does not have."
+  ]
+}

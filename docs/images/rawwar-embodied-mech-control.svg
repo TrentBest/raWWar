@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="920" viewBox="0 0 1440 920" role="img" aria-labelledby="title desc">
+<title id="title">raWWar embodied interfaces and componentized mech control</title>
+<desc id="desc">A pilot occupies a physical motion harness and controls a mech through grips. Keyboard, mouse, controller, and VR all enter the same semantic action pipeline. Control laws resolve component state and physical limits. Engineering logs, lockout tagout, and measured rendering budgets are connected to persistent history.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071523"/><stop offset="1" stop-color="#102d43"/></linearGradient>
+ <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#163b51"/><stop offset="1" stop-color="#0b2437"/></linearGradient>
+ <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#4de3e8"/><stop offset="1" stop-color="#80f7cf"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#4de3e8"/></marker>
+ <style>
+  .head{font:700 28px 'Segoe UI',Arial,sans-serif;fill:#effbff;letter-spacing:1px}
+  .sub{font:500 14px 'Segoe UI',Arial,sans-serif;fill:#9ebdca;letter-spacing:2px}
+  .label{font:700 17px 'Segoe UI',Arial,sans-serif;fill:#effbff}
+  .body{font:14px 'Segoe UI',Arial,sans-serif;fill:#c4dbe5}
+  .small{font:12px 'Segoe UI',Arial,sans-serif;fill:#9ebdca}
+  .node{fill:url(#panel);stroke:#397187;stroke-width:1.5;rx:14}
+  .accent{fill:none;stroke:#4de3e8;stroke-width:2;marker-end:url(#arrow)}
+  .dash{fill:none;stroke:#e6bb59;stroke-width:2;stroke-dasharray:6 6}
+ </style>
+</defs>
+<rect width="1440" height="920" fill="url(#bg)"/>
+<path d="M0 115 H1440" stroke="#2c5265" stroke-width="1"/>
+<text x="48" y="48" class="sub">RAWWAR · LIVING SIMULATION DESIGN</text>
+<text x="48" y="84" class="head">THE WORLD IS THE INTERFACE</text>
+<text x="1390" y="58" class="small" text-anchor="end">CANDIDATE SYSTEM MODEL · NOT A RUNTIME SCREENSHOT</text>
+<!-- input sources -->
+<text x="52" y="151" class="sub">INPUT SOURCES</text>
+<rect class="node" x="48" y="170" width="220" height="86"/>
+<text class="label" x="66" y="201">VR / tracked hands</text><text class="body" x="66" y="227">Reach · grip · posture</text>
+<rect class="node" x="48" y="273" width="220" height="86"/>
+<text class="label" x="66" y="304">FPS / mouse</text><text class="body" x="66" y="330">Look · reach · use</text>
+<rect class="node" x="48" y="376" width="220" height="86"/>
+<text class="label" x="66" y="407">Keyboard / controller</text><text class="body" x="66" y="433">Binding animates action</text>
+<path class="accent" d="M268 213 H314 V316 H348"/>
+<path class="accent" d="M268 316 H348"/>
+<path class="accent" d="M268 419 H314 V316"/>
+<!-- semantic action -->
+<rect x="348" y="260" width="242" height="112" rx="16" fill="#103d4c" stroke="url(#cyan)" stroke-width="2" filter="url(#glow)"/>
+<text x="369" y="291" class="label">Semantic action</text>
+<text x="369" y="319" class="body">Press · pull · rotate</text>
+<text x="369" y="341" class="body">Hold · connect · record</text>
+<text x="369" y="359" class="small">Same action, any input device</text>
+<path class="accent" d="M590 316 H632"/>
+<!-- actor and object -->
+<rect class="node" x="632" y="170" width="250" height="106"/>
+<text x="654" y="202" class="label">Actor performance</text>
+<text x="654" y="228" class="body">Gesture · fatigue · skill</text>
+<text x="654" y="250" class="body">Reach · force · timing</text>
+<rect class="node" x="632" y="302" width="250" height="106"/>
+<text x="654" y="334" class="label">Physical world object</text>
+<text x="654" y="360" class="body">Control · screen · logger</text>
+<text x="654" y="382" class="body">Power · damage · interlocks</text>
+<path class="accent" d="M757 276 V302"/>
+<path class="accent" d="M882 355 H922"/>
+<!-- control law -->
+<rect x="922" y="260" width="232" height="112" rx="16" fill="#153a3d" stroke="#e6bb59" stroke-width="2"/>
+<text x="944" y="291" class="label">Control law</text>
+<text x="944" y="319" class="body">Intent → actuator requests</text>
+<text x="944" y="341" class="body">Power · heat · balance</text>
+<text x="944" y="359" class="small">Commands are not outcomes</text>
+<path class="accent" d="M1154 316 H1192"/>
+<!-- mech -->
+<rect class="node" x="1192" y="170" width="200" height="238"/>
+<text x="1214" y="202" class="label">Boarded mech</text>
+<!-- simplified mech line drawing -->
+<g stroke="#74dbe5" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M1289 227 L1289 262 L1266 280 L1262 318 L1242 345 L1240 375"/>
+ <path d="M1289 262 L1312 280 L1318 318 L1340 345 L1343 375"/>
+ <path d="M1272 228 L1307 228 L1312 251 L1289 262 L1267 251 Z"/>
+ <path d="M1266 280 L1244 292 L1230 319"/>
+ <path d="M1312 280 L1336 292 L1350 319"/>
+ <path d="M1226 375 H1252 M1328 375 H1356"/>
+</g>
+<circle cx="1289" cy="242" r="7" fill="#e6bb59"/>
+<text x="1214" y="398" class="small">Parts retain independent state</text>
+<!-- loop from mech to feedback -->
+<path class="accent" d="M1292 408 V446 H1038 V393"/>
+<text x="1080" y="439" class="small">sensor feedback</text>
+<!-- lower row -->
+<path d="M48 490 H1392" stroke="#2c5265" stroke-width="1"/>
+<text x="52" y="528" class="sub">THE SAME WORLD MODEL ALSO GOVERNS ENGINEERING AND PERFORMANCE</text>
+<rect class="node" x="48" y="555" width="300" height="154"/>
+<text x="70" y="588" class="label">Breathing Gesture ghost</text>
+<text x="70" y="617" class="body">Shows the ideal next action</text>
+<text x="70" y="641" class="body">Button / lever / logger port</text>
+<text x="70" y="665" class="body">Guides, never acts for you</text>
+<text x="70" y="691" class="small">Visual hint is not safety proof</text>
+<rect class="node" x="382" y="555" width="300" height="154"/>
+<text x="404" y="588" class="label">Engineering logger</text>
+<text x="404" y="617" class="body">Capture actual available values</text>
+<text x="404" y="641" class="body">Units · time · calibration · gaps</text>
+<text x="404" y="665" class="body">Compare against thresholds/trends</text>
+<text x="404" y="691" class="small">No omniscient readings</text>
+<rect x="716" y="555" width="300" height="154" rx="14" fill="#3a2923" stroke="#e6bb59" stroke-width="1.5"/>
+<text x="738" y="588" class="label">Lockout / tagout</text>
+<text x="738" y="617" class="body">Isolate · lock · tag · verify</text>
+<text x="738" y="641" class="body">Release stored energy · do work</text>
+<text x="738" y="665" class="body">Clear · restore · sign off</text>
+<text x="738" y="691" class="small">A checkbox cannot isolate energy</text>
+<rect class="node" x="1050" y="555" width="342" height="154"/>
+<text x="1072" y="588" class="label">Measured renderer budget</text>
+<text x="1072" y="617" class="body">Pixels · geometry · dispatch</text>
+<text x="1072" y="641" class="body">GPU memory · bandwidth · bus</text>
+<text x="1072" y="665" class="body">CPU simulation · physics · latency</text>
+<text x="1072" y="691" class="small">Batch or join only when profiling wins</text>
+<!-- history band -->
+<path d="M48 752 H1392" stroke="#2c5265" stroke-width="1"/>
+<rect x="48" y="777" width="1344" height="92" rx="16" fill="#0a1c2a" stroke="#397187" stroke-width="1.5"/>
+<text x="76" y="811" class="sub">PERSISTENT EVENT HISTORY</text>
+<text x="76" y="843" class="label">Action → measured result → damage/work → decisions → consequences</text>
+<text x="1360" y="813" class="small" text-anchor="end">Every control action can be audited</text>
+<text x="1360" y="840" class="small" text-anchor="end">Failures and repairs become part of the world</text>
+<path class="dash" d="M196 709 V752"/>
+<path class="dash" d="M532 709 V752"/>
+<path class="dash" d="M866 709 V752"/>
+<path class="dash" d="M1220 709 V752"/>
+<text x="48" y="899" class="small">Design rule: authoritative simulation state survives even when a component is off-screen, merged for rendering, damaged, or unavailable to the player.</text>
+</svg>

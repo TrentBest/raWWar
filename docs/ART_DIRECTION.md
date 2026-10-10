@@ -1,0 +1,118 @@
+# raWWar — Art Direction
+
+**Status:** Initial direction; subject to refinement.  
+**Owner:** raWWar art direction, coordinated with Experience design.  
+**Audience:** Artists, technical artists, animation/gesture authors, and engineers implementing presentation.  
+**Evidence rule:** This document defines visual intent and pipeline requirements; it does not prove that assets, rigs, gesture tooling, or renderer features are implemented.
+
+## Purpose
+This document establishes the visual direction for original raWWar assets now that the Experience is no longer constrained by an external asset pack.
+
+## Core visual identity
+raWWar should look like its own science-fiction military universe.
+
+The visual language should combine:
+- industrial military engineering;
+- advanced exoskeleton technology;
+- strong, readable silhouettes;
+- aggressive technological escalation;
+- highly individualized equipment;
+- believable wear, maintenance, repair, and modification;
+- enormous military infrastructure.
+
+The desired emotional neighborhood includes the technological escalation of classic science-fiction strategy games and the extreme individuality and ornamentation of heavy science-fiction military fiction, without copying another property's visual identity.
+
+## Soldiers
+
+The soldier is the primary visual subject.
+
+The foundational soldier should use an exoskeleton-based architecture capable of accepting modular equipment.
+
+Visual identity should communicate:
+- role;
+- qualification;
+- rank;
+- awards;
+- equipment;
+- faction;
+- wear;
+- personal modification.
+
+A soldier should be recognizable from silhouette and equipment before the player reads a nameplate.
+
+Motion is part of identity. Soldiers should share recognizable military procedures without moving as perfectly synchronized copies. The Gesture system provides ideal physical procedures, while each soldier's seed and state create bounded variation in timing, posture, direction, attention, recovery, and other details.
+
+At population scale, the visual objective is coordinated life rather than animation uniformity.
+
+## Equipment
+Equipment should be designed as meaningful components rather than disconnected cosmetic meshes.
+
+The asset system should anticipate modular:
+- armor;
+- exoskeleton components;
+- power systems;
+- sensors;
+- tools;
+- weapons;
+- communications;
+- specialist equipment;
+- decorations.
+
+## Vehicles
+Vehicles should belong to the same technology family as the soldier.
+
+The design space includes ground vehicles, aircraft, VTOL systems, spacecraft, and massive fleet assets.
+
+Vehicles should visibly expose their operational purpose and maintenance requirements.
+
+Faction identity must be visible in ship architecture, not only paint, emblems, or decorative silhouettes. Ships of the same mission class should remain comparable while expressing different doctrine, industrial capacity, protection priorities, redundancy, propulsion arrangement, maintenance culture, and procurement history. Every signature feature should have a physical consequence in mass, volume, cost, performance, serviceability, or vulnerability. See [Faction Ship Design Languages](FACTION_SHIP_DESIGN_LANGUAGES.md) for the candidate framework and deliberately unassigned style families.
+
+## Environment
+Military bases should communicate scale through:
+- layered infrastructure;
+- personnel movement;
+- vehicles;
+- logistics;
+- signage;
+- maintenance;
+- training;
+- research;
+- command activity.
+
+The environment should never depend on a static backdrop to imply activity.
+
+## Originality
+The old external asset set is no longer the design authority.
+
+Future assets should be authored for raWWar and the Workshop Renderer, with inspiration treated as a reference for emotional/functional qualities rather than copied identity.
+
+## Gesture and motion production
+The art pipeline should author motion as reusable pose/transition data rather than requiring a bespoke baked animation for every soldier and circumstance.
+
+Gesture authoring will eventually need standards for:
+- pose representation;
+- pose sequencing;
+- mathematical transition rules;
+- attachment points;
+- interaction volumes;
+- interruption points;
+- equipment-specific constraints;
+- variation bounds;
+- event-horizon representations;
+- validation.
+
+## Asset pipeline questions
+Still to define:
+- modeling standards;
+- units and scale;
+- material conventions;
+- texture strategy;
+- level-of-detail strategy;
+- modular attachment standards;
+- animation standards;
+- rigging;
+- procedural generation;
+- asset identifiers;
+- versioning;
+- validation;
+- import/export conventions.

@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "raWWar.contested-history-and-betrayal.v1",
+  "status": "candidate-historical-evidence-contract",
+  "purpose": "Represent historical events as a persistent reality with incomplete, biased, manipulated, and mutually incompatible accounts. Victorious powers can shape public memory but cannot retroactively become the sole authority on what happened.",
+  "governingPrinciple": "History is an argument made from surviving evidence under unequal power; it is not identical to the loudest surviving account.",
+  "authority": {
+    "creatorCanonOverridesThisFramework": true,
+    "objectiveWorldEventsAreDistinctFromAccounts": true,
+    "victorNarrativeIsNotAutomaticallyTrue": true,
+    "defeatedNarrativeIsNotAutomaticallyTrue": true,
+    "contradictoryAccountsDoNotRequireOneAccountToBeCorrectInEveryDetail": true,
+    "uncertaintyMustNotBeCollapsedForConvenience": true
+  },
+  "coreModel": {
+    "event": "An event in authoritative simulated history, with actors, actions, timing, location, causes, consequences, and confidence where the world itself is uncertain.",
+    "account": "A claim about an event authored by a person, institution, witness, investigator, propagandist, or later historian.",
+    "evidence": "A physical trace, record, testimony, sensor log, artifact, or derived observation that may support or challenge claims.",
+    "interpretation": "A reasoned explanation linking claims and evidence, including assumptions, omissions, and unresolved alternatives.",
+    "publicNarrative": "An account selected, repeated, funded, taught, censored, or enforced by an institution.",
+    "playerUnderstanding": "The player's current model of what may have happened, tracked separately from world history and surviving records."
+  },
+  "accountKinds": [
+    "official-victory-chronicle",
+    "defeated-side-testimony",
+    "survivor-testimony",
+    "civilian-account",
+    "military-after-action-report",
+    "sensor-derived-reconstruction",
+    "private-correspondence",
+    "intelligence-assessment",
+    "court-or-inquiry-record",
+    "propaganda-broadcast",
+    "schoolbook-account",
+    "memorial-inscription",
+    "foreign-observer-account",
+    "oral-tradition",
+    "later-historical-synthesis",
+    "forged-document",
+    "edited-archive",
+    "anonymous-leak"
+  ],
+  "claimTypes": [
+    "event-occurred",
+    "actor-identity",
+    "intent",
+    "order-given",
+    "order-refused",
+    "betrayal",
+    "first-strike",
+    "self-defense",
+    "civilian-casualties",
+    "atrocity",
+    "retreat-or-rout",
+    "surrender",
+    "victory-claim",
+    "responsibility",
+    "causation",
+    "legitimacy",
+    "treaty-breach",
+    "losses-and-strength",
+    "who-knew-what-and-when",
+    "deliberate-omission"
+  ],
+  "requiredAccountFields": [
+    "accountId",
+    "eventRefs",
+    "claims",
+    "authorOrOrigin",
+    "authoredAt",
+    "claimedEventTime",
+    "intendedAudience",
+    "institutionalAlignmentAtCreation",
+    "accessAndCustodyHistory",
+    "sourceMethod",
+    "evidenceRefs",
+    "contradictionRefs",
+    "omittedTopics",
+    "integrityAndAuthenticity",
+    "knownDependencies",
+    "confidenceByClaim",
+    "revisionHistory"
+  ],
+  "evidenceKinds": [
+    "physical-scene",
+    "wreckage-and-damage-pattern",
+    "weapon-or-tool-residue",
+    "sensor-record",
+    "navigation-log",
+    "command-log",
+    "communications-transcript",
+    "maintenance-history",
+    "medical-and-casualty-record",
+    "personnel-roster",
+    "supply-manifest",
+    "financial-ledger",
+    "private-letter",
+    "witness-testimony",
+    "captured-order",
+    "forensic-reconstruction",
+    "archaeological-context",
+    "independent-third-party-record",
+    "absence-or-gap"
+  ],
+  "evidenceRules": [
+    "Evidence may be genuine but misunderstood, selectively preserved, context-stripped, or falsely attributed.",
+    "A surviving document proves that a record existed in its current form; it does not automatically prove every claim written in it.",
+    "Absence of a record is evidence only when the record would reasonably be expected to exist and survival/access conditions are assessed.",
+    "Multiple accounts copied from one source are not independent corroboration.",
+    "Physical evidence can constrain plausible narratives without always identifying intent or responsibility.",
+    "Later reconstruction must retain source references and uncertainty rather than laundering inference into direct observation."
+  ],
+  "biasAndPowerMechanisms": [
+    {
+      "id": "mechanism.archive-capture",
+      "description": "Victors or successor regimes control archives, remove records, classify evidence, and decide what survives."
+    },
+    {
+      "id": "mechanism.education-and-ritual",
+      "description": "School curricula, commemorations, calendars, monuments, and military ceremonies normalize a public account."
+    },
+    {
+      "id": "mechanism.witness-coercion",
+      "description": "Witnesses face threats, incentives, social pressure, or risks to family and livelihood."
+    },
+    {
+      "id": "mechanism.selective-declassification",
+      "description": "Authorities release authentic documents in a curated order while withholding surrounding context."
+    },
+    {
+      "id": "mechanism.false-flag",
+      "description": "An actor stages evidence or impersonates another faction to redirect blame; the simulation must model means, opportunity, and traces."
+    },
+    {
+      "id": "mechanism.command-coverup",
+      "description": "A commander, ministry, or company suppresses an order, casualty total, failure, or unlawful act to protect position."
+    },
+    {
+      "id": "mechanism.defeated-side-mythmaking",
+      "description": "A defeated faction may preserve truthful testimony, self-serving myths, or both."
+    },
+    {
+      "id": "mechanism.translation-drift",
+      "description": "Translation, terminology change, damaged media, and incompatible calendars alter interpretation."
+    },
+    {
+      "id": "mechanism.institutional-self-deception",
+      "description": "People repeat an account because it protects identity or legitimacy, even without a coordinated conspiracy."
+    },
+    {
+      "id": "mechanism.fabricated-evidence",
+      "description": "Documents, sensor captures, or testimony may be forged; forgery claims themselves also require evidence."
+    }
+  ],
+  "betrayalModel": {
+    "status": "candidate-system-contract",
+    "definition": "A betrayal is a consequential breach of a relationship, duty, expectation, or agreement as understood by at least one affected party; whether it was deliberate, justified, coerced, or misrepresented is a separate question.",
+    "relationshipKinds": [
+      "command-trust",
+      "alliance",
+      "treaty",
+      "crew-duty",
+      "family-or-dynasty",
+      "intelligence-handler",
+      "corporate-contract",
+      "civilian-protection",
+      "revolutionary-pledge",
+      "logistics-dependency"
+    ],
+    "eventFields": [
+      "actorIds",
+      "affectedPartyIds",
+      "relationshipOrObligationRef",
+      "expectedAction",
+      "actualAction",
+      "actorKnowledgeAtDecision",
+      "availableAlternatives",
+      "statedMotive",
+      "inferredMotiveClaims",
+      "coercionOrConstraintEvidence",
+      "immediateOutcome",
+      "longTermConsequences",
+      "discoverableEvidenceRefs",
+      "publicAccountRefs"
+    ],
+    "rules": [
+      "Betrayal must emerge from an established relationship or credible expectation, not a surprise label alone.",
+      "The act, the actor's motive, the affected party's interpretation, and later public framing are separately represented.",
+      "A betrayal may be real while the popular explanation of why it happened is false.",
+      "An apparent betrayal may be a forged order, compromised communication, coerced action, or necessary withdrawal; evidence decides what can be supported.",
+      "The same action may protect one group while betraying another obligation.",
+      "Consequences persist in trust, command eligibility, alliances, personnel choices, investigations, doctrine, and future cooperation."
+    ]
+  },
+  "battleNarratives": {
+    "requiredDimensions": [
+      "eventIdentity",
+      "participants",
+      "timelineClaims",
+      "initiatingActionClaims",
+      "ordersAndAuthority",
+      "tacticalChoices",
+      "civilianImpact",
+      "lossesAndMissingPersonnel",
+      "retreatSurrenderOrPursuit",
+      "materialEvidence",
+      "postbattleCustody",
+      "laterPoliticalUse"
+    ],
+    "accountVariantsMayDifferOn": [
+      "who fired first",
+      "whether an order existed",
+      "whether an order was received",
+      "whether a retreat was a rout or planned withdrawal",
+      "whether a loss was accidental or deliberate",
+      "who abandoned whom",
+      "whether civilians were present",
+      "whether a surrender was honored",
+      "who actually achieved the objective",
+      "whether the battle was a victory at all"
+    ],
+    "constraint": "Narrative disagreement is authored through different evidence, access, incentives, memory, and perspective—not random contradictory text."
+  },
+  "discoveryAndPlayerAgency": {
+    "knowledgeStates": [
+      "unknown",
+      "rumored",
+      "encountered",
+      "partially-understood",
+      "corroborated",
+      "contested",
+      "discredited",
+      "accepted-provisionally"
+    ],
+    "playerActions": [
+      "preserve",
+      "copy",
+      "authenticate",
+      "cross-reference",
+      "interview",
+      "translate",
+      "publish",
+      "leak",
+      "suppress",
+      "trade",
+      "alter",
+      "destroy",
+      "misinterpret"
+    ],
+    "consequences": [
+      "legal-claim-change",
+      "faction-trust-change",
+      "diplomatic-leverage",
+      "mutiny-or-reconciliation",
+      "mission-branch",
+      "reputation-shift",
+      "historical-revision",
+      "retaliation",
+      "archive-access-change",
+      "new-investigation"
+    ],
+    "rule": "Discovering evidence changes what an actor can know and do; it does not automatically rewrite the underlying event."
+  },
+  "archiveIntegration": {
+    "requiredExistingRecordFields": [
+      "recordId",
+      "sourceEventIds",
+      "authorOrOriginConfidence",
+      "integrityState",
+      "redactionAndForgeryEvidence",
+      "corroboratingRecordRefs",
+      "contradictingRecordRefs",
+      "interpretationRefs",
+      "custodyHistory"
+    ],
+    "additions": [
+      "claimRefs",
+      "accountKind",
+      "institutionalAlignmentAtCreation",
+      "knownSourceDependencies",
+      "provenanceChain",
+      "claimLevelConfidence",
+      "publicNarrativeStatus"
+    ],
+    "preserveOriginals": true,
+    "summariesRetainProvenance": true,
+    "contradictoryRecordsAreFirstClass": true
+  },
+  "validationGates": [
+    "Every account references an event or explicitly marks the event identity as disputed.",
+    "Claims, evidence, interpretations, and public narratives are not stored as interchangeable facts.",
+    "Claim confidence and evidence provenance remain accessible after summarization.",
+    "Correlated copies are not counted as independent corroboration.",
+    "A victor's official account receives no automatic truth bonus.",
+    "Defeated or marginalized accounts receive no automatic truth bonus either.",
+    "Betrayal records identify the relationship or obligation, action, knowledge, and consequences.",
+    "A battle can have several accounts without duplicating the underlying event.",
+    "Player knowledge changes only through permitted discovery, communication, inference, or deception.",
+    "Political consequences reference what relevant actors believe, not only what is objectively true.",
+    "Forgery and cover-up claims can themselves be disputed and investigated.",
+    "Illustrative examples do not silently establish named raWWar canon."
+  ],
+  "openQuestions": [
+    "How much of campaign history is fixed creator canon versus deliberately unresolved?",
+    "Which institutions operate independent archives, courts, universities, memorials, and intelligence networks?",
+    "How much can memory recording preserve, and how can it be edited, forged, or context-stripped?",
+    "Which historical disputes are campaign-critical and which exist as optional deep discoveries?"
+  ]
+}

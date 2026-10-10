@@ -1,0 +1,91 @@
+{
+  "schema": "raWWar.advisor-appointments.v1",
+  "status": "design-catalogue",
+  "description": "Appointment definitions describe delegated responsibilities and the work they can initiate. They do not create capabilities without qualified people, resources, facilities, and successful work.",
+  "appointments": [
+    {
+      "id": "advisor.military-command",
+      "name": "Military Commander",
+      "domain": "military-operations",
+      "essentiality": "foundational",
+      "authority": ["propose-operational-plans", "coordinate-commanders", "request-force-readiness-reviews", "issue-delegated-orders-within-authority"],
+      "qualificationGroups": ["command-chain", "operational-planning", "force-readiness"],
+      "workPrograms": ["command-structure-assessment", "force-readiness-review", "operations-planning"],
+      "capabilityEffects": ["organized-command-planning", "staff-coordination"],
+      "bonusDomains": ["operational-planning", "command-coordination", "risk-assessment"],
+      "successionPolicy": "vacancy-pauses-authority-dependent-work; eligible deputy may assume explicitly delegated continuity duties"
+    },
+    {
+      "id": "advisor.science",
+      "name": "Science Advisor",
+      "domain": "science-and-research",
+      "essentiality": "foundational",
+      "authority": ["propose-research-programs", "request-experiments", "prioritize-authorized-research", "raise-safety-holds"],
+      "qualificationGroups": ["scientific-method", "research-leadership", "experimental-safety"],
+      "workPrograms": ["science-floor-project", "research-prerequisite-assessment", "experimental-program"],
+      "capabilityEffects": ["organized-research-program", "research-prioritization"],
+      "bonusDomains": ["research-design", "experimental-method", "instrumentation", "technical-risk"],
+      "successionPolicy": "active experiments enter continuity review; unique undocumented knowledge may be lost"
+    },
+    {
+      "id": "advisor.aviation",
+      "name": "Aviation Advisor",
+      "domain": "aviation",
+      "essentiality": "expandable",
+      "authority": ["recommend-flight-doctrine", "organize-pilot-qualification", "review-flight-test-risk"],
+      "qualificationGroups": ["pilot-qualification", "flight-operations", "instruction-or-test-experience"],
+      "workPrograms": ["pilot-readiness-review", "flight-doctrine-review", "flight-test-program"],
+      "capabilityEffects": ["aviation-training-and-planning"],
+      "bonusDomains": ["flight-control", "pilot-training", "flight-test", "risk-assessment"],
+      "successionPolicy": "flight programs retain state; a replacement must review current configuration and test evidence"
+    },
+    {
+      "id": "advisor.armored-warfare",
+      "name": "Armored Warfare Advisor",
+      "domain": "armored-operations",
+      "essentiality": "expandable",
+      "authority": ["recommend-armored-doctrine", "review-vehicle-readiness", "organize-crew-qualification"],
+      "qualificationGroups": ["armored-vehicle-operation", "crew-coordination", "vehicle-readiness"],
+      "workPrograms": ["fleet-readiness-review", "armored-crew-training", "vehicle-employment-review"],
+      "capabilityEffects": ["armored-readiness-planning"],
+      "bonusDomains": ["vehicle-operation", "crew-training", "recovery", "fleet-readiness"],
+      "successionPolicy": "vehicle and crew records persist; active training may need a new instructor"
+    },
+    {
+      "id": "advisor.systems-intelligence",
+      "name": "Systems and Intelligence Advisor",
+      "domain": "signals-and-systems",
+      "essentiality": "expandable",
+      "authority": ["request-authorized-network-assessments", "recommend-electronic-defenses", "correlate-available-signals"],
+      "qualificationGroups": ["systems-analysis", "signals-exploitation", "security-authorization"],
+      "workPrograms": ["network-exposure-assessment", "signal-baseline", "electronic-defense-plan"],
+      "capabilityEffects": ["organized-systems-assessment"],
+      "bonusDomains": ["protocol-analysis", "intrusion-analysis", "signal-attribution", "defensive-hardening"],
+      "successionPolicy": "credentials are revoked or transferred under explicit custody procedure; evidence remains auditable"
+    },
+    {
+      "id": "advisor.spymaster",
+      "name": "Spymaster",
+      "domain": "human-intelligence",
+      "essentiality": "expandable",
+      "authority": ["propose-intelligence-collection", "manage-authorized-sources", "recommend-counterintelligence"],
+      "qualificationGroups": ["source-handling", "intelligence-analysis", "counterintelligence"],
+      "workPrograms": ["source-network-assessment", "counterintelligence-review", "collection-priorities"],
+      "capabilityEffects": ["organized-intelligence-program"],
+      "bonusDomains": ["source-handling", "deception-detection", "counterintelligence", "analysis"],
+      "successionPolicy": "source identities and compartmented access remain protected; replacement inherits only authorized knowledge"
+    },
+    {
+      "id": "advisor.logistics-engineering",
+      "name": "Logistics and Engineering Advisor",
+      "domain": "logistics-and-industrial-engineering",
+      "essentiality": "expandable",
+      "authority": ["request-supply-chain-audits", "recommend-maintenance-priorities", "coordinate-authorized-engineering-work"],
+      "qualificationGroups": ["logistics-planning", "maintenance-management", "industrial-safety"],
+      "workPrograms": ["critical-stock-review", "maintenance-debt-review", "industrial-bottleneck-assessment"],
+      "capabilityEffects": ["organized-logistics-and-maintenance"],
+      "bonusDomains": ["supply-planning", "maintenance-planning", "production-acceptance", "recovery"],
+      "successionPolicy": "open work orders and material custody persist; successor revalidates priority and assumptions"
+    }
+  ]
+}

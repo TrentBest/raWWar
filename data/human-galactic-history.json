@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "raWWar.human-galactic-history.v1",
+  "status": "candidate-history-framework",
+  "authority": {
+    "creatorCanonOverridesThisFramework": true,
+    "eraDatesAreDeliberatelyUnfixed": true,
+    "technologiesAreNotGuaranteedByHistoricalSequence": true,
+    "purpose": "Build a causally connected history from humanity's present era to the raWWar campaign era without treating present-day assumptions as destiny."
+  },
+  "startingReference": {
+    "name": "Earth-Origin Reference",
+    "referenceDate": "2026-10-09",
+    "meaning": "The creator's present is the narrative starting point, not a claim that future events can be predicted precisely.",
+    "knownOrigin": "Humanity originates on Earth.",
+    "futureBranches": [
+      "Political and economic systems may transform, fragment, or be replaced.",
+      "Scientific discoveries may invalidate today's engineering assumptions.",
+      "Expansion beyond Earth may be uneven, interrupted, reversed, or driven by motives not presently dominant.",
+      "Human identity, cognition, institutions, and definitions of personhood may change.",
+      "No single present-day nation, corporation, ideology, or technology is guaranteed to dominate the future."
+    ]
+  },
+  "historyDesignRules": [
+    "Every major historical change has material, political, environmental, technological, or cultural causes.",
+    "A technology's discovery does not imply immediate safe, cheap, widespread, or politically neutral deployment.",
+    "Travel time, information delay, energy, mass, maintenance, ecology, labor, and logistics create consequences unless a later discovery genuinely changes their constraints.",
+    "A discovery may create new problems and institutions rather than simply making the old problems disappear.",
+    "History includes mundane continuity as well as wars: family, labor, art, migration, trade, education, belief, crime, humor, and daily life.",
+    "Civilizations do not progress in one universal direction or at one uniform rate.",
+    "Lost knowledge is not automatically superior knowledge; preservation failure, incompatibility, secrecy, deliberate destruction, and changing context can make old systems difficult to use.",
+    "Political narratives are not the same thing as historical truth. Institutions preserve, distort, redact, and dispute records for reasons.",
+    "No era exists only to explain the player's current faction. People in each era believed their own future was the important one.",
+    "The player-facing history is a partial window into a larger world, not an exhaustive lore dump."
+  ],
+  "eras": [
+    {
+      "id": "history.earth-origin",
+      "label": "The Earth-Origin Era",
+      "temporalPosition": "Creator's present and near-future branching horizon",
+      "canon": "Earth is humanity's origin; the detailed future remains open.",
+      "historicalQuestions": [
+        "Which crises, collaborations, and discoveries make off-world settlement durable?",
+        "What forms of governance and ownership emerge beyond Earth?",
+        "Which Earth institutions persist, transform, or lose relevance?"
+      ],
+      "legacy": ["Earth remains a cultural reference, origin claim, and contested symbol long after it ceases to be the center of human life."]
+    },
+    {
+      "id": "history.first-permanent-offworld",
+      "label": "The First Permanent Offworld Societies",
+      "temporalPosition": "After the Earth-Origin Era; date open",
+      "canon": "Candidate era, not a fixed prediction.",
+      "causalPressures": ["habitat maintenance", "life-support reliability", "launch and transport capacity", "resource access", "labor and governance", "Earth dependency"],
+      "possibleTransformations": ["closed-loop habitats become communities with their own institutions", "off-world birth and long residence change law and identity", "resource extraction creates both shared infrastructure and disputes"],
+      "legacy": ["The first enduring arguments over who may govern people, infrastructure, and resources far from Earth."]
+    },
+    {
+      "id": "history.inner-system-network",
+      "label": "The Inner-System Network",
+      "temporalPosition": "After permanent off-world settlement; pace open",
+      "canon": "Candidate era.",
+      "causalPressures": ["orbital mechanics", "communications delay", "energy and materials", "industrial specialization", "transport windows", "habitat ecology"],
+      "possibleTransformations": ["settlements develop distinct industrial roles", "logistics networks become political leverage", "new propulsion or automation changes what is feasible without erasing infrastructure dependencies"],
+      "legacy": ["Standards, contracts, route rights, industrial dependencies, and cultural divergence that outlast the institutions that created them."]
+    },
+    {
+      "id": "history.deep-space-threshold",
+      "label": "The Deep-Space Threshold",
+      "temporalPosition": "When human expansion can sustain long-duration settlements beyond the home system; date and mechanism open",
+      "canon": "Candidate era; no single propulsion breakthrough is prescribed.",
+      "causalPressures": ["energy and reaction mass or an alternative travel mechanism", "crew and population viability", "reliability over long durations", "communications latency", "destination uncertainty", "investment across generations"],
+      "possibleTransformations": ["generation-spanning missions, advanced automation, suspended or transformed human life, radically new propulsion, or combinations may compete or coexist", "different routes produce different legal and cultural descendants"],
+      "legacy": ["Humanity ceases to be one tightly synchronized society even if it still claims one shared origin."]
+    },
+    {
+      "id": "history.first-interstellar-polities",
+      "label": "The First Interstellar Polities",
+      "temporalPosition": "After durable settlement of multiple star systems; date open",
+      "canon": "Candidate era.",
+      "causalPressures": ["distance and response time", "uneven resources", "local security", "industrial self-sufficiency", "migration", "shared standards and their limits"],
+      "possibleTransformations": ["colonies remain affiliated, become autonomous, secede, merge, or establish overlapping sovereignties", "political unity may be legal, cultural, economic, military, or merely rhetorical"],
+      "legacy": ["The first lasting disagreements over whether humanity is one civilization, a family of civilizations, or a useful myth."]
+    },
+    {
+      "id": "history.galactic-web",
+      "label": "The Galactic Web",
+      "temporalPosition": "When a substantial network of settled systems and routes exists; date open",
+      "canon": "Candidate era.",
+      "causalPressures": ["route capacity", "industrial bottlenecks", "navigation and information systems", "mutual defense", "trade asymmetry", "infrastructure ownership"],
+      "possibleTransformations": ["trade and political networks span large regions without requiring every system to be equally connected", "strategic hubs gain influence, while remote worlds develop unusual autonomy", "new forms of computation, identity, governance, and coordination may be unlike today's institutions"],
+      "legacy": ["The infrastructure and inequalities from which a galactic-scale power can emerge."]
+    },
+    {
+      "id": "history.first-galactic-hegemonies",
+      "label": "The First Galactic Hegemonies",
+      "temporalPosition": "After interstellar networks become strategically integrated; date open",
+      "canon": "Candidate era.",
+      "causalPressures": ["control of transit and industrial hubs", "security guarantees", "debt and tribute", "shared law", "communication and command limits", "competing legitimacy"],
+      "possibleTransformations": ["a hegemon may emerge by protection, coercion, standards, economic dependency, dynastic claim, or an unanticipated mechanism", "central authority can be real in core regions and mostly symbolic at the edges"],
+      "legacy": ["Imperial institutions, taxation or tribute systems, military hierarchies, legitimacy rituals, and resistance movements."]
+    },
+    {
+      "id": "history.imperial-fractures",
+      "label": "Imperial Fractures, Rebellions, and Civil Wars",
+      "temporalPosition": "One or more cycles during the rise and consolidation of galactic-scale authority",
+      "canon": "The existence of imperial intrigue, rebellion, and civil war is a required setting theme; exact events remain to be authored.",
+      "causalPressures": ["succession crises", "unequal obligations", "peripheral autonomy", "resource and route control", "military loyalties", "competing historical claims", "technological discontinuities"],
+      "possibleTransformations": ["civil wars split institutions and supply networks, not just borders", "rebellions may seek reform, independence, replacement rulers, or incompatible futures", "victors rewrite records; defeated groups preserve counter-archives"],
+      "legacy": ["Unresolved claims, inherited enemies, broken infrastructure, veterans, disputed martyrs, lost colonies, and technologies designed for wars whose reasons are forgotten."]
+    },
+    {
+      "id": "history.successor-civilizations",
+      "label": "Successor Civilizations and Reunifications",
+      "temporalPosition": "After fractures and across overlapping regional histories",
+      "canon": "Candidate era.",
+      "causalPressures": ["reconstruction", "migration", "new trade dependencies", "institutional memory", "reconciliation or revenge", "uneven technological recovery"],
+      "possibleTransformations": ["successors inherit only selected parts of predecessor systems", "some reunify under new terms; others maintain competing claims to legitimacy", "old names and symbols survive after their original meanings change"],
+      "legacy": ["A shared human ancestry with many political memories, technical dialects, and incompatible versions of the past."]
+    },
+    {
+      "id": "history.current-galactic-order",
+      "label": "The Campaign-Era Galactic Order",
+      "temporalPosition": "Player's era; absolute date intentionally unassigned",
+      "canon": "The campaign includes an Empress, an Empire spanning many star systems, major factions balancing against Imperial power, warp drives requiring days to initialize and prepare for a jump, and a continuous war whose consequences persist.",
+      "historicalQuestions": [
+        "What sequence of wars and settlements created the Empress's authority?",
+        "Which institutions does the Empire claim to have inherited, and which did it erase?",
+        "Why do major factions oppose, tolerate, exploit, or depend on Imperial power?",
+        "Which rebellion or civil war remains unfinished in the present conflict?",
+        "What historical truth would threaten the legitimacy of the current order?"
+      ],
+      "legacy": ["The player's present is the latest contested layer of a long history, not its inevitable endpoint."]
+    }
+  ],
+  "campaignDiscoveryPrinciples": {
+    "historyIsLayered": true,
+    "authoritativeEventsAreDistinctFromSurvivingRecords": true,
+    "survivingRecordsAreDistinctFromFactionInterpretations": true,
+    "playerKnowledgeIsTrackedSeparately": true,
+    "discoveriesCanBePartialContradictoryDamagedEncryptedOrDeliberatelyMisleading": true,
+    "archivesMayContainMoreContentThanTheCurrentMissionCanSurface": true,
+    "accessMayRequirePowerRepairTranslationCredentialsOrContext": true,
+    "discoveryCanChangePoliticalClaimsAndMissionOptions": true,
+    "aDestroyedColonyOrWreckRemainsPartOfPersistentWorldHistory": true
+  },
+  "openDecisions": [
+    "Absolute campaign-era date and the length of major eras.",
+    "The mechanism, limits, and historical evolution of interstellar travel beyond the established campaign-era warp premise.",
+    "The actual names and chronology of empires, rebellions, civil wars, dynasties, and successor factions.",
+    "Which historical events are fixed canon and which are campaign-variant.",
+    "The balance between objective historical truth, incomplete evidence, and genuinely unresolved events."
+  ]
+}

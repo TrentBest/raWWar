@@ -1,0 +1,400 @@
+{
+  "schema": "raWWar.mech-and-exotic-platforms.v1",
+  "status": "candidate-capability-contract",
+  "purpose": "Define piloted and optionally autonomous machines for combat, research, construction, rescue, and extraction across terrestrial, aquatic, subsurface, atmospheric, orbital, and space environments.",
+  "governingPrinciple": "A mech is a configured physical machine, not a humanoid silhouette with arbitrary hit points.",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "battleMechsAreAnExplicitDesiredExperience": true,
+    "platformCapabilityIsNotGuaranteedByHumanoidForm": true,
+    "allExamplesAreCandidateDesignsUntilAssignedToCanonFactions": true
+  },
+  "warfareEvolution": [
+    {
+      "id": "terrestrial-industrial",
+      "label": "Terrestrial industrial warfare",
+      "roles": [
+        "transport",
+        "engineering",
+        "armor",
+        "artillery",
+        "logistics"
+      ],
+      "lesson": "Wheels, tracks, legs, and specialized machinery compete by terrain, payload, cost, and repairability."
+    },
+    {
+      "id": "powered-personal",
+      "label": "Powered personal systems",
+      "roles": [
+        "load-bearing",
+        "breaching",
+        "casualty-extraction",
+        "heavy-tool-use"
+      ],
+      "lesson": "Augmentation scales the person; it does not automatically make a person-sized system a tank."
+    },
+    {
+      "id": "remote-autonomous",
+      "label": "Remote and autonomous systems",
+      "roles": [
+        "reconnaissance",
+        "hazard-entry",
+        "attritable-logistics"
+      ],
+      "lesson": "Remote operation trades onboard crew exposure for communications, autonomy, latency, and electronic-warfare constraints."
+    },
+    {
+      "id": "atmospheric-orbital",
+      "label": "Atmospheric and orbital specialization",
+      "roles": [
+        "station-construction",
+        "external-repair",
+        "cargo-handling"
+      ],
+      "lesson": "Pressure, radiation, thermal management, reaction control, and anchoring dominate many tasks."
+    },
+    {
+      "id": "space-industrial",
+      "label": "Space-industrial platforms",
+      "roles": [
+        "hull-repair",
+        "module-replacement",
+        "salvage",
+        "construction"
+      ],
+      "lesson": "Human-compatible manipulators can help around human-built structures; momentum and restraint remain mandatory."
+    },
+    {
+      "id": "exotic-environments",
+      "label": "Return to exotic environments",
+      "roles": [
+        "deep-ocean",
+        "subsurface",
+        "cryogenic",
+        "volcanic",
+        "low-gravity",
+        "hazardous-research"
+      ],
+      "lesson": "Specialized locomotion and sealed bodies return where terrain or inherited infrastructure rewards them."
+    }
+  ],
+  "platformFamilies": [
+    {
+      "id": "walking-combat-mech",
+      "purpose": "Pilotable combat machine with locomotion, manipulators, protection, sensors, weapons, and egress.",
+      "advantages": [
+        "selected obstacle traversal",
+        "human-scale manipulation",
+        "modular mission tools"
+      ],
+      "tradeoffs": [
+        "joint loads",
+        "balance and fall recovery",
+        "maintenance burden",
+        "large signature"
+      ],
+      "mustModel": [
+        "mass and inertia",
+        "terrain bearing and foot contact",
+        "joint torque and heat",
+        "stance and recoil stability",
+        "pilot sightlines",
+        "egress and rescue"
+      ]
+    },
+    {
+      "id": "industrial-exo-loader",
+      "purpose": "Lifting, construction, casualty recovery, and field repair.",
+      "mustModel": [
+        "load chart",
+        "grip compatibility",
+        "tip risk",
+        "power and isolation"
+      ]
+    },
+    {
+      "id": "research-survey-walker",
+      "purpose": "Sensors, sampling, drilling, and hazardous exploration.",
+      "mustModel": [
+        "instrument calibration",
+        "sample custody",
+        "decontamination",
+        "power and station keeping"
+      ]
+    },
+    {
+      "id": "resource-harvester",
+      "purpose": "Cut, bore, collect, sort, and transfer material.",
+      "mustModel": [
+        "tool wear",
+        "throughput and grade",
+        "waste",
+        "ground reaction",
+        "spares"
+      ]
+    },
+    {
+      "id": "vacuum-construction-salvage-rig",
+      "purpose": "Hull work, module alignment, and wreck recovery in orbit or space.",
+      "mustModel": [
+        "reaction control",
+        "anchoring and tether loads",
+        "tool torque",
+        "debris and collision risk"
+      ]
+    },
+    {
+      "id": "exotic-environment-specialist",
+      "purpose": "Operate in deep ocean, caverns, dense atmospheres, cryogenic or volcanic terrain, and unusual gravity.",
+      "mustModel": [
+        "pressure and temperature envelope",
+        "buoyancy or gravity",
+        "corrosion and abrasion",
+        "visibility and communications"
+      ]
+    }
+  ],
+  "configurationRequired": [
+    "chassis",
+    "locomotion",
+    "actuators",
+    "power",
+    "energy-storage",
+    "thermal-system",
+    "sensors",
+    "control-system",
+    "pilot-or-remote-station",
+    "protection",
+    "manipulators",
+    "tools",
+    "weapons",
+    "communications",
+    "consumables",
+    "crew-qualification",
+    "calibration",
+    "maintenance-state"
+  ],
+  "combatRules": [
+    "Weapons have physical mounts, arcs, recoil, heat, ammunition, reload, and interlocks.",
+    "Hits resolve against armor, joints, sensors, actuators, cables, weapons, and internal systems rather than one health bar.",
+    "A damaged limb changes mobility or balance; a damaged sensor creates a blind sector; a damaged feed can make ammunition unavailable.",
+    "A mech can be degraded, immobilized, abandoned, captured, repaired, or salvaged without being destroyed.",
+    "Pilot egress, injury, rescue, recovery, and capture are part of combat."
+  ],
+  "productionAndResearch": {
+    "researchDoesNotEqualProduction": true,
+    "requiredChain": [
+      "research-question",
+      "prototype-design",
+      "materials-and-components",
+      "fabrication",
+      "instrumented-test",
+      "failure-analysis",
+      "revision",
+      "qualification",
+      "training",
+      "deployment"
+    ],
+    "prototypeFailureExamples": [
+      "actuator overheating",
+      "foot placement fails on loose regolith",
+      "recoil destabilizes stance",
+      "thermal plume reveals position",
+      "sample contamination",
+      "salvage rig spins after cutting a loaded member"
+    ]
+  },
+  "validationGates": [
+    "Walking combat mechs are an explicit desired player capability.",
+    "Combat, research, construction, rescue, and extraction share engineering rules but have different mission contracts.",
+    "Mass, power, heat, terrain, stability, recoil, maintenance, and qualification constrain operation.",
+    "Space rigs account for momentum, anchoring, tethers, and reaction control.",
+    "Prototype failures and repairs persist as world history.",
+    "Evolution branches; no platform is universally optimal."
+  ],
+  "pilotExperience": {
+    "principle": "The player operates the mech by boarding and inhabiting its physical pilot station; a mech is not a camera mode or a remote avatar unless that configuration explicitly is remote-operated.",
+    "boardingSequence": [
+      "approach-and-inspect",
+      "verify-identity-and-access",
+      "open-hatch",
+      "board",
+      "secure-seat-and-restraints",
+      "connect-pilot-interface",
+      "close-and-seal-hatch",
+      "power-up",
+      "run-self-test",
+      "review-system-panels",
+      "verify-control-response",
+      "release-safeties",
+      "operate",
+      "respond-to-faults",
+      "shutdown-or-emergency-egress"
+    ],
+    "pilotStationComponents": [
+      "seat-and-restraints",
+      "hatch-and-seal",
+      "primary-displays",
+      "status-lamps",
+      "physical-switches",
+      "guarded-controls",
+      "levers-and-grips",
+      "pedals-or-foot-controls",
+      "emergency-stop",
+      "manual-isolation-controls",
+      "communications",
+      "environmental-control",
+      "maintenance-access"
+    ],
+    "motionInterface": {
+      "status": "candidate-option-not-universal-requirement",
+      "concept": "A qualified pilot may use a motion-capture harness or instrumented control frame to map body posture and gestures to mech commands.",
+      "requiredChecks": [
+        "pilot-calibration",
+        "neutral-pose-capture",
+        "joint-and-range-limits",
+        "command-filtering",
+        "latency-and-loss-detection",
+        "conflict-resolution-with-manual-controls",
+        "safe-stop-on-invalid-input"
+      ],
+      "rules": [
+        "Pilot movement is an input signal, not an instruction to teleport machine limbs into the same pose.",
+        "The machine's actuators, balance controller, traction, load, damage, and terrain determine the achieved motion.",
+        "The harness can be absent, degraded, bypassed, or incompatible; manual controls remain a separately specified control path."
+      ]
+    },
+    "interfaceSemantics": {
+      "oneAuthoritativeWorldObject": "Desktop, VR hand/controller, mouse, keyboard, and accessibility inputs invoke the same semantic action against the same physical control or system.",
+      "interactionExamples": [
+        "press-button",
+        "pull-lever",
+        "turn-selector",
+        "read-display",
+        "acknowledge-warning",
+        "isolate-circuit",
+        "open-panel",
+        "replace-module",
+        "calibrate-sensor"
+      ],
+      "feedbackMustReflect": "actual subsystem state, command acceptance, latency, interlocks, power, connectivity, damage, and stale data",
+      "rules": [
+        "A command request is not proof that a mechanism moved or a system changed state.",
+        "Physical reach, line of sight where relevant, access authority, and current machine condition constrain interaction.",
+        "Accessibility mappings may change the input device without bypassing world-state rules."
+      ]
+    },
+    "damageableInterfaces": {
+      "targets": [
+        "screen-surface",
+        "display-electronics",
+        "control-board",
+        "switch-or-lever",
+        "cable-and-connector",
+        "power-feed",
+        "data-bus",
+        "sensor",
+        "actuator-feedback",
+        "hatch-interlock"
+      ],
+      "effects": [
+        "unreadable-display",
+        "stale-telemetry",
+        "lost-control-channel",
+        "stuck-control",
+        "intermittent-input",
+        "false-or-missing-indication",
+        "forced-degraded-mode",
+        "unsafe-egress-risk"
+      ],
+      "requiredConsequences": [
+        "fault-record",
+        "diagnosis",
+        "isolation",
+        "repair-or-replacement",
+        "calibration",
+        "functional-test",
+        "acceptance-record"
+      ],
+      "rule": "A shot resolves against physical geometry and intervening construction; a hit does not magically disable every connected subsystem."
+    }
+  },
+  "renderingPerformanceContract": {
+    "status": "experiment-driven-renderer-contract",
+    "principle": "Treat pixels, memory, bandwidth, synchronization, and device limits as measurable budgets. GPU-side state and rendering can scale far beyond per-object CPU draw submission, but never imply literally unlimited capacity.",
+    "candidateArchitecture": [
+      "separate authoritative simulation state from presentation caches",
+      "share mesh and material definitions across instances",
+      "use instancing, batching, indirect draws, and GPU-driven visibility where the target API supports them",
+      "join static geometry selectively when it reduces overhead without harming culling, updates, damage, or material boundaries",
+      "retain independently addressable components for animated joints, articulated equipment, collision, damage, repair, and salvage",
+      "use hierarchical visibility, level of detail, screen-space error, and event-horizon fidelity tiers",
+      "partition render and state data into pages or tiles with explicit capacity and residency policy",
+      "keep CPU-readable semantic state for gameplay, interaction, persistence, and diagnosis; GPU buffers are not the only authoritative record"
+    ],
+    "measuredLimits": [
+      "GPU memory capacity and fragmentation",
+      "memory bandwidth and cache behavior",
+      "pixel/fragment workload and overdraw",
+      "vertex and geometry processing",
+      "draw/dispatch and command-buffer overhead",
+      "synchronization and readback stalls",
+      "upload and bus bandwidth",
+      "shader complexity and divergent work",
+      "visibility and occlusion quality",
+      "render-target and texture format costs",
+      "thermal and power limits",
+      "target resolution, refresh rate, and frame-time budget"
+    ],
+    "meshJoiningPolicy": {
+      "joinWhen": [
+        "geometry is static or changes as one unit",
+        "components share compatible materials and visibility",
+        "joint update and damage granularity are not required"
+      ],
+      "keepSeparateWhen": [
+        "articulated motion is required",
+        "parts can be independently damaged, hidden, repaired, replaced, or salvaged",
+        "separate culling or LOD is valuable",
+        "material, transparency, collision, or interaction boundaries matter"
+      ],
+      "compareStrategies": [
+        "separate-mesh baseline",
+        "material-batched meshes",
+        "instanced repeated components",
+        "selectively joined static groups",
+        "GPU-driven indirect submission"
+      ],
+      "requirement": "Benchmark representative scenes on target hardware; do not choose joining or GPU residency from theory alone."
+    },
+    "benchmarkScenarios": [
+      "one mech with articulated limbs, cockpit controls, and local damage",
+      "a squad of visually distinct mechs sharing chassis assets",
+      "large formation with repeated components and per-instance state",
+      "damage, debris, and salvage changing visibility during combat",
+      "VR stereo rendering at target refresh rate",
+      "low-end integrated GPU and high-end discrete GPU",
+      "cold load, warm cache, memory pressure, and device recovery"
+    ],
+    "reportMetrics": [
+      "CPU frame time and submission time",
+      "GPU frame time and pass breakdown",
+      "frame-time percentiles and missed refresh deadlines",
+      "resident and peak GPU memory",
+      "memory bandwidth where measurable",
+      "draw calls and indirect commands",
+      "visible and culled instances",
+      "triangles and shaded pixels",
+      "upload/readback bytes and synchronization stalls",
+      "interaction latency and simulation/render divergence"
+    ],
+    "validationRules": [
+      "No capacity claim is accepted without a reproducible workload and target hardware.",
+      "Pixel count is one budget among geometry, bandwidth, memory, synchronization, and simulation costs.",
+      "GPU optimization must not erase semantic identity, physical interaction, or damageable component boundaries.",
+      "VR comfort and target refresh deadlines are measured separately from average throughput.",
+      "GPU state textures are caches or packed state planes unless a contract explicitly makes them authoritative and defines recovery/persistence.",
+      "Performance improvements are checked against visual correctness, interaction latency, and persistent damage behavior."
+    ]
+  }
+}

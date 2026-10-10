@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesingularityworkshop.com/raWWar/schemas/navigation-reference-frames.v1.json",
+  "schemaVersion": "raWWar.navigation-reference-frames.v1",
+  "status": "candidate-design-contract",
+  "purpose": "Define how navigation charts, coordinate datums, transformation knowledge, instruments, and ship capabilities evolve across human history while remaining compatible with one authoritative spatiotemporal universe.",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "chartFrameIsNotWorldIdentity": true,
+    "oldChartsRemainHistoricallyMeaningful": true,
+    "coordinateTransformMustNotRewritePhysicalReality": true,
+    "equipmentAndKnowledgeLimitWhatCanBeKnownOrUsed": true,
+    "civilizationsMayAdoptFramesAtDifferentTimes": true
+  },
+  "coreDistinction": {
+    "authoritativeWorldState": "Canonical object identities, physical state, motion models, and simulation time in declared world frames.",
+    "navigationChart": "A versioned representation of selected world state, expressed relative to a named origin, axes, epoch, model, and available observations.",
+    "shipNavigationSolution": "A vessel's estimate of its own state and destination state using its instruments, onboard computation, charts, clocks, communications, and calibration.",
+    "rule": "Changing a chart's origin changes the coordinates and mental model used to describe a journey; it does not move the stars, shorten the route, or improve a ship's sensors by itself."
+  },
+  "frameHierarchy": {
+    "principle": "Frames are composable and time-aware, not a single forever-fixed hierarchy. Each transform declares source frame, target frame, epoch/time, units, orientation convention, origin state, model version, uncertainty, and validity.",
+    "candidateFrames": [
+      {
+        "id": "frame.earth-local",
+        "role": "Earth-surface and near-Earth operations",
+        "origin": "declared terrestrial datum or Earth center, depending on frame subtype",
+        "typicalUse": "surface navigation, launch, early orbital operations"
+      },
+      {
+        "id": "frame.earth-moon",
+        "role": "Earth-Moon neighborhood",
+        "origin": "Earth, Earth-Moon barycenter, or another explicitly declared local origin",
+        "typicalUse": "lunar transfers and local infrastructure"
+      },
+      {
+        "id": "frame.solar-system",
+        "role": "Solar System operations",
+        "origin": "Sun or Solar System barycenter, explicitly identified",
+        "typicalUse": "planetary ephemerides and interplanetary logistics"
+      },
+      {
+        "id": "frame.local-stellar",
+        "role": "Nearby-star routes",
+        "origin": "named star/system or declared local stellar reference origin",
+        "typicalUse": "first interstellar routes and regional charts"
+      },
+      {
+        "id": "frame.local-arm",
+        "role": "Local/Orion Arm regional navigation",
+        "origin": "versioned regional datum, not an implied physical center",
+        "typicalUse": "multi-system regional route planning"
+      },
+      {
+        "id": "frame.galactocentric",
+        "role": "Galaxy-scale cartography",
+        "origin": "defined Galactic Centre reference with declared axes and epoch",
+        "typicalUse": "galactic-scale strategic planning and common interstellar charts"
+      },
+      {
+        "id": "frame.inertial-campaign",
+        "role": "Campaign simulation reference frame",
+        "origin": "versioned simulation datum with explicitly bounded validity",
+        "typicalUse": "cross-system simulation and historical reconstruction"
+      }
+    ],
+    "requiredTransformFields": [
+      "transformId",
+      "sourceFrameId",
+      "targetFrameId",
+      "validAtOrEpoch",
+      "units",
+      "axisAndHandednessConvention",
+      "originAndOrientationDefinition",
+      "motionModelVersion",
+      "uncertaintyModel",
+      "validityHorizon",
+      "sourceAndCalibrationProvenance"
+    ],
+    "transformRules": [
+      "Never transform coordinates without knowing the source datum and units.",
+      "Transform moving origins and moving targets to a common epoch before comparing positions or route costs.",
+      "Preserve uncertainty through transformations; do not imply extra precision from more decimal places.",
+      "A missing or incompatible transform is an operational limitation, not permission to guess silently.",
+      "Transform chains must be testable against round-trip and known-reference cases within declared tolerances.",
+      "Galactocentric coordinates are a useful shared cartographic language, not an absolute motionless grid for the entire galaxy."
+    ]
+  },
+  "historicalNavigationEras": {
+    "rule": "These are candidate capability phases, not locked dates or a mandatory linear progression. Multiple frames coexist; remote polities can use different conventions, and a mature polity may retain local frames for practical reasons.",
+    "phases": [
+      {
+        "id": "nav-era.earth-origin",
+        "concept": "Earth-centered charts",
+        "typicalOrigins": [
+          "Earth surface datum",
+          "Earth center",
+          "Earth-Moon system"
+        ],
+        "strengths": [
+          "familiar geography",
+          "dense local observations",
+          "usable for terrestrial and early orbital operations"
+        ],
+        "limitations": [
+          "poor fit for interplanetary routes when Earth is treated as a universal origin",
+          "local reference assumptions do not scale naturally to interstellar space"
+        ],
+        "equipment": [
+          "optical and radio observations",
+          "local clocks and ranging",
+          "early onboard computation",
+          "manually curated ephemerides"
+        ],
+        "transitionPressure": [
+          "persistent off-world settlements",
+          "longer communication delays",
+          "routes involving multiple planetary systems"
+        ]
+      },
+      {
+        "id": "nav-era.solar-system",
+        "concept": "Sun- or barycenter-referenced ephemerides",
+        "typicalOrigins": [
+          "Sun",
+          "Solar System barycenter"
+        ],
+        "strengths": [
+          "coherent planetary orbital planning",
+          "less dependence on Earth's current location",
+          "shared basis for interplanetary logistics"
+        ],
+        "limitations": [
+          "solar-system frame alone is not a useful universal frame for interstellar distances",
+          "requires accurate timekeeping and ephemeris updates"
+        ],
+        "equipment": [
+          "precision clocks",
+          "stellar and planetary tracking",
+          "automated ephemeris computation",
+          "distributed beacon/ranging networks"
+        ]
+      },
+      {
+        "id": "nav-era.local-stellar",
+        "concept": "Local stellar and route-network charts",
+        "typicalOrigins": [
+          "departure system",
+          "destination system",
+          "regional stellar datum"
+        ],
+        "strengths": [
+          "supports practical star-to-star route planning",
+          "can be maintained by local polities without galaxy-wide infrastructure"
+        ],
+        "limitations": [
+          "regional datums may disagree",
+          "catalogue ages, proper motion, clock offsets, and route conventions become operational hazards"
+        ],
+        "equipment": [
+          "stellar astrometry",
+          "long-baseline sensing where available",
+          "cross-system clock and datum reconciliation",
+          "onboard route solvers"
+        ]
+      },
+      {
+        "id": "nav-era.galactocentric",
+        "concept": "Galactic-center-referenced cartography",
+        "typicalOrigins": [
+          "versioned Galactic Centre datum with declared axes and epoch"
+        ],
+        "strengths": [
+          "shared large-scale atlas",
+          "regional positions and routes can be compared across distant systems",
+          "supports strategic logistics and long historical records"
+        ],
+        "limitations": [
+          "not automatically more accurate locally",
+          "requires transformations, conventions, epoch handling, and uncertainty",
+          "does not make the galaxy static or remove local navigation needs"
+        ],
+        "equipment": [
+          "high-quality inertial/time references",
+          "catalogue cross-matching",
+          "large-scale astrometric solutions",
+          "versioned coordinate-transform software",
+          "navigation systems capable of uncertainty propagation"
+        ]
+      },
+      {
+        "id": "nav-era.networked-hybrid",
+        "concept": "Hybrid frame systems in mature or fragmented civilization",
+        "typicalOrigins": [
+          "local operational frame plus regional and galactic frames"
+        ],
+        "strengths": [
+          "uses the best frame for each scale",
+          "allows legacy charts and local infrastructure to remain useful",
+          "supports offline and disconnected operations"
+        ],
+        "limitations": [
+          "requires explicit datum labels and reliable transform paths",
+          "conflicting chart editions or political standards can complicate navigation"
+        ],
+        "equipment": [
+          "multi-frame navigation stack",
+          "local sensor fusion",
+          "chart provenance and compatibility checks",
+          "fallback dead reckoning and local beacons"
+        ]
+      }
+    ]
+  },
+  "chartRecordContract": {
+    "requiredFields": [
+      "chartId",
+      "edition",
+      "publisherOrOriginatingPolity",
+      "coordinateFrameId",
+      "coordinateEpoch",
+      "timeScaleAndClockConvention",
+      "units",
+      "coverageVolumeAndTimeRange",
+      "sourceCatalogueVersions",
+      "transformVersion",
+      "accuracyAndUncertainty",
+      "knownBlindSpots",
+      "lastValidationOrUpdate",
+      "equipmentRequirements",
+      "integrityAndAuthenticity"
+    ],
+    "optionalFields": [
+      "politicalBoundariesAtEditionEpoch",
+      "routeNetworkAtEditionEpoch",
+      "hazardsAndKnownWrecks",
+      "localNamesAndAliases",
+      "disputedClaims",
+      "classificationAndAccessRules",
+      "historicalInterpretation"
+    ],
+    "historicalRule": "A superseded chart remains a valid historical artifact describing what its authors knew, assumed, or wanted users to believe. It must not silently replace present authoritative coordinates."
+  },
+  "equipmentCapabilityModel": {
+    "principle": "Navigation capability emerges from sensors, clocks, computation, stored data, calibration, crew qualifications, power, maintenance, communications, and the environment—not from a technology label alone.",
+    "capabilityDimensions": [
+      "angularMeasurement",
+      "rangeMeasurement",
+      "velocityAndProperMotionEstimation",
+      "timekeepingAndClockDiscipline",
+      "inertialStateEstimation",
+      "catalogueCapacityAndFreshness",
+      "coordinateTransformSupport",
+      "uncertaintyPropagation",
+      "routeOptimization",
+      "sensorFusion",
+      "communicationsAndBeaconAccess",
+      "autonomousOperationDuration",
+      "radiationAndThermalRobustness",
+      "calibrationAndMaintenanceReadiness"
+    ],
+    "limitationsToModel": [
+      "A chart may cover a destination but lack the precision required by the current drive or approach procedure.",
+      "A ship may possess a transform algorithm but lack the source data, clock agreement, or calibration needed to use it safely.",
+      "Long periods without updates increase uncertainty according to the relevant motion and clock model.",
+      "Damaged sensors, unqualified operators, power shortages, corrupted records, and incompatible standards degrade navigation.",
+      "High-end equipment does not guarantee success if route assumptions or source records are wrong.",
+      "Local arrival and docking require local observations and procedures even when a galaxy-scale chart exists."
+    ],
+    "routeFeasibilityMustUse": {
+      "authoritativeTimeAndFrameTransforms": true,
+      "shipAndDriveCapabilities": true,
+      "chartCoverageAndFreshness": true,
+      "uncertaintyAndSafetyMargins": true,
+      "hazardsAndKnownConstraints": true,
+      "crewQualificationAndEquipmentCondition": true
+    }
+  },
+  "historyAndGameplay": {
+    "chartEvolutionCanCause": [
+      "newly feasible routes",
+      "reduced uncertainty",
+      "new logistics corridors",
+      "changed political influence",
+      "navigation accidents",
+      "legacy-system incompatibility",
+      "disputes over names or datum standards",
+      "rediscovery of abandoned routes",
+      "reconstruction of historical battles and migrations"
+    ],
+    "notAutomatic": [
+      "a galactocentric chart does not grant universal sensor range",
+      "a coordinate transform does not create new observations",
+      "a new standard does not instantly replace old equipment",
+      "a more advanced civilization is not guaranteed to have better local maps in every region"
+    ],
+    "persistentArtifacts": [
+      "superseded charts",
+      "route logs",
+      "beacon records",
+      "calibration records",
+      "navigation failures",
+      "updated transformations",
+      "political chart editions",
+      "wreck and expedition records"
+    ],
+    "historicalReplayRequires": [
+      "simulation time",
+      "chart edition",
+      "frame and transform versions",
+      "source knowledge available to the actor",
+      "equipment state",
+      "uncertainty model"
+    ]
+  },
+  "validationGates": [
+    "same physical object can be expressed in compatible frames without changing its authoritative identity or location",
+    "every chart names its frame, epoch, units, provenance, and uncertainty",
+    "time-dependent origins are evaluated at a common epoch before route calculations",
+    "transformation chains preserve declared uncertainty and pass round-trip tests",
+    "missing transform or stale chart produces a visible limitation or warning rather than silent precision",
+    "galactocentric mapping does not imply galaxy-wide simultaneous knowledge",
+    "equipment condition and ship capability constrain navigation results",
+    "historical charts remain queryable without being mistaken for current truth",
+    "different polities can adopt or retain different standards",
+    "route feasibility is recalculated when chart, equipment, ship, or world state changes"
+  ],
+  "openDecisions": [
+    "canonical mathematical coordinate conventions and transformation library",
+    "campaign-specific chronology for navigation capability phases",
+    "which propulsion technologies require what navigation precision",
+    "how much navigation data is stored onboard versus acquired from networks",
+    "how communications delay and clock disagreement affect route solutions",
+    "whether factions standardize on one galactocentric datum or maintain competing variants",
+    "how much navigation failure detail is simulated at each event horizon"
+  ]
+}

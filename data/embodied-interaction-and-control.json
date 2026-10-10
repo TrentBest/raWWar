@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "raWWar.embodied-interaction-and-control.v1",
+  "status": "candidate-simulation-contract",
+  "purpose": "Make interfaces physical, contextual, damageable parts of the world. The same semantic action can be expressed through VR hand motion, an FPS interaction, a physical control, or an accessibility/input binding, while the simulation resolves one consistent action and its consequences.",
+  "authority": {
+    "creatorCanonOverridesCandidateDesign": true,
+    "worldObjectsRemainAuthoritative": true,
+    "uiIsNotASeparateMagicLayer": true,
+    "inputBindingDoesNotTeleportThePlayer": true,
+    "visualGuidanceDoesNotExecuteAnAction": true,
+    "damageAndWearAffectFunction": true,
+    "accessibilityBindingsMustPreserveActionSemantics": true
+  },
+  "layers": [
+    {
+      "id": "interaction.world-object",
+      "responsibility": "Physical panel, switch, lever, grip, socket, screen, connector, logger port, harness, latch, or tool with identity, location, affordances, condition and access rules."
+    },
+    {
+      "id": "interaction.semantic-action",
+      "responsibility": "Intent such as press, pull, rotate, hold, release, inspect, connect, record, isolate, lock, tag, or acknowledge."
+    },
+    {
+      "id": "interaction.input-adapter",
+      "responsibility": "Maps VR tracking, FPS reach/use, mouse, keyboard, controller, or accessibility input to the same semantic action."
+    },
+    {
+      "id": "interaction.actor-performance",
+      "responsibility": "Resolves reach, posture, force, timing, qualification, fatigue, injury, restraint and Gesture variance."
+    },
+    {
+      "id": "interaction.target-response",
+      "responsibility": "Applies the action to the target's actual state, interlocks, damage, power, authority and operating conditions."
+    },
+    {
+      "id": "interaction.event-history",
+      "responsibility": "Records action, actor, target, time, preconditions, outcome, interruption, and consequences for replay, maintenance, audit and contested history."
+    }
+  ],
+  "actionContract": {
+    "requiredFields": [
+      "actionId",
+      "actorId",
+      "targetObjectId",
+      "semanticVerb",
+      "inputSource",
+      "startTime",
+      "completionTimeOrAbort",
+      "preconditions",
+      "actorState",
+      "targetStateBefore",
+      "targetStateAfter",
+      "outcome",
+      "failureReason",
+      "qualificationUsed",
+      "gestureReference",
+      "eventId"
+    ],
+    "outcomes": [
+      "completed",
+      "partially-completed",
+      "blocked-by-interlock",
+      "out-of-reach",
+      "insufficient-force",
+      "mistimed",
+      "interrupted",
+      "target-damaged",
+      "no-effect",
+      "unsafe-attempt"
+    ],
+    "rules": [
+      "A key binding may animate the actor's hand to a valid control and drive the same action pipeline as VR hand tracking; it must not bypass reach, occupancy, interlocks, fatigue or target state.",
+      "The actor must visibly reach, grasp, press, pull, turn, hold or release the relevant object unless the action is explicitly remote.",
+      "Input source changes how intent is expressed, not what the world action means.",
+      "A panel can be unpowered, broken, jammed, locked out, unauthorized, misconfigured or physically inaccessible.",
+      "A control's response depends on the installed system and operating context; a lever is not globally a generic open/close command.",
+      "A damaged screen may become unreadable; a damaged switch may fail open, fail closed, short, jam or become intermittent according to its modeled construction.",
+      "Actions are persistent events; retries do not erase earlier attempts or damage."
+    ]
+  },
+  "embodiment": {
+    "vr": "Tracked hands/body, physical reach and posture; optional tracked or simulated harness where safe and available.",
+    "fps": "First-person body/hand representation, reach/use targets, visible grasp and trigger motions; no detached cursor-only actions for physical controls.",
+    "keyboardAndMouse": "Explicit binding to a valid semantic action. For example, forward input can cause the avatar's hand to operate the mech throttle while the control rig moves through a defined range.",
+    "controller": "Direct analog or button input routed through the same action and actor-performance contracts.",
+    "accessibility": "Alternative inputs may replace the physical input gesture but retain authorization, target state, interlocks, and meaningful consequence; accessibility must not be confused with removing physical simulation from NPCs."
+  },
+  "breathingGuidance": {
+    "purpose": "A translucent, breathing Gesture ghost demonstrates the expected next action without taking it for the player.",
+    "targetKinds": [
+      "button",
+      "switch",
+      "lever",
+      "grip",
+      "harness",
+      "logger-port",
+      "screen",
+      "connector",
+      "valve",
+      "isolation-point",
+      "lock-point",
+      "tag-point",
+      "inspection-point"
+    ],
+    "rules": [
+      "Ghost shows ideal hand/body pose, target, direction, and temporal window.",
+      "The ghost breathes the specific control or log port when that control is the next useful action.",
+      "Guidance fades or changes when conditions change, a control becomes unsafe, or the player chooses another valid route.",
+      "Ghost guidance is not proof that an action is safe; live interlocks and measured state remain authoritative.",
+      "Repeated failure may adjust explanation and practice, but must not secretly perform the action."
+    ]
+  },
+  "physicalInterfaces": {
+    "screen": "A physical display surface with power, input source, readability, damage, refresh/latency and access state; content is constrained by what that terminal can know.",
+    "lever": "A physical travel range, force profile, detents, latch/interlock and return behavior.",
+    "trigger": "A physical trigger or equivalent control with safe/armed state, authorization, travel and weapon-system response.",
+    "loggerPort": "A physical interface where the actor removes, carries, aligns and connects a logger. The logger records actual accessible settings and samples with timestamps, units, calibration, gaps and provenance.",
+    "motionHarness": "A restraint and motion-capture rig that constrains posture and measures movement/force. It has fit, calibration, safety release, fatigue load and maintenance state.",
+    "mechControlRig": "Grips, pedals, foot plates, harness and switches map to actuator commands through vehicle control laws, power limits, thermal limits, damage and pilot skill; control motion does not directly dictate every actuator one-to-one."
+  },
+  "inputMapping": {
+    "schema": "raWWar.input-binding.v1",
+    "fields": [
+      "bindingId",
+      "inputSource",
+      "inputChordOrAxis",
+      "semanticAction",
+      "targetSelectionRule",
+      "actorAnimation",
+      "analogRange",
+      "deadZone",
+      "holdOrToggle",
+      "repeatPolicy",
+      "context",
+      "accessibilityAlternative",
+      "conflictPolicy"
+    ],
+    "example": {
+      "bindingId": "binding.mech.forward",
+      "inputSource": "keyboard",
+      "inputChordOrAxis": "W",
+      "semanticAction": "operate-throttle-forward",
+      "targetSelectionRule": "nearest-valid-control-in-current-pilot-station",
+      "actorAnimation": "right-hand-grip-advances-throttle",
+      "analogRange": [
+        0,
+        1
+      ],
+      "deadZone": 0.05,
+      "holdOrToggle": "hold",
+      "repeatPolicy": "continuous-with-state-sampling",
+      "context": "occupied-mech-pilot-station",
+      "accessibilityAlternative": "controller-axis-or-remapped-button",
+      "conflictPolicy": "explicit-context-priority"
+    }
+  },
+  "lockoutTagout": {
+    "status": "intentionally-frictional-operational-procedure",
+    "principle": "Isolation must be physically established, verified, individually locked, tagged, tested, and released through a traceable procedure. The friction is deliberate gameplay and operational realism, not random waiting.",
+    "requiredSteps": [
+      "identify-energy-sources",
+      "notify-affected-crew",
+      "shutdown-equipment",
+      "isolate-each-energy-source",
+      "apply-personal-lock",
+      "apply-identification-tag",
+      "release-or-block-stored-energy",
+      "verify-zero-energy-state",
+      "attempt-safe-test",
+      "perform-work",
+      "inspect-and-clear-personnel-tools",
+      "remove-own-lock-under-authorized-procedure",
+      "restore-energy-in-stages",
+      "verify-return-to-service",
+      "record-and-sign-off"
+    ],
+    "energyKinds": [
+      "electrical",
+      "capacitive",
+      "battery",
+      "mechanical-motion",
+      "hydraulic",
+      "pneumatic",
+      "pressure",
+      "thermal",
+      "chemical",
+      "radiation-or-beam",
+      "propellant",
+      "rotating-machinery",
+      "remote-command",
+      "gravity-or-suspended-load"
+    ],
+    "gameplayConsequences": [
+      "wrong source identification leaves a live hazard",
+      "a shared lock box or multi-person isolation prevents one person restoring energy under another worker",
+      "stored energy can reaccumulate and require re-verification",
+      "missing tags or stale drawings force investigation",
+      "emergency bypass is possible only under explicit authority and records a persistent incident",
+      "an impatient shortcut can injure workers, damage equipment, invalidate qualification or trigger an inquiry"
+    ],
+    "noMagicRules": [
+      "A UI checkbox does not isolate a physical energy source.",
+      "An unverified indicator is not proof of zero energy.",
+      "A tag communicates identity and intent but does not physically prevent energization; the lock/interlock does that job.",
+      "The simulation must model credible sources, isolation points, verification instruments and stored-energy paths, not turn every job into identical busywork."
+    ]
+  },
+  "validationGates": [
+    "Same action semantics across VR/FPS/mouse/keyboard/controller adapters.",
+    "Input binding cannot bypass physical target state, authorization or interlocks.",
+    "Guidance ghost never executes the action.",
+    "Every completed or failed interaction can be tied to a persistent event.",
+    "Logger records accessible measurements and provenance, not hidden omniscient truth.",
+    "Damage can alter interaction affordances and downstream function.",
+    "Motion harness has safety release, fit and calibration states.",
+    "Lockout/tagout cannot be completed without isolation, lock, verification, work-clearance and restoration evidence."
+  ]
+}

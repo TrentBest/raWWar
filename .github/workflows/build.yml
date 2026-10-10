@@ -1,0 +1,42 @@
+name: raWWar build and contract checks
+
+on:
+  push:
+    branches: [master, development]
+  pull_request:
+    branches: [master, development]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Build solution
+        run: dotnet build raWWar.sln --configuration Release
+      - name: Verify package contains its README and both manifests (local pack only)
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet pack src/raWWar/raWWar.csproj --configuration Release --no-build --output artifacts/packages
+          package="$(find artifacts/packages -maxdepth 1 -name '*.nupkg' -print -quit)"
+          test -n "$package"
+          contents="$(unzip -Z1 "$package")"
+          printf '%s\n' "$contents"
+          grep -Fxq 'README.md' <<< "$contents"
+          grep -Eq '(^|/)manifest\.json$' <<< "$contents"
+          grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
+      - name: Run executable contract checks
+        run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
+      - name: Independently verify candidate event-frame reference bytes
+        run: python3 tools/verify_candidate_event_frame.py
+      - name: Run checked-in usage examples
+        run: dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj --configuration Release

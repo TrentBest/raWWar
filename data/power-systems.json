@@ -1,0 +1,91 @@
+{
+  "schema": "raWWar.power-system.v1",
+  "powerSystems": [
+    {
+      "id": "power.gas_turbine_plant",
+      "name": "Gas Turbine Power Plant",
+      "generationClass": "thermal",
+      "fuelInputs": ["resource.hydrogen", "resource.carbon_feedstock"],
+      "nominalOutput": "120 MW",
+      "startup": "minutes",
+      "crew": ["power_operator", "maintenance_technician"],
+      "strengths": ["rapid_start", "modular", "field_deployable"],
+      "weaknesses": ["fuel_dependency", "thermal_signature", "maintenance"],
+      "failureModes": ["fuel_starvation", "compressor_fault", "turbine_damage", "cooling_loss"]
+    },
+    {
+      "id": "power.fission_reactor_block",
+      "name": "Compact Fission Reactor Block",
+      "generationClass": "nuclear",
+      "fuelInputs": ["resource.refined_reactor_fuel"],
+      "nominalOutput": "450 MW",
+      "startup": "hours",
+      "crew": ["reactor_operator", "reactor_engineer", "maintenance_technician"],
+      "strengths": ["high_energy_density", "long_endurance", "stable_output"],
+      "weaknesses": ["specialized_crew", "fuel_security", "complex_maintenance"],
+      "failureModes": ["cooling_loss", "control_fault", "fuel_damage", "containment_breach"],
+      "notes": "A reactor is a living engineering department, not a battery with a number."
+    },
+    {
+      "id": "power.fusion_pilot_plant",
+      "name": "Fusion Pilot Plant",
+      "generationClass": "fusion",
+      "fuelInputs": ["resource.hydrogen"],
+      "nominalOutput": "2.4 GW",
+      "startup": "tens_of_minutes",
+      "crew": ["fusion_operator", "fusion_engineer", "plasma_specialist", "maintenance_technician"],
+      "strengths": ["extreme_output", "high_energy_density", "strategic_endurance"],
+      "weaknesses": ["research_maturity", "specialized_materials", "complex_control"],
+      "failureModes": ["plasma_instability", "magnet_fault", "cooling_loss", "containment_trip"],
+      "technologyGate": "tech.controlled_fusion"
+    },
+    {
+      "id": "power.solar_array",
+      "name": "Orbital Solar Array",
+      "generationClass": "solar",
+      "fuelInputs": [],
+      "nominalOutput": "80 MW",
+      "crew": ["power_technician", "orbital_maintenance_technician"],
+      "strengths": ["no_fuel_transport", "low_maintenance"],
+      "weaknesses": ["line_of_sight", "weather_or_orbital_occlusion", "large_area"],
+      "failureModes": ["panel_damage", "tracking_fault", "cable_fault"]
+    },
+    {
+      "id": "power.thermal_geothermal",
+      "name": "Geothermal Plant",
+      "generationClass": "geothermal",
+      "fuelInputs": [],
+      "nominalOutput": "300 MW",
+      "crew": ["power_operator", "thermal_engineer"],
+      "strengths": ["continuous", "low_fuel_logistics"],
+      "weaknesses": ["site_specific", "drilling_dependency"],
+      "failureModes": ["well_loss", "pump_failure", "heat_exchange_failure"]
+    },
+    {
+      "id": "power.fusion_ship_core",
+      "name": "Shipboard Fusion Power Core",
+      "generationClass": "fusion",
+      "fuelInputs": ["resource.hydrogen"],
+      "nominalOutput": "600 MW",
+      "crew": ["reactor_watchstander", "reactor_engineer", "damage_control_team"],
+      "strengths": ["compact", "continuous", "high_peak_output"],
+      "weaknesses": ["crew_dependency", "thermal_management", "combat_vulnerability"],
+      "failureModes": ["plasma_instability", "cooling_loss", "magnet_damage", "automatic_scram"],
+      "technologyGate": "tech.controlled_fusion"
+    }
+  ],
+  "distribution": [
+    {
+      "id": "power.grid.base_medium",
+      "name": "Base Medium-Voltage Distribution Grid",
+      "interfaces": ["generation", "storage", "factory", "barracks", "research", "defense", "utility_corridor"],
+      "failureModes": ["overload", "cable_damage", "switchgear_fault", "substation_loss"]
+    },
+    {
+      "id": "power.grid.shipboard",
+      "name": "Shipboard Zoned Power Grid",
+      "interfaces": ["reactor", "propulsion", "life_support", "sensors", "weapons", "habitation", "damage_control"],
+      "notes": "Zoning permits damaged sections to be isolated rather than taking down the entire vessel."
+    }
+  ]
+}

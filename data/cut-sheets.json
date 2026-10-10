@@ -1,0 +1,96 @@
+{
+  "schema": "raWWar.cut-sheet.v1",
+  "cutSheets": [
+    {
+      "id": "cut.vehicle.scout_mk1",
+      "subject": "vehicle.scout_mk1",
+      "commander": {
+        "purpose": "Find out what is happening without committing a large force.",
+        "headline": ["Fast reconnaissance", "Low logistics burden", "Strong observation", "Weak protection"],
+        "watch": ["sensor coverage", "crew qualification", "communications", "fuel", "maintenance"],
+        "failureLooksLike": ["blind sector", "late report", "sensor fault", "vehicle recovery"]
+      },
+      "crew": {"positions": ["scout_operator"], "criticalQualifications": ["vehicle_operation", "navigation", "reconnaissance", "sensor_operation", "communications"]},
+      "physicalReality": {"consumes": ["fuel", "power", "ammunition", "maintenance"], "produces": ["observations", "reports", "map_updates"]}
+    },
+    {
+      "id": "cut.vehicle.apc_mk2",
+      "subject": "vehicle.apc_mk2",
+      "commander": {
+        "purpose": "Move a squad through danger while preserving the squad's ability to fight when it arrives.",
+        "headline": ["8 passengers", "Protected transport", "Remote weapon", "Sensor network"],
+        "watch": ["assigned squad", "crew readiness", "route", "fuel", "ammunition", "damage"],
+        "failureLooksLike": ["mobility loss", "disabled ramp", "crew casualty", "fuel shortage", "maintenance delay"]
+      },
+      "crew": {"positions": ["driver", "vehicle_commander", "gunner"], "criticalQualifications": ["vehicle_operation", "crew_command", "weapon_operation", "maintenance_basics"]},
+      "physicalReality": {"consumes": ["fuel", "power", "ammunition", "spares"], "produces": ["transport", "fire_support", "sensor_data"]}
+    },
+    {
+      "id": "cut.vehicle.lancer_mk1",
+      "subject": "vehicle.missile_tank_mk1",
+      "commander": {
+        "purpose": "Deliver long-range fires through a networked targeting chain.",
+        "headline": ["12 missiles", "Long-range targeting", "High effect", "Large logistics tail"],
+        "watch": ["target data age", "guidance technology maturity", "missile inventory", "sensor calibration", "crew qualification"],
+        "failureLooksLike": ["target loss", "guidance oscillation", "missile unavailable", "sensor degradation"]
+      },
+      "crew": {"positions": ["driver", "commander", "weapons_operator", "systems_engineer"], "criticalQualifications": ["vehicle_operation", "fire_control", "missile_systems", "sensor_operation"]},
+      "physicalReality": {"consumes": ["missiles", "fuel", "power", "spares"], "produces": ["standoff_fire_effect", "target_reports", "telemetry"]}
+    },
+    {
+      "id": "cut.vehicle.atlas_carryall",
+      "subject": "vehicle.heavy_carryall_vtol_mk1",
+      "commander": {
+        "purpose": "Move people, vehicles and material across terrain that would otherwise take hours or days to cross.",
+        "headline": ["32 passengers", "18 t cargo", "Rapid redeployment", "High fuel demand"],
+        "watch": ["weather", "airspace", "load balance", "crew qualification", "fuel", "route threats"],
+        "failureLooksLike": ["weather abort", "overweight load", "fuel diversion", "maintenance grounding"]
+      },
+      "crew": {"positions": ["pilot", "co_pilot", "loadmaster", "flight_engineer"], "criticalQualifications": ["vtol_operation", "load_management", "flight_engineering"]},
+      "physicalReality": {"consumes": ["fuel", "power", "maintenance"], "produces": ["transport", "construction_support", "rapid_redeployment"]}
+    },
+    {
+      "id": "cut.vehicle.ornithopter_alpha",
+      "subject": "vehicle.ornithopter_mk1",
+      "commander": {
+        "purpose": "Demonstrate whether adaptive articulated-wing flight is becoming a usable capability.",
+        "headline": ["Alpha technology", "Extreme agility potential", "High test risk", "Real failure consequences"],
+        "watch": ["damping state", "wing frequency", "pilot telemetry", "structural stress", "attitude"],
+        "failureLooksLike": ["overspeed", "flutter", "attitude loss", "structural failure", "pilot rescue"]
+      },
+      "demonstration": {
+        "startup": "preflight and instrument calibration",
+        "expected": "wings assume commanded ready position",
+        "knownAlphaRisk": "missing or incorrect damping can allow uncontrolled flap frequency",
+        "historicalRecord": "every test becomes part of technology history"
+      }
+    },
+    {
+      "id": "cut.vehicle.resolute_cruiser",
+      "subject": "vehicle.capital_ship_mk1",
+      "commander": {
+        "purpose": "Fight, coordinate and survive as a self-contained fleet organization.",
+        "headline": ["680 crew", "12 fighters", "Fleet command", "Long endurance"],
+        "watch": ["reactor watch", "propulsion", "sensor picture", "ammunition", "damage control", "crew fatigue", "spares"],
+        "failureLooksLike": ["power isolation", "department degradation", "loss of sensors", "fire", "cooling casualty", "crew shortage"]
+      },
+      "crew": {
+        "departments": ["command", "navigation", "engineering", "sensors", "communications", "weapons", "flight", "medical", "logistics", "damage_control"],
+        "principle": "The ship is a machine made of systems. The crew is a machine made of procedures."
+      },
+      "physicalReality": {"consumes": ["reactor_fuel", "food", "water", "ammunition", "spares", "propellant"], "produces": ["fleet_command", "sensor_coverage", "combat_effect", "historical_events"]}
+    },
+    {
+      "id": "cut.vehicle.imperial_carrier",
+      "subject": "vehicle.fleet_carrier_mk1",
+      "commander": {
+        "purpose": "Carry a mobile aerospace and logistics ecosystem into a war zone.",
+        "headline": ["96 fighters", "40 support craft", "900 marines", "6000 t cargo"],
+        "watch": ["flight operations", "aircraft readiness", "reactor output", "maintenance capacity", "food", "ammunition", "replacement personnel"],
+        "failureLooksLike": ["launch queue", "maintenance backlog", "fuel starvation", "crew exhaustion", "hangar damage", "logistics collapse"]
+      },
+      "organizationalReality": "The carrier is a city that can move.",
+      "deepDive": ["watchbill", "hangar procedures", "aircraft maintenance", "power distribution", "damage control", "supply chain"]
+    }
+  ]
+}

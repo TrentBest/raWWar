@@ -1,0 +1,694 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thesingularityworkshop.com/raWWar/schemas/galaxy-generation-contract.v1.json",
+  "schemaVersion": "raWWar.galaxy-generation-contract.v1",
+  "status": "design-contract",
+  "purpose": "Define stable spatial identity and reproducible generation rules. This contract is not itself a physical simulation or a claim of astrophysical accuracy.",
+  "universe": {
+    "gridDimensions": [
+      10,
+      10,
+      10
+    ],
+    "cellCount": 1000,
+    "coordinateOrigin": "zero-based",
+    "linearization": "x-fastest, then y, then z",
+    "ordinalBase": 1,
+    "ordinalFormula": "ordinal = 1 + x + 10*y + 100*z",
+    "coordinateFormula": {
+      "x": "(ordinal - 1) % 10",
+      "y": "floor((ordinal - 1) / 10) % 10",
+      "z": "floor((ordinal - 1) / 100)"
+    },
+    "galaxyAnchor": {
+      "ordinal": 42,
+      "coordinates": [
+        1,
+        4,
+        0
+      ],
+      "role": "reserved-galaxy-region",
+      "bakePolicy": "do-not-bake-galaxy-internal-star-map"
+    }
+  },
+  "subdivision": {
+    "childGridDimensions": [
+      10,
+      10,
+      10
+    ],
+    "childCount": 1000,
+    "childLinearScaleFactor": 0.1,
+    "addressing": "parent address plus integer child coordinates at each depth",
+    "identityRule": "A spatial address is independent of visit order, rendering, loading, and camera position.",
+    "precisionRule": "Do not claim infinite physical precision; each domain defines units, bounds, and numeric representation."
+  },
+  "generationIdentity": {
+    "requiredInputs": [
+      "worldSeed",
+      "generatorVersion",
+      "canonicalSpatialAddress",
+      "featureDomain",
+      "featureOrdinal"
+    ],
+    "optionalInputs": [
+      "modelVersion",
+      "parentFeatureAddress"
+    ],
+    "rule": "Every generated feature has a semantic address. Never derive identity from global random-call order or discovery order.",
+    "featureDomainsMustBeIndependent": true,
+    "randomPrimitive": {
+      "family": "Squirrel3-style integer hash / deterministic pseudo-random primitive",
+      "implementationMustBeVersioned": true,
+      "mustUseVerifiedReferenceVectors": true,
+      "referenceVectorsStatus": "included-and-executable-contract-tests-added",
+      "cryptographic": false,
+      "isPhysicalLaw": false,
+      "referenceResearch": {
+        "status": "corroborated-reference-variant-selected-for-v1",
+        "sources": [
+          {
+            "role": "primary-talk-record",
+            "url": "https://www.gdcvault.com/play/1024365/Math-for-Game-Programmers-Noise",
+            "observedAlgorithm": "GDC 2017 session by Squirrel Eiserloh, the source talk for SquirrelNoise3",
+            "note": "Algorithm transcription is cross-checked against multiple independent-language ports below."
+          },
+          {
+            "role": "GDC-2017-attributed-Squirrel3-transcription",
+            "url": "https://github.com/sublee/squirrel3-python/blob/master/squirrel3.py",
+            "observedAlgorithm": "NOISE1 multiply; add seed; xor right 8; add NOISE2; xor left 8; multiply NOISE3; xor right 8; reduce to unsigned 32-bit output",
+            "note": "Independent-language transcription attributed to Squirrel Eiserloh's GDC 2017 Noise-based RNG."
+          },
+          {
+            "role": "GDC-talk-attributed-C-transcription-with-discrepancy",
+            "url": "https://gist.github.com/randompast/72ea1f00b1a2b0b4495032456313db9c",
+            "observedAlgorithm": "The displayed code multiplies by BIT_NOISE2 where the Python transcription adds NOISE2.",
+            "note": "Treat as a conflicting transcription, not as a source of accepted test vectors."
+          },
+          {
+            "role": "Squirrel-Eiserloh-later-version-5",
+            "url": "https://gist.github.com/kevinmoran/0198d8e9de0da7057abe8b8b34d50f86",
+            "observedAlgorithm": "SquirrelNoise5 uses different constants and additional mixing stages.",
+            "note": "The author states version 5 addresses a high-position-bit influence weakness in the original version 3. It is not interchangeable with Squirrel3."
+          },
+          {
+            "role": "independent-CSharp-transcription",
+            "url": "https://gist.github.com/BwdYeti/f9d019bff90139a336b4137c09faa5e2",
+            "observedAlgorithm": "Uses wrapping uint32 arithmetic and adds BIT_NOISE2",
+            "note": "Corroborates the Python and Rust transcriptions for the SquirrelNoise3 operation sequence."
+          },
+          {
+            "role": "independent-Rust-transcription-and-explanation",
+            "url": "https://www.annardunster.com/posts/2024/eiserloh-noise-rng-rust",
+            "observedAlgorithm": "Casts position to uint32, uses wrapping multiplication/addition, and adds BIT_NOISE2",
+            "note": "Explicitly describes the Squirrel3 operations and unsigned 32-bit behavior."
+          }
+        ],
+        "acceptanceRule": "Resolve the exact intended variant and unsigned 32-bit behavior against the strongest primary/reference source; then independently compute and cross-check fixed vectors before adding them to executable contract tests. Do not silently substitute SquirrelNoise5 for Squirrel3."
+      },
+      "referenceVectors": [
+        {
+          "position": 0,
+          "seed": 0,
+          "expectedUInt32Hex": "0x1A0A96C2"
+        },
+        {
+          "position": 1,
+          "seed": 0,
+          "expectedUInt32Hex": "0x2B427F45"
+        },
+        {
+          "position": 42,
+          "seed": 0,
+          "expectedUInt32Hex": "0xF0E5F5A6"
+        },
+        {
+          "position": 0,
+          "seed": 1,
+          "expectedUInt32Hex": "0xDE7CC04F"
+        },
+        {
+          "position": 1,
+          "seed": 1,
+          "expectedUInt32Hex": "0xD5C31A94"
+        },
+        {
+          "position": 123456789,
+          "seed": 987654321,
+          "expectedUInt32Hex": "0x65CE2196"
+        }
+      ],
+      "acceptanceRule": "Vectors are fixed outputs cross-checked against independent implementations of the GDC 2017 SquirrelNoise3 operation sequence using uint32 wraparound. The third-party C gist that multiplies by BIT_NOISE2 is treated as a transcription error; do not substitute that variant or SquirrelNoise5."
+    }
+  },
+  "temporalSimulation": {
+    "initialStateRule": "Initial state is a deterministic function of seed, generator version, and stable semantic address.",
+    "transitionRule": "Changes occur through explicit, ordered simulation transitions, including FSM-governed decisions.",
+    "probabilityRule": "If a transition is probabilistic, its probability model and logical time step must be explicit; deterministic event-keyed sampling selects a reproducible outcome.",
+    "eventRandomKey": [
+      "worldSeed",
+      "simulationModelVersion",
+      "entityOrRegionAddress",
+      "eventDomain",
+      "eventOrdinal",
+      "logicalTimeKey"
+    ],
+    "mustNotDependOn": [
+      "camera movement",
+      "render frame rate",
+      "cell request order",
+      "unrelated random calls",
+      "load/unload order"
+    ],
+    "commitRule": "A committed logical event must not apply its consequences twice merely because it is reevaluated or replayed.",
+    "timeValidityRule": "Each model declares its supported time domain. A finite horizon is required when its assumptions impose one; a mathematical analytical model may explicitly support all finite query times. Unsupported times are rejected or handled by a declared domain policy."
+  },
+  "persistence": {
+    "regenerate": [
+      "immutable seed-derived initial properties",
+      "unvisited regions with no player-caused changes"
+    ],
+    "persist": [
+      "discoveries and knowledge",
+      "ownership changes",
+      "battles and casualties",
+      "construction and destruction",
+      "resource depletion",
+      "faction decisions that affect the world",
+      "other authoritative consequences of play"
+    ],
+    "principle": "Regenerate immutable initial conditions; persist the history the world has lived through."
+  },
+  "cosmicContext": {
+    "outsideAnchorCell": "generate and bake stable large-scale context at appropriate fidelity",
+    "anchorCell": "leave galaxy contents unresolved until a new-game seed and generation contract are supplied",
+    "projectionRule": "Rendering is an observer-relative projection of authoritative or deterministically reconstructed data, never the source of world identity."
+  },
+  "intergalacticTravel": {
+    "singlePlayerTravelToSisterGalaxies": "allowed",
+    "cellBoundaryIsPhysicalWall": false,
+    "travelFeasibilityInputs": [
+      "route distance and conditions",
+      "drive model and ship configuration",
+      "current reactor condition",
+      "stored energy and fuel",
+      "ship load",
+      "safety reserve"
+    ],
+    "warningPolicy": "Warn when estimated route requirements exceed current safe capability; do not silently hard-lock movement at the galaxy or cell boundary.",
+    "consequencePolicy": "If the player proceeds, outcomes emerge from the vessel's modeled physical state and resources; narrative examples must not substitute for runtime calculations."
+  },
+  "reproducibilityTests": [
+    "same seed, version, address, and feature domain produce the same initial canonical data",
+    "cell generation is independent of request order",
+    "camera and rendering operations do not mutate authoritative identity or state",
+    "probabilistic event outcomes reproduce from the same saved state and ordered logical event stream",
+    "child addresses and bounds remain stable under recursive subdivision",
+    "modified regions reconstruct without losing persisted history",
+    "travel warnings recalculate when route or vessel state changes"
+  ],
+  "unresolvedImplementationDecisions": [
+    "exact physical models and fidelity per scale",
+    "logical time-step policy and event identity rules per simulation domain",
+    "route-cost and jump-budget equations for each propulsion model",
+    "save migration policy when generation or simulation versions change"
+  ],
+  "spatiotemporalWorldModel": {
+    "status": "design-contract",
+    "conceptualQuery": "F(x,y,z,t)",
+    "meaning": "A query at a spatial position and valid simulation time returns the appropriate world sample or set of entities/fields; it does not mutate the world merely by being evaluated.",
+    "entityStateFunction": "S_i(t) = Evolve(S_i(t0), t-t0, versionedMotionModel, orderedApplicableEvents)",
+    "separateConcerns": [
+      "stable semantic identity",
+      "seed-derived immutable initial conditions",
+      "versioned motion/interaction model",
+      "live evolved state",
+      "authoritative event history",
+      "observer-relative observation",
+      "derived rendering and GUI presentation"
+    ],
+    "motionRule": "Time-dependent state evolves through a domain-appropriate analytical or numerical model. Classical F_net = m*a is a useful model where its assumptions apply, not a universal law for every game phenomenon.",
+    "deltaRule": "S(t+deltaT) = Phi_deltaT(S(t), inputs, events); the transition operator, time unit, solver, and model version are domain-defined.",
+    "timePolicy": {
+      "arbitraryBeginningOfUniverseReconstructionPromised": false,
+      "renderFrameIsAuthoritativeClock": false,
+      "cameraOrObservationMutatesWorld": false,
+      "domainMustDeclare": [
+        "time unit and epoch",
+        "valid query range",
+        "analytical or numerical evaluation method",
+        "step and tolerance policy where applicable",
+        "model version",
+        "event ordering and stable event identities",
+        "checkpoint and persistence policy",
+        "determinism contract"
+      ],
+      "validRangePolicyRequired": true,
+      "finiteHorizonRequiredWhenModelRequiresIt": true,
+      "analyticModelsMayDeclareAllFiniteTimes": true
+    },
+    "observerProjection": {
+      "authoritativeWorldStateIsSourceOfTruth": true,
+      "conceptualRenderFunction": "R(WorldState(t), Observer, Scale, Layers, RenderBudget)",
+      "cameraAndGuiAreProjectionsNotWorldIdentity": true,
+      "textureAndMeshCachesMayBeRegenerated": true,
+      "renderAssetCacheMayNotMutatePhysicalState": true,
+      "supportedViewExamples": [
+        "galaxy map",
+        "star-system map",
+        "station orbital view",
+        "planetary approach",
+        "surface view",
+        "world-space and screen-space GUI"
+      ]
+    },
+    "planetaryObservationExample": {
+      "procedure": [
+        "evaluate station and planet states at the same valid simulation time",
+        "transform observer pose and target into a shared coordinate frame",
+        "derive visible hemisphere, lighting, occlusion, and surface representation",
+        "render the appropriate texture/detail layers for the view",
+        "present target identity, orbital data, orientation, navigation, and actions through GUI"
+      ],
+      "cameraMovementAdvancesSimulation": false,
+      "timeAdvanceReevaluatesMotion": true
+    },
+    "simulationFidelityTiers": [
+      "analytical prediction",
+      "coarse evolution",
+      "local numerical simulation",
+      "detailed interaction",
+      "presentation-only refinement"
+    ],
+    "unresolvedImplementationDecisions": [
+      "exact physical models and fidelity per scale",
+      "logical time-step policy and event identity rules per simulation domain",
+      "route-cost and jump-budget equations for each propulsion model",
+      "save migration policy when generation or simulation versions change",
+      "canonical world time epoch, supported range, and time units per domain",
+      "motion model selection and validity horizon for each object class",
+      "coordinate frames and transform conventions",
+      "solver, step-size, numerical tolerance, and cross-platform determinism policy",
+      "observer/camera/GUI coordinate-space contracts",
+      "texture/data-layer schemas and cache invalidation rules"
+    ],
+    "microBundleArchitecture": {
+      "requirement": "All runtime functionality introduced for the world model is exposed and composed through micro bundles; isolated helper classes do not by themselves constitute runtime integration.",
+      "candidateCapabilityBoundaries": [
+        "stable spatial identity",
+        "orbital evaluation",
+        "coordinate transforms",
+        "observer-relative queries",
+        "texture-layer production",
+        "texture residency and cache policy",
+        "presentation"
+      ],
+      "compositionRule": "Use cohesive capability boundaries and hierarchical composition; candidate boundaries are guidance, not a requirement for one bundle per class.",
+      "dependencyRule": "Lower-level micro bundles must not depend upward on an application or FSM_COS.",
+      "statePacking": {
+        "scope": "GPU representation of discrete FSM state identifiers",
+        "stateIdentifierWidthBits": 8,
+        "representableValues": 256,
+        "rgbaChannels": 4,
+        "stateIdentifiersPerRgbaTexel": 4,
+        "mappingMustBeExplicit": true,
+        "outOfRangeValuesMustBeRejectedOrUseAnotherDeclaredFormat": true,
+        "packedStateIsCompleteFsmRecord": false,
+        "authoritativeHistoryStoredOnlyInTexture": false,
+        "techniqueIsGeneralGpuDataLayout": true
+      },
+      "designGuidance": {
+        "prefer": "Many cohesive small FSMs composed hierarchically over monolithic FSMs with hundreds of states when the behavior naturally decomposes.",
+        "stateCountTarget": "Around 30 states is a useful design heuristic, not a runtime limit.",
+        "apiGuidance": "Use FSM_API hierarchical composition to keep parts understandable and independently testable."
+      },
+      "textureSystemRule": "Use stable spatial identity to select relevant systems and data layers. Textures may compactly represent fields for GPU evaluation, but texture generation, upload, eviction, mip selection, and camera queries must not mutate authoritative world state or commit events.",
+      "requiredTests": [
+        "Four 8-bit state identifiers round-trip through one RGBA texel without channel ambiguity.",
+        "Out-of-range state identifiers are rejected or encoded through another declared format.",
+        "Texture generation and cache eviction do not mutate canonical world state.",
+        "System queries are independent of camera movement, request order, and display refresh rate.",
+        "Hierarchical FSM composition preserves the transition contracts of component machines.",
+        "Micro-bundle capability contracts can be tested without the full application or presentation stack."
+      ]
+    }
+  },
+  "campaignCreation": {
+    "status": "candidate-design-contract",
+    "singlePlayer": {
+      "policy": "authored-and-curated",
+      "controls": [
+        "pin",
+        "constrain",
+        "seed",
+        "override",
+        "validate",
+        "bake",
+        "distribute"
+      ],
+      "mayAuthor": [
+        "important locations",
+        "civilization lineage",
+        "historical events",
+        "starting ownership",
+        "diplomatic conditions",
+        "player knowledge",
+        "scenario objectives"
+      ],
+      "permittedVariationMustBeExplicit": true
+    },
+    "multiplayer": {
+      "policy": "automatic-and-seed-reproducible",
+      "usesSameWorldContract": true,
+      "generatedDomains": [
+        "galactic structure",
+        "settlements",
+        "civilization lineage",
+        "historical events",
+        "resources",
+        "starting positions",
+        "initial political relationships"
+      ],
+      "validates": [
+        "chronology",
+        "lineage consistency",
+        "physical and travel constraints",
+        "resource and industrial plausibility",
+        "mode-specific fairness"
+      ]
+    },
+    "civilizationLineage": {
+      "model": "graph",
+      "humanSpeciesSharedAcrossAllFactions": true,
+      "relationshipKinds": [
+        "founded-by",
+        "colonized-by",
+        "seceded-from",
+        "succeeded",
+        "unified-with",
+        "absorbed-by",
+        "liberated-from",
+        "exiled-from",
+        "adopted-traditions-from",
+        "contested-claim-to",
+        "split-from",
+        "reunified-with"
+      ],
+      "inheritanceIsSelective": true,
+      "sharedAncestryDoesNotDetermineAlliance": true,
+      "historiesAndClaimsCanDiffer": true,
+      "technologyTransferRequiresPlausibleKnowledgeOrPhysicalTransfer": true
+    },
+    "manifestRequirements": [
+      "campaignId",
+      "manifestVersion",
+      "worldSeed",
+      "galaxyGeneratorVersion",
+      "simulationModelVersion",
+      "historicalEpoch",
+      "authoredEntityRefs",
+      "authoredLineageRefs",
+      "pinnedEvents",
+      "generationConstraints",
+      "permittedVariation",
+      "startingKnowledgeProfiles",
+      "scenarioEntryConditions",
+      "validationProfile",
+      "saveCompatibilityPolicy"
+    ],
+    "persistenceRule": "Initial immutable conditions may be reconstructed from manifest, seed, and version. Authoritative consequences after play begins must persist.",
+    "canonRule": "Illustrative generated histories are not canon unless explicitly promoted by the creator."
+  },
+  "spatialAddressEncoding": {
+    "status": "v1-implemented-and-contract-tested",
+    "encodingName": "raWWar hierarchical spatial address binary encoding",
+    "magicAscii": "RWSA",
+    "versionByte": 1,
+    "layout": [
+      "4-byte ASCII magic RWSA",
+      "1-byte encoding version (1)",
+      "2-byte unsigned root galaxy-cell ordinal, big-endian",
+      "4-byte unsigned child depth, big-endian",
+      "3 bytes per child in root-to-leaf order: X, Y, Z"
+    ],
+    "childCoordinateEncoding": "One unsigned byte per axis; valid values are 0 through 9.",
+    "canonicalityRules": [
+      "Exactly one byte representation is accepted for each address under a given version.",
+      "The payload length must equal 11 + 3 * depth.",
+      "Unknown versions, invalid root ordinals, invalid child coordinates, and trailing or truncated bytes are rejected.",
+      "The encoding is identity serialization, not a stable hash and not physical coordinates."
+    ],
+    "referenceVectors": [
+      {
+        "description": "Root ordinal 42, then children (3,4,5) and (9,0,1)",
+        "address": {
+          "rootOrdinal": 42,
+          "children": [
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              9,
+              0,
+              1
+            ]
+          ]
+        },
+        "expectedHex": "5257534101002A00000002030405090001"
+      },
+      {
+        "description": "Root ordinal 1 with no child levels",
+        "address": {
+          "rootOrdinal": 1,
+          "children": []
+        },
+        "expectedHex": "5257534101000100000000"
+      }
+    ],
+    "compatibilityRule": "Never change V1 byte meanings in place. Introduce a new version for incompatible encoding changes. Stable hash selection and hash versioning remain separate decisions."
+  },
+  "spatialAddressHash": {
+    "status": "v1-implemented-and-contract-tested",
+    "algorithm": "SHA-256",
+    "version": 1,
+    "input": "Exact canonical bytes produced by HierarchicalSpatialAddressCodec V1, including RWSA magic, encoding version, root ordinal, depth, and ordered child coordinates.",
+    "output": "32-byte digest; hexadecimal form is uppercase for display only.",
+    "domainSeparation": "The canonical RWSA V1 magic/version header is included in the hashed bytes.",
+    "compatibilityRule": "Never change V1 hash inputs or algorithm in place. Any incompatible encoding or hash definition requires a separately versioned hash API and fixed reference vectors. This digest is stable identity material, not encryption, authentication, or proof of ownership.",
+    "referenceVectors": [
+      {
+        "description": "Root ordinal 42, then children (3,4,5) and (9,0,1)",
+        "address": {
+          "rootOrdinal": 42,
+          "children": [
+            [
+              3,
+              4,
+              5
+            ],
+            [
+              9,
+              0,
+              1
+            ]
+          ]
+        },
+        "inputHex": "5257534101002A00000002030405090001",
+        "expectedSha256Hex": "06C16FED1EC8BC08A1EB95AE7722F7ECD9BC8A3B502BB579229CB090B956033E"
+      },
+      {
+        "description": "Root ordinal 1 with no child levels",
+        "address": {
+          "rootOrdinal": 1,
+          "children": []
+        },
+        "inputHex": "5257534101000100000000",
+        "expectedSha256Hex": "46715799BB957132931E309ADA71A4E1F3C9807BAF4071056DB67A819BC315F0"
+      }
+    ]
+  },
+  "eventHistoryAndReplay": {
+    "status": "stable-event-identity-v1-in-memory-ledger-and-resource-balance-replay-slice-implemented; durable-store-general-replay-and-checkpoints-not-implemented",
+    "purpose": "Reconstruct authoritative world state from compatible initial conditions or checkpoints plus committed history without duplicating event consequences.",
+    "eventIdentityInputs": [
+      "worldSeed",
+      "simulationModelVersion",
+      "entityOrRegionAddress",
+      "eventDomain",
+      "eventOrdinal",
+      "logicalTimeKey"
+    ],
+    "identityRule": "Identity, ordering, and consequences are separate concerns. Do not derive semantic identity from database row IDs, arrival order, wall clock, render frame, process-local hashes, or ad hoc string formatting.",
+    "commitRule": "A committed event is applied at most once. Deduplication and commit must be atomic at the persistence boundary. Reusing one identity with a different payload is a conflict.",
+    "orderingRule": "Each simulation domain declares logical-time representation, ordering, causal prerequisites, deterministic tie-breaking, and policy for concurrent or conflicting events. Thread scheduling, packet arrival, collection iteration, and rendering callbacks must not implicitly determine authoritative order.",
+    "replayRule": "Reconstruction starts from seed-derived initial state or a compatible checkpoint and applies committed events under declared model versions. Replay is not a second commit.",
+    "checkpointRequiredMetadata": [
+      "world/entity scope",
+      "simulation-model and state-schema versions",
+      "logical time represented",
+      "history boundary or included event identities",
+      "compatibility/migration metadata"
+    ],
+    "observationRule": "World queries, camera movement, GUI updates, rendering, texture generation, and cache operations must not commit events or mutate authoritative history. Event discovery crosses an explicit simulation/commit boundary.",
+    "determinismScopeMustDeclare": [
+      "valid time range and units",
+      "model/schema versions",
+      "event identity and ordering",
+      "initial-state and random-sampling inputs",
+      "numerical solver/precision/tolerance where applicable",
+      "supported platform/build scope",
+      "checkpoint compatibility and migration"
+    ],
+    "acceptanceTests": [
+      "replay reproducibility for fixed seed, versions, checkpoint, and ordered history",
+      "committed-event retry does not duplicate consequences",
+      "same identity with different payload is detected",
+      "irrelevant scheduling/rendering changes do not affect committed result",
+      "missing causal prerequisites follow declared policy",
+      "checkpoint-plus-tail replay matches compatible full replay",
+      "incompatible checkpoint versions are rejected or explicitly migrated",
+      "observation does not append events or mutate authoritative state",
+      "event identity V1 matches a fixed canonical binary reference vector",
+      "in-memory duplicate commits are idempotent under concurrent retries",
+      "same identity with a different payload is reported as a conflict"
+    ],
+    "unresolvedImplementationDecisions": [
+      "domain-specific logical-time representations and event order",
+      "durable atomic commit/deduplication mechanism",
+      "checkpoint format and migrations",
+      "cross-platform determinism scope for numerical models",
+      "authoritative state reducer and causal prerequisite policy"
+    ],
+    "implementedReferenceSlice": {
+      "identityType": "SimulationEventId",
+      "eventType": "SimulationEvent",
+      "ledgerType": "InMemoryEventHistory",
+      "identityEncoding": "RWEI magic + V1 byte + big-endian uint64 seed + length-prefixed UTF-8 model version + length-prefixed canonical address bytes + length-prefixed UTF-8 event domain + big-endian uint64 event ordinal + length-prefixed UTF-8 domain logical-time key; SHA-256 uppercase hex; the created event retains seed, model version, canonical address stream key, domain, ordinal, and logical-time key alongside the derived identity",
+      "commitOutcomes": [
+        "Committed",
+        "AlreadyCommitted",
+        "IdentityConflict"
+      ],
+      "threadSafety": "process-local lock serializes commits",
+      "ordering": "within a domain, ordinal string comparison of logical-time key, then event ordinal, then stable event ID",
+      "executableChecks": [
+        "fixed event identity SHA-256 reference vector",
+        "identity repeatability and selected input sensitivity",
+        "payload defensive copy",
+        "identical retry is idempotent",
+        "same identity with different payload is a conflict",
+        "domain-local deterministic ordering",
+        "domain isolation",
+        "concurrent duplicate commit",
+        "event metadata retains canonical address stream key",
+        "address-scoped history reads exclude other entities/regions while domain-wide diagnostics remain available",
+        "resource delta V1 signed Int64 big-endian round-trip",
+        "address-scoped resource balance replay applies logical-time order",
+        "resource delta payload length validation",
+        "resource replay rejects signed Int64 overflow",
+        "resource replay rejects cross-domain input"
+      ],
+      "limitations": [
+        "volatile in-memory only",
+        "no durable atomic persistence",
+        "no causal prerequisite handling",
+        "no checkpoint or replay reconstruction",
+        "lexical logical-time ordering is suitable only when explicitly declared by the domain",
+        "only one narrow resource-balance reducer is implemented; no general world-state reducer",
+        "replay caller must supply an address-scoped ordered stream",
+        "no checkpoint or replay reconstruction from checkpoint-plus-tail"
+      ],
+      "streamSelection": "events retain canonical address bytes as an uppercase-hex stream key; history supports domain-plus-address reads so unrelated entities/regions are not mixed during reconstruction",
+      "reducerType": "ResourceBalanceReplay",
+      "reducerDomain": "resource.balance.delta",
+      "reducerPayloadV1": "exactly 8 bytes: signed Int64 two's-complement delta, big-endian",
+      "reducerBehavior": "caller supplies one address-scoped ordered event stream; checked Int64 accumulation from initial balance; rejects malformed payload, wrong domain, and overflow"
+    }
+  },
+  "coordinateFrameContract": {
+    "status": "generic-cartesian-transform-primitive-implemented; universal-frame-conventions-and-frame-graph-not-implemented",
+    "purpose": "Make spatial quantities interpretable and transformable without conflating coordinate representation, canonical identity, and authoritative physical state.",
+    "frameMetadataRequired": [
+      "frame identity/role",
+      "origin and parent relationship",
+      "axis directions and handedness",
+      "units",
+      "orientation convention",
+      "valid logical-time range for moving frames",
+      "model version"
+    ],
+    "conventionsMustDeclare": [
+      "handedness and positive axis directions",
+      "angular units and positive rotation direction",
+      "transform representation and normalization rules",
+      "source/destination mapping direction",
+      "composition order",
+      "distance units",
+      "invalid/singular/non-finite input policy",
+      "numerical tolerance and determinism scope"
+    ],
+    "semanticRule": "A transform changes coordinate representation; it does not mutate entity identity, move authoritative state, advance time, or commit an event.",
+    "temporalRule": "Time-dependent transforms declare epoch, units, validity range, model version, and evaluation method. Related poses used in one observation must be evaluated at compatible logical times.",
+    "acceptanceTests": [
+      "identity transform preserves values",
+      "transform followed by inverse returns original within declared tolerance",
+      "composition matches documented order",
+      "nested parent/local round trips are consistent",
+      "positions and directions treat translation differently",
+      "invalid inputs follow explicit policy",
+      "moving-frame transforms use requested logical time",
+      "camera/frame conversion does not mutate identity or authoritative state",
+      "fixed reference vectors detect convention drift"
+    ],
+    "unresolvedCreatorAndImplementationDecisions": [
+      "canonical world frame, handedness, and axis conventions",
+      "public frame identifiers and transform representation",
+      "time-dependent frame graph and validity policy",
+      "domain-specific unit conventions and renderer adapters"
+    ],
+    "implementedPrimitive": {
+      "type": "CartesianTransform3d",
+      "source": "src/raWWar/Spatiotemporal/CartesianTransform3d.cs",
+      "matrixConvention": "row-major 3x3 linear matrix maps source-frame column coordinates into destination-frame coordinates; translation is in destination-frame units",
+      "operations": [
+        "TransformPosition includes translation",
+        "TransformDirection ignores translation",
+        "Compose applies its argument transform first, then the receiver",
+        "Inverse supports orthonormal linear matrices only and rejects scale/shear"
+      ],
+      "validation": [
+        "reject non-finite transform components",
+        "reject non-finite input vector components"
+      ],
+      "contractTestCoverage": [
+        "identity mapping",
+        "fixed quarter-turn and translation reference vector",
+        "position and direction translation distinction",
+        "inverse round trip",
+        "composition order",
+        "reject scaled inverse",
+        "reject non-finite transform",
+        "reject non-finite vector"
+      ],
+      "limitations": [
+        "does not name or register source/destination frames",
+        "does not declare units",
+        "does not choose universal raWWar handedness or axes",
+        "does not implement a frame graph",
+        "does not implement time-dependent transforms"
+      ]
+    },
+    "completedTests": [
+      "identity transform preserves a point",
+      "fixed quarter-turn and translation vector",
+      "position and direction treat translation differently",
+      "orthonormal transform followed by inverse recovers point",
+      "composition applies argument before receiver",
+      "inverse rejects non-orthonormal matrix",
+      "non-finite transform components rejected",
+      "non-finite vectors rejected"
+    ]
+  }
+}
