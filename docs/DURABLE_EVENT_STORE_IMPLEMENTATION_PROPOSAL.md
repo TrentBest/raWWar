@@ -2,9 +2,17 @@
 
 > **Candidate, not canon:** prove restart-safe event recording in one process before claiming a distributed world ledger.
 
-**Status:** Candidate implementation proposal; requires review before it becomes an implementation commitment.  
+**Status:** Candidate implementation proposal; an internal prototype now exists, but this document still requires review before the format or provider becomes a committed architecture decision.  
 **Scope:** The first durable adapter for the existing event-history slice only.  
 **Related contracts:** [Event History, Checkpoints, and Deterministic Replay](EVENT_HISTORY_AND_REPLAY_CONTRACT.md), [Durable Event Commit Contract](DURABLE_EVENT_COMMIT_CONTRACT.md), and [Durable Event Record Format — Candidate V1](DURABLE_EVENT_RECORD_FORMAT_CANDIDATE.md).
+
+## Prototype status (2026-10-10)
+
+An internal `CandidateFileEventJournal` now exercises the narrow local-file proposal. It uses the Candidate RWEJ frame codec, opens the journal with an exclusive file handle, appends frames and calls `Flush(true)` before reporting `Committed`, rebuilds an identity index on open, suppresses identical retries, reports same-ID/different-content conflicts, and refuses further operations on a live instance after a write/flush exception until it is reopened. Recovery fails closed on truncated/corrupt records and duplicate identities.
+
+Temporary-file contract checks currently cover first commit, no-growth retry, conflict, distinct append, close/reopen recovery, retry/conflict after reopen, deterministic address-scoped reads, truncated-tail rejection, and corruption rejection. CI passed on code/test head `5992a48491a31f31d8732c3df406cf07431f9c38` (push run [38023943800](https://github.com/TrentBest/raWWar/actions/runs/38023943800); PR run [38023940298](https://github.com/TrentBest/raWWar/actions/runs/38023940298)).
+
+This is **prototype evidence only**, not proof of real process-crash or power-loss safety. Exclusive-open behavior and duplicate-record recovery still need explicit tests; process-level fault coverage and supported OS/filesystem boundaries remain unresolved. The candidate format is not frozen, and no public storage API or world-state transaction has been introduced.
 
 ## 1. Proposed first deployment boundary
 
