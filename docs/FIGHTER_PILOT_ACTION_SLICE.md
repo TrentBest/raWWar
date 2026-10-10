@@ -1,14 +1,14 @@
 # Fighter Pilot Action Slice — Station to World Consequence
 
-**Status:** Design contract / next implementation slice  
+**Status:** Candidate design sketch / implementation gated on design readiness  
 **Scope:** raWWar only; no changes to Workshop dependencies or APIs  
 **Host direction:** AnyApp first; desktop and VR are manifestations of the same semantic procedure
 
 ## Purpose
 
-The existing `FighterPilotStation` prototype establishes a narrow readiness sequence: occupy the station, secure the pilot, connect the interface, raise the rig, and accept bounded control intent. It does not yet cause an aircraft to act in the authoritative world.
+This document is a proposed vertical-slice sketch, not a statement that a `FighterPilotStation` implementation currently exists on the active branch. It must be reconciled with the canonical game-design documents and any creator decisions before implementation. The desired proof is a narrow causal chain from an authorized physical interaction to an authoritative aircraft-state change.
 
-The next slice must close that gap without pretending the station is a complete flight simulator. It should prove one small causal chain from an authorized physical interaction to a world-state change, with a durable explanation of what happened.
+If and when this concept is selected for implementation, the slice should close that gap without pretending the station is a complete flight simulator. It should prove one small causal chain from an authorized physical interaction to a world-state change, with a durable explanation of what happened.
 
 ## The causal chain
 
@@ -26,7 +26,7 @@ Station + occupant
 
 The station is not the aircraft, the rig is not a keyboard mapping, and the rendered motion is not authoritative state. A successful input is a request to perform a domain action; it is not proof that the requested motion occurred.
 
-## Minimum vertical slice
+## Candidate minimum vertical slice
 
 Implement one deliberately small outcome first:
 
@@ -104,6 +104,6 @@ Build and run the actual suite after each implementation step. A checked-in desi
 - persistent/distributed event storage beyond verified existing capability;
 - a claim that raWWar is already playable.
 
-## Completion criterion
+## Candidate completion criterion
 
 The slice is complete when one valid pilot input produces one bounded, testable, authoritative aircraft-state transition with an inspectable cause/outcome record, invalid requests do not mutate the world, and the semantic procedure is independent of desktop/VR presentation. AnyApp end-to-end hosting remains a separate milestone.
