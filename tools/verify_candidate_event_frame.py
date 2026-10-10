@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Independent standard-library check of the Candidate V1 reference frame.
 
-This intentionally does not call the C# codec. The event ID is the separately
-specified SimulationEventId V1 reference vector; this script independently
-assembles the journal frame and verifies its field boundaries and checksum.
+This intentionally does not call the C# codec. It independently recomputes the
+SimulationEventId V1 hash from the documented identity fields, assembles the
+candidate journal frame, and verifies the complete reference bytes, field
+boundaries, and checksum.
 """
 from hashlib import sha256
 from struct import pack
