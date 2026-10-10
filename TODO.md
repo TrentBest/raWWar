@@ -70,10 +70,11 @@
 
 ## P2 — Deliver one meaningful first-person vertical slice
 
-- [x] Define and prototype the first station-and-rig contract from the creator's vision: station occupancy → physical restraint state → interface connection → raised control rig → bounded pilot-control request. Visible hands/grips and station animation remain presentation work, not implemented behavior.
-- [ ] Start with one role (fighter pilot is the current example) and trace the whole chain: station state → qualified occupant → physical controls → FSM/procedure → authoritative world action → durable outcome/event → observable feedback.
+- [ ] Re-establish the station-and-rig prototype only after design readiness is confirmed. A historical prototype/test snapshot at `7ec40343f15a15639951a096165169cf991d7920` passed 195/195 checks in [run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718), but that prototype was subsequently reverted; do not count it as current implementation.
+- [ ] Resolve the relevant creator-owned interaction/control questions before selecting the fighter-pilot implementation slice. See [Open Question 23](docs/OPEN_QUESTIONS.md#23-what-exactly-does-the-pilot-control-rig-measure-and-command) and the [candidate Fighter Pilot Action Slice](docs/FIGHTER_PILOT_ACTION_SLICE.md). The sketch is design-only, not canon or a runnable example.
+- [ ] Once selected, trace one role through the whole chain: station state → qualified occupant → physical controls → FSM/procedure → authoritative world action → durable outcome/event → observable feedback.
 - [ ] Model requirements and behavior as data and reusable FSM/MicroBundle capabilities where appropriate; avoid a pile of one-off animation scripts.
-- [x] Add deterministic contract checks for valid/invalid occupancy, qualification/access, control availability, power/damage failure gates, bounded axes, emergency release, and desktop/VR semantic parity.
+- [ ] Reintroduce deterministic executable checks alongside the implementation for valid/invalid occupancy, qualification/access, control availability, power/damage failure gates, bounded axes, emergency release, and desktop/VR semantic parity.
 - [ ] Add partial/interrupted securing and connection procedure handling with durable action/outcome history; keep semantic interaction separate from desktop/VR presentation.
 - [ ] Host the slice through AnyApp first. Keep MyVR as a later manifestation of the same Experience rather than a separate game implementation.
 
@@ -204,3 +205,10 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added executable contract checks for fixed rotation/translation vectors, inverse round-trip, composition order, direction semantics, and invalid inputs.
 - [ ] Add named source/destination frame metadata, unit compatibility, and a domain-specific time-dependent adapter only after the relevant world/renderer conventions are established.
 - [ ] Do not generalize to a frame graph until a real frame pair has fixed reference vectors and tested semantics.
+
+
+## Fighter-pilot slice status correction — 2026-10-09
+
+- [x] Added [Fighter Pilot Action Slice](docs/FIGHTER_PILOT_ACTION_SLICE.md) as a candidate design sketch and indexed it from `examples/README.md`. It is explicitly not implementation evidence or a commitment to the final rig/control design.
+- [x] Corrected the vertical-slice queue after discovering that its earlier `[x]` entries described a historical prototype that was later reverted. The 195/195 result remains valid for that historical code/test head, but the current branch must not claim the prototype or its tests are present without re-verification.
+- [ ] Keep runtime work gated on sufficient design illumination and creator decisions; PR #2 remains the existing integration lane and must not be merged without explicit approval.
