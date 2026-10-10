@@ -36,11 +36,15 @@ public static class ResourceBalanceReplay
     {
         ArgumentNullException.ThrowIfNull(orderedEvents);
         var balance = initialBalance;
+        var seenEventIds = new HashSet<string>(StringComparer.Ordinal);
         SimulationEvent? first = null;
         SimulationEvent? previous = null;
         foreach (var simulationEvent in orderedEvents)
         {
             ArgumentNullException.ThrowIfNull(simulationEvent);
+            if (!seenEventIds.Add(simulationEvent.Id.Value))
+                throw new ArgumentException("Replay input repeats an event identity.", nameof(orderedEvents));
+
             if (!StringComparer.Ordinal.Equals(simulationEvent.EventDomain, EventDomain))
                 throw new ArgumentException("Replay input contains an event from a different domain.", nameof(orderedEvents));
 
