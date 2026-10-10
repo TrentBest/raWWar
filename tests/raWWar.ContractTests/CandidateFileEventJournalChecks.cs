@@ -114,6 +114,14 @@ internal static class CandidateFileEventJournalChecks
                     "Ordered journal reads isolate world seed and simulation model as well as domain and address");
             }
 
+            using (var recoveredDistinct = new CandidateFileEventJournal(distinctConcurrentPath))
+            {
+                check(recoveredDistinct.Count == 33
+                    && recoveredDistinct.ReadOrdered(123, "v1", "resource.depleted", address).Count == 32
+                    && recoveredDistinct.ReadOrdered(456, "v2", "resource.depleted", address).Count == 1,
+                    "Concurrent distinct events and separate world/model streams reconstruct after journal reopen");
+            }
+
             // A clean child-process exit followed by a fresh process opening the journal checks
             // process-restart reconstruction, but does not simulate a crash or power loss.
             var processRestartPath = Path.Combine(directory, "process-restart.rwej");
