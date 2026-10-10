@@ -151,6 +151,34 @@ internal static class CandidateFileEventJournalChecks
                     "Retry after clean process restart resolves to AlreadyCommitted without duplicate append");
             }
 
+            // Recovery must reject malformed framing metadata before trusting a record body.
+            var validFrame = CandidateEventFrameCodec.Encode(first);
+            var malformedHeaders = new (string Name, int Offset, byte Value)[]
+            {
+                ("bad magic", 0, (byte)'X'),
+                ("unknown version", 4, (byte)99),
+                ("nonzero reserved flags", 5, (byte)1),
+                ("impossible zero length", 9, (byte)0)
+            };
+            foreach (var malformed in malformedHeaders)
+            {
+                var malformedPath = Path.Combine(directory, $"malformed-{malformed.Name.Replace(' ', '-')}.rwej");
+                var malformedBytes = (byte[])validFrame.Clone();
+                if (malformed.Name == "impossible zero length")
+                {
+                    Array.Clear(malformedBytes, 6, 4);
+                }
+                else
+                {
+                    malformedBytes[malformed.Offset] = malformed.Value;
+                }
+                File.WriteAllBytes(malformedPath, malformedBytes);
+                var rejectedMalformedHeader = false;
+                try { using var ignored = new CandidateFileEventJournal(malformedPath); }
+                catch (FormatException) { rejectedMalformedHeader = true; }
+                check(rejectedMalformedHeader, $"Candidate journal fails closed on {malformed.Name}");
+            }
+
             var validBytes = File.ReadAllBytes(path);
             File.WriteAllBytes(path, validBytes[..^1]);
             var rejectedTruncation = false;
