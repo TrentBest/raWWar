@@ -1,3 +1,5 @@
+using System.Buffers.Binary;
+using System.Security.Cryptography;
 using TheSingularityWorkshop.FSM_COS;
 using TheSingularityWorkshop.MicroBundleDomain;
 using TheSingularityWorkshop.raWWar;
@@ -103,6 +105,9 @@ static bool CandidateFrameRejected(byte[] candidate)
     catch (FormatException) { return true; }
 }
 
+static void RecomputeCandidateFrameChecksum(byte[] frame) =>
+    SHA256.HashData(frame.AsSpan(0, frame.Length - 32)).CopyTo(frame.AsSpan(frame.Length - 32));
+
 var frameVectorEvent = SimulationEvent.Create(
     123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042",
     new byte[] { 0x10, 0x20, 0x30 });
@@ -146,6 +151,21 @@ var oversizeLengthFrame = candidateFrame.ToArray();
 Array.Fill(oversizeLengthFrame, (byte)0xFF, 6, 4);
 Check(CandidateFrameRejected(oversizeLengthFrame),
     "Candidate event frame rejects an unbounded declared length before parsing fields");
+var oversizedModelFieldFrame = candidateFrame.ToArray();
+BinaryPrimitives.WriteUInt32BigEndian(oversizedModelFieldFrame.AsSpan(18, 4), 4097);
+RecomputeCandidateFrameChecksum(oversizedModelFieldFrame);
+Check(CandidateFrameRejected(oversizedModelFieldFrame),
+    "Candidate event frame enforces per-field limits even when the checksum is valid");
+var malformedUtf8Frame = candidateFrame.ToArray();
+malformedUtf8Frame[22] = 0xFF;
+RecomputeCandidateFrameChecksum(malformedUtf8Frame);
+Check(CandidateFrameRejected(malformedUtf8Frame),
+    "Candidate event frame rejects malformed UTF-8 after checksum validation");
+var mismatchedStoredIdFrame = candidateFrame.ToArray();
+mismatchedStoredIdFrame[96] ^= 0x01;
+RecomputeCandidateFrameChecksum(mismatchedStoredIdFrame);
+Check(CandidateFrameRejected(mismatchedStoredIdFrame),
+    "Candidate event frame rejects a tampered stored identity even with a valid checksum");
 Check(SimulationEventId.Create(123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042")
         == resourceEventId,
     "Equivalent event identity inputs produce the same identifier");
