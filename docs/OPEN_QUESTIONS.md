@@ -171,7 +171,7 @@ These could be reconciled if the opening headquarters is a pre-choice selection 
 
 The first executable station contract requires the occupant to raise a physical control rig before pilot input is accepted. The creator-established experience is that the station secures the pilot, connects them to the system, and presents their hands on the station-appropriate grips.
 
-The current prototype uses a bounded candidate control-intent payload to test the readiness gate. It does **not** establish the final physical device, pose/force measurements, axis mapping, control-law design, or how aircraft response feeds back into the pilot's rig.
+A historical prototype used a bounded candidate control-intent payload to test the readiness gate; that prototype and its tests were subsequently reverted and are not present on the current branch. The experiment did **not** establish the final physical device, pose/force measurements, axis mapping, control-law design, or how aircraft response feeds back into the pilot's rig.
 
 - Is the rig primarily hand/grip motion, a full-body motion harness, or a combination that varies by station?
 - Which pilot movements represent desired aircraft behavior, and which are limited by the aircraft's actual control surfaces, actuators, power, damage, and flight state?
