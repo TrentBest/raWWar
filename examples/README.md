@@ -10,6 +10,10 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 | [Authoring manifest](../manifest.json) and [runtime manifest](../runtime-manifest.json) | Separating Experience metadata from FSM_COS root bundle IDs and requested versions. | Manifest-shape and identity checks are in the contract-test program. This is not AnyApp publication-manifest or end-to-end host-loading proof. |
 | [Workshop composition contract](../data/workshop-composition-contract.json) | Recording ownership boundaries, current verified FSM_COS contract, proposed reusable capabilities, and explicit non-publication status as data. | Architecture assertions are in the contract-test program. Proposed capabilities are not implemented capabilities. |
 
+## In-progress first-person slice
+
+- [Fighter Pilot Action Slice](../docs/FIGHTER_PILOT_ACTION_SLICE.md) — the next design contract connecting station readiness to an authoritative aircraft-state transition, causal history, and observable feedback. **Design contract only:** it is not a runnable example and does not claim the flight-control implementation exists.
+
 ## Run the executable example
 
 From the repository root:
