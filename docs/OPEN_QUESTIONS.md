@@ -191,6 +191,19 @@ This establishes the teaching and interaction model, but not every low-level sta
 
 Do not generalize one station's control scheme to every vehicle, and do not treat a ghost demonstration as the player's completed action. The ghost shows the target; the player must perform the procedure.
 
+### 25. How does career progression differ between single-player and multiplayer?
+
+The creator has established a deliberate mode distinction. The single-player Enlisted campaign guides one player's progression more tightly to carry the story of rising from the bottom of the military hierarchy. Multiplayer begins every player at the bottom as a soldier. A multiplayer player chooses a class to train for; because the character is directly inhabited only while the player is online, training must not depend on the player being present at one specific moment or in one required position. Once qualified, the player may answer any job in that class or any other class for which they have qualified.
+
+The same underlying world and qualification system can support both modes without granting identical career freedom.
+
+**Remaining design questions:**
+- Which parts of class training can progress or be scheduled while the player is offline, and which require direct hands-on participation?
+- Does multiplayer class qualification establish eligibility for every job in that class, or do some jobs require additional position-specific qualifications, experience, rank, or staffing conditions?
+- How are multiple qualified classes displayed on the diegetic jobs board?
+- How should the world present a job opportunity when the player is qualified but another applicant or organizational need may determine assignment?
+- How much of the single-player Enlisted progression is fixed for narrative pacing, and where may the player choose alternate branches without breaking the intended story?
+
 ### 24. How do interleaved training, qualifications, experience, and career changes work?
 
 The recruit's training day rotates through actual simulators. The player learns a subject, moves to other trainers, then returns to continue it; qualifications are not normally completed in one uninterrupted sitting. Long qualifications such as piloting span realistic in-world time, while the player's presentation can cut away between training sessions.
