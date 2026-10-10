@@ -65,7 +65,9 @@ The training simulators are actual VR simulators for the recruit's intended duti
 
 While the player is inside a VR training module, treat the player as **outside the passage of world time**. A qualification may represent a long period of instruction in the military world, but the player is not trapped in a simulator for that entire duration. Instead, training is divided into discrete hands-on sessions. The player can complete a session, return to ordinary gameplay with the qualifications already earned, and come back to training whenever they want.
 
-If the player bails out of a VR module before completing its current session, that session's training is scrapped. No partial qualification credit is awarded for an abandoned session. This does not erase earlier completed sessions or qualifications. The player can qualify one session at a time and then go back into the living world, but **an incomplete qualification cannot be used** as if it were complete.
+If the player bails out of a VR module before completing its current session, that session's training is scrapped. No partial qualification credit is awarded for an abandoned session. This does not erase earlier completed sessions or qualifications. Successfully completed sessions accumulate toward the unfinished qualification and remain recorded even if the player switches jobs or classes. The player can qualify one session at a time and then go back into the living world, but **an incomplete qualification cannot be used** as if it were complete.
+
+Qualification sessions are ordered and mandatory, not a pool of interchangeable lessons. If fighter-pilot qualification requires ten sessions, progress is tracked as 1/10 through 10/10. Every soldier at 3/10 has completed the exact same first three prescribed sessions in the same order. Changing career direction does not reset that completed progress; abandoning an active module discards only that session's work.
 
 The simulation teaches the player how to operate and use the equipment they encounter. Training is not limited to a few tutorial weapons or one vehicle class; the intent is to teach the procedures relevant to the soldier's role and the world they will inhabit.
 
@@ -86,6 +88,12 @@ The ghost avatar can demonstrate the required actions during a real-world proced
 This is intentional: the ghost is a procedural aid, not a magic source of competence or a guarantee of success. Routine personal maintenance is not generally the soldier's responsibility; field emergencies can force a soldier to attempt repairs outside their normal duties.
 
 The exact experience model, how nearby experience influences guidance, and how uncertainty is communicated remain to be designed. The established rule is that a perfect-looking ghost demonstration must not automatically make an inexperienced soldier competent.
+
+### 6.3 Qualification progress and visible military markings
+
+A qualification is a prescribed sequence of sessions with explicit cumulative progress, not a binary flag and not a menu of lessons that can be completed in any order. At the same progress fraction, soldiers have completed the same required sessions. The active qualification is not usable until the entire sequence is passed, even though completed sessions toward it persist across breaks and job/class changes.
+
+The soldier's current role determines which role-specific insignia and rating badge they display. The qualification level reached must be reflected in the appropriate visible markings. These insignia communicate the soldier's current role and qualification status as part of the world; they are not merely decorative unlocks. The exact badge designs, placement, and conventions remain to be designed.
 
 ## 7. The jobs board: diegetic career choice and interruptible training
 
