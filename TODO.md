@@ -192,7 +192,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Implemented immutable-payload `SimulationEvent` and thread-safe `InMemoryEventHistory` reference ledger with idempotent duplicate commit, conflicting-payload detection, and domain-local deterministic ordering.
 - [x] Added executable checks for fixed identity vectors, identity-input sensitivity, payload copying, duplicate retry, conflicting payload, domain isolation/order, address-scoped stream isolation, and concurrent identical commits.
 - [ ] Replace the process-local reference ledger with durable atomic commit/deduplication before claiming restart-safe or distributed idempotency.
-- [x] Implemented the narrow `ResourceBalanceReplay` reducer: V1 payload is an 8-byte big-endian signed Int64 delta; replay uses checked arithmetic and rejects mixed address streams, mixed world seeds/model versions, out-of-order events, malformed payloads, wrong domains, and overflow. CI is validating the expanded contract tests now; do not mark this validation pass until the current head run completes.
+- [x] Implemented the narrow `ResourceBalanceReplay` reducer: V1 payload is an 8-byte big-endian signed Int64 delta; replay uses checked arithmetic and rejects mixed address streams, mixed world seeds/model versions, out-of-order events, malformed payloads, wrong domains, and overflow. CI run [38007568883](https://github.com/TrentBest/raWWar/actions/runs/38007568883) passed on PR merge commit `468ab1ebfdc15fc2b5f19c35409dc9deb0a924e3`: solution build succeeded with 0 warnings/errors, package-manifest check passed, all 264/264 executable contract checks passed, and the KeplerOrbit example ran successfully. This run predates the package-README follow-up commits; re-check CI for the newest head.
 - [ ] Implement general authoritative state reconstruction and test fixed initial state + ordered events against checkpoint-plus-tail replay; checkpoint format/migration remain unimplemented.
 - [ ] Keep cross-platform floating-point determinism and checkpoint migration guarantees unclaimed until specified and tested.
 
@@ -212,3 +212,11 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added [Fighter Pilot Action Slice](docs/FIGHTER_PILOT_ACTION_SLICE.md) as a candidate design sketch and indexed it from `examples/README.md`. It is explicitly not implementation evidence or a commitment to the final rig/control design.
 - [x] Corrected the vertical-slice queue after discovering that its earlier `[x]` entries described a historical prototype that was later reverted. The 195/195 result remains valid for that historical code/test head, but the current branch must not claim the prototype or its tests are present without re-verification.
 - [ ] Keep runtime work gated on sufficient design illumination and creator decisions; PR #2 remains the existing integration lane and must not be merged without explicit approval.
+
+
+## Package metadata and verification follow-up — 2026-10-10
+
+- [x] Added a package-specific `src/raWWar/README.md` that describes package contents, manifest boundaries, implementation scope, verification commands, and what the package does not prove.
+- [x] Configured `PackageReadmeFile` and local package inclusion for the package README. `GeneratePackageOnBuild=false` remains unchanged; this is not authorization to publish.
+- [x] Strengthened the local-pack CI assertion to require `README.md` plus both manifests in the generated `.nupkg`.
+- [ ] Verify the newest commit's workflow after the package README and pack assertion changes; the prior verified run 38007568883 passed 264/264 contract checks with 0 build warnings and 0 errors but predates this follow-up.
