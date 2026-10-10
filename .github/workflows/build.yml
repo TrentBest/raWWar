@@ -22,7 +22,7 @@ jobs:
           dotnet-version: 8.0.x
       - name: Build solution
         run: dotnet build raWWar.sln --configuration Release
-      - name: Verify package contains both manifests (local pack only)
+      - name: Verify package contains its README and both manifests (local pack only)
         shell: bash
         run: |
           set -euo pipefail
@@ -31,6 +31,7 @@ jobs:
           test -n "$package"
           contents="$(unzip -Z1 "$package")"
           printf '%s\n' "$contents"
+          grep -Fxq 'README.md' <<< "$contents"
           grep -Eq '(^|/)manifest\.json$' <<< "$contents"
           grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
