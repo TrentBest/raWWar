@@ -13,6 +13,7 @@
     <Description>raWWar — a persistent, first-person war Experience centered on individual soldiers and the people who command them.</Description>
     <PackageTags>singularity;workshop;experience;rawwar;fps;simulation;microbundle</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/TrentBest/raWWar</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>
@@ -20,6 +21,7 @@
     <PackageReference Include="TheSingularityWorkshop.MicroBundleDomain" Version="1.0.1" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
     <!-- These manifests live at the repository root, not beside this project file.
          Link them into the Experience output/package under their canonical names. -->
     <Content Include="../../manifest.json" Link="manifest.json">
