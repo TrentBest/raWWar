@@ -228,6 +228,14 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 
 - [x] Added a replay-level duplicate-identity guard to `ResourceBalanceReplay` and an executable contract check. The in-memory ledger already deduplicates identical commits; the reducer now also rejects repeated IDs in caller-supplied sequences so malformed input cannot multiply a recorded consequence. Code/test verification is green: [run 38007742839](https://github.com/TrentBest/raWWar/actions/runs/38007742839) passed on `11c1cc64df6b53cc99bda06d577f1d265b78b241`, with 0 build warnings/errors, package README and both manifests present in the local `.nupkg`, 265/265 executable contract checks passing, and the KeplerOrbit example succeeding. The subsequent queue-only commit `09cc070fff6ab76dcd52adf09970104bbb65e4c2` also passed [run 38007810881](https://github.com/TrentBest/raWWar/actions/runs/38007810881).
 
+## Candidate journal codec experiment — 2026-10-10
+
+- [x] Added an internal-only `CandidateEventFrameCodec` experiment for the proposed RWEJ V1 frame. It bounds the input before parsing, checks magic/version/flags/declared length, validates the frame checksum, uses strict UTF-8 on decode, recreates the event through the existing identity API, and compares the stored event ID.
+- [x] Added executable checks for the 160-byte documented frame vector, complete semantic round-trip, truncated header/frame, checksum corruption, unsupported version, nonzero flags, mismatched length, and an oversized declared length.
+- [x] Kept the codec internal and granted visibility only to the contract-test assembly. This is not a public serialization API and does not implement file I/O, durable commits, recovery across records, deduplication, or crash guarantees.
+- [ ] Verify the new code and executable checks on the current `development` head; expand negative tests (including malformed UTF-8 with a recomputed checksum, field bounds, and stored-ID tampering) before treating the candidate codec as review-ready.
+- [ ] Have an independent implementation/reviewer validate the fixed vector and field offsets before freezing the format.
+
 ## Durable event format reference vector — 2026-10-10
 
 - [x] Added a reproducible 160-byte candidate journal-frame vector to [Durable Event Record Format — Candidate V1](docs/DURABLE_EVENT_RECORD_FORMAT_CANDIDATE.md), using the existing event-identity fixed vector and a small opaque payload. The document records the expected raw event ID, complete frame bytes, and final SHA-256 checksum.
