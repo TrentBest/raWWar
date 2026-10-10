@@ -19,6 +19,10 @@ internal static class CandidateFileEventJournalChecks
             using (var journal = new CandidateFileEventJournal(path))
             {
                 check(journal.Count == 0, "New candidate journal starts empty");
+                var secondWriterRejected = false;
+                try { using var competing = new CandidateFileEventJournal(path); }
+                catch (IOException) { secondWriterRejected = true; }
+                check(secondWriterRejected, "Exclusive file access rejects a second simultaneous journal writer");
                 check(journal.Commit(first) == EventCommitResult.Committed, "First candidate journal commit reports Committed");
                 var lengthAfterFirst = new FileInfo(path).Length;
                 check(journal.Commit(first) == EventCommitResult.AlreadyCommitted, "Identical in-process retry is idempotent");
@@ -46,6 +50,14 @@ internal static class CandidateFileEventJournalChecks
             catch (FormatException) { rejectedTruncation = true; }
             check(rejectedTruncation, "Candidate journal fails closed on a truncated final frame");
             File.WriteAllBytes(path, validBytes);
+
+            var duplicatePath = Path.Combine(directory, "duplicate-events.rwej");
+            var duplicateFrame = CandidateEventFrameCodec.Encode(first);
+            File.WriteAllBytes(duplicatePath, duplicateFrame.Concat(duplicateFrame).ToArray());
+            var rejectedDuplicateIdentity = false;
+            try { using var ignored = new CandidateFileEventJournal(duplicatePath); }
+            catch (FormatException) { rejectedDuplicateIdentity = true; }
+            check(rejectedDuplicateIdentity, "Candidate journal fails closed on duplicate event identities during recovery");
 
             var corruptBytes = (byte[])validBytes.Clone();
             corruptBytes[20] ^= 0x01;
