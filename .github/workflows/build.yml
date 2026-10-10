@@ -36,5 +36,7 @@ jobs:
           grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
+      - name: Independently verify candidate event-frame reference bytes
+        run: python3 tools/verify_candidate_event_frame.py
       - name: Run checked-in usage examples
         run: dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj --configuration Release
