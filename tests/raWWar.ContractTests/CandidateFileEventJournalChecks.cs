@@ -223,6 +223,19 @@ internal static class CandidateFileEventJournalChecks
                 check(rejectedMalformedHeader, $"Candidate journal fails closed on {malformed.Name}");
             }
 
+            // Keep the checksum valid while making the model-version bytes invalid UTF-8.
+            // This ensures recovery validates text encoding rather than rejecting only by checksum.
+            var invalidUtf8Path = Path.Combine(directory, "invalid-utf8.rwej");
+            var invalidUtf8Frame = (byte[])validFrame.Clone();
+            invalidUtf8Frame[22] = 0xC3; // model field begins at byte 22; 0xC3 followed by ASCII is malformed
+            var invalidUtf8Digest = System.Security.Cryptography.SHA256.HashData(invalidUtf8Frame.AsSpan(0, invalidUtf8Frame.Length - 32));
+            invalidUtf8Digest.CopyTo(invalidUtf8Frame, invalidUtf8Frame.Length - 32);
+            File.WriteAllBytes(invalidUtf8Path, invalidUtf8Frame);
+            var rejectedInvalidUtf8 = false;
+            try { using var ignored = new CandidateFileEventJournal(invalidUtf8Path); }
+            catch (FormatException) { rejectedInvalidUtf8 = true; }
+            check(rejectedInvalidUtf8, "Candidate journal fails closed on malformed UTF-8 even when the frame checksum is valid");
+
             var validBytes = File.ReadAllBytes(path);
             File.WriteAllBytes(path, validBytes[..^1]);
             var rejectedTruncation = false;
