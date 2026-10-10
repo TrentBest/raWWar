@@ -220,3 +220,5 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Configured `PackageReadmeFile` and local package inclusion for the package README. `GeneratePackageOnBuild=false` remains unchanged; this is not authorization to publish.
 - [x] Strengthened the local-pack CI assertion to require `README.md` plus both manifests in the generated `.nupkg`.
 - [ ] Verify the newest commit's workflow after the package README and pack assertion changes; the prior verified run 38007568883 passed 264/264 contract checks with 0 build warnings and 0 errors but predates this follow-up.
+
+- [x] Added a replay-level duplicate-identity guard to `ResourceBalanceReplay` and an executable contract check. The in-memory ledger already deduplicates identical commits; the reducer now also rejects repeated IDs in caller-supplied sequences so malformed input cannot multiply a recorded consequence. Current-head CI verification remains pending for the package README and replay guard changes.
