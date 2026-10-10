@@ -79,6 +79,7 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [x] Art Direction now records owner, audience, status, and evidence boundaries; a duplicated soldier-description block was removed without changing its intent.
 - [x] Audio Direction now records owner, audience, status, and evidence boundaries.
 - [x] Corrected the README license link to match the repository's actual `LICENSE` path after a targeted navigation check.
+- [x] Corrected stale fighter-pilot prototype claims in the Technical Design, master GDD, and contract-test README: the 195/195 result is historical evidence for a reverted code/test head, not proof that the prototype or tests exist on the current branch.
 
 ### Remaining audit work
 
