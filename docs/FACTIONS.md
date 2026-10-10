@@ -82,9 +82,9 @@ The Workshop should not require the universe to remain at thirteen factions fore
 
 ## 3. The hidden alignment gradient
 
-The player is introduced to faction selection physically.
+The player encounters faction selection physically. In the Enlisted campaign, the player is an unarmored citizen at a fair and enters the recruiting door of the chosen House. In the Commander campaign, the player begins as faction leader and encounters the faction offices in the monumental lobby under the pressure of the Empress's summons.
 
-There are thirteen doors.
+There are thirteen doors. Crossing a chosen House's threshold is the selection event itself, not a prompt for a separate GUI.
 
 The player is not shown:
 
@@ -622,11 +622,11 @@ The system must reconstruct that state from authoritative history and simulation
 
 ## 13. The first faction choice as gameplay
 
-The faction selection sequence should itself be an Experience.
+The faction selection sequence should itself be an Experience in both campaign contexts, with different stakes.
 
-The player enters the faction headquarters.
+In the Enlisted campaign, the player visits a fair as an unarmored citizen and chooses a recruiting door. In the Commander campaign, the player is already faction leader and encounters the offices in a three-story lobby while Imperial soldiers demand an immediate audience with the Empress.
 
-They see thirteen physical doors.
+They see thirteen physical doors. Crossing the chosen House's threshold is the choice. It should not be replaced with a conventional faction-selection menu. See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md).
 
 Each office contains enough evidence to make the faction feel real:
 
