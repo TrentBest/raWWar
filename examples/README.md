@@ -13,11 +13,7 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 | [Authoring manifest](../manifest.json) and [runtime manifest](../runtime-manifest.json) | Separating Experience metadata from FSM_COS root bundle IDs and requested versions. | Manifest-shape and identity checks are in the contract-test program. This is not AnyApp publication-manifest or end-to-end host-loading proof. |
 | [Workshop composition contract](../data/workshop-composition-contract.json) | Recording ownership boundaries, current verified FSM_COS contract, proposed reusable capabilities, and explicit non-publication status as data. | Architecture assertions are in the contract-test program. Proposed capabilities are not implemented capabilities. |
 
-## Remaining example gaps
-
-The examples above cover the currently prioritized executable contracts. Keep this section for additional implemented contracts that lack reader-facing examples; do not leave empty placeholder tables.
-
-These contracts are useful implemented slices, not evidence of a complete galaxy simulation, durable event store, distributed exactly-once processing, checkpoint migration, or host-level world advancement.
+The examples demonstrate focused implemented slices, not a complete galaxy simulation, durable event store, distributed exactly-once processing, checkpoint migration, or host-level world advancement.
 
 ## In-progress first-person slice
 
@@ -30,7 +26,8 @@ From the repository root:
 ```sh
 dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj
 dotnet run --project examples/CartesianTransform/raWWar.CartesianTransformExample.csproj
-dotnet run --project examples/HierarchicalSpatialAddress/raWWar.HierarchicalSpatialAddressExample.csproj\ndotnet run --project examples/EventHistoryReplay/raWWar.EventHistoryReplayExample.csproj
+dotnet run --project examples/HierarchicalSpatialAddress/raWWar.HierarchicalSpatialAddressExample.csproj
+dotnet run --project examples/EventHistoryReplay/raWWar.EventHistoryReplayExample.csproj
 ```
 
 ## Rules for future examples
