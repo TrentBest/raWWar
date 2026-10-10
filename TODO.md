@@ -3,7 +3,7 @@
 **Owner:** raWWar engineering assistant (raWWar repository only)  
 **Working branch:** `development`  
 **Current integration PR:** [#2 — Reset raWWar as a manifest-driven Experience](https://github.com/TrentBest/raWWar/pull/2)  
-**Last reviewed:** 2026-10-09  
+**Last reviewed:** 2026-10-10  
 **Purpose:** Durable handoff and execution queue. Update this file as work is completed, priorities change, or the conversation is reset. The repository—not chat history—is the source of truth.
 
 ## Operating rules
