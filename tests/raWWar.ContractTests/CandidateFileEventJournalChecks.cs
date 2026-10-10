@@ -192,7 +192,8 @@ internal static class CandidateFileEventJournalChecks
                 ("bad magic", 0, (byte)'X'),
                 ("unknown version", 4, (byte)99),
                 ("nonzero reserved flags", 5, (byte)1),
-                ("impossible zero length", 9, (byte)0)
+                ("impossible zero length", 9, (byte)0),
+                ("oversized declared frame length", 9, (byte)0)
             };
             foreach (var malformed in malformedHeaders)
             {
@@ -201,6 +202,15 @@ internal static class CandidateFileEventJournalChecks
                 if (malformed.Name == "impossible zero length")
                 {
                     Array.Clear(malformedBytes, 6, 4);
+                }
+                else if (malformed.Name == "oversized declared frame length")
+                {
+                    // 0x0010C8E1 = MaxFrameBytes + 1. Recovery must reject this
+                    // header before allocating a buffer using the untrusted length.
+                    malformedBytes[6] = 0x00;
+                    malformedBytes[7] = 0x10;
+                    malformedBytes[8] = 0xC8;
+                    malformedBytes[9] = 0xE1;
                 }
                 else
                 {
