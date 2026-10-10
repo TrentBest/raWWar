@@ -257,6 +257,60 @@ catch (ArgumentException) { checkpointScopeRejected = true; }
 Check(checkpointScopeRejected,
     "Checkpoint tail rejects events from another canonical address stream");
 
+var emptyCheckpointPrefixRejected = false;
+try { _ = ResourceBalanceCheckpoint.Capture(5, Array.Empty<SimulationEvent>()); }
+catch (ArgumentException) { emptyCheckpointPrefixRejected = true; }
+Check(emptyCheckpointPrefixRejected,
+    "Checkpoint capture rejects an empty prefix without a trustworthy history boundary");
+
+var incompatibleCheckpointSchemaRejected = false;
+try { _ = (resourceCheckpoint with { SchemaVersion = ResourceBalanceCheckpoint.CurrentSchemaVersion + 1 })
+        .ReplayTail(Array.Empty<SimulationEvent>()); }
+catch (InvalidOperationException) { incompatibleCheckpointSchemaRejected = true; }
+Check(incompatibleCheckpointSchemaRejected,
+    "Checkpoint replay rejects an unknown schema version even when the tail is empty");
+
+var foreignSeedTailRejected = false;
+try
+{
+    _ = resourceCheckpoint.ReplayTail(new[]
+    {
+        SimulationEvent.Create(999, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            99, "tick:999999", ResourceBalanceReplay.EncodeDelta(1))
+    });
+}
+catch (ArgumentException) { foreignSeedTailRejected = true; }
+Check(foreignSeedTailRejected,
+    "Checkpoint tail rejects events from another world seed");
+
+var foreignModelTailRejected = false;
+try
+{
+    _ = resourceCheckpoint.ReplayTail(new[]
+    {
+        SimulationEvent.Create(123, "model-v2", balanceAddress, ResourceBalanceReplay.EventDomain,
+            99, "tick:999999", ResourceBalanceReplay.EncodeDelta(1))
+    });
+}
+catch (ArgumentException) { foreignModelTailRejected = true; }
+Check(foreignModelTailRejected,
+    "Checkpoint tail rejects events from another simulation-model version");
+
+var unorderedCheckpointTailRejected = false;
+try
+{
+    _ = resourceCheckpoint.ReplayTail(new[]
+    {
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            99, "tick:000099", ResourceBalanceReplay.EncodeDelta(1)),
+        SimulationEvent.Create(123, "v1", balanceAddress, ResourceBalanceReplay.EventDomain,
+            98, "tick:000098", ResourceBalanceReplay.EncodeDelta(1))
+    });
+}
+catch (ArgumentException) { unorderedCheckpointTailRejected = true; }
+Check(unorderedCheckpointTailRejected,
+    "Checkpoint replay rejects a tail whose events are not strictly ordered");
+
 var concurrentHistory = new InMemoryEventHistory();
 Parallel.For(0, 64, _ => concurrentHistory.Commit(firstEvent));
 Check(concurrentHistory.Count == 1,
