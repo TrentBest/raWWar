@@ -106,7 +106,7 @@ The core now contains `SimulationEventId`, `SimulationEvent`, and `InMemoryEvent
 - Replay input: the caller supplies the already ordered events from one domain-and-address stream returned by `InMemoryEventHistory.ReadOrdered(domain, canonicalAddress)`.
 - State transition: add each decoded delta to the initial balance using checked Int64 arithmetic; malformed payloads, cross-domain input, mixed address streams, mixed world seeds/model versions, out-of-order input, and overflow are rejected.
 - The reducer does not fetch or commit events, infer logical-time units, persist state, process causal prerequisites, or support checkpoints. It validates that the supplied events form one address-scoped, seed/model-consistent stream in the ledger's declared deterministic order, but callers should still obtain streams through `ReadOrdered(domain, canonicalAddress)`.
-- Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, mixed stream rejection, out-of-order rejection, and overflow rejection.
+- Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, mixed stream rejection, duplicate event-identity rejection, out-of-order rejection, and overflow rejection.
 
 ## 8. Minimum acceptance tests
 
