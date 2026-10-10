@@ -112,7 +112,7 @@ The copyable walkthrough is [`examples/EventHistoryReplay/Program.cs`](../exampl
 
 ## 8. Durable commit boundary
 
-The current in-memory ledger is not a persistence guarantee. The minimum crash, retry, identity-conflict, recovery, and durability requirements for a future adapter are specified in [Durable Event Commit Contract](DURABLE_EVENT_COMMIT_CONTRACT.md). That document is a design contract only: it does not select a storage technology or claim that a durable adapter exists.
+The current in-memory ledger is not a persistence guarantee. The minimum crash, retry, identity-conflict, recovery, and durability requirements for a future adapter are specified in [Durable Event Commit Contract](DURABLE_EVENT_COMMIT_CONTRACT.md). That document is a design contract only: it does not select a storage technology or claim that a durable adapter exists. A narrow [durable event store implementation proposal](DURABLE_EVENT_STORE_IMPLEMENTATION_PROPOSAL.md) now sketches a single-process append-only journal candidate, recovery posture, and acceptance suite. It is explicitly Candidate and must not be mistaken for an approved deployment choice or implemented capability.
 
 ## 9. Minimum acceptance tests
 
