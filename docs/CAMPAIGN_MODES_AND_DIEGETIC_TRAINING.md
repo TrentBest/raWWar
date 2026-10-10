@@ -95,7 +95,23 @@ The selected job is marked by a green, rotating reticle. The selected destinatio
 
 This board is an in-world view of a qualification graph. It should not require the player to leave the world for a conventional out-of-character class-selection menu.
 
-## 8. Diegetic learning applies to every occupation
+## 8. Single-player progression and multiplayer career freedom
+
+The career system must account for a fundamental difference in how the player inhabits the world across modes.
+
+### Single-player Enlisted campaign
+
+The Enlisted campaign is a story-shaped rise from the lowest enlisted position toward faction leadership. The game has greater control over the sequence of opportunities and progression because it is guiding one player's lived story. The jobs board and qualification graph still expose prerequisites, but the campaign may direct the player through a narrower sequence than a multiplayer career would allow.
+
+### Multiplayer
+
+Every multiplayer player starts at the bottom as a soldier. The player chooses the class they want to train for, and training occurs as part of the persistent world rather than being staged around a required moment when the player must be present to occupy a particular position. A player can only directly inhabit their character while online; the world must therefore continue training and qualification activity without assuming that player is available at a scheduled instant.
+
+Once qualified in a class, the player may answer any job in that class. They may also answer jobs belonging to any other class for which they have qualified. Qualifications accumulate as real options, so the player can choose among jobs they are actually qualified to perform instead of being confined forever to one selected class. A job is an opportunity to answer, not a guarantee that the player will be assigned it; the existing job-acceptance and organizational constraints still apply.
+
+This is not a contradiction in the world model. The single-player campaign deliberately constrains progression to carry its story; multiplayer offers wider career agency inside the same living military world. Shared simulation does not require identical player options.
+
+## 9. Diegetic learning applies to every occupation
 
 The ghost-avatar teaching model is not exclusive to infantry drills or vehicle operation. Research is also a job performed by a person in the world. Researchers undergo the training needed to qualify for their work; once qualified, they should not need to understand every other occupation, only what directly concerns their current responsibilities.
 
@@ -103,7 +119,7 @@ A player who chooses research encounters the experiments, equipment, procedures,
 
 The design principle is **local understanding, not omniscience**. Every occupation teaches the player how to do the work relevant to that occupation, through in-world activity. The player need not learn unrelated systems in advance merely to make progress in their chosen job.
 
-## 9. General design principles
+## 10. General design principles
 
 - **Diegetic choice:** Where practical, an important choice should be an action in the world. Crossing a threshold can be a clear selection event.
 - **Embodied procedure:** The player learns what a soldier does by performing the soldier's actions through the exoskeleton interface.
@@ -113,13 +129,14 @@ The design principle is **local understanding, not omniscience**. Every occupati
 - **Squad qualifications are positional:** A squad can train together while qualifying for the distinct crew positions a vehicle requires.
 - **Qualification does not equal mastery:** A credential, a demonstrated action, and accumulated experience are related but separate.
 - **Career choice is an in-world action:** The jobs board exposes available work and its prerequisite path without leaving the fiction.
+- **Career agency is mode-dependent:** Single-player may guide progression to carry its story; multiplayer starts everyone as a soldier and lets qualified players answer jobs in any class they have qualified for.
 - **Learning is role-specific:** The player learns what their current occupation requires, not every job's procedures.
 - **Agency follows role:** The Commander can plan; the recruit initially follows orders. Progression changes what the player is authorized and expected to decide.
 - **Shared world, different experience:** Both campaigns can use the same underlying simulation without collapsing their differences in authority, perspective, or lived experience.
 - **Presentation is not existence:** A remote base can remain part of the simulated world without always being fully rendered.
 - **Hardware remains embodied:** Vehicles are operated through station-specific physical controls, actuators, panels, and exoskeleton HUD presentation.
 
-## 10. Details still requiring design
+## 11. Details still requiring design
 
 The following are implementation or detailed-design questions, not permission to replace the established experience with a generic equivalent:
 
@@ -130,6 +147,7 @@ The following are implementation or detailed-design questions, not permission to
 - The precise hardware and control mapping for each vehicle station.
 - How training rotation is scheduled, how a long qualification resumes across in-world time, and how interruptions preserve progress.
 - The complete qualification graph, including prerequisites, staffing demand, and the exact rules for job application acceptance.
+- The exact differences between story-directed single-player progression and multiplayer class qualification, including whether any multiplayer training stages require a specific attendance window or can be resumed asynchronously.
 - How accumulated experience and nearby expertise affect field-repair guidance, without allowing a ghost to guarantee success.
 - How AI recruits, leader locations, remote-base simulation, and rendering fidelity are scheduled without implying that an unrendered base does not exist.
 
