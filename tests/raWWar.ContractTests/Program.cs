@@ -164,6 +164,10 @@ balanceHistory.Commit(SimulationEvent.Create(123, "v1", otherAddressBytes,
 var balanceStream = balanceHistory.ReadOrdered(ResourceBalanceReplay.EventDomain, balanceAddress);
 Check(ResourceBalanceReplay.Replay(5, balanceStream) == 12,
     "Balance replay applies address-scoped deltas in logical-time order (5 + 10 - 3)");
+var duplicateReplayEventRejected = false;
+try { _ = ResourceBalanceReplay.Replay(5, new[] { balanceStream[0], balanceStream[0] }); }
+catch (ArgumentException) { duplicateReplayEventRejected = true; }
+Check(duplicateReplayEventRejected, "Resource replay rejects duplicate event identities instead of applying consequences twice");
 Check(ResourceBalanceReplay.DecodeDelta(ResourceBalanceReplay.EncodeDelta(long.MinValue)) == long.MinValue,
     "Resource delta V1 round-trips the signed Int64 lower boundary");
 var malformedBalanceRejected = false;
