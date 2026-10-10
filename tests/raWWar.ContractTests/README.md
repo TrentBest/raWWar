@@ -10,7 +10,7 @@ dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj
 
 ## Current coverage
 
-The executable suite reported **195/195 checks passed** on [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718) at code/test head `7ec40343f15a15639951a096165169cf991d7920`. The checks include:
+The historical executable suite reported **195/195 checks passed** on [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718) at code/test head `7ec40343f15a15639951a096165169cf991d7920`. That implementation and its tests were subsequently reverted, so this historical result does not describe the current branch or a runnable suite here. The checks at that revision included:
 
 - stable event-identity V1 reference encoding, immutable event metadata/payloads, in-memory idempotent commits, conflicting-payload detection, address-scoped stream reads, domain-local ordering, domain isolation, and concurrent duplicate retries;
 - explicit-time circular and elliptic Kepler-orbit positions, period repeatability, 3D inclination, query purity/order independence, and explicit rejection of unsupported eccentricity;
