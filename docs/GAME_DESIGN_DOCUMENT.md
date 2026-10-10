@@ -319,7 +319,7 @@ The first faction-selection experience presents thirteen physical doors in that 
 
 This is deliberately a discovery rather than a faction-selection stat screen.
 
-**Sequence remains unresolved:** this describes the faction-selection experience, not a settled placement in the campaign opening. The relationship between the thirteen doors, the player's established Commander identity, and the Empress's short compliance deadline remains an explicit creator decision in [Open Question 22](OPEN_QUESTIONS.md#22-when-does-faction-selection-occur-relative-to-the-campaign-opening). Do not infer that this paragraph resolves that question.
+**Campaign context:** raWWar has two distinct single-player campaigns. The Commander begins as faction leader; the Enlisted player begins as an unarmored citizen at a fair and chooses a House through its recruiting door before boot camp. In either case, crossing a House door threshold is the selection interaction itself. The Commander opening adds urgency: Imperial soldiers demand immediate compliance with the Empress's summons and treat entering a faction office instead as disobedience. See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md) and [Open Question 22](OPEN_QUESTIONS.md#22-how-do-the-two-campaigns-enact-house-choice-and-authority) for the established design and remaining sequencing details.
 
 > **Political alignment is not morality.**
 
@@ -560,17 +560,19 @@ We need to define:
 
 The intended modes are:
 
-1. Campaign — Soldier
-2. Campaign — Officer
+1. **Campaign — Commander:** begin as faction leader; the RTS inside the FPS.
+2. **Campaign — Enlisted:** begin as the lowest enlisted grunt and rise through the chain of command toward faction leadership; the FPS inside the RTS.
 3. Campaign — Cooperative
 4. Multiplayer — Free For All
 5. Multiplayer — Team vs Team
 6. Multiplayer — Persistent
 7. Massively Online — Fully Persistent Universes
 
-## 7.1 Campaign — Soldier
+The two single-player campaigns share the underlying living war but differ in authority, knowledge, agency, and the player's lived experience. See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md).
 
-The player experiences the war primarily from the soldier level.
+## 7.1 Campaign — Enlisted
+
+The player experiences the war from the soldier level, beginning as an unarmored citizen who chooses a House at a fair's enlistment office, completes boot camp, and serves where assigned until promotion gives them greater authority.
 
 The player may:
 
@@ -588,9 +590,9 @@ The player may:
 - recreate;
 - pursue specialized occupations.
 
-## 7.2 Campaign — Officer
+## 7.2 Campaign — Commander
 
-The player experiences the organization from a command role while remaining physically present in the world.
+The player begins as the head of a faction and experiences strategic command while remaining physically present in the world. The opening's storm, Imperial Palace vista, summons, and monumental faction-office lobby establish the stakes of that authority.
 
 ## 7.3 Campaign — Cooperative
 
