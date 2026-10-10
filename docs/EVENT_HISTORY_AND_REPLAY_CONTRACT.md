@@ -99,6 +99,8 @@ The core now contains `SimulationEventId`, `SimulationEvent`, and `InMemoryEvent
 
 ### Narrow executable replay example: resource balance
 
+The copyable walkthrough is [`examples/EventHistoryReplay/Program.cs`](../examples/EventHistoryReplay/Program.cs), runnable with `dotnet run --project examples/EventHistoryReplay/raWWar.EventHistoryReplayExample.csproj` from the repository root. It demonstrates the API boundary; it does not expand the implementation guarantees described above.
+
 `ResourceBalanceReplay` demonstrates one domain-specific reducer without claiming a universal simulation law:
 
 - Domain: `resource.balance.delta`.
