@@ -234,7 +234,7 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added executable checks for the 160-byte documented frame vector, complete semantic round-trip, truncated header/frame, checksum corruption, unsupported version, nonzero flags, mismatched length, and an oversized declared length.
 - [x] Added checks for malformed UTF-8 with a recomputed checksum, an over-limit model field with a recomputed checksum, and stored-ID tampering with a recomputed checksum.
 - [x] Kept the codec internal and granted visibility only to the contract-test assembly. This is not a public serialization API and does not implement file I/O, durable commits, recovery across records, deduplication, or crash guarantees.
-- [ ] Verify build, package-content assertions, executable contracts, and examples on the current `development` head; the latest run is in progress.
+- [x] Verified the codec and expanded executable contracts on commit `78008e3154de02667f7c2dfa687d2e9c41ab092a`: [CI run 38022077549](https://github.com/TrentBest/raWWar/actions/runs/38022077549) passed with 0 build warnings/errors, package README + both manifest assertions, 287/287 executable contract checks, and the checked-in KeplerOrbit example. The later TODO-only commit should receive its own CI run.
 - [ ] Have an independent implementation/reviewer validate the fixed vector and field offsets before freezing the format.
 
 ## Durable event format reference vector — 2026-10-10
