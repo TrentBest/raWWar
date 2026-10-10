@@ -110,7 +110,11 @@ The copyable walkthrough is [`examples/EventHistoryReplay/Program.cs`](../exampl
 - The reducer does not fetch or commit events, infer logical-time units, persist state, or process causal prerequisites. A separate `ResourceBalanceCheckpoint` now demonstrates a deliberately narrow in-memory checkpoint: it captures the balance plus schema version, seed/model identity, stream scope, and the exact last-event ordering boundary. `ReplayTail` rejects incompatible schema/scope, events at or before the checkpoint boundary, and unordered tails. This is a replay-equivalence experiment, not a durable checkpoint file format, migration system, or general world checkpoint.
 - Contract checks cover big-endian payload round-trip, logical ordering, address isolation, malformed payload rejection, cross-domain rejection, mixed stream rejection, duplicate event-identity rejection, out-of-order rejection, and overflow rejection.
 
-## 8. Minimum acceptance tests
+## 8. Durable commit boundary
+
+The current in-memory ledger is not a persistence guarantee. The minimum crash, retry, identity-conflict, recovery, and durability requirements for a future adapter are specified in [Durable Event Commit Contract](DURABLE_EVENT_COMMIT_CONTRACT.md). That document is a design contract only: it does not select a storage technology or claim that a durable adapter exists.
+
+## 9. Minimum acceptance tests
 
 A future event/history implementation should demonstrate:
 
