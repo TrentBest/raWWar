@@ -7,6 +7,16 @@ using TheSingularityWorkshop.raWWar.ContractTests;
 using TheSingularityWorkshop.raWWar.History;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
 
+// Child mode: commit one event and exit normally so the parent can verify recovery in a new process.
+if (args.Length == 2 && args[0] == "--journal-child-write")
+{
+    var childAddress = Convert.FromHexString("5257534101002A00000002030405090001");
+    var childEvent = SimulationEvent.Create(123, "v1", childAddress, "process.restart.probe",
+        1, "tick:000001", new byte[] { 0xC1, 0xC2 });
+    using var childJournal = new CandidateFileEventJournal(args[1]);
+    return childJournal.Commit(childEvent) == EventCommitResult.Committed ? 0 : 2;
+}
+
 var failures = new List<string>();
 var checks = 0;
 
