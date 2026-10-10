@@ -61,9 +61,11 @@ Piloting is likewise not just a camera feed. The soldier remains in their exoske
 
 ## 6. Training is a rotation through actual simulators
 
-The training simulators are actual simulators for the recruit's intended duties, not abstract tutorial rooms that merely explain a control scheme. A soldier's training day is a rotation from trainer to trainer. The recruit does not usually complete one entire qualification in a single uninterrupted session. Training introduces a subject, moves to other lessons, and later returns to continue the first subject. This interleaving repeats until the required material and performance have been covered.
+The training simulators are actual VR simulators for the recruit's intended duties, not abstract tutorial rooms that merely explain a control scheme. The player marches with their squad to the assigned training building. Inside, soldiers who staff the barracks help the player work out which VR module to use next. The training building and its staff are part of the world, not a replacement for it with a detached menu.
 
-Long qualifications, such as piloting, span a more realistic amount of in-world time. The player is not required to remain in the simulator for every minute of that period. The experience can cut away and resume at later training stages while preserving the sense that the qualification takes time and effort.
+While the player is inside a VR training module, treat the player as **outside the passage of world time**. A qualification may represent a long period of instruction in the military world, but the player is not trapped in a simulator for that entire duration. Instead, training is divided into discrete hands-on sessions. The player can complete a session, return to ordinary gameplay with the qualifications already earned, and come back to training whenever they want.
+
+If the player bails out of a VR module before completing its current session, that session's training is scrapped. No partial qualification credit is awarded for an abandoned session. This does not erase earlier completed sessions or qualifications. The player can qualify one session at a time and then go back into the living world, but **an incomplete qualification cannot be used** as if it were complete.
 
 The simulation teaches the player how to operate and use the equipment they encounter. Training is not limited to a few tutorial weapons or one vehicle class; the intent is to teach the procedures relevant to the soldier's role and the world they will inhabit.
 
@@ -105,7 +107,7 @@ The Enlisted campaign is a story-shaped rise from the lowest enlisted position t
 
 ### Multiplayer
 
-Every multiplayer player starts at the bottom as a soldier. The player chooses the class they want to train for, and training occurs as part of the persistent world rather than being staged around a required moment when the player must be present to occupy a particular position. A player can only directly inhabit their character while online; the world must therefore continue training and qualification activity without assuming that player is available at a scheduled instant.
+Every multiplayer player starts at the bottom as a soldier. The player chooses the class they want to train for. Training is undertaken in discrete VR sessions, with the player treated as outside the passage of world time while inside a module. The player can complete a session, return to gameplay with the qualifications currently earned, and come back to training whenever they want. If they bail out of an active module, that session's training is scrapped; earlier completed sessions and qualifications are not erased. An incomplete qualification cannot be used.
 
 Once qualified in a class, the player may answer any job in that class. They may also answer jobs belonging to any other class for which they have qualified. Qualifications accumulate as real options, so the player can choose among jobs they are actually qualified to perform instead of being confined forever to one selected class. A job is an opportunity to answer, not a guarantee that the player will be assigned it; the existing job-acceptance and organizational constraints still apply.
 
@@ -145,9 +147,9 @@ The following are implementation or detailed-design questions, not permission to
 - Ghost-avatar representation, tolerances, scoring curves, correction timing, accessibility, and how instructors decide the player is lost.
 - Which dimensions are scored for each procedure; different tasks need not share one universal metric.
 - The precise hardware and control mapping for each vehicle station.
-- How training rotation is scheduled, how a long qualification resumes across in-world time, and how interruptions preserve progress.
+- How training sessions are ordered within a qualification, how barracks staff guide the player to the next VR module, and what constitutes successful completion of a session.
 - The complete qualification graph, including prerequisites, staffing demand, and the exact rules for job application acceptance.
-- The exact differences between story-directed single-player progression and multiplayer class qualification, including whether any multiplayer training stages require a specific attendance window or can be resumed asynchronously.
+- The exact differences between story-directed single-player progression and multiplayer class qualification, beyond the established rule that players may return to discrete training sessions when they choose.
 - How accumulated experience and nearby expertise affect field-repair guidance, without allowing a ghost to guarantee success.
 - How AI recruits, leader locations, remote-base simulation, and rendering fidelity are scheduled without implying that an unrendered base does not exist.
 
