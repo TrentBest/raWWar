@@ -90,7 +90,7 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [ ] Ensure every technical capability consumed by raWWar has a repository-local example or a documented reason an example is not yet executable.
 - [ ] Continue replacing repeated explanations with one authoritative document and clear cross-links.
 - [x] Historical CI evidence: run [37999757533](https://github.com/TrentBest/raWWar/actions/runs/37999757533) passed for head `e76736aea714367f57301e1a6559b59ed5c14493`; this is not verification of later documentation commits.
-- [ ] Re-check CI for the current `development` head before describing the branch as green. The latest checked head during this audit was `ebb182f5f69b818308b2fb0166904824f43701ae`; the available workflow/status queries returned no checks for that head, so its CI state is unknown.
+- [ ] Re-check CI for the current `development` head before describing the branch as green. The latest checked head during this audit was `240e6b81b7113b515054526f792252c894fc5f3e`; the available workflow/status queries returned no checks for that head, so its CI state is unknown.
 
 
 This audit is intentionally incremental. The shared FSM_COS standard is still a proposal under review, and this pass does not claim universal or exhaustive conformance.
