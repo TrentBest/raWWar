@@ -570,6 +570,8 @@ The intended modes are:
 
 The two single-player campaigns share the underlying living war but differ in authority, knowledge, agency, and the player's lived experience. See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md).
 
+Career progression is deliberately mode-dependent. In the single-player Enlisted campaign, progression is more directed: the game controls the sequence of opportunities and qualifications to support the story of rising from the bottom of the chain of command. In multiplayer, every player begins at the bottom as a soldier and chooses a class to train toward. Because a multiplayer character can only be directly inhabited while that player is online, the world must not depend on the player being present at one exact training moment or waiting in a particular position to continue. Training proceeds as part of the living world; once qualified in a class, the player may answer jobs within that class and may also answer jobs in any other class for which they have qualified. Multiplayer career choice is therefore broader and more player-directed than the story-shaped single-player progression.
+
 ## 7.1 Campaign — Enlisted
 
 The player experiences the war from the soldier level, beginning as an unarmored citizen who chooses a House at a fair's enlistment office, completes boot camp, and serves where assigned until promotion gives them greater authority.
@@ -736,6 +738,8 @@ Qualification, experience, and performance are separate:
 The ghost avatar demonstrates the intended procedure; it does not perform the action for the player or guarantee competence. For example, an inexperienced soldier attempting an emergency plasma-torch repair may follow the displayed motions yet cut unintended holes through a hull. Relevant prior repetitions and nearby expertise may affect the availability or correctness of the ghost's repair guidance. Routine soldiers do not normally perform their own maintenance, but field emergencies can force them to attempt it.
 
 The same diegetic, ghost-guided teaching model applies to occupations beyond combat, including research. A qualified researcher learns the procedures relevant to their own work rather than needing to master every other occupation.
+
+**Career progression differs by mode.** The single-player Enlisted campaign uses a more directed progression to carry its story and shape the player's rise through the command structure. Multiplayer begins every player at the bottom as a soldier; the player chooses a class to qualify in, and after qualification can answer any job in that class or in any other class already qualified. Multiplayer training belongs to the ongoing world and must not depend on the player being online at a specific moment to occupy a required position. A shared world and shared qualification model do not imply identical career freedom across modes.
 
 See [Campaign Modes and Diegetic Training](CAMPAIGN_MODES_AND_DIEGETIC_TRAINING.md) for the expanded campaign and training design, and [Open Question 24](OPEN_QUESTIONS.md#24-how-do-interleaved-training-qualifications-experience-and-career-changes-work) for details that still require creator decisions.
 ## 8.4 Military precision
