@@ -233,6 +233,30 @@ try
 catch (ArgumentException) { unorderedBalanceStreamRejected = true; }
 Check(unorderedBalanceStreamRejected, "Resource replay rejects streams that violate the declared ordering");
 
+var resourceCheckpoint = ResourceBalanceCheckpoint.Capture(5, balanceStream.Take(1));
+Check(resourceCheckpoint.Balance == 15,
+    "Resource checkpoint captures the balance at its exact event boundary");
+Check(resourceCheckpoint.ReplayTail(balanceStream.Skip(1)) == ResourceBalanceReplay.Replay(5, balanceStream),
+    "Checkpoint-plus-tail replay matches full replay for the same ordered resource stream");
+var checkpointBoundaryRejected = false;
+try { _ = resourceCheckpoint.ReplayTail(balanceStream.Take(1)); }
+catch (ArgumentException) { checkpointBoundaryRejected = true; }
+Check(checkpointBoundaryRejected,
+    "Checkpoint tail rejects replaying an event already included in the checkpoint");
+var checkpointScopeRejected = false;
+try
+{
+    var foreignTail = new[]
+    {
+        SimulationEvent.Create(123, "v1", otherAddressBytes, ResourceBalanceReplay.EventDomain,
+            99, "tick:000003", ResourceBalanceReplay.EncodeDelta(1))
+    };
+    _ = resourceCheckpoint.ReplayTail(foreignTail);
+}
+catch (ArgumentException) { checkpointScopeRejected = true; }
+Check(checkpointScopeRejected,
+    "Checkpoint tail rejects events from another canonical address stream");
+
 var concurrentHistory = new InMemoryEventHistory();
 Parallel.For(0, 64, _ => concurrentHistory.Commit(firstEvent));
 Check(concurrentHistory.Count == 1,
