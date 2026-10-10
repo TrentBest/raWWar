@@ -4,7 +4,7 @@
 
 **Status:** Candidate implementation proposal; requires review before it becomes an implementation commitment.  
 **Scope:** The first durable adapter for the existing event-history slice only.  
-**Related contracts:** [Event History, Checkpoints, and Deterministic Replay](EVENT_HISTORY_AND_REPLAY_CONTRACT.md) and [Durable Event Commit Contract](DURABLE_EVENT_COMMIT_CONTRACT.md).
+**Related contracts:** [Event History, Checkpoints, and Deterministic Replay](EVENT_HISTORY_AND_REPLAY_CONTRACT.md), [Durable Event Commit Contract](DURABLE_EVENT_COMMIT_CONTRACT.md), and [Durable Event Record Format — Candidate V1](DURABLE_EVENT_RECORD_FORMAT_CANDIDATE.md).
 
 ## 1. Proposed first deployment boundary
 
