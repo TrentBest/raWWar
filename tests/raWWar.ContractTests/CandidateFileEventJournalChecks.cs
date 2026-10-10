@@ -122,6 +122,32 @@ internal static class CandidateFileEventJournalChecks
                     "Concurrent distinct events and separate world/model streams reconstruct after journal reopen");
             }
 
+            // Equal logical-time keys are ordered by event ordinal, not physical append order.
+            var tieOrderPath = Path.Combine(directory, "equal-logical-time-order.rwej");
+            var laterOrdinal = SimulationEvent.Create(123, "v1", address, "ordering.probe",
+                12, "tick:000500", new byte[] { 0x12 });
+            var earlierOrdinal = SimulationEvent.Create(123, "v1", address, "ordering.probe",
+                11, "tick:000500", new byte[] { 0x11 });
+            using (var tieJournal = new CandidateFileEventJournal(tieOrderPath))
+            {
+                check(tieJournal.Commit(laterOrdinal) == EventCommitResult.Committed
+                    && tieJournal.Commit(earlierOrdinal) == EventCommitResult.Committed,
+                    "Equal-logical-time ordering fixtures commit in deliberately reversed append order");
+                var ordered = tieJournal.ReadOrdered(123, "v1", "ordering.probe", address);
+                check(ordered.Count == 2
+                    && ordered[0].EventOrdinal == 11
+                    && ordered[1].EventOrdinal == 12,
+                    "Equal logical-time keys are deterministically ordered by event ordinal after append-order inversion");
+            }
+            using (var recoveredTieJournal = new CandidateFileEventJournal(tieOrderPath))
+            {
+                var ordered = recoveredTieJournal.ReadOrdered(123, "v1", "ordering.probe", address);
+                check(ordered.Count == 2
+                    && ordered[0].EventOrdinal == 11
+                    && ordered[1].EventOrdinal == 12,
+                    "Equal-logical-time tie ordering remains stable after journal recovery");
+            }
+
             // A clean child-process exit followed by a fresh process opening the journal checks
             // process-restart reconstruction, but does not simulate a crash or power loss.
             var processRestartPath = Path.Combine(directory, "process-restart.rwej");
