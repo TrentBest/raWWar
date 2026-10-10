@@ -10,6 +10,18 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 | [Authoring manifest](../manifest.json) and [runtime manifest](../runtime-manifest.json) | Separating Experience metadata from FSM_COS root bundle IDs and requested versions. | Manifest-shape and identity checks are in the contract-test program. This is not AnyApp publication-manifest or end-to-end host-loading proof. |
 | [Workshop composition contract](../data/workshop-composition-contract.json) | Recording ownership boundaries, current verified FSM_COS contract, proposed reusable capabilities, and explicit non-publication status as data. | Architecture assertions are in the contract-test program. Proposed capabilities are not implemented capabilities. |
 
+## Implemented contracts that still need dedicated examples
+
+The following raWWar-owned contracts have executable checks in [the contract-test program](../tests/raWWar.ContractTests/Program.cs), but are not yet presented as dedicated, copyable usage examples. Treat the tests as current verification evidence—not as a substitute for reader-facing examples.
+
+| Contract | Current evidence | Example gap |
+|---|---|---|
+| [Hierarchical spatial address V1](../src/raWWar/Spatiotemporal/HierarchicalSpatialAddress.cs) | Canonical encoding/decoding and stable SHA-256 vectors are checked by the contract suite. | Add a focused example showing address construction, encoding, decoding, and validation boundaries. |
+| [Cartesian transform](../src/raWWar/Spatiotemporal/CartesianTransform3d.cs) | Identity, rotation/translation, composition order, inverse restrictions, and invalid inputs are checked by the contract suite. | Add a focused example distinguishing point transforms from direction transforms and explaining the inverse precondition. |
+| [Event history and resource replay](../src/raWWar/History/ResourceBalanceReplay.cs) | The contract suite checks stable event identity, immutable payload handling, in-memory commit semantics, ordering, stream boundaries, malformed events, and checked resource arithmetic. | Add a focused example of event creation, commit, and replay; explicitly label the ledger as process-local and replay as a narrow resource-balance reducer. |
+
+These contracts are useful implemented slices, not evidence of a complete galaxy simulation, durable event store, distributed exactly-once processing, checkpoint migration, or host-level world advancement.
+
 ## In-progress first-person slice
 
 - [Fighter Pilot Action Slice](../docs/FIGHTER_PILOT_ACTION_SLICE.md) — a **candidate** design sketch for connecting a future station interaction to an authoritative aircraft-state transition, causal history, and observable feedback. It is not evidence of an existing station implementation, not a selected implementation commitment, and not a runnable example. Reconcile it with canonical game-design decisions before using it to drive code.
