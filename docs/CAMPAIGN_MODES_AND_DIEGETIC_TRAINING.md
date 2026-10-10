@@ -37,7 +37,7 @@ The proposed lobby is three stories tall. Most offices are on the ground floor, 
 
 House selection is enacted by entering the chosen faction's office threshold. That threshold is a diegetic button, not a prompt to open a conventional faction-selection GUI. In the Commander opening, this choice sits under pressure: the Empress's summons is immediate, and the Imperial soldiers are not patient attendants.
 
-The tension is intentional. Imperial soldiers regard the Commander’s delay or disobedience as an opportunity to unleash their violence. If the player crosses into a faction office instead of complying with the summons, they would rather execute the player and report the disobedience than wait any longer. The exact selection timing, transition behavior, and fail-state presentation still need to be specified, but the threshold's meaning must not be replaced by a generic menu.
+The tension is intentional. Imperial soldiers regard the Commander's delay or disobedience as an opportunity to unleash their violence. If the player crosses into a faction office instead of complying with the summons, they would rather execute the player and report the disobedience than wait any longer. The exact selection timing, transition behavior, and fail-state presentation still need to be specified, but the threshold's meaning must not be replaced by a generic menu.
 
 ## 4. The Imperial soldiers
 
@@ -59,30 +59,67 @@ For example, if a station requires both hands on a steering wheel, the player sh
 
 Piloting is likewise not just a camera feed. The soldier remains in their exoskeleton, and the station's own displays replace or occupy the relevant HUD presentation. A plain vehicle-camera view would be boring and would discard the physical act of operating the vehicle.
 
-## 6. Boot camp and the ghost-avatar teaching system
+## 6. Training is a rotation through actual simulators
 
-Boot camp teaches procedures by showing the player what the soldier should do and then letting the player perform it.
+The training simulators are actual simulators for the recruit's intended duties, not abstract tutorial rooms that merely explain a control scheme. A soldier's training day is a rotation from trainer to trainer. The recruit does not usually complete one entire qualification in a single uninterrupted session. Training introduces a subject, moves to other lessons, and later returns to continue the first subject. This interleaving repeats until the required material and performance have been covered.
 
-A ghost avatar demonstrates a target position, pose, movement, timing, rotation, or manipulation. The player tries to follow it. The closer the player's action is to the ideal demonstration, the higher the action's score and resulting performance.
+Long qualifications, such as piloting, span a more realistic amount of in-world time. The player is not required to remain in the simulator for every minute of that period. The experience can cut away and resume at later training stages while preserving the sense that the qualification takes time and effort.
 
-Example: the drill sergeant commands, “Fall in.” The system highlights the expected location. That first indication does not have to be correct. If the player is visibly lost, the drill sergeant may react—“What is your problem, recruit?”—and the system then provides an updated ghost position, this time showing the correct place. The instruction, the player's attempt, and the instructor's response all belong to the world.
+The simulation teaches the player how to operate and use the equipment they encounter. Training is not limited to a few tutorial weapons or one vehicle class; the intent is to teach the procedures relevant to the soldier's role and the world they will inhabit.
 
-The same principle applies to weapon disassembly, vehicle operation, and other physical procedures. The ghost is a demonstration of intended behavior, not a replacement for the player's action. Position, timing, orientation, sequencing, and interaction quality can all contribute to evaluation where relevant.
+### 6.1 Squad-sized training and vehicle qualifications
 
-This system should teach through doing. A tutorial overlay may explain a rule when needed, but it must not replace the central embodied loop: observe the ghost, attempt the procedure, receive a result, and improve.
+A training barracks services **one squad at a time**. When the squad qualifies to operate a tank, its members train and qualify for each position in that tank as a squad. Qualification is therefore not merely a single “tank operator” unlock: the crew positions are distinct duties that each need to be learned and qualified for.
 
-## 7. General design principles
+After boot camp, the player marches around the base with their squad and reports to a training barracks for the advanced-combat training assigned to that squad. This phase expands beyond the recruit's pistol to include weapons and equipment such as RPGs and rocket launchers. Squad-on-squad exercises—capture-the-flag-style training, for example—are part of this advanced combat phase.
+
+Only after advanced combat has been passed does the jobs board become available to the player.
+
+### 6.2 Qualification is not the same as experience
+
+A qualification establishes that the soldier has been taught and passed the required training. It does not imply that the soldier has extensive experience performing every possible task in the field.
+
+The ghost avatar can demonstrate the required actions during a real-world procedure, but its guidance is not a substitute for experience. When a soldier attempts an unfamiliar field repair, the availability and correctness of ghost guidance can depend on how often the soldier has performed that repair and on relevant nearby experience. A soldier who has never performed a repair—for example, using a plasma torch—may fail regardless of how closely they follow the ghost's displayed motions. They might instead cut unintended holes through the hull.
+
+This is intentional: the ghost is a procedural aid, not a magic source of competence or a guarantee of success. Routine personal maintenance is not generally the soldier's responsibility; field emergencies can force a soldier to attempt repairs outside their normal duties.
+
+The exact experience model, how nearby experience influences guidance, and how uncertainty is communicated remain to be designed. The established rule is that a perfect-looking ghost demonstration must not automatically make an inexperienced soldier competent.
+
+## 7. The jobs board: diegetic career choice and interruptible training
+
+After advanced combat, the player can inspect a physical jobs board and choose what work to pursue. Unlike a rigid modern military career path, the player may apply to another job **at any moment**. If the player is in the middle of a qualification, that training is paused at its current point rather than erased. If a job is listed and the player meets its prerequisites, they can apply; applications are typically accepted, but acceptance is not an unconditional guarantee.
+
+The board does not present every role as equally available. A job that requires qualifications the player does not possess is visibly differentiated from an eligible selection. The player can still inspect that role and see the sequence of prerequisite qualifications required to reach it.
+
+The selected job is marked by a green, rotating reticle. The selected destination and the prerequisite path are distinct visual states: the destination is the active choice, while the intervening qualifications are shown as the ordered route that must be completed first. The visual treatment must make it clear which job is selected, which options are eligible, and which steps remain.
+
+This board is an in-world view of a qualification graph. It should not require the player to leave the world for a conventional out-of-character class-selection menu.
+
+## 8. Diegetic learning applies to every occupation
+
+The ghost-avatar teaching model is not exclusive to infantry drills or vehicle operation. Research is also a job performed by a person in the world. Researchers undergo the training needed to qualify for their work; once qualified, they should not need to understand every other occupation, only what directly concerns their current responsibilities.
+
+A player who chooses research encounters the experiments, equipment, procedures, and tasks of that research role. Ghost avatars can demonstrate what the researcher should do, just as they demonstrate a soldier's stance, a weapon procedure, or a vehicle control sequence. The player then performs the work.
+
+The design principle is **local understanding, not omniscience**. Every occupation teaches the player how to do the work relevant to that occupation, through in-world activity. The player need not learn unrelated systems in advance merely to make progress in their chosen job.
+
+## 9. General design principles
 
 - **Diegetic choice:** Where practical, an important choice should be an action in the world. Crossing a threshold can be a clear selection event.
 - **Embodied procedure:** The player learns what a soldier does by performing the soldier's actions through the exoskeleton interface.
 - **Demonstration before abstraction:** Show the target behavior through the ghost avatar, then assess the player's attempt.
 - **Instruction can respond to confusion:** Instructors and the guidance system can react to where the player actually is and what they have done, rather than assuming perfect compliance.
+- **Training is interleaved:** A training day rotates through trainers and revisits topics over time rather than forcing one qualification to be completed in one sitting.
+- **Squad qualifications are positional:** A squad can train together while qualifying for the distinct crew positions a vehicle requires.
+- **Qualification does not equal mastery:** A credential, a demonstrated action, and accumulated experience are related but separate.
+- **Career choice is an in-world action:** The jobs board exposes available work and its prerequisite path without leaving the fiction.
+- **Learning is role-specific:** The player learns what their current occupation requires, not every job's procedures.
 - **Agency follows role:** The Commander can plan; the recruit initially follows orders. Progression changes what the player is authorized and expected to decide.
 - **Shared world, different experience:** Both campaigns can use the same underlying simulation without collapsing their differences in authority, perspective, or lived experience.
 - **Presentation is not existence:** A remote base can remain part of the simulated world without always being fully rendered.
 - **Hardware remains embodied:** Vehicles are operated through station-specific physical controls, actuators, panels, and exoskeleton HUD presentation.
 
-## 8. Details still requiring design
+## 10. Details still requiring design
 
 The following are implementation or detailed-design questions, not permission to replace the established experience with a generic equivalent:
 
@@ -91,6 +128,9 @@ The following are implementation or detailed-design questions, not permission to
 - Ghost-avatar representation, tolerances, scoring curves, correction timing, accessibility, and how instructors decide the player is lost.
 - Which dimensions are scored for each procedure; different tasks need not share one universal metric.
 - The precise hardware and control mapping for each vehicle station.
+- How training rotation is scheduled, how a long qualification resumes across in-world time, and how interruptions preserve progress.
+- The complete qualification graph, including prerequisites, staffing demand, and the exact rules for job application acceptance.
+- How accumulated experience and nearby expertise affect field-repair guidance, without allowing a ghost to guarantee success.
 - How AI recruits, leader locations, remote-base simulation, and rendering fidelity are scheduled without implying that an unrendered base does not exist.
 
 These details should be illuminated against the experience described above. They must not be filled with convenience-driven assumptions.
