@@ -2,10 +2,10 @@
 
 > **A query observes the world. A committed event changes it. A checkpoint accelerates reconstruction; it does not replace the history that explains the state.**
 
-**Status:** Partial reference implementation; stable event identity, an in-memory ledger, and one narrow resource-balance replay reducer are implemented. Durable storage, checkpoints, and general authoritative world-state reconstruction are not implemented.  
+**Status:** Partial reference implementation; stable event identity, an in-memory ledger, one narrow resource-balance replay reducer, and an in-memory resource-balance checkpoint experiment are implemented. Durable storage, durable/general checkpoints, and general authoritative world-state reconstruction are not implemented.  
 **Owner:** raWWar world-model implementation.  
 **Audience:** Simulation, persistence, networking, testing, and content-tooling contributors.  
-**Evidence rule:** The repository implements stable V1 event identity and a thread-safe in-memory reference ledger. This is not durable storage, a general world-state reducer, checkpoint support, or proof of cross-platform deterministic simulation.
+**Evidence rule:** The repository implements stable V1 event identity, a thread-safe in-memory reference ledger, and a narrow resource-balance checkpoint/replay-equivalence example. This is not durable storage, a general world-state reducer, a durable or general checkpoint system, or proof of cross-platform deterministic simulation.
 
 ## 1. Separate identity, ordering, and consequences
 
