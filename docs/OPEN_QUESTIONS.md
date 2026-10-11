@@ -232,3 +232,18 @@ Qualification and experience are separate. A ghost can demonstrate a field-repai
 - What service medals can soldiers earn, what deeds or service qualify for each award, and how do medal designs and chest-wearing conventions differ by faction?
 - Which training procedures are shared across factions, and which are faction-specific?
 
+
+
+### 26. How are squad standards, totems, and rank recognition expressed visually?
+
+A candidate design places a tall physical squad standard or totem on the back of the lowest-ranking soldier—the fourth member in the four-soldier squad concept. It should remain visible as a real object moving through dust, smoke, and battlefield motion, not as a floating UI label.
+
+Questions to resolve:
+- Is the squad always four soldiers, and is the standard-bearer always the lowest-ranking member?
+- Is the standard a flag, a rigid totem, or a configurable combination?
+- How do faction identity, squad identity, command/rank markings, role insignia, qualification badges, and service medals remain visually distinct?
+- Can standards be lost, captured, damaged, replaced, or used tactically?
+- What are the visibility and silhouette requirements at near, middle, and far Event Horizons?
+- Which visual cues are universal and which are faction-specific?
+
+The visual concept may draw broad inspiration from historical military standards and science-fiction unit silhouettes, but final designs must be original.
