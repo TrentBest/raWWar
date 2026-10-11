@@ -178,6 +178,9 @@ For implementation claims, distinguish code and tests that exist today from desi
 - [Gestures Design](docs/GESTURES_DESIGN.md) — physical soldier movement as data and FSM behavior.
 - [Advisors and Command Staff](docs/ADVISORS_AND_STAFF.md) — qualified people, candidate records, specialist advice, and command appointments.
 - [Renderer Integration](docs/RENDERER_INTEGRATION.md) — observing the world without making presentation its source of truth.
+- [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) — GPU-facing presentation contracts and the planned AnyApp/WPF first backend.
+- [Visualize Gesture/pose pipeline](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md) — procedural motion to evaluated pose data to GPU presentation.
+- [TheSingularityWorkshop.Gestures (proposed)](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md#7-why-a-gesture-package-may-be-warranted) — proposed reusable Gesture model and CPU reference evaluator.
 - [Visualizer architecture](docs/TheSingularityWorkshop.Visualizer/README.md) — proposed GPU-facing presentation technology, host boundaries, and first vertical slice.
 - [Visualizer GPU backend strategy](docs/TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md) — candidate graphics/compute APIs and a measurement-led selection process.
 - [Visualizer implementation roadmap](docs/TheSingularityWorkshop.Visualizer/IMPLEMENTATION_ROADMAP.md) — from a WPF GPU surface to a living battlefield slice and browser path.
