@@ -3,7 +3,19 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/raWWar/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/raWWar/actions/workflows/build.yml)
 
-## 01 🔷 Definition
+![](docs/assets/dividers/star-gold.svg)
+
+
+> **An investor's view:** raWWar is the proving ground for a broader software thesis: a persistent, living Experience built from reusable capabilities rather than a single engine-bound game. As the Workshop technology matures, raWWar gives it a demanding, visible purpose—people, procedures, logistics, decisions, and consequences sharing one continuous world.
+
+The opportunity is bigger than a battlefield renderer. The Workshop separates **what the world means**, **how reusable capabilities are composed**, and **how each observer experiences it**. That separation is intended to make the same underlying world usable across desktop, browser, and future immersive hosts—without treating those future integrations as finished today.
+
+**Where we are:** the architecture and design are actively being built and verified; a complete playable raWWar slice and end-to-end host launch are not yet delivered. The repository distinguishes implemented evidence from design targets so progress can be evaluated honestly.
+
+
+## 🔷 01 The opportunity
+
+![](docs/assets/dividers/blue.svg)
 
 **raWWar is a first-person war Experience, not an application.** It is a living military world that continues whether or not the player is looking at it.
 
@@ -11,7 +23,9 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 > **What happens when I become one of the people who has to live here?**
 
-## 02 🟢 Visual identity
+## 🟢 02 The world we want to make tangible
+
+![](docs/assets/dividers/green.svg)
 
 ![raWWar — The war is alive](docs/images/rawwar-hero.svg)
 
@@ -21,7 +35,9 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 *One continuous war across a galaxy—not a stack of disposable maps.*
 
-## 03 🔵 Plain-language explanation
+## 🔺 03 The living-world thesis
+
+![](docs/assets/dividers/triangle-red.svg)
 
 ![A living raWWar military installation](docs/images/rawwar-living-world.svg)
 
@@ -39,7 +55,9 @@ The opening campaign brings together faction choice and the Empress's first unco
 
 > **This is not “pick a sector and play a map.” This is living inside the war.**
 
-## 04 🟠 Audience / choose your path
+## 🟠 04 Why this is different
+
+![](docs/assets/dividers/orange.svg)
 
 - **New to raWWar:** begin with the [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md).
 - **Want the foundational design:** read the [Game Design Bible](docs/GAME_DESIGN_BIBLE.md).
@@ -50,7 +68,9 @@ The opening campaign brings together faction choice and the Empress's first unco
 - **Understanding GPU presentation:** read [Renderer Integration](docs/RENDERER_INTEGRATION.md) and the [Visualize implementation](https://github.com/TrentBest/TheSingularityWorkshop.Visualize).
 - **Building or verifying the repository:** use the commands in section 08 and the evidence guidance in section 11.
 
-## 05 🟣 At a glance
+## 🟣 05 Progress and present status
+
+![](docs/assets/dividers/violet.svg)
 
 | Item | Current description |
 |---|---|
@@ -61,7 +81,9 @@ The opening campaign brings together faction choice and the Empress's first unco
 | Status | Active design and engineering; the end-to-end playable Experience is not yet complete |
 | License | See [LICENSE](LICENSE) |
 
-## 06 🟢 Responsibility boundary
+## 🟢 06 What raWWar owns—and what it reuses
+
+![](docs/assets/dividers/green.svg)
 
 raWWar owns the things that make **raWWar** raWWar:
 
@@ -90,7 +112,9 @@ The Singularity Workshop provides reusable machinery so raWWar does **not** have
 
 **FSM_COS is a central composition boundary, not the game, the host, or a renderer.** raWWar supplies meaning and domain rules; FSM_COS assembles requested capabilities; the host decides how the resulting runtime is executed or manifested. See [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
 
-## 07 🟠 Architecture and ecosystem
+## 🟠 07 The technology strategy
+
+![](docs/assets/dividers/orange.svg)
 
 ![raWWar Experience architecture](docs/images/rawwar-experience-architecture.svg)
 
@@ -112,7 +136,9 @@ The manifest identifies the requested composition; dependency closure determines
 
 The current integration work is not yet proof of end-to-end host loading: the checked-in authoring/runtime manifests are distinct from AnyApp's publication manifest, and immutable artifact identity/dependency closure remain open integration requirements. The local FSM_COS composition check is scoped to its test adapter; it does not prove that AnyApp can retrieve and launch the full Experience. See the [AnyApp manifest bridge investigation](docs/integration/ANYAPP_MANIFEST_BRIDGE.md) and the [raWWar-to-AnyApp artifact-closure request](docs/requests/REQUEST-FROM-raWWar-AnyApp-ArtifactClosure.md).
 
-## 08 🟩 Quick start
+## 🟩 08 What can be verified today
+
+![](docs/assets/dividers/green.svg)
 
 For readers, start with the [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md). For a compact view of the intended boundary, read [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
 
@@ -125,7 +151,9 @@ dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj
 
 These commands build the solution and run the checked-in explicit-time Kepler-orbit example. They do **not** launch a playable game or prove end-to-end AnyApp composition.
 
-## 09 🟪 Core concepts / how it works
+## 🟪 09 The experience vision
+
+![](docs/assets/dividers/purple.svg)
 
 raWWar is always experienced from the first-person perspective, but the role the player inhabits can grow dramatically:
 
@@ -150,7 +178,9 @@ The repository distinguishes design certainty explicitly:
 
 Implementation convenience must not silently become game design.
 
-## 10 🟦 Usage and examples
+## 🟦 10 Evidence and examples
+
+![](docs/assets/dividers/blue.svg)
 
 Examples are engineering artifacts as well as documentation: they show how a capability is expected to be consumed and give contributors a concrete reference.
 
@@ -160,7 +190,9 @@ Examples are engineering artifacts as well as documentation: they show how a cap
 
 Each example must say whether it is verified, source-shaped, or conceptual; name the version or commit it targets; cover meaningful boundaries; and state what it does not prove. An example is not automatically an integration test, playable feature, or release-readiness claim.
 
-## 11 🩶 Verification and development
+## 🩶 11 Engineering discipline
+
+![](docs/assets/dividers/grey.svg)
 
 The repository is a design instrument, not a pile of feature promises. Its purpose is to make raWWar sufficiently clear that the next thing can actually be built.
 
@@ -170,7 +202,9 @@ The old engine-specific project shell has been removed. raWWar is not defined by
 
 For implementation claims, distinguish code and tests that exist today from design targets. The current `RaWWarMicroBundle.Load` remains a scaffold and `Arbitrate` returns `false`; the full station-and-rig first-person slice and end-to-end host loading remain future work. Consult [Technical Design](docs/TECHNICAL_DESIGN.md) and [TODO.md](TODO.md) for current evidence and blockers.
 
-## 12 🟣 Documentation map / further reading
+## 🟣 12 Explore the deep dives
+
+![](docs/assets/dividers/violet.svg)
 
 - [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md) — living master description of the player experience.
 - [Game Design Bible](docs/GAME_DESIGN_BIBLE.md) — foundational principles and world rules.
@@ -190,7 +224,9 @@ For implementation claims, distinguish code and tests that exist today from desi
 - [Visual asset catalogue](docs/images/README.md) — diagrams and artwork with their intended meaning.
 - [Documentation conformance audit](docs/DOCUMENTATION_CONFORMANCE.md) — how this repository applies the shared Workshop documentation standard.
 
-## 13 🟤 Related projects and Workshop identity
+## 🟤 13 The Workshop ecosystem
+
+![](docs/assets/dividers/brown.svg)
 
 raWWar is one Experience in a modular ecosystem. It consumes reusable capabilities rather than making each Experience rebuild the same machinery.
 
