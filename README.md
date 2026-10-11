@@ -181,9 +181,10 @@ For implementation claims, distinguish code and tests that exist today from desi
 - [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) — GPU-facing presentation contracts and the planned AnyApp/WPF first backend.
 - [Visualize Gesture/pose pipeline](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md) — procedural motion to evaluated pose data to GPU presentation.
 - [TheSingularityWorkshop.Gestures (proposed)](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md#7-why-a-gesture-package-may-be-warranted) — proposed reusable Gesture model and CPU reference evaluator.
-- [Visualizer architecture](docs/TheSingularityWorkshop.Visualizer/README.md) — proposed GPU-facing presentation technology, host boundaries, and first vertical slice.
-- [Visualizer GPU backend strategy](docs/TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md) — candidate graphics/compute APIs and a measurement-led selection process.
-- [Visualizer implementation roadmap](docs/TheSingularityWorkshop.Visualizer/IMPLEMENTATION_ROADMAP.md) — from a WPF GPU surface to a living battlefield slice and browser path.
+- [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) — GPU-facing presentation package and implementation repository.
+- [Visualizer architecture](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/ARCHITECTURE.md) — host boundaries, GPU resource contracts, and Renderer integration.
+- [Visualizer GPU backend strategy](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GPU_BACKEND_STRATEGY.md) — candidate graphics/compute APIs and measurement-led selection.
+- [Visualizer implementation roadmap](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/IMPLEMENTATION_ROADMAP.md) — from a WPF GPU surface to a living battlefield slice and browser path.
 - [Visual asset catalogue](docs/images/README.md) — diagrams and artwork with their intended meaning.
 - [Documentation conformance audit](docs/DOCUMENTATION_CONFORMANCE.md) — how this repository applies the shared Workshop documentation standard.
 
