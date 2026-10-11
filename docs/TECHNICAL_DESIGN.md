@@ -84,7 +84,7 @@ Related design contracts:
 
 The Workshop Renderer is its own technology and should remain platform/API independent.
 
-The proposed `TheSingularityWorkshop.Visualizer` is a separate GPU-facing presentation technology. Renderer owns observer-relative representation and Event Horizon policy; Visualizer owns GPU resource and pipeline execution, backend integration, and presentation. AnyApp/WPF is the first target surface, but the common contracts must not depend on WPF. A browser/WebGPU adapter is an architectural validation target, not a claim of current support. See [Visualizer architecture](TheSingularityWorkshop.Visualizer/README.md), [GPU backend strategy](TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md), and [implementation roadmap](TheSingularityWorkshop.Visualizer/IMPLEMENTATION_ROADMAP.md).
+The proposed [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) repository is the GPU-facing presentation technology. Renderer owns observer-relative representation and Event Horizon policy; Visualize owns resource/backend contracts and GPU presentation. AnyApp/WPF is the first target surface, but common contracts must not depend on WPF. A browser/WebGPU adapter is an architectural target, not a claim of current support. See the [Visualize architecture](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/ARCHITECTURE.md) and [implementation roadmap](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/IMPLEMENTATION_ROADMAP.md).
 
 It turns authoritative world state into an appropriate presentation; it does not define world state.
 
@@ -153,6 +153,8 @@ raWWar is an Experience, not a monolithic application. The technical design must
 - **FSM_API:** behavioral primitives and state-machine execution.
 - **FSM_COS:** composition boundary.
 - **AnyApp:** host/manifestation.
-- **Renderer:** observer-relative presentation.
+- **Renderer:** observer-relative representation and Event Horizon policy.
+- **Visualize:** GPU execution and host-facing presentation.
+- **Gestures (proposed package):** reusable physical procedures and reference pose evaluation.
 
 When a new requirement appears, classify it first as Experience meaning, reusable Workshop capability, host/manifestation concern, or presentation concern. Only the first category automatically belongs in raWWar.
