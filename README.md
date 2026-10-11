@@ -178,6 +178,9 @@ For implementation claims, distinguish code and tests that exist today from desi
 - [Gestures Design](docs/GESTURES_DESIGN.md) — physical soldier movement as data and FSM behavior.
 - [Advisors and Command Staff](docs/ADVISORS_AND_STAFF.md) — qualified people, candidate records, specialist advice, and command appointments.
 - [Renderer Integration](docs/RENDERER_INTEGRATION.md) — observing the world without making presentation its source of truth.
+- [Visualizer architecture](docs/TheSingularityWorkshop.Visualizer/README.md) — proposed GPU-facing presentation technology, host boundaries, and first vertical slice.
+- [Visualizer GPU backend strategy](docs/TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md) — candidate graphics/compute APIs and a measurement-led selection process.
+- [Visualizer implementation roadmap](docs/TheSingularityWorkshop.Visualizer/IMPLEMENTATION_ROADMAP.md) — from a WPF GPU surface to a living battlefield slice and browser path.
 - [Visual asset catalogue](docs/images/README.md) — diagrams and artwork with their intended meaning.
 - [Documentation conformance audit](docs/DOCUMENTATION_CONFORMANCE.md) — how this repository applies the shared Workshop documentation standard.
 
