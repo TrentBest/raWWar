@@ -169,7 +169,7 @@ Likely package boundaries, to be confirmed by prototypes:
 - `TheSingularityWorkshop.Visualizer.Web` — browser surface integration, potentially a .NET/JavaScript boundary rather than a pure .NET assembly.
 - backend-specific packages or MicroBundles — only where isolation materially improves portability, dependency management, or composition.
 
-Do not create all these packages before a working vertical slice demonstrates their boundaries. A MicroBundle is a composable capability, not automatically synonymous with a NuGet package. Lower-level Visualizer packages must not depend upward on FSM_COS.
+The target is for Visualizer to be distributable as a NuGet package and discoverable/composable as a MicroBundle capability in the Workshop runtime. The NuGet artifact is the distribution unit; the bundle manifest/provider is the composition contract and may expose one or more independently selectable capabilities. Their mapping should be explicit and deterministic. Do not create every possible package before a working vertical slice demonstrates the boundaries. Lower-level Visualizer packages must not depend upward on FSM_COS.
 
 ## 08. First vertical slice
 
