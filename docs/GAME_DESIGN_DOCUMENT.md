@@ -3085,8 +3085,8 @@ Current companion documents include:
 - Gestures Design;
 - Data Model;
 - Renderer Integration;
-- Visualizer / GPU Presentation (Workshop repository);
-- Gesture and Pose Pipeline (Workshop repository);
+- [Visualizer / GPU Presentation](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/ARCHITECTURE.md) (Workshop repository);
+- [Gesture and Pose Pipeline](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md) (Workshop repository);
 - Open Questions;
 - Qualification Graph;
 - Crew Composition Matrix;
