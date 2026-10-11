@@ -1993,7 +1993,18 @@ A soldier's appearance should communicate:
 - role;
 - history;
 - maintenance;
-- individuality.
+- individuality;
+- unit identity and formation responsibility.
+
+Role insignia and qualification/rating markings communicate the soldier's current role and earned qualifications. Service medals are separate awards worn on the chest and represent recorded service, achievements, or notable actions; they are not substitutes for rank or qualification markings.
+
+### Squad standards and totems
+
+**Candidate visual direction:** squads carry a physical standard—a tall, highly visible unit totem or flag mounted on the back of the squad's lowest-ranking member, the fourth member in the four-soldier squad concept. This makes the unit recognizable through dust, smoke, motion, and battlefield clutter without relying on floating UI labels.
+
+The standard is a physical object in the world, not a marker pasted onto the screen. It must move with its carrier, react to movement and wind, remain subject to occlusion, and be visible at an appropriate Event Horizon. At distance, the Renderer may preserve the standard's silhouette and unit identity while simplifying cloth motion; close up, the Visualizer should eventually support convincing material, lighting, and motion.
+
+The standard's exact shape, attachment, fabric/material, faction treatment, tactical use, loss/replacement rules, and whether every faction follows the same convention remain open. The design must distinguish a unit standard from a soldier's rank markings, role insignia, and service medals. Warhammer and Asian military standards are inspiration references, not instructions to copy an existing design.
 
 ## 27.2 Vehicles
 
