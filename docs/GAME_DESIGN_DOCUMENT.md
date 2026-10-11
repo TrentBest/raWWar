@@ -3085,6 +3085,8 @@ Current companion documents include:
 - Gestures Design;
 - Data Model;
 - Renderer Integration;
+- Visualizer / GPU Presentation (Workshop repository);
+- Gesture and Pose Pipeline (Workshop repository);
 - Open Questions;
 - Qualification Graph;
 - Crew Composition Matrix;
