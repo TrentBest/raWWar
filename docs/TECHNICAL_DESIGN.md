@@ -84,6 +84,8 @@ Related design contracts:
 
 The Workshop Renderer is its own technology and should remain platform/API independent.
 
+The proposed `TheSingularityWorkshop.Visualizer` is a separate GPU-facing presentation technology. Renderer owns observer-relative representation and Event Horizon policy; Visualizer owns GPU resource and pipeline execution, backend integration, and presentation. AnyApp/WPF is the first target surface, but the common contracts must not depend on WPF. A browser/WebGPU adapter is an architectural validation target, not a claim of current support. See [Visualizer architecture](TheSingularityWorkshop.Visualizer/README.md), [GPU backend strategy](TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md), and [implementation roadmap](TheSingularityWorkshop.Visualizer/IMPLEMENTATION_ROADMAP.md).
+
 It turns authoritative world state into an appropriate presentation; it does not define world state.
 
 Observation-relative detail and event-horizon/level-of-detail concepts belong in the rendering architecture without allowing visual detail to become simulation truth.
