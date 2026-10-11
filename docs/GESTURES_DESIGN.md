@@ -189,3 +189,14 @@ The result should be coordinated behavior without mechanical sameness.
 - What exact texture/state layout is used?
 - How does the Renderer transition between event-horizon fidelity levels without visible popping?
 - How are deterministic seeds combined with temporary state?
+
+
+## Visualize and the proposed reusable Gestures package
+
+The Workshop's Gesture model must not be reduced to a conventional baked animation clip. A Gesture is a physical procedure described by poses, mathematical transitions, progression/completion behavior, spatial anchors or constraints, and bounded individual variation. The capability that understands an interaction—such as a vehicle—may provide the relevant Gesture.
+
+The proposed [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) package is the GPU-facing presentation layer. It consumes evaluated pose/instance data and executes the representation selected by Renderer. It does not define what a Gesture means, decide whether an interaction is valid, or own authoritative FSM transitions. GPU results remain disposable presentation data.
+
+A standalone **TheSingularityWorkshop.Gestures** NuGet package/repository is recommended for the reusable definition and reference-evaluation model, but has not been created yet. It should remain independent of Visualize, Renderer, WPF, and any particular GPU API. Its initial value would be a canonical-enough Gesture model, a CPU reference evaluator, deterministic test vectors, and compact evaluated output that future GPU evaluators can be checked against.
+
+The current four-channel 8-bit state-texture concept is only one possible GPU layout. The canonical pose schema and data layout must be selected from actual Gesture math, equipment attachment needs, precision constraints, and measurements—not frozen before those requirements are understood.
