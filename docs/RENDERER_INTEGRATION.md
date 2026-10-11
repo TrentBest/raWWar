@@ -6,7 +6,9 @@ Status: Design foundation.
 
 raWWar is intended to demonstrate the Workshop Renderer at the scale for which the architecture is being designed: large populations of complicated, individually distinguishable soldiers operating inside a living world.
 
-The Renderer is not the game simulation. It is the observation and presentation system.
+The Renderer is not the game simulation. It is the observer-relative representation and computational-detail system.
+
+The proposed `TheSingularityWorkshop.Visualizer` is the separate GPU-facing technology that turns Renderer output into pixels. Renderer decides what representation is justified; Visualizer manages GPU resources, graphics/compute work, backend execution, and presentation through host adapters. The intended design begins in AnyApp/WPF, while keeping the common data contract independent of WPF and leaving a browser/WebGPU path feasible. This is a design proposal, not an implemented integration. See [Visualizer architecture](TheSingularityWorkshop.Visualizer/README.md) and its [GPU backend strategy](TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md).
 
 ## Authoritative path
 
@@ -89,6 +91,8 @@ Candidate behavior:
 - silhouette and formation behavior dominate.
 
 The transition must preserve continuity rather than visibly switching between unrelated animation systems.
+
+A physical squad standard is an important visibility test: the standard should remain identifiable through dust and smoke, follow its carrier's motion, respect occlusion, and transition to a simplified silhouette at distance rather than becoming a floating UI marker. The squad-standard concept is recorded in the GDD's Visual Direction section.
 
 ## Complicated soldiers
 
