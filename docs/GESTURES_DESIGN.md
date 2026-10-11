@@ -24,37 +24,57 @@ The same ideal Gesture can be executed by thousands of soldiers. That alone woul
 
 raWWar therefore applies a second layer: **fuzzy individualization**.
 
-## Fuzzy motion
+## Fuzzy motion: parameterize the law, not the finished animation
 
-Each soldier has a stable seed and individual state/statistics.
+Each soldier has a stable seed and individual state/statistics. The ideal movement is expressed as a parameterized procedure. The seed selects stable individual values from safe ranges around the ideal parameters; it must not introduce fresh random noise every frame.
 
-The ideal Gesture is perturbed using that identity so that soldiers can differ while still performing the same intended action.
+This distinction is central. We do not independently distort finished animation frames. We parameterize the mathematical law that governs transitions between the ideal poses, then evaluate that law for each individual.
+
+The initial teaching example is experience:
+
+- **Green soldiers** use wider permitted ranges for relevant motion parameters. Their march follows the same ideal procedure, but timing, stride, arm swing, body response, and coordination can diverge more noticeably.
+- **Veteran soldiers** use tighter ranges around the ideal. They look more consistent and coordinated, yet remain individually distinct rather than becoming identical copies.
+- **Experience changes the distribution, not the identity of the Gesture.** A veteran and a green soldier can execute the same march definition with different parameter distributions.
+
+The range should be specific to each parameter family. It is not safe to blindly multiply every parameter by one skill scalar: mass-like terms, stiffness, damping, stride, cadence, and timing have different units and constraints. Some parameters should be varied additively; positive quantities may need multiplicative or transformed sampling. Correlated parameters may need to be sampled together to avoid physically incoherent combinations.
 
 Possible variations include:
 
-- slightly different movement rate;
-- small lateral or positional offsets;
-- different stride timing;
-- different pose timing;
-- head direction;
-- posture;
-- reaction timing;
-- hesitation;
-- recovery;
-- occasional stumble or correction;
-- other statistically bounded imperfections.
+- slightly different movement rate or phase;
+- stride and arm-swing amplitude;
+- timing and coordination between body parts;
+- effective inertia, stiffness, and damping;
+- torso sway and posture;
+- head direction and reaction timing;
+- hesitation, recovery, and occasional correction when the domain state calls for it.
 
-The goal is not random noise. The goal is a believable distribution around an ideal military action.
+The goal is not arbitrary imperfection. It is a believable, bounded distribution around an ideal physical procedure.
 
-Ten thousand soldiers should therefore perform the same march without appearing to be ten thousand copies of one animation.
+## The motion equation deserves its own exploration
+
+The motion model began conceptually with Newton's second law, \(\mathbf{F}=m\mathbf{a}\), then explored how spring-like response and mass-dependent ease-in/ease-out could describe the way a body moves between desired poses.
+
+A useful candidate family is a driven mass-spring-damper:
+
+\[
+m\ddot{x}=F_{\text{drive}}(t)-c\dot{x}-k\bigl(x-x_{\text{target}}(t)\bigr)
+\]
+
+Here, effective mass supplies inertia; drive represents the intended movement; damping resists velocity; stiffness pulls the motion toward the changing target path. Acceleration and deceleration can emerge from the dynamic response instead of being supplied solely by a hand-authored easing curve.
+
+This equation is a starting point for exploration, not yet the canonical raWWar or Gestures implementation. Translation and rotation have different physical quantities, and a pose path may need direct interpolation, dynamic response, or an explicit combination. Numerical integration, timestep policy, stable parameter bounds, and deterministic evaluation need to be tested before a public contract is frozen.
+
+The standalone [Gestures motion-equation exploration](https://github.com/TrentBest/TheSingularityWorkshop.Gestures/blob/development/docs/MOTION_EQUATION_EXPLORATION.md) documents the candidate model, green-versus-veteran parameter ranges, determinism requirements, and open experiments.
 
 ## Determinism
 
 Fuzziness should be derived from stable identity and relevant state rather than uncontrolled randomness.
 
-A soldier's seed can produce repeatable variation for a given context while allowing the same soldier to behave differently when the context changes.
+A soldier's seed can produce repeatable variation for a given context while allowing the same soldier to behave differently when the context changes. The procedure instance, formation slot, equipment, load, fatigue, or terrain may be mixed into the seed/context when that distinction is meaningful.
 
-The exact seed inputs and temporal model remain to be specified.
+Parameters should be sampled once per defined identity/context/procedure, or otherwise at a declared deterministic boundary—not re-sampled on each frame. This gives repeatable individuality rather than temporal jitter.
+
+The exact seed inputs, parameter distributions, and temporal model remain to be specified and validated.
 
 ## Gesture ownership
 
@@ -179,17 +199,18 @@ The result should be coordinated behavior without mechanical sameness.
 
 - What is the canonical pose representation?
 - How is the mathematical transition represented?
+- Which transitions use direct interpolation versus a dynamic spring/damper response?
 - How are pose chains authored and validated?
 - How are attachment points represented?
 - How are collisions and physical constraints handled during a Gesture?
 - How are interruptions represented?
-- How are injuries, equipment failures, and environmental obstructions incorporated?
+- How are injuries, equipment failures, fatigue, and environmental obstructions incorporated?
 - How are Gesture Providers discovered through MicroBundles?
 - How much Gesture evaluation occurs on CPU versus GPU?
 - What exact texture/state layout is used?
 - How does the Renderer transition between event-horizon fidelity levels without visible popping?
 - How are deterministic seeds combined with temporary state?
-
+- Which numerical integration and timestep rules produce stable, testable results?
 
 ## Visualize and the reusable Gestures package
 
