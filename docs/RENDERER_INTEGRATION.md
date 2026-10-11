@@ -8,7 +8,7 @@ raWWar is intended to demonstrate the Workshop Renderer at the scale for which t
 
 The Renderer is not the game simulation. It is the observer-relative representation and computational-detail system.
 
-The proposed `TheSingularityWorkshop.Visualizer` is the separate GPU-facing technology that turns Renderer output into pixels. Renderer decides what representation is justified; Visualizer manages GPU resources, graphics/compute work, backend execution, and presentation through host adapters. The intended design begins in AnyApp/WPF, while keeping the common data contract independent of WPF and leaving a browser/WebGPU path feasible. This is a design proposal, not an implemented integration. See [Visualizer architecture](TheSingularityWorkshop.Visualizer/README.md) and its [GPU backend strategy](TheSingularityWorkshop.Visualizer/GPU_BACKEND_STRATEGY.md).
+The proposed [TheSingularityWorkshop.Visualize repository](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) owns the GPU-facing presentation technology that turns Renderer output into pixels. Renderer decides what representation is justified; Visualize owns backend contracts, GPU resource execution, and presentation through host adapters. The intended first host is AnyApp/WPF, while common data contracts remain independent of WPF and leave a browser/WebGPU path feasible. This is a design proposal with initial contracts, not an implemented GPU integration. See the [Visualize architecture](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/ARCHITECTURE.md), [Gesture/pose pipeline](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md), and [GPU backend strategy](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GPU_BACKEND_STRATEGY.md).
 
 ## Authoritative path
 
@@ -140,3 +140,10 @@ This separation allows the same Experience to have other manifestations without 
 ## Design principle
 
 **Render what the observer needs to believe the world, not everything the world happens to contain.**
+
+
+## Gesture-to-pixel responsibility
+
+A Gesture is a procedural physical action: poses plus mathematical transitions, progression, spatial anchors/constraints, and bounded individual variation. The owning domain or MicroBundle provides the procedure; FSM_API governs the authoritative procedure state; Gesture evaluation produces presentation-ready pose data; Renderer selects the observer-relative fidelity; Visualize submits the selected work to the GPU. Visualize must not own the meaning of a cockpit-entry procedure or treat a rendered pose as authoritative movement.
+
+The four-channel 8-bit state-texture idea described below remains a candidate layout, not a fixed contract. Pose evaluation should be designed from the actual transition mathematics and measured access patterns, comparing storage buffers, textures, and hybrid layouts.
