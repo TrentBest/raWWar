@@ -2,9 +2,24 @@
 
 This is a visible soldier-first rendering target, not a triangle placeholder. The WebGPU page imports a separate, deterministic geometry asset whose stable semantic part IDs describe the modular armor, articulated chassis, helmet/visor, six provisional neural-shunt endpoints, life-support pack, and held tool silhouette. It avoids contemporary national military imagery and requires no downloaded model or external image. The current mesh is an intentional silhouette blockout; its component inventory is ready to refine without rewriting the renderer.
 
-## Run
+## See the soldier without running anything
 
-From the raWWar repository root:
+These six SVG previews are checked into the repository and display directly in GitHub. They are rendered from the same procedural triangle mesh and stable part inventory used by the WebGPU lab. **No local server, browser launch, or WebGPU-capable device is needed to inspect the pictures.** The live lab remains available below for interaction and performance experiments.
+
+| View | What to inspect |
+|---|---|
+| ![01 front silhouette](../../../docs/images/soldier-field/01-front.svg) | **01 · Front** — armor silhouette, helmet, torso, limbs, and held tool. |
+| ![02 three-quarter soldier](../../../docs/images/soldier-field/02-three-quarter.svg) | **02 · Three-quarter** — overall form and layered parts. |
+| ![03 profile soldier](../../../docs/images/soldier-field/03-profile.svg) | **03 · Profile** — life-support pack and weapon profile. |
+| ![04 rear soldier](../../../docs/images/soldier-field/04-rear.svg) | **04 · Rear** — pack and heat-exchanger layout. |
+| ![05 armor detail](../../../docs/images/soldier-field/05-armor-detail.svg) | **05 · Detail** — helmet, torso plate, shoulder hardpoints, and provisional shunt endpoints. |
+| ![06 field formation](../../../docs/images/soldier-field/06-field-formation.svg) | **06 · Formation** — repeated soldier geometry, previewing the scaling lab's goal. |
+
+These are **static documentation renders**, not screenshots of a running GPU, and the model remains a silhouette blockout rather than production sculpting or fabrication-ready geometry. The live WebGPU lab is a separate, interactive experiment.
+
+## Run the live WebGPU lab
+
+Only for the interactive lab, from the raWWar repository root:
 
     py -m http.server 8080
 
