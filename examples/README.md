@@ -17,7 +17,7 @@ The examples demonstrate focused implemented slices, not a complete galaxy simul
 
 ## Visual research lab (browser experiment)
 
-- [Soldier Field — Event Horizon Scaling Lab](../samples/SoldierField/WebGpuRunner/README.md) — raWWar-owned procedural exoskeleton, stable semantic part records, derived cut sheets, and a fictional priced/setup-timed head-scientist research loop. The WebGPU page stress-tests instanced populations across eight illustrative horizons. It is not a .NET usage example, does not yet consume Visualize contracts or Renderer scheduling, and its browser timings are not GPU execution measurements.
+- [Soldier Field — six embedded soldier views and live Event Horizon Scaling Lab](../samples/SoldierField/WebGpuRunner/README.md) — static procedural-mesh previews display directly in GitHub; the optional WebGPU page adds population controls, stable semantic part records, derived cut sheets, and a fictional priced/setup-timed head-scientist research loop. The WebGPU page stress-tests instanced populations across eight illustrative horizons. It is not a .NET usage example, does not yet consume Visualize contracts or Renderer scheduling, and its browser timings are not GPU execution measurements.
 
 ## In-progress first-person slice
 
