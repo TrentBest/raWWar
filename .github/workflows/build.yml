@@ -20,6 +20,23 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Generate Soldier Field README previews from the procedural mesh
+        run: node samples/SoldierField/WebGpuRunner/render-soldier-previews.mjs
+      - name: Verify generated Soldier Field previews
+        shell: bash
+        run: |
+          set -euo pipefail
+          for image in 01-front.svg 02-three-quarter.svg 03-profile.svg 04-rear.svg 05-armor-detail.svg 06-field-formation.svg; do
+            file="docs/images/soldier-field/$image"
+            test -s "$file" || { echo "Missing or empty Soldier Field preview: $file"; exit 1; }
+            grep -q '<polygon' "$file" || { echo "No mesh triangles rendered in: $file"; exit 1; }
+          done
+      - name: Upload Soldier Field documentation previews
+        uses: actions/upload-artifact@v4
+        with:
+          name: soldier-field-preview-svg
+          path: docs/images/soldier-field/*.svg
+          if-no-files-found: error
       - name: Run Soldier Field data and research tests
         run: node --test samples/SoldierField/WebGpuRunner/*.test.mjs
       - name: Set up .NET 8
