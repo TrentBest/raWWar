@@ -75,6 +75,9 @@ Avoid designing a general-purpose engine API before the first backend demonstrat
 
 ## Milestone 5 — Renderer integration
 
+The Experience-owned [Soldier Field lab](../../samples/SoldierField/WebGpuRunner/README.md) is now the visible domain target. It supplies useful soldier geometry and research context, but its browser/WebGPU harness is currently standalone and must not be mistaken for a Visualize-contract integration. Use its stable identities and data as the consumer-side source while replacing duplicated horizon cadence with actual Renderer output.
+
+
 **Purpose:** Connect the existing observer-relative Renderer to the GPU path.
 
 - Define a documented render-data boundary.
