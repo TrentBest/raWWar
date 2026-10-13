@@ -16,6 +16,12 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Set up Node.js for the Experience-owned browser lab
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run Soldier Field data and research tests
+        run: node --test samples/SoldierField/WebGpuRunner/*.test.mjs
       - name: Set up .NET 8
         uses: actions/setup-dotnet@v4
         with:
