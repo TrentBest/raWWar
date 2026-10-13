@@ -68,6 +68,13 @@
 - [ ] Continue cross-catalogue validation for unique IDs, valid joins, prerequisites, physical capacities, materials, staffing, power/thermal budgets, installed upgrades, ship parts and causal damage/salvage records.
 - [ ] Keep every numeric engineering example labeled as candidate/illustrative until the full inventory and constraints reconcile. No fake precision.
 
+## P1 — Soldier Field and Workshop rendering integration
+
+- [x] Moved the Soldier Field browser/WebGPU lab, exoskeleton dossier, 38-part engineering records, cut-sheet generator, and priced/setup-timed research demonstration loop into [samples/SoldierField/WebGpuRunner](samples/SoldierField/WebGpuRunner/README.md). raWWar now owns this Experience-specific content; Visualize keeps neutral rendering examples.
+- [ ] Treat the lab as a visible Experience experiment only. It is not yet a Visualize-contract consumer, does not use Renderer Event Horizon scheduling, and its telemetry is not GPU execution timing.
+- [ ] Connect the Experience-owned soldier presentation data to the actual Visualize resource/frame contracts, then replace the lab-owned horizon cadence with Renderer-produced work/cadence. Preserve stable soldier/part identity and rebuildable GPU projections.
+- [ ] Validate one end-to-end slice in AnyApp: authoritative raWWar soldier state → presentation projection → Renderer horizon representation → Visualize backend → host pixels. Do not mark it complete until the same data reaches the running host.
+
 ## P2 — Deliver one meaningful first-person vertical slice
 
 - [ ] Re-establish the station-and-rig prototype only after design readiness is confirmed. A historical prototype/test snapshot at `7ec40343f15a15639951a096165169cf991d7920` passed 195/195 checks in [run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718), but that prototype was subsequently reverted; do not count it as current implementation.
