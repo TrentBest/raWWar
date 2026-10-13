@@ -15,6 +15,10 @@ This directory is the **usage-example source of truth** for raWWar-owned code an
 
 The examples demonstrate focused implemented slices, not a complete galaxy simulation, durable event store, distributed exactly-once processing, checkpoint migration, or host-level world advancement.
 
+## Visual research lab (browser experiment)
+
+- [Soldier Field — Event Horizon Scaling Lab](../samples/SoldierField/WebGpuRunner/README.md) — raWWar-owned procedural exoskeleton, stable semantic part records, derived cut sheets, and a fictional priced/setup-timed head-scientist research loop. The WebGPU page stress-tests instanced populations across eight illustrative horizons. It is not a .NET usage example, does not yet consume Visualize contracts or Renderer scheduling, and its browser timings are not GPU execution measurements.
+
 ## In-progress first-person slice
 
 - [Fighter Pilot Action Slice](../docs/FIGHTER_PILOT_ACTION_SLICE.md) — a **candidate** design sketch for connecting a future station interaction to an authoritative aircraft-state transition, causal history, and observable feedback. It is not evidence of an existing station implementation, not a selected implementation commitment, and not a runnable example. Reconcile it with canonical game-design decisions before using it to drive code.
