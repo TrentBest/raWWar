@@ -31,6 +31,10 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 > **The soldiers themselves are the stars of this game.**
 
+![Soldier Field procedural exoskeleton — three-quarter view](docs/images/soldier-field/02-three-quarter.svg)
+
+The soldier shown here comes from raWWar's 38-part procedural exoskeleton blockout. [See all six embedded views and the live WebGPU lab](samples/SoldierField/WebGpuRunner/README.md); the pictures render directly in this README, with no local server required. The live lab is optional and remains a separate experiment from the Workshop's current Visualize contracts.
+
 ![One galaxy, one war](docs/images/rawwar-galactic-war.svg)
 
 *One continuous war across a galaxy—not a stack of disposable maps.*
