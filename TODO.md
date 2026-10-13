@@ -70,7 +70,7 @@
 
 ## P1 — Soldier Field and Workshop rendering integration
 
-- [x] Moved the Soldier Field browser/WebGPU lab, exoskeleton dossier, 38-part engineering records, cut-sheet generator, and priced/setup-timed research demonstration loop into [samples/SoldierField/WebGpuRunner](samples/SoldierField/WebGpuRunner/README.md). raWWar now owns this Experience-specific content; Visualize keeps neutral rendering examples.
+- [x] Moved the Soldier Field browser/WebGPU lab, exoskeleton dossier, 38-part engineering records, cut-sheet generator, and priced/setup-timed research demonstration loop into [samples/SoldierField/WebGpuRunner](samples/SoldierField/WebGpuRunner/README.md). raWWar now owns this Experience-specific content; Visualize keeps neutral rendering examples. The Node 22 lab tests and the full raWWar workflow passed in [run 38456639941](https://github.com/TrentBest/raWWar/actions/runs/38456639941), including the .NET build, local package-content check, executable contracts, reference-byte verifier, and KeplerOrbit example.
 - [ ] Treat the lab as a visible Experience experiment only. It is not yet a Visualize-contract consumer, does not use Renderer Event Horizon scheduling, and its telemetry is not GPU execution timing.
 - [ ] Connect the Experience-owned soldier presentation data to the actual Visualize resource/frame contracts, then replace the lab-owned horizon cadence with Renderer-produced work/cadence. Preserve stable soldier/part identity and rebuildable GPU projections.
 - [ ] Validate one end-to-end slice in AnyApp: authoritative raWWar soldier state → presentation projection → Renderer horizon representation → Visualize backend → host pixels. Do not mark it complete until the same data reaches the running host.
