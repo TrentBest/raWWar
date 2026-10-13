@@ -28,6 +28,7 @@ Open http://localhost:8080/samples/SoldierField/WebGpuRunner/ in a browser with 
 ## Geometry asset
 
 - `soldier-geometry.js` owns the semantic part inventory and deterministic mesh generator.
+- `render-soldier-previews.mjs` projects that generated triangle stream into the six checked-in SVG views used by this README. From the repository root, refresh them with `node samples/SoldierField/WebGpuRunner/render-soldier-previews.mjs`; CI runs the same generator and verifies that each output contains rendered mesh triangles.
 - `soldier-geometry.json` declares the asset ID, coordinate system, vertex format, and shunt endpoint IDs.
 - `soldier-part.schema.json` defines the versioned engineering record contract for dimensions, materials, interfaces, manufacturing, inspection, research trials, and traceability.
 - `soldier-part-records.json` carries records for all 38 current semantic parts. Unknown tolerances, physical material properties, mating interfaces, and acceptance criteria remain explicitly unresolved rather than invented.
