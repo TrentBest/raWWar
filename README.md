@@ -18,7 +18,7 @@ The documentation is part of that demonstration. **SVGs make the world tangible;
 
 We will keep the evidence honest: concept art communicates intent, explanatory SVGs communicate structure, experiments prove only their measured scope, and examples prove only the behavior they actually execute. None is mislabeled as a finished playable game or end-to-end host launch.
 
-**Current truth:** raWWar's design and supporting technology are actively being built and verified. A complete playable slice and end-to-end AnyApp host launch have not yet been delivered. The goal is to make the vision convincing now while making the path to implementation clear.
+**Current truth:** raWWar's design and supporting technology are actively being built and verified. A complete playable slice and end-to-end AnyApp host launch have not yet been delivered. The goal is to make the vision convincing now while making the path to implementation clear. Follow the connected [Flagship Experience Story](docs/FLAGSHIP_EXPERIENCE_STORY.md) for a guided visual narrative from the living world to the soldier, architecture, and current evidence.
 
 ## 🟦 01 What
 
@@ -75,7 +75,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 - **Reviewing implementation status:** read [Technical Design](docs/TECHNICAL_DESIGN.md), [Production Plan](docs/PRODUCTION_PLAN.md), and [TODO.md](TODO.md).
 - **Understanding procedural motion:** read [Gestures Design](docs/GESTURES_DESIGN.md) and the [standalone Gestures package](https://github.com/TrentBest/TheSingularityWorkshop.Gestures).
 - **Understanding GPU presentation:** read [Renderer Integration](docs/RENDERER_INTEGRATION.md) and the [Visualize implementation](https://github.com/TrentBest/TheSingularityWorkshop.Visualize).
-- **Building or verifying the repository:** use the commands in **See it in a minute** and the the evidence guidance below.
+- **Building or verifying the repository:** use the commands in **See it in a minute** and the evidence guidance below.
 
 ### The intended player experience
 
@@ -190,6 +190,7 @@ Each example must say whether it is verified, source-shaped, or conceptual; name
 
 ![](docs/assets/dividers/violet.svg)
 
+- [Flagship Experience Story](docs/FLAGSHIP_EXPERIENCE_STORY.md) — a connected visual narrative linking the intended world, the soldier, architecture, and bounded implementation evidence.
 - [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md) — living master description of the player experience.
 - [Game Design Bible](docs/GAME_DESIGN_BIBLE.md) — foundational principles and world rules.
 - [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md) — the boundary between raWWar and reusable Workshop machinery.
