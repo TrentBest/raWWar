@@ -207,7 +207,7 @@ Each example must say whether it is verified, source-shaped, or conceptual; name
 - [Visual asset catalogue](docs/images/README.md) — diagrams and artwork with their intended meaning.
 - [Documentation conformance audit](docs/DOCUMENTATION_CONFORMANCE.md) — how this repository applies the shared Workshop documentation standard.
 
-### Implementation status at a glance
+## Implementation status at a glance
 
 ![](docs/assets/dividers/violet.svg)
 
@@ -220,7 +220,7 @@ Each example must say whether it is verified, source-shaped, or conceptual; name
 | Status | Active design and engineering; the end-to-end playable Experience is not yet complete |
 | License | See [LICENSE](LICENSE) |
 
-### Engineering discipline
+## Engineering discipline
 
 ![](docs/assets/dividers/grey.svg)
 
@@ -232,7 +232,7 @@ The old engine-specific project shell has been removed. raWWar is not defined by
 
 For implementation claims, distinguish code and tests that exist today from design targets. The current `RaWWarMicroBundle.Load` remains a scaffold and `Arbitrate` returns `false`; the full station-and-rig first-person slice and end-to-end host loading remain future work. Consult [Technical Design](docs/TECHNICAL_DESIGN.md) and [TODO.md](TODO.md) for current evidence and blockers.
 
-### The Workshop ecosystem
+## The Workshop ecosystem
 
 ![](docs/assets/dividers/brown.svg)
 
