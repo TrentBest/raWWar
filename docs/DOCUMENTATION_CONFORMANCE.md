@@ -89,7 +89,7 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 - [ ] Ensure every technical capability consumed by raWWar has a repository-local example or a documented reason an example is not yet executable.
 - [ ] Continue replacing repeated explanations with one authoritative document and clear cross-links.
 - [x] Historical CI evidence: run [37999757533](https://github.com/TrentBest/raWWar/actions/runs/37999757533) passed for head `e76736aea714367f57301e1a6559b59ed5c14493`; this is not verification of later documentation commits.
-- [ ] Re-check CI for the current `development` head before describing the branch as green. Immediately before this note-only commit, the checked head was `240e6b81b7113b515054526f792252c894fc5f3e`; the available workflow/status queries returned no checks for that head. This note-only commit also remains unverified until CI reports a result.
+- [x] Verified documentation-branch head `5f3f77bde806dee5d2d1efe9150f16827366ff8e`: workflow run [39500974522](https://github.com/TrentBest/raWWar/actions/runs/39500974522) completed successfully. Its `build-and-contracts` job passed solution build, package-content checks, executable contract checks, independent event-frame reference-byte verification, Soldier Field data/research tests, and checked-in usage examples. This verifies that commit only; rerun CI after any further edits and check `development` separately before describing that branch as green.
 
 
 This audit is intentionally incremental. The shared FSM_COS standard is still a proposal under review, and this pass does not claim universal or exhaustive conformance.
