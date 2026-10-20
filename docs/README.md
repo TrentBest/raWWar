@@ -22,6 +22,8 @@ The Markdown files are the navigation layer for the Experience: start with the h
 
 ## Documentation standard
 
+- [Per-file UML source documentation](UML/README.md) — source-backed type diagrams and an explicit coverage checklist; only the files marked documented have been audited so far.
+
 - [Documentation Conformance](DOCUMENTATION_CONFORMANCE.md) — how raWWar applies the shared Workshop section identifiers, visual markers, evidence rules, architecture boundaries, and example requirements. The referenced [FSM_COS Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/docs/ecosystem-documentation-standard/DOCUMENTATION_STANDARD.md) is currently a proposal under review; raWWar's conformance work is incremental, not a claim that every companion document has already been audited.
 
 ## Authority
