@@ -1,61 +1,121 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t d">
-<title id="t">raWWar — The war is alive</title>
-<desc id="d">A first-person view from a high military headquarters across a rain-soaked imperial square toward a monumental palace, with soldiers in the foreground and lightning illuminating the city.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">raWWar — a living world in motion</title>
+<desc id="desc">Cinematic view across a rain-soaked Imperial plaza toward a monumental palace. Soldiers stand in the foreground while supply convoys, patrol craft, command signals, hangars, and research facilities continue working in the distance. Animated routes and lights suggest a world that continues beyond the viewer. This is a conceptual illustration, not a runtime capture.</desc>
 <defs>
- <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#050811"/><stop offset=".58" stop-color="#101827"/><stop offset="1" stop-color="#263242"/></linearGradient>
- <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#202a34"/><stop offset="1" stop-color="#080c12"/></linearGradient>
- <linearGradient id="palace" x2="0" y2="1"><stop stop-color="#59616a"/><stop offset="1" stop-color="#1b222b"/></linearGradient>
- <filter id="glow"><feGaussianBlur stdDeviation="9"/></filter>
- <pattern id="rain" width="34" height="34" patternUnits="userSpaceOnUse" patternTransform="rotate(12)"><line x1="3" y1="0" x2="3" y2="22" stroke="#b9d7e8" stroke-opacity=".18" stroke-width="2"/></pattern>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#050914"/><stop offset=".58" stop-color="#111e2b"/><stop offset="1" stop-color="#354451"/></linearGradient>
+  <linearGradient id="plaza" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#2b3944"/><stop offset="1" stop-color="#080e16"/></linearGradient>
+  <linearGradient id="stone" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#7c8790"/><stop offset=".45" stop-color="#3b4854"/><stop offset="1" stop-color="#18232e"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#92d9ed" stop-opacity=".65"/><stop offset="1" stop-color="#5d7c91" stop-opacity=".12"/></linearGradient>
+  <radialGradient id="stormglow"><stop stop-color="#dff8ff" stop-opacity=".7"/><stop offset="1" stop-color="#83c9ed" stop-opacity="0"/></radialGradient>
+  <pattern id="rain" width="44" height="48" patternUnits="userSpaceOnUse" patternTransform="rotate(13)"><path d="M4 0V24" stroke="#c5e8f8" stroke-opacity=".22" stroke-width="1.4"/></pattern>
+  <pattern id="windows" width="32" height="38" patternUnits="userSpaceOnUse"><rect x="9" y="9" width="8" height="15" rx="1" fill="#f3d9a0" opacity=".78"/></pattern>
+  <filter id="blur"><feGaussianBlur stdDeviation="18"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="5"/></filter>
+  <path id="supplyRoute" d="M145 670 C360 590 450 720 640 655 S920 600 1110 660 S1350 710 1510 620"/>
+  <g id="person"><circle cy="-27" r="8" fill="#9daab4"/><path d="M-9 -18 L-12 12 L-7 31 L0 34 L7 31 L12 12 L9 -18Z" fill="#202b35" stroke="#9aa9b3" stroke-width="2"/><path d="M-8 -8L-18 11M8 -8L18 11M-5 30L-10 49M5 30L10 49" fill="none" stroke="#202b35" stroke-width="6" stroke-linecap="round"/></g>
+  <g id="craft"><path d="M-42 0 L-12 -7 L0 -22 L10 -8 L42 0 L10 6 L0 15 L-9 6Z" fill="#a8bbc7" stroke="#e0edf3" stroke-width="1.5"/><path d="M-15 0H15" stroke="#e5ca87" stroke-width="2"/></g>
 </defs>
+<!-- Cinematic storm and distant city -->
 <rect width="1600" height="900" fill="url(#sky)"/>
-<path d="M0 250 L300 190 540 260 800 180 1050 245 1330 165 1600 220V520H0Z" fill="#0a1019"/>
-<g opacity=".6">
- <rect x="70" y="315" width="120" height="205" fill="#111a24"/><rect x="220" y="280" width="95" height="240" fill="#121c26"/>
- <rect x="1270" y="285" width="130" height="235" fill="#101923"/><rect x="1430" y="320" width="90" height="200" fill="#111a24"/>
+<ellipse cx="1160" cy="270" rx="370" ry="250" fill="url(#stormglow)" opacity=".35"/>
+<path d="M0 250L150 200 270 246 430 170 600 245 790 180 930 240 1110 150 1290 220 1440 165 1600 225V565H0Z" fill="#09121e"/>
+<g fill="#101d29" stroke="#354654" stroke-opacity=".5" stroke-width="2">
+ <path d="M0 420V300H100V420H130V260H205V420H248V320H330V450H375V280H430V445H470V355H530V475H0Z"/>
+ <path d="M1080 460V320H1140V270H1205V460H1230V355H1300V460H1335V250H1405V460H1440V325H1500V460H1600V500H1080Z"/>
 </g>
-<!-- palace -->
-<g>
- <rect x="515" y="345" width="570" height="260" fill="url(#palace)" stroke="#87909a" stroke-opacity=".35" stroke-width="3"/>
- <path d="M475 345 L800 205 1125 345Z" fill="#434c55"/>
- <path d="M620 345 L800 255 980 345Z" fill="#737b83" opacity=".55"/>
- <rect x="750" y="425" width="100" height="180" fill="#111820"/>
- <g fill="#d9c68b" opacity=".8">
-  <rect x="575" y="400" width="28" height="55"/><rect x="635" y="400" width="28" height="55"/><rect x="695" y="400" width="28" height="55"/>
-  <rect x="877" y="400" width="28" height="55"/><rect x="937" y="400" width="28" height="55"/><rect x="997" y="400" width="28" height="55"/>
+<g fill="#e3c98c" opacity=".6">
+ <path d="M30 335h7v18h-7zM54 335h7v18h-7zM150 294h8v17h-8zM174 294h8v17h-8zM393 310h8v17h-8zM418 310h8v17h-8zM1360 285h8v17h-8zM1385 285h8v17h-8zM1470 355h8v17h-8zM1493 355h8v17h-8z"/>
+</g>
+<!-- A monumental palace, deliberately dwarfing the people -->
+<g id="palace">
+ <path d="M450 400L800 215L1150 400Z" fill="#53616c" stroke="#9ca9b2" stroke-opacity=".55" stroke-width="3"/>
+ <path d="M570 335L800 205L1030 335Z" fill="#89939a" opacity=".3"/>
+ <rect x="480" y="398" width="640" height="220" fill="url(#stone)" stroke="#a2adb5" stroke-opacity=".55" stroke-width="3"/>
+ <rect x="510" y="422" width="580" height="175" fill="url(#windows)" opacity=".95"/>
+ <rect x="510" y="422" width="580" height="175" fill="#07121d" opacity=".3"/>
+ <rect x="740" y="455" width="120" height="163" fill="#101a24" stroke="#b6c0c6" stroke-opacity=".6" stroke-width="3"/>
+ <path d="M715 455H885L860 430H740Z" fill="#b2bdc4"/>
+ <path d="M455 400H1145M470 416H1130M500 610H1100" stroke="#d0b16e" stroke-opacity=".7" stroke-width="5"/>
+ <g fill="#1a2732" stroke="#b3bec5" stroke-opacity=".5" stroke-width="2">
+  <path d="M525 390V330H565V390M610 390V310H650V390M910 390V310H950V390M995 390V330H1035V390"/>
+  <path d="M540 330L545 300H555L560 330M625 310L630 280H640L645 310M925 310L930 280H940L945 310M1010 330L1015 300H1025L1030 330"/>
  </g>
- <path d="M560 605 H1040" stroke="#c5a45c" stroke-width="8" opacity=".65"/>
- <text x="800" y="320" text-anchor="middle" fill="#d9c68b" font-family="sans-serif" font-size="28" letter-spacing="12">IMPERIAL PALACE</text>
+ <text x="800" y="374" fill="#f4d89a" font-family="sans-serif" font-size="19" text-anchor="middle" letter-spacing="8">IMPERIAL PALACE</text>
 </g>
-<!-- square -->
-<path d="M280 900 L585 600 H1015 L1320 900Z" fill="url(#ground)"/>
-<path d="M410 900 L650 610 M1190 900 L950 610" stroke="#59636d" stroke-width="3" opacity=".45"/>
-<g fill="#a9bac6" opacity=".8">
- <circle cx="650" cy="665" r="7"/><circle cx="710" cy="705" r="7"/><circle cx="890" cy="690" r="7"/><circle cx="950" cy="655" r="7"/>
+<!-- Worksites behind the square: hangar, laboratory, command -->
+<g opacity=".96">
+ <path d="M85 515V455L150 410L215 455V515Z" fill="#192935" stroke="#79909f" stroke-width="2"/>
+ <path d="M105 515V466L150 435L195 466V515Z" fill="#0c1721" stroke="#4d7588" stroke-width="2"/>
+ <path d="M120 515V478L150 456L180 478V515Z" fill="url(#glass)"/>
+ <path d="M1280 500V432L1350 390L1420 432V500Z" fill="#192935" stroke="#79909f" stroke-width="2"/>
+ <path d="M1300 500V443L1350 415L1400 443V500Z" fill="#0c1721" stroke="#4d7588" stroke-width="2"/>
+ <path d="M1318 500V455L1350 437L1382 455V500Z" fill="url(#glass)"/>
+ <g font-family="sans-serif" font-size="13" letter-spacing="2" fill="#b8d5e2">
+  <text x="150" y="535" text-anchor="middle">HANGAR / CREW</text>
+  <text x="1350" y="520" text-anchor="middle">RESEARCH / POWER</text>
+ </g>
 </g>
-<!-- lightning -->
-<path d="M1190 0 L1040 235 L1110 220 L1015 390 L1195 165 L1125 178Z" fill="#e9f5ff" opacity=".95" filter="url(#glow)"/>
-<path d="M1190 0 L1040 235 L1110 220 L1015 390 L1195 165 L1125 178Z" fill="#f4fbff" opacity=".9"/>
-<!-- foreground window / frame -->
-<path d="M0 0H1600V900H0Z" fill="none" stroke="#05070a" stroke-width="46"/>
-<path d="M70 70H1530V830H70Z" fill="none" stroke="#394550" stroke-width="10"/>
-<!-- soldiers -->
-<g transform="translate(150 570)">
- <ellipse cx="90" cy="265" rx="85" ry="25" fill="#000" opacity=".5"/>
- <path d="M45 265 L55 130 L72 80 L108 80 L130 130 L140 265Z" fill="#141b22" stroke="#77838d" stroke-width="3"/>
- <path d="M70 80 L68 28 Q90 2 112 28 L110 80Z" fill="#252e37" stroke="#aab4bc" stroke-width="3"/>
- <path d="M70 42 H110" stroke="#d0ad63" stroke-width="5"/>
- <path d="M55 150 L10 205 M130 150 L175 195" stroke="#161d25" stroke-width="22"/>
- <circle cx="10" cy="207" r="13" fill="#59646e"/><circle cx="175" cy="197" r="13" fill="#59646e"/>
+<!-- Plaza perspective -->
+<path d="M220 900L585 615H1015L1380 900Z" fill="url(#plaza)"/>
+<g stroke="#71838f" stroke-opacity=".42" fill="none">
+ <path d="M800 620L800 900M585 615L260 900M1015 615L1340 900M690 615L545 900M910 615L1055 900"/>
+ <path d="M505 680H1095M430 735H1170M350 800H1250M270 865H1330" stroke-width="2"/>
 </g>
-<g transform="translate(1290 620) scale(.75)">
- <ellipse cx="90" cy="265" rx="85" ry="25" fill="#000" opacity=".5"/>
- <path d="M45 265 L55 130 L72 80 L108 80 L130 130 L140 265Z" fill="#141b22" stroke="#77838d" stroke-width="3"/>
- <path d="M70 80 L68 28 Q90 2 112 28 L110 80Z" fill="#252e37" stroke="#aab4bc" stroke-width="3"/>
- <path d="M70 42 H110" stroke="#d0ad63" stroke-width="5"/>
+<!-- Moving supply convoy and aircraft: visual explanation of continuous work -->
+<path d="M105 700C350 610 450 730 650 665S940 615 1120 675S1360 720 1500 635" fill="none" stroke="#69c8e5" stroke-opacity=".13" stroke-width="18" filter="url(#soft)"/>
+<use href="#supplyRoute" fill="none" stroke="#81d9f2" stroke-width="2.5" stroke-dasharray="9 14" stroke-linecap="round" opacity=".8">
+ <animate attributeName="stroke-dashoffset" values="0;-92" dur="7s" repeatCount="indefinite"/>
+</use>
+<g fill="#a9eaff" stroke="#e1f8ff" stroke-width="1.5">
+ <circle r="5"><animateMotion dur="8s" repeatCount="indefinite" path="M105 700C350 610 450 730 650 665S940 615 1120 675S1360 720 1500 635"/></circle>
+ <circle r="4"><animateMotion dur="8s" begin="-3s" repeatCount="indefinite" path="M105 700C350 610 450 730 650 665S940 615 1120 675S1360 720 1500 635"/></circle>
+ <circle r="3"><animateMotion dur="8s" begin="-5.5s" repeatCount="indefinite" path="M105 700C350 610 450 730 650 665S940 615 1120 675S1360 720 1500 635"/></circle>
 </g>
-<rect width="1600" height="900" fill="url(#rain)"/>
-<rect x="90" y="710" width="520" height="105" rx="18" fill="#070b10" fill-opacity=".72" stroke="#9aa8b4" stroke-opacity=".25"/>
-<text x="125" y="765" fill="#f2f4f5" font-family="sans-serif" font-size="42" font-weight="700" letter-spacing="3">raWWar</text>
-<text x="125" y="800" fill="#b8c4cc" font-family="sans-serif" font-size="22">THE WORLD SHOULD NEVER LOOK DEAD.</text>
+<g transform="translate(1060 300) scale(.8)">
+ <use href="#craft"/>
+ <animateTransform attributeName="transform" type="translate" values="1060 300;1135 280;1210 300" dur="11s" repeatCount="indefinite" additive="replace"/>
+</g>
+<g transform="translate(1060 300) scale(.8)" opacity=".25"><use href="#craft"/></g>
+<!-- People at multiple scales -->
+<g transform="translate(705 690) scale(1.2)"><use href="#person"/></g>
+<g transform="translate(895 706) scale(1.05)"><use href="#person"/></g>
+<g transform="translate(655 740) scale(.75)"><use href="#person"/></g>
+<g transform="translate(945 735) scale(.72)"><use href="#person"/></g>
+<g transform="translate(140 675) scale(1.7)"><use href="#person"/></g>
+<g transform="translate(1460 685) scale(1.45)"><use href="#person"/></g>
+<!-- Radio/command links -->
+<g fill="none" stroke="#e8c77f" stroke-width="2">
+ <path d="M140 610Q430 430 720 665" stroke-dasharray="5 9" opacity=".7"/>
+ <path d="M1460 620Q1160 435 900 670" stroke-dasharray="5 9" opacity=".7"/>
+</g>
+<g fill="none" stroke="#f2d99b" stroke-width="2.5" opacity=".75">
+ <circle cx="140" cy="610" r="19"><animate attributeName="r" values="8;28;8" dur="4s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;.1;.9" dur="4s" repeatCount="indefinite"/></circle>
+ <circle cx="1460" cy="620" r="16"><animate attributeName="r" values="7;25;7" dur="4.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;.1;.9" dur="4.5s" repeatCount="indefinite"/></circle>
+</g>
+<!-- Lightning: brief illumination, not constant spectacle -->
+<path d="M1230 0L1135 170L1195 155L1095 330L1260 125L1200 143Z" fill="#bfeeff" opacity=".16" filter="url(#blur)"/>
+<path d="M1230 0L1135 170L1195 155L1095 330L1260 125L1200 143Z" fill="#d9f6ff" opacity=".72">
+ <animate attributeName="opacity" values=".05;.75;.1;.25;.05" keyTimes="0;.08;.13;.18;1" dur="9s" repeatCount="indefinite"/>
+</path>
+<!-- Editorial overlay: three clear doors into deeper layers -->
+<rect x="0" y="0" width="1600" height="900" fill="url(#rain)"/>
+<rect x="45" y="45" width="1510" height="810" rx="4" fill="none" stroke="#90a5b4" stroke-opacity=".4" stroke-width="2"/>
+<path d="M45 125H1555" stroke="#9ab1c0" stroke-opacity=".32"/>
+<text x="82" y="88" fill="#f4d89a" font-family="sans-serif" font-size="18" letter-spacing="7">THE SINGULARITY WORKSHOP / FLAGSHIP EXPERIENCE</text>
+<text x="82" y="175" fill="#f7f8f8" font-family="sans-serif" font-size="48" font-weight="700" letter-spacing="2">THE WORLD DOES NOT WAIT FOR YOU.</text>
+<text x="84" y="211" fill="#c6d5df" font-family="sans-serif" font-size="20" letter-spacing="1.5">A war of people, work, decisions, and consequences — always in motion.</text>
+<!-- Lower navigation rail is a visual map; README links provide the actual navigation -->
+<rect x="65" y="770" width="1470" height="65" rx="3" fill="#050b12" fill-opacity=".92" stroke="#7a96a8" stroke-opacity=".65"/>
+<g font-family="sans-serif">
+ <path d="M550 785V820M1035 785V820" stroke="#7794a7" stroke-opacity=".55"/>
+ <circle cx="100" cy="802" r="5" fill="#f1d18b"/><text x="120" y="798" fill="#f3d99f" font-size="14" letter-spacing="2">01 / ENTER THE WORLD</text><text x="120" y="817" fill="#aebfca" font-size="12">Scale · factions · living systems</text>
+ <circle cx="585" cy="802" r="5" fill="#8bdcf1"/><text x="605" y="798" fill="#b7eafa" font-size="14" letter-spacing="2">02 / MEET THE SOLDIER</text><text x="605" y="817" fill="#aebfca" font-size="12">Identity · work · consequence</text>
+ <circle cx="1070" cy="802" r="5" fill="#d3b3ff"/><text x="1090" y="798" fill="#d8c3ff" font-size="14" letter-spacing="2">03 / FOLLOW THE MACHINERY</text><text x="1090" y="817" fill="#aebfca" font-size="12">Architecture · experiments · evidence</text>
+</g>
+<text x="82" y="875" fill="#8297a5" font-family="sans-serif" font-size="12" letter-spacing="1.5">CONCEPTUAL VISUAL • ANIMATED SVG • NOT A RUNTIME CAPTURE</text>
+<style>
+@media (prefers-reduced-motion: reduce) {
+  animate, animateMotion, animateTransform { display: none; }
+}
+</style>
 </svg>
