@@ -5,7 +5,7 @@ import { buildSoldierGeometry, SOLDIER_GEOMETRY_LAYOUT } from "./soldier-geometr
 const outputRoot = resolve("docs/images/soldier-field");
 const views = [
   { file: "01-front.svg", title: "01 · Front silhouette", yaw: 0, zoom: 1, focus: [0, .95, 0], desc: "Front view of the procedural mesh generated from Soldier Field's 38 semantic parts." },
-  { file: "02-three-quarter.svg", title: "02 · Three-quarter view", yaw: .62, zoom: 1, focus: [0, .95, 0], desc: "Three-quarter view of the procedural exoskeleton mesh used by the WebGPU lab." },
+  { file: "02-three-quarter.svg", title: "02 · Three-quarter view", yaw: .62, zoom: 1, focus: [0, .95, 0], desc: "Three-quarter view of the exoskeleton mesh used by the WebGPU lab." },
   { file: "03-profile.svg", title: "03 · Profile", yaw: 1.48, zoom: 1, focus: [0, .95, 0], desc: "Side profile of the exoskeleton, including life-support pack and held tool." },
   { file: "04-rear.svg", title: "04 · Rear assembly", yaw: Math.PI, zoom: 1, focus: [0, .95, 0], desc: "Rear view of the same procedural mesh, including life-support and heat exchanger parts." },
   { file: "05-armor-detail.svg", title: "05 · Armor and shunt detail", yaw: .35, zoom: 1.65, focus: [0, 1.42, 0], desc: "Close-up of the helmet, torso plate, shoulder hardpoints, and provisional neural-shunt endpoints." },
@@ -38,8 +38,14 @@ function render(view) {
       const ax = b.x - a.x, ay = b.y - a.y, az = b.z - a.z;
       const bx = c.x - a.x, by = c.y - a.y, bz = c.z - a.z;
       let nx = ay * bz - az * by, ny = az * bx - ax * bz, nz = ax * by - ay * bx;
-      const length = Math.hypot(nx, ny, nz) || 1;
-      nx /= length; ny /= length; nz /= length;
+      const length = Math.hypot(nx, ny, nz);
+      // Degenerate/near-degenerate triangles have no reliable surface normal.
+      // Use a fixed neutral normal instead of amplifying floating-point noise.
+      if (length < 1e-8) {
+        nx = 0; ny = 1; nz = 0;
+      } else {
+        nx /= length; ny /= length; nz /= length;
+      }
       const shade = .3 + .7 * Math.max(0, nx * -.35 + ny * .7 + nz * .62);
       const colorOffset = i + 3;
       const color = [geometry[colorOffset], geometry[colorOffset + 1], geometry[colorOffset + 2]].map(value => Math.min(1, value * shade));
