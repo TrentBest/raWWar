@@ -44,3 +44,4 @@ Requests describe raWWar's requirements. They must not imply that another reposi
 
 - [MicroBundleDomain — Experience configuration contract](REQUEST-FROM-raWWar-MicroBundleDomain-ExperienceConfiguration.md)
 - [AnyApp — immutable artifact dependency closure](REQUEST-FROM-raWWar-AnyApp-ArtifactClosure.md)
+- [Visualize — source-connected SVG manifestation](REQUEST-FROM-raWWar-Visualize-SourceConnectedSvgManifestation.md)
