@@ -41,6 +41,9 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 
 ## Visual and example rules
 
+- **WYSIWYG means a source-connected view, not merely a polished illustration.** Prefer the real semantic model and Renderer/Visualize → GUI.SVG path when available; identify the source/recipe and distinguish generated-model evidence from concept art.
+- Keep the SVG a projection of the model, not a competing authority for game rules. Do not hand-maintain duplicate values or relationships when they can be derived from source data.
+- State the evidence boundary explicitly: conceptual art, generated model-to-view output, contract tests, runtime capture, and end-to-end playable/host proof are distinct claims.
 - Prefer version-controlled SVGs for architecture visuals; keep labels, direction, alt text, and captions meaningful.
 - Distinguish conceptual diagrams from runtime captures and construction-ready engineering drawings.
 - Maintain [the visual asset catalogue](images/README.md) when adding or materially changing visuals.
