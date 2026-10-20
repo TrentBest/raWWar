@@ -69,6 +69,14 @@ The manifest describes the requested composition; the transitive dependency clos
 
 ## 4. Let the visuals point to real experiments
 
+![Visualizer geometry manifested through GUI.SVG](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/samples/PrimitiveGallery/generated/07-gui-svg-connected-points.svg)
+
+*Generated integration artifact from the Workshop Visualize development branch — the C# proof constructs geometry, materials, draw commands, and a VisualizerFrame; the GUI.SVG backend manifests the frame as SVG with explicit SVG animation nodes. This is a real 2D manifestation path, not a production perspective/depth-tested renderer, game simulation, or raWWar runtime.*
+
+**Inspect the source, not just the picture:** [generated SVG](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/samples/PrimitiveGallery/generated/07-gui-svg-connected-points.svg) · [C# integration proof](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/integrations/GuiSvg/Proof/Program.cs) · [Visualize Primitive Gallery recipe](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/samples/PrimitiveGallery/README.md).
+
+This matters for raWWar because it demonstrates a genuine Workshop handoff: semantic geometry and draw commands enter a Visualizer frame, then a reusable GUI.SVG adapter produces an inspectable manifestation. It is a concrete step toward living visual documentation—not proof that a raWWar soldier, world simulation, or AnyApp-hosted scene is already running.
+
 ![Procedural soldier exoskeleton — three-quarter view](images/soldier-field/02-three-quarter.svg)
 
 *Procedural blockout illustration — a view from the repository's 38-part soldier model experiment. It is evidence of that model experiment only, not of a complete soldier simulation, animation system, or playable game.*
@@ -83,6 +91,7 @@ These different forms of evidence complement one another:
 |---|---|---|
 | Concept SVG | Intended world, story, or relationship | Running behavior |
 | Explanatory architecture SVG | Intended boundaries and composition | Successful dependency resolution or launch |
+| Visualize → GUI.SVG generated artifact | A source-backed 2D geometry/resource/frame-to-SVG handoff with explicit SVG animation | Production 3D rendering, raWWar simulation, or AnyApp launch |
 | Procedural soldier experiment | The specific model/view experiment that exists | A complete soldier, animation, or game loop |
 | Executable example and tests | The behavior they actually execute and assert | Uncovered features or end-to-end host integration |
 | End-to-end hosted slice | The specific integrated path exercised | Every planned feature or final production readiness |
