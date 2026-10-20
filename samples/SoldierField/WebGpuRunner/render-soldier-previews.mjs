@@ -43,10 +43,10 @@ function render(view) {
       const shade = .3 + .7 * Math.max(0, nx * -.35 + ny * .7 + nz * .62);
       const colorOffset = i + 3;
       const color = [geometry[colorOffset], geometry[colorOffset + 1], geometry[colorOffset + 2]].map(value => Math.min(1, value * shade));
-      triangles.push({ points, depth: points.reduce((sum, point) => sum + point.z, 0) / 3, color: hex(color) });
+      triangles.push({ points, depth: Math.round((points.reduce((sum, point) => sum + point.z, 0) / 3) * 1e6) / 1e6, order: triangles.length, color: hex(color) });
     }
   }
-  triangles.sort((a, b) => a.depth - b.depth);
+  triangles.sort((a, b) => a.depth - b.depth || a.order - b.order);
   const polygons = triangles.map(triangle =>
     `<polygon points="${triangle.points.map(point => `${point.x.toFixed(2)},${point.y.toFixed(2)}`).join(" ")}" fill="${triangle.color}" stroke="#b9d4df" stroke-opacity=".08" stroke-width=".5"/>`
   ).join("");
