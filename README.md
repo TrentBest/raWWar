@@ -253,8 +253,3 @@ The shared Workshop documentation convention is being defined in [FSM_COS's Docu
   <em>The Singularity Workshop — Tools for the curious, the bold, and the systemically inclined.</em><br>
   <strong>Make the soldiers matter. Make the war alive.</strong>
 </p>
-
----
-
-<p align="center">
-  <em>The Singularity Workshop — Tools for the curious, the bold, and the systemically inclined.</em><br>
