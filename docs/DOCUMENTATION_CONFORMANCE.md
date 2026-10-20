@@ -63,6 +63,9 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 
 ### Audit findings and changes
 
+- [x] Added explicit Markdown reader paths in `docs/README.md`: intent and design authority first, then the player Experience and living-world systems, then enabling technology, then evidence and unresolved work.
+- [x] Kept the public README's opening sequence vision-first by moving the procedural exoskeleton blockout out of the initial Experience explanation and into the evidence/examples section. The model remains visible and linked, but reads as engineering evidence rather than as the definition of raWWar.
+
 - [x] Clarified the Game Design Bible's role as design authority, the GDD's role as comprehensive experience description, and specialist documents' obligation not to silently overrule creator canon.
 - [x] Added owner, audience, status, and implementation-evidence metadata to the GDD; made its conflict-resolution rule explicit.
 - [x] Added scope/status/evidence headers to Vision and Pillars, Systems Design, Player Roles, and UX and Interaction so conceptual opportunities are not mistaken for implemented features.
