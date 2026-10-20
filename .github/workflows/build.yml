@@ -22,6 +22,8 @@ jobs:
           node-version: 22
       - name: Generate Soldier Field README previews from the procedural mesh
         run: node samples/SoldierField/WebGpuRunner/render-soldier-previews.mjs
+      - name: Verify checked-in Soldier Field previews match the source generator
+        run: git diff --exit-code -- docs/images/soldier-field/
       - name: Verify generated Soldier Field previews
         shell: bash
         run: |
