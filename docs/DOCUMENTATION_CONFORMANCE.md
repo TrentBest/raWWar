@@ -12,26 +12,19 @@ The governing editorial rule is **edify, not mystify**: explain the human proble
 
 ## Standard elements applied to the README
 
-The shared front-door sequence is `00` identity, then a meaningful money-shot visual, `01` What, `02` Why, `03` How, `04` See it in a minute, and `05` Available documentation and theory. raWWar's current README still needs a deliberate reorganization to that sequence; this pass records that gap rather than relabeling existing content and implying it is compliant.
+The README now follows the shared front-door sequence: `00` identity, then a meaningful money-shot visual, `01` What, `02` Why, `03` How, `04` See it in a minute, and `05` Available documentation and theory. The content retains raWWar's game-design voice while making its intended role as the Workshop's flagship Experience explicit.
 
-The README uses raWWar-specific section names and colored markers, but its current `00`–`13` sequence predates the shared standard's canonical front-door sequence. The mapping below records the existing content; it does **not** mean the README has completed the current `00`–`05` conformance pass. That front-door alignment remains open work:
+The README is not a generic package introduction. It is also a visual argument: concept SVGs establish the destination, explanatory diagrams make architecture legible, rendering experiments explore manifestation, and runnable examples prove bounded behavior. These evidence classes must remain distinct; no diagram or experiment should be described as a completed playable game or end-to-end host launch.
 
-| Existing ID | Current README topic | Existing treatment |
+| Standard position | README topic | Intended reader outcome |
 |---|---|---|
-| 00 | Identity and badges | Repository title and license/CI badges; the shared animated Workshop moniker has now been added in the documentation-standardization branch. |
-| 01 | The opportunity | Explains the Experience and its broader purpose. |
-| 02 | The world we want to make tangible | Uses raWWar concept visuals to establish the intended world. |
-| 03 | The living-world thesis | Explains persistent activity and the core design thesis. |
-| 04 | Why this is different | Describes the Experience's distinguishing premise. |
-| 05 | Progress and present status | Records implementation maturity and limits. |
-| 06 | What raWWar owns—and what it reuses | Defines the Experience/Workshop responsibility boundary. |
-| 07 | The technology strategy | Explains the architecture and reusable ecosystem. |
-| 08 | What can be verified today | Separates available evidence from design targets. |
-| 09 | The experience vision | Describes the intended player experience. |
-| 10 | Evidence and examples | Links examples and describes their evidentiary limits. |
-| 11 | Engineering discipline | States evidence and implementation-truth expectations. |
-| 12 | Explore the deep dives | Routes readers to specialist documentation. |
-| 13 | The Workshop ecosystem | Links related projects and preserves raWWar's domain ownership. |
+| 00 | Identity, badges, flagship statement, hero SVG | Understand the ambition before reading implementation detail. |
+| 01 What | First-person living-war Experience | Understand what raWWar is. |
+| 02 Why | World visuals, persistent-world thesis, player vision | See why the Experience matters and what makes it compelling. |
+| 03 How | Domain ownership, MicroBundles, FSM_COS, RuntimeAssembly, host boundary | Understand how the system is intended to be assembled. |
+| 04 See it in a minute | Build command, KeplerOrbit example, evidence limitations | Try a verified, bounded behavior without mistaking it for the full game. |
+| 05 Available documentation and theory | Design authority, technical references, visual catalogue, ecosystem links | Choose the right deeper path for the reader's role. |
+| Supplemental local headings | Status, engineering discipline, ecosystem | Preserve necessary implementation detail without extending the global numbered front door. |
 
 The number and marker color are navigation aids, not the meaning itself. GitHub Markdown does not guarantee arbitrary heading colors, so the portable number-plus-emoji convention is used as described by the reference standard.
 
@@ -59,13 +52,14 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 
 ### Applied
 
-- [x] README has a reader-oriented path and the shared section identifiers/marker colors.
+- [x] README uses the canonical `00`–`05` front-door order, with the raWWar hero SVG immediately after identity/badges and before section 01.
 - [x] README section 00 now provides explicit Workshop/Experience identity plus verified-license and development-CI badges; no package publication badge is implied.
 - [x] The responsibility boundary explicitly describes FSM_COS as composition rather than host execution.
 - [x] README describes the current manifest/AnyApp integration blocker without implying end-to-end loading.
 - [x] Example and contract-check links are included with limits on what they prove.
 - [x] Shared Workshop footer and related-project navigation are included.
-- [x] Existing visual-first game-design voice is retained.
+- [x] Existing visual-first game-design voice is retained, with raWWar explicitly framed as the intended flagship Experience for the Workshop/AnyApp system.
+- [x] The README distinguishes concept visuals, architecture explanation, rendering experiments, executable examples, and end-to-end playable/host evidence.
 
 ### Audit findings and changes
 
@@ -86,6 +80,7 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 ### Remaining audit work
 
 - [ ] Finish the full GDD and companion-document review for contradictions, stale APIs, missing prerequisites, and malformed links; this pass establishes clearer authority and evidence rules, not exhaustive line-by-line validation.
+- [ ] Build a deliberate SVG showcase sequence for investor/newcomer readers: living-world scene, architecture/lifecycle, and rendering experiment, each with a caption stating whether it is conceptual, illustrative, experimental, or runtime-verified. Avoid a gallery of disconnected pictures; each visual should advance the same argument.
 - [x] Ran a repository-wide relative inline-Markdown-link target check across all 102 Markdown files (263 inline links); no missing local file targets were found.
 - [x] Scanned all 102 Markdown files for inline Markdown fragment links and raw HTML `href` / `src` attributes; none were found in the checked content. All 21 SVGs also contain no `href` / `xlink:href` references.
 - [ ] Validate reference-style Markdown links and external-link availability; the inline-link and embedded-reference checks do not cover those.
