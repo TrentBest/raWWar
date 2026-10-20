@@ -1,3 +1,10 @@
+<!-- The Singularity Workshop moniker -->
+<p align="center">
+  <a href="https://github.com/TrentBest">
+    <img src="https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg" alt="The Singularity Workshop — animated workshop moniker" width="720" />
+  </a>
+</p>
+
 # ✳️ 00 raWWar — The Singularity Workshop
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -220,8 +227,7 @@ For implementation claims, distinguish code and tests that exist today from desi
 - [Renderer Integration](docs/RENDERER_INTEGRATION.md) — observing the world without making presentation its source of truth.
 - [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) — GPU-facing presentation contracts and the planned AnyApp/WPF first backend.
 - [Visualize Gesture/pose pipeline](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md) — procedural motion to evaluated pose data to GPU presentation.
-- [TheSingularityWorkshop.Gestures (proposed)](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GESTURES_AND_POSE_PIPELINE.md#7-why-a-gesture-package-may-be-warranted) — proposed reusable Gesture model and CPU reference evaluator.
-- [TheSingularityWorkshop.Visualize](https://github.com/TrentBest/TheSingularityWorkshop.Visualize) — GPU-facing presentation package and implementation repository.
+- [TheSingularityWorkshop.Gestures](https://github.com/TrentBest/TheSingularityWorkshop.Gestures) — the dedicated home for reusable Gesture models and procedural behavior; implementation maturity and supported contracts must be checked in that repository.
 - [Visualizer architecture](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/ARCHITECTURE.md) — host boundaries, GPU resource contracts, and Renderer integration.
 - [Visualizer GPU backend strategy](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/GPU_BACKEND_STRATEGY.md) — candidate graphics/compute APIs and measurement-led selection.
 - [Visualizer implementation roadmap](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/docs/IMPLEMENTATION_ROADMAP.md) — from a WPF GPU surface to a living battlefield slice and browser path.
@@ -241,7 +247,7 @@ raWWar is one Experience in a modular ecosystem. It consumes reusable capabiliti
 - [AnyApp](https://github.com/TrentBest/AnyApp) — host and application proving ground.
 - [WebPage](https://github.com/TrentBest/WebPage) — browser manifestation and Workshop proving ground.
 
-The shared Workshop documentation convention is being defined in [FSM_COS's Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/docs/ecosystem-documentation-standard/DOCUMENTATION_STANDARD.md). raWWar applies the relevant section identifiers, color markers, boundary-first architecture, reader paths, evidence discipline, and example requirements while retaining its own game-design voice.
+The shared Workshop documentation convention is being defined in [FSM_COS's Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/development/DOCUMENTATION_STANDARD.md). raWWar applies the relevant section identifiers, color markers, boundary-first architecture, reader paths, evidence discipline, and example requirements while retaining its own game-design voice.
 
 ---
 
