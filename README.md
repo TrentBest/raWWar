@@ -10,9 +10,15 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/raWWar/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/raWWar/actions/workflows/build.yml)
 
-![](docs/assets/dividers/star-gold.svg)
+![raWWar — The war is alive](docs/images/rawwar-hero.svg)
 
+> **The flagship Experience for the Workshop.** raWWar is intended to be the recognizable, ambitious Experience shipped with the AnyApp system—the platform's Mario Brothers / Duck Hunt moment: not just a framework demo, but a world people can understand, enter, and care about.
 
+The documentation is part of that demonstration. **SVGs make the world tangible; living diagrams explain its systems; rendering experiments explore how it can look and move; executable examples prove specific behaviors.** The strongest story will connect those layers, so readers can see both the destination and the machinery that makes it possible.
+
+We will keep the evidence honest: concept art communicates intent, explanatory SVGs communicate structure, experiments prove only their measured scope, and examples prove only the behavior they actually execute. None is mislabeled as a finished playable game or end-to-end host launch.
+
+**Current truth:** raWWar's design and supporting technology are actively being built and verified. A complete playable slice and end-to-end AnyApp host launch have not yet been delivered. The goal is to make the vision convincing now while making the path to implementation clear.
 
 ## 🟦 01 What
 
@@ -28,8 +34,6 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 ![](docs/assets/dividers/green.svg)
 
-![raWWar — The war is alive](docs/images/rawwar-hero.svg)
-
 > **The soldiers themselves are the stars of this game.**
 
 ![Soldier Field procedural exoskeleton — three-quarter view](docs/images/soldier-field/02-three-quarter.svg)
@@ -40,7 +44,7 @@ The soldier shown here comes from raWWar's 38-part procedural exoskeleton blocko
 
 *One continuous war across a galaxy—not a stack of disposable maps.*
 
-## 🔺 03 The living-world thesis
+### The living-world thesis
 
 ![](docs/assets/dividers/triangle-red.svg)
 
@@ -60,7 +64,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 
 > **This is not “pick a sector and play a map.” This is living inside the war.**
 
-## 🟠 04 Why this is different
+### The experience that makes the platform tangible
 
 ![](docs/assets/dividers/orange.svg)
 
@@ -71,20 +75,34 @@ The opening campaign brings together faction choice and the Empress's first unco
 - **Reviewing implementation status:** read [Technical Design](docs/TECHNICAL_DESIGN.md), [Production Plan](docs/PRODUCTION_PLAN.md), and [TODO.md](TODO.md).
 - **Understanding procedural motion:** read [Gestures Design](docs/GESTURES_DESIGN.md) and the [standalone Gestures package](https://github.com/TrentBest/TheSingularityWorkshop.Gestures).
 - **Understanding GPU presentation:** read [Renderer Integration](docs/RENDERER_INTEGRATION.md) and the [Visualize implementation](https://github.com/TrentBest/TheSingularityWorkshop.Visualize).
-- **Building or verifying the repository:** use the commands in section 08 and the evidence guidance in section 11.
+- **Building or verifying the repository:** use the commands in **See it in a minute** and the the evidence guidance below.
 
-## 🟣 05 Progress and present status
+### The intended player experience
 
-![](docs/assets/dividers/violet.svg)
+![](docs/assets/dividers/purple.svg)
 
-| Item | Current description |
-|---|---|
-| Type | Manifest-oriented game Experience |
-| Primary host direction | AnyApp first; MyVR and other manifestations follow |
-| Implementation baseline | .NET 8 |
-| Architecture | Experience domain + manifest + MicroBundles + FSM_COS composition + host |
-| Status | Active design and engineering; the end-to-end playable Experience is not yet complete |
-| License | See [LICENSE](LICENSE) |
+raWWar is always experienced from the first-person perspective, but the role the player inhabits can grow dramatically:
+
+- **Soldier** — qualify, serve, fight, repair, research, build, explore, survive.
+- **Officer** — lead people, make decisions, manage pressure, command operations.
+- **Cooperative** — share a war with players whose interests and objectives may differ.
+- **Multiplayer** — fight free-for-all, team-versus-team, or persistent conflicts.
+- **Persistent universes** — enter a universe whose history continues without you.
+
+These are not separate games. They are different ways of inhabiting the same war.
+
+![A soldier's career](docs/images/rawwar-soldier-progression.svg)
+
+A soldier is not a class selected from a menu. Identity, qualification, responsibility, reputation, relationships, equipment, and history accumulate over time.
+
+The repository distinguishes design certainty explicitly:
+
+- **Canon** — established by the creator.
+- **Candidate** — a direction under consideration.
+- **Experiment** — something to prove through implementation.
+- **Illumination Needed** — a question that still requires the creator's vision.
+
+Implementation convenience must not silently become game design.
 
 ## 🩵 03 How the Experience is assembled
 
@@ -117,7 +135,7 @@ The Singularity Workshop provides reusable machinery so raWWar does **not** have
 
 **FSM_COS is a central composition boundary, not the game, the host, or a renderer.** raWWar supplies meaning and domain rules; FSM_COS assembles requested capabilities; the host decides how the resulting runtime is executed or manifested. See [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
 
-## 🟠 07 The technology strategy
+### The architecture boundary
 
 ![](docs/assets/dividers/orange.svg)
 
@@ -156,34 +174,7 @@ dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj
 
 These commands build the solution and run the checked-in explicit-time Kepler-orbit example. They do **not** launch a playable game or prove end-to-end AnyApp composition.
 
-## 🟪 09 The experience vision
-
-![](docs/assets/dividers/purple.svg)
-
-raWWar is always experienced from the first-person perspective, but the role the player inhabits can grow dramatically:
-
-- **Soldier** — qualify, serve, fight, repair, research, build, explore, survive.
-- **Officer** — lead people, make decisions, manage pressure, command operations.
-- **Cooperative** — share a war with players whose interests and objectives may differ.
-- **Multiplayer** — fight free-for-all, team-versus-team, or persistent conflicts.
-- **Persistent universes** — enter a universe whose history continues without you.
-
-These are not separate games. They are different ways of inhabiting the same war.
-
-![A soldier's career](docs/images/rawwar-soldier-progression.svg)
-
-A soldier is not a class selected from a menu. Identity, qualification, responsibility, reputation, relationships, equipment, and history accumulate over time.
-
-The repository distinguishes design certainty explicitly:
-
-- **Canon** — established by the creator.
-- **Candidate** — a direction under consideration.
-- **Experiment** — something to prove through implementation.
-- **Illumination Needed** — a question that still requires the creator's vision.
-
-Implementation convenience must not silently become game design.
-
-## 🟦 10 Evidence and examples
+### Evidence and examples
 
 ![](docs/assets/dividers/blue.svg)
 
@@ -194,18 +185,6 @@ Examples are engineering artifacts as well as documentation: they show how a cap
 - [Contract checks](tests/raWWar.ContractTests/Program.cs) — executable manifest, data, and architectural contract assertions.
 
 Each example must say whether it is verified, source-shaped, or conceptual; name the version or commit it targets; cover meaningful boundaries; and state what it does not prove. An example is not automatically an integration test, playable feature, or release-readiness claim.
-
-## 🩶 11 Engineering discipline
-
-![](docs/assets/dividers/grey.svg)
-
-The repository is a design instrument, not a pile of feature promises. Its purpose is to make raWWar sufficiently clear that the next thing can actually be built.
-
-The creator's descriptions are primary source material. The repository organizes those ideas, exposes contradictions, identifies missing rules, and turns the resulting design into a deterministic Experience shape.
-
-The old engine-specific project shell has been removed. raWWar is not defined by a particular game engine or display technology. **AnyApp comes first; MyVR and other manifestations follow.**
-
-For implementation claims, distinguish code and tests that exist today from design targets. The current `RaWWarMicroBundle.Load` remains a scaffold and `Arbitrate` returns `false`; the full station-and-rig first-person slice and end-to-end host loading remain future work. Consult [Technical Design](docs/TECHNICAL_DESIGN.md) and [TODO.md](TODO.md) for current evidence and blockers.
 
 ## 🟪 05 Available documentation and theory
 
@@ -228,7 +207,32 @@ For implementation claims, distinguish code and tests that exist today from desi
 - [Visual asset catalogue](docs/images/README.md) — diagrams and artwork with their intended meaning.
 - [Documentation conformance audit](docs/DOCUMENTATION_CONFORMANCE.md) — how this repository applies the shared Workshop documentation standard.
 
-## 🟤 13 The Workshop ecosystem
+### Implementation status at a glance
+
+![](docs/assets/dividers/violet.svg)
+
+| Item | Current description |
+|---|---|
+| Type | Manifest-oriented game Experience |
+| Primary host direction | AnyApp first; MyVR and other manifestations follow |
+| Implementation baseline | .NET 8 |
+| Architecture | Experience domain + manifest + MicroBundles + FSM_COS composition + host |
+| Status | Active design and engineering; the end-to-end playable Experience is not yet complete |
+| License | See [LICENSE](LICENSE) |
+
+### Engineering discipline
+
+![](docs/assets/dividers/grey.svg)
+
+The repository is a design instrument, not a pile of feature promises. Its purpose is to make raWWar sufficiently clear that the next thing can actually be built.
+
+The creator's descriptions are primary source material. The repository organizes those ideas, exposes contradictions, identifies missing rules, and turns the resulting design into a deterministic Experience shape.
+
+The old engine-specific project shell has been removed. raWWar is not defined by a particular game engine or display technology. **AnyApp comes first; MyVR and other manifestations follow.**
+
+For implementation claims, distinguish code and tests that exist today from design targets. The current `RaWWarMicroBundle.Load` remains a scaffold and `Arbitrate` returns `false`; the full station-and-rig first-person slice and end-to-end host loading remain future work. Consult [Technical Design](docs/TECHNICAL_DESIGN.md) and [TODO.md](TODO.md) for current evidence and blockers.
+
+### The Workshop ecosystem
 
 ![](docs/assets/dividers/brown.svg)
 
@@ -242,6 +246,13 @@ raWWar is one Experience in a modular ecosystem. It consumes reusable capabiliti
 - [WebPage](https://github.com/TrentBest/WebPage) — browser manifestation and Workshop proving ground.
 
 The shared Workshop documentation convention is being defined in [FSM_COS's Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/development/DOCUMENTATION_STANDARD.md). raWWar applies the relevant section identifiers, color markers, boundary-first architecture, reader paths, evidence discipline, and example requirements while retaining its own game-design voice.
+
+---
+
+<p align="center">
+  <em>The Singularity Workshop — Tools for the curious, the bold, and the systemically inclined.</em><br>
+  <strong>Make the soldiers matter. Make the war alive.</strong>
+</p>
 
 ---
 
