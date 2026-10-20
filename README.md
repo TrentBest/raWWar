@@ -13,14 +13,8 @@
 ![](docs/assets/dividers/star-gold.svg)
 
 
-> **An investor's view:** raWWar is the proving ground for a broader software thesis: a persistent, living Experience built from reusable capabilities rather than a single engine-bound game. As the Workshop technology matures, raWWar gives it a demanding, visible purpose—people, procedures, logistics, decisions, and consequences sharing one continuous world.
 
-The opportunity is bigger than a battlefield renderer. The Workshop separates **what the world means**, **how reusable capabilities are composed**, and **how each observer experiences it**. That separation is intended to make the same underlying world usable across desktop, browser, and future immersive hosts—without treating those future integrations as finished today.
-
-**Where we are:** the architecture and design are actively being built and verified; a complete playable raWWar slice and end-to-end host launch are not yet delivered. The repository distinguishes implemented evidence from design targets so progress can be evaluated honestly.
-
-
-## 🔷 01 The opportunity
+## 🟦 01 What
 
 ![](docs/assets/dividers/blue.svg)
 
@@ -30,7 +24,7 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 > **What happens when I become one of the people who has to live here?**
 
-## 🟢 02 The world we want to make tangible
+## 🟣 02 Why this Experience matters
 
 ![](docs/assets/dividers/green.svg)
 
@@ -92,7 +86,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 | Status | Active design and engineering; the end-to-end playable Experience is not yet complete |
 | License | See [LICENSE](LICENSE) |
 
-## 🟢 06 What raWWar owns—and what it reuses
+## 🩵 03 How the Experience is assembled
 
 ![](docs/assets/dividers/green.svg)
 
@@ -147,7 +141,7 @@ The manifest identifies the requested composition; dependency closure determines
 
 The current integration work is not yet proof of end-to-end host loading: the checked-in authoring/runtime manifests are distinct from AnyApp's publication manifest, and immutable artifact identity/dependency closure remain open integration requirements. The local FSM_COS composition check is scoped to its test adapter; it does not prove that AnyApp can retrieve and launch the full Experience. See the [AnyApp manifest bridge investigation](docs/integration/ANYAPP_MANIFEST_BRIDGE.md) and the [raWWar-to-AnyApp artifact-closure request](docs/requests/REQUEST-FROM-raWWar-AnyApp-ArtifactClosure.md).
 
-## 🟩 08 What can be verified today
+## 🟢 04 See it in a minute
 
 ![](docs/assets/dividers/green.svg)
 
@@ -213,7 +207,7 @@ The old engine-specific project shell has been removed. raWWar is not defined by
 
 For implementation claims, distinguish code and tests that exist today from design targets. The current `RaWWarMicroBundle.Load` remains a scaffold and `Arbitrate` returns `false`; the full station-and-rig first-person slice and end-to-end host loading remain future work. Consult [Technical Design](docs/TECHNICAL_DESIGN.md) and [TODO.md](TODO.md) for current evidence and blockers.
 
-## 🟣 12 Explore the deep dives
+## 🟪 05 Available documentation and theory
 
 ![](docs/assets/dividers/violet.svg)
 
