@@ -80,7 +80,8 @@ See [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) and [the AnyApp manife
 ### Remaining audit work
 
 - [ ] Finish the full GDD and companion-document review for contradictions, stale APIs, missing prerequisites, and malformed links; this pass establishes clearer authority and evidence rules, not exhaustive line-by-line validation.
-- [ ] Build a deliberate SVG showcase sequence for investor/newcomer readers: living-world scene, architecture/lifecycle, and rendering experiment, each with a caption stating whether it is conceptual, illustrative, experimental, or runtime-verified. Avoid a gallery of disconnected pictures; each visual should advance the same argument.
+- [x] Added [Flagship Experience Story](FLAGSHIP_EXPERIENCE_STORY.md), a connected reader journey from the living world and soldier identity through facility relationships, Workshop architecture, and bounded procedural/executable evidence; each visual's caption names its evidence class and scope.
+- [ ] Expand the visual story when a verified Workshop rendering experiment can be linked with a precise statement of what it demonstrates; do not substitute the separate Soldier Field WebGPU lab for proof of Visualize contracts.
 - [x] Ran a repository-wide relative inline-Markdown-link target check across all 102 Markdown files (263 inline links); no missing local file targets were found.
 - [x] Scanned all 102 Markdown files for inline Markdown fragment links and raw HTML `href` / `src` attributes; none were found in the checked content. All 21 SVGs also contain no `href` / `xlink:href` references.
 - [ ] Validate reference-style Markdown links and external-link availability; the inline-link and embedded-reference checks do not cover those.
