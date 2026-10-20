@@ -38,10 +38,6 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 > **The soldiers themselves are the stars of this game.**
 
-![Soldier Field procedural exoskeleton — three-quarter view](docs/images/soldier-field/02-three-quarter.svg)
-
-The soldier shown here comes from raWWar's 38-part procedural exoskeleton blockout. [See all six embedded views and the live WebGPU lab](samples/SoldierField/WebGpuRunner/README.md); the pictures render directly in this README, with no local server required. The live lab is optional and remains a separate experiment from the Workshop's current Visualize contracts.
-
 ![One galaxy, one war](docs/images/rawwar-galactic-war.svg)
 
 *One continuous war across a galaxy—not a stack of disposable maps.*
@@ -180,7 +176,11 @@ These commands build the solution and run the checked-in explicit-time Kepler-or
 
 ![](docs/assets/dividers/blue.svg)
 
-Examples are engineering artifacts as well as documentation: they show how a capability is expected to be consumed and give contributors a concrete reference.
+The design comes first; these artifacts show where engineering has made parts of it tangible. They prove bounded work, not a finished game.
+
+![Procedural soldier exoskeleton — three-quarter view](docs/images/soldier-field/02-three-quarter.svg)
+
+The soldier shown here comes from raWWar's 38-part procedural exoskeleton blockout. [See all six embedded views and the live WebGPU lab](samples/SoldierField/WebGpuRunner/README.md); the pictures render directly in this README, with no local server required. The live lab is optional and remains a separate experiment from the Workshop's current Visualize contracts.
 
 - [Examples index](examples/README.md) — checked-in usage examples and verification scope.
 - [KeplerOrbit example](examples/KeplerOrbit/Program.cs) — explicit-time orbit queries, repeatability, periodicity, and invalid-boundary behavior.
