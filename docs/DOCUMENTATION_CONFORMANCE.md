@@ -1,8 +1,8 @@
 # raWWar Documentation Conformance
 
 **Status:** Active alignment pass.  
-**Reference:** [FSM_COS Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/docs/ecosystem-documentation-standard/DOCUMENTATION_STANDARD.md).  
-**Reference maturity:** The cited standard is on FSM_COS's `docs/ecosystem-documentation-standard` branch and is a proposal under review, not yet a claim that every Workshop repository has adopted it.
+**Reference:** [FSM_COS Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/development/DOCUMENTATION_STANDARD.md).  
+**Reference maturity:** The cited standard is the current working reference on FSM_COS's `development` branch. Adoption remains repository-by-repository; this audit does not claim universal or exhaustive conformance.
 
 ## Purpose
 
@@ -12,24 +12,26 @@ The governing editorial rule is **edify, not mystify**: explain the human proble
 
 ## Standard elements applied to the README
 
-The README now uses the shared semantic section identifiers and colored markers where they apply:
+The shared front-door sequence is `00` identity, then a meaningful money-shot visual, `01` What, `02` Why, `03` How, `04` See it in a minute, and `05` Available documentation and theory. raWWar's current README still needs a deliberate reorganization to that sequence; this pass records that gap rather than relabeling existing content and implying it is compliant.
 
-| ID | Topic | raWWar treatment |
+The README uses raWWar-specific section names and colored markers, but its current `00`–`13` sequence predates the shared standard's canonical front-door sequence. The mapping below records the existing content; it does **not** mean the README has completed the current `00`–`05` conformance pass. That front-door alignment remains open work:
+
+| Existing ID | Current README topic | Existing treatment |
 |---|---|---|
-| 00 | Identity and badges | Repository identity is explicit; MIT license and development-branch CI badges point to the real license and workflow. No NuGet release badge is implied for an Experience that has not been published. |
-| 01 | Definition | Defines raWWar as a first-person war Experience, not an application, in the opening paragraph. |
-| 02 | Visual identity | Hero and galaxy visuals establish the Experience's visual identity. |
-| 03 | Plain-language explanation | Explains the living war and continuous galaxy before deep implementation details. |
-| 04 | Audience / choose your path | Routes readers by intent rather than requiring a linear read. |
-| 05 | At a glance | States type, host direction, .NET baseline, architecture, and honest implementation status. |
-| 06 | Responsibility boundary | Separates raWWar domain ownership from reusable Workshop machinery. |
-| 07 | Architecture and ecosystem | Shows manifest → MicroBundle roots → FSM_COS → RuntimeAssembly → host and explicitly records current integration limits. |
-| 08 | Quick start | Provides the shortest useful reader path and concrete developer commands. |
-| 09 | Core concepts / how it works | Introduces player roles and the Canon/Candidate/Experiment/Illumination Needed certainty model. |
-| 10 | Usage and examples | Links the examples index and contract checks, with explicit evidence expectations. |
-| 11 | Verification and development | Distinguishes the current scaffold from the intended playable slice and points to the evidence queue. |
-| 12 | Documentation map / further reading | Provides reader-oriented paths into canonical and specialist documents. |
-| 13 | Related projects and Workshop footer | Explains relevant neighboring packages and preserves the shared Workshop identity. |
+| 00 | Identity and badges | Repository title and license/CI badges; the shared animated Workshop moniker has now been added in the documentation-standardization branch. |
+| 01 | The opportunity | Explains the Experience and its broader purpose. |
+| 02 | The world we want to make tangible | Uses raWWar concept visuals to establish the intended world. |
+| 03 | The living-world thesis | Explains persistent activity and the core design thesis. |
+| 04 | Why this is different | Describes the Experience's distinguishing premise. |
+| 05 | Progress and present status | Records implementation maturity and limits. |
+| 06 | What raWWar owns—and what it reuses | Defines the Experience/Workshop responsibility boundary. |
+| 07 | The technology strategy | Explains the architecture and reusable ecosystem. |
+| 08 | What can be verified today | Separates available evidence from design targets. |
+| 09 | The experience vision | Describes the intended player experience. |
+| 10 | Evidence and examples | Links examples and describes their evidentiary limits. |
+| 11 | Engineering discipline | States evidence and implementation-truth expectations. |
+| 12 | Explore the deep dives | Routes readers to specialist documentation. |
+| 13 | The Workshop ecosystem | Links related projects and preserves raWWar's domain ownership. |
 
 The number and marker color are navigation aids, not the meaning itself. GitHub Markdown does not guarantee arbitrary heading colors, so the portable number-plus-emoji convention is used as described by the reference standard.
 
