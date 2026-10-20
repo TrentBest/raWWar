@@ -163,7 +163,27 @@ This turns missing design into an invitation to continue the Workshop process.
 
 ## Future presentation
 
-The final presentation should be visual-first.
+The final presentation should be visual-first, but its defining standard is **WYSIWYG: what we design is what we see**.
+
+This is not a requirement to decorate Markdown with impressive pictures. The target is a trustworthy visual projection of the same semantic design and runtime-facing models that the Experience uses. Where the source model supports it, a visual should be generated through the Workshop's Renderer/Visualize path and manifested through GUI.SVG, rather than maintained as a second, hand-drawn version of the truth.
+
+### WYSIWYG manifestation contract
+
+1. **Author intent and meaning first.** Identify the entity, its stable identity, relationships, geometry, state, and relevant behavior before choosing how to draw it.
+2. **Project the model into a view.** Renderer/Visualize owns the rendering transformation; GUI.SVG provides an inspectable SVG manifestation where that backend is appropriate. The SVG is a view of the model, not the authoritative source for game rules.
+3. **Keep the picture connected to its source.** Generated visuals should identify their source model, generator/recipe, and evidence scope when practical. Avoid manually duplicating values or relationships that can be derived from the source.
+4. **Make the view useful for reasoning.** Use legible layers, labels, relationships, motion, and interaction where they clarify the design. Richness serves comprehension; spectacle alone is not success.
+5. **Verify claims at the right level.** A concept SVG proves only that a concept has been illustrated. A generated SVG proves the bounded model-to-view path that produced it. Tests prove their tested contracts. A running raWWar slice and successful AnyApp host launch require separate runtime evidence.
+
+The intended authoring loop is:
+
+**Intent → semantic model → Renderer/Visualize → GUI.SVG manifestation → inspection and refinement → executable checks / runtime proof**
+
+This loop should eventually make diagrams, catalog views, engineering plans, and live demonstrations different projections of shared data where their semantics overlap. Do not force every view into one picture or imply that a static SVG alone proves simulation behavior, depth-tested 3D, interaction, or end-to-end gameplay.
+
+**A bounded raWWar-specific source-connected visual already exists:** Soldier Field's stable 38-part `SOLDIER_PARTS` inventory in [`soldier-geometry.js`](../samples/SoldierField/WebGpuRunner/soldier-geometry.js) feeds `buildSoldierGeometry()`. The same generated triangle stream feeds the WebGPU lab and [`render-soldier-previews.mjs`](../samples/SoldierField/WebGpuRunner/render-soldier-previews.mjs), which projects it into six checked-in SVG views; CI regenerates and verifies those previews. This is real source-connected model-to-view behavior, not hand-maintained SVG art. Its current limits matter: the SVG projection is a separate, simple depth-sorted renderer, not yet the Workshop Renderer/Visualize → GUI.SVG path; the geometry is a silhouette blockout, not production character art; and neither the SVGs nor the WebGPU lab proves a complete playable raWWar slice or AnyApp launch.
+
+The next integration step is to preserve that semantic source and connect an appropriate view to the Workshop Renderer/Visualize → GUI.SVG path, with reproducible output and tests that fail when the source model and checked-in manifestation diverge. The existing [Visualize-to-GUI.SVG proof](https://github.com/TrentBest/TheSingularityWorkshop.Visualize/blob/development/samples/PrimitiveGallery/generated/07-gui-svg-connected-points.svg) demonstrates an adjacent 2D geometry/resource/frame-to-SVG path; it does not establish that the raWWar Soldier Field asset already uses that backend. Other visuals whose source connection has not been demonstrated must remain labeled conceptual or illustrative.
 
 Where useful, a section can contain:
 

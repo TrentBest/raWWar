@@ -2,7 +2,27 @@
 
 This directory is the design and production knowledge base for the raWWar Experience.
 
+## Choose your reading path
+
+The Markdown files are the navigation layer for the Experience: start with the human promise, learn what the player inhabits, then descend into systems and implementation evidence. The asset catalogue and experiments support that journey; they are not a substitute for explaining the game.
+
+1. **Understand the intent** — [Vision and Pillars](VISION_AND_PILLARS.md) for the north star, then the [Game Design Bible](GAME_DESIGN_BIBLE.md) for creator-established design truth.
+2. **Explore the Experience** — the [Game Design Document](GAME_DESIGN_DOCUMENT.md) is the comprehensive player-facing and production description; use [Player Roles](PLAYER_ROLES.md), [Persistent Universes](PERSISTENT_UNIVERSES.md), [Narrative Design](NARRATIVE_DESIGN.md), and [UX and Interaction](UX_AND_INTERACTION.md) to explore specific aspects.
+3. **Understand the living world** — follow [Systems Design](SYSTEMS_DESIGN.md), [World Model and Observer-Relative Presentation](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md), and the focused world, campaign, logistics, soldier, vehicle, and structure documents below.
+4. **Understand the enabling technology** — read [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) before [Technical Design](TECHNICAL_DESIGN.md), then follow the specific FSM_COS, MicroBundle, Gesture, renderer, data, persistence, and host boundaries relevant to the question.
+5. **Inspect evidence and next work** — use [Examples](../examples/README.md), [Visual Asset Catalogue](images/README.md), [Production Plan](PRODUCTION_PLAN.md), [TODO](../TODO.md), and [Open Questions](OPEN_QUESTIONS.md). A concept, a generated asset, a passing test, and a hosted playable slice are different evidence levels.
+
+### Quick destinations
+
+- **New to raWWar:** [Flagship Experience Story](FLAGSHIP_EXPERIENCE_STORY.md) → [Game Design Document](GAME_DESIGN_DOCUMENT.md).
+- **Need the source of design truth:** [Game Design Bible](GAME_DESIGN_BIBLE.md).
+- **Want to understand the platform boundary:** [Experience Architecture](EXPERIENCE_ARCHITECTURE.md).
+- **Want to build or verify code:** [Technical Design](TECHNICAL_DESIGN.md) → [Examples index](../examples/README.md) → [Production Plan](PRODUCTION_PLAN.md).
+- **Need to know what is unresolved:** [Open Questions](OPEN_QUESTIONS.md) and [TODO](../TODO.md).
+
 ## Documentation standard
+
+- [Per-file UML source documentation](UML/README.md) — source-backed type diagrams and an explicit coverage checklist; only the files marked documented have been audited so far.
 
 - [Documentation Conformance](DOCUMENTATION_CONFORMANCE.md) — how raWWar applies the shared Workshop section identifiers, visual markers, evidence rules, architecture boundaries, and example requirements. The referenced [FSM_COS Documentation Standard](https://github.com/TrentBest/TheSingularityWorkshop.FSM_COS/blob/docs/ecosystem-documentation-standard/DOCUMENTATION_STANDARD.md) is currently a proposal under review; raWWar's conformance work is incremental, not a claim that every companion document has already been audited.
 

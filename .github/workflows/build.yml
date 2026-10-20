@@ -22,6 +22,14 @@ jobs:
           node-version: 22
       - name: Generate Soldier Field README previews from the procedural mesh
         run: node samples/SoldierField/WebGpuRunner/render-soldier-previews.mjs
+      - name: Upload generated Soldier Field previews for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: soldier-field-preview-svg
+          path: docs/images/soldier-field/*.svg
+          if-no-files-found: error
+      - name: Verify checked-in Soldier Field previews match the source generator
+        run: git diff --exit-code -- docs/images/soldier-field/
       - name: Verify generated Soldier Field previews
         shell: bash
         run: |
@@ -31,12 +39,6 @@ jobs:
             test -s "$file" || { echo "Missing or empty Soldier Field preview: $file"; exit 1; }
             grep -q '<polygon' "$file" || { echo "No mesh triangles rendered in: $file"; exit 1; }
           done
-      - name: Upload Soldier Field documentation previews
-        uses: actions/upload-artifact@v4
-        with:
-          name: soldier-field-preview-svg
-          path: docs/images/soldier-field/*.svg
-          if-no-files-found: error
       - name: Run Soldier Field data and research tests
         run: node --test samples/SoldierField/WebGpuRunner/*.test.mjs
       - name: Set up .NET 8

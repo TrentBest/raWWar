@@ -9,6 +9,8 @@ This catalogue is the index for the repository's explanatory artwork. Images sho
 
 These SVGs are authored, lightweight diagrams and concept illustrations. Unless an image explicitly says otherwise, it is **not** a capture of a completed runtime, a finalized art asset, or a construction-ready engineering drawing.
 
+The hero SVG is deliberately a **living briefing**, not a static cover: supply routes move, command signals pulse, an aircraft crosses the skyline, and lightning briefly changes the scene. Motion should reveal continuing work and relationships, not compete with the reader. The README's adjacent links are the actual navigation into progressively deeper layers; the SVG itself is a visual invitation, not a claim of interactive runtime behavior. Its caption and accessible description preserve the conceptual-art boundary.
+
 ## Visual entry points
 
 | Asset | What it helps explain | Best home |
