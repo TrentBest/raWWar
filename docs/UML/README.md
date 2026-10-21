@@ -9,7 +9,7 @@ This folder records source-backed UML per C# file. Pages must describe checked-i
 | `src/raWWar/RaWWarMicroBundle.cs` | [RaWWarMicroBundle.cs.md](RaWWarMicroBundle.cs.md) | Documented |
 | `src/raWWar/Spatiotemporal/HierarchicalSpatialAddress.cs` | [HierarchicalSpatialAddress.cs.md](HierarchicalSpatialAddress.cs.md) | Documented |
 | `src/raWWar/Spatiotemporal/SquirrelNoise3.cs` | [SquirrelNoise3.cs.md](SquirrelNoise3.cs.md) | Documented |
-| Other runtime `.cs` files | Not yet documented | Pending |
+| `src/raWWar/History/ResourceBalanceCheckpoint.cs` | [ResourceBalanceCheckpoint.cs.md](ResourceBalanceCheckpoint.cs.md) · [ResourceBalanceCheckpointUML.md](ResourceBalanceCheckpointUML.md) | Documented |\n| `src/raWWar/History/ResourceBalanceReplay.cs` | [ResourceBalanceReplay.cs.md](ResourceBalanceReplay.cs.md) · [ResourceBalanceReplayUML.md](ResourceBalanceReplayUML.md) | Documented |\n| Other runtime `.cs` files | Not yet documented | Pending |
 | Example `.cs` files | Not yet documented | Pending |
 | Contract-test `.cs` files | Not yet documented | Pending |
 
@@ -17,8 +17,6 @@ This folder records source-backed UML per C# file. Pages must describe checked-i
 
 - `src/raWWar/History/CandidateEventFrameCodec.cs`
 - `src/raWWar/History/CandidateFileEventJournal.cs`
-- `src/raWWar/History/ResourceBalanceCheckpoint.cs`
-- `src/raWWar/History/ResourceBalanceReplay.cs`
 - `src/raWWar/History/SimulationEvent.cs`
 - `src/raWWar/Interaction/FighterPilotStation.cs`
 - `src/raWWar/Spatiotemporal/CartesianTransform3d.cs`
