@@ -96,3 +96,14 @@ Distance is therefore a gameplay constraint.
 
 The time required to move forces and resources creates opportunities for planning, interception, logistics, intelligence, preparation, and consequence.
 
+## Pillar 11 — Data scale is part of the spectacle
+
+raWWar is not merely a war game with a large map. The long-term ambition is to make enormous amounts of structured, changing world data visible and meaningful through an entertaining first-person experience: many people, units, vehicles, facilities, resources, procedures, relationships, and consequences, all contributing to one legible world.
+
+The game is the human-facing reason to care about the engineering. The deeper technical challenge is to process, organize, update, retain, reconstruct, and present far more world state than can be shown at full detail at once. Optimization therefore belongs throughout the design—not as a final pass after the world has been built.
+
+That means choosing deliberately what must be updated now, what can be processed in batches, what can be represented compactly, what can be reconstructed from authoritative state, what can be simulated at a coarser level, and what deserves expensive detail because the player is observing or interacting with it. Detail should be promoted when it matters and reduced when it does not, without losing the continuity or consequences that make the world feel real.
+
+The target is not a vanity count of entities or a claim that everything runs at maximum fidelity. The target is **more meaningful world per unit of computation**: richer environments, denser populations, more consequential systems, and a player experience that remains understandable and responsive. Every scale claim must eventually be supported by reproducible workloads, correctness checks, and measured resource costs.
+
+The software architecture should remain reusable beyond raWWar. The game makes the capability tangible; it must not become an excuse to hide the capability behind proprietary gatekeeping, unverified claims, or a demo that cannot be inspected. Contracts, evidence, and measured behavior should make the underlying work understandable to other developers as well as players.
