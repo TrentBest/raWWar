@@ -29,6 +29,8 @@ The world is a galaxy spanning many star systems, organizations, units, and indi
 
 The promise is not “simulate everything at maximum fidelity.” The promise is that the world keeps its history, while the amount of detail can be appropriate to what is being observed and what matters.
 
+That is also the engineering thesis behind the spectacle: the game should make scale feel like a populated, consequential world, while the system decides which state needs immediate detail, which work can be batched, and which state can be retained compactly or reconstructed when needed. The target is not a leaderboard-sized entity count. It is **more meaningful world per unit of computation**—with reproducible workloads, correctness checks, and measured resource costs before we claim a scale milestone. The broader principles are recorded in [Vision and Pillars, Pillar 11](VISION_AND_PILLARS.md#pillar-11--data-scale-is-part-of-the-spectacle).
+
 ## 2. The soldier is the star
 
 ![A soldier's career and progression](images/rawwar-soldier-progression.svg)
