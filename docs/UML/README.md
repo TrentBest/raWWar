@@ -11,15 +11,15 @@ This folder records source-backed UML per C# file. Pages must describe checked-i
 | `src/raWWar/Spatiotemporal/SquirrelNoise3.cs` | [SquirrelNoise3.cs.md](SquirrelNoise3.cs.md) | Documented |
 | `src/raWWar/History/ResourceBalanceCheckpoint.cs` | [ResourceBalanceCheckpoint.cs.md](ResourceBalanceCheckpoint.cs.md) · [ResourceBalanceCheckpointUML.md](ResourceBalanceCheckpointUML.md) | Documented |
 | `src/raWWar/History/ResourceBalanceReplay.cs` | [ResourceBalanceReplay.cs.md](ResourceBalanceReplay.cs.md) · [ResourceBalanceReplayUML.md](ResourceBalanceReplayUML.md) | Documented |
+| `src/raWWar/History/SimulationEvent.cs` | [SimulationEvent.cs.md](SimulationEvent.cs.md) · [SimulationEventUML.md](SimulationEventUML.md) | Documented |
+| `src/raWWar/History/CandidateEventFrameCodec.cs` | [CandidateEventFrameCodec.cs.md](CandidateEventFrameCodec.cs.md) · [CandidateEventFrameCodecUML.md](CandidateEventFrameCodecUML.md) | Documented |
+| `src/raWWar/History/CandidateFileEventJournal.cs` | [CandidateFileEventJournal.cs.md](CandidateFileEventJournal.cs.md) · [CandidateFileEventJournalUML.md](CandidateFileEventJournalUML.md) | Documented |
 | Other runtime `.cs` files | Not yet documented | Pending |
 | Example `.cs` files | Not yet documented | Pending |
 | Contract-test `.cs` files | Not yet documented | Pending |
 
 ## Remaining runtime files
 
-- `src/raWWar/History/CandidateEventFrameCodec.cs`
-- `src/raWWar/History/CandidateFileEventJournal.cs`
-- `src/raWWar/History/SimulationEvent.cs`
 - `src/raWWar/Interaction/FighterPilotStation.cs`
 - `src/raWWar/Spatiotemporal/CartesianTransform3d.cs`
 - `src/raWWar/Spatiotemporal/GalaxyCellAddress.cs`
