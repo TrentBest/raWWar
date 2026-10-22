@@ -14,6 +14,9 @@ This folder records source-backed UML per C# file. Pages must describe checked-i
 | `src/raWWar/History/SimulationEvent.cs` | [SimulationEvent.cs.md](SimulationEvent.cs.md) · [SimulationEventUML.md](SimulationEventUML.md) | Documented |
 | `src/raWWar/History/CandidateEventFrameCodec.cs` | [CandidateEventFrameCodec.cs.md](CandidateEventFrameCodec.cs.md) · [CandidateEventFrameCodecUML.md](CandidateEventFrameCodecUML.md) | Documented |
 | `src/raWWar/History/CandidateFileEventJournal.cs` | [CandidateFileEventJournal.cs.md](CandidateFileEventJournal.cs.md) · [CandidateFileEventJournalUML.md](CandidateFileEventJournalUML.md) | Documented |
+| `src/raWWar/Spatiotemporal/CartesianTransform3d.cs` | [CartesianTransform3d.cs.md](CartesianTransform3d.cs.md) · [CartesianTransform3dUML.md](CartesianTransform3dUML.md) | Documented |
+| `src/raWWar/Spatiotemporal/GalaxyCellAddress.cs` | [GalaxyCellAddress.cs.md](GalaxyCellAddress.cs.md) · [GalaxyCellAddressUML.md](GalaxyCellAddressUML.md) | Documented |
+| `src/raWWar/Spatiotemporal/HierarchicalSpatialAddressCodec.cs` | [HierarchicalSpatialAddressCodec.cs.md](HierarchicalSpatialAddressCodec.cs.md) · [HierarchicalSpatialAddressCodecUML.md](HierarchicalSpatialAddressCodecUML.md) | Documented |
 | Other runtime `.cs` files | Not yet documented | Pending |
 | Example `.cs` files | Not yet documented | Pending |
 | Contract-test `.cs` files | Not yet documented | Pending |
@@ -22,8 +25,6 @@ This folder records source-backed UML per C# file. Pages must describe checked-i
 
 - `src/raWWar/Interaction/FighterPilotStation.cs`
 - `src/raWWar/Spatiotemporal/CartesianTransform3d.cs`
-- `src/raWWar/Spatiotemporal/GalaxyCellAddress.cs`
-- `src/raWWar/Spatiotemporal/HierarchicalSpatialAddressCodec.cs`
 - `src/raWWar/Spatiotemporal/HierarchicalSpatialAddressHasher.cs`
 - `src/raWWar/Spatiotemporal/KeplerOrbit.cs`
 
