@@ -20,13 +20,9 @@ This folder records source-backed UML per C# file. Pages must describe checked-i
 | `src/raWWar/Spatiotemporal/HierarchicalSpatialAddressHasher.cs` | [HierarchicalSpatialAddressHasher.cs.md](HierarchicalSpatialAddressHasher.cs.md) · [HierarchicalSpatialAddressHasherUML.md](HierarchicalSpatialAddressHasherUML.md) | Documented |
 | `src/raWWar/Spatiotemporal/KeplerOrbit.cs` | [KeplerOrbit.cs.md](KeplerOrbit.cs.md) · [KeplerOrbitUML.md](KeplerOrbitUML.md) | Documented |
 | `src/raWWar/Interaction/FighterPilotStation.cs` | [FighterPilotStation.cs.md](FighterPilotStation.cs.md) · [FighterPilotStationUML.md](FighterPilotStationUML.md) | Documented |
-| Other runtime `.cs` files | Not yet documented | Pending |
+| All runtime `.cs` files | Source companions and dedicated class diagrams indexed above | Complete |
 | Example `.cs` files | Not yet documented | Pending |
 | Contract-test `.cs` files | Not yet documented | Pending |
-
-## Remaining runtime files
-
-- `src/raWWar/Spatiotemporal/CartesianTransform3d.cs` is documented above; remaining unlisted runtime files are tracked in the pending category.
 
 ## Rules
 
