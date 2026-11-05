@@ -1,0 +1,17 @@
+{
+  "repository": "TrentBest/raWWar",
+  "policy": "exactly-master-and-development",
+  "required_branches": [
+    "development",
+    "master"
+  ],
+  "actual_branches": [
+    "development",
+    "master"
+  ],
+  "branch_count": 2,
+  "status": "COMPLIANT",
+  "evaluated_at": "2026-11-05T04:27:47Z",
+  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/41967943634",
+  "triggering_commit": "879596a8024689c388a1050cd79c068cd9b56216"
+}
