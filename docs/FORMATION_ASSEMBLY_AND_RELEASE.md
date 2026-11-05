@@ -161,7 +161,7 @@ This is an Experience-level behavior composed from reusable capabilities.
 | Concern | Owner |
 |---|---|
 | Formation membership, stable slots, assembly/release order, readiness | raWWar formation/command domain |
-| Individual movement and authoritative position/clearance | raWWar movement/world rules, using the appropriate physical capabilities |
+| Desired slot assignment, staging/egress intent, and formation-relative targets | raWWar formation/command domain |\n| Individual motion procedure and time-dependent motion description | Gestures |\n| Physical prediction, collision/contact, achieved state, and clearance evidence | Physics |\n| Translation between motion descriptions and physical simulation inputs/observations | Explicit adapter / host integration |
 | Individual pose and procedural action | Gestures |
 | Collision, clearance, and physical consequences | Physics / authoritative world simulation |
 | Isometric/orthographic scene, markers, instancing, visual LOD | Visualize |
@@ -198,7 +198,7 @@ This document is a candidate design and implementation brief. It does not establ
 - a squad/platoon command hierarchy;
 - large-population simulation or rendering performance.
 
-Before implementation, the formation domain should be reconciled with the existing soldier, movement, world-coordinate, command, and MicroBundle contracts. In particular, slot dimensions, spacing, approach path planning, interruption behavior, blocked-slot recovery, and safe release ordering need executable contracts and tests.
+Before implementation, the formation domain should be reconciled with the existing soldier, Gesture motion, Physics interaction, command, and MicroBundle contracts. Physics issue [#31](https://github.com/TrentBest/TheSingularityWorkshop.Physics/issues/31) now describes the proposed motion-driven interaction pipeline: Gestures supplies a motion description; Physics predicts, confirms, resolves, and records physical interactions; adapters translate between them. That pipeline is still a proposal, not an implemented integration. In particular, slot dimensions, spacing, approach target generation, interruption behavior, blocked-slot recovery, and safe release ordering need executable contracts and tests. The first coordinator test must not masquerade as proof of a working locomotion or collision pipeline.
 
 Related design: [Unit Formation, Training, Drilling, and Cohesion](UNIT_FORMATION_TRAINING_AND_COHESION.md), [Gestures Design](GESTURES_DESIGN.md), [Simulation Scale and Memory](SIMULATION_SCALE_AND_MEMORY.md), and [Renderer Integration](RENDERER_INTEGRATION.md).
 
