@@ -6,3 +6,5 @@
 </p>
 
 # raWWar
+
+[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
