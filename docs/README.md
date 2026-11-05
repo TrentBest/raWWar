@@ -40,7 +40,7 @@ System-specific documents expand the design without silently changing canon.
 - [Game Design Document](GAME_DESIGN_DOCUMENT.md) — comprehensive living master GDD.
 - [Public Design Hub](DESIGN_HUB.md) — future WebPage presentation of the raWWar design.
 - [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) — how raWWar fits into FSM_API, MicroBundles, FSM_COS, AnyApp, UserIO, and the Workshop Renderer, including what raWWar deliberately does not reinvent.
-- [Vision and Pillars](VISION_AND_PILLARS.md) — north star and non-negotiable principles.
+- [Vision and Pillars](VISION_AND_PILLARS.md) — north star and non-negotiable principles.\n- [Formation Assembly, Drill-Field Presentation, and Fall Out](FORMATION_ASSEMBLY_AND_RELEASE.md) — candidate visual and lifecycle contract for assembling soldiers into slots, recursively forming squads/platoons, and physically releasing positions.
 - [Player Roles](PLAYER_ROLES.md) — occupations, roles, and qualification-driven participation.
 - [Persistent Universes](PERSISTENT_UNIVERSES.md) — long-term persistent-world vision.
 - [Authored Galaxies, Campaigns, and Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md) — deliberate single-player campaign construction, reproducible multiplayer generation, civilization ancestry, validation, and distribution.
