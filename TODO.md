@@ -77,6 +77,7 @@
 
 ## P2 — Deliver one meaningful first-person vertical slice
 
+- [ ] **First formation lifecycle:** implement the one-soldier/one-slot Fall In → confirmed occupancy → Fall Out → confirmed clearance proof tracked by [issue #7](https://github.com/TrentBest/raWWar/issues/7). The candidate presentation and ownership contract is in [Formation Assembly and Fall Out](docs/FORMATION_ASSEMBLY_AND_RELEASE.md). No formation movement/runtime implementation is claimed yet; reconcile the existing local coordinate-transform and movement/world contracts before selecting the runtime boundary.
 - [ ] Re-establish the station-and-rig prototype only after design readiness is confirmed. A historical prototype/test snapshot at `7ec40343f15a15639951a096165169cf991d7920` passed 195/195 checks in [run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718), but that prototype was subsequently reverted; do not count it as current implementation.
 - [ ] Resolve the relevant creator-owned interaction/control questions before selecting the fighter-pilot implementation slice. See [Open Question 23](docs/OPEN_QUESTIONS.md#23-what-exactly-does-the-pilot-control-rig-measure-and-command) and the [candidate Fighter Pilot Action Slice](docs/FIGHTER_PILOT_ACTION_SLICE.md). The sketch is design-only, not canon or a runnable example.
 - [ ] Once selected, trace one role through the whole chain: station state → qualified occupant → physical controls → FSM/procedure → authoritative world action → durable outcome/event → observable feedback.
