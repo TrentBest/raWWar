@@ -12,6 +12,7 @@
 
 ![raWWar — The war is alive](docs/images/rawwar-hero.svg)
 
+[![Sith Policy](assets/sith-policy.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
 **Explore:** [Gallery](docs/GALLERY.md) · [Operation Sith branch reconciliation](docs/OPERATION_SITH_BRANCH_RECONCILIATION.md)
 
 **Choose your depth:** [Enter the world](docs/FLAGSHIP_EXPERIENCE_STORY.md#1-enter-a-world-that-does-not-wait-for-you) · [Meet the soldier](docs/FLAGSHIP_EXPERIENCE_STORY.md#2-the-soldier-is-the-star) · [Understand the machinery](docs/FLAGSHIP_EXPERIENCE_STORY.md#3-make-the-world-legible-as-a-system) · [Inspect the evidence](docs/FLAGSHIP_EXPERIENCE_STORY.md#4-let-the-visuals-point-to-real-experiments)
