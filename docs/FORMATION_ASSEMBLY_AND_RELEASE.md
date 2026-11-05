@@ -161,29 +161,32 @@ This is an Experience-level behavior composed from reusable capabilities.
 | Concern | Owner |
 |---|---|
 | Formation membership, stable slots, assembly/release order, readiness | raWWar formation/command domain |
-| Desired slot assignment, staging/egress intent, and formation-relative targets | raWWar formation/command domain |\n| Individual motion procedure and time-dependent motion description | Gestures |\n| Physical prediction, collision/contact, achieved state, and clearance evidence | Physics |\n| Translation between motion descriptions and physical simulation inputs/observations | Explicit adapter / host integration |
-| Individual pose and procedural action | Gestures |
-| Collision, clearance, and physical consequences | Physics / authoritative world simulation |
+| Desired slot assignment, staging/egress intent, and formation-relative targets | raWWar formation/command domain |
+| Individual motion procedure and time-dependent motion description | Gestures |
+| Physical prediction, collision/contact, achieved state, and clearance evidence | Physics |
+| Translation between motion descriptions and physical simulation inputs/observations | Explicit adapter / host integration |
 | Isometric/orthographic scene, markers, instancing, visual LOD | Visualize |
 | Observer-relative detail selection | Renderer |
 | Player-facing controls and command presentation | GUI / host presentation |
 
-Gestures does not own formation membership or decide when the squad is ready. Visualize does not decide whether a slot is physically occupied. Renderer does not own world state. GUI does not become the formation simulation.
+Gestures does not own formation membership or decide when the squad is ready. Physics does not own the squad's organizational structure or slot assignment. Visualize does not decide whether a slot is physically occupied. Renderer does not own world state. GUI does not become the formation simulation.
+
+The intended physical interaction boundary is important: a Gesture motion description is not automatically an achieved physical trajectory. Physics evaluates/predicts physical consequences and reports achieved state; an explicit adapter connects the two. Physics issue [#31](https://github.com/TrentBest/TheSingularityWorkshop.Physics/issues/31) records the proposed motion-driven pipeline, but that pipeline is not yet an implemented integration.
 
 ## 9. First executable proof
 
-Build the smallest end-to-end behavior before attempting large armies:
+Build the smallest inspectable lifecycle before attempting large armies:
 
 1. one soldier with a stable identity;
-2. one formation with one defined slot;
-3. one staging point and one approach path;
-4. an approach that decelerates and aligns;
-5. authoritative confirmation that the slot is occupied;
-6. a Fall Out order;
-7. movement through an egress path;
-8. authoritative confirmation that the slot is clear.
+2. one formation with one defined slot in a formation-local frame;
+3. one staging point and one formation-issued approach target;
+4. a narrow adapter contract through which a Gesture motion description can be supplied to physical simulation;
+5. a coordinator contract test using a deterministic motion/physics test double, clearly labeled as a coordinator test rather than a physical-motion proof;
+6. authoritative Physics/world observations before the slot is marked occupied;
+7. a Fall Out order with a reserved egress target;
+8. authoritative confirmation that the soldier has physically cleared the slot before it is released.
 
-Then expand to four soldiers and a two-by-two squad. Only after that proof should the work expand to multiple squads and platoon assembly.
+Then expand the coordinator to four soldiers and a two-by-two squad. Only after the individual movement/physical interaction pipeline is demonstrated should the work expand to multiple squads and platoon assembly.
 
 The first success criterion is not a crowd screenshot. It is a repeatable, inspectable lifecycle in which membership, physical position, visual state, and readiness agree.
 
