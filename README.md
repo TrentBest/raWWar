@@ -74,7 +74,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 - **Want to understand the technology boundary:** read [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
 - **Designing a system:** start at the [Design Documentation Index](docs/README.md), then follow the relevant deep dive.
 - **Reviewing implementation status:** read [Technical Design](docs/TECHNICAL_DESIGN.md), [Production Plan](docs/PRODUCTION_PLAN.md), and [TODO.md](TODO.md).
-- **Understanding procedural motion:** read [Gestures Design](docs/GESTURES_DESIGN.md) and the [standalone Gestures package](https://github.com/TrentBest/TheSingularityWorkshop.Gestures).
+- **Understanding procedural motion:** read [Gestures Design](docs/GESTURES_DESIGN.md) and the [standalone Gestures package](https://github.com/TrentBest/TheSingularityWorkshop.Gestures).\n- **Understanding unit assembly:** read [Formation Assembly and Fall Out](docs/FORMATION_ASSEMBLY_AND_RELEASE.md) alongside [Unit Formation, Training, Drilling, and Cohesion](docs/UNIT_FORMATION_TRAINING_AND_COHESION.md).
 - **Understanding GPU presentation:** read [Renderer Integration](docs/RENDERER_INTEGRATION.md) and the [Visualize implementation](https://github.com/TrentBest/TheSingularityWorkshop.Visualize).
 - **Building or verifying the repository:** use the commands in **See it in a minute** and the evidence guidance below.
 
