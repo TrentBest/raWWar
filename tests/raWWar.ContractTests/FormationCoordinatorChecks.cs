@@ -19,8 +19,10 @@ internal static class FormationCoordinatorChecks
         var initialReadiness = fallIn.After.Readiness;
         check(initialReadiness.Capacity == 4 && initialReadiness.AssignedMembers == 2 &&
               initialReadiness.ApproachingMembers == 2 && initialReadiness.OccupiedMembers == 0 &&
-              initialReadiness.AvailableSlots == 2 && initialReadiness.ReservedApproachSlots == 2,
-            "Readiness reports capacity, assignments, approach reservations, and unassigned slots");
+              initialReadiness.UnassignedSlots == 2 && initialReadiness.ReleasedAvailableSlots == 0 &&
+              initialReadiness.AvailableSlots == 2 && initialReadiness.BlockedSlots == 0 &&
+              initialReadiness.UnavailableSlots == 0 && initialReadiness.ReservedApproachSlots == 2,
+            "Readiness separates unassigned capacity, released slots, blocked slots, and reservations");
 
         var first = fallIn.After.Members.Single(x => x.MemberId == "s1");
         var partial = fallIn.After.TryObserveApproach(new FormationMemberObservation(
@@ -97,6 +99,11 @@ internal static class FormationCoordinatorChecks
               FormationSlotState.Available &&
               clear.After.Members.Single(x => x.MemberId == "s1").MemberState == FormationMemberState.Clear,
             "Explicit physical clearance releases the slot");
+        check(clear.After.Readiness.UnassignedSlots == 2 &&
+              clear.After.Readiness.ReleasedAvailableSlots == 1 &&
+              clear.After.Readiness.AvailableSlots == 3 &&
+              clear.After.Readiness.ClearMembers == 1,
+            "Released capacity is reported separately from never-assigned capacity");
 
         var blockedFormation = FormationCoordinator.Create("company-b", 1, 1)
             .TryIssueFallIn(new[] { new FormationQueueMember("blocked", 0) }).After;
@@ -105,6 +112,10 @@ internal static class FormationCoordinatorChecks
             "blocked", blockedMember.OrderRevision, false, false, true, false));
         check(blocked.Accepted && blocked.After.Members.Single().SlotState == FormationSlotState.Blocked,
             "Blocked approach remains explicit and is not treated as arrival");
+        check(blocked.After.Readiness.BlockedSlots == 1 &&
+              blocked.After.Readiness.AvailableSlots == 0 &&
+              blocked.After.Readiness.BlockedMembers == 1,
+            "Blocked slot capacity is not reported as available");
 
         var retried = blocked.After.TryRetryApproach("blocked");
         check(retried.Accepted && retried.After.Members.Single().MemberState == FormationMemberState.Approaching &&
@@ -122,6 +133,10 @@ internal static class FormationCoordinatorChecks
               unavailable.After.Members.Single().SlotState == FormationSlotState.Unavailable &&
               unavailable.After.Members.Single().StatusReason == "actor not materialized",
             "Unavailable members retain an explicit reason and do not occupy a slot");
+        check(unavailable.After.Readiness.UnavailableSlots == 1 &&
+              unavailable.After.Readiness.AvailableSlots == 0 &&
+              unavailable.After.Readiness.UnavailableMembers == 1,
+            "Unavailable slot capacity is distinct from free capacity");
         var cannotEraseOccupancy = arrived.After.TryMarkUnavailable("s1", "disconnect");
         check(!cannotEraseOccupancy.Accepted &&
               cannotEraseOccupancy.After.Members.Single(x => x.MemberId == "s1").SlotState == FormationSlotState.Occupied,
