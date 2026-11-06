@@ -13,7 +13,7 @@
 
 ## Readiness reporting
 
-The executable coordinator exposes a deterministic `FormationReadiness` snapshot: total capacity, assigned members, occupied/settled, approaching, blocked, releasing, interrupted, unavailable, clear, available slots, and approach/release reservations. `IsFormed` is true only when at least one member is assigned and every assigned member is settled; unassigned capacity does not prevent a partially filled unit from being formed. These counts describe coordinator state only and do not estimate simulation or presentation population.
+The executable coordinator exposes a deterministic `FormationReadiness` snapshot: total capacity, assigned members, occupied/settled, approaching, blocked, releasing, interrupted, unavailable, clear, unassigned slots, released-and-available slots, total available slots, blocked slots, unavailable slots, and approach/release reservations. Total available capacity is explicitly the sum of never-assigned slots and slots released after confirmed clearance; blocked and unavailable slots are not counted as free. This prevents a vacant-but-blocked position from being presented as an open slot. `IsFormed` is true only when at least one member is assigned and every assigned member is settled; unassigned capacity does not prevent a partially filled unit from being formed. These counts describe coordinator state only and do not estimate simulation or presentation population.
 
 ## Implementation status — first executable coordinator slice
 
@@ -27,7 +27,7 @@ The coordinator issues a Fall In assignment as `ReservedForApproach`; command is
 
 Fall Out changes an occupied slot to `ReservedForRelease` and requires a named egress target. The slot becomes `Available` only after an explicit physical-clearance observation matching the current member revision. Stale observations are rejected. These DTOs are a host-neutral test seam; they do not validate the source or quality of physical evidence and do not implement locomotion, pathfinding, collision, or a Gesture/Physics adapter.
 
-The solution build, local package-content verification, executable contract checks, event-frame reference verification, and checked-in usage examples passed on commit `c125f90a8a7cdeb09faf6fd5cf2b1d6217d08878`. Interruption/resume checks are the next CI validation.
+The solution build, local package-content verification, executable contract checks, event-frame reference verification, and checked-in usage examples passed on commit `09daa43c35219b9e668cb90b2a8948f58a739849`. The expanded slot-readiness accounting is a subsequent change and must pass its own CI run before being treated as validated.
 
 ## 1. Scope
 
