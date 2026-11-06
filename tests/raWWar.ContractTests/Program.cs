@@ -1391,6 +1391,7 @@ Check(!damagedConnection.Accepted &&
     "Damaged station controls block interface connection explicitly");
 
 FormationSlotPlannerChecks.Run(Check);
+FormationCoordinatorChecks.Run(Check);
 CandidateFileEventJournalChecks.Run(Check);
 
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
