@@ -16,6 +16,12 @@ internal static class FormationCoordinatorChecks
               fallIn.After.Members.All(x => x.SlotState == FormationSlotState.ReservedForApproach),
             "Fall In reserves assignments but does not claim physical occupancy");
 
+        var initialReadiness = fallIn.After.Readiness;
+        check(initialReadiness.Capacity == 4 && initialReadiness.AssignedMembers == 2 &&
+              initialReadiness.ApproachingMembers == 2 && initialReadiness.OccupiedMembers == 0 &&
+              initialReadiness.AvailableSlots == 2 && initialReadiness.ReservedApproachSlots == 2,
+            "Readiness reports capacity, assignments, approach reservations, and unassigned slots");
+
         var first = fallIn.After.Members.Single(x => x.MemberId == "s1");
         var partial = fallIn.After.TryObserveApproach(new FormationMemberObservation(
             "s1", first.OrderRevision, true, false, false, false));
@@ -28,6 +34,16 @@ internal static class FormationCoordinatorChecks
         check(arrived.Accepted && arrived.After.Members.Single(x => x.MemberId == "s1").SlotState ==
               FormationSlotState.Occupied,
             "Matching position and facing observations confirm occupancy");
+
+        check(!arrived.After.Readiness.IsFormed && arrived.After.Readiness.OccupiedMembers == 1 &&
+              arrived.After.Readiness.ApproachingMembers == 1,
+            "One settled member does not mark a partially assembled formation as formed");
+        var second = arrived.After.Members.Single(x => x.MemberId == "s2");
+        var fullyArrived = arrived.After.TryObserveApproach(new FormationMemberObservation(
+            "s2", second.OrderRevision, true, true, false, false));
+        check(fullyArrived.Accepted && fullyArrived.After.Readiness.IsFormed &&
+              fullyArrived.After.Readiness.OccupiedMembers == 2,
+            "Formation readiness becomes formed only when every assigned member is settled");
 
         var stale = arrived.After.TryObserveApproach(new FormationMemberObservation(
             "s1", first.OrderRevision - 1, true, true, false, false));
