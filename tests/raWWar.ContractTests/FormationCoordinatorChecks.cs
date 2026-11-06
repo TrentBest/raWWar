@@ -196,5 +196,4 @@ internal static class FormationCoordinatorChecks
         check(accountedCapacity == readiness.Capacity,
             $"Formation capacity is conserved across {snapshot}: expected {readiness.Capacity}, accounted {accountedCapacity}");
     }
-    }
 }
