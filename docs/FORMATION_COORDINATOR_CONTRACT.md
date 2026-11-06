@@ -27,7 +27,7 @@ The coordinator issues a Fall In assignment as `ReservedForApproach`; command is
 
 Fall Out changes an occupied slot to `ReservedForRelease` and requires a named egress target. The slot becomes `Available` only after an explicit physical-clearance observation matching the current member revision. Stale observations are rejected. These DTOs are a host-neutral test seam; they do not validate the source or quality of physical evidence and do not implement locomotion, pathfinding, collision, or a Gesture/Physics adapter.
 
-The solution build, local package-content verification, executable contract checks, event-frame reference verification, and checked-in usage examples passed on commit `09daa43c35219b9e668cb90b2a8948f58a739849`. The expanded slot-readiness accounting is a subsequent change and must pass its own CI run before being treated as validated.
+The solution build, local package-content verification, executable contract checks, Soldier Field preview generation/parity/tests, event-frame reference verification, and checked-in usage examples passed on commit `429b00e6d8228c3d3b63586b990870c21c54dd07` (Build and Contract run `42168275434`). Sith Policy also passed on that commit (run `42168275438`). No package was published.
 
 ## 1. Scope
 
