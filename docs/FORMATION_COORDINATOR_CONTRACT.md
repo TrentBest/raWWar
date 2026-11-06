@@ -7,7 +7,7 @@
 
 # Formation Coordinator: Pure Planning and Lifecycle Contract
 
-**Status:** Candidate domain contract for the first raWWar formation slice. This document is a design/test target, not an implemented API or movement system.
+**Status:** Candidate domain contract with a first executable, host-independent coordinator slice on `development`. This is organizational state and a test seam, not an implemented movement or physical-observation integration.
 
 > **The coordinator decides who should occupy which slot and what organizational transition is pending. It never decides that a soldier has physically arrived.**
 
@@ -19,11 +19,11 @@ The development branch now contains:
 - `FormationCoordinator`: immutable, host-independent member/slot lifecycle bookkeeping.
 - Executable checks in `FormationSlotPlannerChecks.cs` and `FormationCoordinatorChecks.cs`.
 
-The coordinator issues a Fall In assignment as `ReservedForApproach`; command issuance alone never occupies a slot. A member becomes `Occupied/Settled` only after the host supplies an observation matching that member's current order revision and confirming both slot position and facing. Blocked approach remains explicit and can be retried with a new per-member revision. An approaching or blocked member can be marked unavailable with a retained reason; this cannot erase an already occupied or releasing physical state.
+The coordinator issues a Fall In assignment as `ReservedForApproach`; command issuance alone never occupies a slot. A member becomes `Occupied/Settled` only after the host supplies an observation matching that member's current order revision and confirming both slot position and facing. Blocked approach remains explicit and can be retried with a new per-member revision. Approach and release can be interrupted and resumed; interruption advances the member revision while preserving its slot reservation, and resume advances it again. Thus pre-interruption observations cannot complete a resumed order. An approaching or blocked member can be marked unavailable with a retained reason; this cannot erase an already occupied or releasing physical state.
 
 Fall Out changes an occupied slot to `ReservedForRelease` and requires a named egress target. The slot becomes `Available` only after an explicit physical-clearance observation matching the current member revision. Stale observations are rejected. These DTOs are a host-neutral test seam; they do not validate the source or quality of physical evidence and do not implement locomotion, pathfinding, collision, or a Gesture/Physics adapter.
 
-The solution build, local package-content verification, executable contract checks, event-frame reference verification, and checked-in usage examples passed on commit `bba30ed8f631138af0c834aed6a562b2df5bffb3`. The additional blocked-retry/unavailable checks are being validated in the next CI run.
+The solution build, local package-content verification, executable contract checks, event-frame reference verification, and checked-in usage examples passed on commit `c125f90a8a7cdeb09faf6fd5cf2b1d6217d08878`. Interruption/resume checks are the next CI validation.
 
 ## 1. Scope
 
@@ -101,6 +101,7 @@ Candidate member activity states:
 | Releasing | Has an active release/egress assignment |
 | Clear | Physical observation confirms the member has cleared the slot |
 | Unavailable | Cannot currently participate; reason is retained |
+| Interrupted | An approach or release order is paused; the existing slot reservation is retained |
 
 The exact implementation may use value objects or a smaller state representation, but it must preserve these distinctions.
 
@@ -137,7 +138,7 @@ When an order is interrupted or superseded:
 - reject stale observations that refer to superseded assignments, while retaining them for diagnostics if useful;
 - make retry/replan decisions explicit and deterministic.
 
-A blocked approach leaves the slot reserved or explicitly transitions it to a blocked/recovery state according to policy; it cannot be counted as occupied. A blocked release cannot free the slot.
+A blocked approach leaves the slot reserved or explicitly transitions it to a blocked/recovery state according to policy; it cannot be counted as occupied. A blocked release cannot free the slot. An interrupted approach or release retains its current reservation; resuming it issues a new member revision, invalidating observations from the interrupted order.
 
 ## 7. Readiness is derived
 
