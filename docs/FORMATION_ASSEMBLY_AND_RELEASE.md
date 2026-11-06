@@ -203,6 +203,8 @@ This document is a candidate design and implementation brief. It does not establ
 
 Before implementation, the formation domain should be reconciled with the existing soldier, Gesture motion, Physics interaction, command, and MicroBundle contracts. The Physics [motion-driven interaction pipeline](https://github.com/TrentBest/TheSingularityWorkshop.Physics/blob/development/docs/MOTION_DRIVEN_INTERACTION_PIPELINE.md), paired with Gestures [issue #33](https://github.com/TrentBest/TheSingularityWorkshop.Gestures/issues/33), describes the proposed host-side handoff: Gestures supplies a versioned motion description; the host adapter translates it; Physics evaluates physical consequences and reports authoritative observations. This is still a research/design proposal, not an implemented integration. Physics remains independent of Gestures. In particular, slot dimensions, spacing, approach target generation, interruption behavior, blocked-slot recovery, and safe release ordering need executable contracts and tests. The first coordinator test must not masquerade as proof of a working locomotion or collision pipeline.
 
+Coordinator contract: [Formation Coordinator: Pure Planning and Lifecycle Contract](FORMATION_COORDINATOR_CONTRACT.md) defines deterministic slot planning, separate member/slot states, command-versus-observation semantics, revision-safe interruption handling, and the minimum coordinator test matrix. It remains a candidate contract, not an implemented API.
+
 Related design: [Unit Formation, Training, Drilling, and Cohesion](UNIT_FORMATION_TRAINING_AND_COHESION.md), [Gestures Design](GESTURES_DESIGN.md), [Simulation Scale and Memory](SIMULATION_SCALE_AND_MEMORY.md), and [Renderer Integration](RENDERER_INTEGRATION.md).
 
 ---
