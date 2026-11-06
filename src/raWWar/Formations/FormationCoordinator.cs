@@ -213,7 +213,7 @@ public sealed class FormationCoordinator
 
     private FormationCoordinatorTransition Replace(FormationMemberStatus updated, int? revision = null)
     {
-        var next = new Dictionary<string, FormationMemberStatus>(_members, StringComparer.Ordinal)
+        var next = _members.ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal)
         {
             [updated.MemberId] = updated
         };
