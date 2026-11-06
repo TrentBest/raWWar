@@ -5,12 +5,17 @@ namespace TheSingularityWorkshop.raWWar.Formations;
 /// file zero is the first lateral position in the declared left-to-right convention.
 /// These are logical indices, not world coordinates or physical spacing.
 /// </summary>
-public readonly record struct FormationSlot(int Rank, int File)
+public readonly record struct FormationSlot
 {
-    public FormationSlot
+    public int Rank { get; }
+    public int File { get; }
+
+    public FormationSlot(int rank, int file)
     {
-        if (Rank < 0) throw new ArgumentOutOfRangeException(nameof(Rank));
-        if (File < 0) throw new ArgumentOutOfRangeException(nameof(File));
+        if (rank < 0) throw new ArgumentOutOfRangeException(nameof(rank));
+        if (file < 0) throw new ArgumentOutOfRangeException(nameof(file));
+        Rank = rank;
+        File = file;
     }
 }
 
