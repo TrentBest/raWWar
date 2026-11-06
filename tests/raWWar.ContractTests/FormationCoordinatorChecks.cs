@@ -157,5 +157,44 @@ internal static class FormationCoordinatorChecks
         check(!emptyReform.Accepted, "Empty Fall In order is rejected");
         var duplicateFormation = fallIn.After.TryIssueFallIn(Array.Empty<FormationQueueMember>());
         check(!duplicateFormation.Accepted, "An assigned formation cannot be silently replaced");
+
+        CheckCapacityInvariant(created, check, "empty formation");
+        CheckCapacityInvariant(fallIn.After, check, "initial assignments");
+        CheckCapacityInvariant(partial.After, check, "partial arrival");
+        CheckCapacityInvariant(arrived.After, check, "one settled member");
+        CheckCapacityInvariant(fullyArrived.After, check, "fully formed");
+        CheckCapacityInvariant(fallOut.After, check, "release issued");
+        CheckCapacityInvariant(interruptedApproach.After, check, "approach interrupted");
+        CheckCapacityInvariant(resumedApproach.After, check, "approach resumed");
+        CheckCapacityInvariant(interruptedRelease.After, check, "release interrupted");
+        CheckCapacityInvariant(resumedRelease.After, check, "release resumed");
+        CheckCapacityInvariant(notClear.After, check, "clearance unconfirmed");
+        CheckCapacityInvariant(clear.After, check, "clearance confirmed");
+        CheckCapacityInvariant(blockedFormation, check, "blocked approach pending");
+        CheckCapacityInvariant(blocked.After, check, "blocked approach observed");
+        CheckCapacityInvariant(retried.After, check, "blocked approach retried");
+        CheckCapacityInvariant(unavailableFormation, check, "unavailable member");
+        CheckCapacityInvariant(unavailable.After, check, "member marked unavailable");
+    }
+
+    private static void CheckCapacityInvariant(
+        FormationCoordinator coordinator,
+        Action<bool, string> check,
+        string snapshot)
+    {
+        var readiness = coordinator.Readiness;
+        var accountedCapacity =
+            readiness.UnassignedSlots +
+            readiness.ReleasedAvailableSlots +
+            readiness.OccupiedMembers +
+            readiness.ApproachingMembers +
+            readiness.BlockedMembers +
+            readiness.ReleasingMembers +
+            readiness.InterruptedMembers +
+            readiness.UnavailableMembers;
+
+        check(accountedCapacity == readiness.Capacity,
+            $"Formation capacity is conserved across {snapshot}: expected {readiness.Capacity}, accounted {accountedCapacity}");
+    }
     }
 }
