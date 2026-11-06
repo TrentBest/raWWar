@@ -109,8 +109,8 @@ public sealed class FormationCoordinator
                 members.Count(member => member.MemberState == FormationMemberState.Clear),
                 checked(RankCount * FilesPerRank) - _members.Count,
                 members.Count(member => member.SlotState == FormationSlotState.Available),
-                checked(RankCount * FilesPerRank) - members.Count(member => member.SlotState != FormationSlotState.Available) -
-                    (checked(RankCount * FilesPerRank) - _members.Count),
+                checked(RankCount * FilesPerRank) - _members.Count +
+                    members.Count(member => member.SlotState == FormationSlotState.Available),
                 members.Count(member => member.SlotState == FormationSlotState.Blocked),
                 members.Count(member => member.SlotState == FormationSlotState.Unavailable),
                 members.Count(member => member.SlotState == FormationSlotState.ReservedForApproach),
