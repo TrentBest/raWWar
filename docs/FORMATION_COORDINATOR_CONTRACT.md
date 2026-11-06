@@ -11,6 +11,10 @@
 
 > **The coordinator decides who should occupy which slot and what organizational transition is pending. It never decides that a soldier has physically arrived.**
 
+## Readiness reporting
+
+The executable coordinator exposes a deterministic `FormationReadiness` snapshot: total capacity, assigned members, occupied/settled, approaching, blocked, releasing, interrupted, unavailable, clear, available slots, and approach/release reservations. `IsFormed` is true only when at least one member is assigned and every assigned member is settled; unassigned capacity does not prevent a partially filled unit from being formed. These counts describe coordinator state only and do not estimate simulation or presentation population.
+
 ## Implementation status — first executable coordinator slice
 
 The development branch now contains:
