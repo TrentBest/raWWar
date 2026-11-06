@@ -63,6 +63,11 @@ internal static class FormationCoordinatorChecks
         check(interruptedApproach.Accepted && pausedApproach.MemberState == FormationMemberState.Interrupted &&
               pausedApproach.SlotState == FormationSlotState.ReservedForApproach,
             "Interrupting approach preserves its slot reservation");
+        check(interruptedApproach.After.Readiness.InterruptedMembers == 1 &&
+              interruptedApproach.After.Readiness.ApproachingMembers == 1 &&
+              interruptedApproach.After.Readiness.ReservedApproachSlots == 2 &&
+              interruptedApproach.After.Readiness.AvailableSlots == 2,
+            "Interrupted approach remains counted against its reserved capacity");
         var resumedApproach = interruptedApproach.After.TryResumeInterrupted("s2");
         var resumedApproachMember = resumedApproach.After.Members.Single(x => x.MemberId == "s2");
         check(resumedApproach.Accepted && resumedApproachMember.MemberState == FormationMemberState.Approaching &&
@@ -77,6 +82,12 @@ internal static class FormationCoordinatorChecks
         check(interruptedRelease.Accepted && pausedRelease.MemberState == FormationMemberState.Interrupted &&
               pausedRelease.SlotState == FormationSlotState.ReservedForRelease,
             "Interrupting release retains its slot reservation");
+        check(interruptedRelease.After.Readiness.InterruptedMembers == 1 &&
+              interruptedRelease.After.Readiness.ApproachingMembers == 1 &&
+              interruptedRelease.After.Readiness.ReservedApproachSlots == 1 &&
+              interruptedRelease.After.Readiness.ReservedReleaseSlots == 1 &&
+              interruptedRelease.After.Readiness.ReleasedAvailableSlots == 0,
+            "Interrupted release remains reserved and is not counted as released capacity");
         var resumedRelease = interruptedRelease.After.TryResumeInterrupted("s1");
         var resumedReleaseMember = resumedRelease.After.Members.Single(x => x.MemberId == "s1");
         check(resumedRelease.Accepted && resumedReleaseMember.MemberState == FormationMemberState.Releasing &&
