@@ -40,6 +40,25 @@ public sealed record FormationMemberStatus(
     string? EgressTargetId,
     string? StatusReason);
 
+/// <summary>Deterministic aggregate counts for the current formation snapshot.</summary>
+public sealed record FormationReadiness(
+    int Capacity,
+    int AssignedMembers,
+    int OccupiedMembers,
+    int ApproachingMembers,
+    int BlockedMembers,
+    int ReleasingMembers,
+    int InterruptedMembers,
+    int UnavailableMembers,
+    int ClearMembers,
+    int AvailableSlots,
+    int ReservedApproachSlots,
+    int ReservedReleaseSlots)
+{
+    /// <summary>True only when at least one member is assigned and every assigned member is settled.</summary>
+    public bool IsFormed => AssignedMembers > 0 && OccupiedMembers == AssignedMembers;
+}
+
 /// <summary>
 /// Immutable, host-independent first-slice coordinator. It issues slot assignments and
 /// consumes explicit observations; it never moves members or infers physical occupancy.
@@ -68,6 +87,27 @@ public sealed class FormationCoordinator
     public int Revision { get; }
     public IReadOnlyList<FormationMemberStatus> Members =>
         _members.Values.OrderBy(member => member.MemberId, StringComparer.Ordinal).ToArray();
+
+    public FormationReadiness Readiness
+    {
+        get
+        {
+            var members = _members.Values;
+            return new FormationReadiness(
+                checked(RankCount * FilesPerRank),
+                _members.Count,
+                members.Count(member => member.MemberState == FormationMemberState.Settled),
+                members.Count(member => member.MemberState == FormationMemberState.Approaching),
+                members.Count(member => member.MemberState == FormationMemberState.Blocked),
+                members.Count(member => member.MemberState == FormationMemberState.Releasing),
+                members.Count(member => member.MemberState == FormationMemberState.Interrupted),
+                members.Count(member => member.MemberState == FormationMemberState.Unavailable),
+                members.Count(member => member.MemberState == FormationMemberState.Clear),
+                checked(RankCount * FilesPerRank) - members.Count(member => member.SlotState != FormationSlotState.Available),
+                members.Count(member => member.SlotState == FormationSlotState.ReservedForApproach),
+                members.Count(member => member.SlotState == FormationSlotState.ReservedForRelease));
+        }
+    }
 
     public bool IsFormed =>
         _members.Count > 0 && _members.Values.All(member => member.MemberState == FormationMemberState.Settled);
