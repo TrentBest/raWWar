@@ -25,6 +25,7 @@ public enum FormationMemberState
     Settled,
     Blocked,
     Releasing,
+    Interrupted,
     Clear,
     Unavailable
 }
@@ -139,6 +140,61 @@ public sealed class FormationCoordinator
         {
             SlotState = FormationSlotState.Occupied,
             MemberState = FormationMemberState.Settled
+        });
+    }
+
+    /// <summary>
+    /// Records an interruption without freeing a reserved or occupied slot.
+    /// An interrupted release retains its release reservation until clearance is observed.
+    /// </summary>
+    public FormationCoordinatorTransition TryInterrupt(string memberId, string reason)
+    {
+        if (string.IsNullOrWhiteSpace(memberId))
+            return Block("Member identity must be non-empty.");
+        if (string.IsNullOrWhiteSpace(reason))
+            return Block("An interruption reason is required.");
+        if (!_members.TryGetValue(memberId, out var current))
+            return Block("The member is not assigned to this formation.");
+        if (current.MemberState is not (FormationMemberState.Approaching or FormationMemberState.Releasing))
+            return Block("Only an approaching or releasing member can be interrupted.");
+
+        var nextRevision = checked(current.OrderRevision + 1);
+        return Replace(current with
+        {
+            MemberState = FormationMemberState.Interrupted,
+            OrderRevision = nextRevision,
+            StatusReason = reason
+        });
+    }
+
+    /// <summary>
+    /// Resumes an interrupted order with a new revision while preserving the slot's
+    /// approach or release reservation. It does not imply movement or clearance.
+    /// </summary>
+    public FormationCoordinatorTransition TryResumeInterrupted(string memberId)
+    {
+        if (string.IsNullOrWhiteSpace(memberId))
+            return Block("Member identity must be non-empty.");
+        if (!_members.TryGetValue(memberId, out var current))
+            return Block("The member is not assigned to this formation.");
+        if (current.MemberState != FormationMemberState.Interrupted)
+            return Block("Only an interrupted member can be resumed.");
+
+        var resumedState = current.SlotState switch
+        {
+            FormationSlotState.ReservedForApproach => FormationMemberState.Approaching,
+            FormationSlotState.ReservedForRelease => FormationMemberState.Releasing,
+            _ => (FormationMemberState?)null
+        };
+        if (resumedState is null)
+            return Block("The interrupted member has no resumable approach or release reservation.");
+
+        var nextRevision = checked(current.OrderRevision + 1);
+        return Replace(current with
+        {
+            MemberState = resumedState.Value,
+            OrderRevision = nextRevision,
+            StatusReason = null
         });
     }
 
