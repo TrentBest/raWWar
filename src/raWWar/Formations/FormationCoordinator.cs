@@ -213,10 +213,8 @@ public sealed class FormationCoordinator
 
     private FormationCoordinatorTransition Replace(FormationMemberStatus updated, int? revision = null)
     {
-        var next = _members.ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal)
-        {
-            [updated.MemberId] = updated
-        };
+        var next = _members.ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal);
+        next[updated.MemberId] = updated;
         return Accept(new FormationCoordinator(
             FormationId, RankCount, FilesPerRank, revision ?? Revision, next));
     }
