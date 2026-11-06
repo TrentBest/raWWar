@@ -61,6 +61,27 @@ internal static class FormationCoordinatorChecks
         check(blocked.Accepted && blocked.After.Members.Single().SlotState == FormationSlotState.Blocked,
             "Blocked approach remains explicit and is not treated as arrival");
 
+        var retried = blocked.After.TryRetryApproach("blocked");
+        check(retried.Accepted && retried.After.Members.Single().MemberState == FormationMemberState.Approaching &&
+              retried.After.Members.Single().OrderRevision > blockedMember.OrderRevision,
+            "Blocked approach retry receives a new member revision");
+        var staleAfterRetry = retried.After.TryObserveApproach(new FormationMemberObservation(
+            "blocked", blockedMember.OrderRevision, true, true, false, false));
+        check(!staleAfterRetry.Accepted,
+            "Observation from before a blocked-approach retry is rejected");
+
+        var unavailableFormation = FormationCoordinator.Create("company-c", 1, 1)
+            .TryIssueFallIn(new[] { new FormationQueueMember("unavailable", 0) }).After;
+        var unavailable = unavailableFormation.TryMarkUnavailable("unavailable", "actor not materialized");
+        check(unavailable.Accepted &&
+              unavailable.After.Members.Single().SlotState == FormationSlotState.Unavailable &&
+              unavailable.After.Members.Single().StatusReason == "actor not materialized",
+            "Unavailable members retain an explicit reason and do not occupy a slot");
+        var cannotEraseOccupancy = arrived.After.TryMarkUnavailable("s1", "disconnect");
+        check(!cannotEraseOccupancy.Accepted &&
+              cannotEraseOccupancy.After.Members.Single(x => x.MemberId == "s1").SlotState == FormationSlotState.Occupied,
+            "Unavailable status cannot erase an already occupied physical slot");
+
         var emptyReform = created.TryIssueFallIn(Array.Empty<FormationQueueMember>());
         check(!emptyReform.Accepted, "Empty Fall In order is rejected");
         var duplicateFormation = fallIn.After.TryIssueFallIn(Array.Empty<FormationQueueMember>());
