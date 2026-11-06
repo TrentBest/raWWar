@@ -11,6 +11,25 @@
 
 > **The coordinator decides who should occupy which slot and what organizational transition is pending. It never decides that a soldier has physically arrived.**
 
+## Implementation status — first executable planning slice
+
+The development branch now contains `FormationSlotPlanner` in
+`src/raWWar/Formations/FormationSlotPlanner.cs`, with executable checks in
+`tests/raWWar.ContractTests/FormationSlotPlannerChecks.cs`.
+
+The planner accepts an explicit queue order and a rectangular logical footprint.
+It assigns rank zero (the rear-most rank) first, left-to-right within each rank,
+then advances forward. It rejects duplicate member identities, duplicate queue
+orders, invalid slot coordinates, and a queue larger than the footprint. The
+result is a plan only: it does not move actors, reserve physical space, or mark
+any slot occupied.
+
+This is **not yet the formation coordinator lifecycle** described below. Fall In
+commands, achieved-state observations, Fall Out, egress clearance, interruption,
+revision handling, and readiness remain unimplemented. CI status for the initial
+planner commit has not yet been reported.
+
+
 ## 1. Scope
 
 The first coordinator should be a deterministic, host-independent component. It owns:
