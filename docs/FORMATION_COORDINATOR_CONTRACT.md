@@ -11,24 +11,19 @@
 
 > **The coordinator decides who should occupy which slot and what organizational transition is pending. It never decides that a soldier has physically arrived.**
 
-## Implementation status — first executable planning slice
+## Implementation status — first executable coordinator slice
 
-The development branch now contains `FormationSlotPlanner` in
-`src/raWWar/Formations/FormationSlotPlanner.cs`, with executable checks in
-`tests/raWWar.ContractTests/FormationSlotPlannerChecks.cs`.
+The development branch now contains:
 
-The planner accepts an explicit queue order and a rectangular logical footprint.
-It assigns rank zero (the rear-most rank) first, left-to-right within each rank,
-then advances forward. It rejects duplicate member identities, duplicate queue
-orders, invalid slot coordinates, and a queue larger than the footprint. The
-result is a plan only: it does not move actors, reserve physical space, or mark
-any slot occupied.
+- `FormationSlotPlanner`: deterministic rear-most-rank-first, left-to-right assignments.
+- `FormationCoordinator`: immutable, host-independent member/slot lifecycle bookkeeping.
+- Executable checks in `FormationSlotPlannerChecks.cs` and `FormationCoordinatorChecks.cs`.
 
-This is **not yet the formation coordinator lifecycle** described below. Fall In
-commands, achieved-state observations, Fall Out, egress clearance, interruption,
-revision handling, and readiness remain unimplemented. CI status for the initial
-planner commit has not yet been reported.
+The coordinator issues a Fall In assignment as `ReservedForApproach`; command issuance alone never occupies a slot. A member becomes `Occupied/Settled` only after the host supplies an observation matching that member's current order revision and confirming both slot position and facing. Blocked approach remains explicit and can be retried with a new per-member revision. An approaching or blocked member can be marked unavailable with a retained reason; this cannot erase an already occupied or releasing physical state.
 
+Fall Out changes an occupied slot to `ReservedForRelease` and requires a named egress target. The slot becomes `Available` only after an explicit physical-clearance observation matching the current member revision. Stale observations are rejected. These DTOs are a host-neutral test seam; they do not validate the source or quality of physical evidence and do not implement locomotion, pathfinding, collision, or a Gesture/Physics adapter.
+
+The solution build, local package-content verification, executable contract checks, event-frame reference verification, and checked-in usage examples passed on commit `bba30ed8f631138af0c834aed6a562b2df5bffb3`. The additional blocked-retry/unavailable checks are being validated in the next CI run.
 
 ## 1. Scope
 
