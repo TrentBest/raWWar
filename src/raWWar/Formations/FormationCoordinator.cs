@@ -36,7 +36,8 @@ public sealed record FormationMemberStatus(
     FormationSlotState SlotState,
     FormationMemberState MemberState,
     int OrderRevision,
-    string? EgressTargetId);
+    string? EgressTargetId,
+    string? StatusReason);
 
 /// <summary>
 /// Immutable, host-independent first-slice coordinator. It issues slot assignments and
@@ -109,7 +110,7 @@ public sealed class FormationCoordinator
                 assignment.MemberId, assignment.Slot,
                 FormationSlotState.ReservedForApproach,
                 FormationMemberState.Approaching,
-                nextRevision, null),
+                nextRevision, null, null),
             StringComparer.Ordinal);
         return Accept(new FormationCoordinator(
             FormationId, RankCount, FilesPerRank, nextRevision, next));
@@ -138,6 +139,52 @@ public sealed class FormationCoordinator
         {
             SlotState = FormationSlotState.Occupied,
             MemberState = FormationMemberState.Settled
+        });
+    }
+
+    /// <summary>Reissues a blocked approach with a new per-member revision.</summary>
+    public FormationCoordinatorTransition TryRetryApproach(string memberId)
+    {
+        if (string.IsNullOrWhiteSpace(memberId))
+            return Block("Member identity must be non-empty.");
+        if (!_members.TryGetValue(memberId, out var current))
+            return Block("The member is not assigned to this formation.");
+        if (current.MemberState != FormationMemberState.Blocked ||
+            current.SlotState != FormationSlotState.Blocked)
+            return Block("Only a blocked approach can be retried.");
+
+        var nextRevision = checked(current.OrderRevision + 1);
+        return Replace(current with
+        {
+            SlotState = FormationSlotState.ReservedForApproach,
+            MemberState = FormationMemberState.Approaching,
+            OrderRevision = nextRevision,
+            StatusReason = null
+        });
+    }
+
+    /// <summary>
+    /// Marks an approaching or blocked member unavailable without claiming that any
+    /// occupied/releasing physical space has been cleared.
+    /// </summary>
+    public FormationCoordinatorTransition TryMarkUnavailable(string memberId, string reason)
+    {
+        if (string.IsNullOrWhiteSpace(memberId))
+            return Block("Member identity must be non-empty.");
+        if (string.IsNullOrWhiteSpace(reason))
+            return Block("An unavailable reason is required.");
+        if (!_members.TryGetValue(memberId, out var current))
+            return Block("The member is not assigned to this formation.");
+        if (current.MemberState is not (FormationMemberState.Approaching or FormationMemberState.Blocked))
+            return Block("Only an approaching or blocked member can be marked unavailable.");
+
+        var nextRevision = checked(current.OrderRevision + 1);
+        return Replace(current with
+        {
+            SlotState = FormationSlotState.Unavailable,
+            MemberState = FormationMemberState.Unavailable,
+            OrderRevision = nextRevision,
+            StatusReason = reason
         });
     }
 
