@@ -51,7 +51,11 @@ public sealed record FormationReadiness(
     int InterruptedMembers,
     int UnavailableMembers,
     int ClearMembers,
+    int UnassignedSlots,
+    int ReleasedAvailableSlots,
     int AvailableSlots,
+    int BlockedSlots,
+    int UnavailableSlots,
     int ReservedApproachSlots,
     int ReservedReleaseSlots)
 {
@@ -103,7 +107,12 @@ public sealed class FormationCoordinator
                 members.Count(member => member.MemberState == FormationMemberState.Interrupted),
                 members.Count(member => member.MemberState == FormationMemberState.Unavailable),
                 members.Count(member => member.MemberState == FormationMemberState.Clear),
-                checked(RankCount * FilesPerRank) - members.Count(member => member.SlotState != FormationSlotState.Available),
+                checked(RankCount * FilesPerRank) - _members.Count,
+                members.Count(member => member.SlotState == FormationSlotState.Available),
+                checked(RankCount * FilesPerRank) - members.Count(member => member.SlotState != FormationSlotState.Available) -
+                    (checked(RankCount * FilesPerRank) - _members.Count),
+                members.Count(member => member.SlotState == FormationSlotState.Blocked),
+                members.Count(member => member.SlotState == FormationSlotState.Unavailable),
                 members.Count(member => member.SlotState == FormationSlotState.ReservedForApproach),
                 members.Count(member => member.SlotState == FormationSlotState.ReservedForRelease));
         }
