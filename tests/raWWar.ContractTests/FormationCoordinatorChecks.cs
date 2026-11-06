@@ -40,6 +40,35 @@ internal static class FormationCoordinatorChecks
               releasing.MemberState == FormationMemberState.Releasing,
             "Fall Out reserves the occupied slot until physical clearance");
 
+        var interruptedApproach = fallIn.After.TryInterrupt("s2", "formation order paused");
+        var pausedApproach = interruptedApproach.After.Members.Single(x => x.MemberId == "s2");
+        check(interruptedApproach.Accepted && pausedApproach.MemberState == FormationMemberState.Interrupted &&
+              pausedApproach.SlotState == FormationSlotState.ReservedForApproach,
+            "Interrupting approach preserves its slot reservation");
+        var resumedApproach = interruptedApproach.After.TryResumeInterrupted("s2");
+        var resumedApproachMember = resumedApproach.After.Members.Single(x => x.MemberId == "s2");
+        check(resumedApproach.Accepted && resumedApproachMember.MemberState == FormationMemberState.Approaching &&
+              resumedApproachMember.OrderRevision > pausedApproach.OrderRevision,
+            "Resuming approach advances revision and restores approach state");
+        check(!resumedApproach.After.TryObserveApproach(new FormationMemberObservation(
+              "s2", pausedApproach.OrderRevision, true, true, false, false)).Accepted,
+            "Pre-interruption approach observation is stale after resume");
+
+        var interruptedRelease = fallOut.After.TryInterrupt("s1", "egress paused");
+        var pausedRelease = interruptedRelease.After.Members.Single(x => x.MemberId == "s1");
+        check(interruptedRelease.Accepted && pausedRelease.MemberState == FormationMemberState.Interrupted &&
+              pausedRelease.SlotState == FormationSlotState.ReservedForRelease,
+            "Interrupting release retains its slot reservation");
+        var resumedRelease = interruptedRelease.After.TryResumeInterrupted("s1");
+        var resumedReleaseMember = resumedRelease.After.Members.Single(x => x.MemberId == "s1");
+        check(resumedRelease.Accepted && resumedReleaseMember.MemberState == FormationMemberState.Releasing &&
+              resumedReleaseMember.SlotState == FormationSlotState.ReservedForRelease &&
+              resumedReleaseMember.OrderRevision > pausedRelease.OrderRevision,
+            "Resuming release preserves the reservation and advances revision");
+        check(!resumedRelease.After.TryObserveClearance(new FormationMemberObservation(
+              "s1", pausedRelease.OrderRevision, false, false, false, true)).Accepted,
+            "Pre-interruption clearance observation is stale after resume");
+
         var notClear = fallOut.After.TryObserveClearance(new FormationMemberObservation(
             "s1", releasing.OrderRevision, false, false, false, false));
         check(notClear.Accepted && notClear.After.Members.Single(x => x.MemberId == "s1").SlotState ==
