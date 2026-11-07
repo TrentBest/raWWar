@@ -16,6 +16,8 @@ internal static class FormationCoordinatorChecks
               fallIn.After.Members.All(x => x.SlotState == FormationSlotState.ReservedForApproach),
             "Fall In reserves assignments but does not claim physical occupancy");
 
+        check(created.Revision == 0 && fallIn.After.Revision == created.Revision + 1,
+            "Issuing Fall In advances the formation snapshot revision");
         var initialReadiness = fallIn.After.Readiness;
         check(initialReadiness.Capacity == 4 && initialReadiness.AssignedMembers == 2 &&
               initialReadiness.ApproachingMembers == 2 && initialReadiness.OccupiedMembers == 0 &&
@@ -28,14 +30,14 @@ internal static class FormationCoordinatorChecks
         var partial = fallIn.After.TryObserveApproach(new FormationMemberObservation(
             "s1", first.OrderRevision, true, false, false, false));
         check(partial.Accepted && partial.After.Members.Single(x => x.MemberId == "s1").SlotState ==
-              FormationSlotState.ReservedForApproach,
-            "Position without confirmed facing cannot occupy a slot");
+              FormationSlotState.ReservedForApproach && partial.After.Revision == fallIn.After.Revision,
+            "An incomplete observation is a no-op and does not advance the snapshot revision");
 
         var arrived = partial.After.TryObserveApproach(new FormationMemberObservation(
             "s1", first.OrderRevision, true, true, false, false));
         check(arrived.Accepted && arrived.After.Members.Single(x => x.MemberId == "s1").SlotState ==
-              FormationSlotState.Occupied,
-            "Matching position and facing observations confirm occupancy");
+              FormationSlotState.Occupied && arrived.After.Revision == partial.After.Revision + 1,
+            "Matching position and facing observations confirm occupancy and advance the snapshot revision");
 
         check(!arrived.After.Readiness.IsFormed && arrived.After.Readiness.OccupiedMembers == 1 &&
               arrived.After.Readiness.ApproachingMembers == 1,
@@ -55,8 +57,9 @@ internal static class FormationCoordinatorChecks
         var fallOut = arrived.After.TryIssueFallOut("s1", "egress-s1");
         var releasing = fallOut.After.Members.Single(x => x.MemberId == "s1");
         check(fallOut.Accepted && releasing.SlotState == FormationSlotState.ReservedForRelease &&
-              releasing.MemberState == FormationMemberState.Releasing,
-            "Fall Out reserves the occupied slot until physical clearance");
+              releasing.MemberState == FormationMemberState.Releasing &&
+              fallOut.After.Revision == arrived.After.Revision + 1,
+            "Fall Out reserves the occupied slot until physical clearance and advances the snapshot revision");
 
         var interruptedApproach = fallIn.After.TryInterrupt("s2", "formation order paused");
         var pausedApproach = interruptedApproach.After.Members.Single(x => x.MemberId == "s2");
