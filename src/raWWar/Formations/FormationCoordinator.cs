@@ -313,7 +313,7 @@ public sealed class FormationCoordinator
             MemberState = FormationMemberState.Releasing,
             OrderRevision = nextRevision,
             EgressTargetId = egressTargetId
-        }, nextRevision);
+        });
     }
 
     /// <summary>Frees a slot only after the host explicitly confirms physical clearance.</summary>
@@ -363,12 +363,12 @@ public sealed class FormationCoordinator
         return true;
     }
 
-    private FormationCoordinatorTransition Replace(FormationMemberStatus updated, int? revision = null)
+    private FormationCoordinatorTransition Replace(FormationMemberStatus updated)
     {
         var next = _members.ToDictionary(pair => pair.Key, pair => pair.Value, StringComparer.Ordinal);
         next[updated.MemberId] = updated;
         return Accept(new FormationCoordinator(
-            FormationId, RankCount, FilesPerRank, revision ?? Revision, next));
+            FormationId, RankCount, FilesPerRank, checked(Revision + 1), next));
     }
 
     private FormationCoordinatorTransition Accept(FormationCoordinator after) =>
