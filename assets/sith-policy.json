@@ -11,7 +11,7 @@
   ],
   "branch_count": 2,
   "status": "COMPLIANT",
-  "evaluated_at": "2026-11-07T11:03:06Z",
-  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/42366507399",
-  "triggering_commit": "2504a97b1245a9cf728ce389055f1cf82db2f95c"
+  "evaluated_at": "2026-11-08T11:16:09Z",
+  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/42474979332",
+  "triggering_commit": "1c0526f062dfae5339805e2a9bfb5e198f4a358c"
 }
