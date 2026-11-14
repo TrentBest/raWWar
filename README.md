@@ -72,6 +72,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 - **New to raWWar:** begin with the [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md).
 - **Want the foundational design:** read the [Game Design Bible](docs/GAME_DESIGN_BIBLE.md).
 - **Want to understand the technology boundary:** read [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
+- **Building raWWar through the Workshop pipeline:** read [Autonomous Development Integration](docs/AUTONOMOUS_DEVELOPMENT_INTEGRATION.md) and track [issue #9](https://github.com/TrentBest/raWWar/issues/9).
 - **Designing a system:** start at the [Design Documentation Index](docs/README.md), then follow the relevant deep dive.
 - **Reviewing implementation status:** read [Technical Design](docs/TECHNICAL_DESIGN.md), [Production Plan](docs/PRODUCTION_PLAN.md), and [TODO.md](TODO.md).
 - **Understanding procedural motion:** read [Gestures Design](docs/GESTURES_DESIGN.md) and the [standalone Gestures package](https://github.com/TrentBest/TheSingularityWorkshop.Gestures).\n- **Understanding unit assembly:** read [Formation Assembly and Fall Out](docs/FORMATION_ASSEMBLY_AND_RELEASE.md) alongside [Unit Formation, Training, Drilling, and Cohesion](docs/UNIT_FORMATION_TRAINING_AND_COHESION.md).
