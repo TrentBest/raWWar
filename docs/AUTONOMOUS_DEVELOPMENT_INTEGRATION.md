@@ -31,7 +31,7 @@ The following facts were read from the `development` branch during initial recon
 
 The workflow currently performs Soldier Field preview generation and validation, Node tests, .NET build, local package-content validation, executable contract checks, candidate event-frame verification, and the KeplerOrbit example. It uploads the generated Soldier Field preview SVGs. The workflow does **not yet** publish a dedicated CiAi evidence packet, invoke HeadlessAi, or demonstrate an authorized repair cycle.
 
-The current test harness has a useful deterministic contract surface. However, it is a console harness rather than a conventional test-runner project, and its current output is a summary plus failure text. Do not assume each individual `Check` is already emitted as a structured test result. A controlled-failure mechanism and structured evidence producer must be designed without weakening the normal test run.
+The current test harness has a useful deterministic contract surface. It is a console harness rather than a conventional test-runner project, and its current output is a summary plus failure text; it does not currently provide genuine per-check TRX/JUnit records. The upstream CiAi work now has a genuine harness-emitted TRX producer contract, but raWWar still needs a deliberate mapping from its own harness to that contract. Do not label synthetic per-check records as provider evidence or weaken normal pass/fail behavior.
 
 The README's current architecture/status statements remain authoritative: the Experience is actively designed and engineered, but a complete playable slice and end-to-end AnyApp host launch have not been delivered.
 
@@ -74,23 +74,48 @@ The initial raWWar profile should require the repository's actual build workflow
 
 Do not require an artifact merely because the current workflow uploads one. First establish whether the provider observer can retrieve the necessary metadata and whether the CiAi contracts represent it without adding a parallel evidence model. Do not treat the Soldier Field preview artifact as a test-result artifact.
 
-## 6. Known gaps and questions to resolve
+## 6. Upstream contracts inspected (2026-11-14)
 
-- No raWWar-specific CiAi consumer configuration or evidence adapter has been verified.
-- The current workflow has no structured per-check TRX/JUnit output. Determine whether CiAi's existing provider/run/artifact contracts are sufficient for the first advisory slice before adding a producer.
-- The current console contract harness aggregates individual checks. A controlled failure must identify a stable check and bounded diagnostic without changing normal pass/fail semantics.
-- The exact supported HeadlessAi input/output contract and the Foundry host adapter integration point must be verified from their current source revisions before implementation.
-- The human authorization boundary must remain in the host adapter; do not invent an approval receipt or allow a model response to authorize a write.
-- The workflow currently uses version tags for several GitHub Actions. Action pinning and workflow hardening may be worthwhile, but must be assessed as a separate scoped change rather than mixed into the first consumer proof.
+The upstream stack has progressed beyond the initial reconnaissance. The following are real candidate contracts, but each referenced PR remains draft/unmerged; they are not yet a released or canonical integration surface.
+
+| Layer | Current candidate | Verified responsibility and boundary |
+|---|---|---|
+| CiAi producer/observer | [CiAi PR #65](https://github.com/TrentBest/TheSingularityWorkshop.CiAi/pull/65), head `3df707a35c53ac270a2d15d2e08139f263fedbb8` | Defines `ciai.workflow-provenance.v1` and `ciai.test-results.v1`; observes provider run/job/artifact metadata, verifies exact source artifact and provenance, parses genuine TRX, and emits a fail-closed evidence report. The current exact-commit observer workflow is configured around CiAi's own canonical push workflow; raWWar-specific provider/run policy and host composition are still required. |
+| Foundry consumer and lifecycle | [Foundry PR #15](https://github.com/TrentBest/TheSingularityWorkshop.FSM_Foundry/pull/15), head `813118ccb82d44d7c579590725ab0654591ffdd6` | Defines the v1 notice/report consumer, binds the report to persisted task/dispatch/run identity, applies CiAi's named verdict to the task lifecycle, and supports a same-task HeadlessAi repair-turn handoff. Its fake-host integration tests do not prove the deployed authenticated receiver or real raWWar report delivery. |
+| HeadlessAi invocation | [HeadlessAi source](https://github.com/TrentBest/TheSingularityWorkshop.HeadlessAi) | Core input is provider-neutral `HeadlessAiInput(Content, Metadata)`; output is normalized `HeadlessAiOutput(Content, StatusCode, MediaType, Metadata)`. The host supplies task planning, role/permissions/budgets, output-schema validation, tool mediation, and consequential actions. Model output is not an authority grant. |
+| Foundry authorization | [Foundry PR #15](https://github.com/TrentBest/TheSingularityWorkshop.FSM_Foundry/pull/15) and [Foundry host-composition guide](https://github.com/TrentBest/TheSingularityWorkshop.FSM_Foundry/blob/development/docs/CIAI_ARTIFACT_HOST_COMPOSITION.md) | Foundry owns durable task correlation/lifecycle and bounded turn orchestration; the deployed host owns sender authentication, credentials, secure transport, repository operations, and explicit human approval. CiAi owns the CI verdict; Foundry must not recreate a second CI evaluator. |
+
+The source-artifact identity, outer report-artifact identity, notice identity, source run/attempt, observer run, and candidate SHA are distinct. Never collapse them into one generic run ID or digest. The Foundry contract requires the authenticated host to validate the notice and persisted dispatch mapping, retrieve exact bounded report bytes, verify digest/size/expiry, and preserve nested source-artifact provenance. The candidate's fake-host tests establish contract behavior, not production ingress/network security or a live provider round trip.
+
+### RaWWar-specific integration gaps
+
+- No raWWar-specific CiAi provider profile/observer configuration or production host composition has been verified. CiAi PR #65's current observer is not automatically a general-purpose observer for arbitrary Experience repositories.
+- raWWar's executable contract harness does not yet emit genuine per-check TRX/JUnit. The first integration can accurately report a suite-level result if that is what the harness actually emits; do not claim per-check granularity until implemented and tested.
+- The current raWWar workflow runs on pull requests and pushes to canonical branches. A candidate-repair loop needs a trusted, exact-SHA workflow/checkout policy that can validate an isolated candidate branch without granting that candidate control over trusted workflow definitions. Do not add `workflow_dispatch` or broad write permissions as a shortcut.
+- The concrete deployed host still needs to compose CiAi report publication/notice delivery, Foundry authenticated ingress and retrieval, durable task correlation, HeadlessAi invocation, and the existing host-owned approval boundary.
+- The controlled-failure fixture must be opt-in/test-only and must never be mistaken for a genuine GitHub provider failure or a real source-artifact observation.
+- The workflow currently uses version tags for several GitHub Actions. Action pinning and workflow hardening may be worthwhile, but assess them as a separate scoped change rather than mixing them into the first consumer proof.
 - Existing raWWar runtime/manifest integration gaps remain separate from CI evidence integration.
 
-## 7. Explicit exclusions
+## 7. Next implementation sequence
+
+1. Keep raWWar's current build workflow authoritative for its ordinary pull-request and canonical-branch validation.
+2. Define the trusted candidate-checkout workflow boundary for isolated repair candidates. The trusted workflow revision must be independently registered/approved and bound to the exact candidate SHA; a candidate branch must not be allowed to redefine the workflow that judges it.
+3. Add an raWWar-specific, deterministic evidence profile and genuine result producer. Begin with suite-level TRX if that is the honest granularity; add stable per-check records only with corresponding harness changes and tests.
+4. Connect the exact provider observations and report bytes to the CiAi v1 producer contract. Keep the source workflow run distinct from the CiAi observer run and the outer report artifact.
+5. Compose the authenticated host path into Foundry's v1 notice/retrieval/consumer contracts; bind it to a durable raWWar task and isolated candidate ref/SHA.
+6. Invoke HeadlessAi only with accepted, provenance-bound evidence and bounded task instructions. Validate the response as an untrusted proposal.
+7. Require explicit host-side human authorization before applying any repository change, then rerun the trusted candidate validation against the exact resulting SHA.
+
+Do not create a second scheduler, CI verdict engine, evidence schema, HTTP transport, or approval ledger inside raWWar.
+
+## 8. Explicit exclusions
 
 This integration does not authorize or imply NuGet publication, merge, release, deployment, canonical branch mutation, branch deletion, privileged workflow dispatch, autonomous writes, or any weakening of CiAi/HeadlessAi/Foundry authorization gates. The current branch policy remains exactly `master` and `development`; no cleanup is part of this task.
 
 It also does not supersede [issue #7](https://github.com/TrentBest/raWWar/issues/7) (formation lifecycle) or [issue #8](https://github.com/TrentBest/raWWar/issues/8) (shared-universe mode architecture).
 
-## 8. Acceptance evidence
+## 9. Acceptance evidence
 
 The integration is not complete until there is a reproducible evidence chain containing:
 
