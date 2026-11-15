@@ -88,7 +88,7 @@ internal static class ContractTrxWriter
                             new XAttribute("codeBase", "raWWar.ContractTests.dll"),
                             new XAttribute("adapterTypeName", "raWWar executable contract harness"),
                             new XAttribute("className", "TheSingularityWorkshop.raWWar.ContractTests.Program"),
-                            new XAttribute("name", result.Name)));
+                            new XAttribute("name", GetTestName(result))));
                 })),
             new XElement(Trx + "TestEntries",
                 results.Select(result =>
