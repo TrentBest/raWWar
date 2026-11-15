@@ -7,17 +7,17 @@
 
 ## North Star
 
-**Make being a person inside a war the game.**
+**Make being a person inside a living galaxy shaped by war the game.**
 
-The player should not feel like an external cursor controlling a unit. They should feel like they have a place in a living military organization and that what they choose to do matters.
+The player should not feel like an external cursor controlling a unit or an abstract economy. They should feel present in a shared world, with a meaningful place in its people, work, organizations, and events—and with choices that matter.
 
-## Pillar 1 — The soldier is the star
+## Pillar 1 — People are the heart of the world
 
 Individual people matter.
 
-A soldier is not disposable animation attached to a health bar.
+A soldier is not disposable animation attached to a health bar, and a civilian is not background scenery attached to an economy. People have identities, relationships, responsibilities, ambitions, and histories.
 
-Their training, qualifications, relationships, role, actions, successes, failures, and fate should contribute to the story of the war.
+The soldier remains the star of the flagship military campaign. The wider Experience must also make the lives of pilots, crews, researchers, builders, traders, travelers, and other inhabitants meaningful in the same shared universe.
 
 ## Pillar 2 — First-person, always
 
@@ -25,13 +25,13 @@ raWWar is always first-person and immersive.
 
 The player interacts with the world as a person standing inside it. The game is not VR-only: AnyApp is the primary host, with MyVR as a future immersive manifestation.
 
-## Pillar 3 — Do what you want
+## Pillar 3 — Many ways to exist in one universe
 
-The game should support many forms of meaningful participation.
+The game should support many forms of meaningful participation without splitting them into disconnected modes or separate worlds.
 
-Combat is important, but it is not the only valid way to play.
+Combat is important, but it is not the only valid way to live in the galaxy. A player might serve as a soldier, fly freight, captain a passenger ship, travel the outer rim, hide as a pirate in an asteroid field, or work in research, construction, logistics, and support.
 
-Repair, construction, research, logistics, piloting, command, recreation, and support roles should all be legitimate gameplay.
+The player may prefer to operate an asset personally, work as part of its crew, own or lead the organization that operates it, compete with other organizations, or participate as a customer. These are different scales and relationships of agency—not mutually exclusive character classes. The world and its consequences remain shared when the player's control becomes delegated or organizational.
 
 ## Pillar 4 — Diegetic systems
 
@@ -76,17 +76,17 @@ It should eventually demonstrate FSM-driven autonomous behavior, MicroBundle com
 The game design comes first. The technology exists to make the design possible.
 
 
-## Pillar 9 — One galaxy, many consequences
+## Pillar 9 — One galaxy, many ways to exist
 
-The game universe is a galaxy spanning many star systems.
+The game universe is a galaxy spanning many star systems. War is a major force within it, not the only activity or identity available to its inhabitants.
 
-The player should never experience the campaign as a sequence of disposable maps. Each operation occurs inside a larger political, military, economic, and historical system.
+The player should never experience the campaign as a sequence of disposable maps. Military operations, civilian journeys, commercial activity, piracy, organizational competition, and ordinary work all take place in the same persistent world. They share locations, people, infrastructure, events, history, and consequences.
 
-A player can matter at multiple scales:
+A player can matter at multiple scales and through different relationships:
 
-**soldier → unit → organization → faction → world → star system → Empire → galaxy**
+**person → crew or team → organization → faction → world → star system → Empire → galaxy**
 
-The game does not require the player to control all of those scales directly. It requires their actions to be capable of propagating upward.
+The player does not need to control every scale directly. They may act, lead, delegate, own, compete, or participate. Changing the scale of agency changes the player's responsibilities and controls—not the underlying universe.
 
 ## Pillar 10 — Distance matters
 
