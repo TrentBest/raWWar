@@ -118,7 +118,7 @@ internal static class ContractTrxWriter
                     new XAttribute("warning", 0),
                     new XAttribute("completed", results.Count),
                     new XAttribute("inProgress", 0),
-                    new XAttribute("pending", 0)))));
+                    new XAttribute("pending", 0))));
 
         var document = new XDocument(new XDeclaration("1.0", "utf-8", "yes"), root);
         var fullPath = Path.GetFullPath(path);
