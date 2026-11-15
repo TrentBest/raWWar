@@ -36,7 +36,8 @@ internal static class ContractTrxWriterChecks
             check(outcomes.Count(outcome => outcome == "Passed") == 1
                 && outcomes.Count(outcome => outcome == "Failed") == 1,
                 "TRX writer preserves both passing and controlled failing outcomes");
-            check((string?)counters?.Attribute("total") == "2"
+            check(counters is not null
+                && (string?)counters.Attribute("total") == "2"
                 && (string?)counters.Attribute("passed") == "1"
                 && (string?)counters.Attribute("failed") == "1",
                 "TRX writer summary counters match the serialized result outcomes");
