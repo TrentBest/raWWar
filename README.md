@@ -29,7 +29,7 @@ We will keep the evidence honest: concept art communicates intent, explanatory S
 
 ![](docs/assets/dividers/blue.svg)
 
-**raWWar is a first-person war Experience, not an application.** It is a living military world that continues whether or not the player is looking at it.
+**raWWar is a first-person living-world Experience, not an application.** It is a persistent galaxy shaped by war, but not limited to military life. Military campaigns, civilian occupations, commerce, travel, and piracy belong to the same world and continue whether or not the player is looking at them.
 
 The player inhabits a soldier inside a military system: a person with identity, qualifications, relationships, responsibilities, equipment, opportunities, history, and consequences.
 
@@ -63,7 +63,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 
 ![The Empress's first order](docs/images/rawwar-empress-order.svg)
 
-> **This is not “pick a sector and play a map.” This is living inside the war.**
+> **This is not “pick a sector and play a map.” This is living in a galaxy where war is one of the forces shaping the world.**
 
 ### The experience that makes the platform tangible
 
@@ -83,15 +83,16 @@ The opening campaign brings together faction choice and the Empress's first unco
 
 ![](docs/assets/dividers/purple.svg)
 
-raWWar is always experienced from the first-person perspective, but the role the player inhabits can grow dramatically:
+The player is embodied in the world, but is not required to be a soldier, commander, or the person directly operating every asset. The same persistent universe supports different occupations and different scales of agency:
 
-- **Soldier** — qualify, serve, fight, repair, research, build, explore, survive.
-- **Officer** — lead people, make decisions, manage pressure, command operations.
-- **Cooperative** — share a war with players whose interests and objectives may differ.
-- **Multiplayer** — fight free-for-all, team-versus-team, or persistent conflicts.
-- **Persistent universes** — enter a universe whose history continues without you.
+- **Military life** — serve as a soldier, lead as an officer, operate logistics, research, build, repair, or support a campaign.
+- **Civilian operations** — pilot freight, captain or crew a passenger ship, maintain infrastructure, or provide specialist services.
+- **Independent life** — travel the dangerous outer rim, trade, explore, or operate as a pirate hiding in an asteroid field.
+- **Organizational agency** — own or direct a shipping company or cruise line, set priorities, invest in a fleet, delegate operations, and compete with other organizations without personally captaining each vessel.
+- **Employment and participation** — work for an organization as crew or contractor, travel as a customer, or take part in the world without owning or directing an enterprise.
+- **Persistent universes** — inhabit a galaxy whose history and consequences continue without you.
 
-These are not separate games. They are different ways of inhabiting the same war.
+A player may experience an activity directly, lead the people performing it, manage the organization responsible for it, compete with other organizations, or participate as a customer. These are not separate games or isolated civilian and military universes. They are different ways of existing in the same Experience, with shared people, assets, events, history, and consequences.
 
 ![A soldier's career](docs/images/rawwar-soldier-progression.svg)
 
