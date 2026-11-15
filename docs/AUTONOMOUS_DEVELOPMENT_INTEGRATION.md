@@ -90,7 +90,7 @@ The source-artifact identity, outer report-artifact identity, notice identity, s
 ### RaWWar-specific integration gaps
 
 - No raWWar-specific CiAi provider profile/observer configuration or production host composition has been verified. CiAi PR #65's current observer is not automatically a general-purpose observer for arbitrary Experience repositories.
-- raWWar's executable contract harness does not yet emit genuine per-check TRX/JUnit. The first integration can accurately report a suite-level result if that is what the harness actually emits; do not claim per-check granularity until implemented and tested.
+- raWWar now emits actual per-check TRX from the executable harness and uploads it from the ordinary build workflow. The artifact is not yet accompanied by trusted workflow provenance or consumed by a raWWar-specific CiAi observer; do not treat it as a complete CiAi evidence packet.
 - The current raWWar workflow runs on pull requests and pushes to canonical branches. A candidate-repair loop needs a trusted, exact-SHA workflow/checkout policy that can validate an isolated candidate branch without granting that candidate control over trusted workflow definitions. Do not add `workflow_dispatch` or broad write permissions as a shortcut.
 - The concrete deployed host still needs to compose CiAi report publication/notice delivery, Foundry authenticated ingress and retrieval, durable task correlation, HeadlessAi invocation, and the existing host-owned approval boundary.
 - The controlled-failure fixture must be opt-in/test-only and must never be mistaken for a genuine GitHub provider failure or a real source-artifact observation.
