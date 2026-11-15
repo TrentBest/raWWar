@@ -293,6 +293,8 @@ This principle applies across military and civilian life. A player may personall
 
 **Design rule:** participation is not a class, and scale of control is not a separate universe. The same living world supports personal, occupational, organizational, and economic agency.
 
+The expanded role catalogue, examples of direct and organizational participation, and unresolved questions about economic agency are maintained in [Player Roles](PLAYER_ROLES.md). This companion document develops the principle without creating a separate civilian mode or a second authoritative world model.
+
 The exact boundaries between direct first-person interaction, delegated operation, organizational management, and competitive economic play remain to be designed. Do not assume that every player wants to pilot, command, or physically perform every task simply because those activities exist in the simulation.
 
 ---
