@@ -7,11 +7,12 @@
   ],
   "actual_branches": [
     "development",
+    "integration/autonomous-development-pipeline",
     "master"
   ],
-  "branch_count": 2,
-  "status": "COMPLIANT",
-  "evaluated_at": "2026-11-14T11:27:06Z",
-  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/43590070113",
-  "triggering_commit": "5a96a5bbf6a6b8e0e2d858b16d5e55b67167ed26"
+  "branch_count": 3,
+  "status": "NON-COMPLIANT",
+  "evaluated_at": "2026-11-15T11:57:11Z",
+  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/43711363445",
+  "triggering_commit": "fc48d1a31bad01b87bfdbe5345d12d5e909948ce"
 }
