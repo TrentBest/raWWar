@@ -263,6 +263,38 @@ A cooperative campaign may place multiple players into a shared historical situa
 
 The exact identity model by mode remains to be fully designed.
 
+### 3.3.1 One universe, many ways to exist
+
+The military campaigns and civilian/economic lives are not separate universes, disconnected game modes, or different Experiences that happen to share a setting. They are different ways to exist in the same persistent galaxy. They share authoritative world history, locations, organizations, people, infrastructure, events, and consequences while allowing radically different forms of participation.
+
+The galaxy can contain enormous wars without making every inhabitant a soldier and without requiring every player to become a military commander. A war may dominate a region's history while ordinary people elsewhere continue to travel, work, trade, build businesses, raise families, take risks, and pursue their own ambitions. Military conflict is a powerful part of the universe, not the only reason the universe exists.
+
+A player may choose to inhabit, among many possibilities:
+
+- a soldier, officer, commander, pilot, or fleet leader;
+- a civilian freight pilot carrying cargo through dangerous routes;
+- a cruise-ship captain taking passengers through the outer rim;
+- a pirate concealing a vessel in an asteroid field;
+- a station operator, shipyard owner, shipbuilder, or independent contractor;
+- an owner or executive competing with other cruise lines or shipping companies;
+- a worker, crew member, customer, trader, or entrepreneur whose choices connect them to larger organizations.
+
+These are examples of possible lives, not a closed class list or a promise that every occupation is already implemented. The common principle is that the player chooses a meaningful relationship to the world rather than being forced into its military storyline.
+
+### 3.3.2 Different scales of agency
+
+A role does not have to mean personally operating every object or performing every task. Players may engage with the same activity at different levels of agency and abstraction.
+
+For example, one player may personally pilot a freight ship. Another may captain a passenger vessel and make navigation, crew, safety, and route decisions. Another may own a cruise line and compete with rival companies over routes, schedules, service, contracts, fleet investment, staffing, and reputation—without wanting to captain an individual ship at all. A fourth player may work aboard one of those ships as a crew member or take a contract to deliver its cargo.
+
+The same organization and vessel can therefore be experienced through multiple legitimate relationships: operator, employee, owner, competitor, customer, or observer. The world should preserve the consequences and shared facts across those perspectives. The player-facing controls and presentation may differ by the scale of agency; the underlying world does not split into separate simulations merely because the player chooses a different level of control.
+
+This principle applies across military and civilian life. A player may personally lead soldiers, serve in a unit, own a defense contractor, operate a transport company supporting a war, or compete to supply civilian routes affected by the same conflict. These relationships can intersect without collapsing into one mandatory progression path.
+
+**Design rule:** participation is not a class, and scale of control is not a separate universe. The same living world supports personal, occupational, organizational, and economic agency.
+
+The exact boundaries between direct first-person interaction, delegated operation, organizational management, and competitive economic play remain to be designed. Do not assume that every player wants to pilot, command, or physically perform every task simply because those activities exist in the simulation.
+
 ---
 
 # 4. The World
