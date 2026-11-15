@@ -63,6 +63,14 @@ The following are architecture requirements for any implementation that spans ba
 - **Persistence is selective but honest:** the world need not simulate every person at full fidelity at every moment, but abstraction must preserve the authoritative outcomes and obligations that matter.
 - **War is a world force, not a universal occupation:** conflicts may change routes, markets, safety, institutions, migration, and personal lives without forcing every player into combat.
 
+## 4.1 First executable shared-entity contract
+
+The first implementation slice is a stable `WorldEntityId` derived from immutable creation coordinates: world seed, simulation-model version, entity kind, canonical origin address, and a domain-assigned creation ordinal. Current location is deliberately not an identity input. Nor are observer, presentation, occupation, control scheme, or agency scale.
+
+This gives a pilot-facing view and an organization-facing view the same vessel identity by construction. A later domain contract can attach current location, crew, ownership, operational authority, and observation permissions to that identity without creating a second vessel for the second perspective.
+
+The identity primitive does **not** create or persist vessels, prove ownership, grant control authority, implement delegation, or establish a complete entity lifecycle. Those remain separate contracts. Its acceptance tests establish reproducible identity and separation across world seed, entity kind, and creation ordinal; they do not claim that the full two-perspective/two-agency-scale experience is implemented.
+
 ## 4. Perspective is not world state
 
 The Experiences Galactic War design makes a critical separation between:
