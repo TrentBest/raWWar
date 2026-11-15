@@ -1,6 +1,6 @@
 # raWWar Autonomous Development Pipeline Integration
 
-**Status:** Genuine per-check TRX production and workflow artifact upload passed on the previous PR revision. The current revision adds an isolated pass/failure serialization self-test and is awaiting CI verification. Full CiAi observation and authorized repair remain unproven; the next gate is trusted provenance and provider-artifact correlation.  
+**Status:** Genuine per-check TRX production, artifact upload, and isolated pass/failure serialization self-tests are implemented and validated on PR head `871c86cb1df9757a51289c18799fb8294584d32d` by workflow run #1196. Full CiAi observation and authorized repair remain unproven; the next gate is trusted provenance and provider-artifact correlation.  
 **Related task:** [raWWar issue #9](https://github.com/TrentBest/raWWar/issues/9)  
 **Scope:** Make raWWar a flagship Experience developed through the Workshop Autonomous Development Pipeline. This document describes verified repository facts and a proposed integration path; it does not claim that the pipeline is connected or that autonomous repair is implemented.
 
@@ -101,7 +101,7 @@ The source-artifact identity, outer report-artifact identity, notice identity, s
 
 1. Keep raWWar's current build workflow authoritative for its ordinary pull-request and canonical-branch validation.
 2. Define the trusted candidate-checkout workflow boundary for isolated repair candidates. The trusted workflow revision must be independently registered/approved and bound to the exact candidate SHA; a candidate branch must not be allowed to redefine the workflow that judges it.
-3. **Completed on the current PR head:** record actual per-check assertions, emit TRX, self-test pass/failure serialization, and upload the real result artifact. The remaining evidence work is trusted workflow provenance, artifact-to-job binding, and a raWWar-specific CiAi observer policy.
+3. **Completed and CI-verified:** record actual per-check assertions, emit TRX, self-test pass/failure serialization, and upload the real result artifact. The remaining evidence work is trusted workflow provenance, artifact-to-job binding, and a raWWar-specific CiAi observer policy.
 4. Connect the exact provider observations and report bytes to the CiAi v1 producer contract. Keep the source workflow run distinct from the CiAi observer run and the outer report artifact.
 5. Compose the authenticated host path into Foundry's v1 notice/retrieval/consumer contracts; bind it to a durable raWWar task and isolated candidate ref/SHA.
 6. Invoke HeadlessAi only with accepted, provenance-bound evidence and bounded task instructions. Validate the response as an untrusted proposal.
