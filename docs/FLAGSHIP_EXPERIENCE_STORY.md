@@ -7,9 +7,9 @@
 
 ## The promise in one sentence
 
-**Make being a person inside a war the game.**
+**Make being a person inside a living galaxy shaped by war the game.**
 
-raWWar is intended to be the recognizable flagship Experience shipped with the AnyApp system: a world that makes the Workshop's modular architecture meaningful to a human being. The platform is not the protagonist. The people inside the war are.
+raWWar is intended to be the recognizable flagship Experience shipped with the AnyApp system: a shared galaxy that makes the Workshop's modular architecture meaningful to a human being. War is the flagship campaign and a defining force in the setting, but it is not the only way to exist there. The platform is not the protagonist. The people who inhabit the world are.
 
 This page is a guided visual argument using existing, version-controlled raWWar assets. It deliberately links the human promise to the systems needed to support it, while making the current evidence boundary visible.
 
@@ -19,19 +19,19 @@ This page is a guided visual argument using existing, version-controlled raWWar 
 
 *Design illustration — depicts the intended world model, not a captured running simulation.*
 
-A launch crew should be able to work while another squad trains, logistics moves material, researchers run experiments, command reviews a situation, and people spend their downtime together. The player should see signs of a world with its own work, procedures, interruptions, and consequences—not a stage that springs to life only when the player arrives.
+A launch crew should be able to work while another squad trains, logistics moves material, researchers run experiments, command reviews a situation, freight pilots move cargo, passenger ships carry travelers, and people spend their downtime together. The player should see signs of a world with its own work, procedures, interruptions, and consequences—not a stage that springs to life only when the player arrives.
 
 ![One continuous war across a galaxy](images/rawwar-galactic-war.svg)
 
 *Conceptual world model — expresses the intended continuity and scale of the war; it does not demonstrate a simulated galaxy running today.*
 
-The world is a galaxy spanning many star systems, organizations, units, and individual people. Operations are connected by distance, logistics, information, reinforcement, and history. This is not meant to be a sequence of disposable maps.
+The world is a galaxy spanning many star systems, organizations, units, businesses, crews, and individual people. Military operations are connected by distance, logistics, information, reinforcement, and history. Civilian travel, commerce, organizational competition, and independent lives occupy those same places and depend on that same infrastructure. This is not a sequence of disposable maps or separate civilian and military universes.
 
 The promise is not “simulate everything at maximum fidelity.” The promise is that the world keeps its history, while the amount of detail can be appropriate to what is being observed and what matters.
 
 That is also the engineering thesis behind the spectacle: the game should make scale feel like a populated, consequential world, while the system decides which state needs immediate detail, which work can be batched, and which state can be retained compactly or reconstructed when needed. The target is not a leaderboard-sized entity count. It is **more meaningful world per unit of computation**—with reproducible workloads, correctness checks, and measured resource costs before we claim a scale milestone. The broader principles are recorded in [Vision and Pillars, Pillar 11](VISION_AND_PILLARS.md#pillar-11--data-scale-is-part-of-the-spectacle).
 
-## 2. The soldier is the star
+## 2. People are the heart of the world
 
 ![A soldier's career and progression](images/rawwar-soldier-progression.svg)
 
@@ -39,7 +39,9 @@ That is also the engineering thesis behind the spectacle: the game should make s
 
 A soldier is more than a model with a health bar. Their identity, training, qualifications, relationships, equipment, responsibilities, decisions, and fate should accumulate meaning over time.
 
-Combat matters, but it is not the only way to participate. Repair, construction, research, logistics, piloting, intelligence, command, and recreation should all be meaningful ways to inhabit the same war. The player should be able to understand their place in the organization and feel the consequences of their choices.
+The soldier remains central to the flagship military campaign, but combat is not the only way to participate in the galaxy. A player might fly freight, captain a passenger ship through the dangerous outer rim, travel independently, hide as a pirate in an asteroid field, or work as crew, researcher, builder, trader, or customer.
+
+Nor must every player personally operate every asset. Someone may prefer to own or lead a shipping company, set its priorities, delegate its operations, and compete with other cruise or freight lines rather than captain each vessel. The pilot, crew, passengers, competitors, pirates, and military forces still inhabit one shared world. Delegation changes the player's relationship to the operation; it does not remove the operation or its consequences from the universe.
 
 ![The Empress's first uncompromising order](images/rawwar-empress-order.svg)
 
