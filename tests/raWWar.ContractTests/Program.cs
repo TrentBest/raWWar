@@ -110,6 +110,26 @@ Check(Convert.ToHexString(HierarchicalSpatialAddressCodec.Encode(
         HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)))) == "5257534101000100000000",
     "Top-level address V1 encoding has an explicit zero-depth representation");
 
+// A world entity has one stable identity regardless of where or how it is observed or controlled.
+var shipEntityId = WorldEntityId.Create(
+    123, "v1", "vessel", encodedSpatialBytes, 1);
+var sameShipFromPilotPerspective = WorldEntityId.Create(
+    123, "v1", "vessel", encodedSpatialBytes, 1);
+var sameShipFromOrganizationPerspective = WorldEntityId.Create(
+    123, "v1", "vessel", encodedSpatialBytes, 1);
+Check(shipEntityId == sameShipFromPilotPerspective
+    && shipEntityId == sameShipFromOrganizationPerspective,
+    "Direct-operation and organizational perspectives resolve to the same stable vessel identity");
+Check(WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 2) != shipEntityId,
+    "Distinct vessel creation ordinals produce distinct world entity identities");
+Check(WorldEntityId.Create(123, "v1", "station", encodedSpatialBytes, 1) != shipEntityId,
+    "Entity kind participates in stable world entity identity");
+Check(WorldEntityId.Create(124, "v1", "vessel", encodedSpatialBytes, 1) != shipEntityId,
+    "World seed participates in stable world entity identity");
+Check(WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1)
+        == WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1),
+    "Stable world entity identity is reproducible across independent constructions");
+
 // Stable event identity uses canonical binary fields rather than delimiter-based strings.
 var resourceEventId = SimulationEventId.Create(
     123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042");
