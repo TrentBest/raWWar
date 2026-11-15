@@ -58,7 +58,7 @@ internal static class ContractTrxWriter
                     var unitResult = new XElement(Trx + "UnitTestResult",
                         new XAttribute("executionId", executionIds[result.Name]),
                         new XAttribute("testId", testIds[result.Name]),
-                        new XAttribute("testName", result.Name),
+                        new XAttribute("testName", GetTestName(result)),
                         new XAttribute("computerName", computer),
                         new XAttribute("duration", "00:00:00"),
                         new XAttribute("startTime", started.ToString("o")),
@@ -67,10 +67,12 @@ internal static class ContractTrxWriter
                         new XAttribute("outcome", outcome),
                         new XAttribute("testListId", AllTestsList),
                         new XAttribute("relativeResultsDirectory", executionIds[result.Name].ToString("N")));
+                    unitResult.Add(new XElement(Trx + "Output",
+                        new XElement(Trx + "StdOut", result.DisplayName)));
                     if (!result.Passed)
-                        unitResult.Add(new XElement(Trx + "Output",
+                        unitResult.Element(Trx + "Output")!.Add(
                             new XElement(Trx + "ErrorInfo",
-                                new XElement(Trx + "Message", result.Diagnostic ?? result.DisplayName))));
+                                new XElement(Trx + "Message", result.Diagnostic ?? result.DisplayName)));
                     return unitResult;
                 })),
             new XElement(Trx + "TestDefinitions",
@@ -78,7 +80,7 @@ internal static class ContractTrxWriter
                 {
                     var executionId = executionIds[result.Name];
                     return new XElement(Trx + "UnitTest",
-                        new XAttribute("name", result.Name),
+                        new XAttribute("name", GetTestName(result)),
                         new XAttribute("storage", "raWWar.ContractTests.dll"),
                         new XAttribute("id", testIds[result.Name]),
                         new XElement(Trx + "Execution", new XAttribute("id", executionId)),
@@ -93,7 +95,7 @@ internal static class ContractTrxWriter
                     new XElement(Trx + "TestEntry",
                         new XAttribute("testId", testIds[result.Name]),
                         new XAttribute("executionId", executionIds[result.Name]),
-                        new XAttribute(" testListId", AllTestsList)))),
+                        new XAttribute("testListId", AllTestsList)))),
             new XElement(Trx + "TestLists",
                 new XElement(Trx + "TestList",
                     new XAttribute("name", "All Loaded Results"),
@@ -133,6 +135,8 @@ internal static class ContractTrxWriter
                 File.Delete(temporaryPath);
         }
     }
+
+    private static string GetTestName(ContractCheckResult result) => $"{result.Name}: {result.DisplayName}";
 
     private static Guid CreateStableId(string name)
     {
