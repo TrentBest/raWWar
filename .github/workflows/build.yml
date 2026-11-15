@@ -62,7 +62,7 @@ jobs:
       - name: Run executable contract checks
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
       - name: Upload executable contract results (TRX)
-        if: always()
+        if: always() && hashFiles('TestResults/results.trx') != ''
         uses: actions/upload-artifact@v4
         with:
           name: rawwar-contract-results-${{ github.run_id }}-${{ github.run_attempt }}
