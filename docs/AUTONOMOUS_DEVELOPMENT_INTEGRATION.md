@@ -1,6 +1,6 @@
 # raWWar Autonomous Development Pipeline Integration
 
-**Status:** Genuine per-check TRX production and workflow artifact upload are implemented and passing on the current PR head. Full CiAi observation and authorized repair remain unproven; the next gate is trusted provenance and provider-artifact correlation.  
+**Status:** Genuine per-check TRX production and workflow artifact upload passed on the previous PR revision. The current revision adds an isolated pass/failure serialization self-test and is awaiting CI verification. Full CiAi observation and authorized repair remain unproven; the next gate is trusted provenance and provider-artifact correlation.  
 **Related task:** [raWWar issue #9](https://github.com/TrentBest/raWWar/issues/9)  
 **Scope:** Make raWWar a flagship Experience developed through the Workshop Autonomous Development Pipeline. This document describes verified repository facts and a proposed integration path; it does not claim that the pipeline is connected or that autonomous repair is implemented.
 
