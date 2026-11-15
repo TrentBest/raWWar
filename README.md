@@ -31,7 +31,7 @@ We will keep the evidence honest: concept art communicates intent, explanatory S
 
 **raWWar is a first-person living-world Experience, not an application.** It is a persistent galaxy shaped by war, but not limited to military life. Military campaigns, civilian occupations, commerce, travel, and piracy belong to the same world and continue whether or not the player is looking at them.
 
-The player inhabits a soldier inside a military system: a person with identity, qualifications, relationships, responsibilities, equipment, opportunities, history, and consequences.
+The player inhabits a person inside a living society: someone with identity, relationships, responsibilities, opportunities, history, and consequences. The flagship military opening gives one path into that world; it does not define every player's occupation.
 
 > **What happens when I become one of the people who has to live here?**
 
@@ -39,7 +39,7 @@ The player inhabits a soldier inside a military system: a person with identity, 
 
 ![](docs/assets/dividers/green.svg)
 
-> **The soldiers themselves are the stars of this game.**
+> **The people who inhabit this galaxy are the heart of the Experience.**
 
 ![One galaxy, one war](docs/images/rawwar-galactic-war.svg)
 
@@ -69,7 +69,7 @@ The opening campaign brings together faction choice and the Empress's first unco
 
 ![](docs/assets/dividers/orange.svg)
 
-- **New to raWWar:** begin with the [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md).
+- **New to raWWar:** begin with the [Game Design Document](docs/GAME_DESIGN_DOCUMENT.md) and explore the [Player Roles catalogue](docs/PLAYER_ROLES.md).
 - **Want the foundational design:** read the [Game Design Bible](docs/GAME_DESIGN_BIBLE.md).
 - **Want to understand the technology boundary:** read [Experience Architecture](docs/EXPERIENCE_ARCHITECTURE.md).
 - **Building raWWar through the Workshop pipeline:** read [Autonomous Development Integration](docs/AUTONOMOUS_DEVELOPMENT_INTEGRATION.md) and track [issue #9](https://github.com/TrentBest/raWWar/issues/9).
