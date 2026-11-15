@@ -1400,6 +1400,7 @@ Check(!damagedConnection.Accepted &&
 FormationSlotPlannerChecks.Run(Check);
 FormationCoordinatorChecks.Run(Check);
 CandidateFileEventJournalChecks.Run(Check);
+ContractTrxWriterChecks.Run(Check);
 
 var trxPath = Environment.GetEnvironmentVariable("RAWWAR_TRX_PATH");
 if (string.IsNullOrWhiteSpace(trxPath))
