@@ -7,7 +7,7 @@
 
 ![raWWar — The war is alive](images/rawwar-hero.svg)
 
-> **The soldiers themselves are the stars of this game.**
+> **The people who inhabit this galaxy are the heart of the Experience.**
 
 **This document is supposed to make raWWar visible.**
 
@@ -15,7 +15,7 @@ The text defines the rules and intent, but the reader should not have to imagine
 
 ![A living military world](images/rawwar-living-world.svg)
 
-The target is not a collection of features. It is a world in which soldiers work, train, repair, research, command, socialize, march, fight, fail, recover, and develop histories while the larger military machine continues around them.
+The target is not a collection of features or a military simulation isolated from the lives around it. It is a shared, persistent galaxy in which people work, travel, trade, build, command, serve, explore, fight, fail, recover, and develop histories while organizations and larger world systems continue around them. The military campaign is the flagship path through that universe, but it does not define every inhabitant's life or every player's chosen relationship to the world.
 
 > **Read the words for the rules. Look at the visuals for the intent.**
 
@@ -67,29 +67,25 @@ Implementation convenience must never silently become game design.
 
 # 1. Executive Summary
 
-raWWar is a fully first-person, immersive science-fiction war Experience.
+raWWar is a fully first-person, immersive science-fiction living-world Experience set in a persistent galaxy shaped by war.
 
-It is not fundamentally a shooter with unrelated occupations attached to it.
+It is not fundamentally a shooter with unrelated occupations attached to it, nor is it a military simulation that requires every player to become a soldier. The same universe supports military campaigns, civilian work, independent travel, piracy, commerce, and organizational competition. These are different ways to exist in one shared world, not separate games or disconnected simulations.
 
-It is a living war in which the player inhabits a person inside an enormous military organization.
+The flagship campaign places the player inside an enormous military organization. A player may begin as a Commander and encounter soldiers, pilots, mechanics, researchers, builders, intelligence operatives, saboteurs, crew members, scientists, and logistics workers. That campaign is a major expression of raWWar, not the boundary of the universe.
 
-A player may be a soldier, commander, pilot, mechanic, researcher, builder, intelligence operative, saboteur, crew member, scientist, logistics worker, or another role that emerges from the needs and opportunities of the organization.
+Elsewhere in the same galaxy, a player might pilot freight through dangerous routes, captain a passenger ship, hide as a pirate in an asteroid field, work as a crew member, or own and direct a shipping company or cruise line. A player may personally perform an activity, lead the people performing it, manage the organization responsible for it, compete with other organizations, or participate as a customer. The player need not personally operate every asset for their choices to matter.
 
-Combat is important.
-
-Combat is not the entire game.
+Combat is important to the galaxy. Combat is not the entire Experience.
 
 The deeper proposition is:
 
-> **Make being a person inside a war the game.**
+> **Make being a person in a living galaxy the game.**
 
-The player should not merely select a class and receive a collection of abilities. The player should discover what they want to do, train for it, qualify for it, acquire the necessary equipment, join the appropriate organization, perform the work, experience consequences, and develop a history.
+The player should not merely select a class and receive a collection of abilities. The player should discover how they want to exist in the world, pursue the knowledge and qualifications that open opportunities, form relationships with people and organizations, perform or direct meaningful work, experience consequences, and develop a history.
 
-The world is enormous, but individuals matter.
+The world is enormous, but individuals matter. Organizations and large-scale systems matter too, because they shape the conditions in which individual lives unfold.
 
-A commander sees staffing levels, readiness, research programs, facilities, formations, fleets, logistics, and strategic conditions.
-
-A soldier sees the same organization as people: friends, superiors, opportunities, equipment, missions, training, recreation, danger, responsibility, and a place in the machine.
+A commander may see staffing levels, readiness, research programs, facilities, formations, fleets, logistics, and strategic conditions. A soldier experiences that organization through people, relationships, opportunities, equipment, missions, training, recreation, danger, responsibility, and a place in the unit. A shipping-line owner may see routes, schedules, contracts, fleet investment, staffing, service, risk, and competitors—while passengers and crew experience the same operation from their own positions in the world.
 
 The technology of The Singularity Workshop is not merely an implementation detail underneath this design. raWWar is intended to demonstrate why that technology exists.
 
