@@ -198,6 +198,19 @@ Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEn
 Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
         directOperators, Array.Empty<WorldEntityOrganizationMandate>(), delegations),
     "A delegation without its organization's explicit mandate fails closed");
+var unidentifiedOrganizationMandate = new[]
+{
+    new WorldEntityOrganizationMandate(
+        shipEntityId, new WorldEntityPrincipalId(" "), WorldEntityCapability.DelegateOperation)
+};
+var unidentifiedOrganizationDelegation = new[]
+{
+    new WorldEntityDelegation(
+        shipEntityId, new WorldEntityPrincipalId(" "), delegatedCrewId, WorldEntityCapability.Operate)
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, unidentifiedOrganizationMandate, unidentifiedOrganizationDelegation),
+    "Delegation without a valid organization identity fails closed");
 Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, (WorldEntityCapability)128,
         directOperators, mandates, delegations),
     "Unknown capability values fail closed");
