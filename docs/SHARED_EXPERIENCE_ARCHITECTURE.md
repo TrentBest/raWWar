@@ -83,6 +83,21 @@ The next executable slice keeps agency attached to the same `WorldEntityId`:
 These records are inputs to a deterministic policy evaluator. The mandate must originate from the authoritative world domain; the evaluator does not authenticate the issuer, prove legal title, persist grants, or provide a multiplayer security boundary. Those concerns require a later trusted authority and durable-history contract. In particular, an organization is not assumed to own or control an asset merely because it appears in an organizational view.
 
 This is deliberately narrower than an economy or corporate simulator. It proves that a pilot's direct operation and an organization's bounded delegation can refer to one vessel identity while retaining separate responsibilities. It does not yet implement crew scheduling, contracts, succession, offline operation, or ownership transfer.
+### 4.3 First inhabited-place contract
+
+The raWWar integration branch now contains a deliberately bounded InhabitedPlaceSnapshot contract. A place is identified by the same stable WorldEntityId primitive used for vessels and other world entities. Its immutable snapshot carries references to residents, available services, and background-event occurrences.
+
+Observer projections retain the exact same PlaceId while carrying a distinct observer identity and explicitly selected resident/service/event references. The projection rejects references that are absent from the authoritative snapshot, and the snapshot copies caller-owned collections so later mutation cannot silently rewrite its facts.
+
+This is a referential-integrity and perspective-shape contract—not a resident simulator, service executor, persistence layer, visibility policy, authorization system, or proof that a character actually acquired information. The caller supplies the observed references; an authoritative observation/knowledge contract remains future work. No StoryBuilder authoring records or package reader are duplicated here.
+
+The initial contract checks cover:
+- two observers projecting the same place identity with different fact subsets;
+- rejection of a service reference that does not exist in the place snapshot;
+- defensive copying of caller-owned resident collections.
+
+The next proof should bind an actual background occurrence and a resident activity to the same place through the existing event-history boundary, then demonstrate that a player may ignore the activity without changing its authoritative occurrence. Durable storage, scheduling, and NPC simulation remain separate gates.
+
 ## 4. Perspective is not world state
 
 The Experiences Galactic War design makes a critical separation between:
