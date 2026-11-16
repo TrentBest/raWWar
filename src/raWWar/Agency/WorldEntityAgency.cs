@@ -73,8 +73,10 @@ public static class WorldEntityAgencyPolicy
             directOperators.Any(x => x.EntityId == entityId && x.OperatorId == principalId))
             return true;
 
-        if (mandates.Any(x => x.EntityId == entityId &&
+        if (capability != WorldEntityCapability.Operate &&
+            mandates.Any(x => x.EntityId == entityId &&
                               x.OrganizationId == principalId &&
+                              IsValidCapabilitySet(x.Capabilities) &&
                               (x.Capabilities & capability) == capability))
             return true;
 
@@ -89,8 +91,13 @@ public static class WorldEntityAgencyPolicy
             mandates.Any(mandate =>
                 mandate.EntityId == entityId &&
                 mandate.OrganizationId == delegation.OrganizationId &&
+                IsValidCapabilitySet(mandate.Capabilities) &&
                 (mandate.Capabilities & WorldEntityCapability.DelegateOperation) != 0));
     }
+
+    private static bool IsValidCapabilitySet(WorldEntityCapability capabilities) =>
+        capabilities != WorldEntityCapability.None &&
+        (capabilities & ~KnownCapabilities) == 0;
 
     private static bool IsSingleCapability(WorldEntityCapability capability)
     {
