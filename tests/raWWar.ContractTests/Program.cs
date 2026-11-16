@@ -5,6 +5,7 @@ using TheSingularityWorkshop.MicroBundleDomain;
 using TheSingularityWorkshop.raWWar;
 using TheSingularityWorkshop.raWWar.ContractTests;
 using TheSingularityWorkshop.raWWar.History;
+using TheSingularityWorkshop.raWWar.Agency;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
 
 // Child mode: commit one event and exit normally so the parent can verify recovery in a new process.
@@ -129,6 +130,66 @@ Check(WorldEntityId.Create(124, "v1", "vessel", encodedSpatialBytes, 1) != shipE
 Check(WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1)
         == WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1),
     "Stable world entity identity is reproducible across independent constructions");
+
+// Agency is explicit and entity-scoped: direct operation and organizational delegation share one entity.
+var operatorId = new WorldEntityPrincipalId("person:pilot-01");
+var organizationId = new WorldEntityPrincipalId("organization:shipping-line-01");
+var delegatedCrewId = new WorldEntityPrincipalId("person:crew-07");
+var otherEntityId = WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 99);
+var directOperators = new[]
+{
+    new WorldEntityDirectOperator(shipEntityId, operatorId)
+};
+var mandates = new[]
+{
+    new WorldEntityOrganizationMandate(
+        shipEntityId,
+        organizationId,
+        WorldEntityCapability.DelegateOperation | WorldEntityCapability.ManageOperations)
+};
+var delegations = new[]
+{
+    new WorldEntityDelegation(
+        shipEntityId, organizationId, delegatedCrewId, WorldEntityCapability.Operate)
+};
+Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, operatorId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "An explicitly assigned direct operator may operate the shared entity");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, operatorId, WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "Direct operating responsibility does not imply organizational management authority");
+Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "An explicit organization mandate grants only its declared management capability");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "Organizational management does not silently make the organization a vessel operator");
+Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "An organization may delegate operation when its entity mandate explicitly permits delegation");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "Delegated operation does not escalate into organizational management");
+Check(!WorldEntityAgencyPolicy.CanPerform(otherEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "An entity-scoped delegation cannot authorize operation of another entity");
+var revokedDelegations = new[]
+{
+    delegations[0] with { IsRevoked = true }
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, mandates, revokedDelegations),
+    "A revoked delegation no longer authorizes operation");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, Array.Empty<WorldEntityOrganizationMandate>(), delegations),
+    "A delegation without its organization's explicit mandate fails closed");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, (WorldEntityCapability)128,
+        directOperators, mandates, delegations),
+    "Unknown capability values fail closed");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId,
+        WorldEntityCapability.Operate | WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "Composite capability requests fail closed rather than combining authority implicitly");
 
 // Stable event identity uses canonical binary fields rather than delimiter-based strings.
 var resourceEventId = SimulationEventId.Create(
