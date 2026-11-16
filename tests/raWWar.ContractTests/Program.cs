@@ -164,6 +164,21 @@ Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEnti
 Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.Operate,
         directOperators, mandates, delegations),
     "Organizational management does not silently make the organization a vessel operator");
+var organizationOperateMandate = new[]
+{
+    new WorldEntityOrganizationMandate(shipEntityId, organizationId, WorldEntityCapability.Operate)
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.Operate,
+        directOperators, organizationOperateMandate, delegations),
+    "An organization mandate cannot bypass the explicit direct-operator or delegation relationship");
+var malformedMandate = new[]
+{
+    new WorldEntityOrganizationMandate(
+        shipEntityId, organizationId, WorldEntityCapability.DelegateOperation | (WorldEntityCapability)128)
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, malformedMandate, delegations),
+    "Malformed organization mandate capability sets fail closed");
 Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
         directOperators, mandates, delegations),
     "An organization may delegate operation when its entity mandate explicitly permits delegation");
