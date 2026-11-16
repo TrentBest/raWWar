@@ -71,6 +71,18 @@ This gives a pilot-facing view and an organization-facing view the same vessel i
 
 The identity primitive does **not** create or persist vessels, prove ownership, grant control authority, implement delegation, or establish a complete entity lifecycle. Those remain separate contracts. Its acceptance tests establish reproducible identity and separation across world seed, entity kind, and creation ordinal; they do not claim that the full two-perspective/two-agency-scale experience is implemented.
 
+### 4.2 Explicit agency and bounded delegation
+
+The next executable slice keeps agency attached to the same `WorldEntityId`:
+
+- A **direct operator assignment** grants only `Operate` for that entity.
+- An **organization mandate** grants only the enumerated capabilities for that entity. The current vocabulary separates `ManageOperations` from `DelegateOperation`.
+- A **delegation** names the same entity, the mandating organization, one delegate, and one capability. The delegate receives `Operate` only; delegation does not transfer management authority.
+- A revoked delegation is no longer effective. A delegation without a matching organization mandate, a different entity, an unknown capability, or a composite capability request is denied.
+
+These records are inputs to a deterministic policy evaluator. The mandate must originate from the authoritative world domain; the evaluator does not authenticate the issuer, prove legal title, persist grants, or provide a multiplayer security boundary. Those concerns require a later trusted authority and durable-history contract. In particular, an organization is not assumed to own or control an asset merely because it appears in an organizational view.
+
+This is deliberately narrower than an economy or corporate simulator. It proves that a pilot's direct operation and an organization's bounded delegation can refer to one vessel identity while retaining separate responsibilities. It does not yet implement crew scheduling, contracts, succession, offline operation, or ownership transfer.
 ## 4. Perspective is not world state
 
 The Experiences Galactic War design makes a critical separation between:
