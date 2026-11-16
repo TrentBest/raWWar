@@ -232,6 +232,56 @@ Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId,
         directOperators, mandates, delegations),
     "Composite capability requests fail closed rather than combining authority implicitly");
 
+// One inhabited place has authoritative references; observer projections retain its identity
+// and can only present references already present in the place snapshot.
+var stationPlaceId = WorldEntityId.Create(123, "v1", "place", encodedSpatialBytes, 1);
+var stationResident = new WorldEntityPrincipalId("person:station-resident-01");
+var stationVisitor = new WorldEntityPrincipalId("person:visitor-01");
+var stationPlace = new TheSingularityWorkshop.raWWar.Places.InhabitedPlaceSnapshot(
+    stationPlaceId,
+    "Vesper Reach Station",
+    new[] { stationResident, stationVisitor },
+    new[] { "service:refuel", "service:repair" },
+    new[] { "event:shift-change", "event:signal-bulletin" });
+var residentPerspective = stationPlace.Project(
+    stationResident,
+    new[] { stationResident, stationVisitor },
+    new[] { "service:refuel", "service:repair" },
+    new[] { "event:shift-change", "event:signal-bulletin" });
+var organizationPerspective = stationPlace.Project(
+    organizationId,
+    new[] { stationResident },
+    new[] { "service:repair" },
+    new[] { "event:signal-bulletin" });
+Check(residentPerspective.PlaceId == stationPlaceId &&
+      organizationPerspective.PlaceId == stationPlaceId,
+    "Resident and organization perspectives retain the same authoritative inhabited-place identity");
+Check(residentPerspective.ObserverId != organizationPerspective.ObserverId,
+    "Distinct observers receive distinct place projections without creating duplicate places");
+Check(organizationPerspective.ObservedResidents.SequenceEqual(new[] { stationResident }) &&
+      organizationPerspective.ObservedServiceIds.SequenceEqual(new[] { "service:repair" }) &&
+      organizationPerspective.ObservedBackgroundEventIds.SequenceEqual(new[] { "event:signal-bulletin" }),
+    "A place perspective contains only the explicitly supplied observed resident, service, and background-event references");
+var unknownPlaceFactRejected = false;
+try
+{
+    _ = stationPlace.Project(
+        organizationId,
+        Array.Empty<WorldEntityPrincipalId>(),
+        new[] { "service:not-in-this-place" },
+        Array.Empty<string>());
+}
+catch (ArgumentException) { unknownPlaceFactRejected = true; }
+Check(unknownPlaceFactRejected,
+    "A place projection cannot fabricate a service reference absent from authoritative place facts");
+var mutableResidentSource = new List<WorldEntityPrincipalId> { stationResident };
+var copiedPlace = new TheSingularityWorkshop.raWWar.Places.InhabitedPlaceSnapshot(
+    stationPlaceId, "Vesper Reach Station", mutableResidentSource,
+    new[] { "service:refuel" }, new[] { "event:shift-change" });
+mutableResidentSource.Clear();
+Check(copiedPlace.Residents.Count == 1 && copiedPlace.Residents[0] == stationResident,
+    "An inhabited-place snapshot copies caller collections and remains stable after source mutation");
+
 // Stable event identity uses canonical binary fields rather than delimiter-based strings.
 var resourceEventId = SimulationEventId.Create(
     123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042");
