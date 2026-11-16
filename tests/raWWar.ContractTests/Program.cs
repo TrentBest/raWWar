@@ -131,6 +131,19 @@ Check(WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1)
         == WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1),
     "Stable world entity identity is reproducible across independent constructions");
 
+Check(shipEntityId.Value == "19B19F090C4F2B263AB3DBF4390F1A6FE91E2A5442D0F6A270533561BB6C6AF3",
+    "World entity identity V1 matches its fixed SHA-256 reference vector");
+Check(WorldEntityId.Create(123, "v2", "vessel", encodedSpatialBytes, 1) != shipEntityId,
+    "Simulation-model version participates in world entity identity");
+var alternateOriginBytes = (byte[])encodedSpatialBytes.Clone();
+alternateOriginBytes[^1] ^= 0x01;
+Check(WorldEntityId.Create(123, "v1", "vessel", alternateOriginBytes, 1) != shipEntityId,
+    "Canonical origin address participates in world entity identity");
+var rejectedEmptyOrigin = false;
+try { _ = WorldEntityId.Create(123, "v1", "vessel", ReadOnlySpan<byte>.Empty, 1); }
+catch (ArgumentException) { rejectedEmptyOrigin = true; }
+Check(rejectedEmptyOrigin, "World entity identity rejects an empty canonical origin address");
+
 // Agency is explicit and entity-scoped: direct operation and organizational delegation share one entity.
 var operatorId = new WorldEntityPrincipalId("person:pilot-01");
 var organizationId = new WorldEntityPrincipalId("organization:shipping-line-01");
