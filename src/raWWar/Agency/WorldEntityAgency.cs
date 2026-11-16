@@ -85,6 +85,7 @@ public static class WorldEntityAgencyPolicy
 
         return delegations.Any(delegation =>
             !delegation.IsRevoked &&
+            !string.IsNullOrWhiteSpace(delegation.OrganizationId.Value) &&
             delegation.EntityId == entityId &&
             delegation.DelegateId == principalId &&
             delegation.Capability == WorldEntityCapability.Operate &&
