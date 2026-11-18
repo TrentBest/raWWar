@@ -96,7 +96,9 @@ The initial contract checks cover:
 - rejection of a service reference that does not exist in the place snapshot;
 - defensive copying of caller-owned resident collections.
 
-The next proof should bind an actual background occurrence and a resident activity to the same place through the existing event-history boundary, then demonstrate that a player may ignore the activity without changing its authoritative occurrence. Durable storage, scheduling, and NPC simulation remain separate gates.
+The next proof is now present on the integration branch. `InhabitedPlaceActivity` binds one resident identity, one `place.background` occurrence, and one `resident.activity` event under the same stable place identity and canonical spatial stream. Both events are independently committed to `InMemoryEventHistory`; the binding rejects events from another place stream. The contract test then models a player ignoring the activity and verifies that the background occurrence remains in history unchanged. Attention therefore changes what the player follows, not what happened in the shared world.
+
+This remains a deliberately narrow event-history proof. The in-memory ledger is not durable storage; the experimental file journal remains a separate provisional mechanism. The binding does not schedule activity, simulate an NPC, grant visibility, or decide what a player knows.
 
 ## 4. Perspective is not world state
 
