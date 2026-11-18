@@ -282,6 +282,47 @@ mutableResidentSource.Clear();
 Check(copiedPlace.Residents.Count == 1 && copiedPlace.Residents[0] == stationResident,
     "An inhabited-place snapshot copies caller collections and remains stable after source mutation");
 
+// Background occurrences and resident activity are committed as independent history records
+// on the same place stream. Attention is a projection choice, never a mutation of the occurrence.
+var placeBackgroundOccurrence = SimulationEvent.Create(
+    123, "v1", encodedSpatialBytes, "place.background", 11, "tick:000100",
+    System.Text.Encoding.UTF8.GetBytes("station shift change"));
+var residentActivityEvent = SimulationEvent.Create(
+    123, "v1", encodedSpatialBytes, "resident.activity", 12, "tick:000100",
+    System.Text.Encoding.UTF8.GetBytes("resident begins maintenance"));
+var placeActivity = TheSingularityWorkshop.raWWar.Places.InhabitedPlaceActivity.Create(
+    stationPlace, stationResident, placeBackgroundOccurrence, residentActivityEvent, encodedSpatialBytes);
+var placeEventHistory = new InMemoryEventHistory();
+Check(placeEventHistory.Commit(placeBackgroundOccurrence) == EventCommitResult.Committed &&
+      placeEventHistory.Commit(residentActivityEvent) == EventCommitResult.Committed,
+    "A place background occurrence and resident activity commit as separate authoritative history events");
+Check(placeActivity.PlaceId == stationPlaceId &&
+      placeActivity.ResidentId == stationResident &&
+      placeActivity.BackgroundOccurrenceId == placeBackgroundOccurrence.Id &&
+      placeActivity.ResidentActivityId == residentActivityEvent.Id,
+    "Resident activity binds to the background occurrence and resident under the same stable place identity");
+var placeHistoryBeforeIgnoring = placeEventHistory.ReadOrdered("place.background", encodedSpatialBytes);
+var placeHistoryCountBeforeIgnoring = placeEventHistory.Count;
+var playerIgnoresActivity = true;
+if (!playerIgnoresActivity)
+    _ = placeEventHistory.ReadOrdered("resident.activity", encodedSpatialBytes);
+var placeHistoryAfterIgnoring = placeEventHistory.ReadOrdered("place.background", encodedSpatialBytes);
+Check(placeEventHistory.Count == placeHistoryCountBeforeIgnoring &&
+      placeHistoryAfterIgnoring.Count == placeHistoryBeforeIgnoring.Count &&
+      placeHistoryAfterIgnoring.Single().Id == placeBackgroundOccurrence.Id,
+    "Ignoring resident activity does not erase, rewrite, or suppress the independent background occurrence");
+var mismatchedPlaceEventRejected = false;
+try
+{
+    var otherAddress = HierarchicalSpatialAddressCodec.Encode(
+        HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(43)));
+    _ = TheSingularityWorkshop.raWWar.Places.InhabitedPlaceActivity.Create(
+        stationPlace, stationResident, placeBackgroundOccurrence, residentActivityEvent, otherAddress);
+}
+catch (ArgumentException) { mismatchedPlaceEventRejected = true; }
+Check(mismatchedPlaceEventRejected,
+    "A resident activity binding rejects events that do not share the authoritative place stream");
+
 // Stable event identity uses canonical binary fields rather than delimiter-based strings.
 var resourceEventId = SimulationEventId.Create(
     123, "v1", encodedSpatialBytes, "resource.depleted", 7, "tick:000042");
