@@ -107,10 +107,10 @@ jobs:
           done
       - name: Run Soldier Field data and research tests
         run: node --test samples/SoldierField/WebGpuRunner/*.test.mjs
-      - name: Set up .NET 8
-        uses: actions/setup-dotnet@v4
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
       - name: Build solution
         run: dotnet build raWWar.sln --configuration Release
       - name: Verify package contains its README and both manifests (local pack only)
