@@ -12,7 +12,7 @@
   ],
   "branch_count": 3,
   "status": "NON-COMPLIANT",
-  "evaluated_at": "2026-11-20T12:52:34Z",
-  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/44739415383",
-  "triggering_commit": "415d2233118e8ad322bb65e7dd497d2197b4cc76"
+  "evaluated_at": "2026-11-21T12:37:34Z",
+  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/44904837685",
+  "triggering_commit": "46cbbbd4455d93a6cf55291239c1289b280df8f3"
 }
