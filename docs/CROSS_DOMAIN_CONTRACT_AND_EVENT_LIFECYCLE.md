@@ -237,3 +237,54 @@ These questions must be answered by design evidence or creator direction, not gu
 This document defines a proposed first shared-world contract proof. It does not claim an implemented contract engine, economy, legal system, zoological simulator, autonomous labor market, media runtime, durable event store, or multiplayer service.
 
 The slice succeeds when multiple domains can contribute authoritative facts to one contract outcome; every consequential action is attributable; failed or disputed work remains visible; NPC fulfillment is honestly identified; and no presentation layer can rewrite the underlying world.
+
+## 15. Implementation baseline and gap to this proposal
+
+This section separates contracts already present on the raWWar integration branch from the proposed specimen-contract lifecycle above. The existing primitives are useful foundations, but they do not constitute an implemented contract, legal, logistics, or specimen system.
+
+### 15.1 Existing source-backed primitives
+
+| Existing source | What it currently establishes | What it does not establish |
+|---|---|---|
+| `History/WorldEntityId.cs` | A deterministic entity identifier derived from immutable creation coordinates: world seed, simulation-model version, entity kind, canonical origin address, and creation ordinal. | Entity creation, persistence, ownership, legal title, or authority. |
+| `Agency/WorldEntityAgency.cs` | Fail-closed evaluation of direct operation, organization mandates, and narrowly scoped delegated operation for one entity. | Authentication, mandate provenance, durable grants, ownership, or a multiplayer security boundary. |
+| `Places/InhabitedPlaceSnapshot.cs` | An immutable place snapshot with stable resident, service, and background-event references; observer projections retain the same place identity and reject references absent from the snapshot. | Simulation of residents or services, observation authorization, or proof that an observer knows a fact. |
+| `Places/InhabitedPlaceActivity.cs` | A binding between one resident activity and one background occurrence, requiring both events to use the same canonical place stream and the expected event domains. | Event creation, scheduling, persistence, visibility, or knowledge policy. |
+
+These boundaries are intentional. The new design must compose with them rather than duplicate identity, agency, place, or event concepts under contract-specific names.
+
+### 15.2 Missing contracts before the specimen slice can be called implemented
+
+The following capabilities are not supplied by the primitives above and remain future work:
+
+1. A versioned contract record with authorized offer, acceptance, revision, expiry, and explicit lifecycle transition rules.
+2. A durable, append-only event-history contract with stable event identity, actor kind, effective and recorded times, causal links, evidence references, and correction semantics.
+3. Authoritative qualification and capacity facts evaluated at the relevant world time.
+4. Government jurisdiction, permit issuance, suspension, expiry, injunction, and appeal authority.
+5. Specimen identity, biological condition, physical location, custody, and legal status as separate authoritative facts.
+6. A deterministic milestone verifier that consumes fixed contract revisions and authoritative evidence without taking ownership of those facts.
+7. Payment/settlement, dispute, breach, cancellation, and incurred-obligation handling.
+8. Honest player-versus-autonomous-agent attribution and an explicit NPC fallback policy.
+9. Media publication and observer-knowledge projections that cannot mutate event truth or grant universal knowledge.
+
+No class or interface should be introduced merely to make this list look complete. Each missing contract needs a defined owner, authority boundary, immutable or revisioned data shape, failure behavior, and executable acceptance tests before runtime implementation.
+
+### 15.3 Recommended next implementation proof
+
+The next bounded proof should be the **contract lifecycle only**, not the entire zoo/capture/permit/transport simulation:
+
+- Define one versioned, immutable contract-offer snapshot and one explicit state-transition function.
+- Make every transition require its stated actor/authority and expected prior revision; reject stale revisions and illegal transitions without mutating state.
+- Represent acceptance, expiry, cancellation, dispute, and verification as distinct outcomes; do not infer settlement from verification.
+- Preserve the existing `WorldEntityId` for referenced world entities and the existing principal identity vocabulary for people and organizations.
+- Reuse the repository's existing event-history model after its exact API and persistence boundary have been inspected. Do not create a parallel `WorldEvent`, `ContractEvent`, or journal abstraction.
+- Test deterministic replay: the same initial revision and ordered transition inputs must produce the same final state and event sequence. Test duplicate submissions, stale revisions, unauthorized actors, illegal transitions, and correction by a later event rather than history rewriting.
+
+This proof must remain an in-memory domain contract until a trusted persistence and authorization boundary is available. It must not claim durable multiplayer safety, legal validity, economic settlement, or full world simulation.
+
+### 15.4 Implementation readiness
+
+**Ready to design:** a pure, revision-checked contract lifecycle using the existing identity and principal primitives.
+
+**Not yet ready to implement:** a specimen acquisition end-to-end slice. Before that, inspect the exact event-history API and define the authoritative interfaces for qualification, permits, biology/condition, custody/location, and settlement. The open questions in this document remain open; this implementation crosswalk does not resolve them.
+
