@@ -169,7 +169,7 @@ These are not disconnected career minigames. They operate on the same people, or
 
 **War is possible, not compulsory.** The universe provides the tools and institutions with which inhabitants can wage war, but no universal war campaign should force every player into military participation. Player and autonomous-inhabitant decisions create the conflicts and consequences. Whether autonomous factions may independently initiate major wars remains unresolved.
 
-See [Society, Governance, and Civil Institutions](SOCIETY_GOVERNANCE_AND_CIVIL_INSTITUTIONS.md) for the proposed domain map, authority boundaries, specimen lifecycle, deterministic contract direction, and open creator decisions. This is a design expansion, not a claim that these systems are implemented.
+See [Society, Governance, and Civil Institutions](SOCIETY_GOVERNANCE_AND_CIVIL_INSTITUTIONS.md) for the proposed domain map and open creator decisions. The first bounded proof is specified in [Cross-Domain Contracts and Event Lifecycle](CROSS_DOMAIN_CONTRACT_AND_EVENT_LIFECYCLE.md), which defines explicit contract transitions, event provenance, specimen custody, player/NPC attribution, and deterministic acceptance tests. These remain design proposals, not claims that the systems are implemented.
 
 ## 9. Source crosswalk and confidence
 
