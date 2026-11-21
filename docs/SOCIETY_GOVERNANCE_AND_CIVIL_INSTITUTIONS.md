@@ -2,7 +2,8 @@
 
 **Status:** creator-directed design expansion; proposed domain architecture, not implemented runtime behavior or finalized canon.  
 **Scope:** civic government, political participation, law, justice, media, scientific and cultural institutions, wildlife/specimen stewardship, and player-created conflict.  
-**Parent architecture:** [RaWWar Shared-Experience Architecture](SHARED_EXPERIENCE_ARCHITECTURE.md).
+**Parent architecture:** [RaWWar Shared-Experience Architecture](SHARED_EXPERIENCE_ARCHITECTURE.md).  
+**First executable-design candidate:** [Cross-Domain Contracts and Event Lifecycle](CROSS_DOMAIN_CONTRACT_AND_EVENT_LIFECYCLE.md).
 
 ## 1. Foundational direction: a society, not a war lobby
 
