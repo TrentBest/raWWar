@@ -1,6 +1,6 @@
 # raWWar — Game Design Bible
 
-> **The soldiers themselves are the stars of this game.**
+> **The people who inhabit this galaxy are the heart of the Experience.**
 
 **Status:** Living design authority; maintained as creator decisions and canon evolve.  
 **Owner:** raWWar Experience design.  
@@ -20,15 +20,15 @@ The **Game Design Bible** establishes design authority. The **Game Design Docume
 
 ## 1. What raWWar is
 
-raWWar is a fully first-person, immersive war Experience.
+raWWar is a fully first-person, immersive living-world Experience set in a persistent galaxy shaped by war.
 
-It is not fundamentally a shooter with unrelated extra modes. It is a living war in which the player inhabits a role inside the war, and that role can be radically different from player to player.
+War is a defining force in this universe and the military campaign is its flagship path, but the universe is not reserved for military characters. People may serve, build, research, transport, trade, travel, organize, compete, or survive beyond the front lines. These are not unrelated modes or separate worlds: they are different ways to exist in the same shared Experience, with common places, people, organizations, events, history, and consequences.
 
 The central design statement is:
 
-> **The soldiers themselves are the stars of this game.**
+> **The people who inhabit this galaxy are the heart of the Experience.**
 
-Commanders, researchers, mechanics, builders, pilots, operators, crew, scientists, and other roles exist because they are ways for players to participate in the same world.
+Soldiers and commanders remain central to the flagship military campaign. Pilots, crews, researchers, builders, operators, independent travelers, commercial organizations, and other participants also belong to the same living world. Their exact occupations and systems must be illuminated rather than assumed.
 
 ## 2. Platform and immersion model
 
@@ -54,7 +54,7 @@ The game itself, however, is always **FPS and immersive**. The player should exp
 
 The game universe is a **galaxy**.
 
-The Empire spans many star systems. raWWar is therefore one continuous war environment rather than a sequence of disconnected maps.
+The Empire spans many star systems. raWWar is one continuous galactic environment rather than a sequence of disconnected maps. The war shapes this universe, but the universe also contains the lives, work, travel, commerce, organizations, and relationships that continue around and through the conflict.
 
 The hierarchy of scale is:
 
@@ -83,12 +83,12 @@ A world attacked by the player is a location in the continuing galactic war. Own
 
 ## 3. Modes of participation
 
-The two single-player campaigns are distinct paths through the same living war:
+The two single-player military campaigns are distinct paths through the same living war:
 
 1. **Campaign — Commander:** begin as a faction leader and experience the RTS inside the FPS.
 2. **Campaign — Enlisted:** begin as the lowest enlisted grunt and rise through the chain of command until eventually becoming faction leader—the FPS inside the RTS.
 
-These are different positions of authority and different experiences, not merely different camera angles. The enlisted player initially goes where they are sent while the war continues around them. Both campaigns are first-person and share the underlying world.
+These are different positions of authority and different experiences, not merely different camera angles. The enlisted player initially goes where they are sent while the war continues around them. Both campaigns are first-person and share the underlying world. They define the flagship military paths, not an exhaustive list of who a person may be or what they may do in the galaxy. Civilian, independent, and organizational participation belongs to this same universe; it is not a separate civilian game mode.
 
 Other intended modes are:
 
@@ -106,7 +106,7 @@ These should eventually share the same underlying world model rather than becomi
 
 raWWar is always experienced from the first-person perspective.
 
-The player is physically present in the world.
+The player is physically present in the world. First-person presence does not require every player to personally operate every asset they own, lead, or depend on. A player may inhabit a cockpit, workplace, bridge, office, command center, or other meaningful place in the world while exercising direct, delegated, or organizational agency.
 
 Menus, management, recreation, research, construction, command, and combat should therefore be designed as diegetic activities wherever practical.
 

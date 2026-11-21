@@ -16,6 +16,72 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
+      - name: Create exact workflow provenance record
+        id: provenance
+        shell: bash
+        env:
+          REPOSITORY: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+          WORKFLOW_REF: ${{ github.workflow_ref }}
+          WORKFLOW_SHA: ${{ github.workflow_sha }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_REF: ${{ github.ref }}
+          EVENT_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          mkdir -p TestResults/provenance
+          pull_request="$(jq -c 'if .pull_request then {
+            number: .pull_request.number,
+            head: { ref: .pull_request.head.ref, sha: .pull_request.head.sha },
+            base: { ref: .pull_request.base.ref, sha: .pull_request.base.sha }
+          } else null end' "$GITHUB_EVENT_PATH")"
+          checkout_sha="$(git rev-parse HEAD)"
+          jq -n \
+            --arg repository "$REPOSITORY" \
+            --argjson runId "$RUN_ID" \
+            --argjson runAttempt "$RUN_ATTEMPT" \
+            --arg workflowRef "$WORKFLOW_REF" \
+            --arg workflowSha "$WORKFLOW_SHA" \
+            --arg eventName "$EVENT_NAME" \
+            --arg eventRef "$EVENT_REF" \
+            --arg eventSha "$EVENT_SHA" \
+            --arg checkoutRef "$EVENT_REF" \
+            --arg checkoutSha "$checkout_sha" \
+            --argjson pullRequest "$pull_request" \
+            '{
+              schema: "ciai.workflow-provenance.v1",
+              repository: $repository,
+              runId: $runId,
+              runAttempt: $runAttempt,
+              workflow: { ref: $workflowRef, sha: $workflowSha },
+              event: {
+                name: $eventName,
+                ref: $eventRef,
+                sha: $eventSha,
+                pullRequest: $pullRequest
+              },
+              checkout: { ref: $checkoutRef, sha: $checkoutSha }
+            }' > TestResults/provenance/workflow-provenance.json
+          jq -e '
+            .schema == "ciai.workflow-provenance.v1" and
+            (.repository | type == "string" and length > 0) and
+            (.runId | type == "number" and . > 0) and
+            (.runAttempt | type == "number" and . > 0) and
+            (.workflow.ref | type == "string" and length > 0) and
+            (.workflow.sha | test("^[0-9a-fA-F]{40}$")) and
+            (.event.sha | test("^[0-9a-fA-F]{40}$")) and
+            (.checkout.sha | test("^[0-9a-fA-F]{40}$"))
+          ' TestResults/provenance/workflow-provenance.json >/dev/null
+          echo "Workflow provenance payload created for run $RUN_ID attempt $RUN_ATTEMPT."
+      - name: Upload exact workflow provenance artifact
+        if: always() && hashFiles('TestResults/provenance/workflow-provenance.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: rawwar-workflow-provenance-${{ github.run_attempt }}
+          path: TestResults/provenance/workflow-provenance.json
+          if-no-files-found: error
+          retention-days: 14
       - name: Set up Node.js for the Experience-owned browser lab
         uses: actions/setup-node@v4
         with:
@@ -41,10 +107,10 @@ jobs:
           done
       - name: Run Soldier Field data and research tests
         run: node --test samples/SoldierField/WebGpuRunner/*.test.mjs
-      - name: Set up .NET 8
-        uses: actions/setup-dotnet@v4
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v6
         with:
-          dotnet-version: 8.0.x
+          dotnet-version: 10.0.x
       - name: Build solution
         run: dotnet build raWWar.sln --configuration Release
       - name: Verify package contains its README and both manifests (local pack only)
@@ -61,6 +127,22 @@ jobs:
           grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
+      - name: Package contract TRX with exact workflow provenance
+        if: always() && hashFiles('TestResults/results.trx') != '' && hashFiles('TestResults/provenance/workflow-provenance.json') != ''
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p TestResults/evidence
+          cp TestResults/results.trx TestResults/evidence/results.trx
+          cp TestResults/provenance/workflow-provenance.json TestResults/evidence/provenance.json
+      - name: Upload executable contract results and provenance (TRX)
+        if: always() && hashFiles('TestResults/evidence/results.trx') != '' && hashFiles('TestResults/evidence/provenance.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: rawwar-contract-results-${{ github.run_id }}-${{ github.run_attempt }}
+          path: TestResults/evidence/*
+          if-no-files-found: error
+          retention-days: 14
       - name: Independently verify candidate event-frame reference bytes
         run: python3 tools/verify_candidate_event_frame.py
       - name: Run checked-in usage examples
