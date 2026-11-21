@@ -2,7 +2,7 @@ name: Publish raWWar living concept to GitHub Pages
 
 on:
   push:
-    branches: [development, integration/autonomous-development-pipeline]
+    branches: [development]
   pull_request:
     branches: [development]
   workflow_dispatch:
