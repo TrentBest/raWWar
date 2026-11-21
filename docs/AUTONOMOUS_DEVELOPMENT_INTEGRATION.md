@@ -2,9 +2,6 @@
 **Related task:** [raWWar issue #9](https://github.com/TrentBest/raWWar/issues/9)  
 **Scope:** Make raWWar a flagship Experience developed through the Workshop Autonomous Development Pipeline. This document distinguishes source-backed implementation, tested behavior, proposed capabilities, and unavailable integration; it does not claim the pipeline is connected or autonomous repair is implemented.
 
-**Related task:** [raWWar issue #9](https://github.com/TrentBest/raWWar/issues/9)  
-**Scope:** Make raWWar a flagship Experience developed through the Workshop Autonomous Development Pipeline. This document describes verified repository facts and a proposed integration path; it does not claim that the pipeline is connected or that autonomous repair is implemented.
-
 ## 1. Intent
 
 raWWar should demonstrate that the Workshop can help develop a substantial, coherent Experience through bounded, evidence-backed engineering. “Developed” is deliberate: authored domain rules, deterministic contracts, reproducible builds, reviewable proposals, and verified changes. This is not uncontrolled random generation.
