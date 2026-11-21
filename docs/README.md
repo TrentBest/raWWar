@@ -64,6 +64,7 @@ These documents define the world-model rules and implementation gaps. A design c
 - [Spatiotemporal World Model and Observer-Relative Presentation](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md) — stable identity, explicit-time motion, observation-only queries, authoritative history, and rendering as a projection.
 - [Coordinate Frames and Transform Contracts](COORDINATE_FRAME_CONTRACT.md) — required frame metadata, transform conventions, logical-time validity, and tests; canonical world-wide axes and handedness remain open.
 - [Event History, Checkpoints, and Deterministic Replay](EVENT_HISTORY_AND_REPLAY_CONTRACT.md) — event identity versus ordering, idempotent commits, checkpoint boundaries, and replay acceptance tests.
+- [Cross-Domain Contracts and Event Lifecycle](CROSS_DOMAIN_CONTRACT_AND_EVENT_LIFECYCLE.md) — proposed revisioned obligations, explicit transitions, event provenance, cross-domain authority boundaries, and the source-backed implementation gap for a first shared-world contract.
 - [Machine-readable galaxy generation contract](../data/galaxy-generation-contract.json) — executable-contract metadata, including implemented spatial address V1/hash vectors and explicitly unimplemented transform/history requirements.
 
 ## Visual atlas
