@@ -128,3 +128,95 @@ The integration is not complete until there is a reproducible evidence chain con
 - documentation distinguishing implemented, tested, observed, proposed, and unavailable capabilities.
 
 Until those artifacts exist, raWWar is an **integration candidate**, not a proven Autonomous Development Pipeline consumer.
+
+
+## 10. Human decision and reporting surface
+
+The raWWar proving path now includes a product requirement beyond CI evidence: CODE RED must be able to stop at a genuine human decision, explain why it stopped, and resume only after an authenticated, auditable response. A green/red CI badge is useful repository status, but it is not a human decision system.
+
+### 10.1 The user experience
+
+The human-facing surface is an authenticated, cross-repository inbox. It should provide:
+
+- a repository map showing the repositories the signed-in person is authorized to review;
+- a concise overview for each repository, including task state, current evidence status, and relevant policy/badge state;
+- a pending-decision queue with the question, why the model cannot safely decide, available choices, recommendation, consequences, and supporting evidence;
+- an aggregation of similar decisions, with every member individually inspectable;
+- a durable history of answers, reusable rules, and the exact policy version applied;
+- a rich-text response path when the ambiguity cannot be expressed adequately as structured choices.
+
+A decision should not be hidden in email, chat, or a transient notification. The inbox is authoritative and durable. Notifications merely bring the person back to it.
+
+### 10.2 LLM-composed, constrained GUI
+
+The LLM should compose the decision presentation from the decision context, not author an arbitrary web page. It should choose the smallest semantic interaction that makes the ambiguity understandable:
+
+- single choice when one mutually exclusive answer is needed;
+- multi-select when multiple options may apply;
+- structured fields when the answer has a known schema;
+- rich-text input when the problem needs explanation or new information;
+- grouped review when multiple decisions appear to share a rule.
+
+The model may supply the question, explanation, options, rationale, and a proposed semantic control tree. The renderer must validate that proposal against a supported GUI vocabulary and bind controls to a typed decision payload. Do not execute model-authored HTML, JavaScript, callbacks, or arbitrary components. A model recommendation is not an approval.
+
+The current GUI architecture points to GUI.Core for platform-neutral semantics and GUI.Blazor for browser manifestation. Its architecture document also lists semantic input as not yet a stable runtime contract. The required decision/input contract is therefore a capability request, not a claim that the complete surface already exists. See [the GUI decision-surface request](requests/REQUEST-FROM-raWWar-GUI-LLM-ComposedDecisionSurface.md).
+
+### 10.3 One-time answers versus reusable policy
+
+Every decision must distinguish:
+
+1. **Answer this instance:** a one-time response tied to one decision ID, task, repository, exact candidate SHA, and evidence identity.
+2. **Approve a reusable rule:** a human-approved policy with a visible match scope, stable policy ID/version, rationale, approver, and revocation path.
+
+The LLM may suggest that decisions are similar. It must not silently merge them or infer that one answer authorizes all of them. Before approving a reusable rule, the human must be able to inspect the grouped decisions and see the repository, task, exact SHA, evidence, proposed match criteria, and consequence for each member. The system records which policy version applied to each decision. Cases outside the declared scope, or cases with ambiguous similarity, return to a human.
+
+A free-form response is preserved as human input. The host may ask an LLM to interpret it into a structured proposal, but the user must confirm any consequential interpretation that is not already unambiguous. The host remains responsible for validation, authorization, and execution.
+
+### 10.4 Browser access and notifications
+
+Initial technology reconnaissance identifies [WebPage](https://github.com/TrentBest/WebPage) as the strongest existing browser starting point:
+
+- Blazor WebAssembly client in TheSingularityWorkshop;
+- Azure Static Web Apps authentication via StaticWebAppAuthenticationStateProvider and /.auth/me;
+- Azure Functions v4 API project in PollingAPI;
+- an existing Azure Table Storage usage example in VoteFunction.cs.
+
+This is a starting foundation, not a completed secure notification system. The inspected WebPage tree contains no service-worker/Web Push implementation or durable decision inbox. The current vote endpoints are anonymous and are not suitable for approvals. Client-side identity display does not replace server-side authentication and authorization.
+
+The proposed browser notification mechanism is standards-based Web Push (service worker, Push API, Notification API, and server-managed VAPID keys), with explicit browser opt-in. Email may serve as an invitation or fallback where recipients are explicitly configured. Push and email payloads should carry only an opaque decision reference; the person signs in and retrieves protected details from the inbox.
+
+**The durable inbox is authoritative; push/email delivery is best effort.** A missed, blocked, expired, or unsupported notification must never lose the decision. The backend must authenticate every read and write, resolve repository membership itself, and never trust client-supplied user identity, repository scope, or approval authority.
+
+The existing ServerApp repository is currently a minimal shell, not an implemented notification backend. Its eventual role should be evaluated with the ServerApp owner rather than presumed. See [the WebPage inbox and notification request](requests/REQUEST-FROM-raWWar-WebPage-AuthenticatedDecisionInboxAndNotifications.md).
+
+### 10.5 Minimum decision record and audit identity
+
+A decision record should preserve, at minimum:
+
+- immutable decision ID and current state;
+- task ID and task lifecycle identity;
+- repository full name and authorized recipient identity;
+- exact source/candidate commit SHA;
+- CiAi report identity and digest, including the source workflow/run/attempt and any observer/report artifact identities;
+- the question, ambiguity, options, recommendation, and model-produced explanation;
+- the answer payload and whether it is one-time or a reusable policy;
+- policy ID/version and the exact set of decisions to which it was applied;
+- timestamps, actor identity, and audit events.
+
+Do not collapse task ID, decision ID, GitHub run ID, workflow attempt, artifact ID, evidence digest, or policy ID into one generic correlation token. Every transition must be idempotent and attributable. A notification being delivered or opened does not change decision state.
+
+### 10.6 Human-loop acceptance slice for raWWar
+
+The first proof should use a deliberately bounded raWWar engineering decision, not a gameplay-critical or irreversible operation. Demonstrate the following sequence:
+
+1. A real raWWar task reaches a declared decision point and records the exact task/repository/SHA/evidence identity.
+2. HeadlessAi explains the ambiguity and proposes a small semantic decision interface; malformed or unsupported GUI output is rejected.
+3. The authenticated inbox shows the decision with evidence and meaningful options.
+4. The human submits a one-time answer; the host validates the answer and records the actor and exact decision identity.
+5. A second, deliberately similar decision is grouped as a candidate reusable rule. The human inspects the group and explicitly approves or rejects the proposed scope.
+6. The audit view shows which decisions the policy version affected and which decisions remained outside its scope.
+7. A case with insufficient match confidence returns to the human rather than inheriting the rule.
+8. A rich-text response can be submitted for a genuinely ambiguous case without treating model interpretation as authorization.
+9. Browser notification failure is simulated; the decision remains available in the inbox.
+
+This slice is not complete until it is tested against authenticated users and repository boundaries. It does not authorize autonomous writes, merge, release, publication, deployment, or any weakening of the existing host approval gate.
