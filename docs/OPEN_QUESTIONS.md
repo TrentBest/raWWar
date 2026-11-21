@@ -247,3 +247,23 @@ Questions to resolve:
 - Which visual cues are universal and which are faction-specific?
 
 The visual concept may draw broad inspiration from historical military standards and science-fiction unit silhouettes, but final designs must be original.
+
+### 26. What kind of society can a player participate in?
+
+The shared-Experience direction includes civic, political, legal, media, scientific, educational, and institutional lives alongside military, commercial, and independent lives. A player may become a mayor, senator, or elected planetary leader; participate as a lawyer, judge, investigator, or reporter; or establish an intergalactic zoological network that commissions discovery, safe capture, transport, care, research, and exhibition of life forms. These are candidate perspectives, not a finalized occupation catalogue.
+
+**War is possible, not compulsory.** The universe should provide tools for inhabitants to wage war without forcing every player into a war campaign. Player and autonomous-inhabitant decisions create conflicts and their consequences. Whether autonomous factions may initiate major wars independently remains unresolved.
+
+See [Society, Governance, and Civil Institutions](SOCIETY_GOVERNANCE_AND_CIVIL_INSTITUTIONS.md).
+
+**Remaining design questions:**
+- Which government forms, offices, constitutional structures, and jurisdiction scales exist?
+- How are elections, candidacy, voting eligibility, terms, succession, recall, and limits on office authority defined?
+- Which legal protections and procedures are shared, and which vary by society?
+- How are trials, evidence, appeals, and public/private case information handled?
+- Who may publish news, what is public knowledge, and how are corrections and competing accounts represented?
+- Which species are sentient or protected, and what rules govern discovery, capture, custody, transport, research, exhibition, and release?
+- When do autonomous actors fulfill unclaimed player opportunities, and how are their work and outcomes attributed?
+- Can autonomous factions initiate major wars, or must major wars trace to explicit player or institutional decisions?
+- What must continue when no player is present, and how are institutional consequences preserved under simulation abstraction?
+
