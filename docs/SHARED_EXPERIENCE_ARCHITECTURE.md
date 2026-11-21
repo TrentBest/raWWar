@@ -161,6 +161,16 @@ The first playable proof, “The Signal Nobody Owns,” is deliberately modest: 
 
 Do not create a parallel narrative database or observer-knowledge authoring system inside raWWar. If an upstream contract cannot express a required distinction, document the exact gap and coordinate with its owner.
 
+## 8.1 Civic society, governance, and non-military lives
+
+The shared Experience also supports government, political participation, law and justice, public safety, news and broadcasting, science, education, and large civilian institutions. A player may pursue elected office—from local government to planetary leadership—or build an intergalactic zoological network that commissions discovery, qualified capture, safe transport, care, research, and public exhibition of life forms. Other players may fulfill those contracts as expedition teams, capture specialists, transporters, lawyers, reporters, or researchers.
+
+These are not disconnected career minigames. They operate on the same people, organizations, places, contracts, events, legal jurisdictions, assets, and history. An election, court case, broadcast, capture permit, or public controversy must be an attributable world event, not a presentation-only result.
+
+**War is possible, not compulsory.** The universe provides the tools and institutions with which inhabitants can wage war, but no universal war campaign should force every player into military participation. Player and autonomous-inhabitant decisions create the conflicts and consequences. Whether autonomous factions may independently initiate major wars remains unresolved.
+
+See [Society, Governance, and Civil Institutions](SOCIETY_GOVERNANCE_AND_CIVIL_INSTITUTIONS.md) for the proposed domain map, authority boundaries, specimen lifecycle, deterministic contract direction, and open creator decisions. This is a design expansion, not a claim that these systems are implemented.
+
 ## 9. Source crosswalk and confidence
 
 The following classification distinguishes design intent from implementation. “Candidate” means the source explicitly treats the idea as exploratory or not approved canon. It does not mean the idea is implemented.
