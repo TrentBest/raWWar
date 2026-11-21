@@ -123,3 +123,68 @@ First establish major era boundaries and causal event order. Then decide which e
 Do not lock a precise far-future date merely to make the timeline look authoritative. Build the causal history and the duration its consequences require; assign dates when they improve coherence and play.
 
 > **The player discovers surviving pieces of a history that continued long before them—and will continue after they leave.**
+
+
+## 11. Backdrop authoring and environmental archaeology
+
+The historical universe should be explorable before the player knows its history. Storybuilder may help author the long-form chronology, civilizations, incidents, places, and narrative relationships that give the backdrop depth. raWWar remains responsible for validating how that authored material relates to stable world identity, spatial placement, simulation history, physical evidence, access, and player discovery.
+
+Treat Storybuilder output as **authored candidate content**, not as an authority that can silently create runtime truth. Each contribution must retain its provenance and canon status. Creator-established facts remain canon; generated or LLM-proposed details remain candidates until accepted. A narrative description cannot by itself establish that an event occurred, that a structure physically exists at a particular coordinate, or that an observer knows about it.
+
+### Places should preserve the history that shaped them
+
+Candidate environmental-history subjects include:
+
+- ancient settlements, foundations, roads, utility networks, mines, and abandoned industrial districts;
+- fortresses, defensive lines, trenches, siege works, memorials, and ancient battle sites;
+- derelict ships, orbital wreckage, drifting debris fields, and debris distributed along historically plausible trajectories;
+- buried, submerged, overgrown, vitrified, irradiated, or otherwise transformed sites;
+- abandoned stations, obsolete infrastructure, sealed facilities, and systems still executing inherited procedures;
+- salvage fields, wreck recovery zones, mass graves, evacuation routes, and sites whose official identity conflicts with surviving evidence.
+
+These are content categories, not a requirement that every world contain every category. Their placement, age, condition, and discoverability should follow the world's chronology, physical environment, technology, and event history. A debris field should have a causal origin and a defined spatial/temporal model; it should not be a random collection of decorative meshes. A battlefield should preserve enough physical traces to support investigation without guaranteeing that every mystery has one definitive answer.
+
+### Candidate authored-site record
+
+A site or environmental feature should be representable through references and versioned facts rather than one large lore paragraph. The exact schema remains to be designed, but a useful authoring record should identify:
+
+- stable site/content identity and schema version;
+- canon status, authoring source, revision, and acceptance provenance;
+- spatial address or parent location, extent, orientation, and relevant coordinate frame;
+- historical interval, founding/creation event, major changes, abandonment or destruction event, and uncertainty where dates are unknown;
+- former and current ownership or control claims, kept distinct from physical existence;
+- physical components, materials, condition, damage, decay, hazards, and recoverable resources;
+- linked people, organizations, factions, battles, contracts, technologies, and source events;
+- surviving records, artifacts, witness accounts, provenance, contradictions, and access requirements;
+- observation/discovery layers and what remains hidden, inaccessible, damaged, or unknown;
+- permitted variation for generated worlds versus pinned facts for authored campaigns.
+
+Do not require every field to be known. Unknown dates, disputed ownership, incomplete geometry, and uncertain attribution are valid content states, not reasons to invent answers.
+
+### Separate authored history from world generation and simulation
+
+Use a clear pipeline:
+
+1. **Author:** Storybuilder or a human author proposes chronology, site concepts, relationships, and discovery narratives.
+2. **Validate:** raWWar checks references, chronology, spatial/address validity, physical constraints, schema versions, canon status, and campaign dependencies.
+3. **Compose:** an authored campaign manifest pins required facts and declares where constrained variation is permitted; generated worlds use deterministic rules and declared seeds/versions.
+4. **Instantiate:** world systems create or reference the corresponding entities and initial conditions without confusing descriptive prose with physical state.
+5. **Simulate:** consequential destruction, movement, salvage, ownership changes, recovery, and other actions become authoritative events under the relevant domain contracts.
+6. **Discover:** the player observes physical traces and gains records or interpretations only through permitted access, investigation, and communication.
+
+This keeps a useful boundary: Storybuilder can make the past rich and interconnected; the world model makes its places and objects addressable; simulation governs what changes; the archive preserves evidence; the observer model governs what the player can know.
+
+### Acceptance checks for authored backdrop content
+
+- Every pinned site resolves to a stable identity and valid spatial reference.
+- Historical events and site states do not violate declared chronology.
+- A generated site's output is reproducible for the same declared seed and versions.
+- Authored facts remain fixed where the manifest pins them; variation is explicit elsewhere.
+- Physical traces reference the events and processes that explain them when those are known.
+- A site's presentation or discovery query does not create, move, destroy, or otherwise mutate authoritative entities.
+- A player's knowledge is not populated with records merely because those records exist in the world.
+- Contradictory accounts remain distinct from the underlying event and physical evidence.
+- Missing or uncertain source material remains marked as unknown rather than filled with fabricated certainty.
+- Content revisions preserve provenance and do not silently rewrite an existing campaign's history.
+
+The existing [Campaign History Discoveries contract](../data/campaign-history-discoveries.json), [Contested History, Betrayal, and the Politics of Memory](CONTESTED_HISTORY_BETRAYAL_AND_MEMORY.md), [Authored Galaxies, Campaign Manifests, and Civilization Lineage](AUTHORED_GALAXIES_CAMPAIGNS_AND_LINEAGE.md), and [Spatiotemporal World Model](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md) provide adjacent contracts. This section defines an authoring boundary; it does not claim that a complete Storybuilder adapter, site schema, or runtime archaeology system already exists.
