@@ -218,3 +218,33 @@ The first proof should use a deliberately bounded raWWar engineering decision, n
 9. Browser notification failure is simulated; the decision remains available in the inbox.
 
 This slice is not complete until it is tested against authenticated users and repository boundaries. It does not authorize autonomous writes, merge, release, publication, deployment, or any weakening of the existing host approval gate.
+
+## 11. CiAi build-observation packet
+
+The build workflow now emits a repository-owned `ciai.build-observation.v1` bundle after every ordinary build/contract execution, including runs where an earlier step fails (the observation and upload steps use `always()`).
+
+The packet records:
+
+- repository, workflow name/ref/SHA, run ID, attempt, event identity, PR source-head SHA, and actual checkout SHA as distinct values;
+- immutable Git tree SHA, tracked-file count, and a digest of the tracked-tree listing;
+- each required build/test step's provider-reported outcome, with an overall `success`, `failure`, `cancelled`, or `unknown` classification; skipped or unknown steps never become success;
+- parsed TRX totals and pass/fail/not-executed counters;
+- SHA-256 and byte size for the TRX, provenance, local package, generated previews, repository manifest, and any checked-in badge assets included in the bundle;
+- badge state independently queried by exact source SHA from the repository manifest's declared workflow files;
+- explicit authority boundaries: CiAi owns the CI verdict, HeadlessAi owns bounded LLM interpretation, and this packet authorizes no write, merge, or publication.
+
+The bundle contains `observation.json`, the visible `.ciai/repository.json` manifest, actual TRX and provenance bytes, the local package candidate, badge assets, and generated Soldier Field SVG previews. The upload step explicitly includes hidden files so the repository manifest is not silently omitted from the archive.
+
+### Exact-head verification
+
+- Source head: `e8f0684a18c8a57e079610ca57a6c0d9bfd55e8a`.
+- Build/contract run [#1264](https://github.com/TrentBest/raWWar/actions/runs/45008902002): **success**.
+- Observation contract unit tests: **success**.
+- Executable raWWar contracts: **415/415 passed**.
+- Observation artifact [`rawwar-build-observation-45008902002-1`](https://github.com/TrentBest/raWWar/actions/runs/45008902002/artifacts/14749032438): ID `14749032438`, 514,311 bytes, SHA-256 `d2c9b513a34f0d491c6e06a580521322768fbc2ed3cadf3b18a4a3f283fe892d`.
+- The downloaded archive was inspected: it contains 14 files, including `.ciai/repository.json`, `observation.json`, the TRX/provenance, local package, badge asset, and six Soldier Field SVGs.
+- The observation correctly records the source-head SHA separately from the PR merge checkout SHA, and reports the Sith Policy badge as failed because the retained integration branch is a third branch.
+
+The failure classification is covered by deterministic unit tests, and the workflow always-run upload path is implemented. A real failed-workflow upload has not yet been exercised with the opt-in failure fixture. No workflow dispatch was performed for this validation.
+
+**Trust boundary:** this artifact is an evidence packet, not a trusted CiAi verdict. A PR's workflow definition remains candidate-controlled; CiAi must independently verify the workflow definition, provider run/attempt, job/artifact association, source/base/merge identities, and exact bytes before accepting it. The packet is available for the observer/HeadlessAi pipeline, but no live HeadlessAi handoff or autonomous repair is claimed.
