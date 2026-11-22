@@ -15,6 +15,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   build-and-contracts:
@@ -93,6 +94,7 @@ jobs:
         with:
           node-version: 22
       - name: Generate Soldier Field README previews from the procedural mesh
+        id: preview
         run: node samples/SoldierField/WebGpuRunner/render-soldier-previews.mjs
       - name: Upload generated Soldier Field previews for inspection
         uses: actions/upload-artifact@v4
@@ -101,8 +103,10 @@ jobs:
           path: docs/images/soldier-field/*.svg
           if-no-files-found: error
       - name: Verify checked-in Soldier Field previews match the source generator
+        id: preview_diff
         run: git diff --exit-code -- docs/images/soldier-field/
       - name: Verify generated Soldier Field previews
+        id: preview_validate
         shell: bash
         run: |
           set -euo pipefail
@@ -112,14 +116,17 @@ jobs:
             grep -q '<polygon' "$file" || { echo "No mesh triangles rendered in: $file"; exit 1; }
           done
       - name: Run Soldier Field data and research tests
+        id: soldier_tests
         run: node --test samples/SoldierField/WebGpuRunner/*.test.mjs
       - name: Set up .NET 10
         uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 10.0.x
       - name: Build solution
+        id: build
         run: dotnet build raWWar.sln --configuration Release
       - name: Verify package contains its README and both manifests (local pack only)
+        id: package
         shell: bash
         run: |
           set -euo pipefail
@@ -132,6 +139,7 @@ jobs:
           grep -Eq '(^|/)manifest\.json$' <<< "$contents"
           grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
+        id: contracts
         env:
           RAWWAR_CONTRACT_FAILURE_FIXTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.contract_failure_fixture && 'true' || 'false' }}
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
@@ -152,6 +160,24 @@ jobs:
           if-no-files-found: error
           retention-days: 14
       - name: Independently verify candidate event-frame reference bytes
+        id: event_frame
         run: python3 tools/verify_candidate_event_frame.py
       - name: Run checked-in usage examples
+        id: examples
         run: dotnet run --project examples/KeplerOrbit/raWWar.KeplerOrbitExample.csproj --configuration Release
+      - name: Create CiAi build observation bundle
+        id: observation
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RAWWAR_STEP_OUTCOMES_JSON: >-
+            {"soldierPreviewGeneration":"${{ steps.preview.outcome }}","soldierPreviewDiff":"${{ steps.preview_diff.outcome }}","soldierPreviewValidation":"${{ steps.preview_validate.outcome }}","soldierFieldTests":"${{ steps.soldier_tests.outcome }}","solutionBuild":"${{ steps.build.outcome }}","localPackageValidation":"${{ steps.package.outcome }}","executableContracts":"${{ steps.contracts.outcome }}","candidateEventFrameVerification":"${{ steps.event_frame.outcome }}","usageExamples":"${{ steps.examples.outcome }}"}
+        run: python3 tools/write_build_observation.py
+      - name: Upload CiAi build observation bundle
+        if: always() && hashFiles('TestResults/observation-bundle/observation.json') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: rawwar-build-observation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: TestResults/observation-bundle/**
+          if-no-files-found: error
+          retention-days: 14
