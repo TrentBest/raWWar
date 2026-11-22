@@ -22,11 +22,14 @@ var failures = new List<string>();
 var results = new List<ContractCheckResult>();
 var checks = 0;
 
-void Check(bool condition, string message)
+void Check(bool condition, string message) =>
+    RecordCheck(condition, message, $"ContractCheck{checks + 1:D4}");
+
+void RecordCheck(bool condition, string message, string identity)
 {
     checks++;
     var result = new ContractCheckResult(
-        $"ContractCheck{checks:D4}",
+        identity,
         message,
         condition,
         condition ? null : message);
@@ -1621,7 +1624,9 @@ var failureFixtureEnabled = string.Equals(
     "true",
     StringComparison.OrdinalIgnoreCase);
 if (failureFixtureEnabled)
-    Check(false, "CONTROLLED FAILURE FIXTURE: RAWWAR_CONTRACT_FAILURE_FIXTURE was explicitly enabled.");
+    RecordCheck(false,
+        "CONTROLLED FAILURE FIXTURE: RAWWAR_CONTRACT_FAILURE_FIXTURE was explicitly enabled.",
+        "ControlledFailureFixture");
 
 var trxPath = Environment.GetEnvironmentVariable("RAWWAR_TRX_PATH");
 if (string.IsNullOrWhiteSpace(trxPath))
