@@ -146,23 +146,27 @@ def observe_badge(badge: dict[str, object], source_sha: str) -> dict[str, object
         return result
 
 
-def main() -> int:
-    outcomes = json.loads(env("RAWWAR_STEP_OUTCOMES_JSON", "{}"))
+def summarize_outcomes(outcomes: dict[str, str]) -> str:
     if not isinstance(outcomes, dict) or any(
         not isinstance(key, str) or not isinstance(value, str)
         for key, value in outcomes.items()
     ):
-        raise ValueError("RAWWAR_STEP_OUTCOMES_JSON must be an object of string outcomes.")
-
+        raise ValueError("Step outcomes must be an object of string values.")
     values = list(outcomes.values())
-    if not values or any(value == "failure" for value in values):
-        conclusion = "failure" if "failure" in values else "unknown"
-    elif any(value == "cancelled" for value in values):
-        conclusion = "cancelled"
-    elif all(value == "success" for value in values):
-        conclusion = "success"
-    else:
-        conclusion = "unknown"
+    if not values:
+        return "unknown"
+    if "failure" in values:
+        return "failure"
+    if "cancelled" in values:
+        return "cancelled"
+    if all(value == "success" for value in values):
+        return "success"
+    return "unknown"
+
+
+def main() -> int:
+    outcomes = json.loads(env("RAWWAR_STEP_OUTCOMES_JSON", "{}"))
+    conclusion = summarize_outcomes(outcomes)
 
     provenance_path = ROOT / "TestResults" / "provenance" / "workflow-provenance.json"
     provenance = {}
