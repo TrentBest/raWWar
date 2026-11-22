@@ -1,6 +1,7 @@
 {
   "schema": "ciai.repository.v1",
   "repository": "TrentBest/raWWar",
+  "observerProfile": "rawwar-contracts-v1",
   "badges": [
     {
       "id": "sith-policy",
