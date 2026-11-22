@@ -13,6 +13,10 @@
     {
       "repository": "TrentBest/TheSingularityWorkshop.MicroBundleDomain",
       "capability": "experience-domain"
+    },
+    {
+      "repository": "TrentBest/TheSingularityWorkshop.Physics",
+      "capability": "physics.kinematics.prescribed-motion.v1"
     }
   ],
   "extensions": []
