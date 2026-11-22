@@ -1,6 +1,7 @@
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from tools.write_build_observation import file_record, parse_trx, summarize_outcomes
 
@@ -56,7 +57,8 @@ class BuildObservationContractTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "artifact.bin"
             path.write_bytes(b"trusted bytes")
-            record = file_record(path)
+            with patch("tools.write_build_observation.ROOT", Path(directory)):
+                record = file_record(path)
             self.assertEqual(len(b"trusted bytes"), record["sizeBytes"])
             self.assertEqual(
                 "6acd7c3c149b0fdbc542a20bb7ece8164ebf4b78148c3f65c2fddf208cc74e35",
