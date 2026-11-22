@@ -1,5 +1,9 @@
 # raWWar Experience
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 raWWar is a manifest-oriented, first-person war Experience from The Singularity Workshop. It defines game-specific meaning—soldiers, factions, procedures, equipment, world history, and consequences—while consuming reusable Workshop capabilities.
 
 ## Package contents

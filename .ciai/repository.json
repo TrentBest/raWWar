@@ -1,0 +1,18 @@
+{
+  "schema": "ciai.repository.v1",
+  "repository": "TrentBest/raWWar",
+  "badges": [
+    {
+      "id": "sith-policy",
+      "label": "Sith Policy",
+      "workflowFile": "sith-policy.yml"
+    }
+  ],
+  "dependencies": [
+    {
+      "repository": "TrentBest/TheSingularityWorkshop.MicroBundleDomain",
+      "capability": "experience-domain"
+    }
+  ],
+  "extensions": []
+}

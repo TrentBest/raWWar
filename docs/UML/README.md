@@ -1,5 +1,9 @@
 # UML source documentation
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This folder records source-backed UML per C# file. Pages describe checked-in implementation and executable examples, not intended future behavior. The repository contains 21 C# files across runtime source, examples, and contract tests.
 
 ## Runtime source coverage

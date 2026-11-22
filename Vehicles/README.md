@@ -1,5 +1,9 @@
 # raWWar Vehicles
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This directory is the working vehicle design laboratory.
 
 A vehicle is a physical capability with a chassis, configuration, crew, ammunition or consumables, maintenance requirements, production lineage, qualifications, procedures, and consequences.

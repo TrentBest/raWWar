@@ -1,5 +1,9 @@
 # raWWar Structures
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This directory is the working structure/building design laboratory.
 
 A structure is a physical capability. Building it does not automatically make the capability operational.

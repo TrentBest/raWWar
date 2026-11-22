@@ -1,5 +1,9 @@
 # raWWar — Design Documentation
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This directory is the design and production knowledge base for the raWWar Experience.
 
 ## Choose your reading path

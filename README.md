@@ -7,6 +7,10 @@
 
 # ✳️ 00 raWWar — The Singularity Workshop
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/TrentBest/raWWar/build.yml?branch=development&style=flat-square&logo=github)](https://github.com/TrentBest/raWWar/actions/workflows/build.yml)
 

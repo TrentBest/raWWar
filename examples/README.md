@@ -1,5 +1,9 @@
 # raWWar Examples
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This directory is the **usage-example source of truth** for raWWar-owned code and consumed Workshop contracts. Examples should be practical, copyable, and traceable to the implementation or dependency version they demonstrate.
 
 ## Examples

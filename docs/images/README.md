@@ -1,5 +1,9 @@
 # raWWar Visual Asset Catalogue
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 Status: Living index of explanatory visual assets.
 Owner: raWWar design and documentation.
 Audience: Designers, implementers, reviewers, and readers who need a visual entry point.

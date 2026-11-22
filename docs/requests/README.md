@@ -1,5 +1,9 @@
 # Cross-repository capability requests
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 **Owner:** raWWar  
 **Scope:** Requests raWWar makes to other Workshop repositories  
 **Status:** Convention proposal in use on `development`

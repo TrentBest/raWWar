@@ -1,5 +1,9 @@
 # raWWar Contract Tests
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This .NET 8 console project checks executable mathematical, data-integrity, and architectural contracts without adding a test-framework dependency. It references the current AnyApp FSM_COS package only for a small composition contract proof.
 
 Run from the repository root:
