@@ -89,6 +89,9 @@ jobs:
           path: TestResults/provenance/workflow-provenance.json
           if-no-files-found: error
           retention-days: 14
+      - name: Verify CiAi build observation contract
+        id: observation_contracts
+        run: python3 -m unittest tools/test_write_build_observation.py
       - name: Set up Node.js for the Experience-owned browser lab
         uses: actions/setup-node@v4
         with:
@@ -171,7 +174,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RAWWAR_STEP_OUTCOMES_JSON: >-
-            {"soldierPreviewGeneration":"${{ steps.preview.outcome }}","soldierPreviewDiff":"${{ steps.preview_diff.outcome }}","soldierPreviewValidation":"${{ steps.preview_validate.outcome }}","soldierFieldTests":"${{ steps.soldier_tests.outcome }}","solutionBuild":"${{ steps.build.outcome }}","localPackageValidation":"${{ steps.package.outcome }}","executableContracts":"${{ steps.contracts.outcome }}","candidateEventFrameVerification":"${{ steps.event_frame.outcome }}","usageExamples":"${{ steps.examples.outcome }}"}
+            {"soldierPreviewGeneration":"${{ steps.preview.outcome }}","soldierPreviewDiff":"${{ steps.preview_diff.outcome }}","soldierPreviewValidation":"${{ steps.preview_validate.outcome }}","soldierFieldTests":"${{ steps.soldier_tests.outcome }}","solutionBuild":"${{ steps.build.outcome }}","localPackageValidation":"${{ steps.package.outcome }}","executableContracts":"${{ steps.contracts.outcome }}","candidateEventFrameVerification":"${{ steps.event_frame.outcome }}","usageExamples":"${{ steps.examples.outcome }}","observationContracts":"${{ steps.observation_contracts.outcome }}"}
         run: python3 tools/write_build_observation.py
       - name: Upload CiAi build observation bundle
         if: always() && hashFiles('TestResults/observation-bundle/observation.json') != ''
