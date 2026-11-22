@@ -125,7 +125,7 @@ def observe_badge(badge: dict[str, object], source_sha: str) -> dict[str, object
             run for run in runs
             if isinstance(run, dict)
             and str(run.get("head_sha", "")).lower() == source_sha.lower()
-            and Path(str(run.get("path", ""))).name == Path(workflow_file).name
+            and Path(str(run.get("path", "")).split("@", 1)[0]).name == Path(workflow_file).name
         ]
         if not matches:
             result["status"] = "not-found"
