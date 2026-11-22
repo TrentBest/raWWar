@@ -1615,6 +1615,14 @@ FormationCoordinatorChecks.Run(Check);
 CandidateFileEventJournalChecks.Run(Check);
 ContractTrxWriterChecks.Run(Check);
 
+// Explicit opt-in fixture: only the literal value "true" enables one real failed check.
+var failureFixtureEnabled = string.Equals(
+    Environment.GetEnvironmentVariable("RAWWAR_CONTRACT_FAILURE_FIXTURE"),
+    "true",
+    StringComparison.OrdinalIgnoreCase);
+if (failureFixtureEnabled)
+    Check(false, "CONTROLLED FAILURE FIXTURE: RAWWAR_CONTRACT_FAILURE_FIXTURE was explicitly enabled.");
+
 var trxPath = Environment.GetEnvironmentVariable("RAWWAR_TRX_PATH");
 if (string.IsNullOrWhiteSpace(trxPath))
     trxPath = Path.Combine("TestResults", "results.trx");

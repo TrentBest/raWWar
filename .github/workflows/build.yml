@@ -6,6 +6,12 @@ on:
   pull_request:
     branches: [master, development]
   workflow_dispatch:
+    inputs:
+      contract_failure_fixture:
+        description: "Emit one deliberate failed contract check for CiAi evidence"
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -126,6 +132,8 @@ jobs:
           grep -Eq '(^|/)manifest\.json$' <<< "$contents"
           grep -Eq '(^|/)runtime-manifest\.json$' <<< "$contents"
       - name: Run executable contract checks
+        env:
+          RAWWAR_CONTRACT_FAILURE_FIXTURE: ${{ github.event_name == 'workflow_dispatch' && inputs.contract_failure_fixture && 'true' || 'false' }}
         run: dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj --configuration Release
       - name: Package contract TRX with exact workflow provenance
         if: always() && hashFiles('TestResults/results.trx') != '' && hashFiles('TestResults/provenance/workflow-provenance.json') != ''
