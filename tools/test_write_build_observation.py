@@ -59,7 +59,7 @@ class BuildObservationContractTests(unittest.TestCase):
             record = file_record(path)
             self.assertEqual(len(b"trusted bytes"), record["sizeBytes"])
             self.assertEqual(
-                "e55f2a4d9e4f3d7d2b88f3a9b2d35c6f7b1b0a2e1a8e2f9f1c4f1a0f0e5a8c2f",
+                "6acd7c3c149b0fdbc542a20bb7ece8164ebf4b78148c3f65c2fddf208cc74e35",
                 record["sha256"],
             )
 
