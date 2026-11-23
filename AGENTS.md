@@ -200,3 +200,15 @@ Two additional LOD 2 books now extend the catalogue:
 Both have matching descriptors and original SVG covers. Catalogue and collection README have been extended. The current session's new book set is therefore: Piracy and Maritime Raiding; Outlaws, Bandits, and Popular Resistance; Chinese Warfare; Science Fiction Warfare; Japanese Warfare; and Orbital Warfare and Space Infrastructure.
 
 Next, deepen the Persian and Roman families, then add Mongol and Viking-age studies. Continue the science-fiction family with planetary defense/habitat conflict, autonomous systems and machine agency, interstellar logistics, and alien contact/conflict. Each volume must be substantive, cross-linked, and explicit about evidence versus speculation.
+
+
+## Latest expansion — dedicated Iranian imperial books (2026-11-23)
+
+Three focused LOD 2 sourcebooks now deepen the Persian family:
+- [Achaemenid Warfare](docs/books/achaemenid-warfare.md) — royal authority, provincial mobilization, multi-community forces, logistics, and campaign history.
+- [Parthian Warfare](docs/books/parthian-warfare.md) — Arsacid political-military networks, mounted forces, horse logistics, Roman relations, and frontier diplomacy.
+- [Sasanian Warfare](docs/books/sasanian-warfare.md) — military institutions, elite cavalry, frontier systems, siegecraft, imperial finance, and the late antique wars.
+
+Each has a matching `.book.json` descriptor and original SVG cover. The Persian overview remains the comparative entry point; the three new books provide distinct period-specific depth.
+
+Next priorities: Mongol warfare and steppe polities; Viking-age warfare and maritime networks; focused Roman Republic, imperial army, civil wars, and Late Roman/Eastern Roman volumes; then science-fiction subbooks for planetary defense and habitats, autonomous systems and machine agency, interstellar logistics, and alien diplomacy/conflict. Keep evidence and speculation distinct.
