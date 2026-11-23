@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.planetary-defense-and-habitat-conflict",
+  "category": "Domain",
+  "lod": 2,
+  "title": "Planetary Defense and Habitat Conflict",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/planetary-defense-and-habitat-conflict.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
