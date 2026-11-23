@@ -230,3 +230,8 @@ Before accepting an interstellar setting or campaign, ask:
 - Does the outcome persist after the expedition or campaign ends?
 
 The central principle: **interstellar power is the ability to sustain relationships across distance, not merely the ability to arrive.**
+
+
+## Resource-economy companion
+
+See [Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md) for cross-world resource abundance and processing; [Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md) for asteroid prospecting, receiving facilities, depots, and transport; and [Interstellar Economies and Multi-System War](interstellar-economies-and-multi-system-war.md) for millennia-scale imperial institutions, system autonomy, and multi-system conflict.
