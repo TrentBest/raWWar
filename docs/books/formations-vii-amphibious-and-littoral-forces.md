@@ -240,3 +240,8 @@ Before adding a case study, record the period and region, mission purpose, parti
 ## Cross-domain ownership and implementation boundary
 
 Formations VII treats the sea-to-shore boundary as a system of people, organizations, assets, infrastructure, and handoffs. It is not a synonym for naval warfare or a chapter of land formations. raWWar owns the domain knowledge and scenarios; Physics owns physical simulation; Gestures owns embodied interaction; logistics and facility providers own their respective shared domains; SURPS remains opt-in.
+
+## Related engineering and planetary doctrine
+
+- [Formations IX: Engineering and Construction Forces](formations-ix-engineering-and-construction-forces.md) — temporary crossings, floating bridges, route infrastructure, repair, and project handover.
+- [Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md) — a distinct orbital-to-surface domain, not a direct extension of amphibious landing doctrine.
