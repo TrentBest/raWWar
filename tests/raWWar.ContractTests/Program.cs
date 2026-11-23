@@ -515,6 +515,62 @@ using var electronicsData = ReadData("electronic-systems.json");
 using var assembliesData = ReadData("building-assemblies.json");
 using var securityData = ReadData("security-systems.json");
 using var upgradesData = ReadData("upgrades.json");
+using var universeFoundation = ReadData("universe-foundation.json");
+using var imperialSummons = ReadData(Path.Combine("campaigns", "imperial-summons.json"));
+
+Check(universeFoundation.RootElement.GetProperty("schemaVersion").GetString()
+    == "raWWar.universe-foundation.v1",
+    "Universe foundation declares its versioned data contract");
+Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("scale")
+    .GetProperty("worldCount").GetString() == "millions-of-worlds",
+    "Universe canon envelope preserves the creator-established galaxy scale");
+Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("imperialOrder")
+    .GetProperty("eraDuration").GetString() == "multiple-millennia-at-minimum",
+    "Universe canon envelope preserves the multi-millennia Imperial era");
+Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("conflict")
+    .GetProperty("ongoing").GetBoolean(),
+    "Universe canon envelope establishes a continuing war");
+Check(universeFoundation.RootElement.GetProperty("canonBoundaries")
+    .GetProperty("allFactionsHuman").GetString() == "candidate-not-confirmed",
+    "Unconfirmed species scope remains a candidate rather than being promoted to canon");
+
+Check(imperialSummons.RootElement.GetProperty("schemaVersion").GetString()
+    == "raWWar.campaign-seed.v1",
+    "Imperial Summons declares its versioned campaign-seed contract");
+Check(imperialSummons.RootElement.GetProperty("id").GetString()
+    == "campaign.imperial-summons",
+    "Imperial Summons has a stable campaign identity");
+
+var campaignEntities = imperialSummons.RootElement.GetProperty("authoredEntities")
+    .EnumerateArray().ToArray();
+var campaignEntityIds = campaignEntities
+    .Select(entity => entity.GetProperty("id").GetString()!).ToHashSet(StringComparer.Ordinal);
+Unique("Imperial Summons entity", campaignEntityIds.ToArray());
+Check(campaignEntities.All(entity => entity.GetProperty("displayName").ValueKind == System.Text.Json.JsonValueKind.Null),
+    "Unilluminated campaign identities remain explicitly unnamed rather than invented");
+
+var campaignEvents = imperialSummons.RootElement.GetProperty("eventSequence")
+    .EnumerateArray().ToArray();
+var campaignEventIds = campaignEvents.Select(item => item.GetProperty("id").GetString()!).ToArray();
+Unique("Imperial Summons event", campaignEventIds);
+Check(campaignEvents.Select(item => item.GetProperty("sequence").GetInt32())
+    .SequenceEqual(Enumerable.Range(1, campaignEvents.Length)),
+    "Imperial Summons opening events have a contiguous authored sequence");
+Check(campaignEvents.All(item => campaignEntityIds.Contains(item.GetProperty("location").GetString()!)),
+    "Imperial Summons event locations resolve to authored entities");
+Check(campaignEvents.SelectMany(item => item.GetProperty("actors").EnumerateArray())
+    .Select(actor => actor.GetString()!).All(campaignEntityIds.Contains),
+    "Imperial Summons event actors resolve to authored entities");
+Check(imperialSummons.RootElement.GetProperty("eventSequence").EnumerateArray()
+    .Any(item => item.GetProperty("type").GetString() == "conditional-lethal-outcome"
+        && item.GetProperty("condition").GetString() == "commander-refuses-to-comply"),
+    "Imperial Summons preserves the conditional refusal outcome");
+Check(imperialSummons.RootElement.GetProperty("unresolvedCanon").GetArrayLength() >= 10,
+    "Imperial Summons exposes unresolved setting decisions as explicit canon gates");
+Check(imperialSummons.RootElement.GetProperty("validation")
+    .GetProperty("rejectInventedCanonNamesDatesAndMotives").GetBoolean(),
+    "Imperial Summons validation forbids silently invented canon");
+
 
 var resourceIds = Ids(resources, "resources").ToHashSet(StringComparer.Ordinal);
 var technologyIds = Ids(technologies, "technologies").ToHashSet(StringComparer.Ordinal);
