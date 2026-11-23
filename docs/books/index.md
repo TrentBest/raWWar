@@ -471,3 +471,18 @@ Descriptor: [formations-vi-orbital-and-space-forces.book.json](formations-vi-orb
 A dedicated formation manual for spacecraft, crews, autonomous systems, stations, habitats, service networks, orbital relationships, communications delay, sustainment, rescue, governance, and transparent simulation contracts. It complements the broader Orbital Warfare and Space Infrastructure volume without treating spacecraft as ships or orbital trajectories as roads.
 
 [Read Formations VI: Orbital and Space Forces](formations-vi-orbital-and-space-forces.md)
+
+
+## Formations VII — amphibious and littoral forces (LOD 2)
+
+### Formations VII: Amphibious and Littoral Forces
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Formations VII: Amphibious and Littoral Forces cover](covers/formations-vii-amphibious-and-littoral-forces.svg)
+
+Descriptor: [formations-vii-amphibious-and-littoral-forces.book.json](formations-vii-amphibious-and-littoral-forces.book.json)
+
+A cross-domain formation manual for embarked forces, transfer assets, shore and port infrastructure, riverine systems, command relationships, sustainment, medical handoffs, civilian coastal networks, and humanitarian missions.
+
+[Read Formations VII: Amphibious and Littoral Forces](formations-vii-amphibious-and-littoral-forces.md)
