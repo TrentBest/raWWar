@@ -36,6 +36,8 @@ System-specific documents expand the design without silently changing canon.
 
 ## SURPS living warfare sourcebooks
 
+- [The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation](books/russia-ukraine-war-drone-robotic-and-industrial-adaptation.md) — contemporary case study of drones, robotics, electronic warfare, industrial adaptation, and the ongoing human and civilian consequences.
+
 - [raWWar SURPS Sourcebook Library](books/index.md) — domain-owned books on warfare and organized force, including historical conflicts, formations, bases, encampments, resupply, medicine, campaigns, and reusable technical manuals. SURPS composition remains explicitly opt-in.
 - [Formations I–III](books/formations-i-land-forces.md) — land, naval, and air formations, including ghost-slot training and performance evaluation.
 - [Bases and Encampments](books/bases-and-encampments.md) — camp and base layouts from mobile field camps to Roman castra and persistent installations.
