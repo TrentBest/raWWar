@@ -13,6 +13,17 @@ The raWWar sourcebook library is the SURPS-facing knowledge layer for warfare an
 - [Read the sourcebook](warfare-and-organized-force.md)
 - [Book descriptor](warfare-and-organized-force.book.json)
 
+## Current LOD 2 manual
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Fortifications and Strongholds cover](covers/fortifications-and-strongholds.svg)
+
+**Fortifications and Strongholds** covers the warfare-side design of defensive places: threat models, layered defense, siege endurance, sustainment, military engineering, civilian survival, maintenance, and recovery.
+
+- [Read the sourcebook](fortifications-and-strongholds.md)
+- [Book descriptor](fortifications-and-strongholds.book.json)
+
 ## Planned LOD 2 families
 
 These are editorial families, not a rigid hierarchy. Each book will declare its scope and cross-reference other books where appropriate.
