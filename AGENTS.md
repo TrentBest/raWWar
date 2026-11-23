@@ -4,9 +4,11 @@
 
 ## Mission
 
-Build raWWar into a deep, accurate, cross-linked living library and simulation domain for warfare and organized force. The library serves tabletop roleplaying, campaign creation, worldbuilding, historical learning, and simulation design. It must be much more than a list of units, weapons, and battles: cover the people, institutions, economies, environments, technologies, strategies, logistics, lived experiences, political causes, consequences, and memories that surround organized force.
+Build raWWar as a coherent, persistent, galaxy-scale war universe that can be authored, validated, simulated, observed, and evolved by the Autonomous Development pipeline. The sourcebook library is supporting domain knowledge; it is not the primary production objective.
 
-The creator has explicitly authorized substantial expansion of the book library. Continue producing many useful, substantive books without waiting for approval on each book. Keep the creator informed through concise progress updates and repository issues when coordination is required.
+**Primary priority: define the universe and make it buildable.** Preserve creator-established canon, expose unresolved decisions, establish the historical and political spine, author a connected galactic/civilizational atlas, model resources and industrial dependencies, define the active conflict, and create bounded campaign seeds. The first proving ground is the Imperial Summons Commander-campaign opening. Expand from that coherent core toward the long-term setting of a millennia-old Empire and millions of worlds.
+
+Do not invent canon to make a pipeline pass. The Autonomous Development pipeline must preserve unknowns as explicit blockers, distinguish canon from candidates and experiments, and produce evidence-backed structured data plus human-readable visualizations. Continue sourcebook work only when it fills a demonstrated gap in the universe or simulation; do not resume broad catalogue expansion as the default activity. Keep the creator informed through concise progress updates.
 
 ## Current branch and safety boundaries
 
@@ -14,7 +16,7 @@ The creator has explicitly authorized substantial expansion of the book library.
 - Long-term repository branch policy: exactly `master` and `development`.
 - The branch `integration/autonomous-development-pipeline` was observed alongside those two branches on 2026-11-23. It is a reconciliation candidate, **not approved for deletion**. Inspect ancestry and unique commits, report it as ready to delete only when proven safe, and wait for explicit approval before deleting.
 - Do not merge to `master`, publish packages, create releases, deploy, or dispatch privileged workflows without explicit authorization.
-- The creator has authorized broad sourcebook creation; this does not authorize destructive Git operations or protected release actions.
+- The current creator-directed priority is universe definition and campaign data, not further broad sourcebook expansion. This does not authorize destructive Git operations or protected release actions.
 - Keep changes focused, validate them, and commit coherent increments to `development`.
 - Never overwrite concurrent development work: refresh the branch head and file SHA immediately before each write.
 - If the linked GitHub credential is unavailable or expires, stop writes and ask the creator to reconnect it. Never ask the creator to paste a token into chat.
@@ -131,7 +133,7 @@ Build next: dedicated Achaemenid, Parthian, and Sasanian books; Greek/Persian co
 
 ## Resume procedure
 
-1. Read this file, `docs/books/README.md`, and `docs/books/index.md`.
+1. Read this file, `docs/UNIVERSE_FOUNDATION.md`, `data/universe-foundation.json`, `data/campaigns/imperial-summons.json`, `docs/GAME_DESIGN_BIBLE.md`, `docs/GAME_DESIGN_DOCUMENT.md`, and `docs/OPEN_QUESTIONS.md`. Consult `docs/books/README.md` and `docs/books/index.md` as supporting references, not as the primary task.
 2. Inspect current `development` head and working tree/branch list. Do not assume SHAs in this document are current.
 3. Check recent GitHub Actions runs and inspect failures. The build-and-contract run for commit `e87cdb05666e8b7938834083087e978885513885` succeeded. The subsequent fortifications commit `9d55c3288c89caec7427e19e4ebaede20e41435b` also passed its full build-and-contract workflow (run `45089000651`); Sith Policy failed (run `45089000634`) because `integration/autonomous-development-pipeline` remains alongside `master` and `development`. No branch was deleted.
 4. Inspect open issues and recent comments before creating duplicate coordination work.
@@ -169,17 +171,19 @@ The current LOD 2 library now also includes:
 
 Each has a `.book.json` descriptor and original SVG cover. The index and collection README have been extended.
 
-## Next editorial priorities
+## Primary production priorities — universe before library
 
-Continue breadth without creating shallow stubs:
-1. Japanese Warfare, with careful periodization and distinction among political regimes, military institutions, and populations.
-2. Dedicated Achaemenid, Parthian, and Sasanian books, then focused Persian Wars and Roman-Persian conflict studies.
-3. Mongol warfare and steppe polities; Viking-age warfare and maritime networks.
-4. Roman Republic, imperial army, civil wars, late Roman and eastern Roman focused volumes.
-5. Science-fiction subbooks: orbital warfare and space infrastructure; planetary defense and habitat conflict; autonomous systems and machine agency; interstellar logistics and strategy; alien contact, diplomacy, and conflict.
-6. Deeper LOD 3 books for campaigns, battles, organizations, theaters, and scenarios.
+The creator has explicitly redirected the project from broad sourcebook expansion to defining the raWWar universe for the Autonomous Development pipeline. This is the active priority order:
 
-Do not present speculative future wars as historical fact. Science-fiction sourcebooks should be useful for coherent worldbuilding and simulation while remaining clear about what is known, extrapolated, or invented.
+1. Read and maintain [Universe Foundation and Campaign Zero](docs/UNIVERSE_FOUNDATION.md) and [the machine-readable canon envelope](data/universe-foundation.json).
+2. Build the [Imperial Summons campaign seed](data/campaigns/imperial-summons.json) into a validated, connected world slice. Preserve unresolved names, dates, political facts, and motives as blockers.
+3. Establish the historical spine: Earth-origin reference, off-world settlement, interstellar networks, galactic integration, Imperial consolidation, millennia of Imperial history, fractures/successions, and the current war. Do not fabricate exact dates or causal events.
+4. Establish the political atlas: Empire, Empress, major factions, constituent polities, authority, alliances, rivalries, claims, and local governance. Creator illumination is required for canon identities and war origin.
+5. Establish the galactic/world atlas and material economy: millions of worlds at the intended setting scale, selected authored regions and systems, populations, resources, infrastructure, trade, industry, and military sustainment. Distinguish inhabited from uninhabited worlds and measured from generated geography.
+6. Establish the military atlas and active conflict: organizations, people, qualifications, equipment, fleets, formations, readiness, logistics, campaigns, civilian consequences, and contested history.
+7. Use sourcebooks as supporting references and create focused volumes only when a concrete content or simulation gap requires them.
+
+The pipeline must produce structured records, deterministic reconstruction, validation reports, and useful visualizations. A passing documentation build is not proof that the universe is implemented or playable. Do not present speculative future technology as established fact.
 
 ## Latest verified session checkpoint (2026-11-23)
 
@@ -480,3 +484,18 @@ These books establish the next connected domain family: military consumption and
 - Treat this as an ongoing, evidence-sensitive history. Date claims; distinguish verified public record, attributed claims, corroborated assessments, disputed claims, and unknowns. Never present official wartime claims as independently verified by default.
 - The sourcebook is analytical and human-centered, not a tactical manual. Do not add weapon construction, targeting, attack planning, evasion, jamming recipes, or actionable procedures for defeating systems.
 - Link it with Autonomous Systems and Machine Agency, Formations I–III and VIII–X, Military Resources and Sustainment, Military Industry and Wartime Production, and the broader Science Fiction Warfare library. Keep Physics, Gestures, and SURPS ownership boundaries intact.
+
+
+## Universe-first pivot checkpoint (2026-11-23)
+
+The creator explicitly redirected raWWar's primary task: stop defaulting to more sourcebooks and define the actual raWWar universe for the Autonomous Development pipeline to cut its teeth on.
+
+New foundation artifacts on `development`:
+- [Universe Foundation and Campaign Zero](docs/UNIVERSE_FOUNDATION.md) — galaxy-scale setting envelope, creator-established facts, open canon boundaries, first campaign slice, pipeline sequence, and acceptance gates.
+- [Universe foundation data](data/universe-foundation.json) — machine-readable creator-canon envelope. Empire duration is multiple millennia at minimum; setting scale is millions of worlds; exact political/history details remain unresolved.
+- [Imperial Summons campaign seed](data/campaigns/imperial-summons.json) — ordered Commander-opening events, stable semantic role IDs, unresolved location/actor identities, player-knowledge boundaries, and validation requirements.
+- Updated `docs/README.md`, `docs/GAME_DESIGN_DOCUMENT.md`, `docs/OPEN_QUESTIONS.md`, and `data/README.md` to make this the primary authoring path.
+
+Important unresolved canon gates: Imperial constitutional structure and history; capital world; player faction identity; Empress identity and motive; current war's origin, belligerents, and objectives; warp travel rules; and whether alien civilizations are political actors in the main campaign setting. The existing lineage data's "all factions are human" rule is candidate contract text, not creator-confirmed canon. Do not silently resolve it.
+
+Latest observed development head before this checkpoint update: `6ad150bf453c3db2860abf4b02bd2172f1ee0fbf`; refresh HEAD before further writes. Latest build-and-contract run for earlier sourcebook state passed (run 45276689947). New universe-foundation commits have triggered fresh build and Sith workflows; latest runs to inspect are 45278511254 (build) and 45278511268 (Sith), both queued at last observation. Sith remains blocked by the unapproved extra branch `integration/autonomous-development-pipeline`. Do not delete it without explicit creator approval; ancestry/safety has not been proven. No master merge, release, deployment, privileged workflow dispatch, or package publication.
