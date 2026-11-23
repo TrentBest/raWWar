@@ -87,3 +87,12 @@ Scenario seeds include a habitat election under blockade; a rescue convoy mistak
 ## Research and design discipline
 
 Use current space policy, orbital mechanics, systems engineering, security studies, humanitarian law, and infrastructure resilience as foundations. Label extrapolation clearly. For fictional technologies, publish the rules and limitations that make the setting internally consistent. The goal is not to predict the future; it is to make imagined futures intelligible, playable, and ethically serious.
+
+
+## Companion volumes
+
+- [Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md) — orbital constraints, infrastructure dependencies, and resilience.
+- [Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md) — settlement protection and civilian continuity.
+- [Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md) — delegated authority and machine governance.
+- [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — long-distance sustainment, network topology, and political reach.
+- [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) — first contact, recognition, diplomacy, and escalation.
