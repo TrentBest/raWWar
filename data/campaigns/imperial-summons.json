@@ -1,0 +1,268 @@
+{
+  "schemaVersion": "raWWar.campaign-seed.v1",
+  "id": "campaign.imperial-summons",
+  "displayName": "Imperial Summons",
+  "status": "authored-opening-seed",
+  "canonStatus": "creator-established-sequence-with-explicit-unresolved-identities",
+  "manifestVersion": "0.1.0",
+  "worldSeed": "rawwar-imperial-summons-development-001",
+  "galaxyGeneratorVersion": "1",
+  "simulationModelVersion": "1",
+  "historicalEpochRef": "history.current-galactic-order",
+  "sourceOfAuthority": [
+    "docs/GAME_DESIGN_BIBLE.md",
+    "docs/GAME_DESIGN_DOCUMENT.md",
+    "docs/UNIVERSE_FOUNDATION.md",
+    "data/universe-foundation.json"
+  ],
+  "pinnedCanon": {
+    "imperialOrderExists": true,
+    "empireDuration": "multiple-millennia-at-minimum",
+    "galaxyScale": "millions-of-worlds",
+    "empressExists": true,
+    "activeWarExists": true,
+    "warpPreparation": "days",
+    "commanderCampaign": true,
+    "firstPerson": true
+  },
+  "authoredEntities": [
+    {
+      "id": "polity.imperial-empire",
+      "kind": "empire",
+      "displayName": null,
+      "canonStatus": "exists-name-and-structure-unresolved"
+    },
+    {
+      "id": "person.imperial-empress",
+      "kind": "person-and-sovereign",
+      "displayName": null,
+      "canonStatus": "exists-identity-and-authority-unresolved"
+    },
+    {
+      "id": "faction.player",
+      "kind": "faction",
+      "displayName": null,
+      "canonStatus": "exists-identity-and-institutional-profile-unresolved"
+    },
+    {
+      "id": "person.player-commander",
+      "kind": "person-and-player-role",
+      "displayName": null,
+      "canonStatus": "commander-role-established-personal-history-unresolved"
+    },
+    {
+      "id": "world.imperial-capital",
+      "kind": "world",
+      "displayName": null,
+      "canonStatus": "capital-world-exists-in-opening-context-name-and-address-unresolved"
+    },
+    {
+      "id": "location.observation-building",
+      "kind": "building-and-observation-position",
+      "displayName": null,
+      "canonStatus": "high-rise-window-position-established-name-and-address-unresolved"
+    },
+    {
+      "id": "location.public-square",
+      "kind": "public-space",
+      "displayName": null,
+      "canonStatus": "large-active-square-established-name-and-address-unresolved"
+    },
+    {
+      "id": "location.imperial-palace",
+      "kind": "imperial-residence-and-institution",
+      "displayName": null,
+      "canonStatus": "palace-across-square-established-name-and-address-unresolved"
+    },
+    {
+      "id": "location.player-faction-headquarters",
+      "kind": "faction-headquarters",
+      "displayName": null,
+      "canonStatus": "headquarters-and-offices-established-name-and-address-unresolved"
+    },
+    {
+      "id": "person.imperial-guard-01",
+      "kind": "imperial-soldier",
+      "displayName": null,
+      "canonStatus": "role-established-identity-unresolved"
+    },
+    {
+      "id": "person.imperial-guard-02",
+      "kind": "imperial-soldier",
+      "displayName": null,
+      "canonStatus": "role-established-identity-unresolved"
+    }
+  ],
+  "locationRelationships": [
+    {
+      "id": "rel.observation-overlooks-square",
+      "from": "location.observation-building",
+      "kind": "overlooks",
+      "to": "location.public-square",
+      "status": "spatial-relation-established-exact-geometry-unresolved"
+    },
+    {
+      "id": "rel.palace-across-square",
+      "from": "location.imperial-palace",
+      "kind": "faces-across",
+      "to": "location.public-square",
+      "status": "spatial-relation-established-exact-geometry-unresolved"
+    },
+    {
+      "id": "rel.headquarters-in-opening-complex",
+      "from": "location.player-faction-headquarters",
+      "kind": "player-recognizes-as-current-headquarters",
+      "to": "person.player-commander",
+      "status": "narrative-relation-established-exact-campus-layout-unresolved"
+    }
+  ],
+  "eventSequence": [
+    {
+      "id": "event.opening-monsoon-lightning",
+      "sequence": 1,
+      "type": "environmental-event",
+      "logicalTime": null,
+      "description": "Lightning and storm conditions reveal the exterior scene.",
+      "actors": [],
+      "location": "location.observation-building",
+      "status": "sequence-established-exact-weather-and-duration-unresolved"
+    },
+    {
+      "id": "event.commander-observes-square",
+      "sequence": 2,
+      "type": "player-observation",
+      "logicalTime": null,
+      "description": "The Commander observes the active square and Imperial Palace from a high-rise window.",
+      "actors": [
+        "person.player-commander"
+      ],
+      "location": "location.observation-building",
+      "status": "sequence-established-civilian-activity-details-unresolved"
+    },
+    {
+      "id": "event.imperial-doors-open",
+      "sequence": 3,
+      "type": "access-event",
+      "logicalTime": null,
+      "description": "Airtight doors open.",
+      "actors": [],
+      "location": "location.player-faction-headquarters",
+      "status": "sequence-established"
+    },
+    {
+      "id": "event.guards-approach",
+      "sequence": 4,
+      "type": "movement-event",
+      "logicalTime": null,
+      "description": "Two Imperial soldiers approach the Commander.",
+      "actors": [
+        "person.imperial-guard-01",
+        "person.imperial-guard-02"
+      ],
+      "location": "location.player-faction-headquarters",
+      "status": "sequence-established-route-and-procedure-unresolved"
+    },
+    {
+      "id": "event.empress-summons-commander",
+      "sequence": 5,
+      "type": "political-order",
+      "logicalTime": null,
+      "description": "The guards announce that the Empress requires the Commander immediately.",
+      "actors": [
+        "person.imperial-guard-01",
+        "person.imperial-guard-02",
+        "person.player-commander",
+        "person.imperial-empress"
+      ],
+      "location": "location.player-faction-headquarters",
+      "status": "sequence-established-motive-and-authority-chain-unresolved"
+    },
+    {
+      "id": "event.commander-compliance-window",
+      "sequence": 6,
+      "type": "decision-window",
+      "logicalTime": null,
+      "description": "The Commander has approximately five seconds to comply before the guards raise their weapons and begin a three-second countdown.",
+      "actors": [
+        "person.imperial-guard-01",
+        "person.imperial-guard-02",
+        "person.player-commander"
+      ],
+      "location": "location.player-faction-headquarters",
+      "status": "timing-established-as-approximate"
+    },
+    {
+      "id": "event.commander-refusal-execution",
+      "sequence": 7,
+      "type": "conditional-lethal-outcome",
+      "logicalTime": null,
+      "description": "If the Commander refuses to proceed, the guards execute the Commander after the warning and countdown.",
+      "actors": [
+        "person.imperial-guard-01",
+        "person.imperial-guard-02",
+        "person.player-commander"
+      ],
+      "location": "location.player-faction-headquarters",
+      "condition": "commander-refuses-to-comply",
+      "status": "conditional-outcome-established"
+    }
+  ],
+  "playerKnowledge": {
+    "initiallyKnown": [
+      "player-is-the-commander",
+      "player-recognizes-the-faction-headquarters",
+      "two-imperial-soldiers-deliver-the-empress-summons"
+    ],
+    "discoverable": [
+      "faction-offices",
+      "faction-dogma",
+      "faction-literature",
+      "recruiting-material",
+      "physical-evidence-of-faction-beliefs"
+    ],
+    "mustNotAssume": [
+      "full-war-origin",
+      "complete-faction-roster",
+      "imperial-succession-history",
+      "empress-motives",
+      "omniscient-political-truth"
+    ]
+  },
+  "worldActivity": {
+    "exteriorMustRemainAlive": true,
+    "knownActivity": [
+      "storm-and-rain",
+      "large-public-square",
+      "civilian-and-institutional-life"
+    ],
+    "populationCount": null,
+    "namedCivilianActors": [],
+    "rule": "Visible life may be represented at multiple simulation fidelities; do not fabricate named canon characters or population counts."
+  },
+  "unresolvedCanon": [
+    "imperial-capital-world-name-and-spatial-address",
+    "imperial-empire-official-name-constitution-and-administrative-structure",
+    "empress-name-history-succession-and-specific-authority",
+    "player-faction-name-symbols-political-position-and-institutions",
+    "player-commander-name-prior-history-and-relationship-to-empress",
+    "summons-motive-and-political-crisis",
+    "current-war-origin-belligerents-objectives-and-fronts",
+    "major-faction-roster-and-relationships",
+    "alien-civilizations-role-in-main-setting",
+    "warp-travel-duration-range-cost-risk-and-navigation-rules",
+    "exact-chronology-and-imperial-founding-date",
+    "capital-world-culture-geography-climate-and-city-name"
+  ],
+  "validation": {
+    "requireUniqueStableIds": true,
+    "requireAllResolvedReferencesOrExplicitUnresolvedStatus": true,
+    "preserveNullForUnresolvedNamesAndAddresses": true,
+    "preserveCreatorCanonWithoutSilentPromotion": true,
+    "requireCausalSequenceOrder": true,
+    "requireConditionalExecutionBranch": true,
+    "requireObserverKnowledgeSeparation": true,
+    "requireDeterministicReconstruction": true,
+    "rejectInventedCanonNamesDatesAndMotives": true,
+    "rejectAssumptionThatEveryWorldIsInhabited": true
+  }
+}
