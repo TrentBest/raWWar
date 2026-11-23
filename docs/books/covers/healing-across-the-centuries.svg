@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+<title id="title">Healing Across the Centuries</title>
+<desc id="desc">An original historical sourcebook cover showing a continuous timeline of care, a vessel, a manuscript, a medical cross, and a modern pulse trace.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#201b2b"/><stop offset="1" stop-color="#45504a"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#a87d49"/><stop offset=".5" stop-color="#e1c58c"/><stop offset="1" stop-color="#a87d49"/></linearGradient></defs>
+<rect width="1200" height="1600" fill="url(#bg)"/>
+<g opacity=".16" stroke="#e1c58c" fill="none"><circle cx="600" cy="710" r="420"/><circle cx="600" cy="710" r="330"/><path d="M0 360H1200M0 1120H1200M160 0V1600M1040 0V1600"/></g>
+<g transform="translate(600 700)" fill="none" stroke="url(#gold)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+<path d="M-300 0H-210L-170 -90L-105 95L-35 -35L30 0H120L165 -75L215 75L265 0H310"/>
+<path d="M-170 -220C-90 -280 90 -280 170 -220M-170 220C-90 280 90 280 170 220" stroke-width="7"/>
+<path d="M-65 -145V145M-135 0H5" stroke-width="24"/>
+<path d="M125 -150Q225 -90 125 -30Q25 -90 125 -150Z" stroke-width="9"/>
+</g>
+<g fill="#f1e9d8" text-anchor="middle" font-family="Georgia,serif">
+<text x="600" y="160" font-size="32" letter-spacing="8">THE SINGULARITY WORKSHOP</text>
+<text x="600" y="1170" font-size="70" font-weight="bold">HEALING ACROSS</text>
+<text x="600" y="1255" font-size="82" font-weight="bold">THE CENTURIES</text>
+<text x="600" y="1340" font-size="28" letter-spacing="4">A COMPARATIVE HISTORY OF CARE</text>
+</g>
+<g fill="#d7c69f" text-anchor="middle" font-family="Arial,sans-serif"><text x="600" y="1430" font-size="25" letter-spacing="5">KNOWLEDGE · PEOPLE · INSTITUTIONS</text><text x="600" y="1490" font-size="22">RAWWAR SOURCEBOOK SERIES · LOD 2</text></g>
+</svg>
