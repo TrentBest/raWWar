@@ -264,3 +264,17 @@ A framework for verifying contact, interpreting unfamiliar signals, biological u
 - [Book descriptor](alien-contact-diplomacy-and-conflict.book.json)
 
 Both books are setting and research frameworks, not claims of imminent interstellar capability or confirmed extraterrestrial contact. Continue to label established, extrapolated, speculative, and fictional premises explicitly.
+
+
+## LOD 3 — alien civilization histories and political systems
+
+### Alien Civilizations and Political Systems
+
+![Alien Civilizations and Political Systems cover](covers/alien-civilizations-and-political-systems.svg)
+
+A reusable framework for building fictional civilizations through historical transitions, constitutional orders, institutions, factions, strategic culture, infrastructure, armed organizations, diplomacy, and campaign histories. It rejects species-wide personalities and distinguishes regimes, states, populations, institutions, and armed forces.
+
+- [Read the sourcebook](alien-civilizations-and-political-systems.md)
+- [Book descriptor](alien-civilizations-and-political-systems.book.json)
+
+This LOD 3 volume deepens [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) by giving setting authors a way to construct internally diverse societies before writing contact or conflict. It also links to interstellar logistics, autonomous agency, and planetary habitat resilience. All civilization examples remain fictional; no extraterrestrial civilization is confirmed.
