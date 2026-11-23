@@ -82,3 +82,7 @@ Use a merchant convoy in poor visibility, an ancient oared fleet entering a cons
 ## Cross-domain ownership and implementation boundary
 
 These books are descriptive domain knowledge. They do not introduce executable APIs, duplicate a physics engine, or claim that a HUD, haptic rig, or simulation feature already exists. A host may opt into SURPS composition; without it, the raWWar Experience remains valid. Any game-specific doctrine, scoring rubric, or fictional equipment must be versioned and identified as such.
+
+## Related fleet manual
+
+- [Formations X: Armadas and Flotillas](formations-x-armadas-and-flotillas.md) — fleet organization from local flotillas to armadas, including escorts, auxiliaries, coalition command, and maritime sustainment.
