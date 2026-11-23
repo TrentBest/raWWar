@@ -20,6 +20,7 @@ The historical executable suite reported **195/195 checks passed** on [CI run 38
 - ship part identity, mount/dependency joins, six-direction damage semantics, causal cascades, and provenance-aware salvage;
 - candidate faction ship-style profiles and their visible/operational trade-offs;
 - campaign and galaxy-generation policies, civilization lineage, human history, campaign discoveries, and astronomical reference/provenance contracts;
+- the creator-canon universe envelope and Imperial Summons campaign seed, including stable entity/event identity, reference closure, ordered opening events, explicit unknowns, and safeguards against invented canon;
 - renderer and Event-Horizon boundaries, embodied physical interaction, control outcomes and interlocks, manned mech component identity, and engineering watch/maintenance/lockout-tagout procedures;
 - fighter-pilot station occupancy, restraint/connect/raise ordering, qualification, bounded control intent, desktop/VR parity, invalid input rejection, damaged/unpowered blocking, and emergency release;
 - Workshop composition ownership, FSM_COS manifest-boundary assumptions, and the separation of authoring metadata from the machine-oriented `runtime-manifest.json`;
