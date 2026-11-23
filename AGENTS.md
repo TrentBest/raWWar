@@ -145,3 +145,47 @@ Build next: dedicated Achaemenid, Parthian, and Sasanian books; Greek/Persian co
 ## Creator's north star
 
 Build a living picture of warfare across time, place, cultures, institutions, and imagination. Treat the subject seriously: people wage war in the name of peace, security, power, survival, faith, wealth, freedom, revenge, and many conflicting claims. Show the human costs and contradictions without reducing the domain to either glorification or condemnation. Make the books useful, deep, interconnected, and alive.
+
+
+## Science-fiction warfare is first-class
+
+Science fiction is not an appendix or a prediction claim. It is a full raWWar domain because organized force, contested authority, protection, raiding, resistance, and consequence extend into imagined futures. Build books for near-future conflict, orbital and space warfare, planetary defense, habitats, autonomous systems, cyber/information conflict, interstellar logistics, alien polities, posthuman societies, and speculative campaigns.
+
+Every future-facing claim must be labeled as one of:
+- **Established:** supported by current evidence or deployed systems.
+- **Extrapolated:** plausible extension of known principles, with uncertainty.
+- **Speculative:** depends on unresolved science, engineering, economics, or politics.
+- **Fictional:** an invented rule of a particular setting.
+
+Do not treat space as a naval ocean with a new skin. Account for orbital mechanics, energy, thermal management, communication delay, radiation, debris, propellant, and life-support dependencies where the setting uses known physics. If the setting introduces faster-than-light travel, artificial gravity, or other fictional technology, define its rules, limitations, costs, and strategic consequences. Treat infrastructure and civilian survival as central to planetary/habitat warfare. Autonomous systems do not erase human or institutional responsibility.
+
+## Expanded current library state (2026-11-23)
+
+The current LOD 2 library now also includes:
+- [Piracy and Maritime Raiding](docs/books/piracy-and-maritime-raiding.md) — maritime predation, privateering, corsairing, naval authority, and coastal communities.
+- [Outlaws, Bandits, and Popular Resistance](docs/books/outlaws-bandits-and-popular-resistance.md) — outlawry, social banditry, rebellion, resistance, and Robin Hood folklore.
+- [Chinese Warfare](docs/books/chinese-warfare.md) — periodized military history across changing Chinese states and dynasties.
+- [Science Fiction Warfare](docs/books/science-fiction-warfare.md) — near-future through interstellar conflict, with explicit evidence/speculation labels.
+
+Each has a `.book.json` descriptor and original SVG cover. The index and collection README have been extended.
+
+## Next editorial priorities
+
+Continue breadth without creating shallow stubs:
+1. Japanese Warfare, with careful periodization and distinction among political regimes, military institutions, and populations.
+2. Dedicated Achaemenid, Parthian, and Sasanian books, then focused Persian Wars and Roman-Persian conflict studies.
+3. Mongol warfare and steppe polities; Viking-age warfare and maritime networks.
+4. Roman Republic, imperial army, civil wars, late Roman and eastern Roman focused volumes.
+5. Science-fiction subbooks: orbital warfare and space infrastructure; planetary defense and habitat conflict; autonomous systems and machine agency; interstellar logistics and strategy; alien contact, diplomacy, and conflict.
+6. Deeper LOD 3 books for campaigns, battles, organizations, theaters, and scenarios.
+
+Do not present speculative future wars as historical fact. Science-fiction sourcebooks should be useful for coherent worldbuilding and simulation while remaining clear about what is known, extrapolated, or invented.
+
+## Latest verified session checkpoint (2026-11-23)
+
+- Previous development head before this expansion: `9db483fca4031008f113e7556316f55556d77e3d`.
+- Build-and-contract workflow for that head passed: [run 45091391781](https://github.com/TrentBest/raWWar/actions/runs/45091391781).
+- Sith Policy for that head failed: [run 45091391753](https://github.com/TrentBest/raWWar/actions/runs/45091391753), because `integration/autonomous-development-pipeline` remains in addition to `master` and `development`. Do not delete without explicit approval.
+- New books added during this session: Piracy and Maritime Raiding; Outlaws, Bandits, and Popular Resistance; Chinese Warfare; Science Fiction Warfare. Each has a descriptor and original SVG cover.
+- Index and collection README updated. Re-run CI after the documentation batch and record the resulting commit/run IDs before closing the session.
+- Continue only on `development`; no master merge, release, deployment, or branch deletion.
