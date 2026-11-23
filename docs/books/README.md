@@ -403,3 +403,14 @@ Mounted organizations across historical and fictional settings, including cavalr
 - [Cover](covers/formations-iv-mounted-and-cavalry.svg)
 
 This volume extends [Formations I: Land Forces](formations-i-land-forces.md) without treating mounted forces as infantry with animals attached. It cross-links the Mongol, Parthian, and Sasanian studies while preserving their distinct histories.
+
+
+### Formations V: Mechanized and Armored Forces
+
+Mechanized and armored organizations treated as connected systems of people, platforms, command, maintenance, recovery, supply, infrastructure, and civilian consequences.
+
+- [Read the sourcebook](formations-v-mechanized-and-armored-forces.md)
+- [Book descriptor](formations-v-mechanized-and-armored-forces.book.json)
+- [Cover](covers/formations-v-mechanized-and-armored-forces.svg)
+
+This volume extends [Formations I: Land Forces](formations-i-land-forces.md) and complements [Formations IV: Mounted and Cavalry Forces](formations-iv-mounted-and-cavalry.md). It preserves crew and dismounted-personnel identity independently from vehicle state, and links sustainment to [The Art of Resupply](the-art-of-resupply.md).
