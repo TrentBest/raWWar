@@ -128,3 +128,5 @@ If implementation exposes a better possibility, record the possibility here firs
 
 - [Healing Across the Centuries](books/healing-across-the-centuries.md) — a comparative world history of healing, care work, medical knowledge, institutions, war, public health, disability, and recovery.
 - [Formations IV: Mounted and Cavalry Forces](books/formations-iv-mounted-and-cavalry.md) — mounted organizations, rider/mount relationships, remount and animal logistics, dismounted transitions, welfare, and historical variation.
+
+- [Formations V: Mechanized and Armored Forces](books/formations-v-mechanized-and-armored-forces.md) — crewed platforms, dismounted personnel, readiness, maintenance, recovery, sustainment, and infrastructure as one formation system.
