@@ -156,3 +156,23 @@ Descriptor: [orbital-warfare-and-space-infrastructure.book.json](orbital-warfare
 A systems-level study of orbital services, infrastructure dependencies, access, resilience, governance, escalation, and civilian consequences, with clear boundaries between known physics and speculative settings.
 
 [Read Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md)
+
+
+## Dedicated Iranian imperial sourcebooks
+
+The Persian overview now has three focused companion volumes. These books distinguish the Achaemenid, Parthian/Arsacid, and Sasanian states rather than projecting one military system across nearly a millennium.
+
+### Achaemenid Warfare
+Achaemenid royal authority, provincial mobilization, multi-community forces, campaign logistics, Greek and Persian evidence, and imperial succession.
+- [Read the sourcebook](achaemenid-warfare.md)
+- [Book descriptor](achaemenid-warfare.book.json)
+
+### Parthian Warfare
+Arsacid elite politics, mounted capabilities, horse supply, Roman-Parthian campaigns, frontier diplomacy, and the role of cities and fortresses.
+- [Read the sourcebook](parthian-warfare.md)
+- [Book descriptor](parthian-warfare.book.json)
+
+### Sasanian Warfare
+Sasanian military institutions, cavalry and combined capabilities, frontier fortifications, siege endurance, diplomacy, and the seventh-century transformation.
+- [Read the sourcebook](sasanian-warfare.md)
+- [Book descriptor](sasanian-warfare.book.json)
