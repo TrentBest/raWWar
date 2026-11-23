@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.nacrean-compact-and-tidal-archive-crisis",
+  "category": "Domain",
+  "lod": 3,
+  "title": "The Nacrean Compact and the Tidal Archive Crisis",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/nacrean-compact-and-tidal-archive-crisis.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-3.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
