@@ -48,6 +48,7 @@ System-specific documents expand the design without silently changing canon.
 
 - [Game Design Bible](GAME_DESIGN_BIBLE.md) — authoritative living design.
 - [Universe Foundation and Campaign Zero](UNIVERSE_FOUNDATION.md) — creator-established galactic setting facts, unresolved canon boundaries, and the first Autonomous Development world target.
+- [Imperial Summons campaign seed](../data/campaigns/imperial-summons.json) — first structured campaign entry point for the Autonomous Development pipeline.
 - [Game Design Document](GAME_DESIGN_DOCUMENT.md) — comprehensive living master GDD.
 - [Public Design Hub](DESIGN_HUB.md) — future WebPage presentation of the raWWar design.
 - [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) — how raWWar fits into FSM_API, MicroBundles, FSM_COS, AnyApp, UserIO, and the Workshop Renderer, including what raWWar deliberately does not reinvent.
