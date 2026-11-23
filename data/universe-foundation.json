@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "raWWar.universe-foundation.v1",
+  "status": "creator-canon-envelope-with-unresolved-fields",
+  "authority": {
+    "sourceDocument": "docs/UNIVERSE_FOUNDATION.md",
+    "creatorCanonOverridesCandidates": true,
+    "agentsMayNotPromoteCandidatesToCanon": true,
+    "unknownsMustRemainExplicit": true
+  },
+  "canon": {
+    "scale": {
+      "kind": "galaxy",
+      "continuity": "one-continuous-universe",
+      "worldCount": "millions-of-worlds",
+      "inhabitedStatus": "per-world-not-assumed"
+    },
+    "imperialOrder": {
+      "exists": true,
+      "eraDuration": "multiple-millennia-at-minimum",
+      "exactFoundingDate": null,
+      "continuityAndConstitution": "unresolved"
+    },
+    "sovereign": {
+      "title": "Empress",
+      "identity": null,
+      "authorityModel": "unresolved"
+    },
+    "conflict": {
+      "ongoing": true,
+      "galacticScale": true,
+      "origin": "unresolved",
+      "belligerents": "unresolved",
+      "objectives": "unresolved"
+    },
+    "warp": {
+      "exists": true,
+      "preparationAndInitialization": "days",
+      "physicsModel": "unresolved",
+      "travelDuration": "unresolved"
+    },
+    "campaigns": {
+      "commanderPerspective": true,
+      "enlistedPerspective": true,
+      "sharedWorld": true,
+      "firstPerson": true
+    },
+    "persistence": {
+      "worldHistoryPersists": true,
+      "missionsAreNotDisconnectedMaps": true
+    }
+  },
+  "opening": {
+    "id": "scenario.imperial-summons",
+    "status": "creator-established-sequence-with-unresolved-world-identities",
+    "locationRefs": {
+      "capitalWorld": null,
+      "observationBuilding": null,
+      "publicSquare": null,
+      "imperialPalace": null,
+      "factionHeadquarters": null
+    },
+    "actorRefs": {
+      "playerCommander": null,
+      "empress": null,
+      "imperialGuards": []
+    },
+    "establishedBeats": [
+      "storm-and-lightning",
+      "high-rise-window-overlooking-active-square",
+      "imperial-palace-across-square",
+      "airtight-doors-open",
+      "two-imperial-soldiers-approach",
+      "empress-summons-commander",
+      "faction-offices-can-be-explored",
+      "refusal-can-result-in-execution"
+    ],
+    "unresolved": [
+      "capital-world-identity",
+      "player-faction-identity",
+      "player-commander-history",
+      "empress-identity-and-authority",
+      "summons-motivation",
+      "current-conflict-context"
+    ]
+  },
+  "canonBoundaries": {
+    "allFactionsHuman": "candidate-not-confirmed",
+    "alienCivilizations": "setting-role-unresolved",
+    "exactChronology": "unresolved",
+    "imperialInstitutions": "unresolved",
+    "factionRoster": "unresolved",
+    "galaxyPoliticalGeography": "unresolved",
+    "warHistory": "unresolved"
+  },
+  "pipeline": {
+    "firstTarget": "scenario.imperial-summons",
+    "sequence": [
+      "canon-register",
+      "historical-spine",
+      "political-atlas",
+      "galactic-atlas",
+      "world-atlas",
+      "material-economy",
+      "military-atlas",
+      "conflict-chronology",
+      "campaign-entry",
+      "continuous-simulation"
+    ],
+    "requiredProperties": [
+      "stable-semantic-identity",
+      "explicit-time",
+      "causal-events",
+      "provenance",
+      "deterministic-generation",
+      "observer-relative-knowledge",
+      "persistent-consequences"
+    ],
+    "nonGoals": [
+      "generate-millions-of-lore-records-before-a-coherent-core-exists",
+      "invent-unresolved-canon",
+      "treat-rendering-as-authoritative-world-state"
+    ]
+  }
+}
