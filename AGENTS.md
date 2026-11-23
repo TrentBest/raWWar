@@ -282,3 +282,14 @@ For interstellar settings, do not treat distance as a simple map measurement or 
 - The index and collection README have been updated. Validate descriptor, cover, catalogue paths, and CI after this batch.
 - Continue LOD 3 with specific civilization dossiers and campaign histories only after giving each polity internal diversity, institutional history, resource constraints, and credible non-war political options.
 - Continue on development. Leave integration/autonomous-development-pipeline untouched pending explicit branch-deletion approval. No merge to master, release, deployment, or NuGet publication without explicit authorization.
+
+
+## Latest LOD 3 case study — Nacrean Compact (2026-11-23)
+
+- [The Nacrean Compact and the Tidal Archive Crisis](docs/books/nacrean-compact-and-tidal-archive-crisis.md) is a new substantive fictional LOD 3 civilization dossier and campaign history, with a matching descriptor and original SVG cover.
+- The setting defines Pelagos, a fictional ocean moon, its distributed settlements, political membership categories, constitutional history, overlapping institutions, five internally divided coalitions, and distinct protective services.
+- The campaign follows a disputed archive model through safety containment, competing explanations, legislative negotiation, an unauthorized emergency order, judicial restraint, independent reconstruction, and constitutional repair. Its strategic outcome is not a decisive battle.
+- The volume includes infrastructure and logistics analysis, civilian continuity, playable roles, alternative outcomes, abstract simulation variables, and research/design notes. It labels fictional premises and avoids treating an alien population as a single actor.
+- Catalogue and collection README have been updated. Validate descriptor JSON, SVG XML, paths, and CI.
+- Latest known content build-and-contract workflow passed: [run 45108845646](https://github.com/TrentBest/raWWar/actions/runs/45108845646). Sith Policy failed: [run 45108845657](https://github.com/TrentBest/raWWar/actions/runs/45108845657), because `integration/autonomous-development-pipeline` remains beside `master` and `development`. Do not delete it without explicit approval.
+- Continue on `development`. Leave the extra branch untouched; no merge to `master`, release, deployment, privileged workflow dispatch, or NuGet publication without explicit authorization.
