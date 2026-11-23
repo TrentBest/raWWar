@@ -488,3 +488,8 @@ The first follow-up should be *Healing Across the Centuries*, with separate regi
 ---
 
 *Medicine is not a spell list and a medic is not a walking repair station. The medic is the person who sees the casualty, the squad, the limits of the equipment, and the next link in the chain—and takes responsibility for connecting them.*
+
+
+## Historical companion
+
+[Healing Across the Centuries](healing-across-the-centuries.md) is the first focused historical companion. It expands the global and periodized history of care, medical institutions, war, public health, disability, and recovery while preserving the distinction between evidence, retrospective interpretation, and legend.
