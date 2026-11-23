@@ -147,3 +147,36 @@ Descriptor: [orbital-warfare-and-space-infrastructure.book.json](orbital-warfare
 A systems-level study of orbital services, infrastructure dependencies, access, resilience, governance, escalation, and civilian consequences, with clear boundaries between known physics and speculative settings.
 
 [Read Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md)
+
+
+## New LOD 2 — Iranian imperial traditions in depth
+
+### Achaemenid Warfare
+
+![Achaemenid Warfare cover](covers/achaemenid-warfare.svg)
+
+Descriptor: [achaemenid-warfare.book.json](achaemenid-warfare.book.json)
+
+A dedicated study of Achaemenid imperial forces, provincial mobilization, royal authority, logistics, campaigns, and the limits of Greek-centered narratives.
+
+[Read Achaemenid Warfare](achaemenid-warfare.md)
+
+### Parthian Warfare
+
+![Parthian Warfare cover](covers/parthian-warfare.svg)
+
+Descriptor: [parthian-warfare.book.json](parthian-warfare.book.json)
+
+A study of Arsacid political-military networks, mounted forces, horse logistics, frontier diplomacy, and the long contest with Rome.
+
+[Read Parthian Warfare](parthian-warfare.md)
+
+### Sasanian Warfare
+
+![Sasanian Warfare cover](covers/sasanian-warfare.svg)
+
+Descriptor: [sasanian-warfare.book.json](sasanian-warfare.book.json)
+
+A study of Sasanian military institutions, elite cavalry, frontier systems, siegecraft, imperial finance, and wars with Rome and the eastern Roman Empire.
+
+[Read Sasanian Warfare](sasanian-warfare.md)
