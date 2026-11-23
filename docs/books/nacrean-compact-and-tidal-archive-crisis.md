@@ -20,6 +20,7 @@ Related volumes:
 - [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — distance, industrial ecology, and strategic reach.
 - [Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md) — settlement resilience and civilian continuity.
 - [Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md) — delegated authority and accountability.
+- [The Serein Passage Treaties and the Three-Current Crisis](serein-passage-treaties-and-three-current-crisis.md) — neighboring polities, regional passage treaties, migration and trade networks, shared infrastructure, and the wider consequences of the archive dispute.
 
 ## 1. The world: Pelagos
 
