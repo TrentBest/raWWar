@@ -24,6 +24,17 @@ The raWWar sourcebook library is the SURPS-facing knowledge layer for warfare an
 - [Read the sourcebook](fortifications-and-strongholds.md)
 - [Book descriptor](fortifications-and-strongholds.book.json)
 
+## Current LOD 2 strategic sourcebook
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![The Art of War cover](covers/the-art-of-war.svg)
+
+**The Art of War** is a dedicated study of the thirteen-chapter work traditionally attributed to Sun Tzu: textual history, attribution and transmission, chapter-by-chapter interpretation, strategic themes, reception, translation discipline, and tabletop/simulation applications.
+
+- [Read the sourcebook](the-art-of-war.md)
+- [Book descriptor](the-art-of-war.book.json)
+
 ## Planned LOD 2 families
 
 These are editorial families, not a rigid hierarchy. Each book will declare its scope and cross-reference other books where appropriate.
