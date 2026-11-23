@@ -273,3 +273,26 @@ Descriptor: [autonomous-systems-and-machine-agency.book.json](autonomous-systems
 Examines delegation, oversight, accountability, reliability, escalation, civilian protection, and speculative machine political agency. It separates established capability from extrapolation, speculation, and fictional premises.
 
 [Read Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md)
+
+
+## Science-fiction warfare — interstellar society and first contact
+
+### Interstellar Logistics and Strategy
+
+![Interstellar Logistics and Strategy cover](covers/interstellar-logistics-and-strategy.svg)
+
+Descriptor: [interstellar-logistics-and-strategy.book.json](interstellar-logistics-and-strategy.book.json)
+
+A systems-level study of distance, communications delay, transport, energy, life support, industrial ecology, network resilience, sovereignty, and civilian sustainment across interstellar settings. It distinguishes known physics from extrapolated engineering and fictional travel systems.
+
+[Read Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md)
+
+### Alien Contact, Diplomacy, and Conflict
+
+![Alien Contact, Diplomacy, and Conflict cover](covers/alien-contact-diplomacy-and-conflict.svg)
+
+Descriptor: [alien-contact-diplomacy-and-conflict.book.json](alien-contact-diplomacy-and-conflict.book.json)
+
+A disciplined framework for evidence, translation, biological uncertainty, political recognition, diplomacy, security dilemmas, conflict prevention, machine intermediaries, and civilian protection. It does not assume extraterrestrial life or inevitable hostility.
+
+[Read Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md)
