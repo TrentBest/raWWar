@@ -189,3 +189,14 @@ Do not present speculative future wars as historical fact. Science-fiction sourc
 - New books added during this session: Piracy and Maritime Raiding; Outlaws, Bandits, and Popular Resistance; Chinese Warfare; Science Fiction Warfare. Each has a descriptor and original SVG cover.
 - Index and collection README updated. Re-run CI after the documentation batch and record the resulting commit/run IDs before closing the session.
 - Continue only on `development`; no master merge, release, deployment, or branch deletion.
+
+
+## Latest library expansion — 2026-11-23
+
+Two additional LOD 2 books now extend the catalogue:
+- [Japanese Warfare](docs/books/japanese-warfare.md) — periodized history from early state formation through warrior governments, Sengoku, unification, Tokugawa peace, modern transformation, imperial war, and postwar memory; avoids timeless samurai stereotypes.
+- [Orbital Warfare and Space Infrastructure](docs/books/orbital-warfare-and-space-infrastructure.md) — space infrastructure, orbital constraints, access, resilience, governance, escalation, and civilian consequences; avoids treating space as an ocean and labels speculative assumptions.
+
+Both have matching descriptors and original SVG covers. Catalogue and collection README have been extended. The current session's new book set is therefore: Piracy and Maritime Raiding; Outlaws, Bandits, and Popular Resistance; Chinese Warfare; Science Fiction Warfare; Japanese Warfare; and Orbital Warfare and Space Infrastructure.
+
+Next, deepen the Persian and Roman families, then add Mongol and Viking-age studies. Continue the science-fiction family with planetary defense/habitat conflict, autonomous systems and machine agency, interstellar logistics, and alien contact/conflict. Each volume must be substantive, cross-linked, and explicit about evidence versus speculation.
