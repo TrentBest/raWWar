@@ -407,3 +407,13 @@ Validate all descriptors as JSON, SVG covers as XML, cover paths, catalogue link
 - Cross-links connect Formations I–IV, Bases and Encampments, The Art of Resupply, Fortifications, Battlefield Medicine, Science Fiction Warfare, and Orbital Warfare. Keep the index, collection README, and docs navigation synchronized.
 - Physics owns physical simulation; Gestures owns reusable embodied movement; raWWar owns domain meaning, history, scenario context, and evaluation; host/runtime owns execution. SURPS remains opt-in.
 - Validate descriptor JSON, SVG XML, cover path, Markdown links, catalogue entries, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit approval.
+
+
+## Orbital formations expansion — Formations VI (2026-11-23)
+
+- [Formations VI: Orbital and Space Forces](docs/books/formations-vi-orbital-and-space-forces.md) is a new LOD 2 sourcebook with descriptor and original SVG cover.
+- It complements, rather than duplicates, [Orbital Warfare and Space Infrastructure](docs/books/orbital-warfare-and-space-infrastructure.md): Formations VI owns organization and coordination of orbital assets, crews, stations, service craft, and support relationships; the broader orbital volume owns the wider security, governance, and infrastructure analysis.
+- Preserve time-dependent orbital state, epoch, reference frame, uncertainty, relative motion, and communications latency. Spacecraft are not ships; orbital paths are not roads. Do not import naval or aircraft maneuver assumptions.
+- Cover station keeping, rendezvous concepts at a non-procedural level, crew and civilian identity, autonomy boundaries, resource endurance, thermal/radiation/debris context, docking/service dependencies, rescue, law, escalation, and civilian impacts.
+- Use evidence labels: Established, Extrapolated, Speculative, Fictional. Physics owns physical dynamics and environmental simulation; raWWar owns domain organization, historical/political context, scenarios, and evaluation; Gestures owns reusable embodied interaction; SURPS remains opt-in.
+- Validate descriptor JSON, SVG XML, Markdown links, catalogues, docs navigation, reciprocal links, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit authorization.
