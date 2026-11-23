@@ -84,3 +84,46 @@ A reusable warfare-side manual for threat models, layered defense, siege enduran
 A book can cross-reference several others. LOD marks depth, not chronology or a mandatory hierarchy. Historical fact, disputed interpretation, legend, speculation, and fictional adaptation must remain distinguishable.
 
 See [the sourcebook collection and editorial plan](README.md).
+
+
+## New LOD 2 additions — maritime, irregular, global, and speculative warfare
+
+### Piracy and Maritime Raiding
+
+![Piracy and Maritime Raiding cover](covers/piracy-and-maritime-raiding.svg)
+
+Descriptor: [piracy-and-maritime-raiding.book.json](piracy-and-maritime-raiding.book.json)
+
+A study of piracy, privateering, corsairing, naval conflict, coastal raiding, maritime communities, and contested authority at sea.
+
+[Read Piracy and Maritime Raiding](piracy-and-maritime-raiding.md)
+
+### Outlaws, Bandits, and Popular Resistance
+
+![Outlaws, Bandits, and Popular Resistance cover](covers/outlaws-bandits-and-popular-resistance.svg)
+
+Descriptor: [outlaws-bandits-and-popular-resistance.book.json](outlaws-bandits-and-popular-resistance.book.json)
+
+Examines outlawry, brigandage, popular resistance, rebellion, insurgency, community legitimacy, and the Robin Hood tradition without confusing folklore with biography.
+
+[Read Outlaws, Bandits, and Popular Resistance](outlaws-bandits-and-popular-resistance.md)
+
+### Chinese Warfare
+
+![Chinese Warfare cover](covers/chinese-warfare.svg)
+
+Descriptor: [chinese-warfare.book.json](chinese-warfare.book.json)
+
+A broad, periodized orientation to the many states, dynasties, military institutions, strategic traditions, frontiers, and technologies of Chinese history.
+
+[Read Chinese Warfare](chinese-warfare.md)
+
+### Science Fiction Warfare
+
+![Science Fiction Warfare cover](covers/science-fiction-warfare.svg)
+
+Descriptor: [science-fiction-warfare.book.json](science-fiction-warfare.book.json)
+
+A first-class speculative warfare domain spanning near-future conflict, orbital infrastructure, planetary defense, autonomous systems, interstellar logistics, alien polities, and posthuman political orders. It labels established science, extrapolation, speculation, and fictional rules separately.
+
+[Read Science Fiction Warfare](science-fiction-warfare.md)
