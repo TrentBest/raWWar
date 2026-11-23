@@ -119,3 +119,9 @@ Physics owns the physical models for orbital dynamics, propulsion, materials, an
 - Separate physical state from legal status, commercial ownership, organizational command, and permission to act.
 - Use Established, Extrapolated, Speculative, and Fictional labels whenever future technology is discussed.
 - SURPS participation is opt-in. raWWar owns warfare-domain meaning and simulation requirements; authoritative physical and industrial models remain with their respective providers.
+
+
+## Related reading
+
+- [Military Industry and Wartime Production](military-industry-and-wartime-production.md) — production capacity, orbital fabrication, repair, and industrial mobilization.
+- [Interstellar Economies and Multi-System War](interstellar-economies-and-multi-system-war.md) — multi-system political economy and strategic allocation.
