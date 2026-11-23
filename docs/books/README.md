@@ -436,3 +436,14 @@ A cross-domain formation manual centered on the sea-to-shore transition: embarke
 - [Cover](covers/formations-vii-amphibious-and-littoral-forces.svg)
 
 This volume joins [Formations I: Land Forces](formations-i-land-forces.md) and [Formations II: Naval Forces](formations-ii-naval-forces.md) without collapsing amphibious organizations into either domain. It connects shore sustainment to [The Art of Resupply](the-art-of-resupply.md) and persistent facilities to [Bases and Encampments](bases-and-encampments.md).
+
+
+### Formations VIII: Special Operations and Irregular Forces
+
+A comparative organizational study distinguishing specialized regular military units from irregular armed groups, resistance movements, insurgencies, partisan organizations, militias, auxiliaries, proxies, and clandestine civic networks. It centers political context, civilian agency, accountability, fragmentation, and demobilization, while excluding actionable operational tradecraft.
+
+- [Read the sourcebook](formations-viii-special-operations-and-irregular-forces.md)
+- [Book descriptor](formations-viii-special-operations-and-irregular-forces.book.json)
+- [Cover](covers/formations-viii-special-operations-and-irregular-forces.svg)
+
+This volume extends the formations family beyond conventional domain types and cross-links [Outlaws, Bandits, and Popular Resistance](outlaws-bandits-and-popular-resistance.md). It does not equate irregularity with illegitimacy or specialization with virtue.
