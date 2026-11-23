@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.serein-passage-treaties-and-three-current-crisis",
+  "category": "Domain",
+  "lod": 3,
+  "title": "The Serein Passage Treaties and the Three-Current Crisis",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/serein-passage-treaties-and-three-current-crisis.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-3.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
