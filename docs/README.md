@@ -36,7 +36,11 @@ System-specific documents expand the design without silently changing canon.
 
 ## SURPS living warfare sourcebooks
 
-- [raWWar SURPS Sourcebook Library](books/index.md) — domain-owned books on warfare and organized force, including historical conflicts, piracy, resistance, irregular warfare, campaigns, missions, and reusable technical manuals. SURPS composition remains explicitly opt-in.
+- [raWWar SURPS Sourcebook Library](books/index.md) — domain-owned books on warfare and organized force, including historical conflicts, formations, bases, encampments, resupply, medicine, campaigns, and reusable technical manuals. SURPS composition remains explicitly opt-in.
+- [Formations I–III](books/formations-i-land-forces.md) — land, naval, and air formations, including ghost-slot training and performance evaluation.
+- [Bases and Encampments](books/bases-and-encampments.md) — camp and base layouts from mobile field camps to Roman castra and persistent installations.
+- [The Art of Resupply](books/the-art-of-resupply.md) — the supply, repair, and sustainment network that keeps formations and bases operational.
+- [Battlefield Medicine and the Casualty Chain](books/battlefield-medicine-and-the-casualty-chain.md) — casualty movement, medic HUD, ghost-action scoring, and fictional suit-integrated emergency equipment.
 
 ## Core design
 
