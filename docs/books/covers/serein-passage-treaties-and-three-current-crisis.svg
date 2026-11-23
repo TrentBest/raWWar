@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+<title id="title">The Serein Passage Treaties and the Three-Current Crisis</title>
+<desc id="desc">Original science-fiction sourcebook cover showing three converging ocean currents, connected habitats, and a shared passage route.</desc>
+<defs>
+  <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071b35"/><stop offset=".55" stop-color="#0b5268"/><stop offset="1" stop-color="#071b35"/></linearGradient>
+  <linearGradient id="current" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#55d6c2" stop-opacity=".05"/><stop offset=".5" stop-color="#8fe7db" stop-opacity=".9"/><stop offset="1" stop-color="#55d6c2" stop-opacity=".05"/></linearGradient>
+  <radialGradient id="glow"><stop offset="0" stop-color="#a7f3e5" stop-opacity=".8"/><stop offset="1" stop-color="#a7f3e5" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="1200" height="1600" fill="url(#ocean)"/>
+<g fill="none" stroke="#8bded6" opacity=".17">
+ <path d="M-80 430 C180 250 330 610 590 430 S1000 260 1280 460" stroke-width="3"/>
+ <path d="M-100 510 C180 330 340 690 610 510 S1000 340 1300 540" stroke-width="2"/>
+ <path d="M-90 590 C170 410 360 770 630 590 S1030 420 1290 620" stroke-width="2"/>
+ <path d="M-80 980 C180 800 330 1160 590 980 S1000 810 1280 1010" stroke-width="3"/>
+</g>
+<g fill="none" stroke="url(#current)" stroke-width="22" opacity=".8">
+ <path d="M80 760 C280 580 420 650 600 800"/>
+ <path d="M1120 700 C920 560 780 640 600 800"/>
+ <path d="M600 1310 C590 1100 560 960 600 800"/>
+</g>
+<circle cx="600" cy="800" r="230" fill="url(#glow)" opacity=".28"/>
+<g stroke="#d8f7ef" stroke-width="5" fill="#123c52">
+ <path d="M180 690 l75 -90 80 90 -18 58 H198 Z"/>
+ <path d="M845 650 l90 -115 100 115 -20 65 H865 Z"/>
+ <path d="M480 1030 l100 -120 110 120 -25 72 H505 Z"/>
+</g>
+<g fill="none" stroke="#d8f7ef" stroke-width="5" opacity=".9">
+ <path d="M255 758 Q420 850 600 800 Q780 760 900 715"/>
+ <path d="M580 1100 Q610 950 600 800"/>
+ <circle cx="255" cy="690" r="18"/><circle cx="930" cy="650" r="18"/><circle cx="585" cy="1030" r="18"/>
+</g>
+<g fill="#b6e8dc" font-family="Georgia,serif" text-anchor="middle">
+ <text x="600" y="180" font-size="31" letter-spacing="8">THE SINGULARITY WORKSHOP</text>
+ <text x="600" y="290" font-size="68" font-weight="bold">THE SEREIN</text>
+ <text x="600" y="370" font-size="68" font-weight="bold">PASSAGE TREATIES</text>
+ <text x="600" y="455" font-size="38">AND THE THREE-CURRENT CRISIS</text>
+</g>
+<g fill="#d9f6ed" font-family="Arial,sans-serif" text-anchor="middle">
+ <text x="600" y="1390" font-size="27" letter-spacing="5">A CONNECTED THEATRE • LOD 3</text>
+ <text x="600" y="1450" font-size="19" letter-spacing="3">POLITIES • PASSAGE • MIGRATION • SHARED SYSTEMS</text>
+</g>
+<path d="M120 1500 H1080" stroke="#8bded6" stroke-width="2" opacity=".65"/>
+</svg>
