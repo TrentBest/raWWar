@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Medicine and Healing</title>
+  <desc id="desc">An original sourcebook cover showing a medical emblem, a pulse trace, and the layered history of healing from ancient care to future medicine.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101d2b"/><stop offset="1" stop-color="#263b4c"/></linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#dce8e7"/><stop offset="1" stop-color="#78969a"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+  <g opacity=".18" stroke="#9db9ba" fill="none"><path d="M0 280H1200M0 1320H1200M160 0V1600M1040 0V1600" stroke-width="2"/><circle cx="600" cy="750" r="430" stroke-width="2"/><circle cx="600" cy="750" r="360"/><circle cx="600" cy="750" r="290"/></g>
+  <g transform="translate(600 690)" filter="url(#glow)">
+    <circle r="235" fill="#132a36" stroke="#8fb5b4" stroke-width="10"/>
+    <path d="M0 -170V170M-170 0H170" stroke="#8fb5b4" stroke-width="24" stroke-linecap="round"/>
+    <path d="M-55 -85C-55 -145 55 -145 55 -85C55 -30 0 10 0 10C0 10 -55 -30 -55 -85Z" fill="#d7e7df" opacity=".95"/>
+    <path d="M-190 220L-110 220L-60 160L-5 280L55 180L95 220H190" fill="none" stroke="#9ad7d1" stroke-width="10" stroke-linejoin="round"/>
+  </g>
+  <g fill="#e6eee9" text-anchor="middle" font-family="Georgia,serif">
+    <text x="600" y="170" font-size="34" letter-spacing="9">THE SINGULARITY WORKSHOP</text>
+    <text x="600" y="1130" font-size="76" font-weight="bold">MEDICINE</text>
+    <text x="600" y="1220" font-size="76" font-weight="bold">&amp; HEALING</text>
+    <text x="600" y="1305" font-size="30" letter-spacing="4">HISTORY • PRACTICE • PLAY</text>
+  </g>
+  <g fill="#a9c4c1" font-family="Arial,sans-serif" text-anchor="middle">
+    <text x="600" y="1410" font-size="26" letter-spacing="5">FROM ANCIENT CARE TO FUTURE MEDICINE</text>
+    <text x="600" y="1470" font-size="22">RAWWAR SOURCEBOOK SERIES · LOD 2</text>
+  </g>
+</svg>
