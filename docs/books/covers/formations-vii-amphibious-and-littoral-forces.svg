@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Formations VII: Amphibious and Littoral Forces</title>
+  <desc id="desc">Original abstract coastal scene connecting sea, shore, harbor infrastructure, and organized formations.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#10243b"/><stop offset="1" stop-color="#48677a"/></linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2e7188"/><stop offset="1" stop-color="#102e49"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#sky)"/>
+  <path d="M0 355Q160 330 300 370T590 355T900 365T1200 345V675H0Z" fill="url(#sea)"/>
+  <path d="M0 435Q190 405 360 445T720 430T1200 440" fill="none" stroke="#9bc9d0" stroke-width="4" opacity=".6"/>
+  <path d="M0 490Q170 465 350 500T710 485T1200 495" fill="none" stroke="#9bc9d0" stroke-width="2" opacity=".45"/>
+  <path d="M770 355L840 285L915 305L990 245L1080 270L1200 220V675H760Z" fill="#62766f"/>
+  <path d="M850 355V260H915V355M940 355V220H1000V355M1025 355V285H1090V355" fill="#263f50" stroke="#c1d2c9" stroke-width="3"/>
+  <g fill="#d9e8e6" stroke="#163247" stroke-width="3">
+    <path d="M260 390H470L430 420H300Z"/>
+    <path d="M330 385V335H385V385Z"/>
+    <path d="M355 335L375 300L395 335Z"/>
+    <path d="M520 435H650L625 455H545Z"/>
+  </g>
+  <g fill="none" stroke="#b4d6d9" stroke-width="3" stroke-dasharray="8 8">
+    <path d="M430 405Q610 330 820 380"/>
+    <path d="M620 450Q740 430 870 470"/>
+  </g>
+  <g fill="#e3ece9" font-family="sans-serif" text-anchor="middle">
+    <text x="600" y="76" font-size="18" letter-spacing="5">THE SINGULARITY WORKSHOP</text>
+    <text x="600" y="570" font-size="34" font-weight="700">FORMATIONS VII</text>
+    <text x="600" y="615" font-size="18" letter-spacing="2">AMPHIBIOUS &amp; LITTORAL FORCES</text>
+  </g>
+</svg>
