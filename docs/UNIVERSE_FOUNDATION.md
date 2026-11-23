@@ -123,7 +123,9 @@ It should be authored as a pinned campaign seed with explicitly unresolved field
 
 This slice is a campaign entry and world-model test. It is not yet the full war, and it must not fabricate the war's cause, invent additional major factions, or replace the established thirteen-faction design with a generic roster.
 
-The initial structured entry point is [`data/campaigns/imperial-summons.json`](../data/campaigns/imperial-summons.json). It is deliberately an authored opening seed with unresolved identities, not a completed or independently playable campaign.
+The thirteen-faction political structure is captured in [`data/faction-political-atlas.json`](../data/faction-political-atlas.json). It preserves the established count and hidden order while marking names and detailed profiles as working candidates.
+
+The initial structured campaign entry point is [`data/campaigns/imperial-summons.json`](../data/campaigns/imperial-summons.json). It is deliberately an authored opening seed with unresolved identities, not a completed or independently playable campaign.
 
 ## 6. The pipeline's world-building sequence
 
