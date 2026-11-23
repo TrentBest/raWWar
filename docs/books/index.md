@@ -456,3 +456,18 @@ Descriptor: [formations-v-mechanized-and-armored-forces.book.json](formations-v-
 A systems-level manual for armored and mechanized organizations: crews, vehicles, dismounted personnel, command, route and infrastructure constraints, fuel and stores, maintenance, recovery, industrial depth, medical support, civilian effects, autonomy, and transparent simulation contracts.
 
 [Read Formations V: Mechanized and Armored Forces](formations-v-mechanized-and-armored-forces.md)
+
+
+## Formations VI — orbital and space forces (LOD 2)
+
+### Formations VI: Orbital and Space Forces
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Formations VI: Orbital and Space Forces cover](covers/formations-vi-orbital-and-space-forces.svg)
+
+Descriptor: [formations-vi-orbital-and-space-forces.book.json](formations-vi-orbital-and-space-forces.book.json)
+
+A dedicated formation manual for spacecraft, crews, autonomous systems, stations, habitats, service networks, orbital relationships, communications delay, sustainment, rescue, governance, and transparent simulation contracts. It complements the broader Orbital Warfare and Space Infrastructure volume without treating spacecraft as ships or orbital trajectories as roads.
+
+[Read Formations VI: Orbital and Space Forces](formations-vi-orbital-and-space-forces.md)
