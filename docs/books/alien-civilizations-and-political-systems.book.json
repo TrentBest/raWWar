@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.alien-civilizations-and-political-systems",
+  "category": "Domain",
+  "lod": 3,
+  "title": "Alien Civilizations and Political Systems",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/alien-civilizations-and-political-systems.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-3.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
