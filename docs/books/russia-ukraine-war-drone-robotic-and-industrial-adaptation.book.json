@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.russia-ukraine-war-drone-robotic-and-industrial-adaptation",
+  "category": "Domain",
+  "lod": 2,
+  "title": "The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/russia-ukraine-war-drone-robotic-and-industrial-adaptation.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
