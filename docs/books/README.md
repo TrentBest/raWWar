@@ -209,3 +209,35 @@ Imperial legions and auxiliary forces, recruitment, service and military society
 A high-level, civilian-centered systems study of planetary defense, habitat life-support resilience, governance, security, law, autonomy, and de-escalation. The book labels established, extrapolated, speculative, and fictional claims separately and deliberately avoids real-world infrastructure attack procedures.
 - [Read the sourcebook](planetary-defense-and-habitat-conflict.md)
 - [Book descriptor](planetary-defense-and-habitat-conflict.book.json)
+
+
+## Latest LOD 2 expansion — Roman conflict and machine agency
+
+### Roman Civil Wars
+
+![Roman Civil Wars cover](covers/roman-civil-wars.svg)
+
+A focused study from the Social War through Sulla, Caesar, the triumvirates, and the Augustan settlement. It treats civil war as a crisis of legitimacy, military allegiance, finance, coalition politics, and civilian life.
+
+- [Read the sourcebook](roman-civil-wars.md)
+- [Book descriptor](roman-civil-wars.book.json)
+
+### Eastern Roman Warfare
+
+![Eastern Roman Warfare cover](covers/eastern-roman-warfare.svg)
+
+A periodized study of the eastern Roman state from late antiquity through 1453. It examines changing military institutions, fiscal capacity, diplomacy, fortifications, naval power, and regional strategy without treating a millennium as one static system.
+
+- [Read the sourcebook](eastern-roman-warfare.md)
+- [Book descriptor](eastern-roman-warfare.book.json)
+
+### Autonomous Systems and Machine Agency
+
+![Autonomous Systems and Machine Agency cover](covers/autonomous-systems-and-machine-agency.svg)
+
+A science-fiction companion on delegated authority, human oversight, accountability, reliability, escalation, civilian protection, and the conditions under which machine entities might become political actors. It distinguishes established systems from extrapolated, speculative, and fictional premises.
+
+- [Read the sourcebook](autonomous-systems-and-machine-agency.md)
+- [Book descriptor](autonomous-systems-and-machine-agency.book.json)
+
+These books continue the historical Roman sequence and develop science-fiction warfare as a first-class domain. They are knowledge and worldbuilding resources, not executable doctrine or instructions for attacking real systems.
