@@ -518,3 +518,15 @@ A long-horizon framework for imperial and interstellar political economies, mult
 
 [Read Interstellar Economies and Multi-System War](interstellar-economies-and-multi-system-war.md)
 
+
+## Military production and industrial mobilization — LOD 2
+
+### Military Industry and Wartime Production
+
+![Military Industry and Wartime Production cover](covers/military-industry-and-wartime-production.svg)
+
+A systems-level study of how resources, labor, energy, capital, technical knowledge, procurement, and industrial institutions become military capability. It distinguishes installed capacity, available capacity, throughput, accepted delivery, and operational readiness, and examines shipyards, aircraft, spacecraft, orbital industry, mobilization, repair, quality, bottlenecks, and civilian trade-offs.
+
+- [Read the sourcebook](military-industry-and-wartime-production.md)
+- [Book descriptor](military-industry-and-wartime-production.book.json)
+
