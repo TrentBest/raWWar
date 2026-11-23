@@ -499,3 +499,42 @@ Descriptor: [formations-viii-special-operations-and-irregular-forces.book.json](
 Distinguishes specialized regular forces from irregular organizations, resistance movements, insurgencies, partisan formations, militias, auxiliaries, proxies, and clandestine civic networks. Focuses on organization, political authority, civilian relationships, accountability, fragmentation, and transition—not operational tradecraft.
 
 [Read Formations VIII: Special Operations and Irregular Forces](formations-viii-special-operations-and-irregular-forces.md)
+
+
+## Formations IX–X and planetary expeditionary doctrine (LOD 2)
+
+### Formations IX: Engineering and Construction Forces
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Formations IX: Engineering and Construction Forces cover](covers/formations-ix-engineering-and-construction-forces.svg)
+
+Descriptor: [formations-ix-engineering-and-construction-forces.book.json](formations-ix-engineering-and-construction-forces.book.json)
+
+Military engineering as an organized formation and project system: temporary crossings, bridge trains, floating bridges, ferries, roads, field works, utilities, repair, recovery, civilian impacts, and project handover.
+
+[Read Formations IX: Engineering and Construction Forces](formations-ix-engineering-and-construction-forces.md)
+
+### Formations X: Armadas and Flotillas
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Formations X: Armadas and Flotillas cover](covers/formations-x-armadas-and-flotillas.svg)
+
+Descriptor: [formations-x-armadas-and-flotillas.book.json](formations-x-armadas-and-flotillas.book.json)
+
+A fleet-formation manual covering armadas, flotillas, nested organizations, escorts, transports, auxiliaries, coalition command, maritime sustainment, and civilian shipping.
+
+[Read Formations X: Armadas and Flotillas](formations-x-armadas-and-flotillas.md)
+
+### Planetary Assault and Expeditionary Doctrine
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Planetary Assault and Expeditionary Doctrine cover](covers/planetary-assault-and-expeditionary-doctrine.svg)
+
+Descriptor: [planetary-assault-and-expeditionary-doctrine.book.json](planetary-assault-and-expeditionary-doctrine.book.json)
+
+A science-fiction doctrine and simulation framework for orbital-to-surface transitions, expeditionary organization, planetary reception systems, footholds, sustainment, civilian protection, governance, and escalation. It distinguishes established science from extrapolation, speculation, and fictional technology.
+
+[Read Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md)
