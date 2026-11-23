@@ -414,3 +414,14 @@ Mechanized and armored organizations treated as connected systems of people, pla
 - [Cover](covers/formations-v-mechanized-and-armored-forces.svg)
 
 This volume extends [Formations I: Land Forces](formations-i-land-forces.md) and complements [Formations IV: Mounted and Cavalry Forces](formations-iv-mounted-and-cavalry.md). It preserves crew and dismounted-personnel identity independently from vehicle state, and links sustainment to [The Art of Resupply](the-art-of-resupply.md).
+
+
+### Formations VI: Orbital and Space Forces
+
+A dedicated formation manual for orbital and space organizations, distinct from naval and air formations. It treats orbital state, epoch, reference frame, relative motion, station keeping, communications delay, crew identity, autonomous authority, shared infrastructure, rescue, debris, and civilian consequences as connected concerns.
+
+- [Read the sourcebook](formations-vi-orbital-and-space-forces.md)
+- [Book descriptor](formations-vi-orbital-and-space-forces.book.json)
+- [Cover](covers/formations-vi-orbital-and-space-forces.svg)
+
+This volume complements [Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md), which covers the wider security, governance, and infrastructure domain. It also connects to [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) without conflating established orbital mechanics with speculative interstellar travel.
