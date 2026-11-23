@@ -538,6 +538,23 @@ Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("politics"
       universeFoundation.RootElement.GetProperty("canon").GetProperty("politics")
     .GetProperty("alignmentSpectrum").GetProperty("moralityEquivalent").GetBoolean() == false,
     "The faction alignment spectrum remains hidden from players and distinct from morality");
+
+using var factionAtlasData = ReadData("faction-political-atlas.json");
+var factionAtlas = factionAtlasData.RootElement;
+Check(factionAtlas.GetProperty("schemaVersion").GetString() == "raWWar.faction-political-atlas.v1",
+    "Faction political atlas declares its versioned data contract");
+var factionRecords = factionAtlas.GetProperty("factions").EnumerateArray().ToArray();
+Check(factionRecords.Length == 13 && factionRecords.Select(x => x.GetProperty("alignmentPosition").GetInt32())
+    .SequenceEqual(Enumerable.Range(1, 13)),
+    "Faction atlas contains thirteen uniquely ordered positions from Imperial alignment to open hostility");
+Check(factionRecords.Select(x => x.GetProperty("id").GetString()).Distinct(StringComparer.Ordinal).Count() == 13,
+    "Faction atlas uses thirteen stable, unique semantic identities");
+Check(factionRecords.All(x => x.GetProperty("profileStatus").GetString() == "candidate-working-profile") &&
+      factionAtlas.GetProperty("validation").GetProperty("namesMustRemainMarkedAsWorkingUntilConfirmed").GetBoolean(),
+    "Faction working names and detailed profiles remain candidates pending creator confirmation");
+Check(factionAtlas.GetProperty("politicalModel").GetProperty("alignmentIsNotMorality").GetBoolean() &&
+      factionAtlas.GetProperty("validation").GetProperty("currentWarCauseMustNotBeInferredFromFactionProfiles").GetBoolean(),
+    "Faction alignment is not morality and faction profiles cannot invent the current war");
 Check(universeFoundation.RootElement.GetProperty("canonBoundaries")
     .GetProperty("allFactionsHuman").GetString() == "candidate-not-confirmed",
     "Unconfirmed species scope remains a candidate rather than being promoted to canon");
