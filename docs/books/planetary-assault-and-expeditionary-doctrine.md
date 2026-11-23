@@ -170,3 +170,8 @@ raWWar owns planetary expeditionary doctrine as warfare-domain knowledge, organi
 ## Editorial rule
 
 A planet is not an objective marker. It is a world. Any doctrine that cannot account for the people, institutions, infrastructure, and ecology already there is an incomplete doctrine.
+
+
+## Resource and industrial foundations
+
+Expeditionary forces depend on local and imported resources, industrial capacity, and receiving infrastructure. See [Military Resources and Sustainment](military-resources-and-sustainment.md), [Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md), and [Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md).
