@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.healing-across-the-centuries",
+  "category": "Domain",
+  "lod": 2,
+  "title": "Healing Across the Centuries",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/healing-across-the-centuries.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
