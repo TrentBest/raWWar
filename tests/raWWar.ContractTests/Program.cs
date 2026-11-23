@@ -5,6 +5,7 @@ using TheSingularityWorkshop.MicroBundleDomain;
 using TheSingularityWorkshop.raWWar;
 using TheSingularityWorkshop.raWWar.ContractTests;
 using TheSingularityWorkshop.raWWar.History;
+using TheSingularityWorkshop.raWWar.Agency;
 using TheSingularityWorkshop.raWWar.Spatiotemporal;
 
 // Child mode: commit one event and exit normally so the parent can verify recovery in a new process.
@@ -18,11 +19,21 @@ if (args.Length == 2 && args[0] == "--journal-child-write")
 }
 
 var failures = new List<string>();
+var results = new List<ContractCheckResult>();
 var checks = 0;
 
-void Check(bool condition, string message)
+void Check(bool condition, string message) =>
+    RecordCheck(condition, message, $"ContractCheck{checks + 1:D4}");
+
+void RecordCheck(bool condition, string message, string identity)
 {
     checks++;
+    var result = new ContractCheckResult(
+        identity,
+        message,
+        condition,
+        condition ? null : message);
+    results.Add(result);
     if (!condition) failures.Add(message);
 }
 
@@ -102,6 +113,218 @@ Check(HierarchicalSpatialAddressHasher.ComputeV1(encodedSpatialAddress)
 Check(Convert.ToHexString(HierarchicalSpatialAddressCodec.Encode(
         HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(1)))) == "5257534101000100000000",
     "Top-level address V1 encoding has an explicit zero-depth representation");
+
+// A world entity has one stable identity regardless of where or how it is observed or controlled.
+var shipEntityId = WorldEntityId.Create(
+    123, "v1", "vessel", encodedSpatialBytes, 1);
+var sameShipFromPilotPerspective = WorldEntityId.Create(
+    123, "v1", "vessel", encodedSpatialBytes, 1);
+var sameShipFromOrganizationPerspective = WorldEntityId.Create(
+    123, "v1", "vessel", encodedSpatialBytes, 1);
+Check(shipEntityId == sameShipFromPilotPerspective
+    && shipEntityId == sameShipFromOrganizationPerspective,
+    "Direct-operation and organizational perspectives resolve to the same stable vessel identity");
+Check(WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 2) != shipEntityId,
+    "Distinct vessel creation ordinals produce distinct world entity identities");
+Check(WorldEntityId.Create(123, "v1", "station", encodedSpatialBytes, 1) != shipEntityId,
+    "Entity kind participates in stable world entity identity");
+Check(WorldEntityId.Create(124, "v1", "vessel", encodedSpatialBytes, 1) != shipEntityId,
+    "World seed participates in stable world entity identity");
+Check(WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1)
+        == WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 1),
+    "Stable world entity identity is reproducible across independent constructions");
+
+Check(shipEntityId.Value == "19B19F090C4F2B263AB3DBF4390F1A6FE91E2A5442D0F6A270533561BB6C6AF3",
+    "World entity identity V1 matches its fixed SHA-256 reference vector");
+Check(WorldEntityId.Create(123, "v2", "vessel", encodedSpatialBytes, 1) != shipEntityId,
+    "Simulation-model version participates in world entity identity");
+var alternateOriginBytes = (byte[])encodedSpatialBytes.Clone();
+alternateOriginBytes[^1] ^= 0x01;
+Check(WorldEntityId.Create(123, "v1", "vessel", alternateOriginBytes, 1) != shipEntityId,
+    "Canonical origin address participates in world entity identity");
+var rejectedEmptyOrigin = false;
+try { _ = WorldEntityId.Create(123, "v1", "vessel", ReadOnlySpan<byte>.Empty, 1); }
+catch (ArgumentException) { rejectedEmptyOrigin = true; }
+Check(rejectedEmptyOrigin, "World entity identity rejects an empty canonical origin address");
+
+// Agency is explicit and entity-scoped: direct operation and organizational delegation share one entity.
+var operatorId = new WorldEntityPrincipalId("person:pilot-01");
+var organizationId = new WorldEntityPrincipalId("organization:shipping-line-01");
+var delegatedCrewId = new WorldEntityPrincipalId("person:crew-07");
+var otherEntityId = WorldEntityId.Create(123, "v1", "vessel", encodedSpatialBytes, 99);
+var directOperators = new[]
+{
+    new WorldEntityDirectOperator(shipEntityId, operatorId)
+};
+var mandates = new[]
+{
+    new WorldEntityOrganizationMandate(
+        shipEntityId,
+        organizationId,
+        WorldEntityCapability.DelegateOperation | WorldEntityCapability.ManageOperations)
+};
+var delegations = new[]
+{
+    new WorldEntityDelegation(
+        shipEntityId, organizationId, delegatedCrewId, WorldEntityCapability.Operate)
+};
+Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, operatorId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "An explicitly assigned direct operator may operate the shared entity");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, operatorId, WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "Direct operating responsibility does not imply organizational management authority");
+Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "An explicit organization mandate grants only its declared management capability");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "Organizational management does not silently make the organization a vessel operator");
+var organizationOperateMandate = new[]
+{
+    new WorldEntityOrganizationMandate(shipEntityId, organizationId, WorldEntityCapability.Operate)
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, organizationId, WorldEntityCapability.Operate,
+        directOperators, organizationOperateMandate, delegations),
+    "An organization mandate cannot bypass the explicit direct-operator or delegation relationship");
+var malformedMandate = new[]
+{
+    new WorldEntityOrganizationMandate(
+        shipEntityId, organizationId, WorldEntityCapability.DelegateOperation | (WorldEntityCapability)128)
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, malformedMandate, delegations),
+    "Malformed organization mandate capability sets fail closed");
+Check(WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "An organization may delegate operation when its entity mandate explicitly permits delegation");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "Delegated operation does not escalate into organizational management");
+Check(!WorldEntityAgencyPolicy.CanPerform(otherEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, mandates, delegations),
+    "An entity-scoped delegation cannot authorize operation of another entity");
+var revokedDelegations = new[]
+{
+    delegations[0] with { IsRevoked = true }
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, mandates, revokedDelegations),
+    "A revoked delegation no longer authorizes operation");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, Array.Empty<WorldEntityOrganizationMandate>(), delegations),
+    "A delegation without its organization's explicit mandate fails closed");
+var unidentifiedOrganizationMandate = new[]
+{
+    new WorldEntityOrganizationMandate(
+        shipEntityId, new WorldEntityPrincipalId(" "), WorldEntityCapability.DelegateOperation)
+};
+var unidentifiedOrganizationDelegation = new[]
+{
+    new WorldEntityDelegation(
+        shipEntityId, new WorldEntityPrincipalId(" "), delegatedCrewId, WorldEntityCapability.Operate)
+};
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, WorldEntityCapability.Operate,
+        directOperators, unidentifiedOrganizationMandate, unidentifiedOrganizationDelegation),
+    "Delegation without a valid organization identity fails closed");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId, (WorldEntityCapability)128,
+        directOperators, mandates, delegations),
+    "Unknown capability values fail closed");
+Check(!WorldEntityAgencyPolicy.CanPerform(shipEntityId, delegatedCrewId,
+        WorldEntityCapability.Operate | WorldEntityCapability.ManageOperations,
+        directOperators, mandates, delegations),
+    "Composite capability requests fail closed rather than combining authority implicitly");
+
+// One inhabited place has authoritative references; observer projections retain its identity
+// and can only present references already present in the place snapshot.
+var stationPlaceId = WorldEntityId.Create(123, "v1", "place", encodedSpatialBytes, 1);
+var stationResident = new WorldEntityPrincipalId("person:station-resident-01");
+var stationVisitor = new WorldEntityPrincipalId("person:visitor-01");
+var stationPlace = new TheSingularityWorkshop.raWWar.Places.InhabitedPlaceSnapshot(
+    stationPlaceId,
+    "Vesper Reach Station",
+    new[] { stationResident, stationVisitor },
+    new[] { "service:refuel", "service:repair" },
+    new[] { "event:shift-change", "event:signal-bulletin" });
+var residentPerspective = stationPlace.Project(
+    stationResident,
+    new[] { stationResident, stationVisitor },
+    new[] { "service:refuel", "service:repair" },
+    new[] { "event:shift-change", "event:signal-bulletin" });
+var organizationPerspective = stationPlace.Project(
+    organizationId,
+    new[] { stationResident },
+    new[] { "service:repair" },
+    new[] { "event:signal-bulletin" });
+Check(residentPerspective.PlaceId == stationPlaceId &&
+      organizationPerspective.PlaceId == stationPlaceId,
+    "Resident and organization perspectives retain the same authoritative inhabited-place identity");
+Check(residentPerspective.ObserverId != organizationPerspective.ObserverId,
+    "Distinct observers receive distinct place projections without creating duplicate places");
+Check(organizationPerspective.ObservedResidents.SequenceEqual(new[] { stationResident }) &&
+      organizationPerspective.ObservedServiceIds.SequenceEqual(new[] { "service:repair" }) &&
+      organizationPerspective.ObservedBackgroundEventIds.SequenceEqual(new[] { "event:signal-bulletin" }),
+    "A place perspective contains only the explicitly supplied observed resident, service, and background-event references");
+var unknownPlaceFactRejected = false;
+try
+{
+    _ = stationPlace.Project(
+        organizationId,
+        Array.Empty<WorldEntityPrincipalId>(),
+        new[] { "service:not-in-this-place" },
+        Array.Empty<string>());
+}
+catch (ArgumentException) { unknownPlaceFactRejected = true; }
+Check(unknownPlaceFactRejected,
+    "A place projection cannot fabricate a service reference absent from authoritative place facts");
+var mutableResidentSource = new List<WorldEntityPrincipalId> { stationResident };
+var copiedPlace = new TheSingularityWorkshop.raWWar.Places.InhabitedPlaceSnapshot(
+    stationPlaceId, "Vesper Reach Station", mutableResidentSource,
+    new[] { "service:refuel" }, new[] { "event:shift-change" });
+mutableResidentSource.Clear();
+Check(copiedPlace.Residents.Count == 1 && copiedPlace.Residents[0] == stationResident,
+    "An inhabited-place snapshot copies caller collections and remains stable after source mutation");
+
+// Background occurrences and resident activity are committed as independent history records
+// on the same place stream. Attention is a projection choice, never a mutation of the occurrence.
+var placeBackgroundOccurrence = SimulationEvent.Create(
+    123, "v1", encodedSpatialBytes, "place.background", 11, "tick:000100",
+    System.Text.Encoding.UTF8.GetBytes("station shift change"));
+var residentActivityEvent = SimulationEvent.Create(
+    123, "v1", encodedSpatialBytes, "resident.activity", 12, "tick:000100",
+    System.Text.Encoding.UTF8.GetBytes("resident begins maintenance"));
+var placeActivity = TheSingularityWorkshop.raWWar.Places.InhabitedPlaceActivity.Create(
+    stationPlace, stationResident, placeBackgroundOccurrence, residentActivityEvent, encodedSpatialBytes);
+var placeEventHistory = new InMemoryEventHistory();
+Check(placeEventHistory.Commit(placeBackgroundOccurrence) == EventCommitResult.Committed &&
+      placeEventHistory.Commit(residentActivityEvent) == EventCommitResult.Committed,
+    "A place background occurrence and resident activity commit as separate authoritative history events");
+Check(placeActivity.PlaceId == stationPlaceId &&
+      placeActivity.ResidentId == stationResident &&
+      placeActivity.BackgroundOccurrenceId == placeBackgroundOccurrence.Id &&
+      placeActivity.ResidentActivityId == residentActivityEvent.Id,
+    "Resident activity binds to the background occurrence and resident under the same stable place identity");
+var placeHistoryBeforeIgnoring = placeEventHistory.ReadOrdered("place.background", encodedSpatialBytes);
+var placeHistoryCountBeforeIgnoring = placeEventHistory.Count;
+var playerIgnoresActivity = true;
+if (!playerIgnoresActivity)
+    _ = placeEventHistory.ReadOrdered("resident.activity", encodedSpatialBytes);
+var placeHistoryAfterIgnoring = placeEventHistory.ReadOrdered("place.background", encodedSpatialBytes);
+Check(placeEventHistory.Count == placeHistoryCountBeforeIgnoring &&
+      placeHistoryAfterIgnoring.Count == placeHistoryBeforeIgnoring.Count &&
+      placeHistoryAfterIgnoring.Single().Id == placeBackgroundOccurrence.Id,
+    "Ignoring resident activity does not erase, rewrite, or suppress the independent background occurrence");
+var mismatchedPlaceEventRejected = false;
+try
+{
+    var otherAddress = HierarchicalSpatialAddressCodec.Encode(
+        HierarchicalSpatialAddress.At(GalaxyCellAddress.FromOrdinal(43)));
+    _ = TheSingularityWorkshop.raWWar.Places.InhabitedPlaceActivity.Create(
+        stationPlace, stationResident, placeBackgroundOccurrence, residentActivityEvent, otherAddress);
+}
+catch (ArgumentException) { mismatchedPlaceEventRejected = true; }
+Check(mismatchedPlaceEventRejected,
+    "A resident activity binding rejects events that do not share the authoritative place stream");
 
 // Stable event identity uses canonical binary fields rather than delimiter-based strings.
 var resourceEventId = SimulationEventId.Create(
@@ -1449,6 +1672,32 @@ Check(!damagedConnection.Accepted &&
 FormationSlotPlannerChecks.Run(Check);
 FormationCoordinatorChecks.Run(Check);
 CandidateFileEventJournalChecks.Run(Check);
+ContractTrxWriterChecks.Run(Check);
+
+// Explicit opt-in fixture: only the literal value "true" enables one real failed check.
+var failureFixtureEnabled = string.Equals(
+    Environment.GetEnvironmentVariable("RAWWAR_CONTRACT_FAILURE_FIXTURE"),
+    "true",
+    StringComparison.OrdinalIgnoreCase);
+if (failureFixtureEnabled)
+    RecordCheck(false,
+        "CONTROLLED FAILURE FIXTURE: RAWWAR_CONTRACT_FAILURE_FIXTURE was explicitly enabled.",
+        "ControlledFailureFixture");
+
+var trxPath = Environment.GetEnvironmentVariable("RAWWAR_TRX_PATH");
+if (string.IsNullOrWhiteSpace(trxPath))
+    trxPath = Path.Combine("TestResults", "results.trx");
+
+try
+{
+    ContractTrxWriter.Write(trxPath, results);
+    Console.WriteLine($"TRX results written: {Path.GetFullPath(trxPath)}");
+}
+catch (Exception exception)
+{
+    Console.Error.WriteLine($"Failed to write contract TRX results: {exception}");
+    return 2;
+}
 
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");

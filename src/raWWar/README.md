@@ -1,5 +1,9 @@
 # raWWar Experience
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 raWWar is a manifest-oriented, first-person war Experience from The Singularity Workshop. It defines game-specific meaning—soldiers, factions, procedures, equipment, world history, and consequences—while consuming reusable Workshop capabilities.
 
 ## Package contents
@@ -13,7 +17,7 @@ The manifests are packaged as content files. Their presence does **not** by itse
 
 ## Current implementation scope
 
-The repository includes a narrow explicit-time elliptic-orbit model, versioned event identity, a process-local in-memory event ledger, a resource-balance replay example, and a fighter-pilot station domain prototype. These are reference implementation slices, not a complete playable game.
+The repository includes a narrow explicit-time elliptic-orbit model, stable world-entity and event identity, a process-local in-memory event ledger, a resource-balance replay example, and a fighter-pilot station domain prototype. The world-entity identity primitive is the first shared-Experience contract slice: it gives different perspectives one stable reference without modeling the perspectives as separate entities. These are reference implementation slices, not a complete playable game.
 
 The MicroBundle root remains a scaffold; complete capability composition, durable event storage, checkpoint reconstruction, and end-to-end AnyApp loading are not yet established. Consult the [repository README](../../README.md), [Technical Design](../../docs/TECHNICAL_DESIGN.md), and [maintained work queue](../../TODO.md) for current boundaries and verification evidence.
 

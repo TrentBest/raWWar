@@ -7,7 +7,7 @@
 
 ![raWWar — The war is alive](images/rawwar-hero.svg)
 
-> **The soldiers themselves are the stars of this game.**
+> **The people who inhabit this galaxy are the heart of the Experience.**
 
 **This document is supposed to make raWWar visible.**
 
@@ -15,7 +15,7 @@ The text defines the rules and intent, but the reader should not have to imagine
 
 ![A living military world](images/rawwar-living-world.svg)
 
-The target is not a collection of features. It is a world in which soldiers work, train, repair, research, command, socialize, march, fight, fail, recover, and develop histories while the larger military machine continues around them.
+The target is not a collection of features or a military simulation isolated from the lives around it. It is a shared, persistent galaxy in which people work, travel, trade, build, command, serve, explore, fight, fail, recover, and develop histories while organizations and larger world systems continue around them. The military campaign is the flagship path through that universe, but it does not define every inhabitant's life or every player's chosen relationship to the world.
 
 > **Read the words for the rules. Look at the visuals for the intent.**
 
@@ -67,29 +67,25 @@ Implementation convenience must never silently become game design.
 
 # 1. Executive Summary
 
-raWWar is a fully first-person, immersive science-fiction war Experience.
+raWWar is a fully first-person, immersive science-fiction living-world Experience set in a persistent galaxy shaped by war.
 
-It is not fundamentally a shooter with unrelated occupations attached to it.
+It is not fundamentally a shooter with unrelated occupations attached to it, nor is it a military simulation that requires every player to become a soldier. The same universe supports military campaigns, civilian work, independent travel, piracy, commerce, and organizational competition. These are different ways to exist in one shared world, not separate games or disconnected simulations.
 
-It is a living war in which the player inhabits a person inside an enormous military organization.
+The flagship campaign places the player inside an enormous military organization. A player may begin as a Commander and encounter soldiers, pilots, mechanics, researchers, builders, intelligence operatives, saboteurs, crew members, scientists, and logistics workers. That campaign is a major expression of raWWar, not the boundary of the universe.
 
-A player may be a soldier, commander, pilot, mechanic, researcher, builder, intelligence operative, saboteur, crew member, scientist, logistics worker, or another role that emerges from the needs and opportunities of the organization.
+Elsewhere in the same galaxy, a player might pilot freight through dangerous routes, captain a passenger ship, hide as a pirate in an asteroid field, work as a crew member, or own and direct a shipping company or cruise line. A player may personally perform an activity, lead the people performing it, manage the organization responsible for it, compete with other organizations, or participate as a customer. The player need not personally operate every asset for their choices to matter.
 
-Combat is important.
-
-Combat is not the entire game.
+Combat is important to the galaxy. Combat is not the entire Experience.
 
 The deeper proposition is:
 
-> **Make being a person inside a war the game.**
+> **Make being a person in a living galaxy the game.**
 
-The player should not merely select a class and receive a collection of abilities. The player should discover what they want to do, train for it, qualify for it, acquire the necessary equipment, join the appropriate organization, perform the work, experience consequences, and develop a history.
+The player should not merely select a class and receive a collection of abilities. The player should discover how they want to exist in the world, pursue the knowledge and qualifications that open opportunities, form relationships with people and organizations, perform or direct meaningful work, experience consequences, and develop a history.
 
-The world is enormous, but individuals matter.
+The world is enormous, but individuals matter. Organizations and large-scale systems matter too, because they shape the conditions in which individual lives unfold.
 
-A commander sees staffing levels, readiness, research programs, facilities, formations, fleets, logistics, and strategic conditions.
-
-A soldier sees the same organization as people: friends, superiors, opportunities, equipment, missions, training, recreation, danger, responsibility, and a place in the machine.
+A commander may see staffing levels, readiness, research programs, facilities, formations, fleets, logistics, and strategic conditions. A soldier experiences that organization through people, relationships, opportunities, equipment, missions, training, recreation, danger, responsibility, and a place in the unit. A shipping-line owner may see routes, schedules, contracts, fleet investment, staffing, service, risk, and competitors—while passengers and crew experience the same operation from their own positions in the world.
 
 The technology of The Singularity Workshop is not merely an implementation detail underneath this design. raWWar is intended to demonstrate why that technology exists.
 
@@ -262,6 +258,40 @@ A persistent-universe character may develop from a much earlier point.
 A cooperative campaign may place multiple players into a shared historical situation.
 
 The exact identity model by mode remains to be fully designed.
+
+### 3.3.1 One universe, many ways to exist
+
+The military campaigns and civilian/economic lives are not separate universes, disconnected game modes, or different Experiences that happen to share a setting. They are different ways to exist in the same persistent galaxy. They share authoritative world history, locations, organizations, people, infrastructure, events, and consequences while allowing radically different forms of participation.
+
+The galaxy can contain enormous wars without making every inhabitant a soldier and without requiring every player to become a military commander. A war may dominate a region's history while ordinary people elsewhere continue to travel, work, trade, build businesses, raise families, take risks, and pursue their own ambitions. Military conflict is a powerful part of the universe, not the only reason the universe exists.
+
+A player may choose to inhabit, among many possibilities:
+
+- a soldier, officer, commander, pilot, or fleet leader;
+- a civilian freight pilot carrying cargo through dangerous routes;
+- a cruise-ship captain taking passengers through the outer rim;
+- a pirate concealing a vessel in an asteroid field;
+- a station operator, shipyard owner, shipbuilder, or independent contractor;
+- an owner or executive competing with other cruise lines or shipping companies;
+- a worker, crew member, customer, trader, or entrepreneur whose choices connect them to larger organizations.
+
+These are examples of possible lives, not a closed class list or a promise that every occupation is already implemented. The common principle is that the player chooses a meaningful relationship to the world rather than being forced into its military storyline.
+
+### 3.3.2 Different scales of agency
+
+A role does not have to mean personally operating every object or performing every task. Players may engage with the same activity at different levels of agency and abstraction.
+
+For example, one player may personally pilot a freight ship. Another may captain a passenger vessel and make navigation, crew, safety, and route decisions. Another may own a cruise line and compete with rival companies over routes, schedules, service, contracts, fleet investment, staffing, and reputation—without wanting to captain an individual ship at all. A fourth player may work aboard one of those ships as a crew member or take a contract to deliver its cargo.
+
+The same organization and vessel can therefore be experienced through multiple legitimate relationships: operator, employee, owner, competitor, customer, or observer. The world should preserve the consequences and shared facts across those perspectives. The player-facing controls and presentation may differ by the scale of agency; the underlying world does not split into separate simulations merely because the player chooses a different level of control.
+
+This principle applies across military and civilian life. A player may personally lead soldiers, serve in a unit, own a defense contractor, operate a transport company supporting a war, or compete to supply civilian routes affected by the same conflict. These relationships can intersect without collapsing into one mandatory progression path.
+
+**Design rule:** participation is not a class, and scale of control is not a separate universe. The same living world supports personal, occupational, organizational, and economic agency.
+
+The expanded role catalogue, examples of direct and organizational participation, and unresolved questions about economic agency are maintained in [Player Roles](PLAYER_ROLES.md). This companion document develops the principle without creating a separate civilian mode or a second authoritative world model.
+
+The exact boundaries between direct first-person interaction, delegated operation, organizational management, and competitive economic play remain to be designed. Do not assume that every player wants to pilot, command, or physically perform every task simply because those activities exist in the simulation.
 
 ---
 

@@ -1,5 +1,9 @@
 # raWWar Soldiers
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This directory is the working laboratory for the people who make raWWar more than an RTS.
 
 The Commander perspective and Soldier perspective are the **same simulation**.

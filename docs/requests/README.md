@@ -1,5 +1,9 @@
 # Cross-repository capability requests
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 **Owner:** raWWar  
 **Scope:** Requests raWWar makes to other Workshop repositories  
 **Status:** Convention proposal in use on `development`
@@ -45,3 +49,5 @@ Requests describe raWWar's requirements. They must not imply that another reposi
 - [MicroBundleDomain — Experience configuration contract](REQUEST-FROM-raWWar-MicroBundleDomain-ExperienceConfiguration.md)
 - [AnyApp — immutable artifact dependency closure](REQUEST-FROM-raWWar-AnyApp-ArtifactClosure.md)
 - [Visualize — source-connected SVG manifestation](REQUEST-FROM-raWWar-Visualize-SourceConnectedSvgManifestation.md)
+- [GUI — LLM-composed human decision surface](REQUEST-FROM-raWWar-GUI-LLM-ComposedDecisionSurface.md)
+- [WebPage — authenticated decision inbox and browser notifications](REQUEST-FROM-raWWar-WebPage-AuthenticatedDecisionInboxAndNotifications.md)

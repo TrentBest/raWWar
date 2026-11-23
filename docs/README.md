@@ -1,5 +1,9 @@
 # raWWar — Design Documentation
 
+<!-- CIAI:BADGES:START -->
+[![Sith Policy](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml/badge.svg)](https://github.com/TrentBest/raWWar/actions/workflows/sith-policy.yml)
+<!-- CIAI:BADGES:END -->
+
 This directory is the design and production knowledge base for the raWWar Experience.
 
 ## Choose your reading path
@@ -52,6 +56,7 @@ System-specific documents expand the design without silently changing canon.
 - [Game Design Document](GAME_DESIGN_DOCUMENT.md) — comprehensive living master GDD.
 - [Public Design Hub](DESIGN_HUB.md) — future WebPage presentation of the raWWar design.
 - [Experience Architecture](EXPERIENCE_ARCHITECTURE.md) — how raWWar fits into FSM_API, MicroBundles, FSM_COS, AnyApp, UserIO, and the Workshop Renderer, including what raWWar deliberately does not reinvent.
+- [Autonomous Development Integration](AUTONOMOUS_DEVELOPMENT_INTEGRATION.md) — source-grounded plan for consuming CiAi, HeadlessAi, and the host-side authorization path.
 - [Vision and Pillars](VISION_AND_PILLARS.md) — north star and non-negotiable principles.\n- [Formation Assembly, Drill-Field Presentation, and Fall Out](FORMATION_ASSEMBLY_AND_RELEASE.md) — candidate visual and lifecycle contract for assembling soldiers into slots, recursively forming squads/platoons, and physically releasing positions.
 - [Formation Coordinator Contract](FORMATION_COORDINATOR_CONTRACT.md) — deterministic formation-local slot planning, command-versus-observation separation, lifecycle invariants, interruption handling, and coordinator test matrix.
 - [Player Roles](PLAYER_ROLES.md) — occupations, roles, and qualification-driven participation.
@@ -75,6 +80,7 @@ These documents define the world-model rules and implementation gaps. A design c
 - [Spatiotemporal World Model and Observer-Relative Presentation](SPATIOTEMPORAL_WORLD_MODEL_AND_OBSERVATION.md) — stable identity, explicit-time motion, observation-only queries, authoritative history, and rendering as a projection.
 - [Coordinate Frames and Transform Contracts](COORDINATE_FRAME_CONTRACT.md) — required frame metadata, transform conventions, logical-time validity, and tests; canonical world-wide axes and handedness remain open.
 - [Event History, Checkpoints, and Deterministic Replay](EVENT_HISTORY_AND_REPLAY_CONTRACT.md) — event identity versus ordering, idempotent commits, checkpoint boundaries, and replay acceptance tests.
+- [Cross-Domain Contracts and Event Lifecycle](CROSS_DOMAIN_CONTRACT_AND_EVENT_LIFECYCLE.md) — proposed revisioned obligations, explicit transitions, event provenance, cross-domain authority boundaries, and the source-backed implementation gap for a first shared-world contract.
 - [Machine-readable galaxy generation contract](../data/galaxy-generation-contract.json) — executable-contract metadata, including implemented spatial address V1/hash vectors and explicitly unimplemented transform/history requirements.
 
 ## Visual atlas
