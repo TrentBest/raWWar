@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "rawwar.piracy-and-maritime-raiding",
+  "category": "Historical and Maritime Warfare",
+  "lod": 2,
+  "title": "Piracy and Maritime Raiding",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/piracy-and-maritime-raiding.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
