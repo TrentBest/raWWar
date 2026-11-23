@@ -10,6 +10,8 @@ Build raWWar as a coherent, persistent, galaxy-scale war universe that can be au
 
 Do not invent canon to make a pipeline pass. The Autonomous Development pipeline must preserve unknowns as explicit blockers, distinguish canon from candidates and experiments, and produce evidence-backed structured data plus human-readable visualizations. Continue sourcebook work only when it fills a demonstrated gap in the universe or simulation; do not resume broad catalogue expansion as the default activity. Keep the creator informed through concise progress updates.
 
+Before asking the creator to define a supposedly missing system, inspect the existing design corpus. The thirteen major factions and their hidden Empress-alignment spectrum are already established in `docs/GAME_DESIGN_DOCUMENT.md`; reconcile `docs/FACTIONS.md` and `docs/EMPIRE_HISTORY_AND_FACTION_ORIGINS.md` rather than inventing a new roster. The Earth-to-campaign historical framework already exists in `docs/HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md` and `data/human-galactic-history.json`. These sources contain a mix of established direction and candidate history; preserve their declared status and provenance. The current war's cause and belligerents remain unresolved, but the faction count does not.
+
 ## Current branch and safety boundaries
 
 - Work on `development`.
