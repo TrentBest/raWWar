@@ -49,3 +49,12 @@ Scenario seeds: a satellite failure during a ceasefire; a rescue craft denied ac
 ## Research direction
 
 Ground the real-physics layer in orbital mechanics, space systems engineering, space traffic management, space policy, resilience engineering, and international law. Clearly label all extrapolation. Never present a speculative scenario as a forecast or current operational capability.
+
+
+## Related science-fiction volumes
+
+- [Science Fiction Warfare](science-fiction-warfare.md) — the broad domain framework.
+- [Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md) — settlement systems and civilian survival.
+- [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — interstellar transport, sustainment, and strategic reach.
+- [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) — contact, representation, diplomacy, and conflict prevention.
+- [Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md) — automation, delegated authority, and accountability.
