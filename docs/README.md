@@ -142,3 +142,11 @@ If implementation exposes a better possibility, record the possibility here firs
 - [Formations IX: Engineering and Construction Forces](books/formations-ix-engineering-and-construction-forces.md) — engineering formations, temporary crossings, bridge trains, floating bridges, ferries, route and field infrastructure, repair, recovery, and project handover.
 - [Formations X: Armadas and Flotillas](books/formations-x-armadas-and-flotillas.md) — fleet organization from flotillas to armadas, escorts, transports, auxiliaries, coalition command, maritime sustainment, and civilian shipping.
 - [Planetary Assault and Expeditionary Doctrine](books/planetary-assault-and-expeditionary-doctrine.md) — science-fiction planetary arrival and expeditionary doctrine, orbital-to-surface transitions, foothold services, local authority, logistics, civilian protection, and escalation.
+
+
+## Resource and interstellar warfare sourcebooks
+
+- [Military Resources and Sustainment](books/military-resources-and-sustainment.md)
+- [Extraction, Materials, and Industrial Foundations](books/extraction-materials-and-industrial-foundations.md)
+- [Orbital Industry and Strategic Resource Networks](books/orbital-industry-and-strategic-resource-networks.md)
+- [Interstellar Economies and Multi-System War](books/interstellar-economies-and-multi-system-war.md)
