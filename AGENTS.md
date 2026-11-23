@@ -417,3 +417,14 @@ Validate all descriptors as JSON, SVG covers as XML, cover paths, catalogue link
 - Cover station keeping, rendezvous concepts at a non-procedural level, crew and civilian identity, autonomy boundaries, resource endurance, thermal/radiation/debris context, docking/service dependencies, rescue, law, escalation, and civilian impacts.
 - Use evidence labels: Established, Extrapolated, Speculative, Fictional. Physics owns physical dynamics and environmental simulation; raWWar owns domain organization, historical/political context, scenarios, and evaluation; Gestures owns reusable embodied interaction; SURPS remains opt-in.
 - Validate descriptor JSON, SVG XML, Markdown links, catalogues, docs navigation, reciprocal links, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit authorization.
+
+
+## Amphibious and littoral formations expansion — Formations VII (2026-11-23)
+
+- [Formations VII: Amphibious and Littoral Forces](docs/books/formations-vii-amphibious-and-littoral-forces.md) is a new LOD 2 sourcebook with descriptor and original SVG cover.
+- Treat the littoral as a connected coastal system: sea, shore, rivers and estuaries, ports, beaches, infrastructure, civilian economies, and inland distribution. The core problem is cross-domain transition and handoff, not merely landing infantry.
+- Preserve the identity of embarked people and organizations independently from transport platforms. Track transfer, custody, capacity, shore receiving services, command authority, and uncertainty.
+- Cover naval and land interfaces, transfer assets, coastal geography, ports, riverine systems, engineering, sustainment throughput, casualty movement, civilian services, humanitarian missions, law, autonomy, and failure recovery.
+- Avoid real-world landing plans, tactical procedures, targeting, sabotage, and infrastructure-harm instructions. Use evidence labels: Established, Extrapolated, Speculative, Fictional.
+- Physics owns physical/environmental simulation; raWWar owns domain knowledge, organization, history, scenarios, and assessment; Gestures owns reusable embodied interaction; logistics and facilities remain with their providers; SURPS is opt-in.
+- Keep both catalogues, docs navigation, reciprocal formation links, and this handoff synchronized. Validate descriptor JSON, SVG XML, local Markdown links, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit authorization.
