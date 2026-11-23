@@ -64,3 +64,8 @@ Ground the real-physics layer in orbital mechanics, space systems engineering, s
 ## Related planetary expeditionary doctrine
 
 - [Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md) — the orbital-to-surface transition and the political, environmental, and logistical consequences of expeditionary presence.
+
+
+## Industrial and resource foundations
+
+Military dependence on orbital infrastructure is inseparable from its material economy. See [Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md), [Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md), and [Military Resources and Sustainment](military-resources-and-sustainment.md). These companions distinguish resource discovery, extraction, processing, transport, storage, and actual military availability.
