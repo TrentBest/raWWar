@@ -136,3 +136,23 @@ A first-class speculative domain covering future terrestrial conflict, orbital a
 
 - [Read the sourcebook](science-fiction-warfare.md)
 - [Book descriptor](science-fiction-warfare.book.json)
+
+### Japanese Warfare
+
+![Japanese Warfare cover](covers/japanese-warfare.svg)
+
+Descriptor: [japanese-warfare.book.json](japanese-warfare.book.json)
+
+A periodized study from early state formation through warrior governments, Sengoku conflict, unification, Tokugawa peace, modern transformation, imperial war, and postwar memory.
+
+[Read Japanese Warfare](japanese-warfare.md)
+
+### Orbital Warfare and Space Infrastructure
+
+![Orbital Warfare and Space Infrastructure cover](covers/orbital-warfare-and-space-infrastructure.svg)
+
+Descriptor: [orbital-warfare-and-space-infrastructure.book.json](orbital-warfare-and-space-infrastructure.book.json)
+
+A systems-level study of orbital services, infrastructure dependencies, access, resilience, governance, escalation, and civilian consequences, with clear boundaries between known physics and speculative settings.
+
+[Read Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md)
