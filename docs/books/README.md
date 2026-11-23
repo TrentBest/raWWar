@@ -292,3 +292,17 @@ A fully fictional civilization dossier and campaign history. The Nacrean Compact
 - [Book descriptor](nacrean-compact-and-tidal-archive-crisis.book.json)
 
 This LOD 3 case study applies [Alien Civilizations and Political Systems](alien-civilizations-and-political-systems.md) and cross-links to alien contact, interstellar logistics, planetary habitat resilience, and autonomous systems governance. Its world, people, institutions, and history are fictional; no extraterrestrial civilization is confirmed.
+
+## LOD 3 — connected Pelagos regional theatre
+
+### The Serein Passage Treaties and the Three-Current Crisis
+
+![The Serein Passage Treaties and the Three-Current Crisis cover](covers/serein-passage-treaties-and-three-current-crisis.svg)
+
+A connected fictional regional setting that expands the Nacrean Compact beyond a single polity. It introduces the Vey Shelf Assemblies, Orison Works League, Outer Drift Mutuals, and Serein Passage Commission; layered rescue and passage treaties; trade and migration networks; shared civilian infrastructure; and a multi-sided crisis over evidence, access, and regional legitimacy.
+
+- [Read the sourcebook](serein-passage-treaties-and-three-current-crisis.md)
+- [Book descriptor](serein-passage-treaties-and-three-current-crisis.book.json)
+
+This volume is a direct companion to [The Nacrean Compact and the Tidal Archive Crisis](nacrean-compact-and-tidal-archive-crisis.md). It treats the basin as a connected political and logistical theatre rather than a map of isolated flags. Its setting is fictional; it does not imply confirmed extraterrestrial life.
+
