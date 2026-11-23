@@ -29,6 +29,7 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `campaign-galaxy-manifests.json` — authored single-player galaxy manifests, automatic multiplayer generation policy, authoring controls, validation gates, and an illustrative scenario.
 - `campaigns/imperial-summons.json` — first authored Commander-campaign entry seed, with stable role identities, ordered opening events, player-knowledge boundaries, and unresolved canon gates.
 - `universe-foundation.json` — creator-established setting envelope, Imperial Summons entry-point references, explicit unresolved canon, and the first autonomous world-building target.
+- `faction-political-atlas.json` — thirteen established faction slots, hidden alignment order, working names and candidate profiles, and validation rules that prevent the political ecosystem from collapsing into two teams.
 - `civilization-lineages.json` — graph-based civilization ancestry, colonization and succession relationships, selective heritage, historical evidence, and divergence causes.
 - `milky-way-reference-model.json` — provenance-aware astronomical baseline, Solar System anchor, motion/time rules, and separation of measured, inferred, and generated populations.
 - `navigation-reference-frames.json` — versioned coordinate-frame transformations, historical chart conventions, navigation equipment limits, and persistent chart provenance.
