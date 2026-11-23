@@ -212,3 +212,12 @@ Three focused LOD 2 sourcebooks now deepen the Persian family:
 Each has a matching `.book.json` descriptor and original SVG cover. The Persian overview remains the comparative entry point; the three new books provide distinct period-specific depth.
 
 Next priorities: Mongol warfare and steppe polities; Viking-age warfare and maritime networks; focused Roman Republic, imperial army, civil wars, and Late Roman/Eastern Roman volumes; then science-fiction subbooks for planetary defense and habitats, autonomous systems and machine agency, interstellar logistics, and alien diplomacy/conflict. Keep evidence and speculation distinct.
+
+
+## Latest expansion — steppe and Viking-age sourcebooks (2026-11-23)
+
+Two further LOD 2 books extend the historical catalogue:
+- [Mongol Warfare](docs/books/mongol-warfare.md) — steppe political formation, ecology, mounted mobility, command, intelligence, siege adaptation, regional campaigns, and successor khanates.
+- [Viking-Age Warfare](docs/books/viking-age-warfare.md) — maritime networks, ships, raiding and trade, settlement, armed groups, and regionally distinct political transformations.
+
+Both have matching descriptors and original SVG covers. Index and collection README are current. Maintain the distinction between raiding, trade, settlement, mercenary service, and conquest; do not flatten regional actors into a single identity.
