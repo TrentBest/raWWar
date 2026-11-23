@@ -530,6 +530,14 @@ Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("imperialO
 Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("conflict")
     .GetProperty("ongoing").GetBoolean(),
     "Universe canon envelope establishes a continuing war");
+Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("politics")
+    .GetProperty("majorFactionCount").GetInt32() == 13,
+    "Universe canon envelope preserves the thirteen established major factions");
+Check(universeFoundation.RootElement.GetProperty("canon").GetProperty("politics")
+    .GetProperty("alignmentSpectrum").GetProperty("playerVisible").GetBoolean() == false &&
+      universeFoundation.RootElement.GetProperty("canon").GetProperty("politics")
+    .GetProperty("alignmentSpectrum").GetProperty("moralityEquivalent").GetBoolean() == false,
+    "The faction alignment spectrum remains hidden from players and distinct from morality");
 Check(universeFoundation.RootElement.GetProperty("canonBoundaries")
     .GetProperty("allFactionsHuman").GetString() == "candidate-not-confirmed",
     "Unconfirmed species scope remains a candidate rather than being promoted to canon");
