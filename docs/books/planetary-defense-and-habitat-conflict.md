@@ -101,3 +101,7 @@ The central premise is simple: in a habitat, security is inseparable from keepin
 - [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — energy, transport, life support, and network resilience.
 - [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) — first-contact governance and diplomacy.
 - [Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md) — delegated authority and machine accountability.
+
+## Related expeditionary doctrine
+
+- [Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md) — arrival, expeditionary organization, foothold services, local authority, civilian protection, and the distinction between physical presence and legitimate control.
