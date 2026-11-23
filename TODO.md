@@ -3,14 +3,13 @@
 **Owner:** raWWar engineering assistant (raWWar repository only)  
 **Working branch:** `development`  
 **Current integration PR:** [#2 — Reset raWWar as a manifest-driven Experience](https://github.com/TrentBest/raWWar/pull/2)  
-**Last reviewed:** 2026-10-10  
+**Last reviewed:** 2026-11-23  
 **Purpose:** Durable handoff and execution queue. Update this file as work is completed, priorities change, or the conversation is reset. The repository—not chat history—is the source of truth.
 
 ## Operating rules
 
 - Work systematically from the highest-priority actionable item; keep this list current as work proceeds.
-- **Branch discipline (creator-defined):** persistent branches are limited to `master`, `development`, `alpha`, and `beta`. Use a short-lived transient branch only when work benefits from isolation; once its functionality is verified, merge it into `development` and remove the transient branch. Do not create additional long-lived branches or parallel integration lanes. Continue on `development` by default. Never merge or delete branches without checking the intended target and current state; do not treat this policy as permission to merge without the creator's approval.
-- **Branch inventory follow-up:** GitHub currently lists `master`, `development`, `Alpha`, and `Release`. The intended persistent set was described as master/development/alpha/beta, so `Release` versus `beta` and branch-name casing remain a discrepancy to reconcile deliberately; do not rename or delete branches unilaterally.
+- **Branch discipline (creator-defined):** the required persistent branch set is exactly `master` and `development`. Work on `development`. Do not create long-lived integration/release lanes. Inspect transient branches and their unique commits, report branches ready for deletion only when safety is proven, and wait for explicit creator approval before deleting. Never merge to `master` without explicit approval.
 - **Repository boundary:** make changes only in `TrentBest/raWWar`. Other repositories are external dependencies. Record the exact requirement/blocker here, but do not open issues, edit files, create branches/PRs, or otherwise perform implementation work in those repositories. The creator coordinates their responsible LLMs.
 - Treat creator-authored vision as authoritative. Mark uncertain decisions **Candidate**, **Experiment**, or **Illumination Needed** instead of quietly making them canon.
 - raWWar owns game/world meaning. Reuse Workshop capabilities for FSMs, composition, MicroBundles, input, hosting, rendering, persistence and networking where those capabilities actually exist.
@@ -38,6 +37,22 @@
 - [x] Added spatiotemporal numerical boundary checks in `tests/raWWar.ContractTests/Program.cs`: non-finite logical time, non-finite gravitational parameter, high-eccentricity finite output, periodicity, and periapsis bound. These passed in [run 37988442216](https://github.com/TrentBest/raWWar/actions/runs/37988442216): 180/180 checks, 0 warnings, and 0 errors.
 - [x] Reconciled the contract-test README with the actual suite; it documents the current contract areas and distinguishes local composition proof from end-to-end integration (175 checks on the latest verified run).
 - [x] Verified the workflow triggered by the work-queue commit: [run 37984743404](https://github.com/TrentBest/raWWar/actions/runs/37984743404) succeeded; build had **0 warnings and 0 errors**, and the executable suite reported **171/171 checks passed**. This validates that commit only; re-check CI after subsequent changes.
+
+## P0 — Define the raWWar universe for Autonomous Development
+
+The creator has redirected the primary task from broad sourcebook expansion to defining the actual raWWar universe and giving the Autonomous Development pipeline a coherent world to build against. The books are supporting reference material. The universe, campaign history, structured world data, and first playable slice are the deliverable.
+
+- [x] Add [Universe Foundation and Campaign Zero](docs/UNIVERSE_FOUNDATION.md), separating creator-established facts, candidate contracts, unresolved canon, pipeline sequence, and acceptance gates.
+- [x] Add [machine-readable universe canon envelope](data/universe-foundation.json): one galaxy, millions of worlds, an Empire in power for multiple millennia at minimum, an Empress, an active continuing war, multi-day warp preparation, and two shared-world campaign perspectives.
+- [x] Add [Imperial Summons campaign seed](data/campaigns/imperial-summons.json): stable semantic IDs, ordered opening beats, conditional execution outcome, knowledge boundaries, and explicit unresolved identities.
+- [ ] Obtain creator illumination on the Empire's constitutional structure and founding/continuity; the capital world; player faction identity; Empress identity and summons motive; current war origin, belligerents, and objectives; warp travel constraints; and whether alien civilizations are actors in the main setting.
+- [ ] Establish the historical spine from Earth-origin reference through interstellar settlement, galactic integration, imperial consolidation, fractures/successions, and the campaign era. Do not invent exact dates or events.
+- [ ] Establish the political atlas: Empire, major factions, constituent polities, local authorities, claims, alliances, rivalries, and dependencies.
+- [ ] Establish the first authored galactic region and capital system with stable spatial identities and explicit distinction between observed, inferred, and generated astronomy.
+- [ ] Connect selected worlds to populations, resources, food, water, energy, extraction, processing, industry, trade, infrastructure, and military demand.
+- [ ] Establish the current conflict's chronology, fronts, actors, political objectives, civilian consequences, and non-battle dimensions.
+- [ ] Add executable validation for the universe envelope and Imperial Summons seed: identity uniqueness, reference closure or explicit unresolved state, chronology, deterministic reconstruction, and no silent canon invention.
+- [ ] Produce the first visual atlas: galaxy context, political relationships, capital-system context, and the opening location.
 
 ## P0 — Establish a trustworthy current baseline
 
