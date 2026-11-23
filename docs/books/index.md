@@ -486,3 +486,16 @@ Descriptor: [formations-vii-amphibious-and-littoral-forces.book.json](formations
 A cross-domain formation manual for embarked forces, transfer assets, shore and port infrastructure, riverine systems, command relationships, sustainment, medical handoffs, civilian coastal networks, and humanitarian missions.
 
 [Read Formations VII: Amphibious and Littoral Forces](formations-vii-amphibious-and-littoral-forces.md)
+
+
+## Formations VIII — specialized and irregular organizations (LOD 2)
+
+### Formations VIII: Special Operations and Irregular Forces
+
+![Formations VIII: Special Operations and Irregular Forces cover](covers/formations-viii-special-operations-and-irregular-forces.svg)
+
+Descriptor: [formations-viii-special-operations-and-irregular-forces.book.json](formations-viii-special-operations-and-irregular-forces.book.json)
+
+Distinguishes specialized regular forces from irregular organizations, resistance movements, insurgencies, partisan formations, militias, auxiliaries, proxies, and clandestine civic networks. Focuses on organization, political authority, civilian relationships, accountability, fragmentation, and transition—not operational tradecraft.
+
+[Read Formations VIII: Special Operations and Irregular Forces](formations-viii-special-operations-and-irregular-forces.md)
