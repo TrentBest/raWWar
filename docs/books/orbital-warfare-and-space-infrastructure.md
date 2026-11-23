@@ -60,3 +60,7 @@ Ground the real-physics layer in orbital mechanics, space systems engineering, s
 - [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — interstellar transport, sustainment, and strategic reach.
 - [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) — contact, representation, diplomacy, and conflict prevention.
 - [Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md) — automation, delegated authority, and accountability.
+
+## Related planetary expeditionary doctrine
+
+- [Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md) — the orbital-to-surface transition and the political, environmental, and logistical consequences of expeditionary presence.
