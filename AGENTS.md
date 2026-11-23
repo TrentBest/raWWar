@@ -254,3 +254,21 @@ For machine systems, separate assistance, supervised execution, conditional auto
 - New current batch: Roman Civil Wars; Eastern Roman Warfare; Autonomous Systems and Machine Agency. Each has a descriptor and original SVG cover. Index and collection README are updated.
 - Run build/contract validation after catalogue synchronization and record the actual workflow outcome. Recheck Sith Policy separately; do not report it as passing while the extra branch remains.
 - Next priorities: interstellar logistics and strategy; alien contact, diplomacy, and conflict; then LOD 3 campaign and institutional studies. Continue to coordinate with Physics, Gestures, and SURPS at their ownership boundaries.
+
+
+## Latest expansion — interstellar strategy and first contact (2026-11-23)
+
+Two LOD 2 science-fiction sourcebooks have been added, each with a matching .book.json descriptor and original SVG cover:
+- [Interstellar Logistics and Strategy](docs/books/interstellar-logistics-and-strategy.md) — light-time, travel, energy, life support, industrial ecology, network topology, political reach, autonomy, and civilian sustainment.
+- [Alien Contact, Diplomacy, and Conflict](docs/books/alien-contact-diplomacy-and-conflict.md) — evidence standards, translation uncertainty, biological boundaries, representation, diplomacy, security dilemmas, escalation, restraint, and machine intermediaries.
+
+For interstellar settings, do not treat distance as a simple map measurement or space as an ocean. Separate travel from communication, account for energy and thermal constraints, and expose industrial and life-support dependencies. FTL, generation-scale industrial independence, and closed ecosystems require explicit setting assumptions. For first contact, extraterrestrial life remains unconfirmed; distinguish verified observation from interpretation, extrapolation, speculation, and fictional premises. Never assume one envoy speaks for an entire species or that contact inevitably leads to war.
+
+## Current resume checkpoint (2026-11-23)
+
+- Latest sourcebook batch: Interstellar Logistics and Strategy; Alien Contact, Diplomacy, and Conflict. Each has a substantive Markdown volume, LOD 2 descriptor, and original SVG cover.
+- docs/books/index.md and docs/books/README.md updated for both books.
+- Continue on development. No merge to master, release, deployment, NuGet publishing, or branch deletion without explicit authorization.
+- Known extra branch remains integration/autonomous-development-pipeline; leave it untouched pending explicit owner approval. Sith Policy cannot pass the two-branch rule while it exists.
+- Validate descriptors, SVG covers, catalogue references, and repository CI. Report actual workflow status; do not infer push-triggered CI from PR-only workflow queries.
+- Next priorities: focused LOD 3 campaigns, institutions, and theaters; deepen cross-links between the historical and speculative sourcebook families.
