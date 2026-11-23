@@ -493,3 +493,8 @@ The first follow-up should be *Healing Across the Centuries*, with separate regi
 ## Historical companion
 
 [Healing Across the Centuries](healing-across-the-centuries.md) is the first focused historical companion. It expands the global and periodized history of care, medical institutions, war, public health, disability, and recovery while preserving the distinction between evidence, retrospective interpretation, and legend.
+
+
+## Ghost-action companion: Battlefield Medicine and the Casualty Chain
+
+The focused companion [Battlefield Medicine and the Casualty Chain](battlefield-medicine-and-the-casualty-chain.md) defines the raWWar medic HUD, ghost action overlays, Gestures ownership boundaries, haptic cue design, transparent scoring, tracking-confidence gates, and the fictional exoskeleton-integrated cardiac-support assembly. It also covers casualty routing, handoff, and medical logistics. The surgical ghost-line exercise is a fictional game interaction, not real surgical instruction.
