@@ -324,3 +324,16 @@ Descriptor: [nacrean-compact-and-tidal-archive-crisis.book.json](nacrean-compact
 A fictional civilization dossier and campaign history about a distributed ocean-world polity, contested political membership, shared infrastructure, archive integrity, emergency powers, and a constitutional crisis resolved through evidence, negotiation, and institutional repair.
 
 [Read The Nacrean Compact and the Tidal Archive Crisis](nacrean-compact-and-tidal-archive-crisis.md)
+
+## Science-fiction warfare — connected regional theatre (LOD 3)
+
+### The Serein Passage Treaties and the Three-Current Crisis
+
+![The Serein Passage Treaties and the Three-Current Crisis cover](covers/serein-passage-treaties-and-three-current-crisis.svg)
+
+Descriptor: [serein-passage-treaties-and-three-current-crisis.book.json](serein-passage-treaties-and-three-current-crisis.book.json)
+
+A connected Pelagos regional theatre linking the Nacrean Compact with the Vey Shelf Assemblies, Orison Works League, Outer Drift Mutuals, and Serein Passage Commission. It develops shared passage treaties, trade and migration networks, civilian infrastructure, historical disputes, and a multi-sided crisis over route evidence and regional legitimacy.
+
+[Read The Serein Passage Treaties and the Three-Current Crisis](serein-passage-treaties-and-three-current-crisis.md)
+
