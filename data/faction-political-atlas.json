@@ -1,0 +1,67 @@
+{
+  "schemaVersion": "raWWar.faction-political-atlas.v1",
+  "status": "canon-count-and-hidden-order-with-candidate-working-identities-and-profiles",
+  "authority": {
+    "sourceDocuments": [
+      "docs/GAME_DESIGN_DOCUMENT.md",
+      "docs/FACTIONS.md",
+      "docs/EMPIRE_HISTORY_AND_FACTION_ORIGINS.md",
+      "docs/FACTION_DISPOSITIONS.md"
+    ],
+    "canon": {
+      "majorFactionCount": 13,
+      "allHaveMeaningfulOppositionToEmpressWill": true,
+      "hiddenAlignmentOrder": {
+        "first": "most-aligned-with-empress",
+        "seventh": "politically-independent-or-difficult-to-classify",
+        "thirteenth": "openly-hostile-to-empress",
+        "playerVisible": false,
+        "moralityScale": false
+      },
+      "factionsAreNotTwoBalancedTeams": true
+    },
+    "candidatePolicy": "Faction names are explicitly working names. Profiles summarize current design candidates and must retain provenance; they are not immutable canon or moral judgments.",
+    "creatorCanonOverridesCandidates": true
+  },
+  "politicalModel": {
+    "imperialRelationship": "Asymmetric political ecosystem: Empress and Empire versus thirteen major factions with shifting cooperation, competition, temporary agreements, trade, raids, conquest, defense, and conflict.",
+    "allianceModel": "No permanent two-team partition or requirement for balanced blocs.",
+    "factionEvolution": "Dispositions may drift as history changes the faction; changes require persistent causal events.",
+    "alignmentIsNotMorality": true,
+    "factionCountMayGrowBeyondThirteenInFuture": true
+  },
+  "factions": [
+    {"id":"house.veyr","alignmentPosition":1,"workingName":"House Veyr","workingTitle":"The Imperial Loyalists","profileStatus":"candidate-working-profile","coreBelief":"Stability is more valuable than freedom.","publicFace":"Order, civilization, continuity.","militaryCharacter":"Disciplined, conventional, heavily organized.","economicCharacter":"Stable, hierarchical, Imperial trade.","relationshipWithEmpress":"Openly cooperative; seeks Imperial favor without surrendering its own sovereignty, military, wealth, or ambitions.","internalDanger":"Becoming an Imperial instrument.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.cael","alignmentPosition":2,"workingName":"House Cael","workingTitle":"The Administrators","profileStatus":"candidate-working-profile","coreBelief":"Civilization survives through competent administration.","publicFace":"Competence and prosperity.","militaryCharacter":"Logistics, organization, defensive warfare.","economicCharacter":"Infrastructure, trade, planning.","relationshipWithEmpress":"Cooperative but transactional; supports Imperial systems while resisting destabilizing interference.","internalDanger":"Believing every human problem can be administered away.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.oris","alignmentPosition":3,"workingName":"House Oris","workingTitle":"The Industrialists","profileStatus":"candidate-working-profile","coreBelief":"Whoever controls production controls history.","publicFace":"Progress through production.","militaryCharacter":"Equipment superiority and sustained industrial warfare.","economicCharacter":"Manufacturing and resource control.","relationshipWithEmpress":"Commercially aligned; tolerates Imperial authority while resisting interference with industrial independence.","internalDanger":"Reducing people to production inputs.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.sere","alignmentPosition":4,"workingName":"House Sere","workingTitle":"The Technologists","profileStatus":"candidate-working-profile","coreBelief":"Knowledge should determine power.","publicFace":"Advancement and discovery.","militaryCharacter":"Experimental equipment, sensors, automation, advanced systems.","economicCharacter":"Technology licensing and research.","relationshipWithEmpress":"Useful but increasingly difficult; cooperates when funded and resists restrictions on research.","internalDanger":"Treating ethics as an obstacle to discovery.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.avar","alignmentPosition":5,"workingName":"House Avar","workingTitle":"The Traditionalists","profileStatus":"candidate-working-profile","coreBelief":"Civilizations require inherited institutions, rituals, family structures, and cultural continuity.","publicFace":"Heritage and continuity.","militaryCharacter":"Disciplined, ceremonial, defensive, locally adapted.","economicCharacter":"Estates, agriculture, heritage industries, local commerce.","relationshipWithEmpress":"Respectful but resistant; opposes cultural homogenization.","internalDanger":"Allowing tradition to become stagnation.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.talan","alignmentPosition":6,"workingName":"House Talan","workingTitle":"The Free Merchants","profileStatus":"candidate-working-profile","coreBelief":"People should move, trade, negotiate, and become wealthy without asking permission from a distant throne.","publicFace":"Freedom and opportunity.","militaryCharacter":"Mobile forces, escorts, private security, commerce protection.","economicCharacter":"Trade, finance, transport, information.","relationshipWithEmpress":"Tolerated when profitable; resistant when controlled. May ally, compete, supply, smuggle, or fight as circumstances change.","internalDanger":"Allowing profit to become the only moral principle.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.merid","alignmentPosition":7,"workingName":"House Merid","workingTitle":"The Civic Compact","profileStatus":"candidate-working-profile","coreBelief":"Legitimate authority comes from the consent of the governed.","publicFace":"Law, representation, civic responsibility.","militaryCharacter":"Professional defense forces and strong civil-military institutions.","economicCharacter":"Mixed economy and public infrastructure.","relationshipWithEmpress":"Formally diplomatic, fundamentally opposed to Imperial absolutism and revolutionary authoritarianism.","internalDanger":"Paralysis through endless negotiation.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.rhen","alignmentPosition":8,"workingName":"House Rhen","workingTitle":"The Frontier Powers","profileStatus":"candidate-working-profile","coreBelief":"Remote systems must survive without depending on distant central authority.","publicFace":"Independence and survival.","militaryCharacter":"Reconnaissance, irregular warfare, hardened local forces.","economicCharacter":"Extraction, frontier manufacturing, local trade.","relationshipWithEmpress":"Distant resistance; distrusts Imperial administrators and wealthy core factions.","internalDanger":"Isolation and factionalism.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.solenne","alignmentPosition":9,"workingName":"House Solenne","workingTitle":"The Humanists","profileStatus":"candidate-working-profile","coreBelief":"The purpose of civilization is to improve the lives of ordinary people.","publicFace":"Dignity, welfare, protection.","militaryCharacter":"Defense, medical capability, civilian protection.","economicCharacter":"Social investment and sustainable development.","relationshipWithEmpress":"Humanitarian opposition to Imperial exploitation.","internalDanger":"Believing good intentions justify coercion.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.kharos","alignmentPosition":10,"workingName":"House Kharos","workingTitle":"The Militarists","profileStatus":"candidate-working-profile","coreBelief":"Peace is maintained by strength; military power should belong to those capable of using it.","publicFace":"Strength and readiness.","militaryCharacter":"Elite troops, aggressive doctrine, constant preparedness.","economicCharacter":"Military industry and strategic resources.","relationshipWithEmpress":"Openly competitive; does not necessarily seek the Empire's destruction.","internalDanger":"Making war the answer to every problem.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.nyr","alignmentPosition":11,"workingName":"House Nyr","workingTitle":"The Separatists","profileStatus":"candidate-working-profile","coreBelief":"The galaxy is too large and too centralized for any empire to govern legitimately.","publicFace":"Sovereignty and self-determination.","militaryCharacter":"Distributed defense, sabotage, local forces.","economicCharacter":"Local production and resilient supply chains.","relationshipWithEmpress":"Hostile to permanent central authority; may cooperate tactically with almost anyone.","internalDanger":"Fragmentation.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.voss","alignmentPosition":12,"workingName":"House Voss","workingTitle":"The Revolutionaries","profileStatus":"candidate-working-profile","coreBelief":"The existing political order cannot be repaired and requires fundamental transformation.","publicFace":"Liberation and revolution.","militaryCharacter":"Insurgency, infiltration, sabotage, political warfare.","economicCharacter":"Confiscation, redistribution, revolutionary mobilization.","relationshipWithEmpress":"Openly hostile; seeks fundamental transformation of the Imperial order.","internalDanger":"Replacing one tyranny with another.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"},
+    {"id":"house.draven","alignmentPosition":13,"workingName":"House Draven","workingTitle":"The Unbound","profileStatus":"candidate-working-profile","coreBelief":"The Empire is the fundamental enemy and Imperial power must be broken.","publicFace":"Defiance.","militaryCharacter":"Aggressive anti-Imperial warfare and unconventional operations.","economicCharacter":"Survival under pressure and war mobilization.","relationshipWithEmpress":"Openly hostile; least willing to accept coexistence with the Empress.","internalDanger":"Becoming as ruthless as the regime they oppose.","meaningfulOppositionToEmpressWill":true,"source":"docs/FACTIONS.md"}
+  ],
+  "validation": {
+    "requiredCount":13,
+    "positionsMustBeContiguous":true,
+    "stableUniqueIds":true,
+    "namesMustRemainMarkedAsWorkingUntilConfirmed":true,
+    "hiddenAlignmentMustNotBePlayerFacing":true,
+    "alignmentMustNotBeTreatedAsMorality":true,
+    "factionRelationshipsMustNotBeCollapsedIntoTwoTeams":true,
+    "currentWarCauseMustNotBeInferredFromFactionProfiles":true
+  },
+  "unresolved": {
+    "currentWarCauseAndImmediateTrigger":"creator-illumination-needed",
+    "currentWarBelligerentsAndFronts":"creator-illumination-needed",
+    "whichFactionCommanderLeads":"creator-illumination-needed",
+    "canonicalStatusOfEachWorkingName":"creator-confirmation-needed",
+    "detailedConstitutionAndInstitutionalStructures":"requires-reconciliation",
+    "factionDispositionValues":"see-docs-FACTION_DISPOSITIONS-md-and-reconcile-status",
+    "interFactionTreatiesAndActiveRelationships":"time-dependent-authored-world-state"
+  }
+}
