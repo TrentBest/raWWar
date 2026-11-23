@@ -150,3 +150,5 @@ If implementation exposes a better possibility, record the possibility here firs
 - [Extraction, Materials, and Industrial Foundations](books/extraction-materials-and-industrial-foundations.md)
 - [Orbital Industry and Strategic Resource Networks](books/orbital-industry-and-strategic-resource-networks.md)
 - [Interstellar Economies and Multi-System War](books/interstellar-economies-and-multi-system-war.md)
+
+- [Military Industry and Wartime Production](books/military-industry-and-wartime-production.md) — arsenals, shipyards, aerospace and orbital production, mobilization, workforce, bottlenecks, repair, and wartime industrial policy.
