@@ -160,3 +160,8 @@ raWWar owns fleet organization, doctrine as historical and fictional domain know
 ## Editorial rule
 
 An armada is not a number of hulls. It is a temporary political, industrial, human, and logistical achievement—and it can fail even when every ship remains afloat.
+
+
+## Resource and industrial dependencies
+
+Armadas depend on the wider resource lifecycle described in [Military Resources and Sustainment](military-resources-and-sustainment.md), and on the mines, refineries, yards, and material supply chains in [Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md). For off-world fleet support, see [Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md).
