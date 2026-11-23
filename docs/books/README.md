@@ -447,3 +447,30 @@ A comparative organizational study distinguishing specialized regular military u
 - [Cover](covers/formations-viii-special-operations-and-irregular-forces.svg)
 
 This volume extends the formations family beyond conventional domain types and cross-links [Outlaws, Bandits, and Popular Resistance](outlaws-bandits-and-popular-resistance.md). It does not equate irregularity with illegitimacy or specialization with virtue.
+
+
+### Formations IX: Engineering and Construction Forces
+
+A reusable manual for engineering organizations and projects: bridge trains, temporary crossings, floating bridges, ferries, route infrastructure, field works, utilities, repair, recovery, civilian labor, and handover. The crossing is treated as a temporary service and maneuver dependency, not simply a permanent structure.
+
+- [Read the sourcebook](formations-ix-engineering-and-construction-forces.md)
+- [Book descriptor](formations-ix-engineering-and-construction-forces.book.json)
+- [Cover](covers/formations-ix-engineering-and-construction-forces.svg)
+
+### Formations X: Armadas and Flotillas
+
+A fleet-formation manual spanning armadas, flotillas, squadrons, task forces, escorts, transports, auxiliaries, coalition command, sustainment, ports, repair, and civilian maritime systems. It treats fleet cohesion as organizational and logistical, not merely geometric.
+
+- [Read the sourcebook](formations-x-armadas-and-flotillas.md)
+- [Book descriptor](formations-x-armadas-and-flotillas.book.json)
+- [Cover](covers/formations-x-armadas-and-flotillas.svg)
+
+### Planetary Assault and Expeditionary Doctrine
+
+A science-fiction doctrine framework for the transition from orbital presence to surface operations, expeditionary force composition, reception systems, foothold governance, planetary logistics, civilian protection, and escalation. It is not amphibious warfare with a different backdrop: orbital mechanics, atmosphere, gravity, biology, infrastructure, and local political authority change the problem.
+
+- [Read the sourcebook](planetary-assault-and-expeditionary-doctrine.md)
+- [Book descriptor](planetary-assault-and-expeditionary-doctrine.book.json)
+- [Cover](covers/planetary-assault-and-expeditionary-doctrine.svg)
+
+This planetary volume connects [Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md), [Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md), [Formations VI](formations-vi-orbital-and-space-forces.md), [Formations VII](formations-vii-amphibious-and-littoral-forces.md), and [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md). It does not assume that an arrival establishes legitimate control.
