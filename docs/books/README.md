@@ -330,3 +330,14 @@ Planned companion volumes:
 - **Future Medicine and Human-Machine Care** — robotics, AI decision support, regenerative medicine, and autonomous facilities.
 - **Medical Ethics, Law, and Protected Care** — impartiality, consent, prisoners, civilians, medical personnel, and accountability.
 - **Alien and Posthuman Physiology** — cross-species diagnosis, augmented bodies, and unknown biological risks.
+
+### Healing Across the Centuries
+
+![Healing Across the Centuries cover](covers/healing-across-the-centuries.svg)
+
+A comparative historical companion covering care before medical professions, early urban traditions, classical and medieval worlds, global exchange, early modern medicine, nineteenth-century transformations, war, public health, disability, and recovery. It treats medical history as multiple changing traditions rather than a single march toward modernity.
+
+- [Read the sourcebook](healing-across-the-centuries.md)
+- [Book descriptor](healing-across-the-centuries.book.json)
+
+This volume deepens [Medicine and Healing: History, Practice, and Play](medicine-and-healing.md). Further work should create carefully researched regional and period-specific studies rather than treating any broad civilization label as one uniform medical system.
