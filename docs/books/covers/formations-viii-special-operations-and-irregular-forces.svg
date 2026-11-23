@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Formations VIII: Special Operations and Irregular Forces</title>
+  <desc id="desc">An original abstract cover depicting distinct institutional networks converging around a shared civic center, emphasizing organization, accountability, and civilian protection.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101b2b"/><stop offset="1" stop-color="#273d50"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d8bd83"/><stop offset="1" stop-color="#76b8bd"/></linearGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#line)" stroke-width="5" opacity=".88">
+    <path d="M180 520 L390 360 L600 520 L810 360 L1020 520"/>
+    <path d="M180 520 L300 760 L600 880 L900 760 L1020 520"/>
+    <path d="M300 760 L250 1080 L600 1240 L950 1080 L900 760"/>
+    <path d="M390 360 L420 180 M810 360 L780 180"/>
+  </g>
+  <g fill="#d8bd83" stroke="#101b2b" stroke-width="8">
+    <circle cx="180" cy="520" r="22"/><circle cx="390" cy="360" r="22"/><circle cx="600" cy="520" r="22"/><circle cx="810" cy="360" r="22"/><circle cx="1020" cy="520" r="22"/>
+    <circle cx="300" cy="760" r="22"/><circle cx="900" cy="760" r="22"/><circle cx="250" cy="1080" r="22"/><circle cx="950" cy="1080" r="22"/>
+  </g>
+  <circle cx="600" cy="880" r="104" fill="#172a3a" stroke="#d8bd83" stroke-width="8"/>
+  <circle cx="600" cy="880" r="58" fill="none" stroke="#76b8bd" stroke-width="7"/>
+  <path d="M600 804 V956 M524 880 H676" stroke="#d8bd83" stroke-width="7"/>
+  <g fill="#f2eee4" font-family="Georgia,serif" text-anchor="middle">
+    <text x="600" y="180" font-size="28" letter-spacing="8">RAWWAR SOURCEBOOKS · LOD 2</text>
+    <text x="600" y="1350" font-size="66">FORMATIONS VIII</text>
+    <text x="600" y="1420" font-size="36">Special Operations and</text>
+    <text x="600" y="1470" font-size="36">Irregular Forces</text>
+  </g>
+  <path d="M180 1280 H1020" stroke="#76b8bd" stroke-width="3" opacity=".8"/>
+</svg>
