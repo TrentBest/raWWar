@@ -53,6 +53,8 @@ Ground the real-physics layer in orbital mechanics, space systems engineering, s
 
 ## Related science-fiction volumes
 
+- [Formations VI: Orbital and Space Forces](formations-vi-orbital-and-space-forces.md) — a dedicated formation manual for orbital organization, station keeping, crew and autonomous coordination, communications delay, sustainment, rescue, and simulation boundaries.
+
 - [Science Fiction Warfare](science-fiction-warfare.md) — the broad domain framework.
 - [Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md) — settlement systems and civilian survival.
 - [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — interstellar transport, sustainment, and strategic reach.
