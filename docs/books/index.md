@@ -353,3 +353,15 @@ A foundation for a dedicated medicine series: healing across history, battlefiel
 [Read Medicine and Healing: History, Practice, and Play](medicine-and-healing.md)
 
 Planned companions include Healing Across the Centuries; Battlefield Medicine and the Casualty Chain; Surgery, Amputation, and Prosthetic Futures; Medicine at Sea, in Space, and on the Frontier; Fantasy Healing and the Laws of Restoration; Future Medicine and Human-Machine Care; Medical Ethics, Law, and Protected Care; and Alien and Posthuman Physiology.
+
+### Healing Across the Centuries
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Healing Across the Centuries cover](covers/healing-across-the-centuries.svg)
+
+Descriptor: [healing-across-the-centuries.book.json](healing-across-the-centuries.book.json)
+
+A comparative world history of caregivers, medical knowledge, institutions, surgery, public health, war, disability, and changing meanings of recovery. It avoids a single ladder of progress and distinguishes archaeological, textual, institutional, retrospective, and legendary evidence.
+
+[Read Healing Across the Centuries](healing-across-the-centuries.md)
