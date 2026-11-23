@@ -47,6 +47,26 @@
     "persistence": {
       "worldHistoryPersists": true,
       "missionsAreNotDisconnectedMaps": true
+    },
+    "politics": {
+      "majorFactionCount": 13,
+      "alignmentSpectrum": {
+        "order": "most-aligned-with-empress-to-openly-hostile",
+        "positions": {
+          "1": "most-aligned-with-empress",
+          "7": "politically-independent",
+          "13": "openly-hostile"
+        },
+        "playerVisible": false,
+        "moralityEquivalent": false,
+        "allHaveMeaningfulOppositionToEmpressWill": true,
+        "equalHostility": false
+      },
+      "factionIdentitiesAndOriginsSourceDocuments": [
+        "docs/FACTIONS.md",
+        "docs/EMPIRE_HISTORY_AND_FACTION_ORIGINS.md"
+      ],
+      "currentWarCauseAndBelligerents": "unresolved"
     }
   },
   "opening": {
@@ -85,10 +105,10 @@
   },
   "canonBoundaries": {
     "allFactionsHuman": "candidate-not-confirmed",
-    "alienCivilizations": "setting-role-unresolved",
+    "alienCivilizations": "setting-role-unresolved; do-not-infer-exclusion-or-political-participation",
     "exactChronology": "unresolved",
     "imperialInstitutions": "unresolved",
-    "factionRoster": "unresolved",
+    "factionRoster": "thirteen-major-factions-and-hidden-alignment-spectrum-established; reconcile detailed identities-and-origins-from-source-documents",
     "galaxyPoliticalGeography": "unresolved",
     "warHistory": "unresolved"
   },
@@ -97,6 +117,8 @@
     "sequence": [
       "canon-register",
       "historical-spine",
+      "reconcile-thirteen-faction-political-atlas",
+      "reconcile-human-galactic-historical-spine",
       "political-atlas",
       "galactic-atlas",
       "world-atlas",
