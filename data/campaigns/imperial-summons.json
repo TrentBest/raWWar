@@ -23,7 +23,9 @@
     "activeWarExists": true,
     "warpPreparation": "days",
     "commanderCampaign": true,
-    "firstPerson": true
+    "firstPerson": true,
+    "majorFactionCount": 13,
+    "factionAlignmentSpectrum": "thirteen-major-factions-hidden-order-1-empress-aligned-7-independent-13-openly-hostile"
   },
   "authoredEntities": [
     {
@@ -247,11 +249,12 @@
     "player-commander-name-prior-history-and-relationship-to-empress",
     "summons-motive-and-political-crisis",
     "current-war-origin-belligerents-objectives-and-fronts",
-    "major-faction-roster-and-relationships",
     "alien-civilizations-role-in-main-setting",
     "warp-travel-duration-range-cost-risk-and-navigation-rules",
     "exact-chronology-and-imperial-founding-date",
-    "capital-world-culture-geography-climate-and-city-name"
+    "capital-world-culture-geography-climate-and-city-name",
+    "thirteen-faction-identities-historical-origins-and-institutional-profiles-reconciliation",
+    "which-of-the-thirteen-factions-the-commander-leads"
   ],
   "validation": {
     "requireUniqueStableIds": true,
