@@ -180,3 +180,26 @@ Descriptor: [sasanian-warfare.book.json](sasanian-warfare.book.json)
 A study of Sasanian military institutions, elite cavalry, frontier systems, siegecraft, imperial finance, and wars with Rome and the eastern Roman Empire.
 
 [Read Sasanian Warfare](sasanian-warfare.md)
+
+
+## New LOD 2 — steppe empires and Viking-age networks
+
+### Mongol Warfare
+
+![Mongol Warfare cover](covers/mongol-warfare.svg)
+
+Descriptor: [mongol-warfare.book.json](mongol-warfare.book.json)
+
+A study of steppe political formation, mounted mobility, command, intelligence, siege adaptation, regional campaigns, and successor khanates.
+
+[Read Mongol Warfare](mongol-warfare.md)
+
+### Viking-Age Warfare
+
+![Viking-Age Warfare cover](covers/viking-age-warfare.svg)
+
+Descriptor: [viking-age-warfare.book.json](viking-age-warfare.book.json)
+
+A regional study of Scandinavian maritime activity, raiding, trade, settlement, ships, armed groups, and political transformation across connected regions.
+
+[Read Viking-Age Warfare](viking-age-warfare.md)
