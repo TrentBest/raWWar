@@ -132,3 +132,5 @@ If implementation exposes a better possibility, record the possibility here firs
 - [Formations V: Mechanized and Armored Forces](books/formations-v-mechanized-and-armored-forces.md) — crewed platforms, dismounted personnel, readiness, maintenance, recovery, sustainment, and infrastructure as one formation system.
 
 - [Formations VI: Orbital and Space Forces](books/formations-vi-orbital-and-space-forces.md) — orbital formation organization, trajectories as time-dependent states, station keeping, communications delay, autonomy, logistics, rescue, and shared infrastructure.
+
+- [Formations VII: Amphibious and Littoral Forces](books/formations-vii-amphibious-and-littoral-forces.md) — cross-domain sea-to-shore organization, littoral infrastructure, riverine systems, sustainment, and civilian dependencies.
