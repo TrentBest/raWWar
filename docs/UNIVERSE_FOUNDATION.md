@@ -35,7 +35,7 @@ The following are treated as established design direction, not suggestions for a
 4. **An Empress.** An Empress is a real political actor in the campaign-era order. Her powers, legitimacy, succession, institutions, and relationship to the player are not yet fully defined.
 5. **A continuing war.** The campaign occurs inside an active, ongoing galactic conflict. The war has consequences beyond any one operation.
 6. **Warp capability.** Warp drives exist. Preparing and initializing a jump takes days. The underlying physics, travel duration, limitations, costs, and strategic exceptions still require definition.
-7. **Factional politics.** Major factions exist and have their own beliefs, interests, institutions, and relationships with Imperial power. Their identities and the exact balance of the conflict remain to be authored.
+7. **Thirteen major factions.** The master GDD establishes thirteen major factions, arranged in a hidden political-alignment spectrum from most aligned with the Empress (1), through political independence (7), to openly hostile (13). The spectrum is not shown to the player, and political alignment is not morality. Faction names, histories, institutions, doctrines, and relationships are developed in [Faction Design](FACTIONS.md) and [Empire History & Faction Origins](EMPIRE_HISTORY_AND_FACTION_ORIGINS.md); those documents must be reconciled into one versioned political atlas rather than replaced with a newly invented roster. All thirteen have meaningful opposition to the Empress's will, but not equal hostility. The exact cause and belligerents of the current war remain unresolved.
 8. **Two foundational campaign perspectives.** The Commander campaign begins from high authority; the Enlisted campaign begins at the bottom of the military hierarchy. Both inhabit the same living war rather than separate simulations.
 9. **First-person presence.** The game is experienced from a person physically present in the world. Desktop and VR are presentation paths, not different world truths.
 10. **The world remembers.** Ownership, resources, personnel, organizations, history, relationships, and consequences persist beyond a local mission.
@@ -56,7 +56,7 @@ The current Commander opening already provides the strongest authored entry poin
 
 This is not merely an opening cutscene. It is the first small window into a much larger political and military system. The square needs ordinary civilian life; the palace needs an institution; the faction headquarters needs an identity and internal structure; the guards need an authority chain; the summons needs a political reason; and the player's office needs a history.
 
-**Do not invent the missing answers.** The capital's name, the player's faction name, the Empress's name, the exact political crisis, and the reason for the summons remain illumination items until the creator establishes them.
+**Do not invent the missing answers.** The capital's name, the Commander's selected faction, the Empress's personal identity, the exact political crisis, and the reason for the summons remain illumination items until the creator establishes them. The existence and count of the thirteen major factions are not unresolved.
 
 ## 4. Universe model: interlocking dimensions
 
@@ -76,7 +76,7 @@ The universe is not just a tree of map locations. It is a set of connected, time
 - The Imperial era is the latest layer of a much longer history.
 - Settlement, migration, trade, war, technological change, succession, reform, secession, reunification, and cultural exchange have causes and consequences.
 - History is not a single clean official timeline. Events, surviving records, interpretations, public narratives, and propaganda are separate data.
-- The Empire's multiple-millennia duration must be reconciled with the detailed chronology before dates are pinned.
+- The Empire's multiple-millennia duration must be reconciled with the detailed chronology before dates are pinned. Existing candidate era structure is in [Humanity's Long History](HUMANITYS_LONG_HISTORY_AND_DISCOVERABLE_PAST.md) and [human-galactic-history.json](../data/human-galactic-history.json); the consolidation, distance crisis, reforms, and faction-origin framework is in [Empire History & Faction Origins](EMPIRE_HISTORY_AND_FACTION_ORIGINS.md). These are substantial prior design work, not blank-page prompts. Treat their named events and faction origins according to their declared canon/candidate status.
 
 ### 4.3 Political reality
 
@@ -104,20 +104,22 @@ Records need provenance, time, integrity, access, custody, corroboration, contra
 
 ## 5. The first universe slice the pipeline must build
 
-The pipeline's first world target is the **Imperial Summons vertical slice**, not a randomly generated galaxy of millions of fully authored locations.
+The pipeline's first world target is the **Imperial Summons vertical slice**, grounded in the existing thirteen-faction and historical frameworks—not a randomly generated galaxy of millions of fully authored locations.
 
 It should be authored as a pinned campaign seed with explicitly unresolved fields. It must include:
 
 1. A campaign identity, version, seed, historical epoch reference, generator version, and simulation version.
 2. An Empire entity and Empress office/person reference, with only creator-established attributes asserted as canon.
-3. A player-command entity and its faction reference; the faction's name and political identity remain unresolved until authored.
-4. A capital-world/location reference, the high-rise observation position, the square, the palace, and the faction headquarters as distinct spatial entities.
-5. The two Imperial guards, their duty/authority relationship, and the summons event.
-6. Civilian and institutional activity sufficient to make the square visibly alive, without pretending every passer-by requires maximum simulation fidelity.
-7. A local timeline that supports the storm, observation, door opening, approach, summons, response window, and possible execution outcome.
-8. Separate player knowledge, faction knowledge, Imperial knowledge, public claims, and authoritative facts.
-9. Resource, staffing, access, and infrastructure dependencies for the locations that are actually shown.
-10. A set of deterministic acceptance tests proving stable identities, valid references, causal ordering, and repeatable reconstruction.
+3. A political-atlas reference to all thirteen established factions and their hidden alignment order; preserve candidate provenance for individual historical explanations and do not invent the current war's cause.
+4. A historical-spine reference to the existing Earth-to-campaign-era chronology, with absolute dates and candidate events clearly distinguished.
+5. A player-command entity and its faction reference; the player faction is one of the established thirteen, but which faction the Commander leads remains unresolved.
+6. A capital-world/location reference, the high-rise observation position, the square, the palace, and the faction headquarters as distinct spatial entities.
+7. The two Imperial guards, their duty/authority relationship, and the summons event.
+8. Civilian and institutional activity sufficient to make the square visibly alive, without pretending every passer-by requires maximum simulation fidelity.
+9. A local timeline that supports the storm, observation, door opening, approach, summons, response window, and possible execution outcome.
+10. Separate player knowledge, faction knowledge, Imperial knowledge, public claims, and authoritative facts.
+11. Resource, staffing, access, and infrastructure dependencies for the locations that are actually shown.
+12. A set of deterministic acceptance tests proving stable identities, valid references, causal ordering, and repeatable reconstruction.
 
 This slice is a campaign entry and world-model test. It is not yet the full war, and it must not fabricate the war's cause or a complete faction roster to make the scene appear finished.
 
