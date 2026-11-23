@@ -241,3 +241,26 @@ A science-fiction companion on delegated authority, human oversight, accountabil
 - [Book descriptor](autonomous-systems-and-machine-agency.book.json)
 
 These books continue the historical Roman sequence and develop science-fiction warfare as a first-class domain. They are knowledge and worldbuilding resources, not executable doctrine or instructions for attacking real systems.
+
+
+## Latest LOD 2 expansion — interstellar systems and first contact
+
+### Interstellar Logistics and Strategy
+
+![Interstellar Logistics and Strategy cover](covers/interstellar-logistics-and-strategy.svg)
+
+A strategic systems study of interstellar distance, light-time, transport, energy, life support, industrial capacity, network topology, political reach, and civilian sustainment. Known physical constraints are separated from extrapolated engineering and fictional travel rules.
+
+- [Read the sourcebook](interstellar-logistics-and-strategy.md)
+- [Book descriptor](interstellar-logistics-and-strategy.book.json)
+
+### Alien Contact, Diplomacy, and Conflict
+
+![Alien Contact, Diplomacy, and Conflict cover](covers/alien-contact-diplomacy-and-conflict.svg)
+
+A framework for verifying contact, interpreting unfamiliar signals, biological uncertainty, representation, diplomacy, security dilemmas, escalation, restraint, and machine intermediaries. It treats alien intelligence as unconfirmed and avoids assuming either universal hostility or universal cooperation.
+
+- [Read the sourcebook](alien-contact-diplomacy-and-conflict.md)
+- [Book descriptor](alien-contact-diplomacy-and-conflict.book.json)
+
+Both books are setting and research frameworks, not claims of imminent interstellar capability or confirmed extraterrestrial contact. Continue to label established, extrapolated, speculative, and fictional premises explicitly.
