@@ -100,3 +100,8 @@ The art of resupply is matching demand to capacity while preserving trust, readi
 ## Cross-domain ownership and implementation boundary
 
 These books are descriptive domain knowledge. They do not introduce executable APIs, duplicate a physics engine, or claim that a HUD, haptic rig, or simulation feature already exists. A host may opt into SURPS composition; without it, the raWWar Experience remains valid. Any game-specific doctrine, scoring rubric, or fictional equipment must be versioned and identified as such.
+
+
+## Resource and industrial foundations
+
+This volume is complemented by [Military Resources and Sustainment](military-resources-and-sustainment.md), which expands the full resource lifecycle and the human consequences of scarcity; [Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md), which follows raw materials into usable industrial capacity; and [Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md), which extends logistics into off-world industrial networks.
