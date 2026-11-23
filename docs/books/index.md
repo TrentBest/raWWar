@@ -595,3 +595,17 @@ A study of arsenals, shipyards, aerospace and orbital fabrication, procurement, 
 
 [Read Military Industry and Wartime Production](military-industry-and-wartime-production.md)
 
+
+
+
+## Contemporary warfare — Russia–Ukraine war (LOD 2)
+
+### The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation
+
+![The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation cover](covers/russia-ukraine-war-drone-robotic-and-industrial-adaptation.svg)
+
+Descriptor: [russia-ukraine-war-drone-robotic-and-industrial-adaptation.book.json](russia-ukraine-war-drone-robotic-and-industrial-adaptation.book.json)
+
+A living, evidence-disciplined case study of the 2014–present war, with emphasis on the full-scale invasion, uncrewed aerial and ground systems, maritime robotics, electronic warfare, air defense, software, industrial adaptation, logistics, civilian resilience, law, and the human cost. Ongoing claims are dated and labeled by verification status.
+
+[Read The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation](russia-ukraine-war-drone-robotic-and-industrial-adaptation.md)
