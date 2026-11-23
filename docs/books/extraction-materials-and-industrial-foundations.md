@@ -129,3 +129,9 @@ Physics owns material properties and physical simulation; relevant science and i
 - Separate physical state from legal status, commercial ownership, organizational command, and permission to act.
 - Use Established, Extrapolated, Speculative, and Fictional labels whenever future technology is discussed.
 - SURPS participation is opt-in. raWWar owns warfare-domain meaning and simulation requirements; authoritative physical and industrial models remain with their respective providers.
+
+
+## Related reading
+
+- [Military Industry and Wartime Production](military-industry-and-wartime-production.md) — manufacturing systems, industrial capacity, and mobilization after extraction and refining.
+- [Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md) — off-world industrial geography and logistics.
