@@ -121,6 +121,8 @@ It should be authored as a pinned campaign seed with explicitly unresolved field
 
 This slice is a campaign entry and world-model test. It is not yet the full war, and it must not fabricate the war's cause or a complete faction roster to make the scene appear finished.
 
+The initial structured entry point is [`data/campaigns/imperial-summons.json`](../data/campaigns/imperial-summons.json). It is deliberately an authored opening seed with unresolved identities, not a completed or independently playable campaign.
+
 ## 6. The pipeline's world-building sequence
 
 Build outward from a coherent authored core. Do not generate millions of disconnected lore records.
