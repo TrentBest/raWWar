@@ -16,6 +16,18 @@ A broad map of the domain, including state and non-state warfare, piracy, privat
 
 [Read Warfare and Organized Force](warfare-and-organized-force.md)
 
+## Domain manual — LOD 2
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Fortifications and Strongholds cover](covers/fortifications-and-strongholds.svg)
+
+Descriptor: [fortifications-and-strongholds.book.json](fortifications-and-strongholds.book.json)
+
+A reusable warfare-side manual for threat models, layered defense, siege endurance, military engineering, sustainment, civilian survival, maintenance, and recovery. Its worked crossover is the SURPS Dwarven Strongholds case study.
+
+[Read Fortifications and Strongholds](fortifications-and-strongholds.md)
+
 ## The catalogue will expand across linked families
 
 - **Historical eras and conflicts:** ancient warfare, Roman wars, Chinese and Japanese conflicts, Mongol campaigns, Viking-age warfare, colonial conflicts, Napoleonic wars, World Wars, Korea, Vietnam, contemporary and speculative future conflicts.
