@@ -238,6 +238,11 @@ The old engine-specific project shell has been removed. raWWar is not defined by
 
 For implementation claims, distinguish code and tests that exist today from design targets. The current `RaWWarMicroBundle.Load` remains a scaffold and `Arbitrate` returns `false`; the full station-and-rig first-person slice and end-to-end host loading remain future work. Consult [Technical Design](docs/TECHNICAL_DESIGN.md) and [TODO.md](TODO.md) for current evidence and blockers.
 
+## Agent onboarding and sourcebook library
+
+- [AGENTS.md](AGENTS.md) — start here when resuming work with an AI agent; records domain ownership, operating boundaries, book standards, current priorities, and continuation procedure.
+- [SURPS sourcebook library](docs/books/index.md) — living warfare books, including The Art of War and historical studies of Greek, Persian, and Roman warfare.
+
 ## The Workshop ecosystem
 
 ![](docs/assets/dividers/brown.svg)
