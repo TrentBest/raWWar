@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+<title id="title">Greek Warfare sourcebook cover</title><desc id="desc">Original historical landscape illustration: Aegean islands, a trireme, and a hoplite shield.</desc>
+<rect width="1200" height="1600" fill="#202a2b"/><rect x="38" y="38" width="1124" height="1524" fill="#d9c79e"/>
+<path d="M38 1060 L250 720 420 940 620 540 820 920 1010 650 1162 1000 1162 1562 38 1562Z" fill="#455b68" opacity=".85"/>
+<path d="M38 1200 Q280 1080 470 1190 T850 1160 T1162 1220 L1162 1562 38 1562Z" fill="#303c3b" opacity=".88"/>
+<g fill="none" stroke="#d9c79e" stroke-width="18" opacity=".82"><path d="M180 1260V1040h160v220 M220 1260V1100h80v160"/><path d="M470 1260V1000h250v260 M520 1260v-170h150v170"/></g>
+<g fill="#d9c79e" opacity=".92"><path d="M560 860l190-130 190 130z"/><path d="M640 860v-190h220v190z"/></g>
+<g stroke="#202a2b" stroke-width="10" fill="none"><path d="M600 960V650 M600 690l150 45-150 45z"/></g>
+<g fill="#202a2b" text-anchor="middle" font-family="Georgia,serif"><text x="600" y="220" font-size="36" letter-spacing="12">SINGULARITY WORKSHOP</text><text x="600" y="390" font-size="82" font-weight="bold">GREEK WARFARE</text><path d="M260 470H940" stroke="#202a2b" stroke-width="3"/><text x="600" y="540" font-size="32" letter-spacing="7">HISTORY · POWER · WARFARE</text><text x="600" y="1460" font-size="30" letter-spacing="8">A LIVING SOURCEBOOK</text></g>
+<rect x="58" y="58" width="1084" height="1484" fill="none" stroke="#202a2b" stroke-width="3"/></svg>
