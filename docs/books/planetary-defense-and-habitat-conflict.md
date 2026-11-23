@@ -93,3 +93,11 @@ Ground established claims in current spaceflight engineering, life-support resea
 - Future focused volumes: habitat law and sovereignty; emergency governance; civil defense and evacuation; autonomous maintenance and security; interplanetary logistics and rescue.
 
 The central premise is simple: in a habitat, security is inseparable from keeping people alive. Credible conflict fiction takes infrastructure, legitimacy, and civilian consequences as seriously as military power.
+
+## Related science-fiction volumes
+
+- [Science Fiction Warfare](science-fiction-warfare.md) — broad speculative warfare context.
+- [Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md) — orbital systems and infrastructure dependencies.
+- [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — energy, transport, life support, and network resilience.
+- [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) — first-contact governance and diplomacy.
+- [Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md) — delegated authority and machine accountability.
