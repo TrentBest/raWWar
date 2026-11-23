@@ -306,3 +306,27 @@ A connected fictional regional setting that expands the Nacrean Compact beyond a
 
 This volume is a direct companion to [The Nacrean Compact and the Tidal Archive Crisis](nacrean-compact-and-tidal-archive-crisis.md). It treats the basin as a connected political and logistical theatre rather than a map of isolated flags. Its setting is fictional; it does not imply confirmed extraterrestrial life.
 
+
+
+## Medicine and healing — a new sourcebook family
+
+### Medicine and Healing: History, Practice, and Play
+
+![Medicine and Healing cover](covers/medicine-and-healing.svg)
+
+A foundational LOD 2 manual treating medicine as history, science, care work, logistics, ethics, and a playable profession. It covers healing traditions across time, military casualty chains, triage, the medic's HUD, severe trauma, the fictional hypersonic scalpel, the difference between CPR and defibrillation, fantasy restoration rules, and evidence-labeled future medicine.
+
+- [Read the sourcebook](medicine-and-healing.md)
+- [Book descriptor](medicine-and-healing.book.json)
+
+The book is explicitly educational and game-design material, not clinical training or a treatment protocol. Real medical care requires qualified professionals and current guidance. Its central game-design rule is that the medic connects the casualty to a care system: observation, prioritization, authorized intervention, reassessment, evacuation, handoff, and recovery.
+
+Planned companion volumes:
+- **Healing Across the Centuries** — global and periodized histories of care, surgery, public health, hospitals, and medical ideas.
+- **Battlefield Medicine and the Casualty Chain** — military medical organizations, triage history, evacuation, and trauma systems.
+- **Surgery, Amputation, and Prosthetic Futures** — historical surgery, anesthesia, infection control, limb loss, prosthetics, and rehabilitation.
+- **Medicine at Sea, in Space, and on the Frontier** — remote care, constrained supply, delayed evacuation, and habitat medicine.
+- **Fantasy Healing and the Laws of Restoration** — magic, resurrection, consent, costs, limits, and social consequences.
+- **Future Medicine and Human-Machine Care** — robotics, AI decision support, regenerative medicine, and autonomous facilities.
+- **Medical Ethics, Law, and Protected Care** — impartiality, consent, prisoners, civilians, medical personnel, and accountability.
+- **Alien and Posthuman Physiology** — cross-species diagnosis, augmented bodies, and unknown biological risks.
