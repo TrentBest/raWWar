@@ -233,3 +233,24 @@ Three LOD 2 sourcebooks were added:
 Each has a matching LOD 2 descriptor and original SVG cover. The science-fiction volume must retain explicit evidence labels (established, extrapolated, speculative, fictional) and remain a high-level resilience and consequence framework, not a procedural guide to attacking real infrastructure.
 
 Next priorities: Roman civil wars and late antique/Eastern Roman development; then science-fiction companion volumes on autonomous systems and machine agency, interstellar logistics, and alien contact/diplomacy/conflict. Continue to separate historical evidence from literary memory and speculative technology from established capability.
+
+
+## Latest expansion — Roman civil wars, Eastern Rome, and machine agency (2026-11-23)
+
+Three substantive LOD 2 sourcebooks have been added, each with a matching .book.json descriptor and original SVG cover:
+- [Roman Civil Wars](docs/books/roman-civil-wars.md) — Social War through the Augustan settlement; legitimacy, coalition politics, military allegiance, finance, and civilian consequences.
+- [Eastern Roman Warfare](docs/books/eastern-roman-warfare.md) — periodized eastern Roman military history from late antiquity through 1453; institutions, fiscal foundations, diplomacy, frontier systems, and regional strategy.
+- [Autonomous Systems and Machine Agency](docs/books/autonomous-systems-and-machine-agency.md) — delegated authority, oversight, accountability, reliability, escalation, civilian protection, and speculative machine political agency.
+
+Keep the distinction between the Roman Republic, Principate, late Roman state, and medieval Eastern Roman polity explicit. “Byzantine” is a useful modern label, but the polity understood itself as Roman. Do not reduce civil wars to personality contests or military allegiance to a single simplistic reform narrative.
+
+For machine systems, separate assistance, supervised execution, conditional autonomy, coordinated autonomy, strategic agency, and political agency. Do not imply that technical capability confers legal personhood or removes human/institutional responsibility. Label all future-facing claims established, extrapolated, speculative, or fictional. Keep discussion at the level of governance, resilience, accountability, and consequences—not real-world attack procedures.
+
+## Current resume checkpoint (2026-11-23)
+
+- Continue on development; no merge to master, release, deployment, or NuGet publishing without explicit authorization.
+- Branches currently include master, development, and integration/autonomous-development-pipeline. Sith Policy remains failed because the third branch violates the two-branch policy. Do not delete it; request explicit owner approval.
+- The preceding content build for the Roman/planetary batch passed: [run 45103161930](https://github.com/TrentBest/raWWar/actions/runs/45103161930).
+- New current batch: Roman Civil Wars; Eastern Roman Warfare; Autonomous Systems and Machine Agency. Each has a descriptor and original SVG cover. Index and collection README are updated.
+- Run build/contract validation after catalogue synchronization and record the actual workflow outcome. Recheck Sith Policy separately; do not report it as passing while the extra branch remains.
+- Next priorities: interstellar logistics and strategy; alien contact, diplomacy, and conflict; then LOD 3 campaign and institutional studies. Continue to coordinate with Physics, Gestures, and SURPS at their ownership boundaries.
