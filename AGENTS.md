@@ -293,3 +293,16 @@ For interstellar settings, do not treat distance as a simple map measurement or 
 - Catalogue and collection README have been updated. Validate descriptor JSON, SVG XML, paths, and CI.
 - Latest known content build-and-contract workflow passed: [run 45108845646](https://github.com/TrentBest/raWWar/actions/runs/45108845646). Sith Policy failed: [run 45108845657](https://github.com/TrentBest/raWWar/actions/runs/45108845657), because `integration/autonomous-development-pipeline` remains beside `master` and `development`. Do not delete it without explicit approval.
 - Continue on `development`. Leave the extra branch untouched; no merge to `master`, release, deployment, privileged workflow dispatch, or NuGet publication without explicit authorization.
+
+
+## Latest LOD 3 expansion — connected Pelagos regional theatre (2026-11-23)
+
+- [The Serein Passage Treaties and the Three-Current Crisis](docs/books/serein-passage-treaties-and-three-current-crisis.md) is a new substantive fictional LOD 3 connected-theatre volume, with a matching descriptor and original SVG cover.
+- It expands the Nacrean setting into a regional system: the Vey Shelf Assemblies, Orison Works League, Outer Drift Mutuals, and Serein Passage Commission, each with distinct institutions and internally competing constituencies.
+- It establishes the Serein basin's three current systems and five geographic zones; layered rescue, marker, passage-access, thermal-works, and records treaties; trade and migration flows; and shared navigation, communications, refuge, fabrication, ecological-monitoring, and records services.
+- Its regional history runs from informal rescue networks through treaty formation, marker disputes, industrial coordination, and the Three-Current Crisis. The crisis centers on route-model provenance, uncertainty, representation, and service continuity; battle is not the assumed resolution.
+- The volume includes multiple campaign outcomes, ten playable role perspectives, five scenario frames, an abstract simulation-variable model, continuity guidance, and research/design safeguards. It explicitly labels the setting fictional and avoids treating any polity as a unified personality.
+- Catalogue and collection README updated. Validate descriptor JSON, SVG XML, file paths, internal links, and CI before closing the milestone.
+- Latest known content build-and-contract workflow before this batch passed: [run 45108845646](https://github.com/TrentBest/raWWar/actions/runs/45108845646). Sith Policy failed: [run 45108845657](https://github.com/TrentBest/raWWar/actions/runs/45108845657), because `integration/autonomous-development-pipeline` remains beside `master` and `development`. Check fresh workflow results; do not delete the extra branch without explicit approval.
+- Next expansion: deepen one neighboring polity (recommended: Vey Shelf Assemblies) or create a focused LOD 4 scenario from the regional theatre. Keep cross-polity dependencies consistent with the Nacrean case study.
+- Continue on `development`. Leave `integration/autonomous-development-pipeline` untouched; no merge to `master`, release, deployment, privileged workflow dispatch, or NuGet publication without explicit authorization.
