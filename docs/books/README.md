@@ -35,6 +35,35 @@ The raWWar sourcebook library is the SURPS-facing knowledge layer for warfare an
 - [Read the sourcebook](the-art-of-war.md)
 - [Book descriptor](the-art-of-war.book.json)
 
+## Current historical LOD 2 sourcebooks
+
+### Greek Warfare
+
+![Greek Warfare cover](covers/greek-warfare.svg)
+
+A cross-period study from Mycenaean worlds and archaic poleis through classical conflicts, Macedon, Alexander, and the Hellenistic kingdoms. It distinguishes documented history from epic, myth, and original adaptation.
+
+- [Read the sourcebook](greek-warfare.md)
+- [Book descriptor](greek-warfare.book.json)
+
+### Persian Warfare
+
+![Persian Warfare cover](covers/persian-warfare.svg)
+
+A comparative overview of the Achaemenid, Parthian, and Sasanian empires, emphasizing their distinct institutions and regional histories.
+
+- [Read the sourcebook](persian-warfare.md)
+- [Book descriptor](persian-warfare.book.json)
+
+### Roman Warfare
+
+![Roman Warfare cover](covers/roman-warfare.svg)
+
+A periodized overview from early Rome through Republic, Principate, later Empire, and eastern Roman continuities.
+
+- [Read the sourcebook](roman-warfare.md)
+- [Book descriptor](roman-warfare.book.json)
+
 ## Planned LOD 2 families
 
 These are editorial families, not a rigid hierarchy. Each book will declare its scope and cross-reference other books where appropriate.
