@@ -34,6 +34,10 @@ The **Game Design Document (GDD)** turns that truth into a working description o
 
 System-specific documents expand the design without silently changing canon.
 
+## SURPS living warfare sourcebooks
+
+- [raWWar SURPS Sourcebook Library](books/index.md) — domain-owned books on warfare and organized force, including historical conflicts, piracy, resistance, irregular warfare, campaigns, missions, and reusable technical manuals. SURPS composition remains explicitly opt-in.
+
 ## Core design
 
 - [Game Design Bible](GAME_DESIGN_BIBLE.md) — authoritative living design.

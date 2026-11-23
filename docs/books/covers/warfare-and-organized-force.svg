@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Warfare and Organized Force — sourcebook cover</title>
+  <desc id="desc">A layered illustration of a coastal world at dusk, with a fortified harbor, sailing vessel, distant formations, and branching routes suggesting the many forms and scales of organized conflict.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101b32"/><stop offset="1" stop-color="#354b60"/></linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#286078"/><stop offset="1" stop-color="#101e32"/></linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#78816f"/><stop offset="1" stop-color="#293b3a"/></linearGradient>
+    <pattern id="grid" width="72" height="72" patternUnits="userSpaceOnUse"><path d="M72 0H0V72" fill="none" stroke="#a8d3d8" stroke-opacity=".11" stroke-width="1"/></pattern>
+  </defs>
+  <rect width="900" height="1200" fill="url(#sky)"/>
+  <circle cx="710" cy="365" r="112" fill="#e4b978" opacity=".16"/><circle cx="710" cy="365" r="72" fill="#e4b978" opacity=".3"/>
+  <path d="M0 510L120 420 220 470 345 370 465 455 575 390 690 460 790 410 900 475V1200H0Z" fill="#344957"/>
+  <path d="M0 510L120 420 220 470 345 370 465 455 575 390 690 460 790 410 900 475V1200H0Z" fill="url(#grid)"/>
+  <path d="M0 640Q170 575 330 640T650 625T900 650V1200H0Z" fill="url(#sea)"/>
+  <path d="M0 640L155 610 260 630 330 590 410 620 500 585 570 610 660 560 745 600 900 565V760L0 790Z" fill="url(#land)"/>
+  <path d="M560 610L650 510 720 530 770 475 840 520 900 490V740L560 760Z" fill="#485b55"/>
+  <g fill="#182b3c" stroke="#9fb5b2" stroke-width="5"><path d="M85 635V515H180V635Z"/><path d="M70 515L132 450 195 515Z"/><path d="M190 640V555H270V640Z"/><path d="M178 555L230 505 282 555Z"/><path d="M770 600V510H845V600Z"/><path d="M755 510L808 458 860 510Z"/></g>
+  <g transform="translate(420 640)"><path d="M-150 0Q-35 25 105 0L75 65Q-20 88-120 60Z" fill="#111d2b" stroke="#d5d8cf" stroke-width="4"/><path d="M-25 0V-205M-25-190L-130-35H-25Z" fill="#d7d0b8" stroke="#27384a" stroke-width="4"/><path d="M-15-180L88-25H-15Z" fill="#a9c0c0" stroke="#27384a" stroke-width="4"/></g>
+  <g fill="#d9d0b4" opacity=".8"><circle cx="340" cy="770" r="7"/><circle cx="365" cy="780" r="7"/><circle cx="390" cy="772" r="7"/><circle cx="610" cy="760" r="7"/><circle cx="635" cy="770" r="7"/><circle cx="660" cy="760" r="7"/></g>
+  <g fill="none" stroke="#8bd2df" stroke-width="3" stroke-dasharray="10 12" opacity=".85"><path d="M420 420Q560 500 710 365"/><path d="M420 420Q260 520 132 450"/><path d="M420 420Q520 620 808 458"/></g>
+  <path d="M60 90H840" stroke="#73c6d6" stroke-width="4"/>
+  <text x="70" y="150" fill="#a9e8f1" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">THE SINGULARITY WORKSHOP</text>
+  <text x="70" y="225" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="40" font-weight="800">SINGULARITY UNIVERSAL</text>
+  <text x="70" y="276" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="40" font-weight="800">ROLEPLAYING SYSTEM</text>
+  <text x="70" y="335" fill="#8be1ee" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="24" font-weight="700" letter-spacing="4">DOMAIN · LOD 1</text>
+  <rect x="48" y="960" width="804" height="190" rx="12" fill="#101b2b" opacity=".88"/>
+  <text x="75" y="1030" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="50" font-weight="800">WARFARE AND</text>
+  <text x="75" y="1090" fill="#fff" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="50" font-weight="800">ORGANIZED FORCE</text>
+  <text x="78" y="1125" fill="#a9b8c7" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="17" letter-spacing="2">A LIVING DOMAIN SOURCEBOOK</text>
+</svg>
