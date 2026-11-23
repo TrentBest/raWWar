@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Formations IV: Mounted and Cavalry Forces</title>
+  <desc id="desc">Original illustration of a mounted formation crossing a broad landscape, with layered silhouettes and a route line.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101c31"/><stop offset="1" stop-color="#52677a"/></linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#65735f"/><stop offset="1" stop-color="#1b2a2b"/></linearGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e4d5ad"/><stop offset="1" stop-color="#8f7855"/></linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#sky)"/>
+  <circle cx="930" cy="145" r="76" fill="#e7d7b1" opacity=".78"/>
+  <path d="M0 380 L170 265 300 350 460 235 625 360 790 260 960 360 1100 270 1200 335 V675 H0Z" fill="#263a43"/>
+  <path d="M0 450 Q260 350 480 430 T900 420 T1200 405 V675 H0Z" fill="url(#ground)"/>
+  <path d="M0 550 Q260 485 510 535 T1000 515 T1200 530" fill="none" stroke="#c7b58a" stroke-width="5" opacity=".5"/>
+  <path d="M100 560 Q390 470 620 520 T1080 480" fill="none" stroke="#d9c79d" stroke-width="3" stroke-dasharray="12 16" opacity=".8"/>
+  <g fill="#111b25" stroke="#d5c39b" stroke-width="3">
+    <g transform="translate(280 370) scale(1.15)">
+      <path d="M-48 36 Q-35 4 -2 4 L25 13 43 3 55 13 39 29 20 31 8 61 0 62 2 34 -20 34 -34 62 -42 62 -35 31 -58 29Z"/>
+      <path d="M-10 6 L-16 -28 -2 -43 13 -29 18 8Z" fill="url(#metal)"/>
+      <path d="M-5 -42 L-12 -57 2 -67 15 -56 12 -40Z" fill="#b9c8cf"/>
+      <path d="M-2 -55 L-2 -88" stroke="#d5c39b" stroke-width="4"/>
+    </g>
+    <g transform="translate(470 405) scale(.92)">
+      <path d="M-48 36 Q-35 4 -2 4 L25 13 43 3 55 13 39 29 20 31 8 61 0 62 2 34 -20 34 -34 62 -42 62 -35 31 -58 29Z"/>
+      <path d="M-10 6 L-16 -28 -2 -43 13 -29 18 8Z" fill="url(#metal)"/>
+      <path d="M-5 -42 L-12 -57 2 -67 15 -56 12 -40Z" fill="#b9c8cf"/>
+    </g>
+    <g transform="translate(660 382) scale(1.02)">
+      <path d="M-48 36 Q-35 4 -2 4 L25 13 43 3 55 13 39 29 20 31 8 61 0 62 2 34 -20 34 -34 62 -42 62 -35 31 -58 29Z"/>
+      <path d="M-10 6 L-16 -28 -2 -43 13 -29 18 8Z" fill="url(#metal)"/>
+      <path d="M-5 -42 L-12 -57 2 -67 15 -56 12 -40Z" fill="#b9c8cf"/>
+    </g>
+    <g transform="translate(850 420) scale(.82)">
+      <path d="M-48 36 Q-35 4 -2 4 L25 13 43 3 55 13 39 29 20 31 8 61 0 62 2 34 -20 34 -34 62 -42 62 -35 31 -58 29Z"/>
+      <path d="M-10 6 L-16 -28 -2 -43 13 -29 18 8Z" fill="url(#metal)"/>
+      <path d="M-5 -42 L-12 -57 2 -67 15 -56 12 -40Z" fill="#b9c8cf"/>
+    </g>
+  </g>
+  <g fill="none" stroke="#e6d7b4" stroke-width="3" opacity=".8"><path d="M280 278 L470 315 660 300 850 345"/><path d="M280 278 L280 245 M470 315 L470 282 M660 300 L660 267 M850 345 L850 312"/></g>
+  <rect x="54" y="48" width="1092" height="579" rx="22" fill="none" stroke="#d9c79d" stroke-opacity=".55" stroke-width="2"/>
+  <text x="88" y="105" fill="#e8dcc0" font-family="Georgia,serif" font-size="24" letter-spacing="5">THE SINGULARITY WORKSHOP · RAWWAR</text>
+  <text x="88" y="555" fill="#f5eddb" font-family="Georgia,serif" font-size="52" font-weight="bold">FORMATIONS IV</text>
+  <text x="90" y="600" fill="#e3d3ad" font-family="Arial,sans-serif" font-size="24" letter-spacing="3">MOUNTED AND CAVALRY FORCES</text>
+</svg>
