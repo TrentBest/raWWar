@@ -30,9 +30,9 @@ The next canon decisions are:
 - Does “millions of worlds” mean millions of inhabited worlds, or millions of worlds across a much smaller inhabited/settled subset?
 - What is the Empire's actual constitutional and administrative structure, and how has it remained in power across millennia?
 - What is the capital world, and where is the player's faction headquarters relative to the Imperial Palace?
-- What are the major factions, and what are their distinct political institutions, interests, and relationships to Imperial power?
+- The thirteen-faction count and hidden alignment spectrum are already established in the [GDD](GAME_DESIGN_DOCUMENT.md) and [Faction Design](FACTIONS.md). How do we reconcile the complete thirteen-faction roster, the Empire History & Faction Origins framework, and their candidate/confirmed statuses into one authoritative political atlas? Which faction does the Commander lead?
 - What caused the current war, who are its belligerents, and what does each side believe it is fighting for?
-- Are alien civilizations present as political actors in the main raWWar setting, or are alien civilizations in the sourcebook library comparative/speculative material outside the human galactic campaign?
+- What is the precise role of alien civilizations, if any, in the main campaign-era human galactic order, given the human-origin historical framework and the separate alien-civilization material in the sourcebook library?
 - What are the warp drive's travel-time, range, cost, risk, and strategic constraints beyond the established multi-day preparation?
 - What historical events explain the Empire's founding, succession, fractures, and present legitimacy?
 
