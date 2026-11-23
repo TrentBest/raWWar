@@ -10,6 +10,8 @@ A reusable LOD 2 manual for mounted forces across historical, contemporary cerem
 
 ## Related sourcebooks
 
+- [Formations V: Mechanized and Armored Forces](formations-v-mechanized-and-armored-forces.md)
+
 - [Formations I: Land Forces](formations-i-land-forces.md)
 - [Formations II: Naval Forces](formations-ii-naval-forces.md)
 - [Formations III: Air Forces](formations-iii-air-forces.md)
