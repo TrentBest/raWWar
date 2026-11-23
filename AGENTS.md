@@ -428,3 +428,15 @@ Validate all descriptors as JSON, SVG covers as XML, cover paths, catalogue link
 - Avoid real-world landing plans, tactical procedures, targeting, sabotage, and infrastructure-harm instructions. Use evidence labels: Established, Extrapolated, Speculative, Fictional.
 - Physics owns physical/environmental simulation; raWWar owns domain knowledge, organization, history, scenarios, and assessment; Gestures owns reusable embodied interaction; logistics and facilities remain with their providers; SURPS is opt-in.
 - Keep both catalogues, docs navigation, reciprocal formation links, and this handoff synchronized. Validate descriptor JSON, SVG XML, local Markdown links, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit authorization.
+
+
+
+## Specialized and irregular formations expansion — Formations VIII (2026-11-23)
+
+- [Formations VIII: Special Operations and Irregular Forces](docs/books/formations-viii-special-operations-and-irregular-forces.md) is a new LOD 2 sourcebook with a matching descriptor and original SVG cover.
+- Keep special operations as a category of military specialization distinct from irregularity as an institutional or political relationship. A specialized unit may be fully regular; an irregular organization is not automatically illegitimate, effective, or morally justified.
+- Distinguish resistance movements, insurgencies, partisan organizations, militias, auxiliaries/proxies, paramilitary bodies, criminal armed groups, and clandestine civic networks. Do not automatically classify unarmed political or mutual-aid networks as military formations.
+- Preserve the distinction between an organization and the population around it. Model consent, coercion, civilian protection, legal status, accountability, external sponsorship, fragmentation, and demobilization explicitly. Never infer allegiance from ethnicity, religion, language, residence, family, or appearance.
+- This volume is historical, organizational, and simulation-design material. It excludes actionable clandestine tradecraft, raids, sabotage, evasion, targeting, weapons employment, and methods for defeating security systems. Prefer scenarios about evidence, oversight, negotiation, civilian protection, and institutional transition.
+- raWWar owns domain vocabulary and context; Physics owns physical simulation; Gestures owns reusable embodied interaction; SURPS remains opt-in. Do not imply documentation creates runtime implementation.
+- Keep both sourcebook catalogues, docs navigation, and reciprocal cross-links synchronized. Validate descriptor JSON, SVG XML, cover path, Markdown links, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit approval.
