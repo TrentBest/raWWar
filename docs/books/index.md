@@ -296,3 +296,18 @@ Descriptor: [alien-contact-diplomacy-and-conflict.book.json](alien-contact-diplo
 A disciplined framework for evidence, translation, biological uncertainty, political recognition, diplomacy, security dilemmas, conflict prevention, machine intermediaries, and civilian protection. It does not assume extraterrestrial life or inevitable hostility.
 
 [Read Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md)
+
+
+## Science-fiction warfare — LOD 3 civilization design
+
+### Alien Civilizations and Political Systems
+
+![SURPS Rulebook LOD 3](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-3.svg)
+
+![Alien Civilizations and Political Systems cover](covers/alien-civilizations-and-political-systems.svg)
+
+Descriptor: [alien-civilizations-and-political-systems.book.json](alien-civilizations-and-political-systems.book.json)
+
+A reusable framework for fictional civilization histories, political systems, legitimacy, institutions, factions, strategic culture, infrastructure, armed organizations, diplomacy, and campaign design. It avoids treating a species as a single political actor or personality.
+
+[Read Alien Civilizations and Political Systems](alien-civilizations-and-political-systems.md)
