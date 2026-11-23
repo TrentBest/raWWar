@@ -337,3 +337,19 @@ A connected Pelagos regional theatre linking the Nacrean Compact with the Vey Sh
 
 [Read The Serein Passage Treaties and the Three-Current Crisis](serein-passage-treaties-and-three-current-crisis.md)
 
+
+## Medicine and healing — history, practice, and play (LOD 2)
+
+### Medicine and Healing: History, Practice, and Play
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Medicine and Healing cover](covers/medicine-and-healing.svg)
+
+Descriptor: [medicine-and-healing.book.json](medicine-and-healing.book.json)
+
+A foundation for a dedicated medicine series: healing across history, battlefield casualty care, triage, the medic's HUD, trauma and rehabilitation, fantasy healing systems, and evidence-labeled future medicine. It distinguishes real clinical principles from fictional raWWar equipment and game abstractions.
+
+[Read Medicine and Healing: History, Practice, and Play](medicine-and-healing.md)
+
+Planned companions include Healing Across the Centuries; Battlefield Medicine and the Casualty Chain; Surgery, Amputation, and Prosthetic Futures; Medicine at Sea, in Space, and on the Frontier; Fantasy Healing and the Laws of Restoration; Future Medicine and Human-Machine Care; Medical Ethics, Law, and Protected Care; and Alien and Posthuman Physiology.
