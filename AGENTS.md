@@ -347,3 +347,31 @@ For interstellar settings, do not treat distance as a simple map measurement or 
 - Build and contract checks passed for the medicine-series catalogue checkpoint: [GitHub Actions run 45117789795](https://github.com/TrentBest/raWWar/actions/runs/45117789795), commit `d5021f3bc92bdb2da3884af12ca6c2e06a6db237`.
 - Sith Policy failed in [run 45117789786](https://github.com/TrentBest/raWWar/actions/runs/45117789786), because `integration/autonomous-development-pipeline` remains alongside `master` and `development`. This branch is still not approved for deletion; request explicit owner approval after ancestry and unique commits are inspected.
 - The medicine books, descriptors, covers, reciprocal cross-link, catalogue entries, docs navigation, and this handoff are present on `development`. The latest handoff update follows the successful content build. Re-run build/contract checks after subsequent edits.
+
+
+## New sourcebook family — formations, bases, resupply, and battlefield medicine (2026-11-23)
+
+The creator clarified that raWWar should treat embodied instruction as a reusable game architecture: the HUD displays a ghost action or target arrangement; Gestures provides reusable embodied movement semantics; tracking observes the player's performance; haptics/visual/audio cues communicate alignment and timing; raWWar defines the task context and transparent scoring rubric. Never claim this integration is already implemented in runtime code merely because the sourcebooks define it.
+
+New LOD 2 books on development:
+- [Formations I: Land Forces](docs/books/formations-i-land-forces.md) — recursive teams/squads/platoons and larger formations, geometry, transitions, command, terrain, cohesion, ghost slots, and scoring.
+- [Formations II: Naval Forces](docs/books/formations-ii-naval-forces.md) — fleet organization, station keeping, convoy, amphibious and mixed-domain coordination, sea-state and navigation constraints.
+- [Formations III: Air Forces](docs/books/formations-iii-air-forces.md) — three-dimensional geometry, separation, weather, human factors, autonomy, and orbital mechanics distinctions.
+- [Bases and Encampments](docs/books/bases-and-encampments.md) — small mobile camps, literary inspiration clearly labeled as fiction, Roman castra, larger bases, services, local impacts, resilience, and simulation data.
+- [The Art of Resupply](docs/books/the-art-of-resupply.md) — demand, supply chain, transport, last-mile delivery, repair, medical logistics, naval/air sustainment, contested routes, ethics, and HUD/ghost logistics.
+- [Battlefield Medicine and the Casualty Chain](docs/books/battlefield-medicine-and-the-casualty-chain.md) — casualty network, triage context, collection, evacuation, handoff, medic HUD, ghost surgical-line game interaction, scoring, and suit-integrated fictional cardiac support.
+
+Each new volume has a .book.json descriptor and original SVG cover. Both sourcebook catalogue surfaces and docs/README.md have been updated. The Medicine and Healing foundation now cross-links the battlefield companion.
+
+### Design boundaries
+- Formations are not just diagrams: preserve identity, command provenance, physical constraints, transitions, and local agency.
+- Naval formations are not land formations on water; air formations are 3D; orbital formations require orbital mechanics rather than aircraft metaphors.
+- Literary camp references (including Wheel of Time examples) are inspiration only; distinguish fiction from historical evidence and do not reproduce protected prose or distinctive adaptations.
+- Base layouts must include water, sanitation, medical care, maintenance, logistics, civilian relationships, and environmental consequences—not just defensive perimeter geometry.
+- Resupply is an operation and network, not an inventory button. Track stock condition, capacity, transit, last mile, staffing, repair, and allocation.
+- Ghost actions must expose their rubric. Separate target alignment, path deviation, timing, tool state, sequence, and safety. Gate scoring on tracking confidence and offer accessible alternatives to haptics.
+- The exoskeleton's pre-positioned cardiac-support leads and dedicated controller are Fictional setting equipment. Do not portray a battery as directly wired to a heart or imply that any stopped heart can be restarted by a shock. Preserve the distinction between CPR and eligible defibrillation.
+- Real clinical and aviation/naval operational procedures remain out of scope for player instruction; use qualified current sources and expert review for any real-world training claim.
+- Physics owns physical simulation; Gestures owns reusable embodied movement; raWWar owns domain meaning, context, and evaluation; host/runtime owns execution. SURPS remains opt-in.
+
+Validate all descriptors as JSON, SVG covers as XML, cover paths, catalogue links, cross-links, and current CI. Do not infer runtime implementation from documentation. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit approval.
