@@ -203,3 +203,38 @@ Descriptor: [viking-age-warfare.book.json](viking-age-warfare.book.json)
 A regional study of Scandinavian maritime activity, raiding, trade, settlement, ships, armed groups, and political transformation across connected regions.
 
 [Read Viking-Age Warfare](viking-age-warfare.md)
+
+
+## Roman history — focused LOD 2 companions
+
+### Roman Republican Warfare
+
+![Roman Republican Warfare cover](covers/roman-republican-warfare.svg)
+
+Descriptor: [roman-republican-warfare.book.json](roman-republican-warfare.book.json)
+
+A study of civic and allied manpower, republican command, Mediterranean expansion, naval adaptation, and the civil-war crisis.
+
+[Read Roman Republican Warfare](roman-republican-warfare.md)
+
+### The Roman Imperial Army
+
+![The Roman Imperial Army cover](covers/roman-imperial-army.svg)
+
+Descriptor: [roman-imperial-army.book.json](roman-imperial-army.book.json)
+
+A study of imperial military institutions, frontier systems, recruitment, logistics, military society, and late antique transformation.
+
+[Read The Roman Imperial Army](roman-imperial-army.md)
+
+## Science-fiction warfare — planetary settlement systems
+
+### Planetary Defense and Habitat Conflict
+
+![Planetary Defense and Habitat Conflict cover](covers/planetary-defense-and-habitat-conflict.svg)
+
+Descriptor: [planetary-defense-and-habitat-conflict.book.json](planetary-defense-and-habitat-conflict.book.json)
+
+A systems-level treatment of planetary protection, habitat resilience, governance, civilian survival, and conflict de-escalation.
+
+[Read Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md)
