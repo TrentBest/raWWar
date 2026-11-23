@@ -134,3 +134,6 @@ If implementation exposes a better possibility, record the possibility here firs
 - [Formations VI: Orbital and Space Forces](books/formations-vi-orbital-and-space-forces.md) — orbital formation organization, trajectories as time-dependent states, station keeping, communications delay, autonomy, logistics, rescue, and shared infrastructure.
 
 - [Formations VII: Amphibious and Littoral Forces](books/formations-vii-amphibious-and-littoral-forces.md) — cross-domain sea-to-shore organization, littoral infrastructure, riverine systems, sustainment, and civilian dependencies.
+
+
+- [Formations VIII: Special Operations and Irregular Forces](books/formations-viii-special-operations-and-irregular-forces.md) — distinguishes specialized regular units from irregular organizations, resistance, insurgency, partisans, militias, auxiliaries, and clandestine civic networks, with emphasis on civilian agency, accountability, and transition.
