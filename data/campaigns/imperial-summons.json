@@ -13,7 +13,10 @@
     "docs/GAME_DESIGN_BIBLE.md",
     "docs/GAME_DESIGN_DOCUMENT.md",
     "docs/UNIVERSE_FOUNDATION.md",
-    "data/universe-foundation.json"
+    "data/universe-foundation.json",
+    "docs/FACTIONS.md",
+    "docs/EMPIRE_HISTORY_AND_FACTION_ORIGINS.md",
+    "data/faction-political-atlas.json"
   ],
   "pinnedCanon": {
     "imperialOrderExists": true,
@@ -267,5 +270,6 @@
     "requireDeterministicReconstruction": true,
     "rejectInventedCanonNamesDatesAndMotives": true,
     "rejectAssumptionThatEveryWorldIsInhabited": true
-  }
+  },
+  "politicalAtlasRef": "data/faction-political-atlas.json"
 }
