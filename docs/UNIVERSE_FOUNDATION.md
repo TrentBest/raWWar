@@ -121,7 +121,7 @@ It should be authored as a pinned campaign seed with explicitly unresolved field
 11. Resource, staffing, access, and infrastructure dependencies for the locations that are actually shown.
 12. A set of deterministic acceptance tests proving stable identities, valid references, causal ordering, and repeatable reconstruction.
 
-This slice is a campaign entry and world-model test. It is not yet the full war, and it must not fabricate the war's cause or a complete faction roster to make the scene appear finished.
+This slice is a campaign entry and world-model test. It is not yet the full war, and it must not fabricate the war's cause, invent additional major factions, or replace the established thirteen-faction design with a generic roster.
 
 The initial structured entry point is [`data/campaigns/imperial-summons.json`](../data/campaigns/imperial-summons.json). It is deliberately an authored opening seed with unresolved identities, not a completed or independently playable campaign.
 
