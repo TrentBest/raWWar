@@ -538,3 +538,47 @@ Descriptor: [planetary-assault-and-expeditionary-doctrine.book.json](planetary-a
 A science-fiction doctrine and simulation framework for orbital-to-surface transitions, expeditionary organization, planetary reception systems, footholds, sustainment, civilian protection, governance, and escalation. It distinguishes established science from extrapolation, speculation, and fictional technology.
 
 [Read Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md)
+
+
+## Resource, industry, and interstellar strategy — LOD 2
+
+### Military Resources and Sustainment
+
+![Military Resources and Sustainment cover](covers/military-resources-and-sustainment.svg)
+
+Descriptor: [military-resources-and-sustainment.book.json](military-resources-and-sustainment.book.json)
+
+A lifecycle study of the resources that make organized forces possible: food, water, energy, materials, labor, finance, transport, maintenance, recovery, and the human and political consequences of scarcity.
+
+[Read Military Resources and Sustainment](military-resources-and-sustainment.md)
+
+### Extraction, Materials, and Industrial Foundations
+
+![Extraction, Materials, and Industrial Foundations cover](covers/extraction-materials-and-industrial-foundations.svg)
+
+Descriptor: [extraction-materials-and-industrial-foundations.book.json](extraction-materials-and-industrial-foundations.book.json)
+
+A comparative study of resource extraction and industrial transformation, from terrestrial agriculture, mines, forests, and refineries to extraterrestrial prospecting, in-situ resource use, and the economics of materials across different worlds.
+
+[Read Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md)
+
+### Orbital Industry and Strategic Resource Networks
+
+![Orbital Industry and Strategic Resource Networks cover](covers/orbital-industry-and-strategic-resource-networks.svg)
+
+Descriptor: [orbital-industry-and-strategic-resource-networks.book.json](orbital-industry-and-strategic-resource-networks.book.json)
+
+A systems-level study of off-world industrial infrastructure, asteroid prospecting and capture concepts, processing centers, depots, transport networks, and the physics, governance, and resilience constraints that shape a solar-system economy.
+
+[Read Orbital Industry and Strategic Resource Networks](orbital-industry-and-strategic-resource-networks.md)
+
+### Interstellar Economies and Multi-System War
+
+![Interstellar Economies and Multi-System War cover](covers/interstellar-economies-and-multi-system-war.svg)
+
+Descriptor: [interstellar-economies-and-multi-system-war.book.json](interstellar-economies-and-multi-system-war.book.json)
+
+A long-horizon framework for imperial and interstellar political economies, multi-star-system logistics, strategic autonomy, mobilization, communication delay, and conflicts across civilizations spanning millions of worlds.
+
+[Read Interstellar Economies and Multi-System War](interstellar-economies-and-multi-system-war.md)
+
