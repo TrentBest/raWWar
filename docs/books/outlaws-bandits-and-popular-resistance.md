@@ -62,6 +62,8 @@ Track legitimacy, fear, material support, coercion, information, faction cohesio
 - [The Art of War](the-art-of-war.md)
 - Future: resistance movements by period, medieval outlawry, frontier societies, revolutions, and occupation.
 
+- [Formations VIII: Special Operations and Irregular Forces](formations-viii-special-operations-and-irregular-forces.md) — distinguishes specialized regular units from irregular movements, militias, partisan organizations, and clandestine civic networks.
+
 ## Editorial rule
 
 Never romanticize predation, flatten a community into a faction, or treat a state's label as the final truth. Distinguish documented history, scholarly interpretation, folklore, and original fiction at every stage.
