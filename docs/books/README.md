@@ -530,3 +530,16 @@ A systems-level study of how resources, labor, energy, capital, technical knowle
 - [Read the sourcebook](military-industry-and-wartime-production.md)
 - [Book descriptor](military-industry-and-wartime-production.book.json)
 
+
+
+
+## Contemporary warfare — Russia–Ukraine war (LOD 2)
+
+### The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation
+
+![The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation cover](covers/russia-ukraine-war-drone-robotic-and-industrial-adaptation.svg)
+
+A living, evidence-disciplined case study of the 2014–present war, emphasizing drones, ground and maritime robotics, electronic warfare, air defense, industrial adaptation, logistics, civilian life, law, and the human cost. It distinguishes verified records, attributed claims, disputed assessments, and unknowns.
+
+- [Read the sourcebook](russia-ukraine-war-drone-robotic-and-industrial-adaptation.md)
+- [Book descriptor](russia-ukraine-war-drone-robotic-and-industrial-adaptation.book.json)
