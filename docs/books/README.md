@@ -341,3 +341,56 @@ A comparative historical companion covering care before medical professions, ear
 - [Book descriptor](healing-across-the-centuries.book.json)
 
 This volume deepens [Medicine and Healing: History, Practice, and Play](medicine-and-healing.md). Further work should create carefully researched regional and period-specific studies rather than treating any broad civilization label as one uniform medical system.
+
+
+## Formations, bases, and sustainment
+
+This family treats formations, bases, and resupply as connected systems. Land, naval, and air formations have different physical and command constraints; camps and bases are service networks; resupply connects them to the wider economy and logistics chain.
+
+### Formations I: Land Forces
+
+Recursive land formations, from small teams through larger field organizations, with training, ghost slots, transitions, and scoring.
+
+- [Read the sourcebook](formations-i-land-forces.md)
+- [Book descriptor](formations-i-land-forces.book.json)
+- [Cover](covers/formations-i-land-forces.svg)
+
+### Formations II: Naval Forces
+
+Fleet geometry, station keeping, convoys, amphibious groups, mixed-domain coordination, and maritime maneuver.
+
+- [Read the sourcebook](formations-ii-naval-forces.md)
+- [Book descriptor](formations-ii-naval-forces.book.json)
+- [Cover](covers/formations-ii-naval-forces.svg)
+
+### Formations III: Air Forces
+
+Three-dimensional formation geometry, flight coordination, human factors, autonomy, and aerospace boundaries.
+
+- [Read the sourcebook](formations-iii-air-forces.md)
+- [Book descriptor](formations-iii-air-forces.book.json)
+- [Cover](covers/formations-iii-air-forces.svg)
+
+### Bases and Encampments
+
+Temporary camps, Roman castra, mobile formations, fortified bases, services, civilian relationships, and continuity.
+
+- [Read the sourcebook](bases-and-encampments.md)
+- [Book descriptor](bases-and-encampments.book.json)
+- [Cover](covers/bases-and-encampments.svg)
+
+### The Art of Resupply
+
+Supply networks, demand, transport, repair, medical logistics, contested routes, allocation, and sustainment.
+
+- [Read the sourcebook](the-art-of-resupply.md)
+- [Book descriptor](the-art-of-resupply.book.json)
+- [Cover](covers/the-art-of-resupply.svg)
+
+### Battlefield Medicine and the Casualty Chain
+
+Casualty movement, triage context, evacuation, handoff, medic HUD, ghost actions, and fictional exoskeleton cardiac support.
+
+- [Read the sourcebook](battlefield-medicine-and-the-casualty-chain.md)
+- [Book descriptor](battlefield-medicine-and-the-casualty-chain.book.json)
+- [Cover](covers/battlefield-medicine-and-the-casualty-chain.svg)
