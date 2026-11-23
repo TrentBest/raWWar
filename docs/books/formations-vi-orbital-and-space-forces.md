@@ -253,3 +253,7 @@ Before adding a case study, record its evidence label, epoch and reference frame
 ## Cross-domain ownership and implementation boundary
 
 Formations VI makes orbital and space formations a distinct member of the formation family. It does not treat spacecraft as ships or orbital trajectories as roads. Orbital Warfare and Space Infrastructure remains the broader security and governance volume; Interstellar Logistics remains a separate speculative scale. Physics owns physical simulation, raWWar owns domain meaning and scenarios, Gestures owns reusable embodied interaction, and SURPS composition remains opt-in.
+
+## Related planetary expeditionary doctrine
+
+- [Planetary Assault and Expeditionary Doctrine](planetary-assault-and-expeditionary-doctrine.md) — the expeditionary transition from orbital presence to planetary reception, sustainment, governance, and surface operations.
