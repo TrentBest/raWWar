@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">The Russia–Ukraine War: Drone, Robotic, and Industrial Adaptation</title>
+<desc id="desc">Original abstract cover showing layered sensor arcs, a network of aerial and ground robotic forms, and industrial adaptation across a contested landscape.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101c2b"/><stop offset="1" stop-color="#263b4b"/></linearGradient>
+ <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#72d6d0" stop-opacity=".8"/><stop offset="1" stop-color="#e6b96b" stop-opacity=".45"/></linearGradient>
+ <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#a9c1c8" stroke-opacity=".12"/></pattern>
+</defs>
+<rect width="1200" height="675" fill="url(#bg)"/><rect width="1200" height="675" fill="url(#grid)"/>
+<g fill="none" stroke="url(#glow)" stroke-width="3" opacity=".8">
+ <path d="M90 470C230 230 400 190 570 280S880 440 1110 160"/>
+ <path d="M70 520C250 290 410 250 590 335S890 480 1130 220" stroke-dasharray="9 12"/>
+ <circle cx="310" cy="300" r="112"/><circle cx="310" cy="300" r="160" stroke-dasharray="5 12"/>
+ <circle cx="865" cy="300" r="130"/><circle cx="865" cy="300" r="178" stroke-dasharray="5 12"/>
+</g>
+<g fill="#dce8e5" stroke="#72d6d0" stroke-width="3">
+ <path d="M290 278l20-10 20 10-20 10z"/><path d="M270 300h80M310 260v80" fill="none"/>
+ <path d="M835 285h60l-12 22h-36z"/><path d="M865 270v55M835 297h60" fill="none"/>
+ <path d="M580 390l28-18 28 18-28 18z"/><path d="M608 372v-35m-18 44h36" fill="none"/>
+</g>
+<g fill="none" stroke="#e6b96b" stroke-width="2.5"><path d="M310 300L608 390 865 300"/><path d="M608 390L740 510 865 300" stroke-dasharray="7 9"/></g>
+<g fill="#e6b96b" opacity=".9"><circle cx="310" cy="300" r="6"/><circle cx="608" cy="390" r="6"/><circle cx="865" cy="300" r="6"/><circle cx="740" cy="510" r="6"/></g>
+<path d="M72 565H1128" stroke="#dce8e5" stroke-opacity=".4"/>
+<text x="78" y="102" fill="#72d6d0" font-family="sans-serif" font-size="22" letter-spacing="6">RAWWAR • CONTEMPORARY CASE STUDY</text>
+<text x="78" y="615" fill="#f4f1e8" font-family="sans-serif" font-size="34" font-weight="700">THE RUSSIA–UKRAINE WAR</text>
+<text x="78" y="651" fill="#c5d5d5" font-family="sans-serif" font-size="19" letter-spacing="2">DRONES • ROBOTICS • INDUSTRIAL ADAPTATION</text>
+</svg>
