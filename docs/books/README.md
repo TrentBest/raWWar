@@ -176,3 +176,16 @@ Arsacid elite politics, mounted capabilities, horse supply, Roman-Parthian campa
 Sasanian military institutions, cavalry and combined capabilities, frontier fortifications, siege endurance, diplomacy, and the seventh-century transformation.
 - [Read the sourcebook](sasanian-warfare.md)
 - [Book descriptor](sasanian-warfare.book.json)
+
+
+## Steppe empires and Viking-age networks
+
+### Mongol Warfare
+A study of the Mongol Empire's political formation, steppe ecology, mounted mobility, command, intelligence, adaptation to siege warfare, regional campaigns, and successor khanates. It distinguishes the early unified empire from later states and avoids reducing diverse populations to a single identity.
+- [Read the sourcebook](mongol-warfare.md)
+- [Book descriptor](mongol-warfare.book.json)
+
+### Viking-Age Warfare
+A regional study of Scandinavian maritime activity, ships, raiding, trade, settlement, armed groups, and state formation across the North Atlantic, British Isles, Baltic, eastern river routes, and neighboring regions.
+- [Read the sourcebook](viking-age-warfare.md)
+- [Book descriptor](viking-age-warfare.book.json)
