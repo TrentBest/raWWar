@@ -117,24 +117,27 @@ Do not create empty placeholder books merely to inflate counts. Build a useful L
 
 - [Warfare and Organized Force, LOD 1](docs/books/warfare-and-organized-force.md) — foundational domain map.
 - [Fortifications and Strongholds, LOD 2](docs/books/fortifications-and-strongholds.md) — defensive places, threat models, siege endurance, engineering, sustainment, civilian life.
+- [The Art of War, LOD 2](docs/books/the-art-of-war.md) — thirteen-chapter Sun Tzu tradition, textual history, strategic themes, translation discipline, and play/simulation applications.
+- Original cover: [the-art-of-war.svg](docs/books/covers/the-art-of-war.svg).
 - [Sourcebook catalogue](docs/books/index.md).
 - [Editorial collection and roadmap](docs/books/README.md).
 - [SURPS participation issue](https://github.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/issues/4).
 - [raWWar sourcebook programme issue](https://github.com/TrentBest/raWWar/issues/12).
 
-Build next: The Art of War; Greek Warfare; Persian Warfare (separate Achaemenid/Parthian/Sasanian treatments); Roman Warfare; Piracy and Maritime Raiding; Outlaws, Bandits and Popular Resistance. Then deepen into campaigns, battles, leaders, formations, equipment, doctrine, logistics, civilian experience, and playable scenarios.
+Build next: Greek Warfare; Persian Warfare (separate Achaemenid/Parthian/Sasanian treatments); Roman Warfare; Piracy and Maritime Raiding; Outlaws, Bandits and Popular Resistance. Then deepen into campaigns, battles, leaders, formations, equipment, doctrine, logistics, civilian experience, and playable scenarios.
 
 ## Resume procedure
 
 1. Read this file, `docs/books/README.md`, and `docs/books/index.md`.
 2. Inspect current `development` head and working tree/branch list. Do not assume SHAs in this document are current.
-3. Check recent GitHub Actions runs and inspect failures. The build-and-contract run for commit `e87cdb05666e8b7938834083087e978885513885` succeeded; the subsequent fortifications commit `9d55c3288c89caec7427e19e4ebaede20e41435b` had its build workflow pending at last handoff, while Sith Policy failed because an extra branch existed.
+3. Check recent GitHub Actions runs and inspect failures. The build-and-contract run for commit `e87cdb05666e8b7938834083087e978885513885` succeeded. The subsequent fortifications commit `9d55c3288c89caec7427e19e4ebaede20e41435b` also passed its full build-and-contract workflow (run `45089000651`); Sith Policy failed (run `45089000634`) because `integration/autonomous-development-pipeline` remains alongside `master` and `development`. No branch was deleted.
 4. Inspect open issues and recent comments before creating duplicate coordination work.
-5. Continue on `development`; refresh file SHAs before updates.
-6. Add meaningful content and keep all catalogue/navigation documents synchronized.
-7. Run/inspect CI. Report actual status, not intended status.
-8. Update this onboarding file whenever architecture, priorities, branch state, key commits, workflow outcomes, or coordination blockers materially change.
-9. End each session with a short resume note: latest commit, changed books, validation, next steps, and unresolved blockers.
+5. Current sourcebook work since the fortifications milestone: `AGENTS.md` onboarding; The Art of War LOD 2 descriptor, original SVG cover, and sourcebook; catalogue and collection README updated. Latest known sourcebook commit: `2cabc722b10e68f3ea43b34c78420c4902e0a637` (verify current branch head before resuming).
+6. Continue on `development`; refresh file SHAs before updates.
+7. Add meaningful content and keep all catalogue/navigation documents synchronized.
+8. Run/inspect CI. Report actual status, not intended status.
+9. Update this onboarding file whenever architecture, priorities, branch state, key commits, workflow outcomes, or coordination blockers materially change.
+10. End each session with a short resume note: latest commit, changed books, validation, next steps, and unresolved blockers.
 
 ## Creator's north star
 
