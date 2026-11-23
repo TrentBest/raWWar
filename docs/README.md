@@ -121,3 +121,5 @@ If implementation exposes a better possibility, record the possibility here firs
 ## Medicine and healing sourcebooks
 
 - [Medicine and Healing: History, Practice, and Play](books/medicine-and-healing.md) — the new LOD 2 foundation for the raWWar medicine series, connecting historical healing, battlefield casualty care, medic roles and HUD design, fantasy restoration, and future medicine. It distinguishes clinical reality from fictional technology and game mechanics.
+
+- [Healing Across the Centuries](books/healing-across-the-centuries.md) — a comparative world history of healing, care work, medical knowledge, institutions, war, public health, disability, and recovery.
