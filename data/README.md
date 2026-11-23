@@ -27,6 +27,7 @@ The identifiers in these files are stable semantic keys. They are intended to be
 - `ship-assemblies.json` — candidate ship envelope, structural zones, part hierarchy, dependencies, repair approaches, and salvage classes.
 - `faction-ship-doctrines.json` — candidate faction design-language dimensions and unassigned ship-style archetypes with physical tradeoffs.
 - `campaign-galaxy-manifests.json` — authored single-player galaxy manifests, automatic multiplayer generation policy, authoring controls, validation gates, and an illustrative scenario.
+- `universe-foundation.json` — creator-established setting envelope, Imperial Summons entry-point references, explicit unresolved canon, and the first autonomous world-building target.
 - `civilization-lineages.json` — graph-based civilization ancestry, colonization and succession relationships, selective heritage, historical evidence, and divergence causes.
 - `milky-way-reference-model.json` — provenance-aware astronomical baseline, Solar System anchor, motion/time rules, and separation of measured, inferred, and generated populations.
 - `navigation-reference-frames.json` — versioned coordinate-frame transformations, historical chart conventions, navigation equipment limits, and persistent chart provenance.
