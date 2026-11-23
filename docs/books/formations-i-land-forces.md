@@ -12,6 +12,8 @@ This raWWar-owned LOD 2 manual is for historical study, roleplaying, and simulat
 
 ## Related sourcebooks
 
+- [Formations VII: Amphibious and Littoral Forces](formations-vii-amphibious-and-littoral-forces.md) — cross-domain organization connecting naval forces, embarked units, transfer services, shore infrastructure, and civilian coastal systems.
+
 - [Warfare and Organized Force](warfare-and-organized-force.md)
 - [Fortifications and Strongholds](fortifications-and-strongholds.md)
 - [Medicine and Healing](medicine-and-healing.md)
