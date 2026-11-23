@@ -428,3 +428,16 @@ Descriptor: [battlefield-medicine-and-the-casualty-chain.book.json](battlefield-
 Casualty movement, triage context, evacuation, handoff, medic HUD, ghost actions, and fictional exoskeleton cardiac support.
 
 [Read Battlefield Medicine and the Casualty Chain](battlefield-medicine-and-the-casualty-chain.md)
+## Formations IV — mounted and cavalry forces (LOD 2)
+
+### Formations IV: Mounted and Cavalry Forces
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Formations IV: Mounted and Cavalry Forces cover](covers/formations-iv-mounted-and-cavalry.svg)
+
+Descriptor: [formations-iv-mounted-and-cavalry.book.json](formations-iv-mounted-and-cavalry.book.json)
+
+A reusable study of mounted organizations across periods and regions: cavalry, mounted infantry, scouts, couriers, chariots, animal logistics, remount systems, dismounted transitions, animal welfare, and simulation requirements. It treats mounts as living participants rather than equipment.
+
+[Read Formations IV: Mounted and Cavalry Forces](formations-iv-mounted-and-cavalry.md)
