@@ -97,3 +97,42 @@ Weapons and ammunition; armor and protective equipment; vehicles, ships, aircraf
 - SURPS remains opt-in. The disabled Experience path must remain valid.
 
 The first book is an editorial foundation. Automated descriptor validation, shared badge integration, and runtime composition must be verified separately; this library does not claim those capabilities are already implemented.
+
+
+## New LOD 2 sourcebooks — maritime, irregular, global, and speculative warfare
+
+### Piracy and Maritime Raiding
+
+![Piracy and Maritime Raiding cover](covers/piracy-and-maritime-raiding.svg)
+
+A maritime study distinguishing piracy, privateering, corsairing, naval warfare, smuggling, and coastal raiding, with attention to the people and political economies surrounding the sea.
+
+- [Read the sourcebook](piracy-and-maritime-raiding.md)
+- [Book descriptor](piracy-and-maritime-raiding.book.json)
+
+### Outlaws, Bandits, and Popular Resistance
+
+![Outlaws, Bandits, and Popular Resistance cover](covers/outlaws-bandits-and-popular-resistance.svg)
+
+A careful treatment of outlawry, brigandage, social banditry, rebellion, insurgency, community legitimacy, and Robin Hood as a layered folklore tradition rather than a verified biography.
+
+- [Read the sourcebook](outlaws-bandits-and-popular-resistance.md)
+- [Book descriptor](outlaws-bandits-and-popular-resistance.book.json)
+
+### Chinese Warfare
+
+![Chinese Warfare cover](covers/chinese-warfare.svg)
+
+A periodized orientation to Chinese military history that resists treating millennia of changing states and institutions as one unchanging system.
+
+- [Read the sourcebook](chinese-warfare.md)
+- [Book descriptor](chinese-warfare.book.json)
+
+### Science Fiction Warfare
+
+![Science Fiction Warfare cover](covers/science-fiction-warfare.svg)
+
+A first-class speculative domain covering future terrestrial conflict, orbital and planetary infrastructure, autonomous systems, cyber and information conflict, habitat defense, interstellar campaigns, and ethical consequences. It explicitly distinguishes established facts from extrapolation and invented setting rules.
+
+- [Read the sourcebook](science-fiction-warfare.md)
+- [Book descriptor](science-fiction-warfare.book.json)
