@@ -365,3 +365,66 @@ Descriptor: [healing-across-the-centuries.book.json](healing-across-the-centurie
 A comparative world history of caregivers, medical knowledge, institutions, surgery, public health, war, disability, and changing meanings of recovery. It avoids a single ladder of progress and distinguishes archaeological, textual, institutional, retrospective, and legendary evidence.
 
 [Read Healing Across the Centuries](healing-across-the-centuries.md)
+
+
+## Formations, bases, and sustainment — reusable manuals (LOD 2)
+
+### Formations I: Land Forces
+
+![Formations I: Land Forces cover](covers/formations-i-land-forces.svg)
+
+Descriptor: [formations-i-land-forces.book.json](formations-i-land-forces.book.json)
+
+Recursive land formations, from small teams through larger field organizations, with training, ghost slots, transitions, and scoring.
+
+[Read Formations I: Land Forces](formations-i-land-forces.md)
+
+### Formations II: Naval Forces
+
+![Formations II: Naval Forces cover](covers/formations-ii-naval-forces.svg)
+
+Descriptor: [formations-ii-naval-forces.book.json](formations-ii-naval-forces.book.json)
+
+Fleet geometry, station keeping, convoys, amphibious groups, mixed-domain coordination, and maritime maneuver.
+
+[Read Formations II: Naval Forces](formations-ii-naval-forces.md)
+
+### Formations III: Air Forces
+
+![Formations III: Air Forces cover](covers/formations-iii-air-forces.svg)
+
+Descriptor: [formations-iii-air-forces.book.json](formations-iii-air-forces.book.json)
+
+Three-dimensional formation geometry, flight coordination, human factors, autonomy, and aerospace boundaries.
+
+[Read Formations III: Air Forces](formations-iii-air-forces.md)
+
+### Bases and Encampments
+
+![Bases and Encampments cover](covers/bases-and-encampments.svg)
+
+Descriptor: [bases-and-encampments.book.json](bases-and-encampments.book.json)
+
+Temporary camps, Roman castra, mobile formations, fortified bases, services, civilian relationships, and continuity.
+
+[Read Bases and Encampments](bases-and-encampments.md)
+
+### The Art of Resupply
+
+![The Art of Resupply cover](covers/the-art-of-resupply.svg)
+
+Descriptor: [the-art-of-resupply.book.json](the-art-of-resupply.book.json)
+
+Supply networks, demand, transport, repair, medical logistics, contested routes, allocation, and sustainment.
+
+[Read The Art of Resupply](the-art-of-resupply.md)
+
+### Battlefield Medicine and the Casualty Chain
+
+![Battlefield Medicine and the Casualty Chain cover](covers/battlefield-medicine-and-the-casualty-chain.svg)
+
+Descriptor: [battlefield-medicine-and-the-casualty-chain.book.json](battlefield-medicine-and-the-casualty-chain.book.json)
+
+Casualty movement, triage context, evacuation, handoff, medic HUD, ghost actions, and fictional exoskeleton cardiac support.
+
+[Read Battlefield Medicine and the Casualty Chain](battlefield-medicine-and-the-casualty-chain.md)
