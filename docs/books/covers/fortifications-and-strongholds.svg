@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Fortifications and Strongholds</title>
+<desc id="desc">A mountain stronghold with layered defensive walls, a guarded gate, and inhabited lights within.</desc>
+<defs>
+  <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#182535"/><stop offset="1" stop-color="#394451"/></linearGradient>
+  <linearGradient id="rock" x2="0" y2="1"><stop stop-color="#7b827f"/><stop offset="1" stop-color="#343d43"/></linearGradient>
+  <linearGradient id="glow" x2="0" y2="1"><stop stop-color="#f4c66d"/><stop offset="1" stop-color="#a65c32"/></linearGradient>
+</defs>
+<rect width="1200" height="675" fill="url(#sky)"/>
+<path d="M0 520 210 260 330 355 520 115 760 360 900 220 1200 530V675H0Z" fill="url(#rock)"/>
+<path d="M0 560 230 370 380 430 560 260 760 445 930 340 1200 565V675H0Z" fill="#252f36"/>
+<path d="M230 470 230 390 390 390 390 470 530 470 530 320 650 320 650 470 830 470 830 390 970 390 970 470" fill="none" stroke="#b9b5a6" stroke-width="24"/>
+<path d="M210 475H990" stroke="#d0c6aa" stroke-width="18"/>
+<path d="M520 475V390Q590 300 660 390V475Z" fill="#17232d" stroke="#d0c6aa" stroke-width="16"/>
+<path d="M540 460V402Q590 338 640 402V460Z" fill="url(#glow)"/>
+<g fill="#f4d58a"><rect x="278" y="412" width="22" height="30"/><rect x="340" y="412" width="22" height="30"/><rect x="555" y="360" width="18" height="22"/><rect x="610" y="360" width="18" height="22"/><rect x="870" y="412" width="22" height="30"/><rect x="930" y="412" width="22" height="30"/></g>
+<g stroke="#d4d0c2" stroke-width="5" fill="none"><path d="M180 500V340M180 340l-30 40M180 340l30 40"/><path d="M1020 500V330M1020 330l-30 40M1020 330l30 40"/></g>
+<text x="600" y="590" text-anchor="middle" font-family="Georgia,serif" font-size="48" letter-spacing="5" fill="#f4ead4">FORTIFICATIONS &amp; STRONGHOLDS</text>
+<text x="600" y="630" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" letter-spacing="4" fill="#d6c9ae">RAWWAR · SURPS DOMAIN MANUAL · LOD 2</text>
+</svg>
