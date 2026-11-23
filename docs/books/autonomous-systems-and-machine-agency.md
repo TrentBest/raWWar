@@ -102,3 +102,12 @@ Create dilemmas where the best outcome may be refusal, delay, de-escalation, dis
 ## Further research
 
 Future LOD 3 volumes can examine bounded autonomy in logistics and sensing, command accountability, machine political communities, human-machine coalition governance, and autonomous systems in orbital or habitat settings. Each should state its evidence class, scope, assumptions, and civilian consequences.
+
+
+## Related science-fiction volumes
+
+- [Science Fiction Warfare](science-fiction-warfare.md) — broad future-facing warfare context.
+- [Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md) — infrastructure, access, and orbital constraints.
+- [Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md) — civilian systems and settlement protection.
+- [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) — long-distance networks and autonomous sustainment.
+- [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) — non-human and machine political relationships.
