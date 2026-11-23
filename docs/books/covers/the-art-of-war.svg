@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">The Art of War — sourcebook cover</title>
+  <desc id="desc">An original ink-inspired landscape with a mountain pass, river, watchtowers, and a field of banners.</desc>
+  <defs>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8dfc8"/>
+      <stop offset="1" stop-color="#b9aa8c"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8dfc8" stop-opacity="0"/>
+      <stop offset="1" stop-color="#e8dfc8" stop-opacity=".92"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1600" fill="#202a2b"/>
+  <rect x="38" y="38" width="1124" height="1524" fill="url(#paper)"/>
+  <path d="M38 1030 L220 690 355 820 535 470 690 760 850 530 1162 970 1162 1562 38 1562Z" fill="#58635c"/>
+  <path d="M38 1130 L245 880 410 1010 590 700 760 960 930 740 1162 1080 1162 1562 38 1562Z" fill="#394744"/>
+  <path d="M38 1190 Q300 1100 470 1200 T820 1170 T1162 1210 L1162 1562 38 1562Z" fill="#8b8b72"/>
+  <path d="M410 1562 Q530 1370 650 1280 Q740 1215 820 1225 Q900 1240 970 1360 L1080 1562Z" fill="#566b6b"/>
+  <path d="M0 1360 Q260 1280 420 1360 T760 1340 T1200 1380" fill="none" stroke="#d9d0b8" stroke-width="18" opacity=".8"/>
+  <g fill="#283432" opacity=".9">
+    <path d="M170 1020h20v-110h-20z M150 910h60l-30-45z"/>
+    <path d="M980 1010h24V850h-24z M955 850h74l-37-52z"/>
+    <path d="M100 1080h8v-90h-8z M88 990h32l-16-24z"/>
+  </g>
+  <g stroke="#283432" stroke-width="8" fill="none" opacity=".8">
+    <path d="M600 980V690 M600 720l130 45-130 45z"/>
+    <path d="M770 1050V830 M770 860l100 35-100 35z"/>
+    <path d="M450 1070V880 M450 910l-95 35 95 35z"/>
+  </g>
+  <rect x="38" y="38" width="1124" height="1524" fill="url(#mist)"/>
+  <g fill="#202a2b" text-anchor="middle" font-family="Georgia,serif">
+    <text x="600" y="220" font-size="36" letter-spacing="12">SINGULARITY WORKSHOP</text>
+    <text x="600" y="360" font-size="112" font-weight="bold">THE ART</text>
+    <text x="600" y="480" font-size="112" font-weight="bold">OF WAR</text>
+    <path d="M300 530H900" stroke="#202a2b" stroke-width="3"/>
+    <text x="600" y="600" font-size="34" letter-spacing="7">SUN TZU · STRATEGY · CONTEXT</text>
+    <text x="600" y="1460" font-size="30" letter-spacing="8">A LIVING SOURCEBOOK</text>
+  </g>
+  <rect x="58" y="58" width="1084" height="1484" fill="none" stroke="#394744" stroke-width="3"/>
+</svg>
