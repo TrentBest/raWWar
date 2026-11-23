@@ -189,3 +189,23 @@ A study of the Mongol Empire's political formation, steppe ecology, mounted mobi
 A regional study of Scandinavian maritime activity, ships, raiding, trade, settlement, armed groups, and state formation across the North Atlantic, British Isles, Baltic, eastern river routes, and neighboring regions.
 - [Read the sourcebook](viking-age-warfare.md)
 - [Book descriptor](viking-age-warfare.book.json)
+
+
+## Roman warfare — focused studies
+
+### Roman Republican Warfare
+Civic and allied manpower, changing republican institutions, command, Mediterranean expansion, naval adaptation, and the late-Republican civil-war crisis.
+- [Read the sourcebook](roman-republican-warfare.md)
+- [Book descriptor](roman-republican-warfare.book.json)
+
+### The Roman Imperial Army
+Imperial legions and auxiliary forces, recruitment, service and military society, frontier zones, logistics, imperial politics, and late antique transformation.
+- [Read the sourcebook](roman-imperial-army.md)
+- [Book descriptor](roman-imperial-army.book.json)
+
+## Science-fiction warfare — planetary settlement systems
+
+### Planetary Defense and Habitat Conflict
+A high-level, civilian-centered systems study of planetary defense, habitat life-support resilience, governance, security, law, autonomy, and de-escalation. The book labels established, extrapolated, speculative, and fictional claims separately and deliberately avoids real-world infrastructure attack procedures.
+- [Read the sourcebook](planetary-defense-and-habitat-conflict.md)
+- [Book descriptor](planetary-defense-and-habitat-conflict.book.json)
