@@ -340,3 +340,10 @@ For interstellar settings, do not treat distance as a simple map measurement or 
 - The foundation book now links reciprocally to this historical companion. Both catalogue surfaces and docs/README.md have been updated for the new volume.
 - Validate descriptor JSON, descriptor ID/LOD/cover path, SVG root/title/closing tag, sourcebook links in index and README, reciprocal cross-link, and current CI status. The earlier commit-scoped workflow wrapper only returned PR-triggered runs; empty results do not prove push CI status.
 - Next recommended volume: **Battlefield Medicine and the Casualty Chain**, with a deeper, historically grounded treatment of evacuation, triage, trauma systems, field hospitals, medical neutrality, and the player-medic HUD. Keep procedural real-world medicine non-instructional and use current authoritative clinical sources for any specific claims.
+
+
+## Medicine sourcebook CI result (2026-11-23)
+
+- Build and contract checks passed for the medicine-series catalogue checkpoint: [GitHub Actions run 45117789795](https://github.com/TrentBest/raWWar/actions/runs/45117789795), commit `d5021f3bc92bdb2da3884af12ca6c2e06a6db237`.
+- Sith Policy failed in [run 45117789786](https://github.com/TrentBest/raWWar/actions/runs/45117789786), because `integration/autonomous-development-pipeline` remains alongside `master` and `development`. This branch is still not approved for deletion; request explicit owner approval after ancestry and unique commits are inspected.
+- The medicine books, descriptors, covers, reciprocal cross-link, catalogue entries, docs navigation, and this handoff are present on `development`. The latest handoff update follows the successful content build. Re-run build/contract checks after subsequent edits.
