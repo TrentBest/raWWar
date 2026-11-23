@@ -116,3 +116,8 @@ The design should lead the implementation.
 If implementation exposes a better possibility, record the possibility here first rather than allowing an implementation convenience to silently become game design.
 
 - [Workshop Composition Boundary](WORKSHOP_COMPOSITION_BOUNDARY.md) — ownership rules for reusable Workshop MicroBundles versus raWWar domain content.
+
+
+## Medicine and healing sourcebooks
+
+- [Medicine and Healing: History, Practice, and Play](books/medicine-and-healing.md) — the new LOD 2 foundation for the raWWar medicine series, connecting historical healing, battlefield casualty care, medic roles and HUD design, fantasy restoration, and future medicine. It distinguishes clinical reality from fictional technology and game mechanics.
