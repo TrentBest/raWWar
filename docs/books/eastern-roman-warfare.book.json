@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "id": "surps.domain.eastern-roman-warfare",
+  "category": "Domain",
+  "lod": 2,
+  "title": "Eastern Roman Warfare",
+  "version": "0.1.0",
+  "cover": "docs/books/covers/eastern-roman-warfare.svg",
+  "lodBadge": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg",
+  "publisher": "The Singularity Workshop",
+  "publisherMoniker": "https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.Visualize/development/docs/assets/moniker.svg"
+}
