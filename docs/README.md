@@ -137,3 +137,8 @@ If implementation exposes a better possibility, record the possibility here firs
 
 
 - [Formations VIII: Special Operations and Irregular Forces](books/formations-viii-special-operations-and-irregular-forces.md) — distinguishes specialized regular units from irregular organizations, resistance, insurgency, partisans, militias, auxiliaries, and clandestine civic networks, with emphasis on civilian agency, accountability, and transition.
+
+
+- [Formations IX: Engineering and Construction Forces](books/formations-ix-engineering-and-construction-forces.md) — engineering formations, temporary crossings, bridge trains, floating bridges, ferries, route and field infrastructure, repair, recovery, and project handover.
+- [Formations X: Armadas and Flotillas](books/formations-x-armadas-and-flotillas.md) — fleet organization from flotillas to armadas, escorts, transports, auxiliaries, coalition command, maritime sustainment, and civilian shipping.
+- [Planetary Assault and Expeditionary Doctrine](books/planetary-assault-and-expeditionary-doctrine.md) — science-fiction planetary arrival and expeditionary doctrine, orbital-to-surface transitions, foothold services, local authority, logistics, civilian protection, and escalation.
