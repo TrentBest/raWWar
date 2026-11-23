@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1600" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+<title id="title">Alien Civilizations and Political Systems</title>
+<desc id="desc">Original abstract cover showing many inhabited worlds connected by a network of institutions and diplomatic pathways.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#071629"/><stop offset="1" stop-color="#203c54"/></linearGradient>
+  <radialGradient id="planet"><stop offset="0" stop-color="#b5e0d7"/><stop offset="1" stop-color="#3c8490"/></radialGradient>
+  <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#e6c98c"/><stop offset="1" stop-color="#70c8c1"/></linearGradient>
+</defs>
+<rect width="1200" height="1600" fill="url(#bg)"/>
+<g fill="none" stroke="url(#line)" stroke-width="5" opacity=".8">
+ <path d="M210 510 Q600 250 990 510 T210 850 Q600 1100 990 850"/>
+ <path d="M210 510 L600 700 L990 510 M210 850 L600 700 L990 850"/>
+ <path d="M600 310 L600 1090"/>
+</g>
+<g fill="url(#planet)" stroke="#d4eee5" stroke-width="4">
+ <circle cx="210" cy="510" r="90"/><circle cx="990" cy="510" r="90"/>
+ <circle cx="210" cy="850" r="90"/><circle cx="990" cy="850" r="90"/>
+ <circle cx="600" cy="700" r="130"/>
+</g>
+<g fill="#0b2338" opacity=".65">
+ <path d="M145 500q55-45 105 0t25 55q-60 45-120-5z"/>
+ <path d="M930 500q60-35 110 15t-15 55q-55 10-95-30z"/>
+ <path d="M150 840q40-55 105-10t15 65q-60 35-120-5z"/>
+ <path d="M930 840q60-50 115 0t-20 65q-65 10-95-30z"/>
+ <path d="M520 680q70-90 150-10t-5 100q-85 35-145-20z"/>
+</g>
+<g fill="#f2e6c7">
+ <circle cx="600" cy="310" r="12"/><circle cx="600" cy="1090" r="12"/>
+ <circle cx="410" cy="600" r="9"/><circle cx="790" cy="800" r="9"/>
+</g>
+<text x="600" y="1250" text-anchor="middle" fill="#f5f0df" font-family="Georgia,serif" font-size="66" letter-spacing="3">ALIEN CIVILIZATIONS</text>
+<text x="600" y="1335" text-anchor="middle" fill="#b9ddd6" font-family="Georgia,serif" font-size="52" letter-spacing="5">AND POLITICAL SYSTEMS</text>
+<path d="M170 1390H1030" stroke="#d7bd83" stroke-width="3"/>
+<text x="600" y="1460" text-anchor="middle" fill="#d6e2dc" font-family="Arial,sans-serif" font-size="25" letter-spacing="7">A LIVING HISTORY OF POWER AND CHOICE</text>
+</svg>
