@@ -278,3 +278,17 @@ A reusable framework for building fictional civilizations through historical tra
 - [Book descriptor](alien-civilizations-and-political-systems.book.json)
 
 This LOD 3 volume deepens [Alien Contact, Diplomacy, and Conflict](alien-contact-diplomacy-and-conflict.md) by giving setting authors a way to construct internally diverse societies before writing contact or conflict. It also links to interstellar logistics, autonomous agency, and planetary habitat resilience. All civilization examples remain fictional; no extraterrestrial civilization is confirmed.
+
+
+## LOD 3 — a worked alien civilization and campaign
+
+### The Nacrean Compact and the Tidal Archive Crisis
+
+![The Nacrean Compact and the Tidal Archive Crisis cover](covers/nacrean-compact-and-tidal-archive-crisis.svg)
+
+A fully fictional civilization dossier and campaign history. The Nacrean Compact is a distributed ocean-world polity with overlapping jurisdictions, competing coalitions, unequal political membership, shared life-support infrastructure, and a public archive whose disputed records trigger a constitutional crisis. The campaign explores evidence provenance, service continuity, emergency authority, civilian agency, lawful restraint, and negotiated institutional reform rather than assuming that conflict must culminate in battle.
+
+- [Read the sourcebook](nacrean-compact-and-tidal-archive-crisis.md)
+- [Book descriptor](nacrean-compact-and-tidal-archive-crisis.book.json)
+
+This LOD 3 case study applies [Alien Civilizations and Political Systems](alien-civilizations-and-political-systems.md) and cross-links to alien contact, interstellar logistics, planetary habitat resilience, and autonomous systems governance. Its world, people, institutions, and history are fictional; no extraterrestrial civilization is confirmed.
