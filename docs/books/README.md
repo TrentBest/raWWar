@@ -425,3 +425,14 @@ A dedicated formation manual for orbital and space organizations, distinct from 
 - [Cover](covers/formations-vi-orbital-and-space-forces.svg)
 
 This volume complements [Orbital Warfare and Space Infrastructure](orbital-warfare-and-space-infrastructure.md), which covers the wider security, governance, and infrastructure domain. It also connects to [Interstellar Logistics and Strategy](interstellar-logistics-and-strategy.md) without conflating established orbital mechanics with speculative interstellar travel.
+
+
+### Formations VII: Amphibious and Littoral Forces
+
+A cross-domain formation manual centered on the sea-to-shore transition: embarked organizations, transfer assets, coastal and riverine environments, port infrastructure, command authority, sustainment throughput, medical movement, civilian dependencies, and humanitarian response.
+
+- [Read the sourcebook](formations-vii-amphibious-and-littoral-forces.md)
+- [Book descriptor](formations-vii-amphibious-and-littoral-forces.book.json)
+- [Cover](covers/formations-vii-amphibious-and-littoral-forces.svg)
+
+This volume joins [Formations I: Land Forces](formations-i-land-forces.md) and [Formations II: Naval Forces](formations-ii-naval-forces.md) without collapsing amphibious organizations into either domain. It connects shore sustainment to [The Art of Resupply](the-art-of-resupply.md) and persistent facilities to [Bases and Encampments](bases-and-encampments.md).
