@@ -375,3 +375,14 @@ Each new volume has a .book.json descriptor and original SVG cover. Both sourceb
 - Physics owns physical simulation; Gestures owns reusable embodied movement; raWWar owns domain meaning, context, and evaluation; host/runtime owns execution. SURPS remains opt-in.
 
 Validate all descriptors as JSON, SVG covers as XML, cover paths, catalogue links, cross-links, and current CI. Do not infer runtime implementation from documentation. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit approval.
+
+
+## Validation checkpoint — formations and sustainment family (2026-11-23)
+
+- Six new LOD 2 sourcebooks are present with descriptors and original SVG covers: Formations I: Land Forces; Formations II: Naval Forces; Formations III: Air Forces; Bases and Encampments; The Art of Resupply; Battlefield Medicine and the Casualty Chain.
+- All six descriptors were fetched and parsed as JSON. Each descriptor ID and LOD 2 value were checked; each declared cover path matches a fetched SVG. Each SVG has an opening/closing root and title. All six Markdown files were fetched; section counts range from 16 to 21 major headings.
+- Both book catalogue surfaces and docs/README.md were updated; the Medicine and Healing foundation cross-links to the battlefield companion. The new books cross-link within the family.
+- The battlefield medicine companion explicitly specifies ghost cut-line guidance, tool alignment, emphatic but interpretable haptic cues, transparent scoring dimensions, tracking-confidence gating, and accessible non-haptic alternatives. It also records the fictional suit-integrated cardiac-support leads as predefined protected interfaces around the cardiac region, with a dedicated controller and reserved energy. This remains setting fiction, not clinical guidance.
+- Earlier book-content checkpoint build passed: [run 45121085453](https://github.com/TrentBest/raWWar/actions/runs/45121085453), on the battlefield companion's initial commit. The later catalogue/handoff and haptic refinement commits triggered newer workflows; check the latest run before claiming final build/contract success.
+- Latest source update before this handoff: 9badfb6cef3a3ecce25e7ef372c661ea76fe7ed0. The handoff commit that follows this note will become the new branch head.
+- Branches observed: development, master, and integration/autonomous-development-pipeline. The extra branch remains unapproved for deletion. No branch deletion, master merge, release, deployment, privileged workflow dispatch, or package publication occurred.
