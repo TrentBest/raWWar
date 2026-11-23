@@ -441,3 +441,18 @@ Descriptor: [formations-iv-mounted-and-cavalry.book.json](formations-iv-mounted-
 A reusable study of mounted organizations across periods and regions: cavalry, mounted infantry, scouts, couriers, chariots, animal logistics, remount systems, dismounted transitions, animal welfare, and simulation requirements. It treats mounts as living participants rather than equipment.
 
 [Read Formations IV: Mounted and Cavalry Forces](formations-iv-mounted-and-cavalry.md)
+
+
+## Formations V — mechanized and armored forces (LOD 2)
+
+### Formations V: Mechanized and Armored Forces
+
+![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
+
+![Formations V: Mechanized and Armored Forces cover](covers/formations-v-mechanized-and-armored-forces.svg)
+
+Descriptor: [formations-v-mechanized-and-armored-forces.book.json](formations-v-mechanized-and-armored-forces.book.json)
+
+A systems-level manual for armored and mechanized organizations: crews, vehicles, dismounted personnel, command, route and infrastructure constraints, fuel and stores, maintenance, recovery, industrial depth, medical support, civilian effects, autonomy, and transparent simulation contracts.
+
+[Read Formations V: Mechanized and Armored Forces](formations-v-mechanized-and-armored-forces.md)
