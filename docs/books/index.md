@@ -238,3 +238,38 @@ Descriptor: [planetary-defense-and-habitat-conflict.book.json](planetary-defense
 A systems-level treatment of planetary protection, habitat resilience, governance, civilian survival, and conflict de-escalation.
 
 [Read Planetary Defense and Habitat Conflict](planetary-defense-and-habitat-conflict.md)
+
+
+## Roman civil-war and Eastern Roman companions
+
+### Roman Civil Wars
+
+![Roman Civil Wars cover](covers/roman-civil-wars.svg)
+
+Descriptor: [roman-civil-wars.book.json](roman-civil-wars.book.json)
+
+A study of the Social War, Sulla, Caesar, the triumviral struggles, and the Augustan settlement, emphasizing legitimacy, coalition politics, finance, and civilian consequences.
+
+[Read Roman Civil Wars](roman-civil-wars.md)
+
+### Eastern Roman Warfare
+
+![Eastern Roman Warfare cover](covers/eastern-roman-warfare.svg)
+
+Descriptor: [eastern-roman-warfare.book.json](eastern-roman-warfare.book.json)
+
+A periodized account of eastern Roman military transformation from late antiquity to 1453, including fiscal foundations, frontier systems, diplomacy, fortifications, and changing regional contexts.
+
+[Read Eastern Roman Warfare](eastern-roman-warfare.md)
+
+## Science-fiction warfare — machine agency
+
+### Autonomous Systems and Machine Agency
+
+![Autonomous Systems and Machine Agency cover](covers/autonomous-systems-and-machine-agency.svg)
+
+Descriptor: [autonomous-systems-and-machine-agency.book.json](autonomous-systems-and-machine-agency.book.json)
+
+Examines delegation, oversight, accountability, reliability, escalation, civilian protection, and speculative machine political agency. It separates established capability from extrapolation, speculation, and fictional premises.
+
+[Read Autonomous Systems and Machine Agency](autonomous-systems-and-machine-agency.md)
