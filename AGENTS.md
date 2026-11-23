@@ -221,3 +221,15 @@ Two further LOD 2 books extend the historical catalogue:
 - [Viking-Age Warfare](docs/books/viking-age-warfare.md) — maritime networks, ships, raiding and trade, settlement, armed groups, and regionally distinct political transformations.
 
 Both have matching descriptors and original SVG covers. Index and collection README are current. Maintain the distinction between raiding, trade, settlement, mercenary service, and conquest; do not flatten regional actors into a single identity.
+
+
+## Latest expansion — Roman and planetary settlement warfare (2026-11-23)
+
+Three LOD 2 sourcebooks were added:
+- [Roman Republican Warfare](docs/books/roman-republican-warfare.md) — civic and allied manpower, republican command, Mediterranean expansion, naval adaptation, and civil-war transformation.
+- [The Roman Imperial Army](docs/books/roman-imperial-army.md) — imperial military institutions, frontier systems, recruitment, logistics, military society, and late antique change.
+- [Planetary Defense and Habitat Conflict](docs/books/planetary-defense-and-habitat-conflict.md) — planetary and habitat resilience, governance, civilian protection, legal uncertainty, autonomy, and de-escalation.
+
+Each has a matching LOD 2 descriptor and original SVG cover. The science-fiction volume must retain explicit evidence labels (established, extrapolated, speculative, fictional) and remain a high-level resilience and consequence framework, not a procedural guide to attacking real infrastructure.
+
+Next priorities: Roman civil wars and late antique/Eastern Roman development; then science-fiction companion volumes on autonomous systems and machine agency, interstellar logistics, and alien contact/diplomacy/conflict. Continue to separate historical evidence from literary memory and speculative technology from established capability.
