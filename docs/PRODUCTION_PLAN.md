@@ -102,4 +102,13 @@ A production feature should eventually have:
 - known limitations.
 
 ## Current priority
-Continue elicitation and design before committing to a large runtime implementation. The immediate goal is to make the intended Experience precise enough that implementation can follow the design rather than invent it.
+
+The creator has redirected the primary objective to defining the raWWar universe for the Autonomous Development pipeline. Sourcebooks are supporting references, not the default production task.
+
+1. Establish the creator-canon envelope and unresolved setting decisions in [Universe Foundation and Campaign Zero](UNIVERSE_FOUNDATION.md).
+2. Turn the Imperial Summons opening into a validated, deterministic authored campaign seed.
+3. Build the historical spine, political atlas, galactic atlas, material economy, military atlas, and current-conflict chronology as connected data.
+4. Produce human-readable atlas views and executable validation evidence alongside the structured records.
+5. Use creator illumination for names, motives, political structures, faction identities, war origins, and other canon decisions; never invent them to satisfy automation.
+
+The immediate goal is to make the intended universe precise enough that Autonomous Development can build from it without silently authoring canon on the creator's behalf.
