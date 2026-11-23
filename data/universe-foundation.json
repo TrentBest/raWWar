@@ -116,10 +116,8 @@
     "firstTarget": "scenario.imperial-summons",
     "sequence": [
       "canon-register",
-      "historical-spine",
-      "reconcile-thirteen-faction-political-atlas",
       "reconcile-human-galactic-historical-spine",
-      "political-atlas",
+      "reconcile-thirteen-faction-political-atlas",
       "galactic-atlas",
       "world-atlas",
       "material-economy",
