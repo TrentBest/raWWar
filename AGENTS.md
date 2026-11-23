@@ -272,3 +272,13 @@ For interstellar settings, do not treat distance as a simple map measurement or 
 - Known extra branch remains integration/autonomous-development-pipeline; leave it untouched pending explicit owner approval. Sith Policy cannot pass the two-branch rule while it exists.
 - Validate descriptors, SVG covers, catalogue references, and repository CI. Report actual workflow status; do not infer push-triggered CI from PR-only workflow queries.
 - Next priorities: focused LOD 3 campaigns, institutions, and theaters; deepen cross-links between the historical and speculative sourcebook families.
+
+
+## Latest LOD 3 expansion — alien civilizations (2026-11-23)
+
+- [Alien Civilizations and Political Systems](docs/books/alien-civilizations-and-political-systems.md) is now a substantive LOD 3 sourcebook with a matching descriptor and original SVG cover.
+- The volume provides a reusable method for constructing fictional civilization histories, political systems, legitimacy, institutions, factions, strategic culture, logistics, armed organizations, diplomacy, and campaign histories. It distinguishes populations, regimes, states, institutions, and armed forces; it rejects species-wide personality and inevitable-conflict assumptions.
+- Cross-links connect it to Alien Contact, Diplomacy, and Conflict; Interstellar Logistics and Strategy; Science Fiction Warfare; Autonomous Systems and Machine Agency; and Planetary Defense and Habitat Conflict.
+- The index and collection README have been updated. Validate descriptor, cover, catalogue paths, and CI after this batch.
+- Continue LOD 3 with specific civilization dossiers and campaign histories only after giving each polity internal diversity, institutional history, resource constraints, and credible non-war political options.
+- Continue on development. Leave integration/autonomous-development-pipeline untouched pending explicit branch-deletion approval. No merge to master, release, deployment, or NuGet publication without explicit authorization.
