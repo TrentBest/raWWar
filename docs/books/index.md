@@ -311,3 +311,16 @@ Descriptor: [alien-civilizations-and-political-systems.book.json](alien-civiliza
 A reusable framework for fictional civilization histories, political systems, legitimacy, institutions, factions, strategic culture, infrastructure, armed organizations, diplomacy, and campaign design. It avoids treating a species as a single political actor or personality.
 
 [Read Alien Civilizations and Political Systems](alien-civilizations-and-political-systems.md)
+
+
+## Science-fiction warfare — LOD 3 civilization case study
+
+### The Nacrean Compact and the Tidal Archive Crisis
+
+![The Nacrean Compact and the Tidal Archive Crisis cover](covers/nacrean-compact-and-tidal-archive-crisis.svg)
+
+Descriptor: [nacrean-compact-and-tidal-archive-crisis.book.json](nacrean-compact-and-tidal-archive-crisis.book.json)
+
+A fictional civilization dossier and campaign history about a distributed ocean-world polity, contested political membership, shared infrastructure, archive integrity, emergency powers, and a constitutional crisis resolved through evidence, negotiation, and institutional repair.
+
+[Read The Nacrean Compact and the Tidal Archive Crisis](nacrean-compact-and-tidal-archive-crisis.md)
