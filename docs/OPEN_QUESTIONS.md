@@ -21,6 +21,23 @@ Why?
 
 What does each side believe it is protecting or achieving?
 
+### 1.1 What is the canonical galactic order?
+
+The creator has established an Empire that has been in power for multiple millennia at minimum, a galaxy containing millions of worlds, an Empress, major factions, a continuing war, and warp drives that require days to prepare and initialize. The [Universe Foundation](UNIVERSE_FOUNDATION.md) records these facts without inventing the missing history.
+
+The next canon decisions are:
+
+- Does “millions of worlds” mean millions of inhabited worlds, or millions of worlds across a much smaller inhabited/settled subset?
+- What is the Empire's actual constitutional and administrative structure, and how has it remained in power across millennia?
+- What is the capital world, and where is the player's faction headquarters relative to the Imperial Palace?
+- What are the major factions, and what are their distinct political institutions, interests, and relationships to Imperial power?
+- What caused the current war, who are its belligerents, and what does each side believe it is fighting for?
+- Are alien civilizations present as political actors in the main raWWar setting, or are alien civilizations in the sourcebook library comparative/speculative material outside the human galactic campaign?
+- What are the warp drive's travel-time, range, cost, risk, and strategic constraints beyond the established multi-day preparation?
+- What historical events explain the Empire's founding, succession, fractures, and present legitimacy?
+
+These questions are world-building gates. The Autonomous Development pipeline may prepare clearly labelled alternatives, but must not decide them on the creator's behalf.
+
 ### 2. What is the player?
 
 The campaign opening establishes the player as a **Commander** already embedded in a faction headquarters, but the player's origin, prior history, faction identity, and path into command remain to be defined.
