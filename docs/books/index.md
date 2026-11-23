@@ -30,6 +30,36 @@ A dedicated study of the thirteen-chapter work traditionally attributed to Sun T
 
 [Read The Art of War](the-art-of-war.md)
 
+### Greek Warfare
+
+![Greek Warfare cover](covers/greek-warfare.svg)
+
+Descriptor: [greek-warfare.book.json](greek-warfare.book.json)
+
+A period-spanning survey from Mycenaean worlds and archaic poleis through the classical conflicts, Macedon, Alexander, and Hellenistic kingdoms, with historical and mythic material kept distinct.
+
+[Read Greek Warfare](greek-warfare.md)
+
+### Persian Warfare
+
+![Persian Warfare cover](covers/persian-warfare.svg)
+
+Descriptor: [persian-warfare.book.json](persian-warfare.book.json)
+
+A comparative overview that distinguishes Achaemenid, Parthian, and Sasanian empires and their changing military, political, and regional contexts.
+
+[Read Persian Warfare](persian-warfare.md)
+
+### Roman Warfare
+
+![Roman Warfare cover](covers/roman-warfare.svg)
+
+Descriptor: [roman-warfare.book.json](roman-warfare.book.json)
+
+A broad survey from early Rome through Republic, Principate, later Empire, and eastern Roman continuities, with period-specific institutions and evidence.
+
+[Read Roman Warfare](roman-warfare.md)
+
 ### Fortifications and Strongholds
 
 ![SURPS Rulebook LOD 2](https://raw.githubusercontent.com/TrentBest/TheSingularityWorkshop.SingularityUniversalRoleplayingSystem/development/docs/assets/rulebook-lod-2.svg)
