@@ -394,3 +394,12 @@ Casualty movement, triage context, evacuation, handoff, medic HUD, ghost actions
 - [Read the sourcebook](battlefield-medicine-and-the-casualty-chain.md)
 - [Book descriptor](battlefield-medicine-and-the-casualty-chain.book.json)
 - [Cover](covers/battlefield-medicine-and-the-casualty-chain.svg)
+### Formations IV: Mounted and Cavalry Forces
+
+Mounted organizations across historical and fictional settings, including cavalry, mounted infantry, scouts, couriers, chariots, remount systems, dismounted transitions, animal welfare, and the logistics that sustain living mounts.
+
+- [Read the sourcebook](formations-iv-mounted-and-cavalry.md)
+- [Book descriptor](formations-iv-mounted-and-cavalry.book.json)
+- [Cover](covers/formations-iv-mounted-and-cavalry.svg)
+
+This volume extends [Formations I: Land Forces](formations-i-land-forces.md) without treating mounted forces as infantry with animals attached. It cross-links the Mongol, Parthian, and Sasanian studies while preserving their distinct histories.
