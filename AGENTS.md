@@ -396,3 +396,14 @@ Validate all descriptors as JSON, SVG covers as XML, cover paths, catalogue link
 - Validation checkpoint: descriptor JSON, ID/LOD/cover path, SVG XML, Markdown links, catalogue entries, and build/contract CI.
 - Latest known build/contract run for commit `ac76913ba3e7594896fd3340f70d95138778bd7c` passed: [run 45121253255](https://github.com/TrentBest/raWWar/actions/runs/45121253255). Sith Policy failed: [run 45121253325](https://github.com/TrentBest/raWWar/actions/runs/45121253325), because the extra branch `integration/autonomous-development-pipeline` remains. It is not approved for deletion; inspect ancestry and unique commits, report readiness, and wait for explicit approval.
 - Continue on development. No branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit authorization.
+
+
+## Mechanized formations expansion — Formations V (2026-11-23)
+
+- [Formations V: Mechanized and Armored Forces](docs/books/formations-v-mechanized-and-armored-forces.md) is a new LOD 2 sourcebook with a matching descriptor and original SVG cover.
+- It models crews, vehicles, dismounted personnel, support organizations, command, route and infrastructure constraints, fuel/energy, ammunition and stores, maintenance, recovery, industrial depth, medical support, civilian impacts, autonomous systems, and transparent simulation contracts.
+- It distinguishes armored, mechanized, motorized, combined-arms, and support formations without projecting modern categories backward onto historical cases. It avoids real-world operational or vehicle-crew instruction.
+- People and platforms retain separate identities and state. Dismounted personnel do not become cargo or disappear; disabled vehicles are not automatically destroyed; readiness is mission-specific and decomposed into visible dimensions.
+- Cross-links connect Formations I–IV, Bases and Encampments, The Art of Resupply, Fortifications, Battlefield Medicine, Science Fiction Warfare, and Orbital Warfare. Keep the index, collection README, and docs navigation synchronized.
+- Physics owns physical simulation; Gestures owns reusable embodied movement; raWWar owns domain meaning, history, scenario context, and evaluation; host/runtime owns execution. SURPS remains opt-in.
+- Validate descriptor JSON, SVG XML, cover path, Markdown links, catalogue entries, and build/contract CI. Continue on development; no branch deletion, merge to master, release, deployment, privileged workflow dispatch, or package publication without explicit approval.
