@@ -51,7 +51,7 @@ The creator has redirected the primary task from broad sourcebook expansion to d
 - [ ] Establish the first authored galactic region and capital system with stable spatial identities and explicit distinction between observed, inferred, and generated astronomy.
 - [ ] Connect selected worlds to populations, resources, food, water, energy, extraction, processing, industry, trade, infrastructure, and military demand.
 - [ ] Establish the current conflict's chronology, fronts, actors, political objectives, civilian consequences, and non-battle dimensions.
-- [ ] Add executable validation for the universe envelope and Imperial Summons seed: identity uniqueness, reference closure or explicit unresolved state, chronology, deterministic reconstruction, and no silent canon invention.
+- [x] Add initial executable validation for the universe envelope and Imperial Summons seed: versioned contracts, stable entity/event identity, resolved actor/location references, ordered opening events, explicit unresolved identities, conditional refusal outcome, and no silent canon invention. Deterministic world reconstruction remains a later gate.
 - [ ] Produce the first visual atlas: galaxy context, political relationships, capital-system context, and the opening location.
 
 ## P0 — Establish a trustworthy current baseline
@@ -297,3 +297,12 @@ Start by reading this file, then inspect the actual current GitHub state (branch
 - [x] Added a recovery test that rejects a declared frame length above the configured maximum before allocation; push [CI](https://github.com/TrentBest/raWWar/actions/runs/38028112078) and PR [CI](https://github.com/TrentBest/raWWar/actions/runs/38028114391) passed on [fd4c2d0b](https://github.com/TrentBest/raWWar/commit/fd4c2d0b83d0bf9ccbddd96b45e2834fab241fa9).
 - [x] Added a recovery test that rejects malformed UTF-8 even when the checksum is recomputed; push [CI](https://github.com/TrentBest/raWWar/actions/runs/38028124171) and PR [CI](https://github.com/TrentBest/raWWar/actions/runs/38028127529) passed on [be29a137](https://github.com/TrentBest/raWWar/commit/be29a13778be8c98fcdc6593aa18d964cf06593f).
 - [ ] Keep this explicitly **Candidate/Experiment**. The prototype is not a public storage API and does not prove atomic world-state mutation, multi-host durability, or production suitability. Next gate: review recovery invariants and failure model, then add fault tests feasible for the supported OS/filesystem matrix before any adoption decision.
+
+
+## Universe-first validation checkpoint (2026-11-23)
+
+- Latest validated content/code head: `a809a044715ffcc2670f5f27efbcbff891a61083`.
+- Build, executable contract checks, and checked-in examples passed: [run 45278895754](https://github.com/TrentBest/raWWar/actions/runs/45278895754). The new universe-envelope and Imperial Summons assertions ran inside the executable contract step.
+- Sith Policy failed: [run 45278895832](https://github.com/TrentBest/raWWar/actions/runs/45278895832), solely at permanent branch policy evaluation. Current branches remain `master`, `development`, and `integration/autonomous-development-pipeline`. The extra branch remains unapproved for deletion and its safe ancestry is not established.
+- The campaign seed is a structured opening slice, not a complete campaign or a playable hosted experience. Next priority is creator illumination of the Empire, factions, war, capital, Empress, and warp constraints, then the historical/political/galactic atlases.
+- No branch deletion, master merge, release, deployment, privileged workflow dispatch, or package publication.
