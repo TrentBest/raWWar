@@ -141,3 +141,9 @@ raWWar owns military demand, organization, historical context, doctrine, and sim
 - Separate physical state from legal status, commercial ownership, organizational command, and permission to act.
 - Use Established, Extrapolated, Speculative, and Fictional labels whenever future technology is discussed.
 - SURPS participation is opt-in. raWWar owns warfare-domain meaning and simulation requirements; authoritative physical and industrial models remain with their respective providers.
+
+
+## Related reading
+
+- [Military Industry and Wartime Production](military-industry-and-wartime-production.md) — how resources and demand become manufactured capability.
+- [Extraction, Materials, and Industrial Foundations](extraction-materials-and-industrial-foundations.md) — geological resources and industrial feedstock.
