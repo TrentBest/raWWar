@@ -6,13 +6,14 @@
     "master"
   ],
   "actual_branches": [
+    "adp/rawwar-trusted-build-evidence",
     "development",
     "integration/autonomous-development-pipeline",
     "master"
   ],
-  "branch_count": 3,
+  "branch_count": 4,
   "status": "NON-COMPLIANT",
-  "evaluated_at": "2026-11-23T14:36:28Z",
-  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/45195992535",
-  "triggering_commit": "0256d32dbe588a847c5cec6fb413f6f90944dc29"
+  "evaluated_at": "2026-11-24T14:52:13Z",
+  "workflow_run": "https://github.com/TrentBest/raWWar/actions/runs/45418886287",
+  "triggering_commit": "77fe527b0565bb79d781102537a84f7b6b918a2f"
 }
