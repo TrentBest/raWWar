@@ -38,6 +38,7 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_REF: ${{ github.ref }}
           EVENT_SHA: ${{ github.sha }}
+          CHECKOUT_REF: ${{ github.event_name == 'pull_request' && format('refs/heads/{0}', github.event.pull_request.head.ref) || github.ref }}
         run: |
           set -euo pipefail
           mkdir -p TestResults/provenance
@@ -56,7 +57,7 @@ jobs:
             --arg eventName "$EVENT_NAME" \
             --arg eventRef "$EVENT_REF" \
             --arg eventSha "$EVENT_SHA" \
-            --arg checkoutRef "$EVENT_REF" \
+            --arg checkoutRef "$CHECKOUT_REF" \
             --arg checkoutSha "$checkout_sha" \
             --argjson pullRequest "$pull_request" \
             '{
