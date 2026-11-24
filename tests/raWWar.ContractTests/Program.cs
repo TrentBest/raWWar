@@ -18,11 +18,14 @@ if (args.Length == 2 && args[0] == "--journal-child-write")
 }
 
 var failures = new List<string>();
+var contractResults = new List<ContractCheckResult>();
 var checks = 0;
 
 void Check(bool condition, string message)
 {
     checks++;
+    contractResults.Add(new ContractCheckResult($"contract-check-{checks:D4}", message, condition,
+        condition ? null : message));
     if (!condition) failures.Add(message);
 }
 
@@ -1474,6 +1477,23 @@ Check(!damagedConnection.Accepted &&
 FormationSlotPlannerChecks.Run(Check);
 FormationCoordinatorChecks.Run(Check);
 CandidateFileEventJournalChecks.Run(Check);
+ContractTrxWriterChecks.Run(Check);
+
+if (string.Equals(Environment.GetEnvironmentVariable("RAWWAR_CONTRACT_FAILURE_FIXTURE"), "true", StringComparison.OrdinalIgnoreCase))
+    Check(false, "CONTROLLED FAILURE FIXTURE: RAWWAR_CONTRACT_FAILURE_FIXTURE was explicitly enabled.");
+
+var trxPath = Environment.GetEnvironmentVariable("RAWWAR_TRX_PATH");
+if (string.IsNullOrWhiteSpace(trxPath)) trxPath = Path.Combine("TestResults", "results.trx");
+try
+{
+    ContractTrxWriter.Write(trxPath, contractResults);
+    Console.WriteLine($"TRX results written: {Path.GetFullPath(trxPath)}");
+}
+catch (Exception exception)
+{
+    Console.Error.WriteLine($"Failed to write contract TRX results: {exception}");
+    return 2;
+}
 
 Console.WriteLine($"raWWar spatiotemporal contract checks: {checks - failures.Count}/{checks} passed");
 foreach (var failure in failures) Console.Error.WriteLine($"FAIL: {failure}");
