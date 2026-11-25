@@ -18,6 +18,7 @@ The Markdown files are the navigation layer for the Experience: start with the h
 - **Need the source of design truth:** [Game Design Bible](GAME_DESIGN_BIBLE.md).
 - **Want to understand the platform boundary:** [Experience Architecture](EXPERIENCE_ARCHITECTURE.md).
 - **Want to build or verify code:** [Technical Design](TECHNICAL_DESIGN.md) → [Examples index](../examples/README.md) → [Production Plan](PRODUCTION_PLAN.md).
+- **Want to inspect autonomous-development evidence:** [ADP CI evidence](ADP_CI_EVIDENCE.md) — exact run/attempt provenance, genuine contract TRX, artifact identities, and the independent CiAi trust boundary.
 - **Need to know what is unresolved:** [Open Questions](OPEN_QUESTIONS.md) and [TODO](../TODO.md).
 
 ## Documentation standard
