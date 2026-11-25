@@ -19,18 +19,18 @@ The TRX writer's controlled pass/fail fixtures run only in temporary files and a
 
 | Evidence | Exact result |
 |---|---|
-| raWWar source commit | `385a03b342fc9a0b1790427a89feaf0cc6b8adf8` |
-| raWWar build run | [45548626932](https://github.com/TrentBest/raWWar/actions/runs/45548626932) — succeeded |
+| raWWar source commit | `eef1974a87d78eefe2802d77d7f2451f4f2b47a7` |
+| raWWar build run | [45549019401](https://github.com/TrentBest/raWWar/actions/runs/45549019401) — succeeded |
 | Source contract harness | **406/406 passed** |
-| Source provenance artifact ID | `14992512257` |
-| Source contract-results artifact ID | `14992312945` |
-| CiAi observer run | [45548626913](https://github.com/TrentBest/raWWar/actions/runs/45548626913) — succeeded |
-| CiAi observation artifact | `ciai-rawwar-commit-evidence-385a03b342fc9a0b1790427a89feaf0cc6b8adf8` |
-| Required workflow result | `.github/workflows/build.yml#45548626932#1` — **passed** |
+| Source provenance artifact ID | `14992029354` |
+| Source contract-results artifact ID | `14992453115` |
+| CiAi observer run | [45549019399](https://github.com/TrentBest/raWWar/actions/runs/45549019399) — succeeded |
+| CiAi observation artifact | `ciai-rawwar-commit-evidence-eef1974a87d78eefe2802d77d7f2451f4f2b47a7` |
+| Required workflow result | `.github/workflows/build.yml#45549019401#1` — **passed** |
 | Workflow-definition comparison | **trusted against the pinned approved baseline revision** |
 | TRX verdict | **CompletePass** |
 
-CiAi independently resolved source run **45548626932, attempt 1**, downloaded the two provider artifacts, matched their identities to that exact run, checked the workflow definition against the pinned baseline, and validated the 406 real TRX results. This is the first end-to-end read-only cross-repository evidence reconciliation for raWWar.
+CiAi independently resolved source run **45549019401, attempt 1**, downloaded the two provider artifacts, matched their identities to that exact run, checked the workflow definition against the pinned baseline, and validated the 406 real TRX results. This is the first end-to-end read-only cross-repository evidence reconciliation for raWWar.
 
 This proves the source build and evidence were reconciled for that exact commit. It does not prove the raWWar Experience is playable or launchable through AnyApp.
 
