@@ -8,6 +8,10 @@ Run from the repository root:
 dotnet run --project tests/raWWar.ContractTests/raWWar.ContractTests.csproj
 ```
 
+## ADP evidence output
+
+The executable harness records each real contract assertion and writes `TestResults/results.trx`. A temporary writer self-test verifies unique result IDs, accurate counters, pass/fail outcomes, and failure diagnostics; its synthetic fixture is deleted and never enters the uploaded provider evidence. The GitHub Actions build workflow pairs the real TRX with the exact workflow provenance payload and uploads both as a run/attempt-specific artifact. See [ADP CI evidence](../../docs/ADP_CI_EVIDENCE.md) for the verified run and trust boundary.
+
 ## Current coverage
 
 The historical executable suite reported **195/195 checks passed** on [CI run 38001820718](https://github.com/TrentBest/raWWar/actions/runs/38001820718) at code/test head `7ec40343f15a15639951a096165169cf991d7920`. That implementation and its tests were subsequently reverted, so this historical result does not describe the current branch or a runnable suite here. The checks at that revision included:
